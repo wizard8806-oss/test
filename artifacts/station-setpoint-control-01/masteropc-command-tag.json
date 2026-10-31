@@ -1,0 +1,12 @@
+[
+  {
+    "name": "PressureSP_Command",
+    "pduAddress": 2100,
+    "region": "HOLDING_REGISTERS",
+    "deviceType": "uint16",
+    "serverType": "uint32",
+    "access": "ReadWrite",
+    "scalingEnabled": false,
+    "SCADADecimalOffset": 0
+  }
+]

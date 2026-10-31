@@ -1064,7 +1064,17 @@
     "verbatimAnswer": "=1  good",
     "displayPrepared": "artifacts/station-setpoint-display-01",
     "targetProject": "codex_diag_07",
-    "nativeNewDisplayObserved": false,
-    "nextStep": "Install new preserved SCADA07 copy of06 and import seven existing OPC tags in SCADA if missing; F9/save/display observation. Do not repeat MasterOPC marker/tag setup. No write control yet."
+    "nativeNewDisplayObserved": true,
+    "nextStep": "Install preserved08 copy of07, import command tag, F9/save/native UI observation. No automatic setpoint commands."
+  },
+  "currentSetpointControl": {
+    "workingProject": "codex_diag_07",
+    "native07Observation": "artifacts/station-setpoint-display-01/native-observation-2026-10-31.json",
+    "preparedProject": "codex_diag_08",
+    "source": "artifacts/station-setpoint-control-01",
+    "newCommandTag": "PressureSP_Command, PDU2100 ReadWrite uint16->uint32 no scaling",
+    "newNativeF9Observed": false,
+    "realOperatorWriteObserved": false,
+    "next": "Install preserved08 copy of07, import command tag, F9/save/native UI observation. No automatic setpoint commands."
   }
 }

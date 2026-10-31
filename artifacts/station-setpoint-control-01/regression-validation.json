@@ -1,0 +1,69 @@
+{
+  "date": "2026-10-31",
+  "passed": true,
+  "isolatedBuildAndCheckGroups": 28,
+  "sourceTreeUnchanged": true,
+  "resourceHashesVerified": 15,
+  "logicReports": {
+    "date": "2026-10-31",
+    "logic": "PASS operator control assertions=74",
+    "legacyReports": [
+      "PASS process-card assertions=59",
+      "PASS prior display assertions=521"
+    ],
+    "copyCases": [
+      {
+        "case": "normal",
+        "passed": true
+      },
+      {
+        "case": "unit_header",
+        "passed": true
+      },
+      {
+        "case": "changed_radio",
+        "passed": true
+      },
+      {
+        "case": "changed_core",
+        "passed": true
+      },
+      {
+        "case": "changed_pages",
+        "passed": true
+      },
+      {
+        "case": "wrong_timer",
+        "passed": true
+      },
+      {
+        "case": "destination_exists",
+        "passed": true
+      },
+      {
+        "case": "wrong_version",
+        "passed": true
+      },
+      {
+        "case": "corrupt_bundle",
+        "passed": true
+      }
+    ],
+    "realFieldWrites": false,
+    "nativeNewF9Observed": false,
+    "scope": "Actual Pascal with mock command variable, native documented API seams and real PowerShell/Linux copy/preservation; no PLC connection"
+  },
+  "nativeObjectLoader": {
+    "objects": 38,
+    "onClickScriptIDs": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "matchingCanonicalEditor": true
+  },
+  "actualWindowsF9Observed": false,
+  "actualOperatorWriteObserved": false,
+  "realFieldConnectionsOpened": false
+}

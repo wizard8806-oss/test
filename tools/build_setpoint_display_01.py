@@ -81,6 +81,12 @@ def main():
                   flagsBeyondBits0and1NotDecoded=True, nativeFaultPriorityPreserved=True,
                   PLCProgramChanged=False, existingPagesPreserved=True, radioAndTimerRecordsPreserved=True,
                   writesOrControlCommandsAdded=False, nativeF9Observed=False, nativeNewDisplayObserved=False)
+    observation=OUT/'native-observation-2026-10-31.json'
+    if observation.exists():
+        native=json.loads(observation.read_text())
+        report.update(nativeNewDisplayObserved=native['nativeNewDisplayObserved'],
+                      nativeScriptExecutionObserved=native['nativeScriptExecutionObserved'],
+                      nativeF9Observed=native['explicitF9CommandObserved'],nativeObservation=observation.name)
     (OUT / 'manifest.json').write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n')
     print('Built setpoint feedback copy:', len(paste), 'inline characters;', len(code.encode()), 'module bytes')
 

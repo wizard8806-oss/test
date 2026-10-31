@@ -1,0 +1,902 @@
+interface
+procedure StationSpAdjust(Delta: Integer);
+procedure StationSpApply;
+procedure StationSpCancel;
+procedure StationProcessUpdate;
+function StationModeName(Code: Int64): string;
+function StationModeNote(Code: Int64): string;
+procedure RouteFreshReset;
+procedure RouteFreshStep(CounterGood: Boolean; CounterValue: Int64;
+  SecondsNow: Double; var State, AgeSeconds: Integer);
+implementation
+const
+  ProcessItemPrefix = 'codex.Device1.';
+  ProcessOPCServer = 'InSAT.ModbusOPCServer.DA';
+  ProcessOPCHost = 'localhost';
+  ProcessBaseMapVersion = 31;
+  ProcessDriveMapVersion = 32;
+  RouteStaleSeconds = 15;
+  RouteClockGapSeconds = 10;
+  RouteMaxForwardDelta = 60;
+var
+  SpDraftActive, SpEchoSeen, SpControlLogLost: Boolean;
+  SpDraftClient, SpDraftUserLabel, SpControlText: string;
+  SpDraftUser, SpDraftBase, SpDraftRaw: Int64;
+  SpControlTarget, SpControlCounter, SpEchoCounter, SpControlSerial: Int64;
+  SpDraftTick, SpControlTick: Double;
+  SpControlStage: Integer;
+  SpFeedbackHasSample: Boolean;
+  SpFeedbackSampleKey: string;
+  SpFeedbackSampleCounter: Int64;
+  RouteHasTick, RouteHasSample, RouteHasProgress: Boolean;
+  RouteLastTick, RouteLastProgress: Double;
+  RouteLastCounter: Int64;
+procedure RouteFreshReset;
+begin
+  RouteHasTick := False;
+  RouteHasSample := False;
+  RouteHasProgress := False;
+  RouteLastTick := 0;
+  RouteLastProgress := 0;
+  RouteLastCounter := 0;
+end;
+procedure RouteFreshStep(CounterGood: Boolean; CounterValue: Int64;
+  SecondsNow: Double; var State, AgeSeconds: Integer);
+var ClockGap: Boolean; Delta: Int64; Age: Double;
+begin
+  State := 5;
+  AgeSeconds := -1;
+  if not CounterGood then
+  begin RouteFreshReset; State := 2; Exit; end;
+  if (CounterValue < 0) or (CounterValue > 65535) then
+  begin RouteFreshReset; State := 3; Exit; end;
+  ClockGap := False;
+  if RouteHasTick then
+    ClockGap := (SecondsNow < RouteLastTick) or
+      (SecondsNow - RouteLastTick > RouteClockGapSeconds);
+  if ClockGap then RouteFreshReset;
+  RouteHasTick := True;
+  RouteLastTick := SecondsNow;
+  if not RouteHasSample then
+  begin
+    RouteHasSample := True;
+    RouteLastCounter := CounterValue;
+    RouteLastProgress := SecondsNow;
+    AgeSeconds := 0;
+    if ClockGap then State := 6;
+    Exit;
+  end;
+  if CounterValue <> RouteLastCounter then
+  begin
+    Delta := CounterValue - RouteLastCounter;
+    if Delta < 0 then Delta := Delta + 65536;
+    RouteLastCounter := CounterValue;
+    RouteLastProgress := SecondsNow;
+    if Delta > RouteMaxForwardDelta then
+    begin
+      RouteHasProgress := False;
+      State := 7;
+      AgeSeconds := 0;
+      Exit;
+    end;
+    RouteHasProgress := True;
+  end;
+  Age := SecondsNow - RouteLastProgress;
+  if Age < 0 then Age := 0;
+  if Age > 2147483647 then Age := 2147483647;
+  AgeSeconds := Trunc(Age);
+  if Age >= RouteStaleSeconds then
+  begin RouteHasProgress := False; State := 4; end
+  else if RouteHasProgress then State := 1;
+end;
+
+function ProcessWord(const Item: string; var Raw: Int64): Boolean;
+var V: TM_Variable;
+begin
+  Result := False;
+  Raw := 0;
+  try
+    V := GetVariableByAddress(ProcessItemPrefix + Item);
+    if V = nil then Exit;
+    if not V.Outer then Exit;
+    if V.Address <> ProcessItemPrefix + Item then Exit;
+    if LowerCase(V.OPCServerName) <> LowerCase(ProcessOPCServer) then Exit;
+    if LowerCase(V.ComputerName) <> LowerCase(ProcessOPCHost) then Exit;
+    if not V.IsGoodQuality then Exit;
+    Raw := V.OriginalAsInt;
+    Result := (Raw >= 0) and (Raw <= 65535);
+  except
+    Result := False;
+    Raw := 0;
+  end;
+end;
+function StationModeName(Code: Int64): string;
+begin
+  Result := 'НЕИЗВЕСТЕН (код ' + IntToStr(Code) + ')';
+  case Code of
+    0: Result := 'СТОП';
+    10, 11, 12: Result := 'АВТО';
+    20, 21, 22: Result := 'РУЧНОЙ';
+    90: Result := 'ОШИБКА СЕЛЕКТОРА';
+  end;
+end;
+function StationModeNote(Code: Int64): string;
+begin
+  Result := 'Неизвестный код режима от ПЛК: ' + IntToStr(Code) + '.';
+  case Code of
+    0: Result := 'Выбран СТОП. Состояние ПЧ показано отдельно.';
+    10: Result := 'Выбран автоматический режим; разрешение работы ещё не подтверждено.';
+    11: Result := 'Подготовка автоматического режима.';
+    12: Result := 'Автоматическое управление разрешено ПЛК.';
+    20: Result := 'Выбран ручной режим; разрешение работы ещё не подтверждено.';
+    21: Result := 'Ручное управление разрешено ПЛК.';
+    22: Result := 'В ручном режиме выдана команда работы.';
+    90: Result := 'ПЛК обнаружил недопустимое сочетание сигналов селектора.';
+  end;
+end;
+
+function DriveFaultText(Code: Int64): string;
+begin
+  Result := 'Ненулевой код ПЧ; расшифровка для этой версии неизвестна.';
+  case Code of
+    0: Result := 'ПЧ передал нулевой код неисправности.';
+    1: Result := '900G: сработала защита ПЧ (Err01).';
+    2: Result := '900G: перегрузка по току при разгоне (Err02).';
+    3: Result := '900G: перегрузка по току при торможении (Err03).';
+    4: Result := '900G: перегрузка по току при постоянной скорости (Err04).';
+    5: Result := '900G: перенапряжение при разгоне (Err05).';
+    6: Result := '900G: перенапряжение при торможении (Err06).';
+    7: Result := '900G: перенапряжение при постоянной скорости (Err07).';
+    8: Result := '900G: неисправность источника питания (Err08).';
+    9: Result := '900G: пониженное напряжение (Err09).';
+    10: Result := '900G: перегрузка преобразователя (Err10).';
+    11: Result := '900G: перегрузка двигателя (Err11).';
+    12: Result := '900G: потеря входной фазы (Err12).';
+    13: Result := '900G: потеря выходной фазы (Err13).';
+    14: Result := '900G: перегрев модуля (Err14).';
+    15: Result := '900G: внешняя ошибка (Err15).';
+    16: Result := '900G: ошибка связи, переданная самим ПЧ (Err16).';
+    17: Result := '900G: ошибка контактора (Err17).';
+    18: Result := '900G: ошибка измерения тока (Err18).';
+    19: Result := '900G: ошибка автонастройки двигателя (Err19).';
+    20: Result := '900G: обрыв датчика давления (Err20).';
+    21: Result := '900G: ошибка EEPROM (Err21).';
+    22: Result := '900G: аппаратная ошибка преобразователя (Err22).';
+    23: Result := '900G: замыкание на землю (Err23).';
+    26: Result := '900G: достигнуто суммарное время работы (Err26).';
+    29: Result := '900G: достигнуто суммарное время включения (Err29).';
+    30: Result := '900G: обрыв нагрузки (Err30).';
+    40: Result := '900G: ограничение тока (Err40).';
+    41: Result := '900G: переключение двигателя во время работы (Err41).';
+    42: Result := '900G: чрезмерное отклонение скорости (Err42).';
+    45: Result := '900G: сигнализация перегрева Pt100 (Err45).';
+    52: Result := '900G: нехватка воды (Err52/A52).';
+    53: Result := '900G: избыточное давление (Err53).';
+    55: Result := '900G: ошибка, связанная с нехваткой воды (Err55; см. Err52).';
+    56: Result := '900G: неисправность DI платы управления (Err56).';
+  end;
+end;
+procedure SpFeedbackReset;
+begin
+  SpFeedbackHasSample := False;
+  SpFeedbackSampleKey := '';
+  SpFeedbackSampleCounter := 0;
+end;
+function SpPressureValid(Raw: Int64): Boolean;
+begin
+  Result := (Raw >= 10) and (Raw <= 1190) and ((Raw mod 10) = 0);
+end;
+procedure SpFeedbackView(Active, WorkingGood: Boolean; Working, Counter: Int64;
+  var State, Count, Color: Integer; var Caption, Note: string);
+var
+  Version, Drive, Pressure, Phase, ErrorCode, ErrorDetail, Flags, LowFlags: Int64;
+  Good, AllGood: Boolean;
+  SampleKey: string;
+begin
+  State := 0;
+  Count := 0;
+  Color := RGB(105, 105, 105);
+  Caption := 'Нет свежей обратной связи уставки';
+  Note := 'Нужно подтверждение обновления ПЛК.';
+  if not Active then begin SpFeedbackReset; Exit; end;
+  if not WorkingGood then
+  begin
+    SpFeedbackReset;
+    Caption := 'Нет достоверной уставки ПЛК';
+    Note := 'Подтверждение ПЧ скрыто до восстановления уставки ПЛК.';
+    Exit;
+  end;
+  if not ProcessWord('SpFeedbackVersion', Version) then
+  begin
+    SpFeedbackReset;
+    Caption := 'Нет данных обратной связи уставки';
+    Note := 'Проверить наличие и качество тегов подтверждения.';
+    Exit;
+  end;
+  Count := 1;
+  if Version <> 1 then
+  begin
+    SpFeedbackReset;
+    Caption := 'Неизвестная версия обратной связи: ' + IntToStr(Version);
+    Note := 'Ожидается версия 1; подтверждение ПЧ скрыто.';
+    Exit;
+  end;
+  AllGood := True;
+  Good := ProcessWord('SpConfirmedDrive', Drive);
+  if Good then Count := Count + 1 else AllGood := False;
+  Good := ProcessWord('SpConfirmed_x100', Pressure);
+  if Good then Count := Count + 1 else AllGood := False;
+  Good := ProcessWord('SpApplyPhase', Phase);
+  if Good then Count := Count + 1 else AllGood := False;
+  Good := ProcessWord('SpApplyError', ErrorCode);
+  if Good then Count := Count + 1 else AllGood := False;
+  Good := ProcessWord('SpApplyDetail', ErrorDetail);
+  if Good then Count := Count + 1 else AllGood := False;
+  Good := ProcessWord('SpApplyFlags', Flags);
+  if Good then Count := Count + 1 else AllGood := False;
+  if not AllGood then
+  begin
+    SpFeedbackReset;
+    Caption := 'Нет полных данных подтверждения ПЧ';
+    Note := 'Прочитано тегов: ' + IntToStr(Count) + ' из 7. Старое подтверждение скрыто.';
+    Exit;
+  end;
+  LowFlags := Flags and 3;
+  Note := 'Этап ПЛК: ' + IntToStr(Phase) + '; слово признаков: ' + IntToStr(Flags) + '.';
+  if LowFlags = 3 then
+  begin
+    SpFeedbackReset;
+    State := 5;
+    Color := RGB(165, 100, 0);
+    Caption := 'Несогласованные признаки подтверждения ПЧ';
+    Exit;
+  end;
+  if not SpPressureValid(Working) then
+  begin
+    SpFeedbackReset;
+    State := 5;
+    Color := RGB(165, 100, 0);
+    Caption := 'Уставка ПЛК вне профиля 0.10-11.90 бар, шаг 0.10';
+    Exit;
+  end;
+  if LowFlags = 2 then
+  begin
+    if (Drive < 1) or (Drive > 4) or (not SpPressureValid(Pressure)) or (Pressure <> Working) then
+    begin
+      SpFeedbackReset;
+      State := 5;
+      Color := RGB(165, 100, 0);
+      Caption := 'Нет согласованного подтверждения текущей уставки';
+      Exit;
+    end;
+  end;
+  SampleKey := IntToStr(Version) + '|' + IntToStr(Drive) + '|' + IntToStr(Pressure) +
+    '|' + IntToStr(Phase) + '|' + IntToStr(ErrorCode) + '|' + IntToStr(ErrorDetail) +
+    '|' + IntToStr(Flags) + '|' + IntToStr(Working);
+  State := 1;
+  Color := RGB(165, 100, 0);
+  Caption := 'Сверка обратной связи уставки';
+  if (not SpFeedbackHasSample) or (SampleKey <> SpFeedbackSampleKey) then
+  begin
+    SpFeedbackHasSample := True;
+    SpFeedbackSampleKey := SampleKey;
+    SpFeedbackSampleCounter := Counter;
+    Exit;
+  end;
+  if Counter = SpFeedbackSampleCounter then Exit;
+  if LowFlags = 1 then
+  begin
+    State := 4;
+    Color := RGB(165, 50, 50);
+    Caption := 'ПЛК: ошибка применения уставки, код ' + IntToStr(ErrorCode);
+    Note := Note + ' Подробность: ' + IntToStr(ErrorDetail) + '. Это не код аварии 900G.';
+    Exit;
+  end;
+  if Phase <> 0 then
+  begin
+    State := 2;
+    Caption := 'Подтверждение уставки не завершено; этап ПЛК: ' + IntToStr(Phase);
+    Exit;
+  end;
+  if LowFlags = 2 then
+  begin
+    State := 3;
+    Color := RGB(40, 140, 90);
+    Caption := 'Подтверждено ПЛК: ПЧ ' + IntToStr(Drive) + ', ' + FormatFloat('0.00', Pressure / 100.0) + ' бар';
+    Note := Note + ' Текущий статус ПЛК, не результат новой команды SCADA.';
+    Exit;
+  end;
+  Caption := 'Подтверждение уставки ведущим ПЧ не получено';
+end;
+
+function SpControlSeconds: Double;
+begin
+  Result := Now * 86400.0;
+end;
+function SpControlPending: Boolean;
+begin
+  Result := (SpControlStage = 2) or (SpControlStage = 3);
+end;
+function SpControlActor(var Client, UserLabel: string; var UserID: Int64): Boolean;
+begin
+  Client := GetClientName;
+  UserID := GetUserID;
+  UserLabel := GetUserName;
+  Result := (Client <> '') and (UserID >= 0);
+end;
+procedure SpControlNotice(const Client, MessageText: string);
+begin
+  if Client <> '' then
+    ShowMessageClient(Client, 'Уставка давления', MessageText);
+end;
+procedure SpControlJournal(const MessageText: string);
+begin
+  AddMessage(Now, mkMessage, 'Уставка [' + ProcessItemPrefix + '] #' +
+    IntToStr(SpControlSerial) + ': ' + MessageText, False, False);
+end;
+procedure SpControlFinish(Stage: Integer; const MessageText: string);
+begin
+  SpControlStage := Stage;
+  SpControlText := MessageText;
+  try SpControlJournal(MessageText);
+  except SpControlLogLost := True; end;
+end;
+procedure SpControlClearDraft;
+begin
+  SpDraftActive := False;
+  SpDraftClient := '';
+  SpDraftUser := -1;
+  SpDraftUserLabel := '';
+end;
+function SpControlGate(ForWrite: Boolean; var Command: TM_Variable;
+  var Working, Counter, Readback: Int64; var Reason: string): Boolean;
+var Map, Version, WordValue, Mode: Int64; RouteState, Age: Integer;
+begin
+  Result := False;
+  Command := nil;
+  Working := 0;
+  Counter := 0;
+  Readback := 0;
+  Reason := 'Нет подтверждённых данных ПЛК.';
+  if not ProcessWord('MapVersion', Map) then Exit;
+  if Map <> ProcessDriveMapVersion then Exit;
+  if not ProcessWord('PlcAliveCounter', Counter) then Exit;
+  RouteFreshStep(True, Counter, SpControlSeconds, RouteState, Age);
+  if RouteState <> 1 then Exit;
+  if not ProcessWord('PressureSP_x100', Working) then Exit;
+  if not SpPressureValid(Working) then
+  begin Reason := 'Текущая уставка ПЛК вне допустимого профиля.'; Exit; end;
+  Reason := 'Нет совместимой обратной связи уставки.';
+  if not ProcessWord('SpFeedbackVersion', Version) then Exit;
+  if Version <> 1 then Exit;
+  if not ProcessWord('SpConfirmedDrive', WordValue) then Exit;
+  if not ProcessWord('SpConfirmed_x100', WordValue) then Exit;
+  if not ProcessWord('SpApplyPhase', WordValue) then Exit;
+  if not ProcessWord('SpApplyError', WordValue) then Exit;
+  if not ProcessWord('SpApplyDetail', WordValue) then Exit;
+  if not ProcessWord('SpApplyFlags', WordValue) then Exit;
+  if (WordValue and 3) = 3 then Exit;
+  Reason := 'Неизвестный или недостоверный режим станции.';
+  if not ProcessWord('StationMode', Mode) then Exit;
+  if not ((Mode = 0) or (Mode = 10) or (Mode = 11) or (Mode = 12) or
+    (Mode = 20) or (Mode = 21) or (Mode = 22)) then Exit;
+  Reason := 'Нет отдельного тега PressureSP_Command в R2100.';
+  try
+    Command := GetVariableByAddress(ProcessItemPrefix + 'PressureSP_Command');
+    if Command = nil then Exit;
+    if not Command.Outer then Exit;
+    if Command.Address <> ProcessItemPrefix + 'PressureSP_Command' then Exit;
+    if LowerCase(Command.OPCServerName) <> LowerCase(ProcessOPCServer) then Exit;
+    if LowerCase(Command.ComputerName) <> LowerCase(ProcessOPCHost) then Exit;
+    if not Command.IsGoodQuality then Exit;
+    Reason := 'Тег записи должен иметь нулевое смещение запятой.';
+    if (Command.DecimalOffset <> 0) or (Command.DecimalMultiplier <> 1.0) then Exit;
+    Readback := Command.OriginalAsInt;
+    if (Readback < 0) or (Readback > 65535) then Exit;
+    if ForWrite then
+    begin
+      Reason := 'Значения входа R2100 и зеркала ПЛК пока не согласованы.';
+      if Readback <> Working then Exit;
+    end;
+  except
+    Command := nil;
+    Reason := 'Ошибка чтения привязки команды уставки.';
+    Exit;
+  end;
+  Result := True;
+  Reason := '';
+end;
+function SpControlOwnDraft(const Client: string; UserID: Int64): Boolean;
+begin
+  Result := SpDraftActive and (SpDraftClient = Client) and (SpDraftUser = UserID);
+end;
+procedure StationSpAdjust(Delta: Integer);
+var
+  Client, UserLabel, Reason: string;
+  UserID, Working, Counter, Readback, Candidate: Int64;
+  Command: TM_Variable;
+begin
+  if (Delta <> -10) and (Delta <> 10) then Exit;
+  if not SpControlActor(Client, UserLabel, UserID) then
+  begin SpControlNotice(Client, 'Войдите в клиент SCADA для управления.'); Exit; end;
+  if SpControlPending then
+  begin SpControlNotice(Client, 'Предыдущая запись ещё проверяется.'); Exit; end;
+  if not SpControlGate(True, Command, Working, Counter, Readback, Reason) then
+  begin SpControlNotice(Client, Reason); Exit; end;
+  if SpDraftActive and (not SpControlOwnDraft(Client, UserID)) then
+  begin SpControlNotice(Client, 'Черновик редактируется другим клиентом.'); Exit; end;
+  if not SpDraftActive then
+  begin
+    SpDraftActive := True;
+    SpDraftClient := Client;
+    SpDraftUser := UserID;
+    SpDraftUserLabel := UserLabel;
+    SpDraftBase := Working;
+    SpDraftRaw := Working;
+    SpDraftTick := SpControlSeconds;
+    SpControlStage := 0;
+    SpControlLogLost := False;
+  end;
+  if Working <> SpDraftBase then
+  begin
+    SpControlClearDraft;
+    SpControlText := 'Уставка ПЛК изменилась; начните редактирование заново.';
+    SpControlNotice(Client, SpControlText);
+    Exit;
+  end;
+  Candidate := SpDraftRaw + Delta;
+  if not SpPressureValid(Candidate) then
+  begin SpControlNotice(Client, 'Допустимо 0.10-11.90 бар, шаг 0.10.'); Exit; end;
+  SpDraftRaw := Candidate;
+  SpDraftTick := SpControlSeconds;
+  SpControlText := 'Черновик: ' + FormatFloat('0.00', SpDraftRaw / 100.0) +
+    ' бар. Для записи нажмите «Применить».';
+  ProcessSpDraft.Text := FormatFloat('0.0', SpDraftRaw / 100.0);
+  ProcessSpApply.Text := 'Применить ' + FormatFloat('0.0', SpDraftRaw / 100.0);
+  ProcessSpApply.Enabled := True;
+  ProcessSpCancel.Enabled := True;
+  ProcessMainScope.Text := SpControlText;
+  ProcessMainScope.Color := RGB(105, 105, 105);
+end;
+procedure StationSpCancel;
+var Client, UserLabel: string; UserID: Int64;
+begin
+  if not SpControlActor(Client, UserLabel, UserID) then Exit;
+  if SpControlPending then
+  begin SpControlNotice(Client, 'Запись уже отправлена; черновик больше не редактируется.'); Exit; end;
+  if not SpControlOwnDraft(Client, UserID) then Exit;
+  SpControlClearDraft;
+  SpControlText := 'Черновик отменён. Запись не отправлялась.';
+  ProcessSpApply.Enabled := False;
+  ProcessSpCancel.Enabled := False;
+  ProcessSpApply.Text := 'Применить';
+  ProcessMainScope.Text := SpControlText;
+end;
+procedure StationSpApply;
+var
+  Client, UserLabel, Reason: string;
+  UserID, Working, Counter, Readback: Int64;
+  Command: TM_Variable;
+begin
+  if not SpControlActor(Client, UserLabel, UserID) then
+  begin SpControlNotice(Client, 'Войдите в клиент SCADA для управления.'); Exit; end;
+  if SpControlPending then
+  begin SpControlNotice(Client, 'Предыдущая запись ещё проверяется.'); Exit; end;
+  if not SpControlOwnDraft(Client, UserID) then
+  begin SpControlNotice(Client, 'Сначала выберите значение кнопками «-» и «+».'); Exit; end;
+  if (SpControlSeconds < SpDraftTick) or (SpControlSeconds - SpDraftTick >= 60) then
+  begin SpControlClearDraft; SpControlNotice(Client, 'Черновик устарел. Повторите ввод.'); Exit; end;
+  if not SpControlGate(True, Command, Working, Counter, Readback, Reason) then
+  begin SpControlNotice(Client, Reason); Exit; end;
+  if Working <> SpDraftBase then
+  begin SpControlClearDraft; SpControlNotice(Client, 'Уставка ПЛК изменилась; повторите ввод.'); Exit; end;
+  if not SpPressureValid(SpDraftRaw) then
+  begin SpControlClearDraft; SpControlNotice(Client, 'Недопустимое значение черновика.'); Exit; end;
+  if SpDraftRaw = Working then
+  begin
+    SpControlClearDraft;
+    SpControlText := 'Эта уставка уже установлена в ПЛК. Новая запись не отправлялась.';
+    Exit;
+  end;
+  if SpControlSerial >= 2147483647 then SpControlSerial := 0;
+  SpControlSerial := SpControlSerial + 1;
+  SpControlTarget := SpDraftRaw;
+  SpControlStage := 0;
+  SpControlLogLost := False;
+  try
+    SpControlJournal('Запрос ' + FormatFloat('0.00', SpControlTarget / 100.0) +
+      ' бар; клиент ' + Client + '; пользователь ' + UserLabel + ' (ID ' + IntToStr(UserID) + ').');
+  except
+    SpControlText := 'Не удалось записать действие в журнал. Команда не отправлена.';
+    SpControlNotice(Client, SpControlText);
+    Exit;
+  end;
+  SpControlClearDraft;
+  SpFeedbackReset;
+  SpControlStage := 2;
+  SpControlTick := SpControlSeconds;
+  SpControlCounter := Counter;
+  SpEchoSeen := False;
+  SpControlText := 'Отправлена уставка ' + FormatFloat('0.00', SpControlTarget / 100.0) +
+    ' бар; ожидается зеркало ПЛК.';
+  ProcessSpApply.Enabled := False;
+  ProcessSpCancel.Enabled := False;
+  ProcessSpMinus.Enabled := False;
+  ProcessSpPlus.Enabled := False;
+  ProcessMainScope.Text := SpControlText;
+  try
+    Command.Value := Integer(SpControlTarget);
+  except
+    SpControlFinish(6, 'Ошибка записи. Результат ПЛК не подтверждён; автоматического повтора нет.');
+  end;
+end;
+procedure SpControlUpdate(FeedbackState: Integer; const FeedbackCaption, FeedbackNote: string);
+var
+  Working, Counter, Readback: Int64;
+  Command: TM_Variable;
+  Ready: Boolean;
+  Reason: string;
+  SecondsNow, Elapsed: Double;
+begin
+  SecondsNow := SpControlSeconds;
+  Ready := SpControlGate(False, Command, Working, Counter, Readback, Reason);
+  if SpControlPending then
+  begin
+    if (not Ready) or (SecondsNow < SpControlTick) then
+      SpControlFinish(6, 'После записи потеряны подтверждённые данные. Автоматического повтора нет.')
+    else
+    begin
+      Elapsed := SecondsNow - SpControlTick;
+      if SpControlStage = 2 then
+      begin
+        if (Counter <> SpControlCounter) and (Working = SpControlTarget) and (Readback = SpControlTarget) then
+        begin
+          if not SpEchoSeen then
+          begin SpEchoSeen := True; SpEchoCounter := Counter; end
+          else if Counter <> SpEchoCounter then
+          begin
+            SpControlStage := 3;
+            SpControlTick := SecondsNow;
+            SpControlText := 'ПЛК принял ' + FormatFloat('0.00', SpControlTarget / 100.0) +
+              ' бар; ожидается подтверждение ПЧ.';
+            try SpControlJournal(SpControlText); except SpControlLogLost := True; end;
+          end;
+        end
+        else SpEchoSeen := False;
+        if (SpControlStage = 2) and (Elapsed >= 20) then
+          SpControlFinish(6, 'Приём уставки ПЛК за 20 с не подтверждён. Автоматического повтора нет.');
+      end;
+      if SpControlStage = 3 then
+      begin
+        if Working <> SpControlTarget then
+          SpControlFinish(6, 'Текущая уставка ПЛК снова изменилась. Результат запроса не подтверждён.')
+        else if FeedbackState = 4 then
+          SpControlFinish(5, FeedbackCaption + '. ' + FeedbackNote)
+        else if FeedbackState = 3 then
+          SpControlFinish(4, 'Уставка ' + FormatFloat('0.00', SpControlTarget / 100.0) +
+            ' бар подтверждена ПЛК и ведущим ПЧ.')
+        else if SecondsNow - SpControlTick >= 45 then
+          SpControlFinish(7, 'ПЛК принял ' + FormatFloat('0.00', SpControlTarget / 100.0) +
+            ' бар; подтверждение ПЧ пока не получено.');
+      end;
+    end;
+  end;
+  if SpDraftActive then
+  begin
+    if (not Ready) or (Working <> SpDraftBase) or (SecondsNow < SpDraftTick) or (SecondsNow - SpDraftTick >= 60) then
+    begin
+      SpControlClearDraft;
+      SpControlText := 'Черновик сброшен: изменились данные или истекло время.';
+    end;
+  end;
+  ProcessSpMinus.Enabled := Ready and (not SpControlPending);
+  ProcessSpPlus.Enabled := Ready and (not SpControlPending);
+  ProcessSpApply.Enabled := Ready and SpDraftActive and (not SpControlPending);
+  ProcessSpCancel.Enabled := SpDraftActive and (not SpControlPending);
+  if SpDraftActive then
+    ProcessSpApply.Text := 'Применить ' + FormatFloat('0.0', SpDraftRaw / 100.0)
+  else ProcessSpApply.Text := 'Применить';
+  if SpDraftActive then
+    ProcessSpDraft.Text := FormatFloat('0.0', SpDraftRaw / 100.0)
+  else if Ready then ProcessSpDraft.Text := FormatFloat('0.0', Working / 100.0)
+  else ProcessSpDraft.Text := '--';
+  ProcessMainScope.Color := RGB(105, 105, 105);
+  if SpControlText = '' then
+    ProcessMainScope.Text := 'Выберите новую уставку кнопками «-» и «+», затем «Применить». Данные: ' + Reason
+  else ProcessMainScope.Text := SpControlText;
+  if SpControlPending or (SpControlStage = 7) then ProcessMainScope.Color := RGB(165, 100, 0);
+  if SpControlStage = 4 then ProcessMainScope.Color := RGB(40, 140, 90);
+  if (SpControlStage = 5) or (SpControlStage = 6) then ProcessMainScope.Color := RGB(165, 50, 50);
+  if SpControlLogLost then
+  begin
+    ProcessMainScope.Text := ProcessMainScope.Text + ' Журнал результата недоступен.';
+    ProcessMainScope.Color := RGB(165, 100, 0);
+  end;
+  if SpDraftActive then
+    ProcessMainScope.Text := ProcessMainScope.Text + ' Клиент черновика: ' + SpDraftClient + '.';
+  if not Ready then
+  begin
+    ProcessMainScope.Text := 'Изменение недоступно: ' + Reason + ' ' + SpControlText;
+    ProcessMainScope.Color := RGB(105, 105, 105);
+  end;
+end;
+
+procedure StationProcessUpdate;
+var
+  Map, PV, SourceOK, SP, Freq, FreqState, AlarmLo, AlarmHi: Int64;
+  DriveState, CurrentRaw, FaultRaw, AliveCounter, ModeRaw: Int64;
+  MapGood, PVGood, SourceGood, SPGood, FreqGood, StateGood,
+    LoGood, HiGood, MapMatches, DriveMap, NativeGood, CurrentGood, FaultGood, FrequencyUsable, DriveUsable, AliveGood, RouteLive: Boolean;
+  Count, DriveCount, StatusColor, RouteState, RouteAge, RouteColor: Integer;
+  Status, Detail, RouteText, RouteReason, ModeText, ModeNote: string;
+  ModeGood: Boolean;
+  SpState, SpCount, SpColor: Integer;
+  SpCaption, SpNote: string;
+begin
+  SP := 0;
+  MapGood := ProcessWord('MapVersion', Map);
+  MapMatches := MapGood and ((Map = ProcessBaseMapVersion) or (Map = ProcessDriveMapVersion));
+  DriveMap := MapGood and (Map = ProcessDriveMapVersion);
+  AliveGood := False;
+  AliveCounter := 0;
+  if DriveMap then AliveGood := ProcessWord('PlcAliveCounter', AliveCounter);
+  RouteFreshStep(DriveMap and AliveGood, AliveCounter, SpControlSeconds, RouteState, RouteAge);
+  RouteLive := RouteState = 1;
+  NativeGood := False; CurrentGood := False; FaultGood := False;
+  FrequencyUsable := False; DriveUsable := False; DriveCount := 0;
+  PVGood := False; SourceGood := False; SPGood := False;
+  FreqGood := False; StateGood := False; LoGood := False; HiGood := False;
+  if MapMatches then
+  begin
+    PVGood := ProcessWord('PressurePV_x100', PV);
+    SourceGood := ProcessWord('PressureSourceOK', SourceOK);
+    SPGood := ProcessWord('PressureSP_x100', SP);
+    FreqGood := ProcessWord('Vfd1FreqRaw', Freq);
+    StateGood := ProcessWord('Vfd1FreqState', FreqState);
+    LoGood := ProcessWord('AlarmLo', AlarmLo);
+    HiGood := ProcessWord('AlarmHi', AlarmHi);
+    if DriveMap then
+    begin
+      NativeGood := ProcessWord('Vfd1NativeState', DriveState);
+      CurrentGood := ProcessWord('Vfd1CurrentRaw', CurrentRaw);
+      FaultGood := ProcessWord('Vfd1FaultCode', FaultRaw);
+      if NativeGood then DriveCount := DriveCount + 1;
+      if CurrentGood then DriveCount := DriveCount + 1;
+      if FaultGood then DriveCount := DriveCount + 1;
+    end;
+  end;
+  Count := 0;
+  if PVGood then Count := Count + 1;
+  if SourceGood then Count := Count + 1;
+  if SPGood then Count := Count + 1;
+  if FreqGood then Count := Count + 1;
+  if StateGood then Count := Count + 1;
+  if LoGood then Count := Count + 1;
+  if HiGood then Count := Count + 1;
+  ProcessPressure.Text := 'Нет данных';
+  ProcessPressureNote.Text := 'Проверить наличие и качество тегов давления.';
+  ProcessSetpoint.Text := 'Нет данных';
+  ProcessFrequency.Text := 'Нет данных';
+  ProcessFrequencyNote.Text := 'Нет достоверного состояния частоты от ПЛК.';
+  ProcessCurrent.Text := 'Не подключён';
+  ProcessFault.Text := 'Не подключён';
+  ProcessCurrentNote.Text := 'Чтение выходного тока ПЧ ещё не добавлено.';
+  ProcessFaultNote.Text := 'Собственный код ошибки ПЧ ещё не подключён.';
+  ProcessFault.Color := RGB(105, 105, 105);
+  if DriveMap then
+  begin
+    ProcessCurrent.Text := 'Нет данных';
+    ProcessFault.Text := 'Нет данных';
+    ProcessCurrentNote.Text := 'Нет подтверждённых данных тока ПЧ.';
+    ProcessFaultNote.Text := 'Нет подтверждённого кода неисправности ПЧ.';
+  end;
+  ProcessValidity.Text := 'Давление: достоверность неизвестна';
+  ProcessValidity.Color := RGB(105, 105, 105);
+  ProcessAlarmWords.Text := 'Слова состояния ПЛК: нет данных';
+  ProcessAlarmWords.Color := RGB(105, 105, 105);
+  ProcessFreshness.Text := 'Свежесть данных станции ещё не подтверждается автоматически.';
+  ProcessFreshness.Color := RGB(165, 100, 0);
+  Status := 'Ожидание данных станции';
+  Detail := 'Проверить MasterOPC, Gateway и наличие переменных в проекте.';
+  StatusColor := RGB(105, 105, 105);
+  if MapGood and (not MapMatches) then
+  begin
+    Status := 'Не совпадает версия карты ПЛК';
+    Detail := 'Ожидается карта 31 или 32. Показания этой карточки скрыты.';
+    StatusColor := RGB(165, 50, 50);
+  end;
+  if MapMatches then
+  begin
+    Status := 'Мониторинг: показания доступны частично';
+    Detail := 'Карта ПЛК ' + IntToStr(Map) + '. Проверить импорт и качество недоступных тегов.';
+    StatusColor := RGB(165, 100, 0);
+    if Count = 7 then
+    begin
+      Status := 'Мониторинг: показания OPC доступны';
+      Detail := 'Давление и состояние его источника получены из контроллера.';
+    end;
+    if SPGood then ProcessSetpoint.Text := FormatFloat('0.00', SP / 100.0) + ' бар';
+    if PVGood and SourceGood then
+    begin
+      if SourceOK = 1 then
+      begin
+        ProcessPressure.Text := FormatFloat('0.00', PV / 100.0) + ' бар';
+        ProcessPressureNote.Text := 'Показание OPC. Достоверность источника разрешена ПЛК.';
+        ProcessValidity.Text := 'ПЛК: источник давления выбран';
+        ProcessValidity.Color := RGB(40, 140, 90);
+      end
+      else if SourceOK = 0 then
+      begin
+        ProcessPressure.Text := 'Нет достоверных данных';
+        ProcessPressureNote.Text := 'ПЛК не подтверждает источник давления. Значение не подменяется нулём.';
+        ProcessValidity.Text := 'ПЛК: нет достоверного источника давления';
+        ProcessValidity.Color := RGB(165, 100, 0);
+        Status := 'ПЛК: нет достоверного источника давления';
+        Detail := 'Состояние передано контроллером. Причину обрыва датчика по нему одному не определяем.';
+      end
+      else
+      begin
+        ProcessPressureNote.Text := 'Неизвестное значение признака достоверности давления.';
+        ProcessValidity.Text := 'ПЛК: неизвестный признак достоверности давления';
+      end;
+    end;
+    if FreqGood and StateGood then
+    begin
+      FrequencyUsable := ((FreqState = 1) and (Freq = 0)) or
+         ((FreqState = 2) and (Freq > 0) and (Freq <= 5999));
+      if FrequencyUsable then
+      begin
+        ProcessFrequency.Text := FormatFloat('0.0', Freq / 10.0) + ' Гц';
+        if FreqState = 1 then ProcessFrequencyNote.Text := 'ПЛК: частота нулевая.'
+        else ProcessFrequencyNote.Text := 'ПЛК: частота ненулевая. Это не отдельное подтверждение RUN.';
+      end
+      else if FreqState <> 0 then
+        ProcessFrequencyNote.Text := 'Показание частоты не согласуется с её состоянием от ПЛК.';
+    end;
+    if DriveMap then
+    begin
+      DriveUsable := FrequencyUsable and NativeGood and
+        ((DriveState = 1) or (DriveState = 2) or (DriveState = 3));
+      if not FrequencyUsable then
+      begin
+        ProcessCurrentNote.Text := 'ПЛК не подтверждает допустимое состояние частоты. Ток скрыт.';
+        ProcessFaultNote.Text := 'ПЛК не подтверждает допустимое состояние частоты. Код ПЧ скрыт.';
+      end
+      else if NativeGood and (not DriveUsable) then
+      begin
+        ProcessCurrentNote.Text := 'Неизвестное слово состояния 900G: ' + IntToStr(DriveState);
+        ProcessFaultNote.Text := 'Неизвестное слово состояния 900G: ' + IntToStr(DriveState);
+      end;
+      if DriveUsable then
+      begin
+        if DriveState = 1 then ProcessFrequencyNote.Text := '900G: слово состояния 1 (вперёд).'
+        else if DriveState = 2 then ProcessFrequencyNote.Text := '900G: слово состояния 2 (назад).'
+        else ProcessFrequencyNote.Text := '900G: слово состояния 3 (стоп).';
+        if CurrentGood then
+        begin
+          ProcessCurrent.Text := FormatFloat('0.0', CurrentRaw / 10.0) + ' А';
+          ProcessCurrentNote.Text := 'Выходной ток U0-06. Масштаб 0,1 А по руководству 900G.';
+        end;
+        if FaultGood then
+        begin
+          ProcessFault.Text := 'Код ' + IntToStr(FaultRaw);
+          ProcessFaultNote.Text := DriveFaultText(FaultRaw);
+          if FaultRaw <> 0 then
+          begin
+            ProcessFault.Color := RGB(165, 50, 50);
+            Status := 'ПЧ 900G: код неисправности ' + IntToStr(FaultRaw);
+            Detail := DriveFaultText(FaultRaw);
+            StatusColor := RGB(165, 50, 50);
+          end;
+        end;
+      end;
+    end;
+    if LoGood and HiGood then
+      ProcessAlarmWords.Text := 'Слова состояния ПЛК: ' + IntToStr(AlarmLo) + ' / ' + IntToStr(AlarmHi);
+  end;
+  if DriveMap then
+  begin
+    RouteText := 'Ожидание первого изменения общего счётчика ПЛК.';
+    RouteReason := 'Дождитесь подтверждения обновления данных ПЛК.';
+    RouteColor := RGB(165, 100, 0);
+    if RouteState = 1 then
+    begin
+      RouteText := 'Обновление ПЛК подтверждено. Счётчик: ' + IntToStr(AliveCounter) +
+        '. Без изменения: ' + IntToStr(RouteAge) + ' с.';
+      RouteColor := RGB(40, 140, 90);
+    end
+    else if RouteState = 2 then
+    begin
+      RouteText := 'Нет доступного общего счётчика ПЛК или его качества OPC.';
+      RouteReason := 'Проверить общий счётчик, MasterOPC и соединение со станцией.';
+    end
+    else if RouteState = 3 then
+    begin
+      RouteText := 'Неверный диапазон общего счётчика ПЛК.';
+      RouteReason := 'Проверить адрес и тип общего счётчика в профиле станции.';
+    end
+    else if RouteState = 4 then
+    begin
+      RouteText := 'Нет изменения общего счётчика ПЛК более 15 с.';
+      RouteReason := 'Обновление показаний не подтверждено. Проверить опрос, Gateway, сеть и RUN ПЛК.';
+      RouteColor := RGB(165, 50, 50);
+    end
+    else if RouteState = 6 then
+    begin
+      RouteText := 'Контроль обновления возобновляется после паузы или изменения часов.';
+      RouteReason := 'Ожидается новое изменение общего счётчика ПЛК.';
+    end
+    else if RouteState = 7 then
+    begin
+      RouteText := 'Общий счётчик ПЛК изменился скачком. Ожидается следующее изменение.';
+      RouteReason := 'Подтверждение обновления выполняется заново.';
+    end;
+    ProcessFreshness.Text := RouteText;
+    ProcessFreshness.Color := RouteColor;
+    if not RouteLive then
+    begin
+      ProcessPressure.Text := 'Нет достоверных данных';
+      ProcessPressureNote.Text := RouteReason;
+      ProcessSetpoint.Text := 'Нет данных';
+      ProcessFrequency.Text := 'Нет данных';
+      ProcessFrequencyNote.Text := RouteReason;
+      ProcessCurrent.Text := 'Нет данных';
+      ProcessCurrentNote.Text := RouteReason;
+      ProcessFault.Text := 'Нет данных';
+      ProcessFaultNote.Text := RouteReason;
+      ProcessFault.Color := RGB(105, 105, 105);
+      ProcessValidity.Text := 'Достоверность давления не подтверждена';
+      ProcessValidity.Color := RGB(105, 105, 105);
+      ProcessAlarmWords.Text := 'Слова состояния ПЛК: нет подтверждённых данных';
+      Status := 'Нет подтверждения обновления показаний ПЛК';
+      Detail := RouteReason;
+      StatusColor := RouteColor;
+    end;
+  end;
+  ModeRaw := 0;
+  ModeGood := False;
+  ModeText := 'НЕТ ДАННЫХ';
+  ModeNote := 'Нет подтверждённых данных режима от ПЛК.';
+  if DriveMap and RouteLive then
+    ModeGood := ProcessWord('StationMode', ModeRaw);
+  if ModeGood then
+  begin
+    ModeText := StationModeName(ModeRaw);
+    ModeNote := StationModeNote(ModeRaw);
+  end;
+  ProcessTitle.Text := 'НАСОСНАЯ СТАНЦИЯ · СТЕНД | РЕЖИМ: ' + ModeText;
+  SpFeedbackView(DriveMap and RouteLive, SPGood, SP, AliveCounter,
+    SpState, SpCount, SpColor, SpCaption, SpNote);
+  ProcessSetpointLabel.Text := 'УСТАВКА ПЛК';
+  ProcessSetpointNote.Text := SpCaption;
+  ProcessSetpointNote.Color := SpColor;
+  ProcessScope.Text := 'Уставка: ' + SpCaption + #13#10 + SpNote;
+
+  if (SpState = 4) and (StatusColor <> RGB(165, 50, 50)) then
+  begin
+    Status := 'ПЛК: ошибка применения уставки';
+    Detail := SpCaption + '. ' + SpNote;
+    StatusColor := RGB(165, 50, 50);
+  end;
+  ProcessStatus.Text := Status;
+  ProcessStatus.Color := StatusColor;
+  ProcessDetail.Text := 'Режим: ' + ModeText + '. ' + ModeNote + #13#10 + Detail;
+  ProcessOPC.Text := 'MasterOPC: доступно новых тегов ' + IntToStr(Count) + ' из 7';
+  ProcessOPC.Color := RGB(105, 105, 105);
+  if MapMatches and (Count = 7) then ProcessOPC.Color := RGB(40, 140, 90);
+  if DriveMap then
+  begin
+    ProcessOPC.Text := 'MasterOPC: базовые теги ' + IntToStr(Count) + ' из 7; теги ПЧ ' + IntToStr(DriveCount) + ' из 3';
+    if (Count <> 7) or (DriveCount <> 3) then ProcessOPC.Color := RGB(165, 100, 0);
+  end;
+  if DriveMap and RouteLive then
+  begin
+    ProcessOPC.Text := ProcessOPC.Text + '; уставка: прочитано ' + IntToStr(SpCount) + ' из 7';
+    if SpCount <> 7 then ProcessOPC.Color := RGB(165, 100, 0);
+  end;
+  if MapMatches then ProcessMap.Text := 'Версия карты ПЛК: ' + IntToStr(Map)
+  else ProcessMap.Text := 'Версия карты ПЛК: не подтверждена';
+  ProcessMap.Text := ProcessMap.Text + ' | Режим: ' + ModeText;
+  SpControlUpdate(SpState, SpCaption, SpNote);
+end;
+end.

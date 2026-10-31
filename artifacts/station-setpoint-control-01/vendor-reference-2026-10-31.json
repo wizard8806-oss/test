@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-31",
+  "source": "Official public Simple-Scada archive https://disk.yandex.ru/d/WtVahxw0U7nrJg, version2.6.15.0 dated2024-11-24",
+  "editorSHA256": "c90b3e893d9918c3e0dd95aedb7d0b6744453dc96003244d51dd8d2282078b57",
+  "canonicalEditorMatchesEarlierVerification": true,
+  "nativeObjectLoader": {
+    "pages": [
+      0,
+      1
+    ],
+    "objects": 38,
+    "newTextControls": 6,
+    "onClickIDs": {
+      "ProcessSpMinus": 3,
+      "ProcessSpPlus": 4,
+      "ProcessSpApply": 5,
+      "ProcessSpCancel": 6
+    }
+  },
+  "eventLinkEvidence": "Official Demo btnShowDialog record uses script14 at common TM_Object offset75 (Int64); event script metadata starts0100. Same inherited Text base layout is read by the native loader.",
+  "API": {
+    "Value": "TM_Variable.Value is writable Variant; OriginalAsInt read-only",
+    "DecimalOffset": "ShortInt; command binding must0",
+    "DecimalMultiplier": "Double; command binding must1",
+    "GetClientName": "Nonempty only for client-triggered events",
+    "GetUserID": "Active user ID for client-triggered events; server-only timer returns-1",
+    "GetUserName": "Active user name in caller context",
+    "AddMessage": "AddMessage(Now,mkMessage,text,False,False)",
+    "Enabled": "TM_Control.Enabled is writable Boolean"
+  },
+  "limitations": "Emulated loader and documented API/format, not native compiler, event dispatch, user-role policy or real writes. Vendor files remain outside Git."
+}

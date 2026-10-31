@@ -1,0 +1,311 @@
+function SpControlSeconds: Double;
+begin
+  Result := Now * 86400.0;
+end;
+function SpControlPending: Boolean;
+begin
+  Result := (SpControlStage = 2) or (SpControlStage = 3);
+end;
+function SpControlActor(var Client, UserLabel: string; var UserID: Int64): Boolean;
+begin
+  Client := GetClientName;
+  UserID := GetUserID;
+  UserLabel := GetUserName;
+  Result := (Client <> '') and (UserID >= 0);
+end;
+procedure SpControlNotice(const Client, MessageText: string);
+begin
+  if Client <> '' then
+    ShowMessageClient(Client, 'Уставка давления', MessageText);
+end;
+procedure SpControlJournal(const MessageText: string);
+begin
+  AddMessage(Now, mkMessage, 'Уставка [' + ProcessItemPrefix + '] #' +
+    IntToStr(SpControlSerial) + ': ' + MessageText, False, False);
+end;
+procedure SpControlFinish(Stage: Integer; const MessageText: string);
+begin
+  SpControlStage := Stage;
+  SpControlText := MessageText;
+  try SpControlJournal(MessageText);
+  except SpControlLogLost := True; end;
+end;
+procedure SpControlClearDraft;
+begin
+  SpDraftActive := False;
+  SpDraftClient := '';
+  SpDraftUser := -1;
+  SpDraftUserLabel := '';
+end;
+function SpControlGate(ForWrite: Boolean; var Command: TM_Variable;
+  var Working, Counter, Readback: Int64; var Reason: string): Boolean;
+var Map, Version, WordValue, Mode: Int64; RouteState, Age: Integer;
+begin
+  Result := False;
+  Command := nil;
+  Working := 0;
+  Counter := 0;
+  Readback := 0;
+  Reason := 'Нет подтверждённых данных ПЛК.';
+  if not ProcessWord('MapVersion', Map) then Exit;
+  if Map <> ProcessDriveMapVersion then Exit;
+  if not ProcessWord('PlcAliveCounter', Counter) then Exit;
+  RouteFreshStep(True, Counter, SpControlSeconds, RouteState, Age);
+  if RouteState <> 1 then Exit;
+  if not ProcessWord('PressureSP_x100', Working) then Exit;
+  if not SpPressureValid(Working) then
+  begin Reason := 'Текущая уставка ПЛК вне допустимого профиля.'; Exit; end;
+  Reason := 'Нет совместимой обратной связи уставки.';
+  if not ProcessWord('SpFeedbackVersion', Version) then Exit;
+  if Version <> 1 then Exit;
+  if not ProcessWord('SpConfirmedDrive', WordValue) then Exit;
+  if not ProcessWord('SpConfirmed_x100', WordValue) then Exit;
+  if not ProcessWord('SpApplyPhase', WordValue) then Exit;
+  if not ProcessWord('SpApplyError', WordValue) then Exit;
+  if not ProcessWord('SpApplyDetail', WordValue) then Exit;
+  if not ProcessWord('SpApplyFlags', WordValue) then Exit;
+  if (WordValue and 3) = 3 then Exit;
+  Reason := 'Неизвестный или недостоверный режим станции.';
+  if not ProcessWord('StationMode', Mode) then Exit;
+  if not ((Mode = 0) or (Mode = 10) or (Mode = 11) or (Mode = 12) or
+    (Mode = 20) or (Mode = 21) or (Mode = 22)) then Exit;
+  Reason := 'Нет отдельного тега PressureSP_Command в R2100.';
+  try
+    Command := GetVariableByAddress(ProcessItemPrefix + 'PressureSP_Command');
+    if Command = nil then Exit;
+    if not Command.Outer then Exit;
+    if Command.Address <> ProcessItemPrefix + 'PressureSP_Command' then Exit;
+    if LowerCase(Command.OPCServerName) <> LowerCase(ProcessOPCServer) then Exit;
+    if LowerCase(Command.ComputerName) <> LowerCase(ProcessOPCHost) then Exit;
+    if not Command.IsGoodQuality then Exit;
+    Reason := 'Тег записи должен иметь нулевое смещение запятой.';
+    if (Command.DecimalOffset <> 0) or (Command.DecimalMultiplier <> 1.0) then Exit;
+    Readback := Command.OriginalAsInt;
+    if (Readback < 0) or (Readback > 65535) then Exit;
+    if ForWrite then
+    begin
+      Reason := 'Значения входа R2100 и зеркала ПЛК пока не согласованы.';
+      if Readback <> Working then Exit;
+    end;
+  except
+    Command := nil;
+    Reason := 'Ошибка чтения привязки команды уставки.';
+    Exit;
+  end;
+  Result := True;
+  Reason := '';
+end;
+function SpControlOwnDraft(const Client: string; UserID: Int64): Boolean;
+begin
+  Result := SpDraftActive and (SpDraftClient = Client) and (SpDraftUser = UserID);
+end;
+procedure StationSpAdjust(Delta: Integer);
+var
+  Client, UserLabel, Reason: string;
+  UserID, Working, Counter, Readback, Candidate: Int64;
+  Command: TM_Variable;
+begin
+  if (Delta <> -10) and (Delta <> 10) then Exit;
+  if not SpControlActor(Client, UserLabel, UserID) then
+  begin SpControlNotice(Client, 'Войдите в клиент SCADA для управления.'); Exit; end;
+  if SpControlPending then
+  begin SpControlNotice(Client, 'Предыдущая запись ещё проверяется.'); Exit; end;
+  if not SpControlGate(True, Command, Working, Counter, Readback, Reason) then
+  begin SpControlNotice(Client, Reason); Exit; end;
+  if SpDraftActive and (not SpControlOwnDraft(Client, UserID)) then
+  begin SpControlNotice(Client, 'Черновик редактируется другим клиентом.'); Exit; end;
+  if not SpDraftActive then
+  begin
+    SpDraftActive := True;
+    SpDraftClient := Client;
+    SpDraftUser := UserID;
+    SpDraftUserLabel := UserLabel;
+    SpDraftBase := Working;
+    SpDraftRaw := Working;
+    SpDraftTick := SpControlSeconds;
+    SpControlStage := 0;
+    SpControlLogLost := False;
+  end;
+  if Working <> SpDraftBase then
+  begin
+    SpControlClearDraft;
+    SpControlText := 'Уставка ПЛК изменилась; начните редактирование заново.';
+    SpControlNotice(Client, SpControlText);
+    Exit;
+  end;
+  Candidate := SpDraftRaw + Delta;
+  if not SpPressureValid(Candidate) then
+  begin SpControlNotice(Client, 'Допустимо 0.10-11.90 бар, шаг 0.10.'); Exit; end;
+  SpDraftRaw := Candidate;
+  SpDraftTick := SpControlSeconds;
+  SpControlText := 'Черновик: ' + FormatFloat('0.00', SpDraftRaw / 100.0) +
+    ' бар. Для записи нажмите «Применить».';
+  ProcessSpDraft.Text := FormatFloat('0.0', SpDraftRaw / 100.0);
+  ProcessSpApply.Text := 'Применить ' + FormatFloat('0.0', SpDraftRaw / 100.0);
+  ProcessSpApply.Enabled := True;
+  ProcessSpCancel.Enabled := True;
+  ProcessMainScope.Text := SpControlText;
+  ProcessMainScope.Color := RGB(105, 105, 105);
+end;
+procedure StationSpCancel;
+var Client, UserLabel: string; UserID: Int64;
+begin
+  if not SpControlActor(Client, UserLabel, UserID) then Exit;
+  if SpControlPending then
+  begin SpControlNotice(Client, 'Запись уже отправлена; черновик больше не редактируется.'); Exit; end;
+  if not SpControlOwnDraft(Client, UserID) then Exit;
+  SpControlClearDraft;
+  SpControlText := 'Черновик отменён. Запись не отправлялась.';
+  ProcessSpApply.Enabled := False;
+  ProcessSpCancel.Enabled := False;
+  ProcessSpApply.Text := 'Применить';
+  ProcessMainScope.Text := SpControlText;
+end;
+procedure StationSpApply;
+var
+  Client, UserLabel, Reason: string;
+  UserID, Working, Counter, Readback: Int64;
+  Command: TM_Variable;
+begin
+  if not SpControlActor(Client, UserLabel, UserID) then
+  begin SpControlNotice(Client, 'Войдите в клиент SCADA для управления.'); Exit; end;
+  if SpControlPending then
+  begin SpControlNotice(Client, 'Предыдущая запись ещё проверяется.'); Exit; end;
+  if not SpControlOwnDraft(Client, UserID) then
+  begin SpControlNotice(Client, 'Сначала выберите значение кнопками «-» и «+».'); Exit; end;
+  if (SpControlSeconds < SpDraftTick) or (SpControlSeconds - SpDraftTick >= 60) then
+  begin SpControlClearDraft; SpControlNotice(Client, 'Черновик устарел. Повторите ввод.'); Exit; end;
+  if not SpControlGate(True, Command, Working, Counter, Readback, Reason) then
+  begin SpControlNotice(Client, Reason); Exit; end;
+  if Working <> SpDraftBase then
+  begin SpControlClearDraft; SpControlNotice(Client, 'Уставка ПЛК изменилась; повторите ввод.'); Exit; end;
+  if not SpPressureValid(SpDraftRaw) then
+  begin SpControlClearDraft; SpControlNotice(Client, 'Недопустимое значение черновика.'); Exit; end;
+  if SpDraftRaw = Working then
+  begin
+    SpControlClearDraft;
+    SpControlText := 'Эта уставка уже установлена в ПЛК. Новая запись не отправлялась.';
+    Exit;
+  end;
+  if SpControlSerial >= 2147483647 then SpControlSerial := 0;
+  SpControlSerial := SpControlSerial + 1;
+  SpControlTarget := SpDraftRaw;
+  SpControlStage := 0;
+  SpControlLogLost := False;
+  try
+    SpControlJournal('Запрос ' + FormatFloat('0.00', SpControlTarget / 100.0) +
+      ' бар; клиент ' + Client + '; пользователь ' + UserLabel + ' (ID ' + IntToStr(UserID) + ').');
+  except
+    SpControlText := 'Не удалось записать действие в журнал. Команда не отправлена.';
+    SpControlNotice(Client, SpControlText);
+    Exit;
+  end;
+  SpControlClearDraft;
+  SpFeedbackReset;
+  SpControlStage := 2;
+  SpControlTick := SpControlSeconds;
+  SpControlCounter := Counter;
+  SpEchoSeen := False;
+  SpControlText := 'Отправлена уставка ' + FormatFloat('0.00', SpControlTarget / 100.0) +
+    ' бар; ожидается зеркало ПЛК.';
+  ProcessSpApply.Enabled := False;
+  ProcessSpCancel.Enabled := False;
+  ProcessSpMinus.Enabled := False;
+  ProcessSpPlus.Enabled := False;
+  ProcessMainScope.Text := SpControlText;
+  try
+    Command.Value := Integer(SpControlTarget);
+  except
+    SpControlFinish(6, 'Ошибка записи. Результат ПЛК не подтверждён; автоматического повтора нет.');
+  end;
+end;
+procedure SpControlUpdate(FeedbackState: Integer; const FeedbackCaption, FeedbackNote: string);
+var
+  Working, Counter, Readback: Int64;
+  Command: TM_Variable;
+  Ready: Boolean;
+  Reason: string;
+  SecondsNow, Elapsed: Double;
+begin
+  SecondsNow := SpControlSeconds;
+  Ready := SpControlGate(False, Command, Working, Counter, Readback, Reason);
+  if SpControlPending then
+  begin
+    if (not Ready) or (SecondsNow < SpControlTick) then
+      SpControlFinish(6, 'После записи потеряны подтверждённые данные. Автоматического повтора нет.')
+    else
+    begin
+      Elapsed := SecondsNow - SpControlTick;
+      if SpControlStage = 2 then
+      begin
+        if (Counter <> SpControlCounter) and (Working = SpControlTarget) and (Readback = SpControlTarget) then
+        begin
+          if not SpEchoSeen then
+          begin SpEchoSeen := True; SpEchoCounter := Counter; end
+          else if Counter <> SpEchoCounter then
+          begin
+            SpControlStage := 3;
+            SpControlTick := SecondsNow;
+            SpControlText := 'ПЛК принял ' + FormatFloat('0.00', SpControlTarget / 100.0) +
+              ' бар; ожидается подтверждение ПЧ.';
+            try SpControlJournal(SpControlText); except SpControlLogLost := True; end;
+          end;
+        end
+        else SpEchoSeen := False;
+        if (SpControlStage = 2) and (Elapsed >= 20) then
+          SpControlFinish(6, 'Приём уставки ПЛК за 20 с не подтверждён. Автоматического повтора нет.');
+      end;
+      if SpControlStage = 3 then
+      begin
+        if Working <> SpControlTarget then
+          SpControlFinish(6, 'Текущая уставка ПЛК снова изменилась. Результат запроса не подтверждён.')
+        else if FeedbackState = 4 then
+          SpControlFinish(5, FeedbackCaption + '. ' + FeedbackNote)
+        else if FeedbackState = 3 then
+          SpControlFinish(4, 'Уставка ' + FormatFloat('0.00', SpControlTarget / 100.0) +
+            ' бар подтверждена ПЛК и ведущим ПЧ.')
+        else if SecondsNow - SpControlTick >= 45 then
+          SpControlFinish(7, 'ПЛК принял ' + FormatFloat('0.00', SpControlTarget / 100.0) +
+            ' бар; подтверждение ПЧ пока не получено.');
+      end;
+    end;
+  end;
+  if SpDraftActive then
+  begin
+    if (not Ready) or (Working <> SpDraftBase) or (SecondsNow < SpDraftTick) or (SecondsNow - SpDraftTick >= 60) then
+    begin
+      SpControlClearDraft;
+      SpControlText := 'Черновик сброшен: изменились данные или истекло время.';
+    end;
+  end;
+  ProcessSpMinus.Enabled := Ready and (not SpControlPending);
+  ProcessSpPlus.Enabled := Ready and (not SpControlPending);
+  ProcessSpApply.Enabled := Ready and SpDraftActive and (not SpControlPending);
+  ProcessSpCancel.Enabled := SpDraftActive and (not SpControlPending);
+  if SpDraftActive then
+    ProcessSpApply.Text := 'Применить ' + FormatFloat('0.0', SpDraftRaw / 100.0)
+  else ProcessSpApply.Text := 'Применить';
+  if SpDraftActive then
+    ProcessSpDraft.Text := FormatFloat('0.0', SpDraftRaw / 100.0)
+  else if Ready then ProcessSpDraft.Text := FormatFloat('0.0', Working / 100.0)
+  else ProcessSpDraft.Text := '--';
+  ProcessMainScope.Color := RGB(105, 105, 105);
+  if SpControlText = '' then
+    ProcessMainScope.Text := 'Выберите новую уставку кнопками «-» и «+», затем «Применить». Данные: ' + Reason
+  else ProcessMainScope.Text := SpControlText;
+  if SpControlPending or (SpControlStage = 7) then ProcessMainScope.Color := RGB(165, 100, 0);
+  if SpControlStage = 4 then ProcessMainScope.Color := RGB(40, 140, 90);
+  if (SpControlStage = 5) or (SpControlStage = 6) then ProcessMainScope.Color := RGB(165, 50, 50);
+  if SpControlLogLost then
+  begin
+    ProcessMainScope.Text := ProcessMainScope.Text + ' Журнал результата недоступен.';
+    ProcessMainScope.Color := RGB(165, 100, 0);
+  end;
+  if SpDraftActive then
+    ProcessMainScope.Text := ProcessMainScope.Text + ' Клиент черновика: ' + SpDraftClient + '.';
+  if not Ready then
+  begin
+    ProcessMainScope.Text := 'Изменение недоступно: ' + Reason + ' ' + SpControlText;
+    ProcessMainScope.Color := RGB(105, 105, 105);
+  end;
+end;

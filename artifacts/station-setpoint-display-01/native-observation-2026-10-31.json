@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-31",
+  "source": "User native SCADA Station screenshot after the codex_diag_07 installer/F9/run instructions",
+  "nativeNewDisplayObserved": true,
+  "nativeScriptExecutionObserved": true,
+  "explicitF9CommandObserved": false,
+  "mode": "STOP",
+  "setpointBar": 3.5,
+  "pressureSourceConfirmed": false,
+  "pressureText": "Нет достоверных данных",
+  "feedbackText": "Подтверждение уставки ведущим ПЧ не получено",
+  "frequencyHz": 0.0,
+  "currentA": 0.0,
+  "nativeVfdFaultCode": 0,
+  "driveStateText": "900G: слово состояния 3 (стоп).",
+  "feedbackRawValuesShown": false,
+  "writesPerformedInThisStep": false,
+  "nextStep": "Prepare guarded operator-only setpoint input through R2100, keeping PLC acceptance separate from leading-drive verification."
+}

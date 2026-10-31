@@ -19,6 +19,7 @@ BUILDERS = [
     'build_process_display_01.py', 'build_drive_display_02.py',
     'build_station_freshness_03.py', 'build_station_mode_display_01.py',
     'build_setpoint_feedback_pdw_01.py', 'build_setpoint_display_01.py',
+    'build_setpoint_control_01.py',
 ]
 CHECKS = [
     'validate_scada_inline_01.py', 'validate_radio_install_01.py',
@@ -29,6 +30,7 @@ CHECKS = [
     'validate_station_mode_display_01.py', 'validate_setpoint_feedback_01.py',
     'validate_setpoint_feedback_copy_01.py',
     'validate_setpoint_display_01.py',
+    'validate_setpoint_control_01.py',
 ]
 
 
