@@ -547,8 +547,8 @@
       "bytes": 55387,
       "sha256": "c4affce4911cd763503e10ad603fa4772e2380ca08e11edbab0cd9a9aaeafea6",
       "decision": "keep",
-      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
-      "published_sha256": "c4affce4911cd763503e10ad603fa4772e2380ca08e11edbab0cd9a9aaeafea6"
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence; current HMI source/provenance added after user supplied the missing SKTool project",
+      "published_sha256": "614f46a1c21e286e0f858dec51fdbc6c0de32e0c8c7fe21e62ad1c2711977f13"
     },
     {
       "path": "docs/deferred-work.md",
@@ -1764,6 +1764,16 @@
       "decision": "keep",
       "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence; resource/tool paths made portable or optional vendor checks marked explicitly",
       "published_sha256": "8abd5b1922642853fb64e4241769b6b15cb82cd2fda8dba4a51d9ffbd31c1cd7"
+    }
+  ],
+  "subsequent_resource_additions": [
+    {
+      "date": "2026-10-31",
+      "path": "source/hmi/pump_station_4_37.skm",
+      "editor": "SKTool7.1",
+      "sha256": "13cc9f7d1c5fa59d25c0eb871a2deb3e6f1ef6ca5079be2f5828df5f9e8f5867",
+      "review": "artifacts/hmi-source-review-01/review.json",
+      "note": "Provided after the original199-file audit; restores the previously missing HMI source. Original audit counts unchanged."
     }
   ]
 }

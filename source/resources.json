@@ -83,6 +83,12 @@
       "bytes": 23,
       "sha256": "f3a53c2b469be6ee5aca7579bfce95032e1d97e761f67c83c3c3ca26b48670e3",
       "role": "Original user-supplied minimal SCADA seed; no compiled scripts, users or license file"
+    },
+    {
+      "path": "hmi/pump_station_4_37.skm",
+      "bytes": 1321227,
+      "sha256": "13cc9f7d1c5fa59d25c0eb871a2deb3e6f1ef6ca5079be2f5828df5f9e8f5867",
+      "role": "User-supplied editable HMI project; existing jointly developed work restored. Editor SKTool7.1, native header SKTOOL-V7.1.0.80, project model SK-102CE. No panel/Windows synchronization implied."
     }
   ],
   "windows_copy_synchronized": false

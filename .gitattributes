@@ -6,6 +6,7 @@
 *.json text eol=lf
 *.txt text eol=lf
 *.pdw binary
+*.skm binary
 *.spr binary
 *.spg binary
 *.ssc binary

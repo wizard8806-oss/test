@@ -1,0 +1,85 @@
+{
+  "date": "2026-10-31",
+  "source": "source/hmi/pump_station_4_37.skm",
+  "sourceSHA256": "13cc9f7d1c5fa59d25c0eb871a2deb3e6f1ef6ca5079be2f5828df5f9e8f5867",
+  "sourceBytes": 1321227,
+  "sourcePreservedByteExact": true,
+  "editor": {
+    "userSupplied": "SKTool7.1",
+    "fileHeader": "SKTOOL-V7.1.0.80",
+    "headerStringOffset": 0,
+    "modelMarker": "SK-102CE",
+    "modelStringOffset": 36
+  },
+  "interfaceStringEvidence": [
+    "НАСОСНАЯ СТАНЦИЯ",
+    "НАСОС 1",
+    "НАСОС 2",
+    "НАСОС 3",
+    "НАСОС 4",
+    "НАСОСЫ: СОСТАВ AUTO И НАРАБОТКА",
+    "STOP → «Редактировать» → выбор насосов → «Применить».",
+    "АВАРИИ И ИСТОРИЯ",
+    "ДАВЛЕНИЕ: ПОСЛЕДНИЕ 1 Ч",
+    "ДАВЛЕНИЕ: ПОСЛЕДНИЕ 6 Ч",
+    "ДАВЛЕНИЕ: ПОСЛЕДНИЕ 12 Ч",
+    "ДАВЛЕНИЕ: ПОСЛЕДНИЕ 24 Ч",
+    "Задать частоту, Гц",
+    "Автопуск ожидает восстановления подпора.",
+    "Автопуск ожидает нормального питания."
+  ],
+  "evidenceScope": "Read-only file/hash/header and string inspection. Captions do not prove object binding, screen topology, macro behavior or native build success.",
+  "secretScan": {
+    "tool": "Gitleaks8.24.3",
+    "findings": 0,
+    "scope": "Original binary, candidate length-prefixed UTF16BE strings, and four complete bounded zlib payloads; no native schema/password-field decoder available."
+  },
+  "nativeSKToolOpenObserved": false,
+  "nativeCompileObserved": false,
+  "actualPanelUploadPerformed": false,
+  "fullAddressMapVerified": false,
+  "macrosAndRecipesVerified": false,
+  "windowsOrPanelSynchronized": false,
+  "followUp": [
+    "Open a working copy in SKTool7.1 and record its native validation result",
+    "Export/review communication settings, complete read/write address list and macros against the current PLC source",
+    "Keep operator HMI behavior and SCADA remote commands distinct; do not replace existing local HMI work"
+  ],
+  "validation": {
+    "allResourceHashesVerified": 15,
+    "repositorySecretScanFindings": 0,
+    "binaryHeaderChecked": true,
+    "originalSourceByteExact": true
+  },
+  "embeddedPNGImages": [
+    {
+      "offset": 897325,
+      "bytes": 6927,
+      "width": 976,
+      "height": 350,
+      "chunkCRCsVerified": true
+    },
+    {
+      "offset": 1002421,
+      "bytes": 6815,
+      "width": 976,
+      "height": 350,
+      "chunkCRCsVerified": true
+    },
+    {
+      "offset": 1058560,
+      "bytes": 7089,
+      "width": 976,
+      "height": 350,
+      "chunkCRCsVerified": true
+    },
+    {
+      "offset": 1114973,
+      "bytes": 7063,
+      "width": 976,
+      "height": 350,
+      "chunkCRCsVerified": true
+    }
+  ],
+  "externalResourceDependenciesNativeVerified": false
+}

@@ -1,7 +1,7 @@
 {
   "date": "2026-10-30",
   "timezone": "Europe/Moscow",
-  "scope": "Current SCADA inline delivery checkpoint; earlier full PLC/HMI workspace files absent in this environment.",
+  "scope": "Historical SCADA/PLC delivery checkpoints; current continuation state is docs/HANDOFF.md. HMI source restored from user upload on2026-10-31.",
   "current_goal": "User uploaded generated PDW05 file_00000000c288820a9c7669573674c796,local attachments/a820f714-9d85-4d4b-8765-0b3c083c47c8/station_MC_CM55_900G_05.pdw,178479bytes,SHA6aba2a67d07596e4a479c462412859565186de86b410a3cd44476a81f20ffe81. Identical to generated copy. Strict7MOV/old1834networks/9tables/crypto+program checksum/unit-boundary review passes. F8 command/result not separately shown; upload follows requested F8/save. Next user bench-only update to05 if F8 passed, returnRUN; add ReadOnly feedback tags PDU2850..2856 (SpFeedbackVersion,SpConfirmedDrive,SpConfirmed_x100,SpApplyPhase,SpApplyError,SpApplyDetail,SpApplyFlags), holding,uint16->uint32,unscaled. Observe marker1+GOOD values before implementing setpoint UI. Working SCADA06/mode/freshness/radio remain; no pressure write/start/reset commands performed. Pressure range0.1..11.9bar step0.1; future R2100 command binding separate from mirrorR2360; flagsbit0=M968 failure,bit1=M969 current-leading-drive setpoint confirmation.",
   "user_decisions": {
     "SimpleScada_version": "2.6.15.0",
@@ -185,7 +185,7 @@
     "bench": "FBs-32MCR2-AC withCB5/CM55,CL50S,WRX1168-R8U,one900G/900M; no motor/Yloads per user.",
     "field_station": "Separate station operatingAUTO; untouched.",
     "do_not_infer": "Snapshot radio18 is not live RSSI; GOOD static31 is not program freshness; one timeout does not identify modem/Cloud/RS485 failure.",
-    "full_PLC_HMI_sources_here": "Absent. Obtain current working sources before future PLC/HMI changes; do not use old MA seed as replacement."
+    "full_PLC_HMI_sources_here": "PLC sources02/03/04 and HMI source/hmi/pump_station_4_37.skm are preserved in Git. HMI editor SKTool7.1; header SKTOOL-V7.1.0.80; project model SK-102CE. Native HMI validation and full cross-address audit remain pending; Windows/panel copies are separate."
   },
   "repair": {
     "user_log_file_id": "file_000000007fe0820a8b75b881e9ade4fc",
@@ -1045,5 +1045,15 @@
     "nativeF8ExplicitlyShown": false,
     "comparisonPassed": true,
     "actualPLCFeedbackObserved": false
+  },
+  "currentHmiSource": {
+    "path": "source/hmi/pump_station_4_37.skm",
+    "editor": "SKTool7.1",
+    "header": "SKTOOL-V7.1.0.80",
+    "model": "SK-102CE",
+    "sha256": "13cc9f7d1c5fa59d25c0eb871a2deb3e6f1ef6ca5079be2f5828df5f9e8f5867",
+    "review": "artifacts/hmi-source-review-01/review.json",
+    "nativeValidationObserved": false,
+    "panelSynchronized": false
   }
 }
