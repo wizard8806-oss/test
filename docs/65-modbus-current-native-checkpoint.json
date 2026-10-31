@@ -1075,7 +1075,7 @@
     "newCommandTag": "PressureSP_Command, PDU2100 ReadWrite uint16->uint32 no scaling",
     "newNativeF9Observed": false,
     "realOperatorWriteObserved": false,
-    "next": "09 click executes but Client parameter is empty. Inspect Options / Simple-Client / Имя этого клиента. If empty, set a unique workstation name, save/restart Client09 only, test draft plus/Cancel. Value of setting not yet observed. Do not repeat installer/tag setup, assume an ACL cause, substitute an identity, remove the guard, or send Apply.",
+    "next": "Draft plus/Cancel reported working after client-name setup/restart. Keep09, tags and actual client/user guards. Include unique nonempty client name in workstation setup. Next: separate operator Apply test with operator-selected value; verify PLC acceptance and drive acknowledgement. No write executed or authorized by this draft-only report.",
     "pageInstallerRepair": {
       "source": {
         "fileId": "file_000000002dcc81f9b3877f6c123f2072",
@@ -1096,6 +1096,15 @@
     "installer09Retry": "Installer repaired and delivered in three short history-recovery parts. Screenshot18:35 shows09-specific persistent refusal on click; exact project directory/F9 not explicitly shown. No real write observed.",
     "native09UIObservation": "artifacts/station-setpoint-click-fix-01/native-observation-2026-10-31.json",
     "native09ClickDispatchObserved": true,
-    "native09CallerClientEmpty": true
+    "native09CallerClientEmpty": false,
+    "native09DraftWorkingReported": true,
+    "clientNameSetup": {
+      "initiallyEmptyConfirmed": true,
+      "setting": "Options / Simple-Client / Имя этого клиента",
+      "suggestedWorkstationName": "SCADA_LAPTOP_01",
+      "scope": "unique workstation name shared by all its stations",
+      "followUpResult": "работает",
+      "exactNameAndNumericalSequenceIndependentlyShown": false
+    }
   }
 }

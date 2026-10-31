@@ -25,7 +25,16 @@
     "settings-simple-client.html": "Имя этого клиента, under Параметры подключения к серверу.",
     "getclientname.html": "The function is documented for user-triggered events; an empty result also occurs outside client events."
   },
-  "clientNameSettingObserved": false,
-  "questionPending": "Is Options / Simple-Client / Имя этого клиента empty or filled? Do not request passwords or full configuration dumps.",
-  "nextStep": "Inspect the existing client name first. If empty, set a unique workstation name, save and restart only Client09, then test plus/Cancel. Keep the actual event identity guard and do not issue Apply. If already named or still empty after reconnect, investigate event context with direct diagnostics rather than guessing an identity."
+  "clientNameSettingObserved": true,
+  "nextStep": "Keep09 and the actual client/user identity guards. Include a unique nonempty desktop client name in workstation setup, not each station profile. Draft-only test reported working; actual operator Apply/PLC and drive acknowledgements still unverified.",
+  "followUp": {
+    "date": "2026-10-31",
+    "clientNameInitiallyEmptyConfirmedByUser": true,
+    "verbatimClientNameAnswer": "Поле пустое",
+    "instructionGiven": "Set a unique client name (SCADA_LAPTOP_01 suggested), save and restart Client09; test plus and Cancel only. Do not Apply.",
+    "verbatimResult": "работает",
+    "draftWorkflowReportedWorking": true,
+    "confirmationScope": "Reply follows draft-only test instructions; exact numerical sequence, chosen client name string and actual Apply are not independently shown.",
+    "operatorWriteObserved": false
+  }
 }
