@@ -7,20 +7,28 @@ param(
 # Preserve repeated JSON members; ConvertFrom-Json can discard/reject them in PS5.
 & {
  $ErrorActionPreference='Stop'
+ $readerVersion=2; $stage='LOAD_ASSEMBLIES'
  $archive=$null; $inputStream=$null; $jsonReader=$null; $bodyStream=$null
  try {
+  # Windows PowerShell5.1 may load FileSystem before ZipArchive's assembly.
+  Add-Type -AssemblyName System.IO.Compression
   Add-Type -AssemblyName System.IO.Compression.FileSystem
   Add-Type -AssemblyName System.Runtime.Serialization
+  Add-Type -AssemblyName System.Xml
+  $stage='READ_SOURCE'
   $source=Get-Item -LiteralPath $Path
   if($source.PSIsContainer -or $source.Length -gt 67108864){throw 'INPUT_LIMIT'}
   [byte[]]$raw=[IO.File]::ReadAllBytes($source.FullName)
   $sha=[Security.Cryptography.SHA256]::Create()
   try{$digest=([BitConverter]::ToString($sha.ComputeHash($raw))).Replace('-','').ToLowerInvariant()}
   finally{$sha.Dispose()}
+  $stage='OPEN_ARCHIVE'
   $inputStream=[IO.MemoryStream]::new($raw)
   $archive=[IO.Compression.ZipArchive]::new($inputStream,[IO.Compression.ZipArchiveMode]::Read,$true)
+  $stage='SELECT_MBC'
   $entries=@($archive.Entries | Where-Object {$_.FullName.EndsWith('.mbc',[StringComparison]::OrdinalIgnoreCase)})
   if($entries.Count -ne 1 -or $entries[0].Length -gt 4194304){throw 'MBC_LIMIT'}
+  $stage='READ_MBC'
   $entryStream=$entries[0].Open(); $bodyStream=[IO.MemoryStream]::new()
   try {
    $buffer=New-Object byte[] 4096
@@ -29,10 +37,12 @@ param(
     if($bodyStream.Length -gt 4194304){throw 'MBC_LIMIT'}
    }
   } finally {$entryStream.Dispose()}
+  $stage='DECODE_MBC'
   [byte[]]$body=$bodyStream.ToArray()
   try {$json=[Text.UTF8Encoding]::new($false,$true).GetString($body)}
   catch {$json=[Text.Encoding]::GetEncoding(1251).GetString($body)}
   $json=$json.TrimStart([char]0xfeff)
+  $stage='VALIDATE_JSON'
   # The dictionary reader can tolerate truncated JSON. Validate syntax first,
   # without deserializing to a dictionary that would collapse duplicate keys.
   if(-not ('CodexMbpJsonSyntax01' -as [type])) {
@@ -93,11 +103,13 @@ public sealed class CodexMbpJsonSyntax01 {
 '@
   }
   if(-not [CodexMbpJsonSyntax01]::IsCompleteObject($json)){throw 'INVALID_JSON'}
+  $stage='PARSE_JSON'
   $quotas=[Xml.XmlDictionaryReaderQuotas]::new()
   $quotas.MaxDepth=64; $quotas.MaxStringContentLength=4194304
   $quotas.MaxArrayLength=4194304; $quotas.MaxNameTableCharCount=131072
   $jsonReader=[Runtime.Serialization.Json.JsonReaderWriterFactory]::CreateJsonReader([Text.Encoding]::UTF8.GetBytes($json),$quotas)
   $document=[Xml.XmlDocument]::new(); $document.XmlResolver=$null; $document.Load($jsonReader)
+  $stage='READ_FIELDS'
   $wanted=@('PressureSP_Command','PressureSP_x100','PlcAliveCounter','MapVersion',
    'StationMode','PressurePV_x100','PressureSourceOK','Vfd1FreqRaw','Vfd1FreqState',
    'SpFeedbackVersion','SpConfirmedDrive','SpConfirmed_x100','SpApplyPhase',
@@ -154,8 +166,10 @@ public sealed class CodexMbpJsonSyntax01 {
     $issues.Add([ordered]@{itemID=$id;issue='REPEATED_TAG_NOT_COLLAPSED'})
    }
   }
+  $stage='SERIALIZE'
   [ordered]@{
-   schema=1; observedUTC=[DateTime]::UtcNow.ToString('o'); sourceName=$source.Name
+   schema=1; readerVersion=$readerVersion; powerShellVersion=[string]$PSVersionTable.PSVersion
+   observedUTC=[DateTime]::UtcNow.ToString('o'); sourceName=$source.Name
    sourceSHA256=$digest; itemPrefix=$ItemPrefix; tags=$tags.ToArray(); issues=$issues.ToArray()
    scope='OFFLINE_CANDIDATE_METADATA_ONLY'; activeConfigurationEstablished=$false
    liveOPCReadPerformed=$false; hardwareCommandsSent=$false
@@ -165,8 +179,14 @@ public sealed class CodexMbpJsonSyntax01 {
     'MasterOPC coefficients do not establish SCADA offset/multiplier.')
   } | ConvertTo-Json -Depth 12
  } catch {
-  # Do not print parser errors: they can quote sensitive configuration contents.
-  [Console]::Error.WriteLine('MASTEROPC_PROFILE_READ_FAILED: unsupported, ambiguous, inaccessible or oversized input; no configuration contents printed.')
+  # Never print parser messages/stack traces: these can quote private contents.
+  # Only our fixed marker codes, type and numeric HRESULT are permitted.
+  $problem=$_.Exception; $depth=0
+  while($problem.InnerException -and $depth -lt 8){$problem=$problem.InnerException;$depth++}
+  $safeCode='UNCLASSIFIED'
+  if(@('INPUT_LIMIT','MBC_LIMIT','INVALID_JSON','AMBIGUOUS_NODE') -ccontains $problem.Message){$safeCode=$problem.Message}
+  $kind=$problem.GetType().FullName; $hr='{0:X8}' -f $problem.HResult
+  [Console]::Error.WriteLine(('MASTEROPC_PROFILE_READ_FAILED reader={0} stage={1} code={2} exception={3} hresult=0x{4}; configuration contents omitted.' -f $readerVersion,$stage,$safeCode,$kind,$hr))
   exit 1
  } finally {
   if($jsonReader){$jsonReader.Dispose()}; if($bodyStream){$bodyStream.Dispose()}

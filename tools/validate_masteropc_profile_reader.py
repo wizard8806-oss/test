@@ -23,7 +23,7 @@ def main():
 "Teg":{"Category":"Teg","NameInTree":"Unrelated","Address":1234,"Password":"SYNTHETIC_PRIVATE_FIELD"}}},
 "Node":{"NameInTree":"private-station-name","Teg":{"Category":"Teg","NameInTree":"PressureSP_Command","Address":777}}}'''
     expected_ids = ['codex.Device1.PressureSP_Command', 'codex.Device1.PressureSP_x100', 'codex.Device1.PressureSP_Command']
-    cases = ['utf8', 'utf8_bom', 'cp1251', 'no_match', 'malformed', 'truncated_outer', 'trailing_comma', 'invalid_number', 'multiple_mbc', 'oversized', 'nested_field', 'calculation_body', 'ambiguous_node']
+    cases = ['utf8', 'utf8_bom', 'cp1251', 'no_match', 'malformed', 'truncated_outer', 'trailing_comma', 'invalid_number', 'multiple_mbc', 'oversized', 'nested_field', 'calculation_body', 'ambiguous_node', 'not_zip', 'empty_archive']
     for case in cases:
         with tempfile.TemporaryDirectory(prefix='opc-profile-read-') as folder:
             root = Path(folder); path = root/'fixture.mbp'
@@ -40,19 +40,26 @@ def main():
             if case == 'utf8_bom': body = b'\xef\xbb\xbf'+body
             if case == 'oversized': body = b' ' * (4194304+1)
             with zipfile.ZipFile(path, 'w', zipfile.ZIP_DEFLATED) as archive:
-                archive.writestr('fixture.mbc', body)
+                if case != 'empty_archive': archive.writestr('fixture.mbc', body)
                 if case == 'multiple_mbc': archive.writestr('other.mbc', b'{}')
+            if case == 'not_zip': path.write_bytes(b'SYNTHETIC_PRIVATE_FIELD is not an archive')
             before = hashlib.sha256(path.read_bytes()).hexdigest()
             env = dict(os.environ, XDG_CACHE_HOME=str(root/'cache'), XDG_CONFIG_HOME=str(root/'config'), XDG_DATA_HOME=str(root/'data'))
             p = subprocess.run([PWSH, '-NoLogo', '-NoProfile', '-NonInteractive', '-File', str(ROOT/'tools/Read-MasterOpcProfile.ps1'), '-Path', str(path)], env=env, capture_output=True, text=True, timeout=20)
             assert hashlib.sha256(path.read_bytes()).hexdigest() == before
             assert not any(marker in p.stdout+p.stderr for marker in ['SYNTHETIC_PRIVATE_FIELD', 'SYNTHETIC_SCRIPT_BODY', 'SYNTHETIC_NESTED_FIELD', 'SYNTHETIC_CALCULATION_BODY', 'private-station-name']), (case, p.stdout, p.stderr)
-            if case in ['malformed', 'truncated_outer', 'trailing_comma', 'invalid_number', 'multiple_mbc', 'oversized', 'ambiguous_node']:
+            if case in ['malformed', 'truncated_outer', 'trailing_comma', 'invalid_number', 'multiple_mbc', 'oversized', 'ambiguous_node', 'not_zip', 'empty_archive']:
                 assert p.returncode != 0 and not p.stdout.strip() and 'MASTEROPC_PROFILE_READ_FAILED' in p.stderr, (case, p.stdout, p.stderr)
+                expected_stage = ('READ_FIELDS' if case == 'ambiguous_node' else
+                                  'SELECT_MBC' if case in ['multiple_mbc','oversized','empty_archive'] else
+                                  'OPEN_ARCHIVE' if case == 'not_zip' else 'VALIDATE_JSON')
+                assert 'reader=2' in p.stderr and ('stage='+expected_stage) in p.stderr
+                assert ' exception=' in p.stderr and ' hresult=0x' in p.stderr
             else:
                 assert p.returncode == 0 and not p.stderr, (case, p.stdout, p.stderr)
                 result = json.loads(p.stdout)
                 assert result['sourceSHA256'] == before
+                assert result['readerVersion'] == 2 and result['powerShellVersion']
                 assert result['scope'] == 'OFFLINE_CANDIDATE_METADATA_ONLY'
                 assert result['activeConfigurationEstablished'] is False
                 assert result['liveOPCReadPerformed'] is False and result['hardwareCommandsSent'] is False
@@ -80,7 +87,7 @@ def main():
                                 else: expected = str(expected)
                                 assert value == expected, (case, key, value, expected)
             print('PASS offline profile reader', case, flush=True)
-    print('PASS thirteen PowerShell/Linux fixture cases; no input changed, secret fields omitted; Windows5.1 and actual tag bindings unverified')
+    print('PASS fifteen PowerShell/Linux fixture cases; safe stage/type/HRESULT diagnostics, no input changed or secret output; Windows5.1 v2 and actual bindings unverified')
 
 
 if __name__ == '__main__':
