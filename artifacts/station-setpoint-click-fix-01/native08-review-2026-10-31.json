@@ -1,0 +1,70 @@
+{
+  "date": "2026-10-31",
+  "sourceFiles": {
+    "Pages.spg": {
+      "bytes": 9535,
+      "sha256": "7ac3a4647f7a49b0d5c50d88dd024ab38e92ee427e59101dd929c3ebcc1e631b"
+    },
+    "Scripts.ssc": {
+      "bytes": 83988,
+      "sha256": "56eec6de6316112b26c8b0658b51acc1409919cb0479fd7c69eaa25110769cab"
+    }
+  },
+  "objects": 38,
+  "pageIDs": [
+    0,
+    1
+  ],
+  "clickLinks": {
+    "ProcessSpMinus": 3,
+    "ProcessSpPlus": 4,
+    "ProcessSpApply": 5,
+    "ProcessSpCancel": 6
+  },
+  "scriptRecords": [
+    {
+      "id": 0,
+      "name": "StationDiagnostics",
+      "compilerMetadata": "0a1038f20000010000f6420f0000000000",
+      "sourceComparison": "exact known artifact"
+    },
+    {
+      "id": 2,
+      "name": "StationRadioDiagnostics",
+      "compilerMetadata": "0a1018f60000010000934c0f0000000000",
+      "sourceComparison": "One whitespace character removed from known radio module; otherwise identical. Preserved unchanged."
+    },
+    {
+      "id": 1,
+      "name": "StationDiagnosticsTimer",
+      "compilerMetadata": "01050200000001000149feffff00000000",
+      "sourceComparison": "Exact known process/radio timer body; preserved unchanged."
+    },
+    {
+      "id": 3,
+      "name": "ProcessSpMinus_OnClick",
+      "compilerMetadata": "010008000000010000dbfcffff00000000",
+      "sourceComparison": "exact known artifact"
+    },
+    {
+      "id": 4,
+      "name": "ProcessSpPlus_OnClick",
+      "compilerMetadata": "01000d0000000100008afbffff00000000",
+      "sourceComparison": "exact known artifact"
+    },
+    {
+      "id": 5,
+      "name": "ProcessSpApply_OnClick",
+      "compilerMetadata": "01001200000001000039faffff00000000",
+      "sourceComparison": "exact known artifact"
+    },
+    {
+      "id": 6,
+      "name": "ProcessSpCancel_OnClick",
+      "compilerMetadata": "010017000000010000edf8ffff00000000",
+      "sourceComparison": "exact known artifact"
+    }
+  ],
+  "globalModuleContextDirectlyObserved": false,
+  "working09Observed": false
+}

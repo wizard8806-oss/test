@@ -1,0 +1,51 @@
+{
+  "date": "2026-10-31",
+  "logic": "PASS caller-aware control assertions=83",
+  "legacyReports": [
+    "PASS process-card assertions=59",
+    "PASS prior display assertions=521"
+  ],
+  "copyCases": [
+    {
+      "case": "native08",
+      "passed": true
+    },
+    {
+      "case": "unit_headers",
+      "passed": true
+    },
+    {
+      "case": "edited_core",
+      "passed": true
+    },
+    {
+      "case": "edited_event",
+      "passed": true
+    },
+    {
+      "case": "edited_pages",
+      "passed": true
+    },
+    {
+      "case": "duplicate_id",
+      "passed": true
+    },
+    {
+      "case": "wrong_version",
+      "passed": true
+    },
+    {
+      "case": "destination_exists",
+      "passed": true
+    },
+    {
+      "case": "corrupt_catalog",
+      "passed": true
+    }
+  ],
+  "oldAmbientContextRegressionDetected": true,
+  "contextTest": "Actual four event sources compiled as a separate unit; module ambient identity empty/-1, callback identity supplied by event API seam",
+  "noHardwareConnections": true,
+  "native09WindowsObserved": false,
+  "actualPLCWriteObserved": false
+}

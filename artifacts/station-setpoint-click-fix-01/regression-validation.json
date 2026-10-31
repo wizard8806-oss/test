@@ -1,0 +1,168 @@
+{
+  "date": "2026-10-31",
+  "passed": true,
+  "isolated": true,
+  "shippedFiles": 220,
+  "resourceHashesVerified": 18,
+  "sourceFilesUnchanged": true,
+  "vendorPageLoader": false,
+  "framework48": false,
+  "noHardwareOrCloudSessionOpened": true,
+  "checks": [
+    {
+      "check": "rebuild_scada_inline_delivery_01.py",
+      "passed": true,
+      "output": "Inline packet ready: 10421 characters; 4401 capsule bytes"
+    },
+    {
+      "check": "build_radio_display_01.py",
+      "passed": true,
+      "output": "Built radio display: 11683 inline characters, 5039 bundle bytes"
+    },
+    {
+      "check": "build_radio_service_delivery_01.py",
+      "passed": true,
+      "output": "Service inline ready: 11485 characters; 6358 bundle bytes"
+    },
+    {
+      "check": "build_service_group_split_02.py",
+      "passed": true,
+      "output": "Separate group delivery ready: 4836 characters, new collector 89c5762599b6b43044d0688f98f5df4e0d80ac603a70d446ee131351607b0e82"
+    },
+    {
+      "check": "build_process_display_01.py",
+      "passed": true,
+      "output": "Built process card: 32 texts; 11429 inline characters"
+    },
+    {
+      "check": "build_drive_display_02.py",
+      "passed": true,
+      "output": "Built read-only drive display: 249 lines, 10050 paste characters"
+    },
+    {
+      "check": "build_station_freshness_03.py",
+      "passed": true,
+      "output": "Built general freshness copy: 382 lines, 11655 paste characters; no live changes"
+    },
+    {
+      "check": "build_station_mode_display_01.py",
+      "passed": true,
+      "output": "Built read-only mode copy06: 423 lines, 12458 inline characters"
+    },
+    {
+      "check": "build_setpoint_feedback_pdw_01.py",
+      "passed": true,
+      "output": "Built offline copy: 178479 bytes; 198 edits; 5058 compressed patch bytes\nTarget SHA256: 6aba2a67d07596e4a479c462412859565186de86b410a3cd44476a81f20ffe81"
+    },
+    {
+      "check": "build_setpoint_display_01.py",
+      "passed": true,
+      "output": "Built setpoint feedback copy: 14196 inline characters; 27653 module bytes"
+    },
+    {
+      "check": "build_setpoint_control_01.py",
+      "passed": true,
+      "output": "Built setpoint control copy: 25566 inline characters; 42378 module bytes"
+    },
+    {
+      "check": "build_setpoint_click_fix_01.py",
+      "passed": true,
+      "output": "Built context fix: 6968 inline characters; 42818 module bytes"
+    },
+    {
+      "check": "PowerShell syntax",
+      "passed": true,
+      "output": "Parsed PowerShell files: 35"
+    },
+    {
+      "check": "validate_scada_inline_01.py",
+      "passed": true,
+      "output": "{\n  \"date\": \"2026-10-29\",\n  \"delivery\": \"Direct inline PowerShell; no chat file download needed\",\n  \"native_stream_structure_passed\": true,\n  \"native_x86_object_reader_emulation_passed\": false,\n  \"previous_delivery_rejected_by_native_Editor\": true,\n  \"existing_fields_byte_exact\": true,\n  \"actual_Pascal_source_compiled_with_strict_stubs\": true,\n  \"logic_assertions_passed\": 353,\n  \"transfer_runtime\": \"Real PowerShell7.6.9 on Linux fixtures, not Windows5.1\",\n  \"transfer_cases\": [\n    {\n      \"case\": \"new_copy\",\n      \"passed\": true,\n      \"source_unchanged\": true\n    },\n    {\n      \"case\": \"source_changed\",\n      \"passed\": true,\n      \"source_unchanged\": true\n    },\n    {\n      \"case\": \"destination_exists\",\n      \"passed\": true,\n      \"source_unchanged\": true\n    },\n    {\n      \"case\": \"corrupt_transfer\",\n      \"passed\": true,\n      \"source_unchanged\": true\n    },\n    {\n      \"case\": \"source_missing\",\n      \"passed\": true,\n      \"source_unchanged\": true\n    }\n  ],\n  \"repair_cases\": {\n    \"skipped\": true,\n    \"reason\": \"Repair regression uses optional vendor page loader\"\n  },\n  \"source_and_existing_output_preserved\": true,\n  \"actual_Windows_native_editor_open_and_F9_pending\": true,\n  \"native_SCADA_F9_passed\": false,\n  \"live_radio_values_implemented\": false,\n  \"original_download_UI_problem_fixed\": false\n}"
+    },
+    {
+      "check": "validate_radio_install_01.py",
+      "passed": true,
+      "output": "PASS install normal\nPASS install native_caret_changed\nPASS install source_edited\nPASS install destination_exists\nPASS install corrupt_bundle"
+    },
+    {
+      "check": "validate_teleofis_radio_usb_probe_04.py",
+      "passed": true,
+      "output": "PASS04 normal\nPASS04 native_auth_denied\nPASS04 native_read_denied\nPASS04 long_password\nPASS04 empty_password\nPASS04 unknown_signal\nPASS04 unknown_rat\nPASS04 escaped_payload\nPASS04 noise_fragmented\nPASS04 auth_denied\nPASS04 bad_crc\nPASS04 bad_version\nPASS04 bad_escape\nPASS04 wrong_payload_length\nPASS04 timeout"
+    },
+    {
+      "check": "validate_teleofis_auth_capture_03.py",
+      "passed": true,
+      "output": "PASS normal\nPASS echo_secret\nPASS wrong_command\nPASS auth_rejected_ffff\nPASS bad_crc\nPASS legacy_v0\nPASS noise\nPASS silent\nPASS unknown_version\nPASS fragmented\nPASS password_format"
+    },
+    {
+      "check": "validate_radio_display_01.py",
+      "passed": true,
+      "output": "PASS radio-ui assertions=27\nPASS collector normal\nPASS collector unknown\nPASS collector auth\nPASS collector recover"
+    },
+    {
+      "check": "validate_radio_service_delivery_01.py",
+      "passed": true,
+      "output": "PASS Service delivery new_install\nPASS Service delivery repeat_install\nPASS Service delivery collector_changed\nPASS Service delivery config_changed\nPASS Service delivery corrupt_transfer"
+    },
+    {
+      "check": "validate_service_group_split_02.py",
+      "passed": true,
+      "output": "PASS group setup valid\nPASS group setup repeat\nPASS group setup Main_group_rejected\nPASS group setup invalid_id\nPASS group setup source_changed\nPASS group setup other_station\nPASS group setup lock_held\nPASS group setup new_collector_changed\nPASS group setup CRLF_paste\nPASS session policy normal\nPASS session policy cloud_rejected\nPASS session policy session_replaced"
+    },
+    {
+      "check": "validate_process_display_01.py",
+      "passed": true,
+      "output": "PASS process-card assertions=59\nPage loader: {'skipped': True, 'reason': 'Optional vendor page loader disabled', 'native_GUI_F9_passed': False}\nPASS copy normal\nPASS copy caret_and_unit_header\nPASS copy core_changed\nPASS copy radio_changed\nPASS copy radio_renamed_identifier\nPASS copy radio_missing_procedure\nPASS copy destination_exists\nPASS copy corrupt_bundle\nPASS copy wrong_version\nPASS continuation changed_radio_history\nPASS continuation base64_whitespace\nPASS continuation wrong_original\nPASS continuation missing_history\nPASS continuation corrupt_patch"
+    },
+    {
+      "check": "validate_drive_display_02.py",
+      "passed": true,
+      "output": "PASS process-card assertions=120\nPASS copy normal\nPASS copy unit_header_carets\nPASS copy changed_radio\nPASS copy changed_core\nPASS copy wrong_timer\nPASS copy destination_exists\nPASS copy wrong_version\nPASS copy corrupt_module\nDrive display verification passed; native Windows/F9 and PLC tests remain separate."
+    },
+    {
+      "check": "validate_station_freshness_03.py",
+      "passed": true,
+      "output": "PASS process-card assertions=59\nPASS freshness assertions=237\nPASS copy normal\nPASS copy unit_header_carets\nPASS copy changed_radio\nPASS copy changed_core\nPASS copy wrong_timer\nPASS copy destination_exists\nPASS copy wrong_version\nPASS copy corrupt_module\nFreshness logic and copy preservation passed; native PLC/Windows tests pending."
+    },
+    {
+      "check": "validate_station_mode_display_01.py",
+      "passed": true,
+      "output": "PASS process-card assertions=59\nPASS freshness and mode assertions=281\nPASS copy normal\nPASS copy unit_header_carets\nPASS copy changed_radio\nPASS copy changed_core\nPASS copy wrong_timer\nPASS copy destination_exists\nPASS copy wrong_version\nPASS copy corrupt_module\nPASS copy project_parent_folder\nPASS copy folder_without_project\nMode display/copy checks passed; native Windows F9 and selector comparison remain pending."
+    },
+    {
+      "check": "validate_setpoint_feedback_01.py",
+      "passed": true,
+      "output": "PASS 12 feedback comparator cases; no PDW/PLC modifications."
+    },
+    {
+      "check": "validate_setpoint_feedback_copy_01.py",
+      "passed": true,
+      "output": "PASS PowerShell normal\nPASS PowerShell unicode_space_quote_path\nPASS PowerShell changed_source\nPASS PowerShell same_target_exists\nPASS PowerShell different_target_exists\nPASS PowerShell target_is_source\nPASS PowerShell corrupt_patch\nPASS PowerShell wrong_output_hash\nPASS PowerShell missing_source\nPASS PowerShell read_only_source\nAll ten PowerShell cases and exact inline payload passed; native F8/save still required."
+    },
+    {
+      "check": "validate_setpoint_display_01.py",
+      "passed": true,
+      "output": "PASS process-card assertions=59\nPASS freshness/mode/setpoint assertions=520\nPASS copy normal\nPASS copy unit_header_carets\nPASS copy changed_radio\nPASS copy changed_core\nPASS copy wrong_timer\nPASS copy destination_exists\nPASS copy wrong_version\nPASS copy corrupt_module\nSetpoint feedback logic and ten copy/preservation cases passed."
+    },
+    {
+      "check": "validate_setpoint_control_01.py",
+      "passed": true,
+      "output": "PASS page preservation: both variants, all prior objects and diagnostic page\nPASS operator control assertions=74\nPASS process-card assertions=59\nPASS prior display assertions=521\nPASS control copy normal\nPASS control copy native_saved\nPASS control copy unit_header\nPASS control copy changed_radio\nPASS control copy changed_core\nPASS control copy changed_pages\nPASS control copy changed_native_layout\nPASS control copy changed_native_uid\nPASS control copy wrong_timer\nPASS control copy destination_exists\nPASS control copy wrong_version\nPASS control copy corrupt_bundle"
+    },
+    {
+      "check": "validate_setpoint_click_fix_01.py",
+      "passed": true,
+      "output": "PASS regression: old module fails draft adjustment when its ambient caller is empty\nPASS caller-aware control assertions=83\nPASS process-card assertions=59\nPASS prior display assertions=521\nPASS click-fix copy native08\nPASS click-fix copy unit_headers\nPASS click-fix copy edited_core\nPASS click-fix copy edited_event\nPASS click-fix copy edited_pages\nPASS click-fix copy duplicate_id\nPASS click-fix copy wrong_version\nPASS click-fix copy destination_exists\nPASS click-fix copy corrupt_catalog"
+    },
+    {
+      "check": "native PDW feedback comparison",
+      "passed": true,
+      "output": "Seven feedback MOVs match; all old program networks and nine tables preserved. No live action performed."
+    }
+  ],
+  "notTested": [
+    "Windows GUI/F8/F9",
+    "PLC download or physical outputs",
+    "Live setpoint feedback"
+  ]
+}

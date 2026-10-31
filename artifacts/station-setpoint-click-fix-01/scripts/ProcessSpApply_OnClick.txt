@@ -1,0 +1,3 @@
+begin
+  StationSpApply(GetClientName, GetUserName, GetUserID);
+end.

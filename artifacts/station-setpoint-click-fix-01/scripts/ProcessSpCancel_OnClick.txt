@@ -1,0 +1,3 @@
+begin
+  StationSpCancel(GetClientName, GetUserName, GetUserID);
+end.

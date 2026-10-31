@@ -194,12 +194,21 @@ end.
 '''
 
 
-def run_logic(harness=HARNESS):
-    text=(OUT/'scripts/StationDiagnostics.txt').read_text()
+def run_logic(harness=HARNESS, *, module_source=None, event_sources=None):
+    text=module_source if module_source is not None else (OUT/'scripts/StationDiagnostics.txt').read_text()
     assert text.count('Command.Value := Integer(SpControlTarget);')==1
     assert text.count('Now * 86400.0')==1
     controls=sorted(set(re.findall(r'\b(Process\w+)\.(?:Text|Color|Enabled)\s*:=',text)))
     stub=STUB.replace('__CONTROLS__',','.join(controls))
+    if event_sources is not None:
+        # Each native script has a caller context. A global module must not
+        # assume that its ambient API has the event script's client identity.
+        assert not any(x in text for x in ['GetClientName','GetUserName','GetUserID'])
+        stub=stub.replace('function GetClientName:string;begin Result:=ActorClient;end;',"function GetClientName:string;begin Result:='';end;")
+        stub=stub.replace('function GetUserName:string;begin Result:=ActorName;end;',"function GetUserName:string;begin Result:='';end;")
+        stub=stub.replace('function GetUserID:Int64;begin Result:=ActorID;end;','function GetUserID:Int64;begin Result:=-1;end;')
+        harness=harness.replace('ProcessStubs,ProcessCard;', 'ProcessStubs,ProcessCard,EventHandlers;')
+        harness=harness.replace('StationSpAdjust(', 'ClickAdjust(').replace('StationSpApply','ClickApply').replace('StationSpCancel','ClickCancel')
     text=text.replace('Now * 86400.0','TestSeconds')
     text=text.replace('interface\n','interface\nuses SysUtils,ProcessStubs;\nprocedure TestControlReset;\n',1)
     reset='''procedure TestControlReset;
@@ -214,25 +223,51 @@ end;
     harness=harness.replace('__CREATE_CONTROLS__',creation).replace('__CONTROLS__',creation)
     with tempfile.TemporaryDirectory(prefix='sp-control-logic-') as name:
         p=Path(name);(p/'ProcessStubs.pas').write_text(stub);(p/'ProcessCard.pas').write_text('unit ProcessCard;\n{$mode objfpc}{$H+}{$codepage utf8}\n'+text);(p/'check.pas').write_text(harness)
+        if event_sources is not None:
+            event_unit='''unit EventHandlers;
+{$mode objfpc}{$H+}{$codepage utf8}
+interface
+procedure ClickAdjust(Delta:Integer);procedure ClickApply;procedure ClickCancel;
+implementation
+uses ProcessStubs,ProcessCard;
+function GetClientName:string;begin Result:=ActorClient;end;
+function GetUserName:string;begin Result:=ActorName;end;
+function GetUserID:Int64;begin Result:=ActorID;end;
+'''
+            for object_name, procedure in [('ProcessSpMinus','ClickMinus'),('ProcessSpPlus','ClickPlus'),('ProcessSpApply','ClickApply'),('ProcessSpCancel','ClickCancel')]:
+                body=event_sources[object_name].strip();assert body.endswith('end.')
+                event_unit+='procedure '+procedure+';\n'+body[:-1]+';\n'
+            event_unit+='''procedure ClickAdjust(Delta:Integer);
+begin
+ case Delta of
+  -10:ClickMinus;
+  10:ClickPlus;
+  else StationSpAdjust(Delta,GetClientName,GetUserName,GetUserID);
+ end;
+end;
+end.
+'''
+            (p/'EventHandlers.pas').write_text(event_unit)
         compiler=fpc();cmd=[str(compiler),'-gl','-Cr','-Co','-Fu'+str(p),'-FU'+str(p),'-FE'+str(p)]+['-Fu'+str(x) for x in fpc_units(compiler)]
         r=subprocess.run(cmd+[str(p/'check.pas')],capture_output=True,text=True,timeout=30);assert r.returncode==0,r.stdout+r.stderr
         r=subprocess.run([str(p/'check')],capture_output=True,text=True,timeout=20);assert r.returncode==0,r.stdout+r.stderr
         return r.stdout.strip()
 
 
-def legacy_checks():
+def legacy_checks(runner=None):
+    runner=runner or run_logic
     from validate_process_display_01 import HARNESS as OLD
     from validate_station_freshness_03 import FRESH_HARNESS
     from validate_station_mode_display_01 import MODE_CASES
     from validate_setpoint_display_01 import FEEDBACK_CASES, EXTRA_ITEMS
     legacy=OLD.replace('Fresh;V[0].Raw:=32;StationProcessUpdate;UnknownPressure;','Fresh;V[0].Raw:=33;StationProcessUpdate;UnknownPressure;')
     # Old harnesses intentionally have no command-tag fixture; this must remain read only.
-    reports=[run_logic(legacy)]
+    reports=[runner(legacy)]
     text=FRESH_HARNESS.replace('array[0..11]','array[0..19]').replace('for K:=0 to 11','for K:=0 to 19').replace('for I:=0 to 11','for I:=0 to 19')
     text=text.replace("'PlcAliveCounter');","'PlcAliveCounter',"+EXTRA_ITEMS+');')
     text=text.replace('7624,1792,3,0,0,0);','7624,1792,3,0,0,0,10,1,1,350,0,0,0,0);').replace('var I,N,S,A:Integer;','var I,J,N,S,A:Integer;')
     text=text.replace(" WriteLn('PASS freshness assertions=',N);",MODE_CASES+FEEDBACK_CASES+"\n Check(WriteCount=0,'all prior read-only behavior sends no command');\n WriteLn('PASS prior display assertions=',N);")
-    reports.append(run_logic(text));return reports
+    reports.append(runner(text));return reports
 
 
 def fixture07(folder):

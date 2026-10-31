@@ -1070,12 +1070,12 @@
   "currentSetpointControl": {
     "workingProject": "codex_diag_07",
     "native07Observation": "artifacts/station-setpoint-display-01/native-observation-2026-10-31.json",
-    "preparedProject": "codex_diag_08",
+    "preparedProject": "codex_diag_09",
     "source": "artifacts/station-setpoint-control-01",
     "newCommandTag": "PressureSP_Command, PDU2100 ReadWrite uint16->uint32 no scaling",
     "newNativeF9Observed": false,
     "realOperatorWriteObserved": false,
-    "next": "User reports no selectable SCADA user; native authorization dialog blank. Configure local operator in Editor08 with Station-page management, log in and test plus/cancel only; no Apply test.",
+    "next": "Install09 context fix from working08; F9/save/log in; test only draft +/- and Cancel. In native08 all four links/handlers and module text match; do not claim an ACL diagnosis or real write confirmation.",
     "pageInstallerRepair": {
       "source": {
         "fileId": "file_000000002dcc81f9b3877f6c123f2072",
@@ -1091,6 +1091,7 @@
       ],
       "native08InstallObserved": false
     },
-    "native08UIObservation": "artifacts/station-setpoint-control-01/native-observation-2026-10-31.json"
+    "native08UIObservation": "artifacts/station-setpoint-control-01/native-observation-2026-10-31.json",
+    "native08Files": "source/scada-native-08"
   }
 }
