@@ -15,6 +15,8 @@ from build_process_display_01 import build_pages
 ROOT = Path(__file__).resolve().parents[1]
 BASE = ROOT / 'artifacts/station-setpoint-display-01/scripts/StationDiagnostics.txt'
 OUT = ROOT / 'artifacts/station-setpoint-control-01'
+NATIVE_PAGES = ROOT / 'source/scada-native-07/Pages.spg'
+NATIVE_PAGES_SHA256 = '33d794bc074ec17957e1c696ebce0b133fcfb75c40d5d0dc3504852764971f87'
 EVENTS = [
     ('ProcessSpMinus', 'StationSpAdjust(-10);'),
     ('ProcessSpPlus', 'StationSpAdjust(10);'),
@@ -55,9 +57,14 @@ procedure StationProcessUpdate;''')
     return text
 
 
-def page_packet():
-    before, objects = build_pages()
+def page_packet(source_pages=None):
+    canonical, objects = build_pages()
+    before = canonical if source_pages is None else source_pages
     data = bytearray(before)
+
+    # Only the two hash-pinned, independently reviewed page files are accepted.
+    # Keep each source's existing UIDs and page properties in its own output.
+    assert len(before) == len(canonical)
 
     def locate(name):
         raw = name.encode()
@@ -117,16 +124,27 @@ def main():
     for name, call in EVENTS:
         (OUT/'scripts'/(name+'_OnClick.txt')).write_text('begin\n  '+call+'\nend.\n')
     old_pages, pages, objects = page_packet()
+    native_before = NATIVE_PAGES.read_bytes()
+    assert sha(native_before) == NATIVE_PAGES_SHA256, 'Reviewed native07 pages changed'
+    native_old, native_pages, _ = page_packet(native_before)
     (OUT/'Pages.spg').write_bytes(pages)
+    (OUT/'Pages-native07.spg').write_bytes(native_pages)
+    variants = [
+        dict(source='generated07', sourceSHA256=sha(old_pages), entry='Pages.spg', pagesSHA256=sha(pages)),
+        dict(source='user-native07', sourceSHA256=sha(native_old), entry='Pages-native07.spg', pagesSHA256=sha(native_pages)),
+    ]
     bundle = io.BytesIO()
     with zipfile.ZipFile(bundle,'w',zipfile.ZIP_DEFLATED) as z:
-        for name, body in [('Pages.spg',pages),('Module.txt',code.encode())] + [
+        for name, body in [('Pages.spg',pages),('Pages-native07.spg',native_pages),('Module.txt',code.encode())] + [
             (name+'_OnClick.txt',(OUT/'scripts'/(name+'_OnClick.txt')).read_bytes()) for name,_ in EVENTS]:
             item=zipfile.ZipInfo(name,(2026,10,31,0,0,0));item.compress_type=zipfile.ZIP_DEFLATED;z.writestr(item,body)
     raw_bundle=bundle.getvalue();(OUT/'bundle.zip').write_bytes(raw_bundle)
     template=(ROOT/'tools/setpoint_control_install_template.ps1').read_text()
     installer=template.replace('__BUNDLE__',base64.b64encode(raw_bundle).decode()).replace('__BUNDLE_SHA__',sha(raw_bundle))
-    installer=installer.replace('__OLD_CORE_SHA__',sha(BASE.read_text().strip().encode())).replace('__OLD_PAGES_SHA__',sha(old_pages)).replace('__PAGES_SHA__',sha(pages)).replace('__MODULE_SHA__',sha(code.encode()))
+    page_variants = '@{\n' + '\n'.join(
+        "        '"+v['sourceSHA256']+"'=@{Entry='"+v['entry']+"';SHA256='"+v['pagesSHA256']+"'}"
+        for v in variants) + '\n    }'
+    installer=installer.replace('__OLD_CORE_SHA__',sha(BASE.read_text().strip().encode())).replace('__PAGE_VARIANTS__',page_variants).replace('__MODULE_SHA__',sha(code.encode()))
     (OUT/'Install-Setpoint-Control-01.ps1').write_text(installer)
     paste=bootstrap(installer).replace('$radio','$control');(OUT/'Paste-Setpoint-Control-01.ps1').write_text(paste)
     profile=[dict(name='PressureSP_Command',pduAddress=2100,region='HOLDING_REGISTERS',deviceType='uint16',serverType='uint32',access='ReadWrite',scalingEnabled=False,SCADADecimalOffset=0)]
@@ -134,6 +152,7 @@ def main():
     report=dict(date='2026-10-31',sourceProject='codex_diag_07',targetProject='codex_diag_08',
                 oldCoreSHA256=sha(BASE.read_text().strip().encode()),moduleSHA256=sha(code.encode()),
                 sourcePagesSHA256=sha(old_pages),pagesSHA256=sha(pages),objects=objects,
+                reviewedSourceVariants=variants,
                 installerSHA256=sha(installer.encode()),inlineCharacters=len(paste),
                 commandTag=profile[0],nativeNewF9Observed=False,nativeOperatorWriteObserved=False,
                 sourcePLCOrHMIChanged=False,automaticWriteOnStartupOrReconnect=False,

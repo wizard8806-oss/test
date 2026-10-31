@@ -4,11 +4,12 @@ import json
 import os
 import re
 import subprocess
+import struct
 import tempfile
 from pathlib import Path
 
 from _runtime import fpc, fpc_units, PWSH
-from build_setpoint_control_01 import ROOT, BASE, OUT, EVENTS
+from build_setpoint_control_01 import ROOT, BASE, OUT, EVENTS, NATIVE_PAGES, page_packet
 from validate_setpoint_display_01 import fixture06
 from validate_process_display_01 import serialize_scripts
 from validate_radio_install_01 import parse_scripts, hashes
@@ -239,17 +240,47 @@ def fixture07(folder):
     (folder/'Scripts/Scripts.ssc').write_bytes(serialize_scripts(records));return records
 
 
+def page_preservation():
+    # Independent file-slice checks: preserve all old records, apart from the
+    # intentionally moved footer and the first page's object count.
+    for source in [None, NATIVE_PAGES.read_bytes()]:
+        before, after, _ = page_packet(source)
+        first = before.index(b'\x04\x00\x0c\x00\x00\x00ProcessTitle')
+        assert struct.unpack_from('<I', before, first-4)[0] == 20
+        assert struct.unpack_from('<I', after, first-4)[0] == 26
+        assert before[:first-4] == after[:first-4]
+        name = b'ProcessMainScope'
+        marker = struct.pack('<HI',4,len(name))+name
+        footer = before.index(marker) + len(marker)
+        caption_size = struct.unpack_from('<I', before, footer+141)[0]
+        page_end = footer+141+4+caption_size*2+9
+        expected = bytearray(before[first:page_end])
+        struct.pack_into('<4f', expected, footer-first+8, 32,850,1376,34)
+        struct.pack_into('<f', expected, footer-first+32, .66)
+        assert bytes(expected) == after[first:page_end]
+        # Whole Diagnostics page remains byte-identical, including native UIDs.
+        second = b'\x0f\x00\x00\x00PageDiagnostics'
+        second_offset = after.index(second, page_end)
+        assert before[page_end:] == after[second_offset:]
+    print('PASS page preservation: both variants, all prior objects and diagnostic page')
+
+
 def copies():
     results=[];installer=(OUT/'Install-Setpoint-Control-01.ps1').read_text()
-    for case in ['normal','unit_header','changed_radio','changed_core','changed_pages','wrong_timer','destination_exists','wrong_version','corrupt_bundle']:
+    for case in ['normal','native_saved','unit_header','changed_radio','changed_core','changed_pages','changed_native_layout','changed_native_uid','wrong_timer','destination_exists','wrong_version','corrupt_bundle']:
         with tempfile.TemporaryDirectory(prefix='sp-control-copy-') as name:
             p=Path(name);src=p/'Current source';dst=p/'Desktop/codex_diag_08';dst.parent.mkdir();rows=fixture07(src)
+            native = case in ['native_saved','changed_native_layout','changed_native_uid']
+            if native:(src/'Pages.spg').write_bytes(NATIVE_PAGES.read_bytes())
             if case=='unit_header':rows=[(uid,n,meta[:9]+bytes.fromhex('070000000c000000'),['unit '+n+';']+lines if n!='StationDiagnosticsTimer' else lines) for uid,n,meta,lines in rows]
             if case=='changed_radio':r=rows[1];rows[1]=(*r[:3],[s.replace('RadioPublishedUnix','RadioPublishedSeconds') for s in r[3]])
             if case=='changed_core':r=rows[0];rows[0]=(*r[:3],r[3]+['// keep user modification'])
             if case=='wrong_timer':r=rows[2];rows[2]=(*r[:3],['begin','end.'])
             (src/'Scripts/Scripts.ssc').write_bytes(serialize_scripts(rows))
             if case=='changed_pages':(src/'Pages.spg').write_bytes((src/'Pages.spg').read_bytes()+b'changed')
+            if case in ['changed_native_layout','changed_native_uid']:
+                b=bytearray((src/'Pages.spg').read_bytes());b[217 if case=='changed_native_layout' else 316]^=1
+                (src/'Pages.spg').write_bytes(b)
             if case=='wrong_version':b=bytearray((src/'Project.spr').read_bytes());b[10]=7;(src/'Project.spr').write_bytes(b)
             if case=='destination_exists':dst.mkdir();(dst/'keep.txt').write_text('preserve existing project')
             before=hashes(src);old_dest=hashes(dst) if dst.exists() else None
@@ -259,13 +290,14 @@ def copies():
             runner=p/'run.ps1';runner.write_text(code);env=dict(os.environ,XDG_CACHE_HOME=str(p/'cache'),XDG_CONFIG_HOME=str(p/'config'),XDG_DATA_HOME=str(p/'data'))
             r=subprocess.run([PWSH,'-NoLogo','-NoProfile','-NonInteractive','-File',str(runner)],env=env,capture_output=True,text=True,timeout=25);assert r.returncode==0 and not r.stderr,(case,r.stdout,r.stderr)
             assert hashes(src)==before
-            if case in ['normal','unit_header','changed_radio']:
+            if case in ['normal','native_saved','unit_header','changed_radio']:
                 assert 'SAVED:' in r.stdout and 'ERROR:' not in r.stdout,(case,r.stdout)
                 new=parse_scripts((dst/'Scripts/Scripts.ssc').read_bytes());assert len(new)==7
                 assert new[0][3]==(OUT/'scripts/StationDiagnostics.txt').read_text().splitlines();assert new[1:3]==rows[1:]
                 for index,(obj,_) in enumerate(EVENTS):
                     row=new[3+index];assert row[0]==3+index and row[1]==obj+'_OnClick' and row[2][:2]==bytes([1,0]);assert row[3]==(OUT/'scripts'/(obj+'_OnClick.txt')).read_text().splitlines()
-                assert (dst/'Pages.spg').read_bytes()==(OUT/'Pages.spg').read_bytes()
+                expected_pages=OUT/('Pages-native07.spg' if native else 'Pages.spg')
+                assert (dst/'Pages.spg').read_bytes()==expected_pages.read_bytes()
                 for rel,digest in before.items():
                     if rel in ['Pages.spg','Scripts/Scripts.ssc'] or rel.startswith('Scripts/Compiled/'):continue
                     assert hashes(dst)[rel]==digest,(case,rel)
@@ -279,6 +311,7 @@ def copies():
 
 
 def main():
+    page_preservation()
     logic=run_logic();print(logic,flush=True);legacy=legacy_checks()
     for result in legacy:print(result,flush=True)
     cases=copies()

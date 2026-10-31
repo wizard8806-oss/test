@@ -11,6 +11,10 @@
       "passed": true
     },
     {
+      "case": "native_saved",
+      "passed": true
+    },
+    {
       "case": "unit_header",
       "passed": true
     },
@@ -24,6 +28,14 @@
     },
     {
       "case": "changed_pages",
+      "passed": true
+    },
+    {
+      "case": "changed_native_layout",
+      "passed": true
+    },
+    {
+      "case": "changed_native_uid",
       "passed": true
     },
     {

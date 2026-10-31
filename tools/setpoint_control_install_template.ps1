@@ -36,7 +36,9 @@ try{
     foreach($required in @('Variables.svr','Servers.ssr','Pages.spg')){
         if(-not (Test-Path -LiteralPath (Join-Path $processSource $required) -PathType Leaf)){throw ('Missing project file: '+$required)}
     }
-    if((ProcessHash ([IO.File]::ReadAllBytes((Join-Path $processSource 'Pages.spg')))) -ne '__OLD_PAGES_SHA__'){throw 'Station pages differ from codex_diag_07; source preserved'}
+    $pageVariants=__PAGE_VARIANTS__
+    $pageVariant=$pageVariants[(ProcessHash ([IO.File]::ReadAllBytes((Join-Path $processSource 'Pages.spg'))))]
+    if($null -eq $pageVariant){throw 'Station pages differ from reviewed codex_diag_07 versions; source preserved'}
     [byte[]]$old=[IO.File]::ReadAllBytes((Join-Path $processSource 'Scripts\Scripts.ssc'))
     $processInput=[IO.MemoryStream]::new($old);$reader=[IO.BinaryReader]::new($processInput)
     try{
@@ -81,10 +83,10 @@ try{
             finally{$controlEntryStream.Dispose();$plain.Dispose()}
         }
     }finally{$zip.Dispose();$mem.Dispose()}
-    if($items.Count -ne 6){throw 'Expected six control resources'}
-    [byte[]]$moduleBytes=$items['Module.txt'];[byte[]]$newPages=$items['Pages.spg']
+    if($items.Count -ne 7){throw 'Expected seven control resources'}
+    [byte[]]$moduleBytes=$items['Module.txt'];[byte[]]$newPages=$items[$pageVariant.Entry]
     if($moduleBytes.Length -gt 65536 -or (ProcessHash $moduleBytes) -ne '__MODULE_SHA__'){throw 'Module checksum mismatch'}
-    if((ProcessHash $newPages) -ne '__PAGES_SHA__'){throw 'Page checksum mismatch'}
+    if((ProcessHash $newPages) -ne $pageVariant.SHA256){throw 'Page checksum mismatch'}
     $moduleText=[Text.Encoding]::UTF8.GetString($moduleBytes).TrimEnd([char[]]"`r`n")
     $core.Lines=$moduleText.Split([string[]]@("`r`n","`n"),[StringSplitOptions]::None)
     [Array]::Clear($core.Meta,9,8)
@@ -133,7 +135,7 @@ try{
         if((ProcessHash ([IO.File]::ReadAllBytes((Join-Path $processSource $same)))) -ne (ProcessHash ([IO.File]::ReadAllBytes((Join-Path $processStage $same))))){throw ('Copied file verification failed: '+$same)}
     }
     if((ProcessHash ([IO.File]::ReadAllBytes((Join-Path $processStage 'Scripts\Scripts.ssc')))) -ne (ProcessHash $newScripts)){throw 'Script verification failed'}
-    if((ProcessHash ([IO.File]::ReadAllBytes((Join-Path $processStage 'Pages.spg')))) -ne '__PAGES_SHA__'){throw 'Copied page verification failed'}
+    if((ProcessHash ([IO.File]::ReadAllBytes((Join-Path $processStage 'Pages.spg')))) -ne $pageVariant.SHA256){throw 'Copied page verification failed'}
     [IO.Directory]::Move($processStage,$processTarget);$processStage=$null
     Write-Host ('SAVED: '+$processTarget) -ForegroundColor Green
     Write-Host 'Open this copy in Editor. Import PressureSP_Command (ReadWrite R2100, no scaling), F9, save. Buttons write only after Apply from a logged-in SCADA client.'

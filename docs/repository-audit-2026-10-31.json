@@ -548,7 +548,7 @@
       "sha256": "c4affce4911cd763503e10ad603fa4772e2380ca08e11edbab0cd9a9aaeafea6",
       "decision": "keep",
       "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence; current HMI source/provenance added after user supplied the missing SKTool project",
-      "published_sha256": "ad4bb0bd50a604a26763070780ff2a53c735e0677732fe8ef96b229b27ea0da6"
+      "published_sha256": "cced72ab3a22b08f41165f41c88e7882b600290175baf69fe827d5a6e474dfbd"
     },
     {
       "path": "docs/deferred-work.md",

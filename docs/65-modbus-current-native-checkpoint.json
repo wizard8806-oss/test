@@ -1075,6 +1075,21 @@
     "newCommandTag": "PressureSP_Command, PDU2100 ReadWrite uint16->uint32 no scaling",
     "newNativeF9Observed": false,
     "realOperatorWriteObserved": false,
-    "next": "Install preserved08 copy of07, import command tag, F9/save/native UI observation. No automatic setpoint commands."
+    "next": "Install preserved08 copy of07, import command tag, F9/save/native UI observation. No automatic setpoint commands.",
+    "pageInstallerRepair": {
+      "source": {
+        "fileId": "file_000000002dcc81f9b3877f6c123f2072",
+        "path": "source/scada-native-07/Pages.spg",
+        "bytes": 8417,
+        "sha256": "33d794bc074ec17957e1c696ebce0b133fcfb75c40d5d0dc3504852764971f87"
+      },
+      "review": "artifacts/station-setpoint-control-01/page-source-review-2026-10-31.json",
+      "cause": "Native-save UID renumbering and one header UInt32; no text or geometry changes",
+      "acceptedExactSourceHashes": [
+        "4dfe208d4e2fcba253d64344f408d146dc51b87cfc5570fd0e03c652037e0f87",
+        "33d794bc074ec17957e1c696ebce0b133fcfb75c40d5d0dc3504852764971f87"
+      ],
+      "native08InstallObserved": false
+    }
   }
 }

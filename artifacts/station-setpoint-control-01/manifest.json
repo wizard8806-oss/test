@@ -508,8 +508,22 @@
       "onClickScriptID": 6
     }
   ],
-  "installerSHA256": "19b65dbee45a5339851a5a33c21ac43dac7e833981919bd0c323f9b1e2eb234a",
-  "inlineCharacters": 22416,
+  "reviewedSourceVariants": [
+    {
+      "source": "generated07",
+      "sourceSHA256": "4dfe208d4e2fcba253d64344f408d146dc51b87cfc5570fd0e03c652037e0f87",
+      "entry": "Pages.spg",
+      "pagesSHA256": "810294e8e77b88ed0c50db2df981657cf698d68c04dbd0f1d59574e77815ccff"
+    },
+    {
+      "source": "user-native07",
+      "sourceSHA256": "33d794bc074ec17957e1c696ebce0b133fcfb75c40d5d0dc3504852764971f87",
+      "entry": "Pages-native07.spg",
+      "pagesSHA256": "09b9708cb2b1b1ec0867d6052babb9e3cae953f26b9f61ed37c928c5864ec210"
+    }
+  ],
+  "installerSHA256": "dd7aaaeae8eb8ad8109499c712cf1edbfec51bbe4c79f6b290ab2e9cf6ddf0d4",
+  "inlineCharacters": 25566,
   "commandTag": {
     "name": "PressureSP_Command",
     "pduAddress": 2100,

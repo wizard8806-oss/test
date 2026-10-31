@@ -1,0 +1,246 @@
+{
+  "date": "2026-10-31",
+  "source": {
+    "fileId": "file_000000002dcc81f9b3877f6c123f2072",
+    "path": "source/scada-native-07/Pages.spg",
+    "bytes": 8417,
+    "sha256": "33d794bc074ec17957e1c696ebce0b133fcfb75c40d5d0dc3504852764971f87"
+  },
+  "rejectedInstallerObserved": true,
+  "generated07SHA256": "4dfe208d4e2fcba253d64344f408d146dc51b87cfc5570fd0e03c652037e0f87",
+  "differingBytes": 73,
+  "UIDChanges": [
+    {
+      "offset": 53,
+      "generatedUID": 64000,
+      "nativeUID": 9232
+    },
+    {
+      "offset": 154,
+      "generatedUID": 64004,
+      "nativeUID": 9236
+    },
+    {
+      "offset": 316,
+      "generatedUID": 64100,
+      "nativeUID": 9240
+    },
+    {
+      "offset": 537,
+      "generatedUID": 64104,
+      "nativeUID": 9244
+    },
+    {
+      "offset": 756,
+      "generatedUID": 64108,
+      "nativeUID": 9248
+    },
+    {
+      "offset": 1056,
+      "generatedUID": 64112,
+      "nativeUID": 9252
+    },
+    {
+      "offset": 1252,
+      "generatedUID": 64116,
+      "nativeUID": 9256
+    },
+    {
+      "offset": 1459,
+      "generatedUID": 64120,
+      "nativeUID": 9260
+    },
+    {
+      "offset": 1654,
+      "generatedUID": 64124,
+      "nativeUID": 9264
+    },
+    {
+      "offset": 1853,
+      "generatedUID": 64128,
+      "nativeUID": 9268
+    },
+    {
+      "offset": 2118,
+      "generatedUID": 64132,
+      "nativeUID": 9272
+    },
+    {
+      "offset": 2373,
+      "generatedUID": 64136,
+      "nativeUID": 9276
+    },
+    {
+      "offset": 2588,
+      "generatedUID": 64140,
+      "nativeUID": 9280
+    },
+    {
+      "offset": 2805,
+      "generatedUID": 64144,
+      "nativeUID": 9284
+    },
+    {
+      "offset": 3006,
+      "generatedUID": 64148,
+      "nativeUID": 9288
+    },
+    {
+      "offset": 3200,
+      "generatedUID": 64152,
+      "nativeUID": 9292
+    },
+    {
+      "offset": 3394,
+      "generatedUID": 64156,
+      "nativeUID": 9296
+    },
+    {
+      "offset": 3590,
+      "generatedUID": 64160,
+      "nativeUID": 9300
+    },
+    {
+      "offset": 3794,
+      "generatedUID": 64164,
+      "nativeUID": 9304
+    },
+    {
+      "offset": 4026,
+      "generatedUID": 64168,
+      "nativeUID": 9308
+    },
+    {
+      "offset": 4286,
+      "generatedUID": 64172,
+      "nativeUID": 9312
+    },
+    {
+      "offset": 4548,
+      "generatedUID": 64176,
+      "nativeUID": 9316
+    },
+    {
+      "offset": 4856,
+      "generatedUID": 64008,
+      "nativeUID": 9320
+    },
+    {
+      "offset": 4969,
+      "generatedUID": 64012,
+      "nativeUID": 9324
+    },
+    {
+      "offset": 5135,
+      "generatedUID": 64180,
+      "nativeUID": 9328
+    },
+    {
+      "offset": 5343,
+      "generatedUID": 64184,
+      "nativeUID": 9332
+    },
+    {
+      "offset": 5573,
+      "generatedUID": 64188,
+      "nativeUID": 9336
+    },
+    {
+      "offset": 5814,
+      "generatedUID": 64192,
+      "nativeUID": 9340
+    },
+    {
+      "offset": 6058,
+      "generatedUID": 64196,
+      "nativeUID": 9344
+    },
+    {
+      "offset": 6355,
+      "generatedUID": 64200,
+      "nativeUID": 9348
+    },
+    {
+      "offset": 6593,
+      "generatedUID": 64204,
+      "nativeUID": 9352
+    },
+    {
+      "offset": 6943,
+      "generatedUID": 64208,
+      "nativeUID": 9356
+    },
+    {
+      "offset": 7194,
+      "generatedUID": 64212,
+      "nativeUID": 9360
+    },
+    {
+      "offset": 7497,
+      "generatedUID": 64216,
+      "nativeUID": 9364
+    },
+    {
+      "offset": 7740,
+      "generatedUID": 64220,
+      "nativeUID": 9368
+    },
+    {
+      "offset": 8178,
+      "generatedUID": 64224,
+      "nativeUID": 9372
+    }
+  ],
+  "otherDifferences": [
+    {
+      "offset": 4884,
+      "size": 4,
+      "generated": 0,
+      "native": 1,
+      "interpretation": "Service UInt32 in the second page header; copied unchanged, exact UI meaning not assumed"
+    }
+  ],
+  "allOtherBytesIdentical": true,
+  "editorSHA256": "c90b3e893d9918c3e0dd95aedb7d0b6744453dc96003244d51dd8d2282078b57",
+  "nativeReaderSourceObjects": 32,
+  "outputs": [
+    {
+      "variant": "generated07",
+      "sourceSHA256": "4dfe208d4e2fcba253d64344f408d146dc51b87cfc5570fd0e03c652037e0f87",
+      "pagesSHA256": "810294e8e77b88ed0c50db2df981657cf698d68c04dbd0f1d59574e77815ccff",
+      "objects": 38,
+      "pageIDs": [
+        0,
+        1
+      ],
+      "clickLinks": {
+        "ProcessSpTitle": -1,
+        "ProcessSpMinus": 3,
+        "ProcessSpDraft": -1,
+        "ProcessSpPlus": 4,
+        "ProcessSpApply": 5,
+        "ProcessSpCancel": 6
+      }
+    },
+    {
+      "variant": "native07",
+      "sourceSHA256": "33d794bc074ec17957e1c696ebce0b133fcfb75c40d5d0dc3504852764971f87",
+      "pagesSHA256": "09b9708cb2b1b1ec0867d6052babb9e3cae953f26b9f61ed37c928c5864ec210",
+      "objects": 38,
+      "pageIDs": [
+        0,
+        1
+      ],
+      "clickLinks": {
+        "ProcessSpTitle": -1,
+        "ProcessSpMinus": 3,
+        "ProcessSpDraft": -1,
+        "ProcessSpPlus": 4,
+        "ProcessSpApply": 5,
+        "ProcessSpCancel": 6
+      }
+    }
+  ],
+  "nativeWindowsF9Observed": false,
+  "realFieldWrites": false
+}
