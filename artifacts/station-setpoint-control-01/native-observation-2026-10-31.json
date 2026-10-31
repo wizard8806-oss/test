@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-31",
+  "clientClockLocal": "17:14:37",
+  "source": "User screenshot after repaired installer and reply: на + - реакции нет; Совсем ничего",
+  "new08ControlsVisible": true,
+  "new08ModuleExecutionObserved": true,
+  "explicitF9CommandObserved": false,
+  "values": {
+    "stationMode": "СТОП",
+    "pressureValidity": "Нет достоверных данных",
+    "plcSetpointBar": 3.5,
+    "draftDisplayedBar": 3.5,
+    "frequencyHz": 0.0,
+    "currentA": 0.0,
+    "nativeFaultCode": 0,
+    "setpointDriveConfirmation": "Подтверждение уставки ведущим ПЧ не получено",
+    "controlFooter": "Выберите новую уставку кнопками «-» и «+», затем «Применить». Данные:"
+  },
+  "clickResult": "User reports no change and no message on plus/minus",
+  "operatorWriteObserved": false,
+  "authOrRightsStatus": "User reports no selectable user; screenshot17:19 shows authorization dialog with blank user field. No active SCADA login established; current handler requires GetUserID>=0. Exact project account/ACL configuration has not been exported or inspected.",
+  "vendorEvidence": {
+    "version": "Simple-Scada2.6.15",
+    "manualTopics": [
+      "new-user.html",
+      "editor-users.html",
+      "general-properties.html"
+    ],
+    "readOnlyRule": "Read-only users/pages suppress OnClick, OnDblClick, OnMouseUp and OnCellClick before script execution",
+    "preparedBindingCheck": "Generated Text controls have OnClick script IDs3,4,5,6 at common offset75; universal-event metadata matches official Demo. This does not prove bindings survived native save or that runtime dispatched the event."
+  },
+  "nextStep": "In Editor08 inspect Users/Edit. Create a local operator if missing, default ReadOnly with Station page ReadWrite, save/restart this copy, log in locally and test draft plus/cancel only. Do not share passwords or grant management to everyone."
+}
