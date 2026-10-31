@@ -1068,14 +1068,14 @@
     "nextStep": "Install preserved08 copy of07, import command tag, F9/save/native UI observation. No automatic setpoint commands."
   },
   "currentSetpointControl": {
-    "workingProject": "codex_diag_07",
+    "workingProject": "codex_diag_09",
     "native07Observation": "artifacts/station-setpoint-display-01/native-observation-2026-10-31.json",
     "preparedProject": "codex_diag_09",
     "source": "artifacts/station-setpoint-control-01",
     "newCommandTag": "PressureSP_Command, PDU2100 ReadWrite uint16->uint32 no scaling",
     "newNativeF9Observed": false,
     "realOperatorWriteObserved": false,
-    "next": "Install09 context fix from working08; F9/save/log in; test only draft +/- and Cancel. In native08 all four links/handlers and module text match; do not claim an ACL diagnosis or real write confirmation.",
+    "next": "09 click executes but Client parameter is empty. Inspect Options / Simple-Client / Имя этого клиента. If empty, set a unique workstation name, save/restart Client09 only, test draft plus/Cancel. Value of setting not yet observed. Do not repeat installer/tag setup, assume an ACL cause, substitute an identity, remove the guard, or send Apply.",
     "pageInstallerRepair": {
       "source": {
         "fileId": "file_000000002dcc81f9b3877f6c123f2072",
@@ -1093,6 +1093,9 @@
     },
     "native08UIObservation": "artifacts/station-setpoint-control-01/native-observation-2026-10-31.json",
     "native08Files": "source/scada-native-08",
-    "installer09Retry": "First09 installation failed before copying: Windows PowerShell cannot Select-Object -ExpandProperty Id from these hashtable records. Replaced projection with direct dictionary indexing and explicit uniqueness maps; retry corrected09 package from08. No native09 or PLC write observed."
+    "installer09Retry": "Installer repaired and delivered in three short history-recovery parts. Screenshot18:35 shows09-specific persistent refusal on click; exact project directory/F9 not explicitly shown. No real write observed.",
+    "native09UIObservation": "artifacts/station-setpoint-click-fix-01/native-observation-2026-10-31.json",
+    "native09ClickDispatchObserved": true,
+    "native09CallerClientEmpty": true
   }
 }

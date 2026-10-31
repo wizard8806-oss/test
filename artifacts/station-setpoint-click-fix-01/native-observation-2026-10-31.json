@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-31",
+  "clientClockLocal": "18:35:10",
+  "source": "User screenshot and report: при нажатии-подсвечивается сообщение . значение не меняется",
+  "module09ExecutionObserved": true,
+  "actualProjectFolderShown": false,
+  "explicitF9CommandObserved": false,
+  "values": {
+    "stationMode": "СТОП",
+    "pressureValidity": "Нет достоверных данных",
+    "plcSetpointBar": 3.5,
+    "draftDisplayedBar": 3.5,
+    "frequencyHz": 0.0,
+    "currentA": 0.0,
+    "nativeFaultCode": 0,
+    "controlFooter": "Не удалось определить клиент SCADA для этого нажатия."
+  },
+  "clickDispatchObserved": true,
+  "callerClientParameterEmpty": true,
+  "draftChangeObserved": false,
+  "operatorWriteObserved": false,
+  "interpretation": "The09 handler/module path executes and blocks on empty Client. Moving GetClientName to the event did not by itself resolve this. No evidence to remove the client/user guard or claim an ACL failure.",
+  "vendorEvidence": {
+    "howfindclientname.html": "Desktop client name is configured in Options.exe / Simple-Client. Web client names are generated automatically.",
+    "settings-simple-client.html": "Имя этого клиента, under Параметры подключения к серверу.",
+    "getclientname.html": "The function is documented for user-triggered events; an empty result also occurs outside client events."
+  },
+  "clientNameSettingObserved": false,
+  "questionPending": "Is Options / Simple-Client / Имя этого клиента empty or filled? Do not request passwords or full configuration dumps.",
+  "nextStep": "Inspect the existing client name first. If empty, set a unique workstation name, save and restart only Client09, then test plus/Cancel. Keep the actual event identity guard and do not issue Apply. If already named or still empty after reconnect, investigate event context with direct diagnostics rather than guessing an identity."
+}
