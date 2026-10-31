@@ -1092,6 +1092,7 @@
       "native08InstallObserved": false
     },
     "native08UIObservation": "artifacts/station-setpoint-control-01/native-observation-2026-10-31.json",
-    "native08Files": "source/scada-native-08"
+    "native08Files": "source/scada-native-08",
+    "installer09Retry": "First09 installation failed before copying: Windows PowerShell cannot Select-Object -ExpandProperty Id from these hashtable records. Replaced projection with direct dictionary indexing and explicit uniqueness maps; retry corrected09 package from08. No native09 or PLC write observed."
   }
 }

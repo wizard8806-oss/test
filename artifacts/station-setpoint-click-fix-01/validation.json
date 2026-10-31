@@ -11,6 +11,10 @@
       "passed": true
     },
     {
+      "case": "legacy_dictionary_selection",
+      "passed": true
+    },
+    {
       "case": "unit_headers",
       "passed": true
     },
@@ -31,6 +35,14 @@
       "passed": true
     },
     {
+      "case": "duplicate_name",
+      "passed": true
+    },
+    {
+      "case": "legacy_duplicate_id",
+      "passed": true
+    },
+    {
       "case": "wrong_version",
       "passed": true
     },
@@ -44,6 +56,8 @@
     }
   ],
   "oldAmbientContextRegressionDetected": true,
+  "legacyDictionarySelectionRegressionDetected": true,
+  "legacyCompatibilityScope": "Narrow Select-Object dictionary projection seam simulated under PowerShell7, not an actual Windows PowerShell5.1 execution",
   "contextTest": "Actual four event sources compiled as a separate unit; module ambient identity empty/-1, callback identity supplied by event API seam",
   "noHardwareConnections": true,
   "native09WindowsObserved": false,

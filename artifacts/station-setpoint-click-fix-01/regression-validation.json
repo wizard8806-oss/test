@@ -2,7 +2,7 @@
   "date": "2026-10-31",
   "passed": true,
   "isolated": true,
-  "shippedFiles": 220,
+  "shippedFiles": 222,
   "resourceHashesVerified": 18,
   "sourceFilesUnchanged": true,
   "vendorPageLoader": false,
@@ -67,7 +67,7 @@
     {
       "check": "build_setpoint_click_fix_01.py",
       "passed": true,
-      "output": "Built context fix: 6968 inline characters; 42818 module bytes"
+      "output": "Built context fix: 7049 inline characters; 42818 module bytes"
     },
     {
       "check": "PowerShell syntax",
@@ -152,7 +152,7 @@
     {
       "check": "validate_setpoint_click_fix_01.py",
       "passed": true,
-      "output": "PASS regression: old module fails draft adjustment when its ambient caller is empty\nPASS caller-aware control assertions=83\nPASS process-card assertions=59\nPASS prior display assertions=521\nPASS click-fix copy native08\nPASS click-fix copy unit_headers\nPASS click-fix copy edited_core\nPASS click-fix copy edited_event\nPASS click-fix copy edited_pages\nPASS click-fix copy duplicate_id\nPASS click-fix copy wrong_version\nPASS click-fix copy destination_exists\nPASS click-fix copy corrupt_catalog"
+      "output": "PASS legacy dictionary selection: old idiom rejected; installer uses explicit keys\nPASS regression: old module fails draft adjustment when its ambient caller is empty\nPASS caller-aware control assertions=83\nPASS process-card assertions=59\nPASS prior display assertions=521\nPASS click-fix copy native08\nPASS click-fix copy legacy_dictionary_selection\nPASS click-fix copy unit_headers\nPASS click-fix copy edited_core\nPASS click-fix copy edited_event\nPASS click-fix copy edited_pages\nPASS click-fix copy duplicate_id\nPASS click-fix copy duplicate_name\nPASS click-fix copy legacy_duplicate_id\nPASS click-fix copy wrong_version\nPASS click-fix copy destination_exists\nPASS click-fix copy corrupt_catalog"
     },
     {
       "check": "native PDW feedback comparison",

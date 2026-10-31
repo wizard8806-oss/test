@@ -37,7 +37,12 @@ try{
   }
   if($stream.Position -ne $stream.Length){throw 'Unexpected trailing script data'}
  }finally{$r.Dispose();$stream.Dispose()}
- if(@($rows|Select-Object -ExpandProperty Id -Unique).Count -ne 7 -or @($rows|Select-Object -ExpandProperty Name -Unique).Count -ne 7){throw 'Duplicate script names or IDs'}
+ $clickSeenIDs=@{};$clickSeenNames=@{}
+ foreach($row in $rows){
+  $clickIDKey=[string]$row['Id'];$clickNameKey=[string]$row['Name']
+  if($clickSeenIDs.ContainsKey($clickIDKey) -or $clickSeenNames.ContainsKey($clickNameKey)){throw 'Duplicate script names or IDs'}
+  $clickSeenIDs[$clickIDKey]=$true;$clickSeenNames[$clickNameKey]=$true
+ }
  $core=@($rows|Where-Object {$_.Name -eq 'StationDiagnostics'});if($core.Count -ne 1 -or $core[0].Id -ne 0 -or $core[0].Meta[0] -ne 10){throw 'Core module not found'};$core=$core[0]
  $body=ClickBody $core;if((ClickHash ([Text.Encoding]::UTF8.GetBytes($body))) -ne '__OLD_CORE_SHA__'){throw 'Core differs from reviewed08; source preserved'}
  [byte[]]$catalogBytes=[Convert]::FromBase64String($clickCatalog);if((ClickHash $catalogBytes) -ne '__CATALOG_SHA__'){throw 'Patch checksum mismatch'}

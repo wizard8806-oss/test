@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-31",
+  "clientClockLocal": "17:51",
+  "source": "User screenshot of Windows PowerShell after entering the native08 project folder",
+  "runtime": "Windows PowerShell; exact version not separately queried",
+  "installerSHA256": "c0dd106e3fd82b338f561f9ab5322297a5b2b2d417118c98d3140c0d9239b3dc",
+  "error": "Не удается найти свойство Id.",
+  "failingOperation": "Select-Object -ExpandProperty Id on records represented by hashtables",
+  "interpretation": "The installer depended on dictionary-key projection supported by its PowerShell7 tests but unavailable in the user's runtime",
+  "sourcePreserved": true,
+  "destinationCreated": false,
+  "preservationEvidence": "Known installer control flow: this check precedes stage-directory creation and all file writes",
+  "fix": "Read Id and Name through dictionary indexers, detect duplicates with explicit hashtables",
+  "validationScope": "Exact native08 fixture and a narrow simulated legacy Select-Object boundary under PowerShell7; not an actual Windows PowerShell5.1 run",
+  "native09Observed": false,
+  "actualPLCWriteObserved": false
+}

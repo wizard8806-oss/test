@@ -36,6 +36,35 @@ EXTRA = '''
  Check(WriteCount=0,'mismatch diagnostic cannot write');
 '''
 
+# Windows PowerShell does not expose dictionary keys to Select-Object
+# -ExpandProperty in the same way as current PowerShell. Model that narrow
+# cmdlet boundary; this is deliberately not claimed as a Windows engine run.
+LEGACY_SELECT = r'''
+function Select-Object {
+ [CmdletBinding()]param([Parameter(ValueFromPipeline=$true)]$InputObject,[string]$ExpandProperty,[switch]$Unique)
+ begin{$legacyItems=[Collections.Generic.List[object]]::new()}
+ process{
+  if($InputObject -is [Collections.IDictionary] -and $ExpandProperty){throw ('LEGACY_DICTIONARY_PROPERTY: '+$ExpandProperty)}
+  $legacyItems.Add($InputObject)
+ }
+ end{
+  if($ExpandProperty){$legacyItems|Microsoft.PowerShell.Utility\Select-Object -ExpandProperty $ExpandProperty -Unique:$Unique}
+  else{$legacyItems|Microsoft.PowerShell.Utility\Select-Object -Unique:$Unique}
+ }
+}
+'''
+
+
+def legacy_selection_regression():
+    probe=LEGACY_SELECT+"\n$ErrorActionPreference='Stop'\ntry{@(@{Id=0;Name='Synthetic'}|Select-Object -ExpandProperty Id -Unique)}catch{Write-Host $_.Exception.Message}\n"
+    with tempfile.TemporaryDirectory(prefix='sp-click-legacy-') as folder:
+        root=Path(folder)
+        env=dict(os.environ,XDG_CACHE_HOME=str(root/'cache'),XDG_CONFIG_HOME=str(root/'config'),XDG_DATA_HOME=str(root/'data'))
+        r=subprocess.run([PWSH,'-NoLogo','-NoProfile','-NonInteractive','-Command',probe],env=env,capture_output=True,text=True,timeout=20)
+    assert r.returncode==0 and not r.stderr and 'LEGACY_DICTIONARY_PROPERTY: Id' in r.stdout,(r.stdout,r.stderr)
+    assert 'Select-Object -ExpandProperty' not in (OUT/'Install-Setpoint-Click-Fix-01.ps1').read_text()
+    print('PASS legacy dictionary selection: old idiom rejected; installer uses explicit keys',flush=True)
+
 
 def logic():
     module = (OUT/'scripts/StationDiagnostics.txt').read_text()
@@ -67,7 +96,7 @@ def copies():
     capsule=(OUT/'Paste-Setpoint-Click-Fix-01.ps1').read_text()
     packed=re.search(r"\$clickPacked=@'\n(.*?)\n'@",capsule,re.S)[1]
     assert gzip.decompress(base64.b64decode(packed)) == installer.encode()
-    for case in ['native08','unit_headers','edited_core','edited_event','edited_pages','duplicate_id','wrong_version','destination_exists','corrupt_catalog']:
+    for case in ['native08','legacy_dictionary_selection','unit_headers','edited_core','edited_event','edited_pages','duplicate_id','duplicate_name','legacy_duplicate_id','wrong_version','destination_exists','corrupt_catalog']:
         with tempfile.TemporaryDirectory(prefix='sp-click-copy-') as name:
             p=Path(name);src=p/'Current08';dst=p/'Desktop/codex_diag_09';dst.parent.mkdir()
             shutil.copytree(SCADA_SEED,src)
@@ -82,8 +111,9 @@ def copies():
             if case=='unit_headers':rows=[(i,n,m,['unit '+n+';']+l) for i,n,m,l in rows]
             if case=='edited_core':i,n,m,l=rows[0];rows[0]=(i,n,m,l+['// preserve my edit'])
             if case=='edited_event':i,n,m,l=rows[4];rows[4]=(i,n,m,l+['// preserve my handler'])
-            if case=='duplicate_id':i,n,m,l=rows[4];rows[4]=(3,n,m,l)
-            if case in ['unit_headers','edited_core','edited_event','duplicate_id']:(src/'Scripts/Scripts.ssc').write_bytes(serialize_scripts(rows))
+            if case in ['duplicate_id','legacy_duplicate_id']:i,n,m,l=rows[4];rows[4]=(3,n,m,l)
+            if case=='duplicate_name':i,n,m,l=rows[4];rows[4]=(i,rows[3][1],m,l)
+            if case in ['unit_headers','edited_core','edited_event','duplicate_id','duplicate_name','legacy_duplicate_id']:(src/'Scripts/Scripts.ssc').write_bytes(serialize_scripts(rows))
             if case=='edited_pages':b=bytearray((src/'Pages.spg').read_bytes());b[0]^=1;(src/'Pages.spg').write_bytes(b)
             if case=='wrong_version':b=bytearray((src/'Project.spr').read_bytes());b[10]=7;(src/'Project.spr').write_bytes(b)
             if case=='destination_exists':dst.mkdir();(dst/'keep.txt').write_text('existing user project')
@@ -91,12 +121,13 @@ def copies():
             code=re.sub(r'^\$clickTarget=.*$',lambda _:"$clickTarget='"+str(dst)+"'",installer,count=1,flags=re.M)
             code=re.sub(r' \$candidates=@\(.*?\n \)',lambda _:" $candidates=@('"+str(src)+"')",code,count=1,flags=re.S)
             if case=='corrupt_catalog':code=code.replace("$clickCatalog='","$clickCatalog='AAAA",1)
+            if case in ['legacy_dictionary_selection','legacy_duplicate_id']:code=LEGACY_SELECT+'\n'+code
             runner=p/'run.ps1';runner.write_text(code)
             env=dict(os.environ,XDG_CACHE_HOME=str(p/'cache'),XDG_CONFIG_HOME=str(p/'config'),XDG_DATA_HOME=str(p/'data'))
             r=subprocess.run([PWSH,'-NoLogo','-NoProfile','-NonInteractive','-File',str(runner)],env=env,capture_output=True,text=True,timeout=25)
             assert r.returncode==0 and not r.stderr,(case,r.stdout,r.stderr)
             assert hashes(src)==before
-            if case in ['native08','unit_headers']:
+            if case in ['native08','legacy_dictionary_selection','unit_headers']:
                 assert 'SAVED:' in r.stdout and 'ERROR:' not in r.stdout,(case,r.stdout)
                 new=parse_scripts((dst/'Scripts/Scripts.ssc').read_bytes())
                 assert new[1:3]==rows[1:3]
@@ -119,12 +150,15 @@ def copies():
 
 
 def main():
+    legacy_selection_regression()
     old_context_regression()
     primary,prior=logic();print(primary,flush=True)
     for report in prior:print(report,flush=True)
     copy_cases=copies()
     report=dict(date='2026-10-31',logic=primary,legacyReports=prior,copyCases=copy_cases,
                 oldAmbientContextRegressionDetected=True,
+                legacyDictionarySelectionRegressionDetected=True,
+                legacyCompatibilityScope='Narrow Select-Object dictionary projection seam simulated under PowerShell7, not an actual Windows PowerShell5.1 execution',
                 contextTest='Actual four event sources compiled as a separate unit; module ambient identity empty/-1, callback identity supplied by event API seam',
                 noHardwareConnections=True,native09WindowsObserved=False,actualPLCWriteObserved=False)
     (OUT/'validation.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
