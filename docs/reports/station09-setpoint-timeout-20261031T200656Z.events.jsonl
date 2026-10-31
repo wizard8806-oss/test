@@ -1,0 +1,3 @@
+{"event":"OPERATOR_REPORTED_SINGLE_PRESS","receivedUTC":"2026-10-31T20:10:17.1527807Z","exactPressUTC":"not_provided","source":"User message","agentControlActions":0}
+{"event":"OPERATOR_REPORTED_SCADA_TIMEOUT","receivedUTC":"2026-10-31T20:13:29.1047142Z","reportedResult":"PLC acceptance not confirmed within20s; no automatic retry","source":"User message","exactPressUTC":"not_provided"}
+{"event":"OPERATOR_CONFIRMED_TARGET","receivedUTC":"2026-10-31T20:15:32.0991693Z","targetBar":4,"targetRaw":400,"reportedPressCount":1,"reportedDraftAfterPressBar":3.5,"source":"User message","exactPressUTC":"not_provided"}
