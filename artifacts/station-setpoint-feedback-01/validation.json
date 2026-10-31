@@ -1,0 +1,68 @@
+{
+  "date": "2026-10-31",
+  "comparatorCases": [
+    {
+      "case": "correct_decoded_image_fixture",
+      "passed": true
+    },
+    {
+      "case": "wrong_confirmed_pressure_source",
+      "passed": true,
+      "rejection": "Wrong condition, MOV source/destination or execution flags in 95.SP003 | SP_CONFIRMED_PRESSURE"
+    },
+    {
+      "case": "write_to_working_setpoint",
+      "passed": true,
+      "rejection": "Wrong condition, MOV source/destination or execution flags in 95.SP001 | SP_FEEDBACK_VERSION"
+    },
+    {
+      "case": "wrong_flags_word",
+      "passed": true,
+      "rejection": "Wrong condition, MOV source/destination or execution flags in 95.SP007 | SP_APPLY_FLAGS"
+    },
+    {
+      "case": "clock_contact_instead_of_unconditional",
+      "passed": true,
+      "rejection": "Wrong condition, MOV source/destination or execution flags in 95.SP001 | SP_FEEDBACK_VERSION"
+    },
+    {
+      "case": "swapped_networks",
+      "passed": true,
+      "rejection": "Expected exactly seven named networks before95.W032"
+    },
+    {
+      "case": "missing_network",
+      "passed": true,
+      "rejection": "Expected exactly seven named networks before95.W032"
+    },
+    {
+      "case": "changed_existing_mode_network",
+      "passed": true,
+      "rejection": "Existing program changed before feedback block"
+    },
+    {
+      "case": "changed_old_drive_table",
+      "passed": true,
+      "rejection": "An existing Modbus table changed"
+    },
+    {
+      "case": "changed_map_version",
+      "passed": true,
+      "rejection": "Existing program changed after feedback block"
+    },
+    {
+      "case": "extra_network",
+      "passed": true,
+      "rejection": "Expected exactly seven named networks before95.W032"
+    },
+    {
+      "case": "wrong_rung_PC",
+      "passed": true,
+      "rejection": "Wrong condition, MOV source/destination or execution flags in 95.SP001 | SP_FEEDBACK_VERSION"
+    }
+  ],
+  "generatedPDW": false,
+  "nativeF8Tested": false,
+  "livePLCFeedbackTested": false,
+  "evidenceScope": "Expected block fixture plus eleven decoded-image mutations; separate vendor formatter confirms each proposed MOV"
+}

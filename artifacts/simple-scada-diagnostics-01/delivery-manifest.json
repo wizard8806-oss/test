@@ -1,0 +1,223 @@
+{
+  "date": "2026-10-29",
+  "input_sediment_id": "file_00000000db30820bac3b9d16f2546759",
+  "input_archive_sha256": "4b197189f43b18535d899801922c5c8501009298fefe83f493b754860888a39b",
+  "target": "Simple-Scada2.6.15.0 with existing fullkey",
+  "files_only": [
+    "Pages.spg",
+    "Scripts/Scripts.ssc"
+  ],
+  "script_bytes": 10421,
+  "capsule_bytes": 4401,
+  "capsule_sha256": "819de45d0c5afd9010f5626aaf1012671f6cf4ba60f34d4a22ef3b57c3d61755",
+  "original_fields_byte_exact": true,
+  "new_text_objects": [
+    {
+      "page": 0,
+      "name": "MainDiagStatus",
+      "uid": 62100,
+      "rect": [
+        112,
+        48,
+        1200,
+        52
+      ]
+    },
+    {
+      "page": 0,
+      "name": "MainDiagDetail",
+      "uid": 62104,
+      "rect": [
+        112,
+        110,
+        1200,
+        70
+      ]
+    },
+    {
+      "page": 0,
+      "name": "MainMapLabel",
+      "uid": 62108,
+      "rect": [
+        392,
+        420,
+        352,
+        52
+      ]
+    },
+    {
+      "page": 0,
+      "name": "MainCounterLabel",
+      "uid": 62112,
+      "rect": [
+        816,
+        420,
+        352,
+        52
+      ]
+    },
+    {
+      "page": 0,
+      "name": "MainMapUnknown",
+      "uid": 62116,
+      "rect": [
+        392,
+        208,
+        352,
+        192
+      ]
+    },
+    {
+      "page": 0,
+      "name": "MainCounterUnknown",
+      "uid": 62120,
+      "rect": [
+        816,
+        208,
+        352,
+        192
+      ]
+    },
+    {
+      "page": 1,
+      "name": "DiagTitle",
+      "uid": 62124,
+      "rect": [
+        32,
+        24,
+        1376,
+        54
+      ]
+    },
+    {
+      "page": 1,
+      "name": "DiagStatus",
+      "uid": 62128,
+      "rect": [
+        32,
+        94,
+        1376,
+        52
+      ]
+    },
+    {
+      "page": 1,
+      "name": "DiagDetail",
+      "uid": 62132,
+      "rect": [
+        32,
+        156,
+        1376,
+        80
+      ]
+    },
+    {
+      "page": 1,
+      "name": "DiagOPC",
+      "uid": 62136,
+      "rect": [
+        32,
+        254,
+        1376,
+        46
+      ]
+    },
+    {
+      "page": 1,
+      "name": "DiagRoute",
+      "uid": 62140,
+      "rect": [
+        32,
+        310,
+        1376,
+        46
+      ]
+    },
+    {
+      "page": 1,
+      "name": "DiagAge",
+      "uid": 62144,
+      "rect": [
+        32,
+        366,
+        1376,
+        76
+      ]
+    },
+    {
+      "page": 1,
+      "name": "DiagRadioTitle",
+      "uid": 62148,
+      "rect": [
+        32,
+        466,
+        1376,
+        42
+      ]
+    },
+    {
+      "page": 1,
+      "name": "DiagRadio",
+      "uid": 62152,
+      "rect": [
+        32,
+        518,
+        1376,
+        42
+      ]
+    },
+    {
+      "page": 1,
+      "name": "DiagRadioNote",
+      "uid": 62156,
+      "rect": [
+        32,
+        570,
+        1376,
+        42
+      ]
+    },
+    {
+      "page": 1,
+      "name": "DiagChecksTitle",
+      "uid": 62160,
+      "rect": [
+        32,
+        632,
+        1376,
+        42
+      ]
+    },
+    {
+      "page": 1,
+      "name": "DiagChecks",
+      "uid": 62164,
+      "rect": [
+        32,
+        684,
+        1376,
+        84
+      ]
+    },
+    {
+      "page": 1,
+      "name": "DiagScope",
+      "uid": 62168,
+      "rect": [
+        32,
+        786,
+        1376,
+        84
+      ]
+    }
+  ],
+  "native_F9_passed": false,
+  "actual_radio_collection_implemented": false,
+  "download_UI_issue_fixed": false,
+  "previous_delivery_rejected_by_native_editor": true,
+  "repaired": [
+    "Text hint length/Z-order offset",
+    "64-bit unbound variable ID",
+    "unique page IDs and next-page counter"
+  ]
+}

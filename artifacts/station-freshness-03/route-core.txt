@@ -1,0 +1,58 @@
+procedure RouteFreshReset;
+begin
+  RouteHasTick := False;
+  RouteHasSample := False;
+  RouteHasProgress := False;
+  RouteLastTick := 0;
+  RouteLastProgress := 0;
+  RouteLastCounter := 0;
+end;
+procedure RouteFreshStep(CounterGood: Boolean; CounterValue: Int64;
+  SecondsNow: Double; var State, AgeSeconds: Integer);
+var ClockGap: Boolean; Delta: Int64; Age: Double;
+begin
+  State := 5;
+  AgeSeconds := -1;
+  if not CounterGood then
+  begin RouteFreshReset; State := 2; Exit; end;
+  if (CounterValue < 0) or (CounterValue > 65535) then
+  begin RouteFreshReset; State := 3; Exit; end;
+  ClockGap := False;
+  if RouteHasTick then
+    ClockGap := (SecondsNow < RouteLastTick) or
+      (SecondsNow - RouteLastTick > RouteClockGapSeconds);
+  if ClockGap then RouteFreshReset;
+  RouteHasTick := True;
+  RouteLastTick := SecondsNow;
+  if not RouteHasSample then
+  begin
+    RouteHasSample := True;
+    RouteLastCounter := CounterValue;
+    RouteLastProgress := SecondsNow;
+    AgeSeconds := 0;
+    if ClockGap then State := 6;
+    Exit;
+  end;
+  if CounterValue <> RouteLastCounter then
+  begin
+    Delta := CounterValue - RouteLastCounter;
+    if Delta < 0 then Delta := Delta + 65536;
+    RouteLastCounter := CounterValue;
+    RouteLastProgress := SecondsNow;
+    if Delta > RouteMaxForwardDelta then
+    begin
+      RouteHasProgress := False;
+      State := 7;
+      AgeSeconds := 0;
+      Exit;
+    end;
+    RouteHasProgress := True;
+  end;
+  Age := SecondsNow - RouteLastProgress;
+  if Age < 0 then Age := 0;
+  if Age > 2147483647 then Age := 2147483647;
+  AgeSeconds := Trunc(Age);
+  if Age >= RouteStaleSeconds then
+  begin RouteHasProgress := False; State := 4; end
+  else if RouteHasProgress then State := 1;
+end;

@@ -1,0 +1,61 @@
+{
+  "date": "2026-10-30",
+  "fileId": "file_00000000f27081f5a2a92fdc71a52049",
+  "fileName": "station_MC_CM55_900G_03.pdw",
+  "bytes": 178169,
+  "sha256": "d3633c5d7e65fefa8ad3bd55ff86033982a2023c2d15b20e44bde520fde5ea83",
+  "status": "Partial native edit: four table rows and map32 correct; four MOV sources are self-copies and need correction",
+  "normalTableRows": 18,
+  "changedRowsCorrect": true,
+  "tableLocalRType": 12,
+  "tableTypeBasis": "Prior native screenshot shows R2800/R2808/R2816/R2824; this saved copy has matching rows with local type12",
+  "otherEightTablesUnchanged": true,
+  "rungLabelsAndPCsUnchanged": true,
+  "programOutsideFiveOperandSlotsUnchanged": true,
+  "changedHeaderOffsets": [
+    201,
+    202,
+    203,
+    257
+  ],
+  "mapVersion": 32,
+  "MOVs": [
+    {
+      "block": "65_MODBUS",
+      "network": "65.T006 | P1_FREQ_VALUE",
+      "actualSource": "R2500",
+      "expectedSource": "R2803",
+      "destination": "R2500",
+      "sourceMatches": false
+    },
+    {
+      "block": "65_MODBUS",
+      "network": "65.T015 | P2_FREQ_VALUE",
+      "actualSource": "R2501",
+      "expectedSource": "R2811",
+      "destination": "R2501",
+      "sourceMatches": false
+    },
+    {
+      "block": "65_MODBUS",
+      "network": "65.T024 | P3_FREQ_VALUE",
+      "actualSource": "R2502",
+      "expectedSource": "R2819",
+      "destination": "R2502",
+      "sourceMatches": false
+    },
+    {
+      "block": "65_MODBUS",
+      "network": "65.T033 | P4_FREQ_VALUE",
+      "actualSource": "R2503",
+      "expectedSource": "R2827",
+      "destination": "R2503",
+      "sourceMatches": false
+    }
+  ],
+  "correctMOVSourceCount": 0,
+  "next": "Change only S of four MOVs in65_MODBUS to R2803/R2811/R2819/R2827; preserve D asR2500/R2501/R2502/R2503; save and upload for comparison",
+  "PLCDownloadObserved": false,
+  "newTelemetryObserved": false,
+  "deployable": false
+}

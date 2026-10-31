@@ -1,0 +1,3 @@
+# Optional vendor-loader checks; the default suite uses the Python stdlib.
+pefile==2024.8.26
+unicorn==2.1.4

@@ -1,0 +1,99 @@
+{
+  "date": "2026-10-29",
+  "sha256": "caf44ad4f73f8c4eec40d490a53add6ecbd4c793d24af02030ec0d88294ad0df",
+  "cases": [
+    {
+      "case": "normal",
+      "passed": true,
+      "one_auth_only": true,
+      "password_and_payload_not_printed": true,
+      "port_closed": true,
+      "prompt_before_open": true
+    },
+    {
+      "case": "echo_secret",
+      "passed": true,
+      "one_auth_only": true,
+      "password_and_payload_not_printed": true,
+      "port_closed": true,
+      "prompt_before_open": true
+    },
+    {
+      "case": "wrong_command",
+      "passed": true,
+      "one_auth_only": true,
+      "password_and_payload_not_printed": true,
+      "port_closed": true,
+      "prompt_before_open": true
+    },
+    {
+      "case": "auth_rejected_ffff",
+      "passed": true,
+      "one_auth_only": true,
+      "password_and_payload_not_printed": true,
+      "port_closed": true,
+      "prompt_before_open": true
+    },
+    {
+      "case": "bad_crc",
+      "passed": true,
+      "one_auth_only": true,
+      "password_and_payload_not_printed": true,
+      "port_closed": true,
+      "prompt_before_open": true
+    },
+    {
+      "case": "legacy_v0",
+      "passed": true,
+      "one_auth_only": true,
+      "password_and_payload_not_printed": true,
+      "port_closed": true,
+      "prompt_before_open": true
+    },
+    {
+      "case": "noise",
+      "passed": true,
+      "one_auth_only": true,
+      "password_and_payload_not_printed": true,
+      "port_closed": true,
+      "prompt_before_open": true
+    },
+    {
+      "case": "silent",
+      "passed": true,
+      "one_auth_only": true,
+      "password_and_payload_not_printed": true,
+      "port_closed": true,
+      "prompt_before_open": true
+    },
+    {
+      "case": "unknown_version",
+      "passed": true,
+      "one_auth_only": true,
+      "password_and_payload_not_printed": true,
+      "port_closed": true,
+      "prompt_before_open": true
+    },
+    {
+      "case": "fragmented",
+      "passed": true,
+      "one_auth_only": true,
+      "password_and_payload_not_printed": true,
+      "port_closed": true,
+      "prompt_before_open": true
+    },
+    {
+      "case": "password_format",
+      "passed": true,
+      "one_auth_only": false,
+      "password_and_payload_not_printed": true,
+      "port_closed": true,
+      "prompt_before_open": true
+    }
+  ],
+  "transport": "Actual PowerShell7.6.9/.NET SerialPort and independent Python peer on Linux PTYs",
+  "fixture_limits": "DTR/RTS disabled solely for PTY; capture deadline350ms instead of4000ms; simulated password.",
+  "actual_modem_success": false,
+  "Windows_PowerShell51_verified": false,
+  "purpose": "Distinguish zero bytes from ignored/malformed/other-version frames; no settings writes or password output."
+}

@@ -1,0 +1,7 @@
+{
+  "file_id": "file_000000007fe0820a8b75b881e9ade4fc",
+  "date": "2026-10-29",
+  "sha256": "df432fd645b534f3eb27efad82fc1e2d6a83476851ac6eb53f1fd93a8764c28d",
+  "confirmed_error": "Error while loading the project pages. Stream read error",
+  "stage": "Native page load failed before F9; previous preparation not accepted"
+}

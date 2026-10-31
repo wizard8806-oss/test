@@ -1,0 +1,33 @@
+{
+  "source_sha256": "41e0788134b7cbd4fa6e0f8ab1b6515a9a396c5fdcef0b40b871d460e38f3dff",
+  "checked_comments": 1833,
+  "compiled_MOV_anchors": 20,
+  "alarm_bits_traced": 25,
+  "master_table_duplicate_copies_verified": 9,
+  "corrupt_source_cases": [
+    {
+      "case": "wrong_pressure_destination",
+      "rejected": true,
+      "reason": "MOV anchor mismatch: 95.087 | HMI_PRESSURE_VALUE"
+    },
+    {
+      "case": "wrong_map_version",
+      "rejected": true,
+      "reason": "MOV anchor mismatch: 95.W032 | WORD_STATUS_VERSION"
+    },
+    {
+      "case": "damaged_metadata",
+      "rejected": true,
+      "reason": "Project metadata checksum failed"
+    },
+    {
+      "case": "wrong_drive3_frequency_destination",
+      "rejected": true,
+      "reason": "MOV anchor mismatch: 65.T024 | P3_FREQ_VALUE"
+    }
+  ],
+  "original_unchanged": true,
+  "limitations": "Read-only source analysis, not native WinProladder load/compiler or live Modbus test.",
+  "drive_frequency_exports_checked": 4,
+  "current_read_absence_checked_across_tables": 9
+}

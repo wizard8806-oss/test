@@ -1,0 +1,47 @@
+{
+  "date": "2026-10-30",
+  "logic": "PASS process-card assertions=120",
+  "copyCases": [
+    {
+      "case": "normal",
+      "passed": true
+    },
+    {
+      "case": "unit_header_carets",
+      "passed": true
+    },
+    {
+      "case": "changed_radio",
+      "passed": true
+    },
+    {
+      "case": "changed_core",
+      "passed": true
+    },
+    {
+      "case": "wrong_timer",
+      "passed": true
+    },
+    {
+      "case": "destination_exists",
+      "passed": true
+    },
+    {
+      "case": "wrong_version",
+      "passed": true
+    },
+    {
+      "case": "corrupt_module",
+      "passed": true
+    }
+  ],
+  "bindings": {
+    "existingPageObjects": 32,
+    "referencedControls": 16,
+    "newPages": false,
+    "reader": "Previously tested official2.6.15 x86 object loader in Unicorn; not native GUI/F9"
+  },
+  "nativeWindowsF9Observed": false,
+  "liveCurrentOrFaultReadObserved": false,
+  "sourceAndRadioPreserved": true
+}

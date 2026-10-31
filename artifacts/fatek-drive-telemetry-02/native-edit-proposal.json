@@ -1,0 +1,244 @@
+{
+  "status": "Native dialog and reference format confirmed; offline copy edit/review next; allocation still pending",
+  "sourcePDWSHA256": "41e0788134b7cbd4fa6e0f8ab1b6515a9a396c5fdcef0b40b871d460e38f3dff",
+  "suggestedCopyName": "station_MC_CM55_900G_03.pdw",
+  "tableName": "M900G_TEST",
+  "tableRegister": "R5000",
+  "commandRowsBefore": 18,
+  "commandRowsProposed": 18,
+  "normalPollRequestsAdded": 0,
+  "candidateReceiveRange": "R2800..R2831",
+  "candidateAllocated": false,
+  "changes": [
+    {
+      "drive": 1,
+      "nativeRowOneBased": 1,
+      "nativeSeqZeroBased": 0,
+      "beforeSerializedRow": [
+        1,
+        1,
+        1,
+        13,
+        200,
+        4,
+        4100
+      ],
+      "beforeUI": {
+        "command": "Read",
+        "slave": 1,
+        "masterData": "D200",
+        "dataSize": 1,
+        "slaveHoldingPDU": 4099,
+        "slaveHoldingReference6Digit": 404100
+      },
+      "proposedUI": {
+        "command": "Read",
+        "slave": 1,
+        "masterData": "R2800",
+        "dataSize": 7,
+        "slaveHoldingPDU": 4096,
+        "slaveHoldingReference6Digit": 404097
+      },
+      "allocated": false,
+      "frequencyMOV": {
+        "label": "65.T006 | P1_FREQ_VALUE",
+        "oldSource": "D200",
+        "proposedSource": "R2803",
+        "unchangedDestination": "R2500",
+        "nativeBlock": "65_MODBUS"
+      },
+      "existingFrequencyStateRegister": 2510,
+      "proposedPayloadWords": {
+        "nativeState": 2800,
+        "nativeFaultCode": 2801,
+        "frequencySetpointRaw": 2802,
+        "actualFrequencyRaw": 2803,
+        "speedRaw": 2804,
+        "outputVoltageRaw": 2805,
+        "outputCurrentRaw": 2806
+      },
+      "reservedUnusedWord": 2807
+    },
+    {
+      "drive": 2,
+      "nativeRowOneBased": 4,
+      "nativeSeqZeroBased": 3,
+      "beforeSerializedRow": [
+        2,
+        1,
+        1,
+        13,
+        203,
+        4,
+        4100
+      ],
+      "beforeUI": {
+        "command": "Read",
+        "slave": 2,
+        "masterData": "D203",
+        "dataSize": 1,
+        "slaveHoldingPDU": 4099,
+        "slaveHoldingReference6Digit": 404100
+      },
+      "proposedUI": {
+        "command": "Read",
+        "slave": 2,
+        "masterData": "R2808",
+        "dataSize": 7,
+        "slaveHoldingPDU": 4096,
+        "slaveHoldingReference6Digit": 404097
+      },
+      "allocated": false,
+      "frequencyMOV": {
+        "label": "65.T015 | P2_FREQ_VALUE",
+        "oldSource": "D203",
+        "proposedSource": "R2811",
+        "unchangedDestination": "R2501",
+        "nativeBlock": "65_MODBUS"
+      },
+      "existingFrequencyStateRegister": 2511,
+      "proposedPayloadWords": {
+        "nativeState": 2808,
+        "nativeFaultCode": 2809,
+        "frequencySetpointRaw": 2810,
+        "actualFrequencyRaw": 2811,
+        "speedRaw": 2812,
+        "outputVoltageRaw": 2813,
+        "outputCurrentRaw": 2814
+      },
+      "reservedUnusedWord": 2815
+    },
+    {
+      "drive": 3,
+      "nativeRowOneBased": 17,
+      "nativeSeqZeroBased": 16,
+      "beforeSerializedRow": [
+        3,
+        1,
+        1,
+        13,
+        206,
+        4,
+        4100
+      ],
+      "beforeUI": {
+        "command": "Read",
+        "slave": 3,
+        "masterData": "D206",
+        "dataSize": 1,
+        "slaveHoldingPDU": 4099,
+        "slaveHoldingReference6Digit": 404100
+      },
+      "proposedUI": {
+        "command": "Read",
+        "slave": 3,
+        "masterData": "R2816",
+        "dataSize": 7,
+        "slaveHoldingPDU": 4096,
+        "slaveHoldingReference6Digit": 404097
+      },
+      "allocated": false,
+      "frequencyMOV": {
+        "label": "65.T024 | P3_FREQ_VALUE",
+        "oldSource": "D206",
+        "proposedSource": "R2819",
+        "unchangedDestination": "R2502",
+        "nativeBlock": "65_MODBUS"
+      },
+      "existingFrequencyStateRegister": 2512,
+      "proposedPayloadWords": {
+        "nativeState": 2816,
+        "nativeFaultCode": 2817,
+        "frequencySetpointRaw": 2818,
+        "actualFrequencyRaw": 2819,
+        "speedRaw": 2820,
+        "outputVoltageRaw": 2821,
+        "outputCurrentRaw": 2822
+      },
+      "reservedUnusedWord": 2823
+    },
+    {
+      "drive": 4,
+      "nativeRowOneBased": 18,
+      "nativeSeqZeroBased": 17,
+      "beforeSerializedRow": [
+        4,
+        1,
+        1,
+        13,
+        209,
+        4,
+        4100
+      ],
+      "beforeUI": {
+        "command": "Read",
+        "slave": 4,
+        "masterData": "D209",
+        "dataSize": 1,
+        "slaveHoldingPDU": 4099,
+        "slaveHoldingReference6Digit": 404100
+      },
+      "proposedUI": {
+        "command": "Read",
+        "slave": 4,
+        "masterData": "R2824",
+        "dataSize": 7,
+        "slaveHoldingPDU": 4096,
+        "slaveHoldingReference6Digit": 404097
+      },
+      "allocated": false,
+      "frequencyMOV": {
+        "label": "65.T033 | P4_FREQ_VALUE",
+        "oldSource": "D209",
+        "proposedSource": "R2827",
+        "unchangedDestination": "R2503",
+        "nativeBlock": "65_MODBUS"
+      },
+      "existingFrequencyStateRegister": 2513,
+      "proposedPayloadWords": {
+        "nativeState": 2824,
+        "nativeFaultCode": 2825,
+        "frequencySetpointRaw": 2826,
+        "actualFrequencyRaw": 2827,
+        "speedRaw": 2828,
+        "outputVoltageRaw": 2829,
+        "outputCurrentRaw": 2830
+      },
+      "reservedUnusedWord": 2831
+    }
+  ],
+  "proposedMapVersion": {
+    "register": 2554,
+    "old": 31,
+    "new": 32,
+    "label": "95.W032 | WORD_STATUS_VERSION",
+    "nativeBlock": "95_HMI_STATUS"
+  },
+  "compatibility": [
+    "Existing pressure registers and R2500..R2503/R2510..R2513 remain unchanged",
+    "A future SCADA copy must accept32 and gate new fields on32; old map31 must never expose zero-filled candidates as valid current/no-fault",
+    "Current SCADA03 expects31; do not download a new32 PLC revision before the compatible SCADA copy and native checks are ready",
+    "R2510..R2513 are frequency display states, not independent generic telemetry-quality registers; confirm their recovery/range-filter behavior before treating them as common validity"
+  ],
+  "newRungsRequiredByThisProposal": false,
+  "rationale": "Receive the complete native block directly into candidate R words; retarget only the four existing MOV frequency sources, preserving their conditions and request order",
+  "unresolved": [
+    "Verify candidate receive range against indirect/block access and the actual external HMI/OPC map",
+    "Inspect actual native Edit dialog: command, Master Data R support, reference-address input format and count",
+    "Verify full-response acceptance and stale/restart invalidation in native execution",
+    "Complete map32-compatible SCADA display and ReadOnly item import after native address confirmation",
+    "Native save/validation plus bench read/recovery before operation"
+  ],
+  "nextUserStep": "Change only S of four MOVs in65_MODBUS to R2803/R2811/R2819/R2827; preserve D asR2500/R2501/R2502/R2503; save and upload for comparison",
+  "nativeTableFormObserved": true,
+  "PLCModified": false,
+  "PDWPatchGenerated": false,
+  "deployable": false,
+  "nativeDialogObservation": "native-dialog-observation-2026-10-30.json",
+  "nativeSavedCandidateReceived": true,
+  "receivedCandidateContainsEdits": true,
+  "receivedCandidateSHA256": "d3633c5d7e65fefa8ad3bd55ff86033982a2023c2d15b20e44bde520fde5ea83",
+  "tableChangesCorrect": true,
+  "mapVersion32Confirmed": true,
+  "correctMOVSourceCount": 0
+}

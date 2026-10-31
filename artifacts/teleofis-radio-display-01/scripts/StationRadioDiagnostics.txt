@@ -1,0 +1,87 @@
+interface
+procedure StationRadioUpdate;
+implementation
+var RadioLines: TM_StringList;
+procedure RadioUnknown(const Reason: string);
+begin
+  DiagRadio.Text := 'Сигнал: нет данных | Режим сети: нет данных | Питание: нет данных';
+  DiagRadio.Color := RGB(105, 105, 105);
+  DiagRadioNote.Text := Reason;
+end;
+procedure StationRadioUpdate;
+var
+  RadioPublishedUnix, Sampled, Current, Age, PulseAge, Seq, State, Signal, Rat, Millivolts: Int64;
+  I: Integer;
+  Net, Level, Source, Reason: string;
+begin
+  try
+    RadioLines.LoadFromFile('C:\ProgramData\Automatika\Station50008\radio.txt', fcpUTF8);
+  except
+    RadioUnknown('Нет обновления от сборщика радиодиагностики.');
+    Exit;
+  end;
+  if RadioLines.Count <> 10 then
+  begin RadioUnknown('Неверный формат данных радиодиагностики.'); Exit; end;
+  if (RadioLines[0] <> 'ARADIO1') or
+     ((RadioLines[1] <> 'USB') and (RadioLines[1] <> 'SERVICE')) then
+  begin RadioUnknown('Неизвестный источник радиодиагностики.'); Exit; end;
+  if Length(RadioLines[2]) <> 32 then
+  begin RadioUnknown('Неверный идентификатор запуска сборщика.'); Exit; end;
+  for I := 1 to 32 do
+    if Pos(Copy(LowerCase(RadioLines[2]), I, 1), '0123456789abcdef') = 0 then
+    begin RadioUnknown('Неверный идентификатор запуска сборщика.'); Exit; end;
+  Seq := StrToInt64Def(RadioLines[3], -1);
+  RadioPublishedUnix := StrToInt64Def(RadioLines[4], -1);
+  Sampled := StrToInt64Def(RadioLines[5], -1);
+  State := StrToInt64Def(RadioLines[6], -1);
+  Signal := StrToInt64Def(RadioLines[7], -1);
+  Rat := StrToInt64Def(RadioLines[8], -1);
+  Millivolts := StrToInt64Def(RadioLines[9], -1);
+  if (Seq < 1) or (RadioPublishedUnix < 1) or (State < 0) or (State > 5) then
+  begin RadioUnknown('Неверные служебные поля радиодиагностики.'); Exit; end;
+  Current := DateTimeToUnix(Now, False);
+  PulseAge := Current - RadioPublishedUnix;
+  if RadioLines[1] = 'USB' then Source := 'USB COM18 (стенд)'
+  else Source := 'служебный канал M2M24';
+  if (PulseAge < -2) then
+  begin RadioUnknown('Проверьте время ПК: отметка сборщика находится в будущем.'); Exit; end;
+  if State <> 0 then
+  begin
+    Reason := 'Ошибка чтения параметров модема.';
+    case State of
+      1: Reason := 'Нет доступа к параметрам модема: проверьте пароль настроек.';
+      2: Reason := 'Модем не ответил на служебный запрос.';
+      3: Reason := 'Неверный CRC или формат ответа модема.';
+      4: Reason := 'Служебный порт недоступен: проверьте подключение и занятость.';
+      5: Reason := 'Сборщик радиодиагностики остановлен.';
+    end;
+    if PulseAge > 20 then Reason := 'Нет новых обновлений. Последний результат: ' + Reason;
+    RadioUnknown(Source + ': ' + Reason);
+    Exit;
+  end;
+  if (PulseAge > 20) then
+  begin RadioUnknown(Source + ': сборщик не обновляет данные более 20 с.'); Exit; end;
+  Age := Current - Sampled;
+  if (Sampled < 1) or (Age < -2) or (Age > 15) or (Sampled > RadioPublishedUnix) then
+  begin RadioUnknown(Source + ': нет свежего подтверждения показаний модема.'); Exit; end;
+  if ((Signal < 0) or ((Signal > 32) and (Signal <> 99))) or
+     (Rat < 0) or (Rat > 255) or (Millivolts < 0) or (Millivolts > 4294967295) then
+  begin RadioUnknown('Неверный диапазон показаний модема.'); Exit; end;
+  if Age < 0 then Age := 0;
+  Level := IntToStr(Signal) + ' (шкала TELEOFIS)';
+  if Signal = 99 then Level := 'не определён (код 99)';
+  Net := 'не определена (код ' + IntToStr(Rat) + ')';
+  case Rat of 0: Net := '2G'; 1: Net := '3G'; 2: Net := '4G'; end;
+  DiagRadio.Text := 'Сигнал: ' + Level + ' | Режим сети: ' + Net +
+    ' | Питание: ' + FormatFloat('0.000', Millivolts / 1000.0) + ' В';
+  DiagRadio.Color := RGB(40, 140, 90);
+  if Signal < 12 then DiagRadio.Color := RGB(165, 100, 0);
+  if (Signal = 99) or (Rat > 2) then
+    DiagRadio.Color := RGB(105, 105, 105);
+  DiagRadioNote.Text := 'Источник: ' + Source + '. Успешный опрос: ' + IntToStr(Age) + ' с назад.';
+end;
+initialization
+  RadioLines := TM_StringList.Create;
+finalization
+  FreeAndNil(RadioLines);
+end.

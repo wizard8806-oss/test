@@ -1,0 +1,29 @@
+{
+  "candidate": "station_MC_CM55_900G_04.pdw",
+  "sha256": "a25f9b5d2fe006bcb039896bae3989569b08e1b1adc4b503a755bfd5e3b22993",
+  "oneCounterRungStructurallyMatches": true,
+  "addedBytes": 8,
+  "counterEncoding": "4f92f09620305feb",
+  "compactNativeForm": true,
+  "pulseAndWidthConfirmed": true,
+  "nativeFunctionDialogConfirmed": true,
+  "otherProgramBodyPreserved": true,
+  "nineTablesUnchanged": true,
+  "mapVersionRemains32": true,
+  "nativeF8Observed": false,
+  "PLCDownloadObserved": false,
+  "counterProgressObserved": false,
+  "deployable": false,
+  "changedHeaderOffsets": [
+    200,
+    201,
+    202,
+    203,
+    257,
+    262,
+    264,
+    268,
+    270
+  ],
+  "evidenceScope": "Strict code/table comparison; native execution and actual PLC counter still require bench confirmation"
+}

@@ -1,0 +1,318 @@
+{
+  "date": "2026-10-29",
+  "sha256": "3ed52e160953ebeb0a296549ee38b748914d1eedf9a5abd6cca10f96d368d48f",
+  "transport": "Real PowerShell7.6.9 / .NET SerialPort over Linux PTYs, independent Python peer",
+  "cases": [
+    {
+      "case": "normal",
+      "retry_block": false,
+      "passed": true,
+      "requests": [
+        {
+          "action": 4,
+          "cmd": 78,
+          "length": 4
+        },
+        {
+          "action": 0,
+          "cmd": 123,
+          "length": 0
+        },
+        {
+          "action": 0,
+          "cmd": 131,
+          "length": 0
+        },
+        {
+          "action": 0,
+          "cmd": 148,
+          "length": 0
+        }
+      ],
+      "port_closed": true,
+      "password_not_printed": true
+    },
+    {
+      "case": "unknown_signal",
+      "retry_block": false,
+      "passed": true,
+      "requests": [
+        {
+          "action": 4,
+          "cmd": 78,
+          "length": 4
+        },
+        {
+          "action": 0,
+          "cmd": 123,
+          "length": 0
+        },
+        {
+          "action": 0,
+          "cmd": 131,
+          "length": 0
+        },
+        {
+          "action": 0,
+          "cmd": 148,
+          "length": 0
+        }
+      ],
+      "port_closed": true,
+      "password_not_printed": true
+    },
+    {
+      "case": "unknown_rat",
+      "retry_block": false,
+      "passed": true,
+      "requests": [
+        {
+          "action": 4,
+          "cmd": 78,
+          "length": 4
+        },
+        {
+          "action": 0,
+          "cmd": 123,
+          "length": 0
+        },
+        {
+          "action": 0,
+          "cmd": 131,
+          "length": 0
+        },
+        {
+          "action": 0,
+          "cmd": 148,
+          "length": 0
+        }
+      ],
+      "port_closed": true,
+      "password_not_printed": true
+    },
+    {
+      "case": "escaped_payload",
+      "retry_block": false,
+      "passed": true,
+      "requests": [
+        {
+          "action": 4,
+          "cmd": 78,
+          "length": 4
+        },
+        {
+          "action": 0,
+          "cmd": 123,
+          "length": 0
+        },
+        {
+          "action": 0,
+          "cmd": 131,
+          "length": 0
+        },
+        {
+          "action": 0,
+          "cmd": 148,
+          "length": 0
+        }
+      ],
+      "port_closed": true,
+      "password_not_printed": true
+    },
+    {
+      "case": "noise_fragmented",
+      "retry_block": false,
+      "passed": true,
+      "requests": [
+        {
+          "action": 4,
+          "cmd": 78,
+          "length": 4
+        },
+        {
+          "action": 0,
+          "cmd": 123,
+          "length": 0
+        },
+        {
+          "action": 0,
+          "cmd": 131,
+          "length": 0
+        },
+        {
+          "action": 0,
+          "cmd": 148,
+          "length": 0
+        }
+      ],
+      "port_closed": true,
+      "password_not_printed": true
+    },
+    {
+      "case": "auth_denied",
+      "retry_block": false,
+      "passed": true,
+      "requests": [
+        {
+          "action": 4,
+          "cmd": 78,
+          "length": 4
+        }
+      ],
+      "port_closed": true,
+      "password_not_printed": true
+    },
+    {
+      "case": "bad_crc",
+      "retry_block": false,
+      "passed": true,
+      "requests": [
+        {
+          "action": 4,
+          "cmd": 78,
+          "length": 4
+        },
+        {
+          "action": 0,
+          "cmd": 123,
+          "length": 0
+        },
+        {
+          "action": 0,
+          "cmd": 131,
+          "length": 0
+        }
+      ],
+      "port_closed": true,
+      "password_not_printed": true
+    },
+    {
+      "case": "bad_version",
+      "retry_block": false,
+      "passed": true,
+      "requests": [
+        {
+          "action": 4,
+          "cmd": 78,
+          "length": 4
+        },
+        {
+          "action": 0,
+          "cmd": 123,
+          "length": 0
+        }
+      ],
+      "port_closed": true,
+      "password_not_printed": true
+    },
+    {
+      "case": "bad_escape",
+      "retry_block": false,
+      "passed": true,
+      "requests": [
+        {
+          "action": 4,
+          "cmd": 78,
+          "length": 4
+        },
+        {
+          "action": 0,
+          "cmd": 123,
+          "length": 0
+        }
+      ],
+      "port_closed": true,
+      "password_not_printed": true
+    },
+    {
+      "case": "wrong_payload_length",
+      "retry_block": false,
+      "passed": true,
+      "requests": [
+        {
+          "action": 4,
+          "cmd": 78,
+          "length": 4
+        },
+        {
+          "action": 0,
+          "cmd": 123,
+          "length": 0
+        },
+        {
+          "action": 0,
+          "cmd": 131,
+          "length": 0
+        },
+        {
+          "action": 0,
+          "cmd": 148,
+          "length": 0
+        }
+      ],
+      "port_closed": true,
+      "password_not_printed": true
+    },
+    {
+      "case": "timeout",
+      "retry_block": false,
+      "passed": true,
+      "requests": [
+        {
+          "action": 4,
+          "cmd": 78,
+          "length": 4
+        },
+        {
+          "action": 0,
+          "cmd": 123,
+          "length": 0
+        }
+      ],
+      "port_closed": true,
+      "password_not_printed": true
+    },
+    {
+      "case": "password_format",
+      "retry_block": false,
+      "passed": true,
+      "requests": [],
+      "port_closed": true,
+      "password_not_printed": true
+    },
+    {
+      "case": "normal",
+      "retry_block": true,
+      "passed": true,
+      "requests": [
+        {
+          "action": 4,
+          "cmd": 78,
+          "length": 4
+        },
+        {
+          "action": 0,
+          "cmd": 123,
+          "length": 0
+        },
+        {
+          "action": 0,
+          "cmd": 131,
+          "length": 0
+        },
+        {
+          "action": 0,
+          "cmd": 148,
+          "length": 0
+        }
+      ],
+      "port_closed": true,
+      "password_not_printed": true
+    }
+  ],
+  "requests_only": "AUTH4/78, READ0/123, READ0/131, READ0/148",
+  "actual_Windows_COM18_or_TELEOFIS_verified": false,
+  "radio_SCADA_integration_implemented": false,
+  "control_lines_not_exercised": "PTY fixtures substitute false for DTR/RTS; production true matches vendor JSSC defaults, physical validation pending.",
+  "underlying_protocol": "Rechecked against official2.3.1 Java encoder and controller; actual device verification pending."
+}

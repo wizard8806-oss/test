@@ -1,0 +1,385 @@
+{
+  "schema": 1,
+  "profileId": "fatek-map31-pressure-vfd-v1",
+  "status": "Existing map31 source bindings prepared; new live reads and per-drive native fault export pending",
+  "priorities": [
+    "pressure",
+    "drive_faults",
+    "communication",
+    "modem_signal"
+  ],
+  "cl50sRequired": false,
+  "cl50sDefinesStationHealth": false,
+  "pressure": {
+    "valueBinding": {
+      "name": "PressurePV_x100",
+      "plc_register": "R2302",
+      "pdu_address": 2302,
+      "region": "HOLDING_REGISTERS",
+      "device_type": "uint16",
+      "server_type": "uint32",
+      "access": "ReadOnly",
+      "engineering_unit": "bar",
+      "display_factor": 0.01,
+      "opc_item": "codex.Device1.PressurePV_x100",
+      "evidence": "PDW compiled MOV plus checked labels; live read pending"
+    },
+    "qualityBinding": {
+      "name": "PressureSourceOK",
+      "plc_register": "R2303",
+      "pdu_address": 2303,
+      "region": "HOLDING_REGISTERS",
+      "device_type": "uint16",
+      "server_type": "uint32",
+      "access": "ReadOnly",
+      "engineering_unit": "boolean",
+      "display_factor": 1,
+      "opc_item": "codex.Device1.PressureSourceOK",
+      "evidence": "PDW compiled MOV plus checked labels; live read pending"
+    },
+    "engineeringUnit": "bar",
+    "rawType": "uint16",
+    "scale": 0.01,
+    "offset": 0,
+    "setpointBinding": {
+      "name": "PressureSP_x100",
+      "plc_register": "R2360",
+      "pdu_address": 2360,
+      "region": "HOLDING_REGISTERS",
+      "device_type": "uint16",
+      "server_type": "uint32",
+      "access": "ReadOnly",
+      "engineering_unit": "bar",
+      "display_factor": 0.01,
+      "opc_item": "codex.Device1.PressureSP_x100",
+      "evidence": "PDW compiled MOV plus checked labels; live read pending"
+    },
+    "alarmThresholds": null,
+    "sourceBinding": {
+      "name": "PressureSource",
+      "plc_register": "R2308",
+      "pdu_address": 2308,
+      "region": "HOLDING_REGISTERS",
+      "device_type": "uint16",
+      "server_type": "uint32",
+      "access": "ReadOnly",
+      "engineering_unit": "drive index,0=none",
+      "display_factor": 1,
+      "opc_item": "codex.Device1.PressureSource",
+      "evidence": "PDW compiled MOV plus checked labels; live read pending"
+    },
+    "qualityMeaning": "Selected Modbus pressure source exists; not proof of healthy 4-20mA circuit",
+    "sensorElectricalHealthBinding": null
+  },
+  "driveTemplate": {
+    "repeatPerConfiguredDrive": true,
+    "model": "900G",
+    "faultCodeBinding": null,
+    "faultCodeDecoder": null,
+    "communicationBinding": {
+      "register": "R2550",
+      "maskByDriveIndex": "1 << (8 + driveIndex)",
+      "meaning": "PLC no-link alarm bit; require configured drive and fresh station data"
+    },
+    "runStateBinding": null,
+    "actualFrequencyBinding": {
+      "registerByDriveIndex": "R(2499 + driveIndex)",
+      "opcItemByDriveIndex": "codex.Device1.Vfd{driveIndex}FreqRaw",
+      "nativePDU": 4099,
+      "engineeringUnit": "Hz",
+      "factorReference": 0.1,
+      "manualVersion": "900G ver1.26 p50",
+      "scaleLiveVerified": false,
+      "freshnessStateRegisterByDriveIndex": "R(2509 + driveIndex)",
+      "validStateCodes": [
+        1,
+        2
+      ],
+      "invalidStateCode": 0,
+      "stateMeaning": "Frequency-derived display status; not native U0-00"
+    },
+    "motorCurrentBinding": null,
+    "driveIndexRange": [
+      1,
+      4
+    ],
+    "readinessBinding": {
+      "register": "R2550",
+      "maskByDriveIndex": "1 << (4 + driveIndex)",
+      "meaning": "PLC not-ready indication; not native VFD fault number"
+    },
+    "motorCurrentReference": {
+      "nativePDU": 4102,
+      "parameter": "U0-06",
+      "engineeringUnit": "A",
+      "factor": 0.1,
+      "currentPLCReadExists": false,
+      "pendingPLCBlockRead": {
+        "startPDU": 4096,
+        "count": 7,
+        "currentWordOffset": 6
+      }
+    }
+  },
+  "freshness": {
+    "stationHeartbeatBinding": null,
+    "successfulPollEvidenceBinding": null,
+    "configuredPerStation": true,
+    "processValueChangeRequiredForFreshness": false,
+    "unchangedPressureOrFaultCodeImpliesStale": false,
+    "OPCGoodAloneIsFreshnessEvidence": false,
+    "pressureMaxAgeSeconds": null,
+    "driveMaxAgeSeconds": null,
+    "onStalePressure": "Show unknown; do not substitute zero or trigger a low-pressure alarm from missing data",
+    "onStaleDriveFault": "Show drive communication unknown; do not substitute faultCode=0",
+    "clockToggleBinding": {
+      "name": "PlcHeartbeatToggle",
+      "plc_register": "R2328",
+      "pdu_address": 2328,
+      "region": "HOLDING_REGISTERS",
+      "device_type": "uint16",
+      "server_type": "uint32",
+      "access": "ReadOnly",
+      "engineering_unit": "0/1",
+      "display_factor": 1,
+      "opc_item": "codex.Device1.PlcHeartbeatToggle",
+      "evidence": "PDW compiled MOV plus checked labels; live read pending"
+    },
+    "heartbeatLimit": "R2328 is a 0/1 clock copy, not an incrementing sequence. Fixed-period polling can alias it; do not base unconditional PLC-failure alarms on absence of a change."
+  },
+  "bindingEvidenceRequired": "Current WinProLadder PDW or verified export map plus matching drive-model documentation",
+  "deployable": false,
+  "sourcePDWSha256": "41e0788134b7cbd4fa6e0f8ab1b6515a9a396c5fdcef0b40b871d460e38f3dff",
+  "mapVersion": 31,
+  "driveModelConfirmedByUser": "M-driver 900G",
+  "alarmWordBindings": {
+    "low": {
+      "name": "AlarmLo",
+      "plc_register": "R2550",
+      "pdu_address": 2550,
+      "region": "HOLDING_REGISTERS",
+      "device_type": "uint16",
+      "server_type": "uint32",
+      "access": "ReadOnly",
+      "engineering_unit": "bitmask",
+      "display_factor": 1,
+      "opc_item": "codex.Device1.AlarmLo",
+      "evidence": "PDW compiled MOV plus checked labels; live read pending"
+    },
+    "high": {
+      "name": "AlarmHi",
+      "plc_register": "R2551",
+      "pdu_address": 2551,
+      "region": "HOLDING_REGISTERS",
+      "device_type": "uint16",
+      "server_type": "uint32",
+      "access": "ReadOnly",
+      "engineering_unit": "bitmask",
+      "display_factor": 1,
+      "opc_item": "codex.Device1.AlarmHi",
+      "evidence": "PDW compiled MOV plus checked labels; live read pending"
+    }
+  },
+  "alarmBits": [
+    {
+      "register": 2550,
+      "bit": 0,
+      "mask": 1,
+      "source": "95.A005 | HMI_ALARM_PHASE",
+      "pc": 23754
+    },
+    {
+      "register": 2550,
+      "bit": 1,
+      "mask": 2,
+      "source": "95.A006 | HMI_ALARM_DRY",
+      "pc": 23760
+    },
+    {
+      "register": 2550,
+      "bit": 2,
+      "mask": 4,
+      "source": "95.A007 | HMI_ALARM_ESTOP",
+      "pc": 23766
+    },
+    {
+      "register": 2550,
+      "bit": 3,
+      "mask": 8,
+      "source": "95.A008 | HMI_ALARM_PRESSURE_SIGNAL",
+      "pc": 23772
+    },
+    {
+      "register": 2550,
+      "bit": 4,
+      "mask": 16,
+      "source": "95.A009 | HMI_ALARM_PRESSURE_HIGH",
+      "pc": 23778
+    },
+    {
+      "register": 2550,
+      "bit": 5,
+      "mask": 32,
+      "source": "95.A010 | HMI_ALARM_VFD1_NOT_READY",
+      "pc": 23786
+    },
+    {
+      "register": 2550,
+      "bit": 6,
+      "mask": 64,
+      "source": "95.A011 | HMI_ALARM_VFD2_NOT_READY",
+      "pc": 23792
+    },
+    {
+      "register": 2550,
+      "bit": 7,
+      "mask": 128,
+      "source": "95.A012 | HMI_ALARM_VFD3_NOT_READY",
+      "pc": 23798
+    },
+    {
+      "register": 2550,
+      "bit": 8,
+      "mask": 256,
+      "source": "95.A013 | HMI_ALARM_VFD4_NOT_READY",
+      "pc": 23804
+    },
+    {
+      "register": 2550,
+      "bit": 9,
+      "mask": 512,
+      "source": "95.A014 | HMI_ALARM_VFD1_NO_LINK",
+      "pc": 23810
+    },
+    {
+      "register": 2550,
+      "bit": 10,
+      "mask": 1024,
+      "source": "95.A015 | HMI_ALARM_VFD2_NO_LINK",
+      "pc": 23816
+    },
+    {
+      "register": 2550,
+      "bit": 11,
+      "mask": 2048,
+      "source": "95.A016 | HMI_ALARM_VFD3_NO_LINK",
+      "pc": 23822
+    },
+    {
+      "register": 2550,
+      "bit": 12,
+      "mask": 4096,
+      "source": "95.A017 | HMI_ALARM_VFD4_NO_LINK",
+      "pc": 23828
+    },
+    {
+      "register": 2550,
+      "bit": 13,
+      "mask": 8192,
+      "source": "95.A018 | HMI_ALARM_MODE_PREPARE",
+      "pc": 23834
+    },
+    {
+      "register": 2550,
+      "bit": 14,
+      "mask": 16384,
+      "source": "95.A019 | HMI_ALARM_FREQUENCY",
+      "pc": 23890
+    },
+    {
+      "register": 2550,
+      "bit": 15,
+      "mask": 32768,
+      "source": "95.A020 | HMI_ALARM_PRESSURE_WRITE",
+      "pc": 23946
+    },
+    {
+      "register": 2551,
+      "bit": 0,
+      "mask": 1,
+      "source": "95.A021 | HMI_ALARM_CASCADE_STACK",
+      "pc": 23952
+    },
+    {
+      "register": 2551,
+      "bit": 1,
+      "mask": 2,
+      "source": "95.A022 | HMI_ALARM_ROTATION",
+      "pc": 23958
+    },
+    {
+      "register": 2551,
+      "bit": 2,
+      "mask": 4,
+      "source": "95.A023 | HMI_ALARM_SELECTOR",
+      "pc": 23970
+    },
+    {
+      "register": 2551,
+      "bit": 3,
+      "mask": 8,
+      "source": "95.A024 | HMI_ALARM_NO_PUMPS",
+      "pc": 23976
+    },
+    {
+      "register": 2551,
+      "bit": 4,
+      "mask": 16,
+      "source": "95.A025 | HMI_ALARM_CASCADE_SETTINGS",
+      "pc": 23984
+    },
+    {
+      "register": 2551,
+      "bit": 5,
+      "mask": 32,
+      "source": "95.A026 | HMI_ALARM_PRESSURE_SETPOINT",
+      "pc": 23990
+    },
+    {
+      "register": 2551,
+      "bit": 6,
+      "mask": 64,
+      "source": "95.A027 | HMI_ALARM_FOLLOWER_SETPOINT",
+      "pc": 23996
+    },
+    {
+      "register": 2551,
+      "bit": 7,
+      "mask": 128,
+      "source": "95.A028 | HMI_ALARM_ROTATION_SETTINGS",
+      "pc": 24018
+    },
+    {
+      "register": 2551,
+      "bit": 8,
+      "mask": 256,
+      "source": "95.A054 | HMI_CPU_START_EVENT",
+      "pc": 24326
+    }
+  ],
+  "nativeFaultReference": {
+    "registerInDrive": "U0-01 / 0x1001",
+    "pduInDrive": 4097,
+    "notPLCBinding": "Do not bind PLC R4097 as the VFD fault code",
+    "PLCBoundPerDrive": false,
+    "manualURL": "https://m-driver.by/wp-content/uploads/2025/11/Manual-M-driver-900G_900M.pdf",
+    "manualVersion": "1.26",
+    "manualSHA256": "84957452679700c5b34ba1025b522df333f054b7e005fdc396a3c3137f679da1",
+    "registerPage": 50,
+    "faultExamples": {
+      "Err20": "Обрыв датчика давления",
+      "Err52": "Нехватка воды",
+      "Err53": "Избыточное давление"
+    },
+    "requiredNextChange": "Fresh per-drive fault-code cache and quality in PLC export; retain raw code and model-specific decoding"
+  },
+  "readOnlyTagPlanReady": true,
+  "PLCModified": false,
+  "selection": {
+    "mode": "eligible_pump_set",
+    "optionalPerStation": true,
+    "existingFATEKTransactionReused": true,
+    "changeInStop": true,
+    "selectedPumpsAreEligibleForAutomaticCascade": true
+  }
+}

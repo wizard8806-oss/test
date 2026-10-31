@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-30",
+  "sourceProject": "codex_diag_03",
+  "targetProject": "Desktop/codex_diag_04",
+  "supportedMapVersions": [
+    31,
+    32
+  ],
+  "newFieldsRequireMap": 32,
+  "nativeScadaVersion": "2.6.15.0",
+  "currentFactor": 0.1,
+  "faultDisplay": "Raw native code; model900G text from manual",
+  "oldSourcePreserved": true,
+  "pagesPreserved": true,
+  "radioRecordBytePreserved": true,
+  "PLCWrites": false,
+  "newCurrentOrFaultPLCReadObserved": false,
+  "nativeF9Observed": null,
+  "baseCoreSHA256": "101e0a7505d6ba75b5f02b8e28b6a5670c7187b382795d91c7532668c33974e3",
+  "moduleSHA256": "df98fee0f33135660caa41fc7a6b60db9d08a4b8691ad06c0e6c13184a8328ea",
+  "installerSHA256": "55912caadc3c30a8d7c6e4e0314c987e3cf7fee6f2737266f5613d00ebd7de9b",
+  "inlineCharacters": 10050,
+  "limitations": [
+    "General end-to-end freshness remains explicitly unconfirmed",
+    "Frequency state gates new fields conservatively; invalid frequency also hides fault/current",
+    "No shared snapshot identity across separate OPC items",
+    "Current factor/nonzero values and native fault encoding require bench comparison",
+    "No PLC/drive command writes or physical operation are claimed"
+  ],
+  "nativeObservation": "native-observation-2026-10-30.json",
+  "newFieldsInNativeScadaObserved": true,
+  "map32BranchExecutionInferred": true,
+  "nativeZeroCurrentAndFaultDisplayObserved": true,
+  "nativeEvidenceScope": "New script execution and zero current/fault/native-state3 display observed; exact F9/PLC-download commands and wire freshness not separately observed"
+}

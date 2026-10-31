@@ -1,0 +1,88 @@
+{
+  "date": "2026-10-30",
+  "logic": "PASS process-card assertions=59",
+  "native_records": {
+    "objects": 32,
+    "pages": 2,
+    "reader": "Official2.6.15 x86 object loader in Unicorn with stream/UI adapters",
+    "editor_sha256": "c90b3e893d9918c3e0dd95aedb7d0b6744453dc96003244d51dd8d2282078b57",
+    "native_GUI_F9_passed": false
+  },
+  "copy_cases": [
+    {
+      "case": "normal",
+      "passed": true,
+      "source_preserved": true
+    },
+    {
+      "case": "caret_and_unit_header",
+      "passed": true,
+      "source_preserved": true
+    },
+    {
+      "case": "core_changed",
+      "passed": true,
+      "source_preserved": true
+    },
+    {
+      "case": "radio_changed",
+      "passed": true,
+      "source_preserved": true
+    },
+    {
+      "case": "radio_renamed_identifier",
+      "passed": true,
+      "source_preserved": true
+    },
+    {
+      "case": "radio_missing_procedure",
+      "passed": true,
+      "source_preserved": true
+    },
+    {
+      "case": "destination_exists",
+      "passed": true,
+      "source_preserved": true
+    },
+    {
+      "case": "corrupt_bundle",
+      "passed": true,
+      "source_preserved": true
+    },
+    {
+      "case": "wrong_version",
+      "passed": true,
+      "source_preserved": true
+    }
+  ],
+  "API_reference": "Official2.6.15 Scripts.chm: GetVariableByAddress,TM_Variable.Outer/Address/OPCServerName/ComputerName/IsGoodQuality/OriginalAsInt",
+  "limits": "FreePascal strict stubs, real PowerShell7.6.9/Linux, x86 stream loading with adapters; Windows GUI/F9, process card live readings and nonzero frequency scaling remain unverified",
+  "radio_module_copy": "Original serialized record bytes, including user changes; no reference-code hash requirement",
+  "continuation_cases": [
+    {
+      "case": "changed_radio_history",
+      "passed": true,
+      "source_preserved": true
+    },
+    {
+      "case": "base64_whitespace",
+      "passed": true,
+      "source_preserved": true
+    },
+    {
+      "case": "wrong_original",
+      "passed": true,
+      "source_preserved": true
+    },
+    {
+      "case": "missing_history",
+      "passed": true,
+      "source_preserved": true
+    },
+    {
+      "case": "corrupt_patch",
+      "passed": true,
+      "source_preserved": true
+    }
+  ]
+}

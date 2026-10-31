@@ -1,0 +1,1769 @@
+{
+  "date": "2026-10-31",
+  "original_files": 199,
+  "kept_original_files": 145,
+  "excluded_original_files": 54,
+  "excluded_categories": {
+    "python_bytecode": 27,
+    "generated_delivery_scripts": 17,
+    "generated_binary_packages": 9,
+    "raw_editor_log": 1
+  },
+  "exclusion_policy": "Excluded files remain local and ignored; no loss of original user sources. All originals backed up outside the repository during audit. New source resources are listed separately in source/resources.json.",
+  "secrets_review": {
+    "scanner": "Gitleaks 8.24.3 (release SHA256 verified)",
+    "original_and_resource_tree_findings": 0,
+    "expanded_payload_findings": 0,
+    "distinct_inspected_payloads": 233,
+    "inspection": "Read all199 original files; recursively expanded Base64/GZip/ZIP, inspected UTF-8/UTF-16/CP1251 and decoded native PLC images. Credential assignment candidates manually reviewed as documentation or synthetic tests.",
+    "not_published": [
+      "Actual passwords or group authorization keys",
+      "Git credentials/tokens",
+      "Vendor executables, reference assemblies or license files",
+      "Old MBP configuration containing unrelated access configuration"
+    ],
+    "caveat": "Automated pattern scans do not guarantee detection of every possible secret; no credential-bearing configuration was intentionally added."
+  },
+  "remote_main_at_start": "5103031761c3da1ae744a0c1c691956c7367f183",
+  "branch": "codex/project-handoff-2026-10-31",
+  "windows_copy_synchronized": false,
+  "files": [
+    {
+      "path": "artifacts/fatek-process-map-01/drive-telemetry-extension-plan.json",
+      "status": " A",
+      "bytes": 5726,
+      "sha256": "bcf316234f314c1759cec20e3a99a6c46bb7af2590521f72c0311cbbbbf63843",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "bcf316234f314c1759cec20e3a99a6c46bb7af2590521f72c0311cbbbbf63843"
+    },
+    {
+      "path": "artifacts/fatek-process-map-01/masteropc-readonly-tags.json",
+      "status": " A",
+      "bytes": 4441,
+      "sha256": "593b43e918001c941cf71c5d2e3168c3227f049ec795cb67b549c7fec451c706",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "593b43e918001c941cf71c5d2e3168c3227f049ec795cb67b549c7fec451c706"
+    },
+    {
+      "path": "artifacts/fatek-process-map-01/native-observation-2026-10-30.json",
+      "status": " A",
+      "bytes": 1999,
+      "sha256": "a4292626a5f75e3d2b0946cf2f8f1f87521c8912d19e808891b691518378e267",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "a4292626a5f75e3d2b0946cf2f8f1f87521c8912d19e808891b691518378e267"
+    },
+    {
+      "path": "artifacts/fatek-process-map-01/profile-map31.json",
+      "status": " A",
+      "bytes": 10815,
+      "sha256": "665c6adc06c7a4edb00df1f7df4a2d2daf612f0d9bcacf48af42e5b09a537aef",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "665c6adc06c7a4edb00df1f7df4a2d2daf612f0d9bcacf48af42e5b09a537aef"
+    },
+    {
+      "path": "artifacts/fatek-process-map-01/review.json",
+      "status": " A",
+      "bytes": 27053,
+      "sha256": "64bb437dd4287ac30a4f34badb8b378760a58a6ed140f80c92052667bd442353",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "64bb437dd4287ac30a4f34badb8b378760a58a6ed140f80c92052667bd442353"
+    },
+    {
+      "path": "artifacts/fatek-process-map-01/validation.json",
+      "status": " A",
+      "bytes": 1044,
+      "sha256": "06d95422f815e0351b4ac6ec34e66bf3b3bb9c78cd6292e1619c7f9c378a0779",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "06d95422f815e0351b4ac6ec34e66bf3b3bb9c78cd6292e1619c7f9c378a0779"
+    },
+    {
+      "path": "artifacts/masteropc-process-review-01/review.json",
+      "status": " A",
+      "bytes": 8154,
+      "sha256": "540d937ec728692745e17d75bda11374fb0e658e320e88bf0e8a1ffd1270bab4",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "540d937ec728692745e17d75bda11374fb0e658e320e88bf0e8a1ffd1270bab4"
+    },
+    {
+      "path": "artifacts/simple-scada-diagnostics-01/Repair-Codex-Diag-01.ps1",
+      "status": " A",
+      "bytes": 3015,
+      "sha256": "51c36cfbab504f33bb6a87a43933d4b72b6624f88f4f20c877a8016fae82bdb3",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "51c36cfbab504f33bb6a87a43933d4b72b6624f88f4f20c877a8016fae82bdb3"
+    },
+    {
+      "path": "artifacts/simple-scada-diagnostics-01/Save-Codex-Diag-01.ps1",
+      "status": " A",
+      "bytes": 10421,
+      "sha256": "3068e4d80ec1771b414376aca72e91bc2c736f58d8c7e5042f7b4a5ccc148877",
+      "decision": "exclude",
+      "reason": "Reproducible delivery or compiled output; builder/template retained"
+    },
+    {
+      "path": "artifacts/simple-scada-diagnostics-01/delivery-manifest.json",
+      "status": " A",
+      "bytes": 3586,
+      "sha256": "46ac4d88e7f0e3d1ae13128fe4e15e81f92666b126fa68fa2a2963b2bd738ae7",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "46ac4d88e7f0e3d1ae13128fe4e15e81f92666b126fa68fa2a2963b2bd738ae7"
+    },
+    {
+      "path": "artifacts/simple-scada-diagnostics-01/native-loader-validation-2026-10-29.json",
+      "status": " A",
+      "bytes": 4591,
+      "sha256": "86a176e5d1c87e4642d26c4490bc5375f0cdd4abff24e19ffb9aa2af88f8adfd",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "86a176e5d1c87e4642d26c4490bc5375f0cdd4abff24e19ffb9aa2af88f8adfd"
+    },
+    {
+      "path": "artifacts/simple-scada-diagnostics-01/scripts/StationDiagnostics.txt",
+      "status": " A",
+      "bytes": 7355,
+      "sha256": "98ae6d53bb03426016e53d9cf85b74d9bdf85e8a5ca01122fa9737088d0c2d3d",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "98ae6d53bb03426016e53d9cf85b74d9bdf85e8a5ca01122fa9737088d0c2d3d"
+    },
+    {
+      "path": "artifacts/simple-scada-diagnostics-01/scripts/StationDiagnosticsTimer.txt",
+      "status": " A",
+      "bytes": 32,
+      "sha256": "9de5b321e5d7846882235185eb1595a84229dd839fc48626d4d0e1de94e71e83",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "9de5b321e5d7846882235185eb1595a84229dd839fc48626d4d0e1de94e71e83"
+    },
+    {
+      "path": "artifacts/simple-scada-diagnostics-01/validation-2026-10-29.json",
+      "status": " A",
+      "bytes": 1621,
+      "sha256": "7e2d13812803bc3e731594d5cc2e4876e14b3ee5a753a30184e434d950594746",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "7e2d13812803bc3e731594d5cc2e4876e14b3ee5a753a30184e434d950594746"
+    },
+    {
+      "path": "artifacts/station-model-01/control-contract-v1.json",
+      "status": " A",
+      "bytes": 2505,
+      "sha256": "eccb8ef8ea8c1efc5dbb19e7159c35c586f88156df9d039f09b4b2e0f2ab0e9b",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "eccb8ef8ea8c1efc5dbb19e7159c35c586f88156df9d039f09b4b2e0f2ab0e9b"
+    },
+    {
+      "path": "artifacts/station-model-01/profile-pressure-vfd-v1.json",
+      "status": " A",
+      "bytes": 1488,
+      "sha256": "dae1d637b41a4adab0dc42813ce94a08666aab8f483d01d240f3c199186f5029",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "dae1d637b41a4adab0dc42813ce94a08666aab8f483d01d240f3c199186f5029"
+    },
+    {
+      "path": "artifacts/station-process-display-01/Continue-Process-Install-01.ps1",
+      "status": " A",
+      "bytes": 2985,
+      "sha256": "eecf58fc120d5fdef4e2bd179bf3e87a2ee875d45a92d87e27bdc982ec3f9ce1",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "eecf58fc120d5fdef4e2bd179bf3e87a2ee875d45a92d87e27bdc982ec3f9ce1"
+    },
+    {
+      "path": "artifacts/station-process-display-01/Install-Process-Display-01.ps1",
+      "status": " A",
+      "bytes": 15043,
+      "sha256": "c99f54fc7d69eb27ad129658fb2ac5333e2ac29eea551d31370516af5221eff3",
+      "decision": "exclude",
+      "reason": "Reproducible delivery or compiled output; builder/template retained"
+    },
+    {
+      "path": "artifacts/station-process-display-01/Paste-Process-Display-01.ps1",
+      "status": " A",
+      "bytes": 11429,
+      "sha256": "306ddc1d58f6c70c126220e288082a8c2e874188d47afe447fa9035423da9828",
+      "decision": "exclude",
+      "reason": "Reproducible delivery or compiled output; builder/template retained"
+    },
+    {
+      "path": "artifacts/station-process-display-01/Start-Existing-Radio-Collector.ps1",
+      "status": " A",
+      "bytes": 646,
+      "sha256": "996ee2cce7d409cbba6f13416a32dc1b22306a2658a0ff68a74b4ee290c6911f",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "996ee2cce7d409cbba6f13416a32dc1b22306a2658a0ff68a74b4ee290c6911f"
+    },
+    {
+      "path": "artifacts/station-process-display-01/manifest.json",
+      "status": " A",
+      "bytes": 9970,
+      "sha256": "6b3c3ef54f9750ae2145f875e37ce068d5b03aea9e1a067eed190e066bf3659e",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "6b3c3ef54f9750ae2145f875e37ce068d5b03aea9e1a067eed190e066bf3659e"
+    },
+    {
+      "path": "artifacts/station-process-display-01/native-observation-2026-10-30.json",
+      "status": " A",
+      "bytes": 2173,
+      "sha256": "87a620d2d63c039ce829e0489ba04d57011cdb2e88414e94eca51d0ab9625b7b",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "87a620d2d63c039ce829e0489ba04d57011cdb2e88414e94eca51d0ab9625b7b"
+    },
+    {
+      "path": "artifacts/station-process-display-01/scripts/StationDiagnostics.txt",
+      "status": " A",
+      "bytes": 7127,
+      "sha256": "e366a95d7f3e0a23842cefccf8be76347ef306124c6489913a7ea03eb9617cf6",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "e366a95d7f3e0a23842cefccf8be76347ef306124c6489913a7ea03eb9617cf6"
+    },
+    {
+      "path": "artifacts/station-process-display-01/validation.json",
+      "status": " A",
+      "bytes": 2259,
+      "sha256": "c100831e004b2b0adfb5b892df9b5d709e6fed28eec3a539fbfa6994ddd48601",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "c100831e004b2b0adfb5b892df9b5d709e6fed28eec3a539fbfa6994ddd48601"
+    },
+    {
+      "path": "artifacts/teleofis-radio-display-01/Install-Radio-Display-01.ps1",
+      "status": " A",
+      "bytes": 13675,
+      "sha256": "9fda089fb2c1152342dd662c6c3bb905cff947549249139b1ebe78114271f0c2",
+      "decision": "exclude",
+      "reason": "Reproducible delivery or compiled output; builder/template retained"
+    },
+    {
+      "path": "artifacts/teleofis-radio-display-01/Paste-Radio-Display-01.ps1",
+      "status": " A",
+      "bytes": 11683,
+      "sha256": "d8b9fb8c504089e9da72a7cb72652c6478c7a487ad02de58ee18b6b84064207e",
+      "decision": "exclude",
+      "reason": "Reproducible delivery or compiled output; builder/template retained"
+    },
+    {
+      "path": "artifacts/teleofis-radio-display-01/Run-Radio-Usb-Collector-01.ps1",
+      "status": " A",
+      "bytes": 8334,
+      "sha256": "c22c54b62075e30831a98db2ff99277abd0891a103b1daa6665784f25fdc6ee2",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "c22c54b62075e30831a98db2ff99277abd0891a103b1daa6665784f25fdc6ee2"
+    },
+    {
+      "path": "artifacts/teleofis-radio-display-01/install-validation-2026-10-29.json",
+      "status": " A",
+      "bytes": 697,
+      "sha256": "45e0b45c273c55863341b203b88b3f9cec708fb419e7d38cd702e3c65666e85c",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "45e0b45c273c55863341b203b88b3f9cec708fb419e7d38cd702e3c65666e85c"
+    },
+    {
+      "path": "artifacts/teleofis-radio-display-01/manifest.json",
+      "status": " A",
+      "bytes": 1546,
+      "sha256": "d7f7c8451bac8e6cdf261fd62d33a5d77da6bc2e8a07d44ff59b5350705721fe",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "d7f7c8451bac8e6cdf261fd62d33a5d77da6bc2e8a07d44ff59b5350705721fe"
+    },
+    {
+      "path": "artifacts/teleofis-radio-display-01/native-observation-2026-10-29.json",
+      "status": " A",
+      "bytes": 1891,
+      "sha256": "85c5e2bea443b59582661200fe72214ef9e70034f471e221512738ef45ba49b5",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "85c5e2bea443b59582661200fe72214ef9e70034f471e221512738ef45ba49b5"
+    },
+    {
+      "path": "artifacts/teleofis-radio-display-01/scripts/StationRadioDiagnostics.txt",
+      "status": " A",
+      "bytes": 4757,
+      "sha256": "c7578da727ad7865135872e729bd260052c0be6ffdbc79076b40a91f7ffb65ef",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "c7578da727ad7865135872e729bd260052c0be6ffdbc79076b40a91f7ffb65ef"
+    },
+    {
+      "path": "artifacts/teleofis-radio-display-01/validation-2026-10-29.json",
+      "status": " A",
+      "bytes": 1041,
+      "sha256": "d7d439aff88db79c330e0e6ee888153def8518c0b150df871da60c685e45a36e",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "d7d439aff88db79c330e0e6ee888153def8518c0b150df871da60c685e45a36e"
+    },
+    {
+      "path": "artifacts/teleofis-radio-service-01/Fix-Service-Xml-Reference-01.ps1",
+      "status": " A",
+      "bytes": 2556,
+      "sha256": "e9b1316d02fc9c7dd2b7b65b399948e97b3d72a9af6d6e217fe238417a846c6d",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "e9b1316d02fc9c7dd2b7b65b399948e97b3d72a9af6d6e217fe238417a846c6d"
+    },
+    {
+      "path": "artifacts/teleofis-radio-service-01/Install-And-Run-Radio-Service-01.ps1",
+      "status": " A",
+      "bytes": 11129,
+      "sha256": "9adbd6264e08473736cbefafe5e07e6ef8e31cbf19946d445adaddfeb780aa3d",
+      "decision": "exclude",
+      "reason": "Reproducible delivery or compiled output; builder/template retained"
+    },
+    {
+      "path": "artifacts/teleofis-radio-service-01/Paste-Radio-Service-01.ps1",
+      "status": " A",
+      "bytes": 11485,
+      "sha256": "08bee92fc644bf53b2464d89f988a05245ce5297feda7f3101d0df248eea70ea",
+      "decision": "exclude",
+      "reason": "Reproducible delivery or compiled output; builder/template retained"
+    },
+    {
+      "path": "artifacts/teleofis-radio-service-01/README.md",
+      "status": " A",
+      "bytes": 6735,
+      "sha256": "e687491c385230e211150a0fa94f654d4305b33d63f542bbd818534ef9d76a3a",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "e687491c385230e211150a0fa94f654d4305b33d63f542bbd818534ef9d76a3a"
+    },
+    {
+      "path": "artifacts/teleofis-radio-service-01/Run-Radio-Service-Collector-01.ps1",
+      "status": " A",
+      "bytes": 16500,
+      "sha256": "e334ef94c55230352441ba44471598faa2212e4dcfa7217a46d2f9d952624585",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "e334ef94c55230352441ba44471598faa2212e4dcfa7217a46d2f9d952624585"
+    },
+    {
+      "path": "artifacts/teleofis-radio-service-01/delivery-validation-2026-10-30.json",
+      "status": " A",
+      "bytes": 660,
+      "sha256": "74da177daf2cff6bbea0caab266216ecb479a96d20d72935d0b0284bfbb0fa1e",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "74da177daf2cff6bbea0caab266216ecb479a96d20d72935d0b0284bfbb0fa1e"
+    },
+    {
+      "path": "artifacts/teleofis-radio-service-01/manifest.json",
+      "status": " A",
+      "bytes": 1667,
+      "sha256": "05d363975506e20ebe75ac4a9632c778d6f89a9b5f5c632f9c24ad355a674f8a",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "05d363975506e20ebe75ac4a9632c778d6f89a9b5f5c632f9c24ad355a674f8a"
+    },
+    {
+      "path": "artifacts/teleofis-radio-service-01/native-observation-2026-10-30.json",
+      "status": " A",
+      "bytes": 5775,
+      "sha256": "a15a5983f6f4b8aa067146f2f9831b21b8840f1494eea100e067a98a4b5797cc",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "a15a5983f6f4b8aa067146f2f9831b21b8840f1494eea100e067a98a4b5797cc"
+    },
+    {
+      "path": "artifacts/teleofis-radio-service-01/stations.json",
+      "status": " A",
+      "bytes": 559,
+      "sha256": "685bb807d255361d7af76c76e9c44899d832d798c3db995cd406f470bc1f5511",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "685bb807d255361d7af76c76e9c44899d832d798c3db995cd406f470bc1f5511"
+    },
+    {
+      "path": "artifacts/teleofis-radio-service-01/validation-2026-10-29.json",
+      "status": " A",
+      "bytes": 4807,
+      "sha256": "f440a4f07d1642bca76b6d9a84fa8699675c34df134ae763085114d5c2c7e6b2",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "f440a4f07d1642bca76b6d9a84fa8699675c34df134ae763085114d5c2c7e6b2"
+    },
+    {
+      "path": "artifacts/teleofis-radio-service-01/xml-reference-validation-2026-10-30.json",
+      "status": " A",
+      "bytes": 1674,
+      "sha256": "ef802bed42b5e5f2e54f08895771599d7170a896640d1ecb9e933add8c0479e0",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "ef802bed42b5e5f2e54f08895771599d7170a896640d1ecb9e933add8c0479e0"
+    },
+    {
+      "path": "artifacts/teleofis-radio-service-02/README.md",
+      "status": " A",
+      "bytes": 5652,
+      "sha256": "18c53b1a8e8ecd3d003e673088c8472184ffe135c097692fe2b43c2024c94187",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "18c53b1a8e8ecd3d003e673088c8472184ffe135c097692fe2b43c2024c94187"
+    },
+    {
+      "path": "artifacts/teleofis-radio-service-02/Run-Radio-Service-Collector-02.ps1",
+      "status": " A",
+      "bytes": 16880,
+      "sha256": "89c5762599b6b43044d0688f98f5df4e0d80ac603a70d446ee131351607b0e82",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "89c5762599b6b43044d0688f98f5df4e0d80ac603a70d446ee131351607b0e82"
+    },
+    {
+      "path": "artifacts/teleofis-radio-service-02/Set-Service-Group-And-Run-02.ps1",
+      "status": " A",
+      "bytes": 4836,
+      "sha256": "1fba5c5e84388328d6c135fbe51499d41cf1cde75238ca515124646e008fc253",
+      "decision": "exclude",
+      "reason": "Reproducible delivery or compiled output; builder/template retained"
+    },
+    {
+      "path": "artifacts/teleofis-radio-service-02/Start-ServiceDiag-9336.ps1",
+      "status": " A",
+      "bytes": 4782,
+      "sha256": "dc51bec17d8669a50e2665b84fe0a1f77816409702ffc4170310ada63d7c9986",
+      "decision": "exclude",
+      "reason": "Reproducible delivery or compiled output; builder/template retained"
+    },
+    {
+      "path": "artifacts/teleofis-radio-service-02/group-binding.json",
+      "status": " A",
+      "bytes": 770,
+      "sha256": "a676f10fa38b6b454d9c42517297765d5f6153af3e8f71e2716afda12dd55a37",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "a676f10fa38b6b454d9c42517297765d5f6153af3e8f71e2716afda12dd55a37"
+    },
+    {
+      "path": "artifacts/teleofis-radio-service-02/manifest.json",
+      "status": " A",
+      "bytes": 1025,
+      "sha256": "e54fc661640e87ac788b7fdd48d2b78350093336d9df1e6c1630cc34ee1a3107",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "e54fc661640e87ac788b7fdd48d2b78350093336d9df1e6c1630cc34ee1a3107"
+    },
+    {
+      "path": "artifacts/teleofis-radio-service-02/validation.json",
+      "status": " A",
+      "bytes": 1815,
+      "sha256": "ffde8673595bbb2bc2a2ffc5676e8beb26a744f328f8a9158bb115fea70371cb",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "ffde8673595bbb2bc2a2ffc5676e8beb26a744f328f8a9158bb115fea70371cb"
+    },
+    {
+      "path": "artifacts/teleofis-radio-usb-probe-01/Inspect-Teleofis-Usb-Auth-03.ps1",
+      "status": " A",
+      "bytes": 3660,
+      "sha256": "caf44ad4f73f8c4eec40d490a53add6ecbd4c793d24af02030ec0d88294ad0df",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "caf44ad4f73f8c4eec40d490a53add6ecbd4c793d24af02030ec0d88294ad0df"
+    },
+    {
+      "path": "artifacts/teleofis-radio-usb-probe-01/Read-Teleofis-Radio-Usb-01.ps1",
+      "status": " A",
+      "bytes": 4795,
+      "sha256": "3ed52e160953ebeb0a296549ee38b748914d1eedf9a5abd6cca10f96d368d48f",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "3ed52e160953ebeb0a296549ee38b748914d1eedf9a5abd6cca10f96d368d48f"
+    },
+    {
+      "path": "artifacts/teleofis-radio-usb-probe-01/Read-Teleofis-Radio-Usb-04.ps1",
+      "status": " A",
+      "bytes": 5181,
+      "sha256": "561159c04f632c6c3cdd8ead63ff621891072c24a1179bc185386e5761e6ec22",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "561159c04f632c6c3cdd8ead63ff621891072c24a1179bc185386e5761e6ec22"
+    },
+    {
+      "path": "artifacts/teleofis-radio-usb-probe-01/Retry-Teleofis-Radio-Usb-02.ps1",
+      "status": " A",
+      "bytes": 2689,
+      "sha256": "34cd01e24b5d3736ea57f12f32632473ce4b4ee9ce73c5f13a699e9f6e17dba3",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "34cd01e24b5d3736ea57f12f32632473ce4b4ee9ce73c5f13a699e9f6e17dba3"
+    },
+    {
+      "path": "artifacts/teleofis-radio-usb-probe-01/auth-capture-validation-2026-10-29.json",
+      "status": " A",
+      "bytes": 2743,
+      "sha256": "1171eb133d1890379e16255ceb87987015505fb6c36e616e171cd44a36370920",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "1171eb133d1890379e16255ceb87987015505fb6c36e616e171cd44a36370920"
+    },
+    {
+      "path": "artifacts/teleofis-radio-usb-probe-01/validation-2026-10-29.json",
+      "status": " A",
+      "bytes": 6364,
+      "sha256": "914fe0a845bec55f8366331485efb634ae00a6364b7bcb18e88fb4716601a660",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "914fe0a845bec55f8366331485efb634ae00a6364b7bcb18e88fb4716601a660"
+    },
+    {
+      "path": "artifacts/teleofis-radio-usb-probe-01/validation-revision04-2026-10-29.json",
+      "status": " A",
+      "bytes": 7273,
+      "sha256": "92512c9ea7cd882cb2043746d6420fd8943d7d4442abdb4fdf6681eaa4e1a10a",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "92512c9ea7cd882cb2043746d6420fd8943d7d4442abdb4fdf6681eaa4e1a10a"
+    },
+    {
+      "path": "artifacts/teleofis-radio-usb-probe-01/vendor-reference-2026-10-29.json",
+      "status": " A",
+      "bytes": 1130,
+      "sha256": "72ee444efa657f020f2b743b2d10920362ceecd5317dda4a21841d4cde93b053",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "72ee444efa657f020f2b743b2d10920362ceecd5317dda4a21841d4cde93b053"
+    },
+    {
+      "path": "docs/65-modbus-current-native-checkpoint.json",
+      "status": " A",
+      "bytes": 55387,
+      "sha256": "c4affce4911cd763503e10ad603fa4772e2380ca08e11edbab0cd9a9aaeafea6",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "c4affce4911cd763503e10ad603fa4772e2380ca08e11edbab0cd9a9aaeafea6"
+    },
+    {
+      "path": "docs/deferred-work.md",
+      "status": " A",
+      "bytes": 2860,
+      "sha256": "2183103a1b6a814e631b570d685683f1a452f8427c6f247f4756cf736b1e7015",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "2183103a1b6a814e631b570d685683f1a452f8427c6f247f4756cf736b1e7015"
+    },
+    {
+      "path": "docs/drive-frequency-current-2026-10-29.md",
+      "status": " A",
+      "bytes": 7079,
+      "sha256": "82aa0ac311e478696490fb2eb070fe3ee715386cea16ca63564cde49b5cf613f",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "82aa0ac311e478696490fb2eb070fe3ee715386cea16ca63564cde49b5cf613f"
+    },
+    {
+      "path": "docs/fatek-process-map31-2026-10-29.md",
+      "status": " A",
+      "bytes": 10101,
+      "sha256": "3977d4a4783c6aacc500b267d134a35ed69ffb7ee36503230c5e5355ab2c55d6",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "3977d4a4783c6aacc500b267d134a35ed69ffb7ee36503230c5e5355ab2c55d6"
+    },
+    {
+      "path": "docs/radio-display-bench-2026-10-29.md",
+      "status": " A",
+      "bytes": 11973,
+      "sha256": "d16d09d228a776437e43a118c4081ecf7d773db22a84f9dfbcd8abe23fd8ba90",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "d16d09d228a776437e43a118c4081ecf7d773db22a84f9dfbcd8abe23fd8ba90"
+    },
+    {
+      "path": "docs/scada-inline-handoff-2026-10-29.md",
+      "status": " A",
+      "bytes": 14761,
+      "sha256": "4965ed6370f7a76c47df5d37e03d90bbff4c05a26f39b8c3a15cb1a315880229",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "4965ed6370f7a76c47df5d37e03d90bbff4c05a26f39b8c3a15cb1a315880229"
+    },
+    {
+      "path": "docs/station-control-requirements-2026-10-29.md",
+      "status": " A",
+      "bytes": 11132,
+      "sha256": "80669b4661ec6d850127a3d70e9379357883ccfcb3aa3a17d9da2d0e969a7cdc",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "80669b4661ec6d850127a3d70e9379357883ccfcb3aa3a17d9da2d0e969a7cdc"
+    },
+    {
+      "path": "docs/station-diagnostics-model-2026-10-29.md",
+      "status": " A",
+      "bytes": 10500,
+      "sha256": "1fb69d03d66493df47a6a0db6514d6eae07aac107c4bc0a437dcbe95dbbda985",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "1fb69d03d66493df47a6a0db6514d6eae07aac107c4bc0a437dcbe95dbbda985"
+    },
+    {
+      "path": "docs/station-process-display-2026-10-30.md",
+      "status": " A",
+      "bytes": 11022,
+      "sha256": "6c9fe35e5278d3ce8b1dffe914390cad1404e1f9dbff00e85aaa51aaa4ff848f",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "6c9fe35e5278d3ce8b1dffe914390cad1404e1f9dbff00e85aaa51aaa4ff848f"
+    },
+    {
+      "path": "docs/teleofis-radio-usb-probe-2026-10-29.md",
+      "status": " A",
+      "bytes": 14420,
+      "sha256": "d686c8e593f78b74c2be8d8292ff3163da5cd5dbd988b1368ae275c0cf23ef4f",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "d686c8e593f78b74c2be8d8292ff3163da5cd5dbd988b1368ae275c0cf23ef4f"
+    },
+    {
+      "path": "docs/teleofis-service-preflight-2026-10-29.md",
+      "status": " A",
+      "bytes": 12003,
+      "sha256": "cd8dc438e558b9b438fcacaef49356610a88161b5a05c56b4cd9d33be297068c",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "cd8dc438e558b9b438fcacaef49356610a88161b5a05c56b4cd9d33be297068c"
+    },
+    {
+      "path": "source/simple-scada-editor-error-2026-10-29/manifest.json",
+      "status": " A",
+      "bytes": 325,
+      "sha256": "20f1610e63540db3c65be017b1a976ead7f5581505594c0b9122f0d60944dc80",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "20f1610e63540db3c65be017b1a976ead7f5581505594c0b9122f0d60944dc80"
+    },
+    {
+      "path": "tools/build_process_display_01.py",
+      "status": " A",
+      "bytes": 10283,
+      "sha256": "bd30b61860b2c18f7e8ff8bb70361b615a8356a5c5297df2315f3d4b975ef5cb",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence; resource/tool paths made portable or optional vendor checks marked explicitly",
+      "published_sha256": "d005ca5676b9dd8889b7b974bf59f6b63f46d9ce02bc77d0f19fcef80e73d78e"
+    },
+    {
+      "path": "tools/build_radio_display_01.py",
+      "status": " A",
+      "bytes": 4397,
+      "sha256": "82db9a5984fc88eabc5a17d47400c2ad898c04f6c5776e8b66a1cf55f8d3c2d1",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "82db9a5984fc88eabc5a17d47400c2ad898c04f6c5776e8b66a1cf55f8d3c2d1"
+    },
+    {
+      "path": "tools/build_radio_service_delivery_01.py",
+      "status": " A",
+      "bytes": 2418,
+      "sha256": "cb2debb34aff2b0d9da3c9a42e31a32235702fc84f7246d62e371e32edabdb95",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "cb2debb34aff2b0d9da3c9a42e31a32235702fc84f7246d62e371e32edabdb95"
+    },
+    {
+      "path": "tools/build_service_group_split_02.py",
+      "status": " A",
+      "bytes": 4061,
+      "sha256": "e32377db007645b5ad271103e6b02162801e3d19c33d07eb3da5ff9cc32658a7",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "e32377db007645b5ad271103e6b02162801e3d19c33d07eb3da5ff9cc32658a7"
+    },
+    {
+      "path": "tools/prepare_drive_telemetry_plan_01.py",
+      "status": " A",
+      "bytes": 3840,
+      "sha256": "f7e0bc270d7403c8fd22f499c43f7a3914e930184b1551261cfa1009cc8bb81a",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "f7e0bc270d7403c8fd22f499c43f7a3914e930184b1551261cfa1009cc8bb81a"
+    },
+    {
+      "path": "tools/process_display_install_template.ps1",
+      "status": " A",
+      "bytes": 9192,
+      "sha256": "27f636221dcbc2262f6a36911bdcdd2c395a889366ae025dfa30bd91c649d4ec",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "27f636221dcbc2262f6a36911bdcdd2c395a889366ae025dfa30bd91c649d4ec"
+    },
+    {
+      "path": "tools/radio_display_install_template.ps1",
+      "status": " A",
+      "bytes": 6757,
+      "sha256": "9ab0ead4701b91cf45ef84beb2d05c1ad4d4657da7a3ba4d1265ddda867ac60f",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "9ab0ead4701b91cf45ef84beb2d05c1ad4d4657da7a3ba4d1265ddda867ac60f"
+    },
+    {
+      "path": "tools/radio_service_install_template.ps1",
+      "status": " A",
+      "bytes": 2539,
+      "sha256": "951d67e9a68c0cdfe52bb3958e9b326ce068ee0da0d0671b8b4cf6817e3064ad",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "951d67e9a68c0cdfe52bb3958e9b326ce068ee0da0d0671b8b4cf6817e3064ad"
+    },
+    {
+      "path": "tools/radio_usb_collector_template.ps1",
+      "status": " A",
+      "bytes": 5607,
+      "sha256": "d4e9ad88fb9d87888b076a8ca8582df84cfa8b06406b94cb1f0d1bbd2d232f14",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "d4e9ad88fb9d87888b076a8ca8582df84cfa8b06406b94cb1f0d1bbd2d232f14"
+    },
+    {
+      "path": "tools/rebuild_scada_inline_delivery_01.py",
+      "status": " A",
+      "bytes": 8723,
+      "sha256": "d300c1d0e5d13842bcf9f9c25a4ac2f03c3965241432a013934c69efab2b9606",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence; resource/tool paths made portable or optional vendor checks marked explicitly",
+      "published_sha256": "4c1aff46724f6a9c280de5d60aa2a37a952c5bf7e2fbb076040806f0f65a95af"
+    },
+    {
+      "path": "tools/review_fatek_process_map_01.py",
+      "status": " A",
+      "bytes": 10452,
+      "sha256": "d9e2e3caf73ca0eea3185727d9b4ba1b3e8f9fab4fce76f8c9a996c9da6ec426",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "d9e2e3caf73ca0eea3185727d9b4ba1b3e8f9fab4fce76f8c9a996c9da6ec426"
+    },
+    {
+      "path": "tools/review_masteropc_process_tags_01.py",
+      "status": " A",
+      "bytes": 2607,
+      "sha256": "efdb8c6c4121b68a4894266f85a97005b6f63179d936979b1f9d74507206d0db",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "efdb8c6c4121b68a4894266f85a97005b6f63179d936979b1f9d74507206d0db"
+    },
+    {
+      "path": "tools/scada_inline_template.ps1",
+      "status": " A",
+      "bytes": 3955,
+      "sha256": "86039532b04f112de1f04f52dbc5206c2858ab3600ab90d83a4a2041a0bbfe57",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "86039532b04f112de1f04f52dbc5206c2858ab3600ab90d83a4a2041a0bbfe57"
+    },
+    {
+      "path": "tools/service_group_split_template.ps1",
+      "status": " A",
+      "bytes": 3935,
+      "sha256": "0b1ba744470f8dd94fd9c8af7575e74eb9666fb4961cbf1040f5e35ff5c9b9e9",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "0b1ba744470f8dd94fd9c8af7575e74eb9666fb4961cbf1040f5e35ff5c9b9e9"
+    },
+    {
+      "path": "tools/validate_process_display_01.py",
+      "status": " A",
+      "bytes": 19352,
+      "sha256": "0019165feda954c1ce57fe9b4dd3b5881e5d30fc6013efa64edc077322c6fe2a",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence; resource/tool paths made portable or optional vendor checks marked explicitly",
+      "published_sha256": "249bd6042d10be7e2cc22ae4bd8545055a48ab1bdf40ee1910565eadf20bf597"
+    },
+    {
+      "path": "tools/validate_radio_display_01.py",
+      "status": " A",
+      "bytes": 8288,
+      "sha256": "2f38a1162d73b250fe30126d72e6145ceb45ffb89bbd6a623da661f1c8b68d02",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence; resource/tool paths made portable or optional vendor checks marked explicitly",
+      "published_sha256": "1c35162131e52d5c03bfea115de24e57faaf0fa14f6d5ccf06b109121e7883cb"
+    },
+    {
+      "path": "tools/validate_radio_install_01.py",
+      "status": " A",
+      "bytes": 4441,
+      "sha256": "3d14a61642b2dac2bd00a2e24c6a357db4a7a662c897cbdf30f45df7079b34a5",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence; resource/tool paths made portable or optional vendor checks marked explicitly",
+      "published_sha256": "25f29f85aee16a8458c647f2965c7fe641786bd66f1f5f6787c47c5009f8cb98"
+    },
+    {
+      "path": "tools/validate_radio_service_01.py",
+      "status": " A",
+      "bytes": 14499,
+      "sha256": "dd73a9f1263722fd47d7309438f40c71df8df8f22926b14d9bdd4faac7faee68",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence; resource/tool paths made portable or optional vendor checks marked explicitly",
+      "published_sha256": "4a8dbdb4e7a5d67043d52f7435628e7d2c0286d881747fe1db240fa6e4860a53"
+    },
+    {
+      "path": "tools/validate_radio_service_delivery_01.py",
+      "status": " A",
+      "bytes": 3535,
+      "sha256": "f952f3ff2e5377e04140a5d35b0650b21683e60da9ae38858f350141583189bc",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence; resource/tool paths made portable or optional vendor checks marked explicitly",
+      "published_sha256": "6a82a6209fa2cc0a2949925f4f783c0e4f1abbcfd4f8ea80cd943ce58519ebfd"
+    },
+    {
+      "path": "tools/validate_scada_inline_01.py",
+      "status": " A",
+      "bytes": 15990,
+      "sha256": "3291f38e79c173b3c30863986c0f04220802066145b122df14db3348af9c1826",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence; resource/tool paths made portable or optional vendor checks marked explicitly",
+      "published_sha256": "974c80fb88585f5a14958bd7c546a74ab045db2697af2b3e004ac68243e25647"
+    },
+    {
+      "path": "tools/validate_service_group_split_02.py",
+      "status": " A",
+      "bytes": 7909,
+      "sha256": "8acfcdb9210819240f4a4477d47a23f5cfd669bb4cd3f3bbc45a28836be0ebf8",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "8acfcdb9210819240f4a4477d47a23f5cfd669bb4cd3f3bbc45a28836be0ebf8"
+    },
+    {
+      "path": "tools/validate_service_xml_reference_01.py",
+      "status": " A",
+      "bytes": 6974,
+      "sha256": "de268421f78bc2f3a49360b451281a64e96862465d088ead91195b9a5d89a960",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence; resource/tool paths made portable or optional vendor checks marked explicitly",
+      "published_sha256": "596e7c66e97b80d650b524adeeec40f8bc9a7abbf3f3d8257654fd3d0fea4865"
+    },
+    {
+      "path": "tools/validate_teleofis_auth_capture_03.py",
+      "status": " A",
+      "bytes": 5287,
+      "sha256": "e4394a48ed17e18d50ef1b5e058b2fe74b3d9c379753ab1a4a699ff34fde2636",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "e4394a48ed17e18d50ef1b5e058b2fe74b3d9c379753ab1a4a699ff34fde2636"
+    },
+    {
+      "path": "tools/validate_teleofis_radio_usb_probe_01.py",
+      "status": " A",
+      "bytes": 7636,
+      "sha256": "fa0b8e6845cb2ff867fbee3ffe07c1775c86ef8d1f1353d2bd8a943e161696b6",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence; resource/tool paths made portable or optional vendor checks marked explicitly",
+      "published_sha256": "776aca4f9106f19f3a5bfca4dc4254c3f993ccb56eedd41111e3e884a8ce3b86"
+    },
+    {
+      "path": "tools/validate_teleofis_radio_usb_probe_04.py",
+      "status": " A",
+      "bytes": 1318,
+      "sha256": "0ef2e892dfead7bce6e8c50e53e2b04dd819a72bd71e1a983bf8ce348a6d291b",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "0ef2e892dfead7bce6e8c50e53e2b04dd819a72bd71e1a983bf8ce348a6d291b"
+    },
+    {
+      "path": "tools/verify_scada_native_loader_01.py",
+      "status": " A",
+      "bytes": 7238,
+      "sha256": "c4ef7b19143e23d094080c7c5b87b9f4d53fb549ea6cd554ef72a05565805207",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence; resource/tool paths made portable or optional vendor checks marked explicitly",
+      "published_sha256": "5492abb14928e6e94f4a553975519ab49188f97b5a21d28557b8150e75c418a6"
+    },
+    {
+      "path": "artifacts/fatek-drive-telemetry-02/README.md",
+      "status": "??",
+      "bytes": 6152,
+      "sha256": "a4ede36b46610893c63f7bb58b92e2bcc4b7a7d8147ace4452416a2a30dff57f",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "a4ede36b46610893c63f7bb58b92e2bcc4b7a7d8147ace4452416a2a30dff57f"
+    },
+    {
+      "path": "artifacts/fatek-drive-telemetry-02/native-candidate-comparison-2026-10-30.json",
+      "status": "??",
+      "bytes": 1223,
+      "sha256": "202ff297b5bc446804b489516c2fa974c03c90ebec22dffe53973f586de19d6d",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "202ff297b5bc446804b489516c2fa974c03c90ebec22dffe53973f586de19d6d"
+    },
+    {
+      "path": "artifacts/fatek-drive-telemetry-02/native-dialog-observation-2026-10-30.json",
+      "status": "??",
+      "bytes": 807,
+      "sha256": "54347a88392df5c0069ba2061456f81200c0d391faee495f187ccb31f86fe128",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "54347a88392df5c0069ba2061456f81200c0d391faee495f187ccb31f86fe128"
+    },
+    {
+      "path": "artifacts/fatek-drive-telemetry-02/native-edit-proposal.json",
+      "status": "??",
+      "bytes": 7494,
+      "sha256": "51e1481e4fededb7879acd6d8778d9c03e9d5d75edddd918671522b554d99a9a",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "51e1481e4fededb7879acd6d8778d9c03e9d5d75edddd918671522b554d99a9a"
+    },
+    {
+      "path": "artifacts/fatek-drive-telemetry-02/received-copy-latest-observation-2026-10-30.json",
+      "status": "??",
+      "bytes": 1886,
+      "sha256": "1470204c8e2f832eb033f8cb9ebaaa462d1e14607b03fbae189c954d053e4093",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "1470204c8e2f832eb033f8cb9ebaaa462d1e14607b03fbae189c954d053e4093"
+    },
+    {
+      "path": "artifacts/fatek-drive-telemetry-02/received-copy-observation-2026-10-30.json",
+      "status": "??",
+      "bytes": 1822,
+      "sha256": "3cc6b38ecc7fbed936e14107f29f6bfaff8e8c0d4b01ad55ab0498b3118ae6f3",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "3cc6b38ecc7fbed936e14107f29f6bfaff8e8c0d4b01ad55ab0498b3118ae6f3"
+    },
+    {
+      "path": "artifacts/fatek-process-map-01/telemetry-memory-review-2026-10-30.json",
+      "status": "??",
+      "bytes": 6851,
+      "sha256": "db01038dc89bf1c1a196329021158cd907d785679fd1aac131191de63f1d2790",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "db01038dc89bf1c1a196329021158cd907d785679fd1aac131191de63f1d2790"
+    },
+    {
+      "path": "artifacts/simple-scada-diagnostics-01/Pages.spg",
+      "status": "??",
+      "bytes": 5632,
+      "sha256": "c6c8cee14b108244e9dd78a3323ca98fff3b5513ded1ec3cbfecb974171655e7",
+      "decision": "exclude",
+      "reason": "Reproducible delivery or compiled output; builder/template retained"
+    },
+    {
+      "path": "artifacts/simple-scada-diagnostics-01/Scripts.ssc",
+      "status": "??",
+      "bytes": 13449,
+      "sha256": "9de6f831ff9235552e1f4992f03b8d1eb747b3927c60b655521ce61581dc09e4",
+      "decision": "exclude",
+      "reason": "Reproducible delivery or compiled output; builder/template retained"
+    },
+    {
+      "path": "artifacts/simple-scada-diagnostics-01/capsule.zip",
+      "status": "??",
+      "bytes": 4401,
+      "sha256": "819de45d0c5afd9010f5626aaf1012671f6cf4ba60f34d4a22ef3b57c3d61755",
+      "decision": "exclude",
+      "reason": "Reproducible delivery or compiled output; builder/template retained"
+    },
+    {
+      "path": "artifacts/station-drive-display-02/Install-Drive-Display-02.ps1",
+      "status": "??",
+      "bytes": 13220,
+      "sha256": "55912caadc3c30a8d7c6e4e0314c987e3cf7fee6f2737266f5613d00ebd7de9b",
+      "decision": "exclude",
+      "reason": "Reproducible delivery or compiled output; builder/template retained"
+    },
+    {
+      "path": "artifacts/station-drive-display-02/Paste-Drive-Display-02.ps1",
+      "status": "??",
+      "bytes": 10050,
+      "sha256": "c89c345609a6ca5ed537ebd30fe87e5e692ebd2a6155cc8a4f658d97ed237339",
+      "decision": "exclude",
+      "reason": "Reproducible delivery or compiled output; builder/template retained"
+    },
+    {
+      "path": "artifacts/station-drive-display-02/README.md",
+      "status": "??",
+      "bytes": 5313,
+      "sha256": "7a26fa491943b88a6d5cd0b174e5f34f99a2b630964451471b1e1fa181f4ee68",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "7a26fa491943b88a6d5cd0b174e5f34f99a2b630964451471b1e1fa181f4ee68"
+    },
+    {
+      "path": "artifacts/station-drive-display-02/manifest.json",
+      "status": "??",
+      "bytes": 1568,
+      "sha256": "5432b4269c05f519b656f3be4d353e97d8505fd548b9810a6467e05ca7f79205",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "5432b4269c05f519b656f3be4d353e97d8505fd548b9810a6467e05ca7f79205"
+    },
+    {
+      "path": "artifacts/station-drive-display-02/masteropc-new-tags.json",
+      "status": "??",
+      "bytes": 726,
+      "sha256": "59d7125fd369976dbf4d6890d65cdaa503feb02c5c87409ee91b182abcec5fd5",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "59d7125fd369976dbf4d6890d65cdaa503feb02c5c87409ee91b182abcec5fd5"
+    },
+    {
+      "path": "artifacts/station-drive-display-02/native-observation-2026-10-30.json",
+      "status": "??",
+      "bytes": 2725,
+      "sha256": "c8865c943836d98dc86bd38117984df3fe433379dfed24ae7bf38bc68cdeb350",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "c8865c943836d98dc86bd38117984df3fe433379dfed24ae7bf38bc68cdeb350"
+    },
+    {
+      "path": "artifacts/station-drive-display-02/scripts/StationDiagnostics.txt",
+      "status": "??",
+      "bytes": 13798,
+      "sha256": "df98fee0f33135660caa41fc7a6b60db9d08a4b8691ad06c0e6c13184a8328ea",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "df98fee0f33135660caa41fc7a6b60db9d08a4b8691ad06c0e6c13184a8328ea"
+    },
+    {
+      "path": "artifacts/station-drive-display-02/validation.json",
+      "status": "??",
+      "bytes": 932,
+      "sha256": "7fc5c0df28f239d58a79a5473f62f675832366c02f1e2e60095467374f5c5dee",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "7fc5c0df28f239d58a79a5473f62f675832366c02f1e2e60095467374f5c5dee"
+    },
+    {
+      "path": "artifacts/station-freshness-03/Install-Station-Freshness-03.ps1",
+      "status": "??",
+      "bytes": 14754,
+      "sha256": "bc1bb7d6e306c0dc35ceeeb34fe45aef55790eec6ae7d2f29773e1dd50c8b681",
+      "decision": "exclude",
+      "reason": "Reproducible delivery or compiled output; builder/template retained"
+    },
+    {
+      "path": "artifacts/station-freshness-03/Paste-Station-Freshness-03.ps1",
+      "status": "??",
+      "bytes": 11655,
+      "sha256": "90c209d763e84ba49f21ae047a216736ddab4bd5dbf010840cd869170ec4c6e7",
+      "decision": "exclude",
+      "reason": "Reproducible delivery or compiled output; builder/template retained"
+    },
+    {
+      "path": "artifacts/station-freshness-03/README.md",
+      "status": "??",
+      "bytes": 6476,
+      "sha256": "96a062d3cae30366c65c701684c22a299f80276ef4bb35b1e582448a3fd3589a",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "96a062d3cae30366c65c701684c22a299f80276ef4bb35b1e582448a3fd3589a"
+    },
+    {
+      "path": "artifacts/station-freshness-03/manifest.json",
+      "status": "??",
+      "bytes": 2128,
+      "sha256": "ab836808b58dc3ec99a84fdef1e7163571d9351e7f31341f72317fa061931442",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "ab836808b58dc3ec99a84fdef1e7163571d9351e7f31341f72317fa061931442"
+    },
+    {
+      "path": "artifacts/station-freshness-03/native-counter-comparison-2026-10-30.json",
+      "status": "??",
+      "bytes": 795,
+      "sha256": "5479a370c872c58030151850d58c217bfee38ac663cc9b52a619edad53e67e87",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "5479a370c872c58030151850d58c217bfee38ac663cc9b52a619edad53e67e87"
+    },
+    {
+      "path": "artifacts/station-freshness-03/native-counter-dialog-observation-2026-10-30.json",
+      "status": "??",
+      "bytes": 821,
+      "sha256": "82471165e7a20365c2036f8eabe7e869c36dfb78a45dd7943e34fa9f70ed04f7",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "82471165e7a20365c2036f8eabe7e869c36dfb78a45dd7943e34fa9f70ed04f7"
+    },
+    {
+      "path": "artifacts/station-freshness-03/native-observation-2026-10-30.json",
+      "status": "??",
+      "bytes": 3529,
+      "sha256": "9d7a139de2dad985194f3b13c3d645e74308303bfab7e7d22ed3bea026e6e243",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "9d7a139de2dad985194f3b13c3d645e74308303bfab7e7d22ed3bea026e6e243"
+    },
+    {
+      "path": "artifacts/station-freshness-03/plc-counter-edit-spec.json",
+      "status": "??",
+      "bytes": 2456,
+      "sha256": "03275456c545a67e5d8e7676455594816b5790ced27ce79bc17840c054db87f0",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "03275456c545a67e5d8e7676455594816b5790ced27ce79bc17840c054db87f0"
+    },
+    {
+      "path": "artifacts/station-freshness-03/route-core.txt",
+      "status": "??",
+      "bytes": 1714,
+      "sha256": "a977a6a641603c886a2dcaeb4324ea9a4a0692b46218b723d54e9f7697a950fb",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "a977a6a641603c886a2dcaeb4324ea9a4a0692b46218b723d54e9f7697a950fb"
+    },
+    {
+      "path": "artifacts/station-freshness-03/scripts/StationDiagnostics.txt",
+      "status": "??",
+      "bytes": 19409,
+      "sha256": "8892f9ff6a9a9497cb2e79774d57f5b5d46c3b1ae93bbac66314d8acbeddc1e8",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "8892f9ff6a9a9497cb2e79774d57f5b5d46c3b1ae93bbac66314d8acbeddc1e8"
+    },
+    {
+      "path": "artifacts/station-freshness-03/validation.json",
+      "status": "??",
+      "bytes": 904,
+      "sha256": "b6f0444edfb2056c56775e7363df498d2eb5e1423aa2491554430ef642efbc94",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "b6f0444edfb2056c56775e7363df498d2eb5e1423aa2491554430ef642efbc94"
+    },
+    {
+      "path": "artifacts/station-mode-display-01/Install-Station-Mode-01.ps1",
+      "status": "??",
+      "bytes": 15809,
+      "sha256": "80d06f89e18dff24c956f15e7ab6eeab33483fd0c00ae94a1cccb8641af0ad2a",
+      "decision": "exclude",
+      "reason": "Reproducible delivery or compiled output; builder/template retained"
+    },
+    {
+      "path": "artifacts/station-mode-display-01/Paste-Station-Mode-01.ps1",
+      "status": "??",
+      "bytes": 12458,
+      "sha256": "a3498918b140f4b4c4a8b314fc03f96dabdb56d6db8f3dcdc40cb5be84b13ad7",
+      "decision": "exclude",
+      "reason": "Reproducible delivery or compiled output; builder/template retained"
+    },
+    {
+      "path": "artifacts/station-mode-display-01/README.md",
+      "status": "??",
+      "bytes": 4798,
+      "sha256": "e121b6d1e6e9fa8ffd8f4e82ad635cd020c6f4c4d18f8ebc8bfa8600a707057f",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "e121b6d1e6e9fa8ffd8f4e82ad635cd020c6f4c4d18f8ebc8bfa8600a707057f"
+    },
+    {
+      "path": "artifacts/station-mode-display-01/manifest.json",
+      "status": "??",
+      "bytes": 1494,
+      "sha256": "14513fdee6221a45091a8ae249b4ea859d6459c559a5df7470d81d7ecbe63bfe",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "14513fdee6221a45091a8ae249b4ea859d6459c559a5df7470d81d7ecbe63bfe"
+    },
+    {
+      "path": "artifacts/station-mode-display-01/native-observation-2026-10-31.json",
+      "status": "??",
+      "bytes": 545,
+      "sha256": "e690d2b2a66f3484537c133f422c0f5e286504f10aa270cd6ade11e1281264ca",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "e690d2b2a66f3484537c133f422c0f5e286504f10aa270cd6ade11e1281264ca"
+    },
+    {
+      "path": "artifacts/station-mode-display-01/native-source-review-2026-10-30.json",
+      "status": "??",
+      "bytes": 8544,
+      "sha256": "d68b562ec7fd7862cc83b511511ae07879802eb86fe18022ec9341fa1942c20f",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "d68b562ec7fd7862cc83b511511ae07879802eb86fe18022ec9341fa1942c20f"
+    },
+    {
+      "path": "artifacts/station-mode-display-01/scripts/StationDiagnostics.txt",
+      "status": "??",
+      "bytes": 21498,
+      "sha256": "f1541574e772aba3b5a775292558bf21483e536775833832d2dc2da8bbe7d62e",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "f1541574e772aba3b5a775292558bf21483e536775833832d2dc2da8bbe7d62e"
+    },
+    {
+      "path": "artifacts/station-mode-display-01/validation.json",
+      "status": "??",
+      "bytes": 1122,
+      "sha256": "2c0c4489f6e605baa20719fa9213881f1bfd9bef69b8121f0fbc3462facc92f8",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "2c0c4489f6e605baa20719fa9213881f1bfd9bef69b8121f0fbc3462facc92f8"
+    },
+    {
+      "path": "artifacts/station-model-01/setpoint-existing-path-review-2026-10-30.json",
+      "status": "??",
+      "bytes": 4275,
+      "sha256": "0bc548fd95cd8462c9d957aaca5c2e1129ecefa16b63a4cea27978adf50a53b0",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "0bc548fd95cd8462c9d957aaca5c2e1129ecefa16b63a4cea27978adf50a53b0"
+    },
+    {
+      "path": "artifacts/station-process-display-01/Pages.spg",
+      "status": "??",
+      "bytes": 8417,
+      "sha256": "4dfe208d4e2fcba253d64344f408d146dc51b87cfc5570fd0e03c652037e0f87",
+      "decision": "exclude",
+      "reason": "Reproducible delivery or compiled output; builder/template retained"
+    },
+    {
+      "path": "artifacts/station-process-display-01/bundle.zip",
+      "status": "??",
+      "bytes": 4282,
+      "sha256": "7163a488079a8b9c077716b5fe88947c7ac513c3877b97f93d3e631ced006448",
+      "decision": "exclude",
+      "reason": "Reproducible delivery or compiled output; builder/template retained"
+    },
+    {
+      "path": "artifacts/station-setpoint-feedback-01/Create-Setpoint-Feedback-Copy-01.ps1",
+      "status": "??",
+      "bytes": 12405,
+      "sha256": "a092b4685635e49261c7eb1cfce94fd7d15a22957ca537b94b6d6cfe285240ee",
+      "decision": "exclude",
+      "reason": "Reproducible delivery or compiled output; builder/template retained"
+    },
+    {
+      "path": "artifacts/station-setpoint-feedback-01/Paste-Setpoint-Feedback-Copy-01.ps1",
+      "status": "??",
+      "bytes": 11211,
+      "sha256": "d9c93361931691cc44f3e00057c89d6f14c79e384884d09168b7fe70946a9517",
+      "decision": "exclude",
+      "reason": "Reproducible delivery or compiled output; builder/template retained"
+    },
+    {
+      "path": "artifacts/station-setpoint-feedback-01/README.md",
+      "status": "??",
+      "bytes": 9130,
+      "sha256": "58e053ee1abb13d3f8241eb73d61ec453182d6565e87c1367958bcbfc7f79ef2",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "58e053ee1abb13d3f8241eb73d61ec453182d6565e87c1367958bcbfc7f79ef2"
+    },
+    {
+      "path": "artifacts/station-setpoint-feedback-01/masteropc-feedback-tags.json",
+      "status": "??",
+      "bytes": 1459,
+      "sha256": "a8ae7df69b52e3ee094f26b7aae06370efa4278a85b0c5ea3dc80cf6b0670bfc",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "a8ae7df69b52e3ee094f26b7aae06370efa4278a85b0c5ea3dc80cf6b0670bfc"
+    },
+    {
+      "path": "artifacts/station-setpoint-feedback-01/native-edit-proposal.json",
+      "status": "??",
+      "bytes": 6772,
+      "sha256": "6dfa25a589eb3a65d596dab2da7c2333ec8d502c80f5b8bd2007573fff59bf97",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "6dfa25a589eb3a65d596dab2da7c2333ec8d502c80f5b8bd2007573fff59bf97"
+    },
+    {
+      "path": "artifacts/station-setpoint-feedback-01/native-file-regression.json",
+      "status": "??",
+      "bytes": 513,
+      "sha256": "7807e2ccbd1e66393e9b87c315394bb1012e26af77ab3f5e8678427d2c7afece",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "7807e2ccbd1e66393e9b87c315394bb1012e26af77ab3f5e8678427d2c7afece"
+    },
+    {
+      "path": "artifacts/station-setpoint-feedback-01/native-file.patch.gz",
+      "status": "??",
+      "bytes": 5058,
+      "sha256": "eef2458c73dd1fff78db9d97b7a17249aaba8c6fb6c18da21aed2d14801dc6f6",
+      "decision": "exclude",
+      "reason": "Reproducible delivery or compiled output; builder/template retained"
+    },
+    {
+      "path": "artifacts/station-setpoint-feedback-01/offline-file-generation.json",
+      "status": "??",
+      "bytes": 2048,
+      "sha256": "540b4c6c5f8d64f82d7f963252196cf4325c63928f0e00fd36dc53dad1dc7e11",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "540b4c6c5f8d64f82d7f963252196cf4325c63928f0e00fd36dc53dad1dc7e11"
+    },
+    {
+      "path": "artifacts/station-setpoint-feedback-01/powershell-copy-validation.json",
+      "status": "??",
+      "bytes": 976,
+      "sha256": "5d1f4b515224099489c8376e8df82056dcb6eecf6adc590bb2f48a13e645dcf4",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "5d1f4b515224099489c8376e8df82056dcb6eecf6adc590bb2f48a13e645dcf4"
+    },
+    {
+      "path": "artifacts/station-setpoint-feedback-01/received-native-comparison-2026-10-31.json",
+      "status": "??",
+      "bytes": 1298,
+      "sha256": "d15fa0698276b8bebb03e0940debdf25119347348fc5d043385d43dda928d3b4",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "d15fa0698276b8bebb03e0940debdf25119347348fc5d043385d43dda928d3b4"
+    },
+    {
+      "path": "artifacts/station-setpoint-feedback-01/station_MC_CM55_900G_05.pdw",
+      "status": "??",
+      "bytes": 178479,
+      "sha256": "6aba2a67d07596e4a479c462412859565186de86b410a3cd44476a81f20ffe81",
+      "decision": "exclude",
+      "reason": "Reproducible delivery or compiled output; builder/template retained"
+    },
+    {
+      "path": "artifacts/station-setpoint-feedback-01/validation.json",
+      "status": "??",
+      "bytes": 2152,
+      "sha256": "525c33dd5e110e3ce9066e4c839a081dff8ae858549b384b8042d59012d625e2",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "525c33dd5e110e3ce9066e4c839a081dff8ae858549b384b8042d59012d625e2"
+    },
+    {
+      "path": "artifacts/teleofis-radio-display-01/bundle.zip",
+      "status": "??",
+      "bytes": 5039,
+      "sha256": "58185df9f793fb11b58f2ff264fe4e22d1f1ddf789ae50f7a9af89e53743ac33",
+      "decision": "exclude",
+      "reason": "Reproducible delivery or compiled output; builder/template retained"
+    },
+    {
+      "path": "artifacts/teleofis-radio-service-01/delivery-bundle.zip",
+      "status": "??",
+      "bytes": 6358,
+      "sha256": "e6ef8382f768b4cfe4d2f5f0b6ca5c6fbe3b2757b330d1cb46e43b8273d1fc5a",
+      "decision": "exclude",
+      "reason": "Reproducible delivery or compiled output; builder/template retained"
+    },
+    {
+      "path": "artifacts/teleofis-radio-service-02/native-observation-2026-10-30.json",
+      "status": "??",
+      "bytes": 2299,
+      "sha256": "9c6bf7a9df82f1184bbc65a84bcd90818e90c68ac1f07f31812af70b02ba1a4b",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "9c6bf7a9df82f1184bbc65a84bcd90818e90c68ac1f07f31812af70b02ba1a4b"
+    },
+    {
+      "path": "docs/radio-runtime-integration-2026-10-30.md",
+      "status": "??",
+      "bytes": 6181,
+      "sha256": "05ed8974b7dec87e7e6dce1b4143bbf4394316f1229d9a2cb6c8fc191de1f0ac",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "05ed8974b7dec87e7e6dce1b4143bbf4394316f1229d9a2cb6c8fc191de1f0ac"
+    },
+    {
+      "path": "source/simple-scada-editor-error-2026-10-29/Editor-log.txt",
+      "status": "??",
+      "bytes": 14457,
+      "sha256": "df432fd645b534f3eb27efad82fc1e2d6a83476851ac6eb53f1fd93a8764c28d",
+      "decision": "exclude",
+      "reason": "Raw local Editor log (not needed to reproduce; diagnostic manifest retained)"
+    },
+    {
+      "path": "tools/__pycache__/build_drive_display_02.cpython-312.pyc",
+      "status": "??",
+      "bytes": 15153,
+      "sha256": "4c311159202edcb4aeb7c98ab0368d0bc9e76f553a47d0a0d9bf11a89872cd17",
+      "decision": "exclude",
+      "reason": "Python bytecode cache"
+    },
+    {
+      "path": "tools/__pycache__/build_process_display_01.cpython-312.pyc",
+      "status": "??",
+      "bytes": 15273,
+      "sha256": "b0381282cb3d94b55ecde0e33c503c88dc226ee8df8587024c9a4b64a32842db",
+      "decision": "exclude",
+      "reason": "Python bytecode cache"
+    },
+    {
+      "path": "tools/__pycache__/build_radio_display_01.cpython-312.pyc",
+      "status": "??",
+      "bytes": 7502,
+      "sha256": "2d5448514cfdb0d92eb1673698fccd31d8d3b77d8518aa689fd0b4ede2aca3e6",
+      "decision": "exclude",
+      "reason": "Python bytecode cache"
+    },
+    {
+      "path": "tools/__pycache__/build_radio_service_delivery_01.cpython-312.pyc",
+      "status": "??",
+      "bytes": 4535,
+      "sha256": "d9995648c41e00b2583c10f20e3d9bca9723032533d9e663dc065fae0ef4dda4",
+      "decision": "exclude",
+      "reason": "Python bytecode cache"
+    },
+    {
+      "path": "tools/__pycache__/build_service_group_split_02.cpython-312.pyc",
+      "status": "??",
+      "bytes": 4518,
+      "sha256": "b0d6dca1de910c810c2dae7e6818878ff1270fe9805bc14107849f3252a2f297",
+      "decision": "exclude",
+      "reason": "Python bytecode cache"
+    },
+    {
+      "path": "tools/__pycache__/build_setpoint_feedback_pdw_01.cpython-312.pyc",
+      "status": "??",
+      "bytes": 15321,
+      "sha256": "19988a57bddc417342a49e213c6b1d5759197b452e96b4e895c484af6d3693f4",
+      "decision": "exclude",
+      "reason": "Python bytecode cache"
+    },
+    {
+      "path": "tools/__pycache__/build_station_freshness_03.cpython-312.pyc",
+      "status": "??",
+      "bytes": 10879,
+      "sha256": "1756e8ce548a1f9df63a749ba76f62f602f4002c51d060ae88d5a0f58fb1ebdb",
+      "decision": "exclude",
+      "reason": "Python bytecode cache"
+    },
+    {
+      "path": "tools/__pycache__/build_station_mode_display_01.cpython-312.pyc",
+      "status": "??",
+      "bytes": 9270,
+      "sha256": "42b463ce51e1e5e6fb453a6e5de7fad55c43faf8970afd67f07449439be20742",
+      "decision": "exclude",
+      "reason": "Python bytecode cache"
+    },
+    {
+      "path": "tools/__pycache__/check_native_drive_edit_02.cpython-312.pyc",
+      "status": "??",
+      "bytes": 11600,
+      "sha256": "1bda78627974d42ec9239abc2cb9306fbe495ba63ae99f9b280a093abe8001dd",
+      "decision": "exclude",
+      "reason": "Python bytecode cache"
+    },
+    {
+      "path": "tools/__pycache__/check_plc_alive_counter_03.cpython-312.pyc",
+      "status": "??",
+      "bytes": 4713,
+      "sha256": "8d6feeb3411181997f6388fe9e04c58a9e0d3ea85101c1a80565e94ea7f1688f",
+      "decision": "exclude",
+      "reason": "Python bytecode cache"
+    },
+    {
+      "path": "tools/__pycache__/check_setpoint_feedback_01.cpython-312.pyc",
+      "status": "??",
+      "bytes": 5564,
+      "sha256": "9e66884844dc314773803cf158555ecd01b68477733ae401b5229ca661a99075",
+      "decision": "exclude",
+      "reason": "Python bytecode cache"
+    },
+    {
+      "path": "tools/__pycache__/prepare_native_drive_edit_02.cpython-312.pyc",
+      "status": "??",
+      "bytes": 9272,
+      "sha256": "eae9ab299d8a4a5fe93a7c4e323f1bcd81578d1c1c3ac9691cf6542cb1a6da64",
+      "decision": "exclude",
+      "reason": "Python bytecode cache"
+    },
+    {
+      "path": "tools/__pycache__/prepare_plc_alive_counter_03.cpython-312.pyc",
+      "status": "??",
+      "bytes": 5708,
+      "sha256": "d48e44fecb3eef904b6438a9756778503ab2bd8d33cccca62375a6ede7c07d96",
+      "decision": "exclude",
+      "reason": "Python bytecode cache"
+    },
+    {
+      "path": "tools/__pycache__/prepare_setpoint_feedback_01.cpython-312.pyc",
+      "status": "??",
+      "bytes": 11094,
+      "sha256": "7f986a57a7892c69ec992521548f333d3e02887af0c682907015a8e6c053ab36",
+      "decision": "exclude",
+      "reason": "Python bytecode cache"
+    },
+    {
+      "path": "tools/__pycache__/rebuild_scada_inline_delivery_01.cpython-312.pyc",
+      "status": "??",
+      "bytes": 14990,
+      "sha256": "70f8a5072e72e4f924c40767e2bddc7a64cd7bd9642b6b674573b86db9396203",
+      "decision": "exclude",
+      "reason": "Python bytecode cache"
+    },
+    {
+      "path": "tools/__pycache__/render_fatek_network_01.cpython-312.pyc",
+      "status": "??",
+      "bytes": 4658,
+      "sha256": "e62cdf89ecf326424fd6be08b8bba9b189f4cc53f194e8f9a060713124cbe3c9",
+      "decision": "exclude",
+      "reason": "Python bytecode cache"
+    },
+    {
+      "path": "tools/__pycache__/review_fatek_process_map_01.cpython-312.pyc",
+      "status": "??",
+      "bytes": 18544,
+      "sha256": "0659c0e7920cda1a29ee8aeb9425ebb73c9094976f46f6d3489bfb8578503a07",
+      "decision": "exclude",
+      "reason": "Python bytecode cache"
+    },
+    {
+      "path": "tools/__pycache__/validate_drive_display_02.cpython-312.pyc",
+      "status": "??",
+      "bytes": 17792,
+      "sha256": "24bd921539bf4d5e6a6621bfec3d3d798e7a9565d2c4b9f49b1226bd1fe790fd",
+      "decision": "exclude",
+      "reason": "Python bytecode cache"
+    },
+    {
+      "path": "tools/__pycache__/validate_process_display_01.cpython-312.pyc",
+      "status": "??",
+      "bytes": 28220,
+      "sha256": "69167d8a5ea0498cf2af72c822ede05ff9b91d61855d4d172b8b5a102c3911b3",
+      "decision": "exclude",
+      "reason": "Python bytecode cache"
+    },
+    {
+      "path": "tools/__pycache__/validate_radio_display_01.cpython-312.pyc",
+      "status": "??",
+      "bytes": 14256,
+      "sha256": "2c12057380ee9fb22f70d3aef17e0382732219479817229f5699fe969036ba28",
+      "decision": "exclude",
+      "reason": "Python bytecode cache"
+    },
+    {
+      "path": "tools/__pycache__/validate_radio_install_01.cpython-312.pyc",
+      "status": "??",
+      "bytes": 9789,
+      "sha256": "e0efc06428cb0e206a70b2c02d1120e42fe1012dcbabcc2cd8b2a3fa4355a84a",
+      "decision": "exclude",
+      "reason": "Python bytecode cache"
+    },
+    {
+      "path": "tools/__pycache__/validate_radio_service_01.cpython-312.pyc",
+      "status": "??",
+      "bytes": 25655,
+      "sha256": "5f5a666e3f5d0aab9283a38899cc07c9de8d011be23713f0d7e3cf1193b540cd",
+      "decision": "exclude",
+      "reason": "Python bytecode cache"
+    },
+    {
+      "path": "tools/__pycache__/validate_service_group_split_02.cpython-312.pyc",
+      "status": "??",
+      "bytes": 12577,
+      "sha256": "44dedde3234cf41ef02be7de05d39b06d4ecd79600cc4e9c284d6215dfa8769f",
+      "decision": "exclude",
+      "reason": "Python bytecode cache"
+    },
+    {
+      "path": "tools/__pycache__/validate_station_freshness_03.cpython-312.pyc",
+      "status": "??",
+      "bytes": 10992,
+      "sha256": "d2659de22a41fa22e7cb833c79a79f58686303a38b97e061305eb8b4140f1d2e",
+      "decision": "exclude",
+      "reason": "Python bytecode cache"
+    },
+    {
+      "path": "tools/__pycache__/validate_station_mode_display_01.cpython-312.pyc",
+      "status": "??",
+      "bytes": 15038,
+      "sha256": "73ff3c4ecee690ed50081141978a2c73bada1ac3e7b9f8b926d05c3b74b62609",
+      "decision": "exclude",
+      "reason": "Python bytecode cache"
+    },
+    {
+      "path": "tools/__pycache__/validate_teleofis_radio_usb_probe_01.cpython-312.pyc",
+      "status": "??",
+      "bytes": 12439,
+      "sha256": "8abd249570f278408a017351aa7424b6df4ded96f7ee9ac12883040273136261",
+      "decision": "exclude",
+      "reason": "Python bytecode cache"
+    },
+    {
+      "path": "tools/__pycache__/verify_scada_native_loader_01.cpython-312.pyc",
+      "status": "??",
+      "bytes": 14662,
+      "sha256": "9f49980a0fc06d072e9b9d06a20af8e56d07dde07c2509f23923bc5415563966",
+      "decision": "exclude",
+      "reason": "Python bytecode cache"
+    },
+    {
+      "path": "tools/build_drive_display_02.py",
+      "status": "??",
+      "bytes": 12836,
+      "sha256": "9607cca530c7b9d072bbe5d2ad5a4af663a30839e4a7cf57f11a4dd257fdb095",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "9607cca530c7b9d072bbe5d2ad5a4af663a30839e4a7cf57f11a4dd257fdb095"
+    },
+    {
+      "path": "tools/build_setpoint_feedback_pdw_01.py",
+      "status": "??",
+      "bytes": 9194,
+      "sha256": "e84de6b64e4aa5b59e1be33a0a6ef31d93a16b8a5896022c311b816ee2e22042",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence; resource/tool paths made portable or optional vendor checks marked explicitly",
+      "published_sha256": "bbe76f36c496b105c955474af644286954efcf3ded5551f2d17bd7d21f1d24ac"
+    },
+    {
+      "path": "tools/build_station_freshness_03.py",
+      "status": "??",
+      "bytes": 8525,
+      "sha256": "640a78f2f4c784ff86acc76b5670c00b2b4c6b39ee7acfd2029cce155629b8f5",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "640a78f2f4c784ff86acc76b5670c00b2b4c6b39ee7acfd2029cce155629b8f5"
+    },
+    {
+      "path": "tools/build_station_mode_display_01.py",
+      "status": "??",
+      "bytes": 6866,
+      "sha256": "35d1b0898e99648fec85f02855b3b10e77d7719a3f6b1081d99ce831df2af047",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "35d1b0898e99648fec85f02855b3b10e77d7719a3f6b1081d99ce831df2af047"
+    },
+    {
+      "path": "tools/check_native_drive_edit_02.py",
+      "status": "??",
+      "bytes": 7172,
+      "sha256": "2ca30beacb3a4a001dcdc33d70b191c1e5c56dbcae2d5dbe57c6e1208023fd38",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "2ca30beacb3a4a001dcdc33d70b191c1e5c56dbcae2d5dbe57c6e1208023fd38"
+    },
+    {
+      "path": "tools/check_plc_alive_counter_03.py",
+      "status": "??",
+      "bytes": 4011,
+      "sha256": "7961b91b8ddc156eff26456720e4305d883828778589fb904b411ea4cb4b3ae6",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "7961b91b8ddc156eff26456720e4305d883828778589fb904b411ea4cb4b3ae6"
+    },
+    {
+      "path": "tools/check_setpoint_feedback_01.py",
+      "status": "??",
+      "bytes": 3571,
+      "sha256": "6372ace11d17e450a77d3f9eef0effed88df9f395a537795b8db172b6c6a5f51",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "6372ace11d17e450a77d3f9eef0effed88df9f395a537795b8db172b6c6a5f51"
+    },
+    {
+      "path": "tools/drive_display_install_template.ps1",
+      "status": "??",
+      "bytes": 8461,
+      "sha256": "10f1d275a5aa517311a617293766889d913cc3e19448060288f6644de3634afb",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "10f1d275a5aa517311a617293766889d913cc3e19448060288f6644de3634afb"
+    },
+    {
+      "path": "tools/prepare_native_drive_edit_02.py",
+      "status": "??",
+      "bytes": 6832,
+      "sha256": "e06744cfd989ef53d61e8a8e0614612ea29e690e1b3e55755da2b8e8aa104b2b",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence; resource/tool paths made portable or optional vendor checks marked explicitly",
+      "published_sha256": "6b3827754403194baf0d232201c1834bd614a2e06b213b0c56214922c56546eb"
+    },
+    {
+      "path": "tools/prepare_plc_alive_counter_03.py",
+      "status": "??",
+      "bytes": 4086,
+      "sha256": "03142fc43dc2fd1251e510a0c1cba7110f6a69ab7d3df9e5f8caceb42fbaef4d",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence; resource/tool paths made portable or optional vendor checks marked explicitly",
+      "published_sha256": "3ce3a072469442f831146903e72b1d31c2d26eca8fcd133c162b2c8c237fa583"
+    },
+    {
+      "path": "tools/prepare_setpoint_feedback_01.py",
+      "status": "??",
+      "bytes": 7815,
+      "sha256": "8e2730da9f32b29d7469c3257be70d241a5e99f9dcab32d3ef22c52d5290f55b",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence; resource/tool paths made portable or optional vendor checks marked explicitly",
+      "published_sha256": "e86f2f1700cb4522ea17cc3707a645216a4d5e50597891bb066c4592c2141a7c"
+    },
+    {
+      "path": "tools/render_fatek_network_01.py",
+      "status": "??",
+      "bytes": 2615,
+      "sha256": "e22ef9969ede3a468edacea49a61a166f31a395865213d4da18d61a50c94471e",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "e22ef9969ede3a468edacea49a61a166f31a395865213d4da18d61a50c94471e"
+    },
+    {
+      "path": "tools/review_drive_telemetry_memory_01.py",
+      "status": "??",
+      "bytes": 5943,
+      "sha256": "e005c13b5dd7a1f4203917457a1a50c68798ca8cfc5159071d2bc091adb0e787",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "e005c13b5dd7a1f4203917457a1a50c68798ca8cfc5159071d2bc091adb0e787"
+    },
+    {
+      "path": "tools/setpoint_feedback_copy_template.ps1",
+      "status": "??",
+      "bytes": 5395,
+      "sha256": "3ec5b8f7b0aef011a863c3bf792beac707925d1aefacdd66f316f009ed54a0e9",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "3ec5b8f7b0aef011a863c3bf792beac707925d1aefacdd66f316f009ed54a0e9"
+    },
+    {
+      "path": "tools/validate_drive_display_02.py",
+      "status": "??",
+      "bytes": 12819,
+      "sha256": "9c7dbe933c55af58a3225e2792de719e1d2c9c7c5fee67352949b2049d49d747",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence; resource/tool paths made portable or optional vendor checks marked explicitly",
+      "published_sha256": "45d8811efde7c2d8d0f2c17c4d65fdfb012b335f03692b2ffe38628d4e68a3ef"
+    },
+    {
+      "path": "tools/validate_setpoint_feedback_01.py",
+      "status": "??",
+      "bytes": 3932,
+      "sha256": "dcabb51c5f40e9e02f05940cb5b38a8288f19b46111f7b9fc76c125a9990f4fe",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
+      "published_sha256": "dcabb51c5f40e9e02f05940cb5b38a8288f19b46111f7b9fc76c125a9990f4fe"
+    },
+    {
+      "path": "tools/validate_setpoint_feedback_copy_01.py",
+      "status": "??",
+      "bytes": 5359,
+      "sha256": "71579eb323a1b4a2c2fd4efc8789d1332ee964a11ef2b45b274692c7aa49781d",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence; resource/tool paths made portable or optional vendor checks marked explicitly",
+      "published_sha256": "1b97fff656d17685c7da06f65e3803711e5fa19a071a948da0f3f50770077f5a"
+    },
+    {
+      "path": "tools/validate_station_freshness_03.py",
+      "status": "??",
+      "bytes": 8405,
+      "sha256": "b3270bc8eada102c8ede3ab1e00e141e6480ad7e8b14ca57673f529f06c6f087",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence; resource/tool paths made portable or optional vendor checks marked explicitly",
+      "published_sha256": "b067a37b447846c038fd689f2bab3049bcae3d4be2a251629b7b3d2b650ad5b8"
+    },
+    {
+      "path": "tools/validate_station_mode_display_01.py",
+      "status": "??",
+      "bytes": 10704,
+      "sha256": "7ce234988efb97f3a5f2a5a957fd1bfc5c85780e74bd2570b065d22def4ba99c",
+      "decision": "keep",
+      "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence; resource/tool paths made portable or optional vendor checks marked explicitly",
+      "published_sha256": "8abd5b1922642853fb64e4241769b6b15cb82cd2fda8dba4a51d9ffbd31c1cd7"
+    }
+  ]
+}

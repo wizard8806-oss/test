@@ -1,0 +1,46 @@
+{
+  "date": "2026-10-30",
+  "logicReports": [
+    "PASS process-card assertions=59",
+    "PASS freshness assertions=237"
+  ],
+  "copyCases": [
+    {
+      "case": "normal",
+      "passed": true
+    },
+    {
+      "case": "unit_header_carets",
+      "passed": true
+    },
+    {
+      "case": "changed_radio",
+      "passed": true
+    },
+    {
+      "case": "changed_core",
+      "passed": true
+    },
+    {
+      "case": "wrong_timer",
+      "passed": true
+    },
+    {
+      "case": "destination_exists",
+      "passed": true
+    },
+    {
+      "case": "wrong_version",
+      "passed": true
+    },
+    {
+      "case": "corrupt_module",
+      "passed": true
+    }
+  ],
+  "existingPageObjects": 32,
+  "referencedControls": 16,
+  "nativeWindowsF9Observed": false,
+  "nativeCounterTestObserved": false,
+  "clockInjectionScope": "Only Now*86400.0 replaced with a deterministic test clock in the UI harness"
+}

@@ -1,0 +1,175 @@
+{
+  "stationId": "station-001",
+  "node": "codex.Device1",
+  "cloneTemplate": "MapVersion",
+  "PDUoffset": "Same as working MapVersion2554; no additional +1",
+  "tags": [
+    {
+      "name": "PressurePV_x100",
+      "plc_register": "R2302",
+      "pdu_address": 2302,
+      "region": "HOLDING_REGISTERS",
+      "device_type": "uint16",
+      "server_type": "uint32",
+      "access": "ReadOnly",
+      "engineering_unit": "bar",
+      "display_factor": 0.01
+    },
+    {
+      "name": "PressureSourceOK",
+      "plc_register": "R2303",
+      "pdu_address": 2303,
+      "region": "HOLDING_REGISTERS",
+      "device_type": "uint16",
+      "server_type": "uint32",
+      "access": "ReadOnly",
+      "engineering_unit": "boolean",
+      "display_factor": 1
+    },
+    {
+      "name": "PressureSource",
+      "plc_register": "R2308",
+      "pdu_address": 2308,
+      "region": "HOLDING_REGISTERS",
+      "device_type": "uint16",
+      "server_type": "uint32",
+      "access": "ReadOnly",
+      "engineering_unit": "drive index,0=none",
+      "display_factor": 1
+    },
+    {
+      "name": "PlcHeartbeatToggle",
+      "plc_register": "R2328",
+      "pdu_address": 2328,
+      "region": "HOLDING_REGISTERS",
+      "device_type": "uint16",
+      "server_type": "uint32",
+      "access": "ReadOnly",
+      "engineering_unit": "0/1",
+      "display_factor": 1
+    },
+    {
+      "name": "PressureSP_x100",
+      "plc_register": "R2360",
+      "pdu_address": 2360,
+      "region": "HOLDING_REGISTERS",
+      "device_type": "uint16",
+      "server_type": "uint32",
+      "access": "ReadOnly",
+      "engineering_unit": "bar",
+      "display_factor": 0.01
+    },
+    {
+      "name": "AlarmLo",
+      "plc_register": "R2550",
+      "pdu_address": 2550,
+      "region": "HOLDING_REGISTERS",
+      "device_type": "uint16",
+      "server_type": "uint32",
+      "access": "ReadOnly",
+      "engineering_unit": "bitmask",
+      "display_factor": 1
+    },
+    {
+      "name": "AlarmHi",
+      "plc_register": "R2551",
+      "pdu_address": 2551,
+      "region": "HOLDING_REGISTERS",
+      "device_type": "uint16",
+      "server_type": "uint32",
+      "access": "ReadOnly",
+      "engineering_unit": "bitmask",
+      "display_factor": 1
+    },
+    {
+      "name": "Vfd1FreqRaw",
+      "plc_register": "R2500",
+      "pdu_address": 2500,
+      "region": "HOLDING_REGISTERS",
+      "device_type": "uint16",
+      "server_type": "uint32",
+      "access": "ReadOnly",
+      "raw_value": true
+    },
+    {
+      "name": "Vfd1FreqState",
+      "plc_register": "R2510",
+      "pdu_address": 2510,
+      "region": "HOLDING_REGISTERS",
+      "device_type": "uint16",
+      "server_type": "uint32",
+      "access": "ReadOnly",
+      "raw_value": true
+    },
+    {
+      "name": "Vfd2FreqRaw",
+      "plc_register": "R2501",
+      "pdu_address": 2501,
+      "region": "HOLDING_REGISTERS",
+      "device_type": "uint16",
+      "server_type": "uint32",
+      "access": "ReadOnly",
+      "raw_value": true
+    },
+    {
+      "name": "Vfd2FreqState",
+      "plc_register": "R2511",
+      "pdu_address": 2511,
+      "region": "HOLDING_REGISTERS",
+      "device_type": "uint16",
+      "server_type": "uint32",
+      "access": "ReadOnly",
+      "raw_value": true
+    },
+    {
+      "name": "Vfd3FreqRaw",
+      "plc_register": "R2502",
+      "pdu_address": 2502,
+      "region": "HOLDING_REGISTERS",
+      "device_type": "uint16",
+      "server_type": "uint32",
+      "access": "ReadOnly",
+      "raw_value": true
+    },
+    {
+      "name": "Vfd3FreqState",
+      "plc_register": "R2512",
+      "pdu_address": 2512,
+      "region": "HOLDING_REGISTERS",
+      "device_type": "uint16",
+      "server_type": "uint32",
+      "access": "ReadOnly",
+      "raw_value": true
+    },
+    {
+      "name": "Vfd4FreqRaw",
+      "plc_register": "R2503",
+      "pdu_address": 2503,
+      "region": "HOLDING_REGISTERS",
+      "device_type": "uint16",
+      "server_type": "uint32",
+      "access": "ReadOnly",
+      "raw_value": true
+    },
+    {
+      "name": "Vfd4FreqState",
+      "plc_register": "R2513",
+      "pdu_address": 2513,
+      "region": "HOLDING_REGISTERS",
+      "device_type": "uint16",
+      "server_type": "uint32",
+      "access": "ReadOnly",
+      "raw_value": true
+    }
+  ],
+  "liveReadVerified": false,
+  "firstLiveReadNames": [
+    "PressurePV_x100",
+    "PressureSourceOK",
+    "PressureSP_x100",
+    "Vfd1FreqRaw",
+    "Vfd1FreqState",
+    "AlarmLo",
+    "AlarmHi"
+  ]
+}

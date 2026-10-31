@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-29",
+  "source_url": "https://teleofis.ru/php/download.php?f=12181",
+  "download_sha256": "827c685f4f5973098d6503e8ace605f8008c140209778330ded3411d2f1a636c",
+  "official_version": "ConfigurationTool2.3.1, plugins2025-11-13; userGUI2.3.0",
+  "protocol_jar_sha256": "834722892fd106ed6489627faaeeccc749132da3c1878ff7d069522205482dea",
+  "reference": "Actual vendor ProtocolMessageCoder.encode executed in JVM and compared with actual C# Frame in PowerShell",
+  "five_frames_equal": true,
+  "test_password_synthetic": "TEST; unrelated to user password",
+  "vectors": [
+    "78/4 C001044E0004544553545492C2",
+    "123/0 C001007B0000A493C2",
+    "131/0 C0010083000057D9C2",
+    "148/0 C00100940000A41FC2",
+    "131/2 C00102830004C4C1C4C3C4C40029A7C2"
+  ],
+  "serial_settings": {
+    "USB": "1152008N1, no flow control",
+    "DTR": true,
+    "RTS": true,
+    "source": "PreferencesDialog.changePreferencesBaudrate; Controller.connectRun; SerialTransport.open; JSSC SerialPort.setParams four-argument defaults true,true."
+  },
+  "modem_read_success": false,
+  "hardware_and_correct_port_verification_pending": true
+}

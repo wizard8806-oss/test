@@ -1,0 +1,69 @@
+{
+  "date": "2026-10-29",
+  "delivery": "Direct inline PowerShell; no chat file download needed",
+  "native_stream_structure_passed": true,
+  "native_x86_object_reader_emulation_passed": true,
+  "previous_delivery_rejected_by_native_Editor": true,
+  "existing_fields_byte_exact": true,
+  "actual_Pascal_source_compiled_with_strict_stubs": true,
+  "logic_assertions_passed": 353,
+  "transfer_runtime": "Real PowerShell7.6.9 on Linux fixtures, not Windows5.1",
+  "transfer_cases": [
+    {
+      "case": "new_copy",
+      "passed": true,
+      "source_unchanged": true
+    },
+    {
+      "case": "source_changed",
+      "passed": true,
+      "source_unchanged": true
+    },
+    {
+      "case": "destination_exists",
+      "passed": true,
+      "source_unchanged": true
+    },
+    {
+      "case": "corrupt_transfer",
+      "passed": true,
+      "source_unchanged": true
+    },
+    {
+      "case": "source_missing",
+      "passed": true,
+      "source_unchanged": true
+    }
+  ],
+  "repair_cases": [
+    {
+      "case": "repair",
+      "passed": true
+    },
+    {
+      "case": "already_fixed",
+      "passed": true
+    },
+    {
+      "case": "edited_pages",
+      "passed": true
+    },
+    {
+      "case": "original_pages",
+      "passed": true
+    },
+    {
+      "case": "edited_scripts",
+      "passed": true
+    },
+    {
+      "case": "multiple_preflight",
+      "passed": true
+    }
+  ],
+  "source_and_existing_output_preserved": true,
+  "actual_Windows_native_editor_open_and_F9_pending": true,
+  "native_SCADA_F9_passed": false,
+  "live_radio_values_implemented": false,
+  "original_download_UI_problem_fixed": false
+}

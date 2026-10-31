@@ -1,0 +1,79 @@
+{
+  "date": "2026-10-30",
+  "setup_cases": [
+    {
+      "case": "valid",
+      "passed": true
+    },
+    {
+      "case": "repeat",
+      "passed": true
+    },
+    {
+      "case": "Main_group_rejected",
+      "passed": true
+    },
+    {
+      "case": "invalid_id",
+      "passed": true
+    },
+    {
+      "case": "source_changed",
+      "passed": true
+    },
+    {
+      "case": "other_station",
+      "passed": true
+    },
+    {
+      "case": "lock_held",
+      "passed": true
+    },
+    {
+      "case": "new_collector_changed",
+      "passed": true
+    },
+    {
+      "case": "CRLF_paste",
+      "passed": true
+    }
+  ],
+  "transport": [
+    {
+      "case": "normal",
+      "passed": true,
+      "group_logins": 1,
+      "read_only_modem_requests": 10,
+      "complete_publications": 4,
+      "final_status_code": "STOPPED"
+    },
+    {
+      "case": "cloud_rejected",
+      "passed": true,
+      "group_logins": 1,
+      "read_only_modem_requests": 0,
+      "complete_publications": 1,
+      "final_status_code": "CLOUD_SESSION_REPLACED"
+    },
+    {
+      "case": "session_replaced",
+      "passed": true,
+      "group_logins": 1,
+      "read_only_modem_requests": 2,
+      "complete_publications": 1,
+      "final_status_code": "CLOUD_SESSION_REPLACED"
+    }
+  ],
+  "CSharpTransportUnchanged": true,
+  "real_cloud_group_changed": false,
+  "native_Windows_revision02_tested": false,
+  "actual_Service_radio_read": false,
+  "limitations": "Actual PowerShell7.6.9/Linux and independent loopback, with user group creation still pending. Does not prove group split alone resolves earlier list timeout.",
+  "site9336_delivery": {
+    "groupId": 9336,
+    "configuration_and_copy_passed": true,
+    "old_collector_preserved": true,
+    "configuration_backup_verified": true,
+    "native_Windows_launch": false
+  }
+}

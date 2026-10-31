@@ -1,0 +1,39 @@
+# Local tools, credentials and runtime state
+.local-tools/
+.venv/
+.env
+.env.*
+!.env.example
+secrets/
+*.pem
+*.key
+*.pfx
+*.p12
+radio.txt
+radio-service-status.txt
+collector.lock
+radio.stop
+
+# Caches, compiler output and temporary copies
+__pycache__/
+*.py[cod]
+*.ppu
+*.o
+*.exs
+*.tmp
+*.bak
+*.log
+source/simple-scada-editor-error-2026-10-29/Editor-log.txt
+
+# Reproducible delivery/build outputs (sources under artifacts/**/scripts stay)
+artifacts/**/*.zip
+artifacts/**/*.spg
+artifacts/**/*.ssc
+artifacts/**/*.patch.gz
+artifacts/station-setpoint-feedback-01/*.pdw
+artifacts/**/Install-*.ps1
+artifacts/**/Paste-*.ps1
+artifacts/simple-scada-diagnostics-01/Save-Codex-Diag-01.ps1
+artifacts/station-setpoint-feedback-01/Create-Setpoint-Feedback-Copy-01.ps1
+artifacts/teleofis-radio-service-02/Set-Service-Group-And-Run-02.ps1
+artifacts/teleofis-radio-service-02/Start-ServiceDiag-9336.ps1

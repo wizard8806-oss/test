@@ -1,0 +1,23 @@
+{
+  "source": "User WinProLadder screenshot30.10.2026 at approximately19:18 Moscow",
+  "suggestedCopyVisibleInTitle": true,
+  "copyName": "station_MC_CM55_900G_03.pdw",
+  "projectTitle": "PUMP_STATION_4 [FBs-32MC]",
+  "tableName": "M900G_TEST",
+  "tableRegisterRange": "R5000..R5128",
+  "tableUsedWords": 129,
+  "rowsVisible": 18,
+  "firstFrequencySeqZeroBased": 0,
+  "commandItemDialog": {
+    "Slave Station": 1,
+    "Command": "Read",
+    "Data Size": 1,
+    "Master Data Start Address": "D200",
+    "Slave Data Start Address": 404100
+  },
+  "referenceAddressFormatConfirmed": "Six-digit Holding reference;404100 is PDU0x1003, proposed404097 is PDU0x1000",
+  "nativeProgramEditsObserved": false,
+  "candidateMemoryAllocated": false,
+  "map32LoadedToPLC": false,
+  "nativeSavedCandidateReceived": false
+}

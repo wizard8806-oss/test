@@ -1,0 +1,19 @@
+* text=auto
+*.py text eol=lf
+*.ps1 text eol=lf
+*.sh text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.txt text eol=lf
+*.pdw binary
+*.spr binary
+*.spg binary
+*.ssc binary
+*.ssr binary
+*.svr binary
+*.svrr binary
+*.swn binary
+*.str binary
+*.smg binary
+*.smgr binary
+*.seg binary

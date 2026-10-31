@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-30",
+  "timezone": "Europe/Moscow",
+  "source": "User screenshot, MasterOPC RunTime at approximately 11:42, followed by explicit user clarification",
+  "node": "codex.Device1",
+  "observedTags": {
+    "MapVersion": {"pduAddress": 2554, "value": 31, "quality": "GOOD"},
+    "CL50S_TxCount": {"pduAddress": 2669, "value": 13665, "quality": "GOOD"},
+    "PressurePV_x100": {"pduAddress": 2302, "value": 0, "quality": "GOOD"},
+    "PressureSourceOK": {"pduAddress": 2303, "value": 0, "quality": "GOOD"},
+    "PressureSP_x100": {"pduAddress": 2360, "value": 350, "quality": "GOOD"},
+    "Vfd1FreqRaw": {"pduAddress": 2500, "value": 0, "quality": "GOOD"},
+    "Vfd1FreqState": {"pduAddress": 2510, "value": 1, "quality": "GOOD"},
+    "AlarmLo": {"pduAddress": 2550, "value": 7624, "quality": "GOOD"},
+    "AlarmHi": {"pduAddress": 2551, "value": 8960, "quality": "GOOD"}
+  },
+  "userClarification": {
+    "calibratorConnected": false,
+    "pressure": "Zero is expected in the current bench setup",
+    "missingPressureHandling": "Already implemented in the controller; use its exported state in SCADA rather than duplicating detection logic or requesting another PLC change"
+  },
+  "limits": [
+    "A single GOOD screenshot establishes visible tag values, not continued end-to-end freshness or nonzero scale validation",
+    "PressureSourceOK describes the PLC selected pressure source; it is not by itself independent electrical sensor-health evidence",
+    "AlarmHi 8960/0x2300 includes bits9 and13 beyond the currently traced bits0..8; retain the raw word and verify packing/current PLC contents before operator-facing fault decoding",
+    "Current and per-drive native fault-code exports remain absent; no fake zero-current or no-fault values",
+    "No PLC or drive writes were performed"
+  ],
+  "nextStep": "Bind the seven new ReadOnly OPC items in the current Simple-Scada2.6.15 project and use existing PLC validity/status. No CL50S dependency for the general process card."
+}

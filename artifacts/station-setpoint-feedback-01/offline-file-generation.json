@@ -1,0 +1,72 @@
+{
+  "addedNetworksVerified": 7,
+  "addedProgramBytes": 56,
+  "allExistingNetworksPreserved": 1834,
+  "allNineTablesPreserved": true,
+  "newDrivePollRequests": 0,
+  "mapVersionRemains32": true,
+  "changedImageHeaderOffsets": [
+    200,
+    202,
+    203,
+    262,
+    263,
+    264,
+    265,
+    268,
+    269,
+    270,
+    271
+  ],
+  "scope": "Strict network/MOV/body/table comparison; header deltas and native F8/runtime require separate observation",
+  "insertedAtPC": 25368,
+  "shiftedUnits": [
+    "96_CL50S",
+    "Sub_unit1"
+  ],
+  "shiftedComments": 188,
+  "addedNetworkComments": 7,
+  "headerOffsetsChanged": [
+    200,
+    202,
+    203,
+    262,
+    263,
+    264,
+    265,
+    268,
+    269,
+    270,
+    271
+  ],
+  "sourceRandomMaskRetained": true,
+  "dataFramePreserved": true,
+  "combinedEncodedChecksumVerified": true,
+  "programWordChecksumVerified": true,
+  "date": "2026-10-31",
+  "sourceSHA256": "a25f9b5d2fe006bcb039896bae3989569b08e1b1adc4b503a755bfd5e3b22993",
+  "targetSHA256": "6aba2a67d07596e4a479c462412859565186de86b410a3cd44476a81f20ffe81",
+  "targetBytes": 178479,
+  "patchSHA256": "aca0eef8b0f9371e2e430b01b98de5374f3bcaf12f714f5d9100ee478cbfe431",
+  "patchBytes": 10923,
+  "patchEdits": 198,
+  "generatedPDW": true,
+  "actualPLCUpdateObserved": false,
+  "nativeWindowsF8Observed": false,
+  "installerSHA256": "a092b4685635e49261c7eb1cfce94fd7d15a22957ca537b94b6d6cfe285240ee",
+  "inlineCharacters": 11211,
+  "nativeVendorParser": {
+    "function": "Prolad18.dll _SetPLCCode",
+    "baselineReturn": 0,
+    "candidateReturn": 0,
+    "method": "Original vendor code parser in isolated x86 emulation; imported OS calls forbidden",
+    "nativeWindowsF8": false
+  },
+  "encodingEvidence": {
+    "nativeWriter": "WProlad3.21/0x412820; FATEK constant and unencrypted256byte random tail",
+    "nativeFrameChecksum": "Unsigned byte sum of combined masked program and data frames, trailingLE16",
+    "keyReusedFromExactSource": true,
+    "knownNativeFilesChecked": 6,
+    "nativeCounterRegression": "native-file-regression.json"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "date": "2026-10-30",
+  "timezone": "Europe/Moscow",
+  "source": "User native SCADA Diagnostics screenshot at18:46:54, followed by a separate PowerShell status-file screenshot at approximately18:47",
+  "collectorRevision": "02",
+  "nativeCollectorRunObserved": true,
+  "serviceGroup": 9336,
+  "serviceGroupName": "ServiceDiag",
+  "stationId": "station-001",
+  "targetImei": "863906061228379",
+  "server": "hub.m2m24.ru",
+  "port": 7000,
+  "nativeScada": {
+    "version": "2.6.15.0",
+    "page": "Диагностика",
+    "sourceLabel": "служебный канал M2M24",
+    "radioState": "Green, current values visible",
+    "signalNative": 26,
+    "networkMode": "4G",
+    "supply_mV": 11812,
+    "lastSuccessfulPollAgeSeconds": 3,
+    "newOPCTagsAvailable": 7,
+    "newOPCTagsExpected": 7,
+    "mapVersion": 31,
+    "pressureValidity": "PLC: no reliable pressure source",
+    "stationFreshness": "End-to-end station freshness not yet automatically confirmed",
+    "AlarmLoRaw": 7624,
+    "AlarmHiRaw": 13056
+  },
+  "separateStatusFileRead": {
+    "path": "C:\\ProgramData\\Automatika\\Station50008\\radio-service-status.txt",
+    "SOURCE": "SERVICE",
+    "STATION": "station-001",
+    "GROUP": 9336,
+    "IMEI": "863906061228379",
+    "STATUS": "OK"
+  },
+  "interpretation": {
+    "cloudGroupLoginAndTargetSelectionPassed": true,
+    "modemSettingsAuthenticationPassed": true,
+    "actualRemoteRadioReadPassed": true,
+    "servicePublisherToNativeScadaPassed": true,
+    "USBRequiredForThisPath": false,
+    "configuratorRequiredForThisPath": false,
+    "MainGroupConfigurationChangedByDelivery": false,
+    "doNotRepeatGroupCreationOrKeyEntry": true,
+    "noAdditionalStatusFileReadNeededForFirstSuccess": true
+  },
+  "limits": [
+    "Main Gateway fresh polling and end-to-end PLC freshness are not proven by the radio sample or by 7/7 available OPC items",
+    "The changed AlarmHi raw word remains undecoded; no native VFD fault code is inferred",
+    "No current or native VFD fault-code PLC export has been added",
+    "Foreground single-station pilot; central multi-station dispatcher and automatic startup are not implemented",
+    "Long-term stability and remote recovery across all failure modes have not been observed",
+    "Credentials are not transcribed or stored"
+  ]
+}

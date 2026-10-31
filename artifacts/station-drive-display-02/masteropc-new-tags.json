@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Vfd1NativeState",
+    "pdu_address": 2800,
+    "region": "HOLDING_REGISTERS",
+    "device_type": "uint16",
+    "server_type": "uint32",
+    "access": "ReadOnly",
+    "scalingEnabled": false,
+    "mapVersionRequired": 32
+  },
+  {
+    "name": "Vfd1FaultCode",
+    "pdu_address": 2801,
+    "region": "HOLDING_REGISTERS",
+    "device_type": "uint16",
+    "server_type": "uint32",
+    "access": "ReadOnly",
+    "scalingEnabled": false,
+    "mapVersionRequired": 32
+  },
+  {
+    "name": "Vfd1CurrentRaw",
+    "pdu_address": 2806,
+    "region": "HOLDING_REGISTERS",
+    "device_type": "uint16",
+    "server_type": "uint32",
+    "access": "ReadOnly",
+    "scalingEnabled": false,
+    "mapVersionRequired": 32
+  }
+]

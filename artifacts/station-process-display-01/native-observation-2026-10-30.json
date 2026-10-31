@@ -1,0 +1,57 @@
+{
+  "date": "2026-10-30",
+  "timezone": "Europe/Moscow",
+  "source": "Two user screenshots: Station at12:26:04 and Diagnostics at12:26:18",
+  "nativeVersion": "2.6.15.0",
+  "newPagesOpened": true,
+  "newProcessScriptExecutionObserved": true,
+  "explicitF9CommandReported": false,
+  "stationPage": {
+    "pressure": "No reliable data; PLC source-validity flag not asserted",
+    "setpoint_bar": 3.5,
+    "frequency_Hz": 0,
+    "frequencyState": "PLC reports zero frequency",
+    "current": "Not connected",
+    "nativeDriveFault": "Not connected"
+  },
+  "diagnosticsPage": {
+    "newOPCTagsAvailable": 7,
+    "newOPCTagsExpected": 7,
+    "mapVersion": 31,
+    "pressureValidity": "PLC: no reliable pressure source",
+    "freshness": "End-to-end freshness not yet automatically confirmed",
+    "AlarmLo": 7624,
+    "AlarmHi": 8960,
+    "radioValues": "No data",
+    "radioSource": "USB COM18 bench collector",
+    "radioReason": "No new updates; last result: radio collector stopped"
+  },
+  "interpretation": {
+    "newCardNativeRuntimeConfirmed": true,
+    "OPCItemsImportedAndResolved": true,
+    "radioModuleExecutionConfirmedAfterCopy": true,
+    "radioCollectorCurrentlyRunning": false,
+    "CL50SReadByNewProcessLogic": false,
+    "pressureCalibratorConnected": false,
+    "doNotRepeatInstallerOrTagImport": true
+  },
+  "limits": [
+    "Nonzero pressure and frequency factors have not been live-verified",
+    "No per-drive current or native fault-code PLC export has been added",
+    "GOOD and map31 do not establish end-to-end freshness",
+    "AlarmHi packing remains unresolved; raw words are displayed without inferred fault labels",
+    "Control commands are not implemented or enabled"
+  ],
+  "laterDiagnosticsObservation": {
+    "time_Moscow": "2026-10-30 18:46:54",
+    "newOPCTagsAvailable": 7,
+    "newOPCTagsExpected": 7,
+    "mapVersion": 31,
+    "pressureValidity": "PLC: no reliable pressure source",
+    "stationFreshness": "Not yet automatically confirmed",
+    "AlarmLoRaw": 7624,
+    "AlarmHiRaw": 13056,
+    "remoteRadioObservation": "../teleofis-radio-service-02/native-observation-2026-10-30.json",
+    "radioCollectorCurrentlyRunning": true
+  }
+}

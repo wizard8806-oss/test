@@ -1,0 +1,160 @@
+{
+  "date": "2026-10-30",
+  "sourceFile": "station_MC_CM55_900G_04.pdw",
+  "sourceSHA256": "a25f9b5d2fe006bcb039896bae3989569b08e1b1adc4b503a755bfd5e3b22993",
+  "scope": "Read-only partial compiled-image review of existing setpoint path; no new bindings or writes",
+  "workingInput": "R2100",
+  "telemetryMirror": "R2360",
+  "telemetryMirrorIsDriveApplicationAcknowledgment": false,
+  "existingDriveWriteTable": {
+    "name": "M900G_PI_F501_WRITE",
+    "rows": [
+      [
+        1,
+        3,
+        1,
+        13,
+        630,
+        4,
+        62722
+      ]
+    ]
+  },
+  "existingDriveVerifyTable": {
+    "name": "M900G_PI_F501_READBACK",
+    "rows": [
+      [
+        1,
+        1,
+        1,
+        13,
+        640,
+        4,
+        62722
+      ]
+    ]
+  },
+  "existingPreflightTable": {
+    "name": "M900G_PI_PREFLIGHT",
+    "rows": [
+      [
+        1,
+        1,
+        4,
+        13,
+        600,
+        4,
+        4097
+      ],
+      [
+        1,
+        1,
+        10,
+        13,
+        610,
+        4,
+        62721
+      ]
+    ]
+  },
+  "nativeValidationNetworks": [
+    "65.J11 | AUTO_PI_HMI_NATIVE",
+    "65.J12 | AUTO_PI_HMI_VALID"
+  ],
+  "validationConstantsPresent": [
+    9,
+    1200,
+    10
+  ],
+  "exactOperatorsAndEffectiveBoundsNativeConfirmed": false,
+  "notes": [
+    "Original vendor formatter confirms raw >9,<1200,remainder0 after /10: accepted raw10..1190 in steps10, or0.1..11.9bar in0.1bar steps. No further screenshot is required to read these conditions.",
+    "Existing successful-drive-parameter cache is stored in D657,D658,D659; no station-scoped requestId acknowledgment for SCADA is established.",
+    "R2360 echo alone must not be displayed as drive application success.",
+    "Pressure-write UI, command result exports, and command bindings are not implemented."
+  ],
+  "evidence": [
+    {
+      "label": "10.03 | PRESSURE_SETPOINT",
+      "pc": 554,
+      "codeHex": "4fe8f4ac1a680adc"
+    },
+    {
+      "label": "65.J11 | AUTO_PI_HMI_NATIVE",
+      "pc": 10074,
+      "codeHex": "f67f00161a680009f67f00231a6804b08fed7fe8f6681a68000a4564"
+    },
+    {
+      "label": "65.J12 | AUTO_PI_HMI_VALID",
+      "pc": 10102,
+      "codeHex": "f67f00161a680009f67f00231a6804b0f67f002145660000cbd4"
+    },
+    {
+      "label": "65.J39 | AUTO_PI_READY",
+      "pc": 10402,
+      "codeHex": "4bd58bd48be5f47f00214540421cf47f002145421a68cbd9"
+    },
+    {
+      "label": "65.K55 | PI_PARAM_WRITE_F501",
+      "pc": 11788,
+      "codeHex": "4baa8b9d9bac8bad7fe8e0006bacf31b45a046046ffccba26ffdcba36ffecba4"
+    },
+    {
+      "label": "65.K61 | PI_PARAM_VERIFY_F501",
+      "pc": 11874,
+      "codeHex": "4bab8b9d9bac8bad7fe8e0006bacf31b45c846186ffccba66ffdcba76ffecba8"
+    },
+    {
+      "label": "65.K65 | PI_PARAM_MISMATCH_CODE",
+      "pc": 11942,
+      "codeHex": "4ba99ba78b9df47f00244500451cf5ac00064520"
+    },
+    {
+      "label": "65.K67 | PI_PARAM_SUCCESS_PULSE",
+      "pc": 11990,
+      "codeHex": "4b9d8bad9bac9b986bb0f47f002144c6451c6ba99ba7f47f00214500451ce449e200cbb2"
+    },
+    {
+      "label": "65.K69 | PI_PARAM_STORE_D657",
+      "pc": 12034,
+      "codeHex": "4bb2f4ac45184522"
+    },
+    {
+      "label": "65.K70 | PI_PARAM_STORE_D658",
+      "pc": 12042,
+      "codeHex": "4bb2f4ac451a4524"
+    },
+    {
+      "label": "65.K71 | PI_PARAM_STORE_D659",
+      "pc": 12050,
+      "codeHex": "4bb2f4ac451c4526"
+    },
+    {
+      "label": "95.A001 | HMI_TREND_SETPOINT",
+      "pc": 23724,
+      "codeHex": "4fe8f4ac1a681c70"
+    }
+  ],
+  "PLCModified": false,
+  "liveWritesPerformed": false,
+  "sourceFileId": "file_00000000aea4820abd207d454cbba7eb",
+  "effectiveBoundsVerifiedUsingVendorFormatter": true,
+  "vendorFormatterEvidence": "artifacts/station-mode-display-01/native-source-review-2026-10-30.json",
+  "range": {
+    "input": "R2100",
+    "mirror": "R2360",
+    "rangePredicate": "R2100 > 9 AND R2100 < 1200 AND D691 = 0",
+    "remainder": "FUN14 R2100 / 10 -> quotient D690, remainder D691",
+    "rawMin": 10,
+    "rawMax": 1190,
+    "rawStep": 10,
+    "barMin": 0.1,
+    "barMax": 11.9,
+    "barStep": 0.1,
+    "verifiedCurrentLeader": "D672",
+    "verifiedPressureRaw": "D673",
+    "currentContextReady": "M969",
+    "noExistingHMIMirrorsForD672D673Found": true,
+    "writeBindingImplemented": false
+  }
+}

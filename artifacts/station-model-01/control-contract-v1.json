@@ -1,0 +1,94 @@
+{
+  "schema": 1,
+  "scope": "Common station control requirements; bindings not deployed",
+  "requestedFunctions": [
+    "pressure_setpoint",
+    "station_start",
+    "station_stop",
+    "drive_fault_reset",
+    "pump_quantity_selection"
+  ],
+  "controlsEnabled": false,
+  "stationScoped": true,
+  "readOnlyTelemetryRemainsSeparate": true,
+  "PLCWriteTransport": "Existing station-specific MasterOPC connection",
+  "resultStates": [
+    "requested",
+    "accepted",
+    "executing",
+    "completed",
+    "rejected",
+    "failed",
+    "unconfirmed"
+  ],
+  "resultIncludes": [
+    "stationId",
+    "requestId",
+    "command",
+    "targetDriveIfApplicable",
+    "requestedValue",
+    "PLCResult",
+    "verifiedReadback",
+    "timestamp",
+    "reason"
+  ],
+  "OPCWriteSuccessIsOperationSuccess": false,
+  "stopHasPriority": true,
+  "startOrResetReplayOnReconnect": false,
+  "localModeAndInterlocksEnforcedByPLC": true,
+  "pressureSetpoint": {
+    "workingPLCInput": "R2100",
+    "displayReadbackOnly": "R2360",
+    "displayFactor": 0.01,
+    "PCHardwareAppliedAckBinding": null,
+    "rangeAndStepFromValidatedStationProfile": true,
+    "writeBindingEnabled": false
+  },
+  "faultReset": {
+    "operatorRequested": true,
+    "automaticRepeatedReset": false,
+    "separateFromSCADAAlarmAcknowledgement": true,
+    "createsNewStartIntent": false,
+    "retainedRunIntentMustBeHandledExplicitly": true,
+    "deviceModel": "900G",
+    "nativeFunction": 6,
+    "nativeRegisterPDU": 2,
+    "nativeValue": 7,
+    "verifyAfterReset": "Fresh drive U0-01/0x1001 and actual drive state",
+    "PLCQueueBinding": null,
+    "liveTested": false
+  },
+  "pumpQuantity": {
+    "semantics": "eligible_pump_set",
+    "existingEligiblePumpRegisters": [
+      "R720",
+      "R721",
+      "R722",
+      "R723"
+    ],
+    "existingDraftRegisters": [
+      "R2170",
+      "R2171",
+      "R2172",
+      "R2173"
+    ],
+    "existingTransactionStatus": "R2166",
+    "existingApplyCounter": "R2168",
+    "existingChangeRequiresStop": true,
+    "maxSimultaneousAndEligibleSetAreSeparate": true,
+    "directActiveRegisterWriteEnabled": false,
+    "userReply": "Выбор насосов; may omit if too costly or slow",
+    "optionalPerStation": true,
+    "existingPLCImplementationReused": true,
+    "notFixedRunningCount": true
+  },
+  "liveWritesPerformed": false,
+  "requiredTelemetry": [
+    "pressure",
+    "per_drive_fault",
+    "per_drive_actual_frequency",
+    "per_drive_output_current",
+    "communication",
+    "modem_signal"
+  ]
+}

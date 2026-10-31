@@ -1,0 +1,65 @@
+[
+  {
+    "name": "SpFeedbackVersion",
+    "pduAddress": 2850,
+    "region": "HOLDING_REGISTERS",
+    "deviceType": "uint16",
+    "serverType": "uint32",
+    "access": "ReadOnly",
+    "scalingEnabled": false
+  },
+  {
+    "name": "SpConfirmedDrive",
+    "pduAddress": 2851,
+    "region": "HOLDING_REGISTERS",
+    "deviceType": "uint16",
+    "serverType": "uint32",
+    "access": "ReadOnly",
+    "scalingEnabled": false
+  },
+  {
+    "name": "SpConfirmed_x100",
+    "pduAddress": 2852,
+    "region": "HOLDING_REGISTERS",
+    "deviceType": "uint16",
+    "serverType": "uint32",
+    "access": "ReadOnly",
+    "scalingEnabled": false
+  },
+  {
+    "name": "SpApplyPhase",
+    "pduAddress": 2853,
+    "region": "HOLDING_REGISTERS",
+    "deviceType": "uint16",
+    "serverType": "uint32",
+    "access": "ReadOnly",
+    "scalingEnabled": false
+  },
+  {
+    "name": "SpApplyError",
+    "pduAddress": 2854,
+    "region": "HOLDING_REGISTERS",
+    "deviceType": "uint16",
+    "serverType": "uint32",
+    "access": "ReadOnly",
+    "scalingEnabled": false
+  },
+  {
+    "name": "SpApplyDetail",
+    "pduAddress": 2855,
+    "region": "HOLDING_REGISTERS",
+    "deviceType": "uint16",
+    "serverType": "uint32",
+    "access": "ReadOnly",
+    "scalingEnabled": false
+  },
+  {
+    "name": "SpApplyFlags",
+    "pduAddress": 2856,
+    "region": "HOLDING_REGISTERS",
+    "deviceType": "uint16",
+    "serverType": "uint32",
+    "access": "ReadOnly",
+    "scalingEnabled": false
+  }
+]

@@ -1,0 +1,75 @@
+{
+  "date": "2026-10-30",
+  "timezone": "Europe/Moscow",
+  "source": "User screenshot of the native Simple-Scada Diagnostics page after the copy05 installation retry",
+  "screenshotTimeShown": false,
+  "expectedProject": "codex_diag_05",
+  "actualProjectPathShown": false,
+  "nativeRuntimeScriptExecutionObserved": true,
+  "explicitF9CommandReported": false,
+  "explicitPLCDownloadShown": false,
+  "PLCReadbackHashObserved": false,
+  "display": {
+    "mapVersion": 32,
+    "baseItemsAvailable": 7,
+    "baseItemsExpected": 7,
+    "driveItemsAvailable": 3,
+    "driveItemsExpected": 3,
+    "pressureValidity": "ПЛК: нет достоверного источника давления",
+    "freshnessText": "Обновление ПЛК подтверждено. Счётчик: 6472. Без изменения: 3 с.",
+    "freshnessColor": "green",
+    "counter": 6472,
+    "secondsSinceLastObservedChange": 3,
+    "AlarmLoRaw": 7624,
+    "AlarmHiRaw": 2816,
+    "radio": {
+      "signal": "нет данных",
+      "networkMode": "нет данных",
+      "supply": "нет данных",
+      "source": "служебный канал M2M24",
+      "lastResult": "Сборщик радиодиагностики остановлен",
+      "color": "gray"
+    }
+  },
+  "interpretation": {
+    "counterProgressObservedThroughValidatedNativeScript": true,
+    "firstDistinctCounterRequirementPassed": true,
+    "OPCHostAddressAndQualityGuardsPassed": true,
+    "scope": "The green text is emitted only after the validated script observes distinct acceptable counter samples. This is native display evidence, not a separate PLC program readback or wire trace.",
+    "radioStoppedDoesNotEstablishModemFailure": true
+  },
+  "pending": [],
+  "benchFreezeDiagnosticsObservation": {
+    "source": "User native Diagnostics screenshot following the requested bench PLC STOP test",
+    "screenshotTimeShown": false,
+    "actualPLCModeDirectlyShown": false,
+    "mapVersion": 32,
+    "baseItemsAvailable": 7,
+    "baseItemsExpected": 7,
+    "driveItemsAvailable": 3,
+    "driveItemsExpected": 3,
+    "pressureValidityText": "Достоверность давления не подтверждена",
+    "freshnessText": "Нет изменения общего счётчика ПЛК более 15 с.",
+    "freshnessColor": "red",
+    "alarmWordsText": "Слова состояния ПЛК: нет подтверждённых данных",
+    "stationPageShown": false,
+    "radio": {
+      "source": "служебный канал M2M24",
+      "signalNative": 26,
+      "networkMode": "4G",
+      "supply_mV": 11721,
+      "lastSuccessfulPollAgeSeconds": 1,
+      "color": "green"
+    },
+    "interpretation": "Freshness expiry is observed despite base/drive tags still passing the validated OPC availability checks. Alarm words and pressure-validity confirmation are suppressed. Independent Service radio values remain fresh. CPU mode and Station-page payload hiding are not directly shown.",
+    "recoveryObserved": false
+  },
+  "userReportedCompletion": {
+    "source": "User reply «работает» to instructions to check hidden Station payloads and automatic recovery after bench RUN",
+    "literalReply": "работает",
+    "benchStopRunScenarioConfirmedByUser": true,
+    "recoveryScreenshotProvided": false,
+    "stationExpiryScreenshotProvided": false,
+    "scope": "User confirmation of the requested workflow; exact recovered counter and individual Station fields were not separately shown."
+  }
+}

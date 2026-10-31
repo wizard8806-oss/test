@@ -1,0 +1,108 @@
+{
+  "date": "2026-10-30",
+  "timezone": "Europe/Moscow",
+  "source": "User screenshot at approximately12:45",
+  "USB": "Disconnected from laptop; configurator closed, explicitly confirmed by user",
+  "serviceDeliveryInstalled": true,
+  "installationDirectory": "C:\\ProgramData\\Automatika\\RadioServicePilot01",
+  "startupResult": "Add-Type compilation failed: System.Xml namespace missing from System; compiler requested an assembly reference",
+  "passwordPromptsReached": false,
+  "cloudConnectionReached": false,
+  "actualServiceRadioRead": false,
+  "fix": "Explicit System.dll/System.Core.dll/System.Xml.dll references only for Windows PowerShell major<6; unchanged C# transport",
+  "repairDelivery": "Fix-Service-Xml-Reference-01.ps1",
+  "repairNativeRunConfirmed": true,
+  "offlineValidation": "xml-reference-validation-2026-10-30.json",
+  "afterXmlRepair": {
+    "source": "User screenshot at12:54",
+    "READYShown": true,
+    "compilationSucceeded": true,
+    "bothLocalSecretPromptsReached": true,
+    "serviceStartupShown": true,
+    "stationId": "station-001",
+    "group": 7058,
+    "targetImei": "863906061228379",
+    "pollMilliseconds": 5000,
+    "outputFile": "C:\\ProgramData\\Automatika\\Station50008\\radio.txt",
+    "cloudLoginSuccessConfirmed": false,
+    "actualModemRadioValuesShown": false,
+    "next": "Open native SCADA Diagnostics, observe fresh signal/network/supply and SERVICE source; screenshot required for actual read confirmation"
+  },
+  "serviceFailureAt1258": {
+    "source": "User screenshot Diagnostics at12:58:37",
+    "SCADARadioSource": "Service M2M24",
+    "SCADARadioState": 4,
+    "SCADARadioMessage": "Service port unavailable; check connection and occupancy",
+    "actualRadioValues": "No data",
+    "MasterOPCDisplay": "7/7 new items;map31;raw words7624/8960",
+    "preciseCollectorStatusCode": "Not yet provided",
+    "interpretation": "Service publisher reaches current SCADA radio consumer; state4 does not isolate cloud TCP/list/read/config issue. Not evidence of USB/COM18 occupancy.",
+    "next": "Keep collector running. In another PowerShell window read radio-service-status.txt and test TCP reachability of hub.m2m24.ru:7000. Do not restart Gateway or alter passwords/config without code."
+  },
+  "cloudListTimeoutAt1307": {
+    "source": "User screenshot13:07; status file UTC2026-10-30T10:06:33.544424Z",
+    "status": "CLOUD_LIST_TIMEOUT",
+    "tcpTestSucceeded": true,
+    "remoteAddress": "92.53.108.50",
+    "remotePort": 7000,
+    "group": 7058,
+    "targetImei": "863906061228379",
+    "localizedStage": "Cloud group login/device-list response before modem selection/authentication",
+    "notEstablished": [
+      "Wrong group password",
+      "Modem fault",
+      "RS485 fault",
+      "Collector protocol correctness against live cloud"
+    ],
+    "independentSourceReview": "Vendor M2M24ClientTransport uses same groupInfo login/password, outer command1 then deviceList command2; its group wait uses configured timeout. No arbitrary password/config changes made.",
+    "next": "Stop only Service collector with Ctrl+C. In native TELEOFIS configurator select Service server hub.m2m24.ru:7000/group7058 and Refresh object list WITHOUT USB. Compare native group/list result before code changes."
+  },
+  "nativeConfiguratorAt1316": {
+    "source": "User screenshot Terminal Configuration Tool2.3.0 at13:16",
+    "objectListPopulated": true,
+    "targetImei": "863906061228379",
+    "cloudAuthorizationSuccessAt": "13:16:04.285",
+    "modemAuthorizationSuccessAt": "Latest log line around13:16, after timeouts; precise seconds not used",
+    "priorModemAuthTimeouts": "Several modem authorization timeouts precede success; no precise chronology claim",
+    "serverDisconnectAt": "13:16:02.120",
+    "serverDisconnectMessage": "Connection disconnected because another client connected to server",
+    "unknowns": [
+      "Actual stored Service server login/port in working native configurator is not shown",
+      "Identity of competing client: our collector, Gateway, or another configurator not proven",
+      "Whether service collector was fully stopped before test",
+      "Fresh read of radio values not separately proven; displayed26 not promoted to new sample"
+    ],
+    "next": "Guarantee our collector stops via existing radio.stop file; inspect working configurator Service login and port only, no password. Compare with collector7058 and known Gateway7058. Do not stop/reconfigure Main Gateway until ownership is established."
+  },
+  "workingNativeSettingsConfirmed": {
+    "source": "Explicit user reply after13:16 screenshot",
+    "login": 7058,
+    "port": 7000,
+    "sameAsMainGateway": true,
+    "sameAsPilot01": true,
+    "newGroupCreated": false
+  },
+  "serviceDiagGroupScreenshot": {
+    "source": "User M2M24 dashboard screenshot around13:58",
+    "ServiceDiagExists": true,
+    "newGroupIdShown": false,
+    "ServiceDiagTarget": {
+      "imei": "863906061228379",
+      "name": "Новый модем 2",
+      "channelType": "Основной канал №1",
+      "localTcpPort": 50008,
+      "online": true
+    },
+    "existingServiceTarget": {
+      "imei": "863906061228379",
+      "name": "Новый модем 2",
+      "channelType": "Служебный канал",
+      "deviceType": "WRX11x8",
+      "localTcpPort": 50008,
+      "online": true
+    },
+    "MainTargetStillVisible": true,
+    "recordIdentityVsMembership": "Same database record shared across groups is plausible but not proven from screenshot; do not delete a terminal or change a primary channel type",
+    "next": "Remove ServiceDiag membership from the Primary1 entry while retaining Main membership. Move the existing Service-channel entry from Service to ServiceDiag. Then obtain only new group ID."
+  }
+}

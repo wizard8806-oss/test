@@ -1,0 +1,176 @@
+{
+  "date": "2026-10-29",
+  "vendor_reference": {
+    "actual_vendor_TcpProtocol_encode_matches_Python_and_CSharp": true,
+    "crc": "CRC16/ARC polynomialA001 init0, distinct from inner CCITT-FALSE",
+    "vectors": [
+      "AB000000000000000001003C67726F7570496E666F3E3C6C6F67696E3E373035383C2F6C6F67696E3E3C70617373776F72643E544553543C2F70617373776F72643E3C2F67726F7570496E666F3E1183CD",
+      "AB71110100000000000000C001007B0000A493C2549ECD",
+      "AB11324356EF54EF32EF10000000EF54EF32EF10008100CD"
+    ],
+    "jar_sha256": {
+      "rcp.transport_2.0.1.202511131113.jar": "cc2a2f9290d507b429374c280973f44a1ba6e3fe1719e7fe0e1ff9c5def94949",
+      "rcp.crc_1.0.0.202511131113.jar": "b996ef3ef55bee04d898ae39921ee9ae61f8b9a366988e101b4e5929282798c6",
+      "commons-lang3-3.1.jar": "131f0519a8e4602e47cf024bfd7e0834bcf5592a7207f9a2fdb711d4f5afc166"
+    }
+  },
+  "cases": [
+    {
+      "case": "normal",
+      "passed": true,
+      "group_logins": 1,
+      "read_only_modem_requests": 10,
+      "complete_publications": 4
+    },
+    {
+      "case": "fragmented",
+      "passed": true,
+      "group_logins": 1,
+      "read_only_modem_requests": 10,
+      "complete_publications": 4
+    },
+    {
+      "case": "unknown",
+      "passed": true,
+      "group_logins": 1,
+      "read_only_modem_requests": 10,
+      "complete_publications": 4
+    },
+    {
+      "case": "modem_rejected",
+      "passed": true,
+      "group_logins": 1,
+      "read_only_modem_requests": 1,
+      "complete_publications": 1
+    },
+    {
+      "case": "cloud_rejected",
+      "passed": true,
+      "group_logins": 1,
+      "read_only_modem_requests": 0,
+      "complete_publications": 1
+    },
+    {
+      "case": "empty_list",
+      "passed": true,
+      "group_logins": 1,
+      "read_only_modem_requests": 0,
+      "complete_publications": 1
+    },
+    {
+      "case": "missing_target",
+      "passed": true,
+      "group_logins": 1,
+      "read_only_modem_requests": 0,
+      "complete_publications": 1
+    },
+    {
+      "case": "duplicate_target",
+      "passed": true,
+      "group_logins": 1,
+      "read_only_modem_requests": 0,
+      "complete_publications": 1
+    },
+    {
+      "case": "disabled_target",
+      "passed": true,
+      "group_logins": 1,
+      "read_only_modem_requests": 0,
+      "complete_publications": 1
+    },
+    {
+      "case": "xml_dtd",
+      "passed": true,
+      "group_logins": 1,
+      "read_only_modem_requests": 0,
+      "complete_publications": 1
+    },
+    {
+      "case": "outer_crc",
+      "passed": true,
+      "group_logins": 1,
+      "read_only_modem_requests": 2,
+      "complete_publications": 2
+    },
+    {
+      "case": "inner_crc",
+      "passed": true,
+      "group_logins": 1,
+      "read_only_modem_requests": 2,
+      "complete_publications": 2
+    },
+    {
+      "case": "wrong_did",
+      "passed": true,
+      "group_logins": 1,
+      "read_only_modem_requests": 2,
+      "complete_publications": 2
+    },
+    {
+      "case": "cloud_timeout",
+      "passed": true,
+      "group_logins": 1,
+      "read_only_modem_requests": 0,
+      "complete_publications": 2
+    },
+    {
+      "case": "recover_timeout",
+      "passed": true,
+      "group_logins": 2,
+      "read_only_modem_requests": 6,
+      "complete_publications": 3
+    },
+    {
+      "case": "recover_disconnect",
+      "passed": true,
+      "group_logins": 2,
+      "read_only_modem_requests": 8,
+      "complete_publications": 4
+    },
+    {
+      "case": "recover_inner_auth",
+      "passed": true,
+      "group_logins": 2,
+      "read_only_modem_requests": 6,
+      "complete_publications": 3
+    },
+    {
+      "case": "refresh_auth",
+      "passed": true,
+      "group_logins": 1,
+      "read_only_modem_requests": 12,
+      "complete_publications": 4
+    },
+    {
+      "case": "locked",
+      "passed": true,
+      "group_logins": 0,
+      "read_only_modem_requests": 0,
+      "complete_publications": 0
+    },
+    {
+      "case": "other_station",
+      "passed": true,
+      "group_logins": 1,
+      "read_only_modem_requests": 10,
+      "complete_publications": 4
+    },
+    {
+      "case": "duplicate_station",
+      "passed": true,
+      "group_logins": 0,
+      "read_only_modem_requests": 0,
+      "complete_publications": 0
+    },
+    {
+      "case": "colliding_paths",
+      "passed": true,
+      "group_logins": 0,
+      "read_only_modem_requests": 0,
+      "complete_publications": 0
+    }
+  ],
+  "limitations": "Actual PowerShell7.6.9/Linux TCP loopback; native Windows collector and real cloud server not yet tested. Native configurator service read is separately observed. No external connections in tests.",
+  "collector_sha256": "d09c645ace7a060f5d78e9d8b026ba61245f8607e9c07e772deeea5165d18502",
+  "configuration_sha256": "685bb807d255361d7af76c76e9c44899d832d798c3db995cd406f470bc1f5511"
+}

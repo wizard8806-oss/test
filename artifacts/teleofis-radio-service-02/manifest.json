@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-30",
+  "status": "ServiceDiag9336 native remote radio read and SCADA display confirmed",
+  "groupId": 9336,
+  "MainGroup": 7058,
+  "oldCollectorPreserved": true,
+  "configurationSecretsStored": false,
+  "oldCollectorSHA256": "e334ef94c55230352441ba44471598faa2212e4dcfa7217a46d2f9d952624585",
+  "newCollectorSHA256": "89c5762599b6b43044d0688f98f5df4e0d80ac603a70d446ee131351607b0e82",
+  "CSharpTransportUnchanged": true,
+  "sessionReplacementPolicy": "Publish CLOUD_SESSION_REPLACED and stop, including replacement after modem authentication; never relabel it as wrong password or enter a reconnect contest",
+  "newGroupRequirements": "Different from7058; only the target Service-channel record; Main entries unchanged",
+  "nativeCloudSuccess": true,
+  "centralCitySchedulerImplemented": false,
+  "groupCreated": true,
+  "groupChannelValidated": true,
+  "inlineDelivery": "Start-ServiceDiag-9336.ps1",
+  "groupBinding": "group-binding.json",
+  "nativeObservation": "native-observation-2026-10-30.json"
+}

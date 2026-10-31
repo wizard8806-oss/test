@@ -1,0 +1,1263 @@
+{
+  "source_name": "station_MC_CM55_CL50S_02.pdw",
+  "source_sha256": "41e0788134b7cbd4fa6e0f8ab1b6515a9a396c5fdcef0b40b871d460e38f3dff",
+  "bytes": 178098,
+  "method": "Read-only decoded compiled image plus checksum-verified comments/symbols; partial MOV interpretation; not native GUI validation",
+  "decoded_image_header": "FBS40003",
+  "rung_comments_checked": 1833,
+  "mov_anchors_checked": 20,
+  "pressure_scale_evidence": {
+    "address": "R101",
+    "symbol": "P5_BAR100",
+    "comment": "Давление *100",
+    "file_offset": 173898
+  },
+  "mov_evidence": [
+    {
+      "file_offset": 66379,
+      "pc": 542,
+      "label": "10.01 | MODBUS_PRESSURE_INPUT",
+      "code_hex": "4fe8f4ac0b080aca",
+      "moves": [
+        {
+          "source": "R132",
+          "destination": "R101"
+        }
+      ]
+    },
+    {
+      "file_offset": 66465,
+      "pc": 554,
+      "label": "10.03 | PRESSURE_SETPOINT",
+      "code_hex": "4fe8f4ac1a680adc",
+      "moves": [
+        {
+          "source": "R2100",
+          "destination": "R110"
+        }
+      ]
+    },
+    {
+      "file_offset": 112764,
+      "pc": 19260,
+      "label": "65.T006 | P1_FREQ_VALUE",
+      "code_hex": "4ee0f4ac41901d88",
+      "moves": [
+        {
+          "source": "D200",
+          "destination": "R2500"
+        }
+      ]
+    },
+    {
+      "file_offset": 112799,
+      "pc": 19268,
+      "label": "65.T007 | P1_DISPLAY_UNKNOWN",
+      "code_hex": "4fe8f5ac00001d9c",
+      "moves": [
+        {
+          "source": "K0",
+          "destination": "R2510"
+        }
+      ]
+    },
+    {
+      "file_offset": 113107,
+      "pc": 19400,
+      "label": "65.T015 | P2_FREQ_VALUE",
+      "code_hex": "4ee1f4ac41961d8a",
+      "moves": [
+        {
+          "source": "D203",
+          "destination": "R2501"
+        }
+      ]
+    },
+    {
+      "file_offset": 113142,
+      "pc": 19408,
+      "label": "65.T016 | P2_DISPLAY_UNKNOWN",
+      "code_hex": "4fe8f5ac00001d9e",
+      "moves": [
+        {
+          "source": "K0",
+          "destination": "R2511"
+        }
+      ]
+    },
+    {
+      "file_offset": 113450,
+      "pc": 19540,
+      "label": "65.T024 | P3_FREQ_VALUE",
+      "code_hex": "4ee2f4ac419c1d8c",
+      "moves": [
+        {
+          "source": "D206",
+          "destination": "R2502"
+        }
+      ]
+    },
+    {
+      "file_offset": 113485,
+      "pc": 19548,
+      "label": "65.T025 | P3_DISPLAY_UNKNOWN",
+      "code_hex": "4fe8f5ac00001da0",
+      "moves": [
+        {
+          "source": "K0",
+          "destination": "R2512"
+        }
+      ]
+    },
+    {
+      "file_offset": 113793,
+      "pc": 19680,
+      "label": "65.T033 | P4_FREQ_VALUE",
+      "code_hex": "4ee3f4ac41a21d8e",
+      "moves": [
+        {
+          "source": "D209",
+          "destination": "R2503"
+        }
+      ]
+    },
+    {
+      "file_offset": 113828,
+      "pc": 19688,
+      "label": "65.T034 | P4_DISPLAY_UNKNOWN",
+      "code_hex": "4fe8f5ac00001da2",
+      "moves": [
+        {
+          "source": "K0",
+          "destination": "R2513"
+        }
+      ]
+    },
+    {
+      "file_offset": 119612,
+      "pc": 21528,
+      "label": "95.087 | HMI_PRESSURE_VALUE",
+      "code_hex": "4fe8f4ac0aca1bfc",
+      "moves": [
+        {
+          "source": "R101",
+          "destination": "R2302"
+        }
+      ]
+    },
+    {
+      "file_offset": 119651,
+      "pc": 21536,
+      "label": "95.088 | HMI_PRESSURE_VALID_ZERO",
+      "code_hex": "4fe8f5ac00001bfe",
+      "moves": [
+        {
+          "source": "K0",
+          "destination": "R2303"
+        }
+      ]
+    },
+    {
+      "file_offset": 119695,
+      "pc": 21544,
+      "label": "95.089 | HMI_PRESSURE_VALID_ONE",
+      "code_hex": "4876f5ac00011bfe",
+      "moves": [
+        {
+          "source": "K1",
+          "destination": "R2303"
+        }
+      ]
+    },
+    {
+      "file_offset": 120243,
+      "pc": 21696,
+      "label": "95.103 | HMI_PRESSURE_SOURCE",
+      "code_hex": "4fe8f4ac0b041c08",
+      "moves": [
+        {
+          "source": "R130",
+          "destination": "R2308"
+        }
+      ]
+    },
+    {
+      "file_offset": 122616,
+      "pc": 22432,
+      "label": "95.160 | HMI_HEARTBEAT_ZERO",
+      "code_hex": "4fe8f5ac00001c30",
+      "moves": [
+        {
+          "source": "K0",
+          "destination": "R2328"
+        }
+      ]
+    },
+    {
+      "file_offset": 122655,
+      "pc": 22440,
+      "label": "95.161 | HMI_HEARTBEAT_ONE",
+      "code_hex": "4f92f5ac00011c30",
+      "moves": [
+        {
+          "source": "K1",
+          "destination": "R2328"
+        }
+      ]
+    },
+    {
+      "file_offset": 128836,
+      "pc": 23724,
+      "label": "95.A001 | HMI_TREND_SETPOINT",
+      "code_hex": "4fe8f4ac1a681c70",
+      "moves": [
+        {
+          "source": "R2100",
+          "destination": "R2360"
+        }
+      ]
+    },
+    {
+      "file_offset": 128876,
+      "pc": 23732,
+      "label": "95.A002 | HMI_TREND_PRESSURE",
+      "code_hex": "4fe8f4ac1bfc1c72",
+      "moves": [
+        {
+          "source": "R2302",
+          "destination": "R2361"
+        }
+      ]
+    },
+    {
+      "file_offset": 128916,
+      "pc": 23740,
+      "label": "95.A003 | HMI_TREND_QUALITY",
+      "code_hex": "4fe8f4ac1bfe1c74",
+      "moves": [
+        {
+          "source": "R2303",
+          "destination": "R2362"
+        }
+      ]
+    },
+    {
+      "file_offset": 134738,
+      "pc": 25360,
+      "label": "95.W032 | WORD_STATUS_VERSION",
+      "code_hex": "4fe8f5ac001f1df44f94f5ac564102964f94f5ac0014029a4f94f5ac564102984f94f5ac5510029e",
+      "moves": [
+        {
+          "source": "K31",
+          "destination": "R2554"
+        },
+        {
+          "source": "K22081",
+          "destination": "ADDR_0296"
+        },
+        {
+          "source": "K20",
+          "destination": "ADDR_029A"
+        },
+        {
+          "source": "K22081",
+          "destination": "ADDR_0298"
+        },
+        {
+          "source": "K21776",
+          "destination": "ADDR_029E"
+        }
+      ]
+    }
+  ],
+  "pressure_selection_evidence": [
+    {
+      "file_offset": 98647,
+      "pc": 13842,
+      "label": "65.P1A | PUMP1_PRESSURE_LOW",
+      "code_hex": "f67f001741a800c9f5ac00000af0",
+      "moves": [
+        {
+          "source": "K0",
+          "destination": "R120"
+        }
+      ]
+    },
+    {
+      "file_offset": 98686,
+      "pc": 13856,
+      "label": "65.P1B | PUMP1_PRESSURE_LOW_HIGHWORD",
+      "code_hex": "f67f001741a800c9f5ac00000af2",
+      "moves": [
+        {
+          "source": "K0",
+          "destination": "R121"
+        }
+      ]
+    },
+    {
+      "file_offset": 98734,
+      "pc": 13870,
+      "label": "65.P1C | PUMP1_PRESSURE_OFFSET",
+      "code_hex": "f67f001641a800c8f67f002341a803e87fe8f66441a800c80af0",
+      "moves": []
+    },
+    {
+      "file_offset": 98776,
+      "pc": 13896,
+      "label": "65.P1D | PUMP1_PRESSURE_SCALE",
+      "code_hex": "f67f001641a800c8f67f002341a803e87fe8f6660af000020af0",
+      "moves": []
+    },
+    {
+      "file_offset": 98817,
+      "pc": 13922,
+      "label": "65.P1E | PUMP1_PRESSURE_HIGH",
+      "code_hex": "f67f001641a803e7f5ac06400af0",
+      "moves": [
+        {
+          "source": "K1600",
+          "destination": "R120"
+        }
+      ]
+    },
+    {
+      "file_offset": 98857,
+      "pc": 13936,
+      "label": "65.P1F | PUMP1_PRESSURE_HIGH_HIGHWORD",
+      "code_hex": "f67f001641a803e7f5ac00000af2",
+      "moves": [
+        {
+          "source": "K0",
+          "destination": "R121"
+        }
+      ]
+    },
+    {
+      "file_offset": 98906,
+      "pc": 13950,
+      "label": "65.P2A | PUMP2_PRESSURE_LOW",
+      "code_hex": "f67f001741b000c9f5ac00000af4",
+      "moves": [
+        {
+          "source": "K0",
+          "destination": "R122"
+        }
+      ]
+    },
+    {
+      "file_offset": 98945,
+      "pc": 13964,
+      "label": "65.P2B | PUMP2_PRESSURE_LOW_HIGHWORD",
+      "code_hex": "f67f001741b000c9f5ac00000af6",
+      "moves": [
+        {
+          "source": "K0",
+          "destination": "R123"
+        }
+      ]
+    },
+    {
+      "file_offset": 98993,
+      "pc": 13978,
+      "label": "65.P2C | PUMP2_PRESSURE_OFFSET",
+      "code_hex": "f67f001641b000c8f67f002341b003e87fe8f66441b000c80af4",
+      "moves": []
+    },
+    {
+      "file_offset": 99035,
+      "pc": 14004,
+      "label": "65.P2D | PUMP2_PRESSURE_SCALE",
+      "code_hex": "f67f001641b000c8f67f002341b003e87fe8f6660af400020af4",
+      "moves": []
+    },
+    {
+      "file_offset": 99076,
+      "pc": 14030,
+      "label": "65.P2E | PUMP2_PRESSURE_HIGH",
+      "code_hex": "f67f001641b003e7f5ac06400af4",
+      "moves": [
+        {
+          "source": "K1600",
+          "destination": "R122"
+        }
+      ]
+    },
+    {
+      "file_offset": 99116,
+      "pc": 14044,
+      "label": "65.P2F | PUMP2_PRESSURE_HIGH_HIGHWORD",
+      "code_hex": "f67f001641b003e7f5ac00000af6",
+      "moves": [
+        {
+          "source": "K0",
+          "destination": "R123"
+        }
+      ]
+    },
+    {
+      "file_offset": 99165,
+      "pc": 14058,
+      "label": "65.P3A | PUMP3_PRESSURE_LOW",
+      "code_hex": "f67f001741b200c9f5ac00000af8",
+      "moves": [
+        {
+          "source": "K0",
+          "destination": "R124"
+        }
+      ]
+    },
+    {
+      "file_offset": 99204,
+      "pc": 14072,
+      "label": "65.P3B | PUMP3_PRESSURE_LOW_HIGHWORD",
+      "code_hex": "f67f001741b200c9f5ac00000afa",
+      "moves": [
+        {
+          "source": "K0",
+          "destination": "R125"
+        }
+      ]
+    },
+    {
+      "file_offset": 99252,
+      "pc": 14086,
+      "label": "65.P3C | PUMP3_PRESSURE_OFFSET",
+      "code_hex": "f67f001641b200c8f67f002341b203e87fe8f66441b200c80af8",
+      "moves": []
+    },
+    {
+      "file_offset": 99294,
+      "pc": 14112,
+      "label": "65.P3D | PUMP3_PRESSURE_SCALE",
+      "code_hex": "f67f001641b200c8f67f002341b203e87fe8f6660af800020af8",
+      "moves": []
+    },
+    {
+      "file_offset": 99335,
+      "pc": 14138,
+      "label": "65.P3E | PUMP3_PRESSURE_HIGH",
+      "code_hex": "f67f001641b203e7f5ac06400af8",
+      "moves": [
+        {
+          "source": "K1600",
+          "destination": "R124"
+        }
+      ]
+    },
+    {
+      "file_offset": 99375,
+      "pc": 14152,
+      "label": "65.P3F | PUMP3_PRESSURE_HIGH_HIGHWORD",
+      "code_hex": "f67f001641b203e7f5ac00000afa",
+      "moves": [
+        {
+          "source": "K0",
+          "destination": "R125"
+        }
+      ]
+    },
+    {
+      "file_offset": 99424,
+      "pc": 14166,
+      "label": "65.P4A | PUMP4_PRESSURE_LOW",
+      "code_hex": "f67f001741b400c9f5ac00000afc",
+      "moves": [
+        {
+          "source": "K0",
+          "destination": "R126"
+        }
+      ]
+    },
+    {
+      "file_offset": 99463,
+      "pc": 14180,
+      "label": "65.P4B | PUMP4_PRESSURE_LOW_HIGHWORD",
+      "code_hex": "f67f001741b400c9f5ac00000afe",
+      "moves": [
+        {
+          "source": "K0",
+          "destination": "R127"
+        }
+      ]
+    },
+    {
+      "file_offset": 99511,
+      "pc": 14194,
+      "label": "65.P4C | PUMP4_PRESSURE_OFFSET",
+      "code_hex": "f67f001641b400c8f67f002341b403e87fe8f66441b400c80afc",
+      "moves": []
+    },
+    {
+      "file_offset": 99553,
+      "pc": 14220,
+      "label": "65.P4D | PUMP4_PRESSURE_SCALE",
+      "code_hex": "f67f001641b400c8f67f002341b403e87fe8f6660afc00020afc",
+      "moves": []
+    },
+    {
+      "file_offset": 99594,
+      "pc": 14246,
+      "label": "65.P4E | PUMP4_PRESSURE_HIGH",
+      "code_hex": "f67f001641b403e7f5ac06400afc",
+      "moves": [
+        {
+          "source": "K1600",
+          "destination": "R126"
+        }
+      ]
+    },
+    {
+      "file_offset": 99634,
+      "pc": 14260,
+      "label": "65.P4F | PUMP4_PRESSURE_HIGH_HIGHWORD",
+      "code_hex": "f67f001641b403e7f5ac00000afe",
+      "moves": [
+        {
+          "source": "K0",
+          "destination": "R127"
+        }
+      ]
+    },
+    {
+      "file_offset": 99979,
+      "pc": 14386,
+      "label": "65.13 | PRESSURE_SOURCE_INIT",
+      "code_hex": "4fe8f5ac00000b044fe8f5ac00000b08",
+      "moves": [
+        {
+          "source": "K0",
+          "destination": "R130"
+        },
+        {
+          "source": "K0",
+          "destination": "R132"
+        }
+      ]
+    },
+    {
+      "file_offset": 100019,
+      "pc": 14402,
+      "label": "65.14 | PRESSURE_SELECT_VFD1",
+      "code_hex": "4a729a908fe4f5ac00010b04f4ac0af00b08",
+      "moves": [
+        {
+          "source": "K1",
+          "destination": "R130"
+        },
+        {
+          "source": "R120",
+          "destination": "R132"
+        }
+      ]
+    },
+    {
+      "file_offset": 100059,
+      "pc": 14420,
+      "label": "65.15 | PRESSURE_SELECT_VFD2",
+      "code_hex": "4a73f67f00210b0400009a91f5ac00020b04f4ac0af40b08",
+      "moves": [
+        {
+          "source": "K2",
+          "destination": "R130"
+        },
+        {
+          "source": "R122",
+          "destination": "R132"
+        }
+      ]
+    },
+    {
+      "file_offset": 100099,
+      "pc": 14444,
+      "label": "65.16 | PRESSURE_SELECT_VFD3",
+      "code_hex": "4a74f67f00210b0400009a92f5ac00030b04f4ac0af80b08",
+      "moves": [
+        {
+          "source": "K3",
+          "destination": "R130"
+        },
+        {
+          "source": "R124",
+          "destination": "R132"
+        }
+      ]
+    },
+    {
+      "file_offset": 100139,
+      "pc": 14468,
+      "label": "65.17 | PRESSURE_SELECT_VFD4",
+      "code_hex": "4a75f67f00210b0400009a93f5ac00040b04f4ac0afc0b08",
+      "moves": [
+        {
+          "source": "K4",
+          "destination": "R130"
+        },
+        {
+          "source": "R126",
+          "destination": "R132"
+        }
+      ]
+    },
+    {
+      "file_offset": 100179,
+      "pc": 14492,
+      "label": "65.18 | PRESSURE_SOURCE_PRESENT",
+      "code_hex": "f67f00160b040000ca7c",
+      "moves": []
+    }
+  ],
+  "read_only_tags": [
+    {
+      "name": "PressurePV_x100",
+      "plc_register": "R2302",
+      "pdu_address": 2302,
+      "region": "HOLDING_REGISTERS",
+      "device_type": "uint16",
+      "server_type": "uint32",
+      "access": "ReadOnly",
+      "engineering_unit": "bar",
+      "display_factor": 0.01
+    },
+    {
+      "name": "PressureSourceOK",
+      "plc_register": "R2303",
+      "pdu_address": 2303,
+      "region": "HOLDING_REGISTERS",
+      "device_type": "uint16",
+      "server_type": "uint32",
+      "access": "ReadOnly",
+      "engineering_unit": "boolean",
+      "display_factor": 1
+    },
+    {
+      "name": "PressureSource",
+      "plc_register": "R2308",
+      "pdu_address": 2308,
+      "region": "HOLDING_REGISTERS",
+      "device_type": "uint16",
+      "server_type": "uint32",
+      "access": "ReadOnly",
+      "engineering_unit": "drive index,0=none",
+      "display_factor": 1
+    },
+    {
+      "name": "PlcHeartbeatToggle",
+      "plc_register": "R2328",
+      "pdu_address": 2328,
+      "region": "HOLDING_REGISTERS",
+      "device_type": "uint16",
+      "server_type": "uint32",
+      "access": "ReadOnly",
+      "engineering_unit": "0/1",
+      "display_factor": 1
+    },
+    {
+      "name": "PressureSP_x100",
+      "plc_register": "R2360",
+      "pdu_address": 2360,
+      "region": "HOLDING_REGISTERS",
+      "device_type": "uint16",
+      "server_type": "uint32",
+      "access": "ReadOnly",
+      "engineering_unit": "bar",
+      "display_factor": 0.01
+    },
+    {
+      "name": "AlarmLo",
+      "plc_register": "R2550",
+      "pdu_address": 2550,
+      "region": "HOLDING_REGISTERS",
+      "device_type": "uint16",
+      "server_type": "uint32",
+      "access": "ReadOnly",
+      "engineering_unit": "bitmask",
+      "display_factor": 1
+    },
+    {
+      "name": "AlarmHi",
+      "plc_register": "R2551",
+      "pdu_address": 2551,
+      "region": "HOLDING_REGISTERS",
+      "device_type": "uint16",
+      "server_type": "uint32",
+      "access": "ReadOnly",
+      "engineering_unit": "bitmask",
+      "display_factor": 1
+    }
+  ],
+  "alarm_bits": [
+    {
+      "register": 2550,
+      "bit": 0,
+      "mask": 1,
+      "source": "95.A005 | HMI_ALARM_PHASE",
+      "pc": 23754
+    },
+    {
+      "register": 2550,
+      "bit": 1,
+      "mask": 2,
+      "source": "95.A006 | HMI_ALARM_DRY",
+      "pc": 23760
+    },
+    {
+      "register": 2550,
+      "bit": 2,
+      "mask": 4,
+      "source": "95.A007 | HMI_ALARM_ESTOP",
+      "pc": 23766
+    },
+    {
+      "register": 2550,
+      "bit": 3,
+      "mask": 8,
+      "source": "95.A008 | HMI_ALARM_PRESSURE_SIGNAL",
+      "pc": 23772
+    },
+    {
+      "register": 2550,
+      "bit": 4,
+      "mask": 16,
+      "source": "95.A009 | HMI_ALARM_PRESSURE_HIGH",
+      "pc": 23778
+    },
+    {
+      "register": 2550,
+      "bit": 5,
+      "mask": 32,
+      "source": "95.A010 | HMI_ALARM_VFD1_NOT_READY",
+      "pc": 23786
+    },
+    {
+      "register": 2550,
+      "bit": 6,
+      "mask": 64,
+      "source": "95.A011 | HMI_ALARM_VFD2_NOT_READY",
+      "pc": 23792
+    },
+    {
+      "register": 2550,
+      "bit": 7,
+      "mask": 128,
+      "source": "95.A012 | HMI_ALARM_VFD3_NOT_READY",
+      "pc": 23798
+    },
+    {
+      "register": 2550,
+      "bit": 8,
+      "mask": 256,
+      "source": "95.A013 | HMI_ALARM_VFD4_NOT_READY",
+      "pc": 23804
+    },
+    {
+      "register": 2550,
+      "bit": 9,
+      "mask": 512,
+      "source": "95.A014 | HMI_ALARM_VFD1_NO_LINK",
+      "pc": 23810
+    },
+    {
+      "register": 2550,
+      "bit": 10,
+      "mask": 1024,
+      "source": "95.A015 | HMI_ALARM_VFD2_NO_LINK",
+      "pc": 23816
+    },
+    {
+      "register": 2550,
+      "bit": 11,
+      "mask": 2048,
+      "source": "95.A016 | HMI_ALARM_VFD3_NO_LINK",
+      "pc": 23822
+    },
+    {
+      "register": 2550,
+      "bit": 12,
+      "mask": 4096,
+      "source": "95.A017 | HMI_ALARM_VFD4_NO_LINK",
+      "pc": 23828
+    },
+    {
+      "register": 2550,
+      "bit": 13,
+      "mask": 8192,
+      "source": "95.A018 | HMI_ALARM_MODE_PREPARE",
+      "pc": 23834
+    },
+    {
+      "register": 2550,
+      "bit": 14,
+      "mask": 16384,
+      "source": "95.A019 | HMI_ALARM_FREQUENCY",
+      "pc": 23890
+    },
+    {
+      "register": 2550,
+      "bit": 15,
+      "mask": 32768,
+      "source": "95.A020 | HMI_ALARM_PRESSURE_WRITE",
+      "pc": 23946
+    },
+    {
+      "register": 2551,
+      "bit": 0,
+      "mask": 1,
+      "source": "95.A021 | HMI_ALARM_CASCADE_STACK",
+      "pc": 23952
+    },
+    {
+      "register": 2551,
+      "bit": 1,
+      "mask": 2,
+      "source": "95.A022 | HMI_ALARM_ROTATION",
+      "pc": 23958
+    },
+    {
+      "register": 2551,
+      "bit": 2,
+      "mask": 4,
+      "source": "95.A023 | HMI_ALARM_SELECTOR",
+      "pc": 23970
+    },
+    {
+      "register": 2551,
+      "bit": 3,
+      "mask": 8,
+      "source": "95.A024 | HMI_ALARM_NO_PUMPS",
+      "pc": 23976
+    },
+    {
+      "register": 2551,
+      "bit": 4,
+      "mask": 16,
+      "source": "95.A025 | HMI_ALARM_CASCADE_SETTINGS",
+      "pc": 23984
+    },
+    {
+      "register": 2551,
+      "bit": 5,
+      "mask": 32,
+      "source": "95.A026 | HMI_ALARM_PRESSURE_SETPOINT",
+      "pc": 23990
+    },
+    {
+      "register": 2551,
+      "bit": 6,
+      "mask": 64,
+      "source": "95.A027 | HMI_ALARM_FOLLOWER_SETPOINT",
+      "pc": 23996
+    },
+    {
+      "register": 2551,
+      "bit": 7,
+      "mask": 128,
+      "source": "95.A028 | HMI_ALARM_ROTATION_SETTINGS",
+      "pc": 24018
+    },
+    {
+      "register": 2551,
+      "bit": 8,
+      "mask": 256,
+      "source": "95.A054 | HMI_CPU_START_EVENT",
+      "pc": 24326
+    }
+  ],
+  "master_tables": [
+    {
+      "name": "M900G_FREQ_READBACK",
+      "register": "R6000",
+      "file_offset": 176444,
+      "rows": [
+        [
+          1,
+          1,
+          1,
+          13,
+          282,
+          4,
+          4099
+        ]
+      ],
+      "copies_equal": true
+    },
+    {
+      "name": "M900G_FREQ_WRITE",
+      "register": "R5800",
+      "file_offset": 176549,
+      "rows": [
+        [
+          1,
+          3,
+          1,
+          13,
+          294,
+          4,
+          2
+        ]
+      ],
+      "copies_equal": true
+    },
+    {
+      "name": "M900G_MODE_READBACK_TEST",
+      "register": "R5400",
+      "file_offset": 176651,
+      "rows": [
+        [
+          1,
+          1,
+          1,
+          13,
+          232,
+          4,
+          61442
+        ]
+      ],
+      "copies_equal": true
+    },
+    {
+      "name": "M900G_MODE_WRITE_TEST",
+      "register": "R5200",
+      "file_offset": 176761,
+      "rows": [
+        [
+          1,
+          3,
+          1,
+          13,
+          231,
+          4,
+          61442
+        ]
+      ],
+      "copies_equal": true
+    },
+    {
+      "name": "M900G_PI_F501_READBACK",
+      "register": "R6600",
+      "file_offset": 176868,
+      "rows": [
+        [
+          1,
+          1,
+          1,
+          13,
+          640,
+          4,
+          62722
+        ]
+      ],
+      "copies_equal": true
+    },
+    {
+      "name": "M900G_PI_F501_WRITE",
+      "register": "R6400",
+      "file_offset": 176976,
+      "rows": [
+        [
+          1,
+          3,
+          1,
+          13,
+          630,
+          4,
+          62722
+        ]
+      ],
+      "copies_equal": true
+    },
+    {
+      "name": "M900G_PI_PREFLIGHT",
+      "register": "R6200",
+      "file_offset": 177081,
+      "rows": [
+        [
+          1,
+          1,
+          4,
+          13,
+          600,
+          4,
+          4097
+        ],
+        [
+          1,
+          1,
+          10,
+          13,
+          610,
+          4,
+          62721
+        ]
+      ],
+      "copies_equal": true
+    },
+    {
+      "name": "M900G_STOP_CHECK_TEST",
+      "register": "R5600",
+      "file_offset": 177213,
+      "rows": [
+        [
+          1,
+          1,
+          4,
+          13,
+          240,
+          4,
+          4097
+        ]
+      ],
+      "copies_equal": true
+    },
+    {
+      "name": "M900G_TEST",
+      "register": "R5000",
+      "file_offset": 177320,
+      "rows": [
+        [
+          1,
+          1,
+          1,
+          13,
+          200,
+          4,
+          4100
+        ],
+        [
+          1,
+          1,
+          1,
+          13,
+          201,
+          4,
+          4105
+        ],
+        [
+          1,
+          1,
+          1,
+          13,
+          202,
+          4,
+          4115
+        ],
+        [
+          2,
+          1,
+          1,
+          13,
+          203,
+          4,
+          4100
+        ],
+        [
+          2,
+          1,
+          1,
+          13,
+          204,
+          4,
+          4105
+        ],
+        [
+          2,
+          1,
+          1,
+          13,
+          205,
+          4,
+          4115
+        ],
+        [
+          3,
+          1,
+          1,
+          13,
+          208,
+          4,
+          4115
+        ],
+        [
+          4,
+          1,
+          1,
+          13,
+          211,
+          4,
+          4115
+        ],
+        [
+          1,
+          1,
+          1,
+          13,
+          212,
+          4,
+          4111
+        ],
+        [
+          1,
+          1,
+          1,
+          13,
+          213,
+          4,
+          4113
+        ],
+        [
+          1,
+          1,
+          1,
+          13,
+          214,
+          4,
+          61442
+        ],
+        [
+          1,
+          1,
+          1,
+          13,
+          215,
+          4,
+          4115
+        ],
+        [
+          2,
+          1,
+          1,
+          13,
+          216,
+          4,
+          4111
+        ],
+        [
+          3,
+          1,
+          1,
+          13,
+          217,
+          4,
+          4111
+        ],
+        [
+          4,
+          1,
+          1,
+          13,
+          218,
+          4,
+          4111
+        ],
+        [
+          4,
+          1,
+          1,
+          13,
+          219,
+          4,
+          61442
+        ],
+        [
+          3,
+          1,
+          1,
+          13,
+          206,
+          4,
+          4100
+        ],
+        [
+          4,
+          1,
+          1,
+          13,
+          209,
+          4,
+          4100
+        ]
+      ],
+      "copies_equal": true
+    }
+  ],
+  "drive_frequency_exports": [
+    {
+      "drive": 1,
+      "frequency_register": 2500,
+      "frequency_state_register": 2510,
+      "frequency_state_codes": {
+        "0": "unknown_or_stale",
+        "1": "PLC_frequency_display_stopped",
+        "2": "PLC_frequency_display_running"
+      },
+      "frequency_source_buffer": "D200",
+      "normal_poll_row": 1,
+      "frequency_native_pdu": 4099,
+      "frequency_scale_reference": 0.1,
+      "frequency_scale_live_verified": false,
+      "current_native_pdu": 4102,
+      "current_scale_reference": 0.1,
+      "current_PLC_export": null
+    },
+    {
+      "drive": 2,
+      "frequency_register": 2501,
+      "frequency_state_register": 2511,
+      "frequency_state_codes": {
+        "0": "unknown_or_stale",
+        "1": "PLC_frequency_display_stopped",
+        "2": "PLC_frequency_display_running"
+      },
+      "frequency_source_buffer": "D203",
+      "normal_poll_row": 4,
+      "frequency_native_pdu": 4099,
+      "frequency_scale_reference": 0.1,
+      "frequency_scale_live_verified": false,
+      "current_native_pdu": 4102,
+      "current_scale_reference": 0.1,
+      "current_PLC_export": null
+    },
+    {
+      "drive": 3,
+      "frequency_register": 2502,
+      "frequency_state_register": 2512,
+      "frequency_state_codes": {
+        "0": "unknown_or_stale",
+        "1": "PLC_frequency_display_stopped",
+        "2": "PLC_frequency_display_running"
+      },
+      "frequency_source_buffer": "D206",
+      "normal_poll_row": 17,
+      "frequency_native_pdu": 4099,
+      "frequency_scale_reference": 0.1,
+      "frequency_scale_live_verified": false,
+      "current_native_pdu": 4102,
+      "current_scale_reference": 0.1,
+      "current_PLC_export": null
+    },
+    {
+      "drive": 4,
+      "frequency_register": 2503,
+      "frequency_state_register": 2513,
+      "frequency_state_codes": {
+        "0": "unknown_or_stale",
+        "1": "PLC_frequency_display_stopped",
+        "2": "PLC_frequency_display_running"
+      },
+      "frequency_source_buffer": "D209",
+      "normal_poll_row": 18,
+      "frequency_native_pdu": 4099,
+      "frequency_scale_reference": 0.1,
+      "frequency_scale_live_verified": false,
+      "current_native_pdu": 4102,
+      "current_scale_reference": 0.1,
+      "current_PLC_export": null
+    }
+  ],
+  "current_reads": [],
+  "pressure_quality_limit": "R2303 reports selected Modbus pressure source, not independent proof of healthy 4-20mA sensor; input is clamped at low/high limits.",
+  "heartbeat_limit": "R2328 is a 0/1 clock copy, not an incrementing sequence. Fixed-period polling can alias it; do not base unconditional PLC-failure alarms on absence of a change.",
+  "native_vfd_fault_limit": "Regular R5000 rows do not poll native fault0x1001. Four-word stop/run/preflight reads include fault in scratch buffers, but no fresh per-drive fault-code export is established. R2550 readiness/link alarms are not native VFD error codes.",
+  "live_read_verified": false,
+  "PLC_modified": false
+}

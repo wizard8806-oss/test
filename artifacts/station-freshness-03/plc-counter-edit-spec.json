@@ -1,0 +1,65 @@
+{
+  "source": "station_MC_CM55_900G_03.pdw",
+  "sourceSHA256": "0c2c847b946f17c39290a056518235b2940a5a29dcc8813e3eadc33de6a4f69d",
+  "nextCopyName": "station_MC_CM55_900G_04.pdw",
+  "nativeProgramBlock": "95_HMI_STATUS",
+  "insertBeforeNetwork": "95.W032 | WORD_STATUS_VERSION",
+  "newNetwork": "95.A100 | PLC_ALIVE_COUNTER",
+  "condition": {
+    "device": "M1922",
+    "kind": "Normally open",
+    "periodSeconds": 1
+  },
+  "function": {
+    "number": 15,
+    "name": "(+1)",
+    "pulse": true,
+    "doubleword": false,
+    "D": "R2840",
+    "auxiliaryOutputsConnected": false
+  },
+  "mapVersionStays": 32,
+  "counterWidth": 16,
+  "readAsUnsigned": true,
+  "initialValue": "Any word value is acceptable; no per-scan reset or extra reset rung",
+  "existingToggleR2328Preserved": true,
+  "CL50SIndependent": true,
+  "sourceEncodedR2840Matches": [],
+  "tableRangeOverlaps": [],
+  "sourceClockOperand": "4f92",
+  "memoryEvidenceLimit": "Direct encoded references and table ranges checked; no full external HMI/indirect-address audit is claimed",
+  "manuals": [
+    {
+      "url": "https://www.esea.cz/support/fatek/FBs_Manual/Manual_1/instruction/Chapter_2.pdf",
+      "printedPage": "2-4",
+      "evidence": "M1922 is1s clock; R2840 is within general retentiveR0..R2999",
+      "sha256": "8384c1127dbccb08a8f3ef4b55dabd0d4b736435a55a5a51731893da4aa73535"
+    },
+    {
+      "url": "https://www.esea.cz/support/fatek/FBs_Manual/Manual_1/instruction/Chapter_6.pdf",
+      "printedPage": "6-32",
+      "evidence": "FUN15 (+1), Pulse0->1 execution and signed overflow wrapping; read raw word asuint16",
+      "sha256": "a6e44e7c6642e8ba92f37e47683b8f072493ad6ed1e356ec13cd74d376033c03"
+    },
+    {
+      "url": "https://file.fatek.com/en/PLC/Software/Manual/WinProladder_Manual_en.pdf",
+      "printedPage": "2-4",
+      "evidence": "Function Name accepts numeric function code; Pulse/32bits checkboxes, Alt+P/Alt+D"
+    }
+  ],
+  "ordinaryVFDPollRows": 18,
+  "extraVFDPollRequests": 0,
+  "extraOPCItem": {
+    "name": "PlcAliveCounter",
+    "pduAddress": 2840,
+    "access": "ReadOnly",
+    "deviceType": "uint16",
+    "serverType": "uint32"
+  },
+  "nativeEditObserved": false,
+  "nativeF8Observed": false,
+  "PLCWritePerformed": false,
+  "PDWPatchGenerated": false,
+  "deployable": false,
+  "nextUserStep": "Edit saved copy only: insert one network before95.W032 with M1922->FUN15/Pulse/D=R2840/32bitsOFF, keep version32; F8,save,upload before any download"
+}

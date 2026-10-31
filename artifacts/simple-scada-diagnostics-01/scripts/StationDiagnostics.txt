@@ -1,0 +1,181 @@
+interface
+procedure DiagCoreReset;
+procedure DiagCoreStep(MapGood, CounterGood: Boolean; MapValue, CounterValue: Int64;
+  SecondsNow: Double; var State, AgeSeconds: Integer; var Changed: Boolean);
+procedure StationDiagReset;
+procedure StationDiagUpdate;
+implementation
+var
+  CoreHasTick, CoreHasSample, CoreHasProgress: Boolean;
+  CoreLastTick, CoreLastChange: Double;
+  CoreLastCounter: Int64;
+  ScreenInitialized: Boolean;
+  ScreenPendingState, ScreenPublishedState: Integer;
+  ScreenPendingSince: Double;
+  ScreenLastProgress: TDateTime;
+procedure DiagCoreReset;
+begin
+  CoreHasTick := False;
+  CoreHasSample := False;
+  CoreHasProgress := False;
+  CoreLastTick := 0;
+  CoreLastChange := 0;
+  CoreLastCounter := 0;
+end;
+procedure DiagCoreStep(MapGood, CounterGood: Boolean; MapValue, CounterValue: Int64;
+  SecondsNow: Double; var State, AgeSeconds: Integer; var Changed: Boolean);
+var ClockGap: Boolean; Age: Double;
+begin
+  State := 5;
+  AgeSeconds := -1;
+  Changed := False;
+  if (not MapGood) or (not CounterGood) then
+  begin DiagCoreReset; State := 2; Exit; end;
+  if MapValue <> 31 then
+  begin DiagCoreReset; State := 3; Exit; end;
+  if (CounterValue < 0) or (CounterValue > 65535) then
+  begin DiagCoreReset; State := 7; Exit; end;
+  ClockGap := False;
+  if CoreHasTick then
+    ClockGap := (SecondsNow < CoreLastTick) or (SecondsNow - CoreLastTick > 10);
+  if ClockGap then DiagCoreReset;
+  CoreHasTick := True;
+  CoreLastTick := SecondsNow;
+  if not CoreHasSample then
+  begin
+    CoreHasSample := True;
+    CoreLastCounter := CounterValue;
+    CoreLastChange := SecondsNow;
+    AgeSeconds := 0;
+    if ClockGap then State := 6;
+    Exit;
+  end;
+  if CounterValue <> CoreLastCounter then
+  begin
+    CoreLastCounter := CounterValue;
+    CoreLastChange := SecondsNow;
+    CoreHasProgress := True;
+    Changed := True;
+  end;
+  Age := SecondsNow - CoreLastChange;
+  if Age > 2147483647 then Age := 2147483647;
+  AgeSeconds := Trunc(Age);
+  if Age >= 30 then State := 4
+  else if CoreHasProgress then State := 1;
+end;
+procedure StationDiagReset;
+begin
+  DiagCoreReset;
+  ScreenInitialized := True;
+  ScreenPendingState := -1;
+  ScreenPublishedState := -1;
+  ScreenPendingSince := 0;
+  ScreenLastProgress := 0;
+end;
+procedure StationDiagUpdate;
+var
+  MapGood, CounterGood, Changed: Boolean;
+  MapValue, CounterValue: Int64;
+  State, AgeSeconds, StatusColor: Integer;
+  SecondsNow: Double;
+  Stamp: TDateTime;
+  Summary, Detail, AgeText: string;
+begin
+  if not ScreenInitialized then StationDiagReset;
+  Stamp := Now;
+  SecondsNow := Stamp * 86400.0;
+  MapGood := codex_Device1_MapVersion.IsGoodQuality;
+  CounterGood := codex_Device1_CL50S_TxCount.IsGoodQuality;
+  MapValue := 0;
+  CounterValue := 0;
+  if MapGood then MapValue := codex_Device1_MapVersion.AsInt64;
+  if CounterGood then CounterValue := codex_Device1_CL50S_TxCount.AsInt64;
+  DiagCoreStep(MapGood, CounterGood, MapValue, CounterValue,
+    SecondsNow, State, AgeSeconds, Changed);
+  if Changed then ScreenLastProgress := Stamp;
+  StatusColor := RGB(105, 105, 105);
+  Summary := 'Ожидание обновления данных';
+  Detail := 'Дождитесь изменения счётчика. Нормальный интервал CL50S около 5 с.';
+  case State of
+    1: begin
+      StatusColor := RGB(40, 140, 90);
+      Summary := 'Станция отвечает: счётчик обновляется';
+      Detail := 'Карта ПЛК 31 подтверждена. Получено изменение счётчика CL50S.';
+    end;
+    2: begin
+      Summary := 'Нет достоверных данных от станции';
+      Detail := 'Проверить MasterOPC, Gateway, связь с модемом и ПЛК.' + #13#10 +
+        'По этому признаку точный участок отказа не определён.';
+    end;
+    3: begin
+      StatusColor := RGB(165, 50, 50);
+      Summary := 'Не совпадает версия карты ПЛК';
+      Detail := 'Ожидается 31. Проверить адрес тега, выбранную станцию и программу ПЛК.';
+    end;
+    4: begin
+      StatusColor := RGB(165, 100, 0);
+      Summary := 'Счётчик CL50S не обновляется более 30 с';
+      Detail := 'Качество OPC хорошее. Проверить RUN ПЛК, драйвер CL50S и обновление OPC.' + #13#10 +
+        'Это ещё не доказательство отказа ПЛК или всех насосов.';
+    end;
+    6: begin
+      StatusColor := RGB(165, 100, 0);
+      Summary := 'Контроль обновления возобновляется';
+      Detail := 'Обнаружена пауза проверки или перевод часов. Ожидается новое изменение счётчика.';
+    end;
+    7: begin
+      StatusColor := RGB(165, 50, 50);
+      Summary := 'Неверный диапазон счётчика';
+      Detail := 'Для R2669 ожидается 0...65535. Проверить тип и адрес тега в MasterOPC.';
+    end;
+  end;
+  AgeText := 'Нет текущего подтверждения обновления';
+  if AgeSeconds >= 0 then
+    AgeText := 'Без изменения счётчика: ' + IntToStr(AgeSeconds) + ' с';
+  if ScreenLastProgress > 0 then
+    AgeText := AgeText + #13#10 + 'Последнее изменение на ПК: ' + DateTimeToStr(ScreenLastProgress);
+  MainDiagStatus.Text := Summary;
+  MainDiagStatus.Color := StatusColor;
+  MainDiagDetail.Text := Detail;
+  DiagStatus.Text := Summary;
+  DiagStatus.Color := StatusColor;
+  DiagDetail.Text := Detail;
+  DiagAge.Text := AgeText;
+  if MapGood and CounterGood then
+  begin
+    DiagOPC.Text := 'MasterOPC: оба тега имеют хорошее качество';
+    DiagOPC.Color := RGB(40, 140, 90);
+  end
+  else
+  begin
+    if MapGood then
+      DiagOPC.Text := 'MasterOPC: версия карты достоверна; нет качества счётчика CL50S'
+    else if CounterGood then
+      DiagOPC.Text := 'MasterOPC: счётчик достоверен; нет качества версии карты'
+    else
+      DiagOPC.Text := 'MasterOPC: у обоих тегов нет достоверного качества';
+    DiagOPC.Color := RGB(105, 105, 105);
+  end;
+  if State = 1 then
+    DiagRoute.Text := 'Общий маршрут до ПЛК: изменение данных получено'
+  else
+    DiagRoute.Text := 'Общий маршрут до ПЛК: обновление ещё не подтверждено';
+  DiagRoute.Color := StatusColor;
+  Field1.Visible := MapGood;
+  MainMapUnknown.Visible := not MapGood;
+  Field2.Visible := State = 1;
+  MainCounterUnknown.Visible := State <> 1;
+  if (State <> ScreenPendingState) or (SecondsNow < ScreenPendingSince) then
+  begin
+    ScreenPendingState := State;
+    ScreenPendingSince := SecondsNow;
+  end;
+  if (SecondsNow - ScreenPendingSince >= 5) and
+     (State <> ScreenPublishedState) and (State <> 5) and (State <> 6) then
+  begin
+    ScreenPublishedState := State;
+    if State = 1 then AddMessage(Stamp, mkMessage, 'Диагностика: ' + Summary, False, False)
+    else AddMessage(Stamp, mkWarning, 'Диагностика: ' + Summary, False, False);
+  end;
+end;
+end.

@@ -1,0 +1,202 @@
+{
+  "date": "2026-10-31",
+  "sourceFile": "station_MC_CM55_900G_04.pdw",
+  "sourceSHA256": "a25f9b5d2fe006bcb039896bae3989569b08e1b1adc4b503a755bfd5e3b22993",
+  "proposedCopy": "station_MC_CM55_900G_05.pdw",
+  "programBlock": "95_HMI_STATUS",
+  "insertImmediatelyBefore": "95.W032 | WORD_STATUS_VERSION",
+  "mapVersionRemains": 32,
+  "addedNetworks": [
+    {
+      "label": "95.SP001 | SP_FEEDBACK_VERSION",
+      "source": "1",
+      "destination": "R2850",
+      "function": 8,
+      "Pulse": false,
+      "bits32": false,
+      "enable": "Unconditional",
+      "expectedCodeHex": "4fe8f5ac00012044",
+      "tagName": "SpFeedbackVersion",
+      "vendorMnemonics": "00000M  ORG   SHORT       \r\n00001M  FUN   08 _.MOV    \r\n              S :  1      \r\n              D :  R2850  \r\n"
+    },
+    {
+      "label": "95.SP002 | SP_CONFIRMED_DRIVE",
+      "source": "D672",
+      "destination": "R2851",
+      "function": 8,
+      "Pulse": false,
+      "bits32": false,
+      "enable": "Unconditional",
+      "expectedCodeHex": "4fe8f4ac45402046",
+      "tagName": "SpConfirmedDrive",
+      "vendorMnemonics": "00000M  ORG   SHORT       \r\n00001M  FUN   08 _.MOV    \r\n              S :  D672   \r\n              D :  R2851  \r\n"
+    },
+    {
+      "label": "95.SP003 | SP_CONFIRMED_PRESSURE",
+      "source": "D673",
+      "destination": "R2852",
+      "function": 8,
+      "Pulse": false,
+      "bits32": false,
+      "enable": "Unconditional",
+      "expectedCodeHex": "4fe8f4ac45422048",
+      "tagName": "SpConfirmed_x100",
+      "vendorMnemonics": "00000M  ORG   SHORT       \r\n00001M  FUN   08 _.MOV    \r\n              S :  D673   \r\n              D :  R2852  \r\n"
+    },
+    {
+      "label": "95.SP004 | SP_APPLY_PHASE",
+      "source": "D670",
+      "destination": "R2853",
+      "function": 8,
+      "Pulse": false,
+      "bits32": false,
+      "enable": "Unconditional",
+      "expectedCodeHex": "4fe8f4ac453c204a",
+      "tagName": "SpApplyPhase",
+      "vendorMnemonics": "00000M  ORG   SHORT       \r\n00001M  FUN   08 _.MOV    \r\n              S :  D670   \r\n              D :  R2853  \r\n"
+    },
+    {
+      "label": "95.SP005 | SP_APPLY_ERROR",
+      "source": "D676",
+      "destination": "R2854",
+      "function": 8,
+      "Pulse": false,
+      "bits32": false,
+      "enable": "Unconditional",
+      "expectedCodeHex": "4fe8f4ac4548204c",
+      "tagName": "SpApplyError",
+      "vendorMnemonics": "00000M  ORG   SHORT       \r\n00001M  FUN   08 _.MOV    \r\n              S :  D676   \r\n              D :  R2854  \r\n"
+    },
+    {
+      "label": "95.SP006 | SP_APPLY_DETAIL",
+      "source": "D677",
+      "destination": "R2855",
+      "function": 8,
+      "Pulse": false,
+      "bits32": false,
+      "enable": "Unconditional",
+      "expectedCodeHex": "4fe8f4ac454a204e",
+      "tagName": "SpApplyDetail",
+      "vendorMnemonics": "00000M  ORG   SHORT       \r\n00001M  FUN   08 _.MOV    \r\n              S :  D677   \r\n              D :  R2855  \r\n"
+    },
+    {
+      "label": "95.SP007 | SP_APPLY_FLAGS",
+      "source": "WM968",
+      "destination": "R2856",
+      "function": 8,
+      "Pulse": false,
+      "bits32": false,
+      "enable": "Unconditional",
+      "expectedCodeHex": "4fe8f4ac097b2050",
+      "tagName": "SpApplyFlags",
+      "vendorMnemonics": "00000M  ORG   SHORT       \r\n00001M  FUN   08 _.MOV    \r\n              S :  WM968  \r\n              D :  R2856  \r\n"
+    }
+  ],
+  "addedProgramBytes": 56,
+  "existingTablesAndWorkerQueueMustRemainUnchanged": true,
+  "newDrivePollRequests": 0,
+  "scalarSetpointWriteInput": "R2100, no new write binding enabled by this proposal",
+  "feedbackMeaning": "Current coordinator state and its verified leading-drive cache, not a PLC request-ID acknowledgment",
+  "flags": {
+    "source": "WM968",
+    "bit0": "M968: setpoint-application failure latch",
+    "bit1": "M969: current leading drive and current setpoint are verified",
+    "rawWordPreserved": true,
+    "bothSuccessAndFailureMustBeRejected": true,
+    "otherBits": "M970..M983; do not decode without their individual contract"
+  },
+  "memoryReview": {
+    "sourceNetworksVendorFormatted": 1834,
+    "directOrNeighborReferences": [],
+    "blockTransfersChecked": [
+      {
+        "label": "65.S32 | STOP_PROBE_TABLE_COPY",
+        "source": "Ts:  R5600",
+        "target": "Td:  D820",
+        "words": 10
+      },
+      {
+        "label": "65.K32 | PI_PARAM_COPY_R6200",
+        "source": "Ts:  R6200",
+        "target": "Td:  D700",
+        "words": 17
+      },
+      {
+        "label": "65.K33 | PI_PARAM_COPY_R6400",
+        "source": "Ts:  R6400",
+        "target": "Td:  D720",
+        "words": 10
+      },
+      {
+        "label": "65.K34 | PI_PARAM_COPY_R6600",
+        "source": "Ts:  R6600",
+        "target": "Td:  D740",
+        "words": 10
+      },
+      {
+        "label": "65.K38A | PI_PARAM_CONFIG_HEADER",
+        "source": "Ts:  D700",
+        "target": "Td:  D800",
+        "words": 2
+      },
+      {
+        "label": "65.K38B | PI_PARAM_CONFIG_ROW",
+        "source": "Ts:  D709",
+        "target": "Td:  D802",
+        "words": 8
+      },
+      {
+        "label": "65.F14 | VFD_FREQ_TABLES_COPY",
+        "source": "Ts:  R5800",
+        "target": "Td:  D560",
+        "words": 10
+      },
+      {
+        "label": "65.F14 | VFD_FREQ_TABLES_COPY",
+        "source": "Ts:  R6000",
+        "target": "Td:  D580",
+        "words": 10
+      },
+      {
+        "label": "65.36A | VFD_MODE_TABLES_COPY",
+        "source": "Ts:  R5200",
+        "target": "Td:  D500",
+        "words": 10
+      },
+      {
+        "label": "65.36A | VFD_MODE_TABLES_COPY",
+        "source": "Ts:  R5400",
+        "target": "Td:  D520",
+        "words": 10
+      },
+      {
+        "label": "65.36A | VFD_MODE_TABLES_COPY",
+        "source": "Ts:  R5600",
+        "target": "Td:  D540",
+        "words": 10
+      }
+    ],
+    "indirectOperandsFound": [],
+    "masterTablesChecked": [
+      "R6000",
+      "R5800",
+      "R5400",
+      "R5200",
+      "R6600",
+      "R6400",
+      "R6200",
+      "R5600",
+      "R5000"
+    ],
+    "candidateRange": "R2850..R2856",
+    "existingExternalHMIMapIndependentlyAudited": false,
+    "scope": "All supplied program network mnemonics, explicit block extents and nine supplied Modbus tables; separate external HMI files were not supplied"
+  },
+  "formatterSHA256": "daef5641e3f9fb8405e6d614f393f35f279a47bbec4bacac2ce844dbb463b3e9",
+  "PLCModified": false,
+  "sourceFileChanged": false,
+  "nativeEditorF8Observed": false,
+  "nextStep": "Run full PowerShell block, choose original04.pdw, open generated05.pdw, F8/save/upload; manual network edits are no longer required.",
+  "automationRequestedByUser": true,
+  "automaticCopyDelivery": "Paste-Setpoint-Feedback-Copy-01.ps1"
+}

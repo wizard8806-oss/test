@@ -1,0 +1,35 @@
+{
+  "ui": "PASS radio-ui assertions=27",
+  "collectors": [
+    {
+      "case": "normal",
+      "passed": true,
+      "read_only_requests": 10,
+      "atomic_complete_records": 4,
+      "stop_or_auth_failure_reported": true
+    },
+    {
+      "case": "unknown",
+      "passed": true,
+      "read_only_requests": 10,
+      "atomic_complete_records": 4,
+      "stop_or_auth_failure_reported": true
+    },
+    {
+      "case": "auth",
+      "passed": true,
+      "read_only_requests": 1,
+      "atomic_complete_records": 1,
+      "stop_or_auth_failure_reported": true
+    },
+    {
+      "case": "recover",
+      "passed": true,
+      "read_only_requests": 8,
+      "atomic_complete_records": 4,
+      "stop_or_auth_failure_reported": true
+    }
+  ],
+  "native_file_APIs_confirmed": "Official2.6.15 Scripts.chm: TM_StringList,LoadFromFile,fcpUTF8,DateTimeToUnix(Now,False),FreeAndNil",
+  "limitations": "Strict FreePascal stubs and PowerShell7.6.9/LinuxPTY. NativeWindows F9/new collector not yet run; electrical lines disabled solely for PTY."
+}

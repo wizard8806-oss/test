@@ -1,0 +1,23 @@
+{
+  "Schema": 1,
+  "Groups": [
+    {
+      "Id": "teleofis-service-7058",
+      "Server": "hub.m2m24.ru",
+      "Port": 7000,
+      "Login": 7058
+    }
+  ],
+  "Stations": [
+    {
+      "Id": "station-001",
+      "Name": "Первая насосная станция — стенд",
+      "GroupId": "teleofis-service-7058",
+      "Imei": "863906061228379",
+      "RadioDataDirectory": "C:\\ProgramData\\Automatika\\Station50008",
+      "PollMilliseconds": 5000,
+      "EquipmentProfile": "pump-pressure-vfd-v1",
+      "ExpectedPlcMapVersion": 31
+    }
+  ]
+}

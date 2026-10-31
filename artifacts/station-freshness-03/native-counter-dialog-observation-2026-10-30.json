@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-30",
+  "timezone": "Europe/Moscow",
+  "source": "User native WinProLadder parameter-dialog screenshot at approximately21:06",
+  "candidateSHA256": "a25f9b5d2fe006bcb039896bae3989569b08e1b1adc4b503a755bfd5e3b22993",
+  "fileName": "station_MC_CM55_900G_04.pdw",
+  "programBlock": "95_HMI_STATUS",
+  "network": "95.A100 | PLC_ALIVE_COUNTER",
+  "visibleInputRelay": "M1922",
+  "visibleFunctionHeading": "15P.(+1)",
+  "functionNumber": 15,
+  "Pulse": true,
+  "32bits": false,
+  "D": "R2840",
+  "compactNativeCode": "4f92f09620305feb",
+  "interpretation": "Native dialog independently confirms pulse and16bit settings for the saved compact instruction; no rewrite to the older expression encoding is required",
+  "nativeF8ResultShown": false,
+  "PLCDownloadShown": false,
+  "counterProgressShown": false
+}

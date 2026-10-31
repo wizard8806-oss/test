@@ -1,0 +1,249 @@
+interface
+procedure StationProcessUpdate;
+implementation
+const
+  ProcessItemPrefix = 'codex.Device1.';
+  ProcessOPCServer = 'InSAT.ModbusOPCServer.DA';
+  ProcessOPCHost = 'localhost';
+  ProcessBaseMapVersion = 31;
+  ProcessDriveMapVersion = 32;
+function ProcessWord(const Item: string; var Raw: Int64): Boolean;
+var V: TM_Variable;
+begin
+  Result := False;
+  Raw := 0;
+  try
+    V := GetVariableByAddress(ProcessItemPrefix + Item);
+    if V = nil then Exit;
+    if not V.Outer then Exit;
+    if V.Address <> ProcessItemPrefix + Item then Exit;
+    if LowerCase(V.OPCServerName) <> LowerCase(ProcessOPCServer) then Exit;
+    if LowerCase(V.ComputerName) <> LowerCase(ProcessOPCHost) then Exit;
+    if not V.IsGoodQuality then Exit;
+    Raw := V.OriginalAsInt;
+    Result := (Raw >= 0) and (Raw <= 65535);
+  except
+    Result := False;
+    Raw := 0;
+  end;
+end;
+function DriveFaultText(Code: Int64): string;
+begin
+  Result := 'Ненулевой код ПЧ; расшифровка для этой версии неизвестна.';
+  case Code of
+    0: Result := 'ПЧ передал нулевой код неисправности.';
+    1: Result := '900G: сработала защита ПЧ (Err01).';
+    2: Result := '900G: перегрузка по току при разгоне (Err02).';
+    3: Result := '900G: перегрузка по току при торможении (Err03).';
+    4: Result := '900G: перегрузка по току при постоянной скорости (Err04).';
+    5: Result := '900G: перенапряжение при разгоне (Err05).';
+    6: Result := '900G: перенапряжение при торможении (Err06).';
+    7: Result := '900G: перенапряжение при постоянной скорости (Err07).';
+    8: Result := '900G: неисправность источника питания (Err08).';
+    9: Result := '900G: пониженное напряжение (Err09).';
+    10: Result := '900G: перегрузка преобразователя (Err10).';
+    11: Result := '900G: перегрузка двигателя (Err11).';
+    12: Result := '900G: потеря входной фазы (Err12).';
+    13: Result := '900G: потеря выходной фазы (Err13).';
+    14: Result := '900G: перегрев модуля (Err14).';
+    15: Result := '900G: внешняя ошибка (Err15).';
+    16: Result := '900G: ошибка связи, переданная самим ПЧ (Err16).';
+    17: Result := '900G: ошибка контактора (Err17).';
+    18: Result := '900G: ошибка измерения тока (Err18).';
+    19: Result := '900G: ошибка автонастройки двигателя (Err19).';
+    20: Result := '900G: обрыв датчика давления (Err20).';
+    21: Result := '900G: ошибка EEPROM (Err21).';
+    22: Result := '900G: аппаратная ошибка преобразователя (Err22).';
+    23: Result := '900G: замыкание на землю (Err23).';
+    26: Result := '900G: достигнуто суммарное время работы (Err26).';
+    29: Result := '900G: достигнуто суммарное время включения (Err29).';
+    30: Result := '900G: обрыв нагрузки (Err30).';
+    40: Result := '900G: ограничение тока (Err40).';
+    41: Result := '900G: переключение двигателя во время работы (Err41).';
+    42: Result := '900G: чрезмерное отклонение скорости (Err42).';
+    45: Result := '900G: сигнализация перегрева Pt100 (Err45).';
+    52: Result := '900G: нехватка воды (Err52/A52).';
+    53: Result := '900G: избыточное давление (Err53).';
+    55: Result := '900G: ошибка, связанная с нехваткой воды (Err55; см. Err52).';
+    56: Result := '900G: неисправность DI платы управления (Err56).';
+  end;
+end;
+procedure StationProcessUpdate;
+var
+  Map, PV, SourceOK, SP, Freq, FreqState, AlarmLo, AlarmHi: Int64;
+  DriveState, CurrentRaw, FaultRaw: Int64;
+  MapGood, PVGood, SourceGood, SPGood, FreqGood, StateGood,
+    LoGood, HiGood, MapMatches, DriveMap, NativeGood, CurrentGood, FaultGood, FrequencyUsable, DriveUsable: Boolean;
+  Count, DriveCount, StatusColor: Integer;
+  Status, Detail: string;
+begin
+  MapGood := ProcessWord('MapVersion', Map);
+  MapMatches := MapGood and ((Map = ProcessBaseMapVersion) or (Map = ProcessDriveMapVersion));
+  DriveMap := MapGood and (Map = ProcessDriveMapVersion);
+  NativeGood := False; CurrentGood := False; FaultGood := False;
+  FrequencyUsable := False; DriveUsable := False; DriveCount := 0;
+  PVGood := False; SourceGood := False; SPGood := False;
+  FreqGood := False; StateGood := False; LoGood := False; HiGood := False;
+  if MapMatches then
+  begin
+    PVGood := ProcessWord('PressurePV_x100', PV);
+    SourceGood := ProcessWord('PressureSourceOK', SourceOK);
+    SPGood := ProcessWord('PressureSP_x100', SP);
+    FreqGood := ProcessWord('Vfd1FreqRaw', Freq);
+    StateGood := ProcessWord('Vfd1FreqState', FreqState);
+    LoGood := ProcessWord('AlarmLo', AlarmLo);
+    HiGood := ProcessWord('AlarmHi', AlarmHi);
+    if DriveMap then
+    begin
+      NativeGood := ProcessWord('Vfd1NativeState', DriveState);
+      CurrentGood := ProcessWord('Vfd1CurrentRaw', CurrentRaw);
+      FaultGood := ProcessWord('Vfd1FaultCode', FaultRaw);
+      if NativeGood then DriveCount := DriveCount + 1;
+      if CurrentGood then DriveCount := DriveCount + 1;
+      if FaultGood then DriveCount := DriveCount + 1;
+    end;
+  end;
+  Count := 0;
+  if PVGood then Count := Count + 1;
+  if SourceGood then Count := Count + 1;
+  if SPGood then Count := Count + 1;
+  if FreqGood then Count := Count + 1;
+  if StateGood then Count := Count + 1;
+  if LoGood then Count := Count + 1;
+  if HiGood then Count := Count + 1;
+  ProcessPressure.Text := 'Нет данных';
+  ProcessPressureNote.Text := 'Проверить наличие и качество тегов давления.';
+  ProcessSetpoint.Text := 'Нет данных';
+  ProcessFrequency.Text := 'Нет данных';
+  ProcessFrequencyNote.Text := 'Нет достоверного состояния частоты от ПЛК.';
+  ProcessCurrent.Text := 'Не подключён';
+  ProcessFault.Text := 'Не подключён';
+  ProcessCurrentNote.Text := 'Чтение выходного тока ПЧ ещё не добавлено.';
+  ProcessFaultNote.Text := 'Собственный код ошибки ПЧ ещё не подключён.';
+  ProcessFault.Color := RGB(105, 105, 105);
+  if DriveMap then
+  begin
+    ProcessCurrent.Text := 'Нет данных';
+    ProcessFault.Text := 'Нет данных';
+    ProcessCurrentNote.Text := 'Нет подтверждённых данных тока ПЧ.';
+    ProcessFaultNote.Text := 'Нет подтверждённого кода неисправности ПЧ.';
+  end;
+  ProcessValidity.Text := 'Давление: достоверность неизвестна';
+  ProcessValidity.Color := RGB(105, 105, 105);
+  ProcessAlarmWords.Text := 'Слова состояния ПЛК: нет данных';
+  ProcessAlarmWords.Color := RGB(105, 105, 105);
+  ProcessFreshness.Text := 'Свежесть данных станции ещё не подтверждается автоматически.';
+  ProcessFreshness.Color := RGB(165, 100, 0);
+  Status := 'Ожидание данных станции';
+  Detail := 'Проверить MasterOPC, Gateway и наличие переменных в проекте.';
+  StatusColor := RGB(105, 105, 105);
+  if MapGood and (not MapMatches) then
+  begin
+    Status := 'Не совпадает версия карты ПЛК';
+    Detail := 'Ожидается карта 31 или 32. Показания этой карточки скрыты.';
+    StatusColor := RGB(165, 50, 50);
+  end;
+  if MapMatches then
+  begin
+    Status := 'Мониторинг: показания доступны частично';
+    Detail := 'Карта ПЛК ' + IntToStr(Map) + '. Проверить импорт и качество недоступных тегов.';
+    StatusColor := RGB(165, 100, 0);
+    if Count = 7 then
+    begin
+      Status := 'Мониторинг: показания OPC доступны';
+      Detail := 'Давление и состояние его источника получены из контроллера.';
+    end;
+    if SPGood then ProcessSetpoint.Text := FormatFloat('0.00', SP / 100.0) + ' бар';
+    if PVGood and SourceGood then
+    begin
+      if SourceOK = 1 then
+      begin
+        ProcessPressure.Text := FormatFloat('0.00', PV / 100.0) + ' бар';
+        ProcessPressureNote.Text := 'Показание OPC. Достоверность источника разрешена ПЛК.';
+        ProcessValidity.Text := 'ПЛК: источник давления выбран';
+        ProcessValidity.Color := RGB(40, 140, 90);
+      end
+      else if SourceOK = 0 then
+      begin
+        ProcessPressure.Text := 'Нет достоверных данных';
+        ProcessPressureNote.Text := 'ПЛК не подтверждает источник давления. Значение не подменяется нулём.';
+        ProcessValidity.Text := 'ПЛК: нет достоверного источника давления';
+        ProcessValidity.Color := RGB(165, 100, 0);
+        Status := 'ПЛК: нет достоверного источника давления';
+        Detail := 'Состояние передано контроллером. Причину обрыва датчика по нему одному не определяем.';
+      end
+      else
+      begin
+        ProcessPressureNote.Text := 'Неизвестное значение признака достоверности давления.';
+        ProcessValidity.Text := 'ПЛК: неизвестный признак достоверности давления';
+      end;
+    end;
+    if FreqGood and StateGood then
+    begin
+      FrequencyUsable := ((FreqState = 1) and (Freq = 0)) or
+         ((FreqState = 2) and (Freq > 0) and (Freq <= 5999));
+      if FrequencyUsable then
+      begin
+        ProcessFrequency.Text := FormatFloat('0.0', Freq / 10.0) + ' Гц';
+        if FreqState = 1 then ProcessFrequencyNote.Text := 'ПЛК: частота нулевая.'
+        else ProcessFrequencyNote.Text := 'ПЛК: частота ненулевая. Это не отдельное подтверждение RUN.';
+      end
+      else if FreqState <> 0 then
+        ProcessFrequencyNote.Text := 'Показание частоты не согласуется с её состоянием от ПЛК.';
+    end;
+    if DriveMap then
+    begin
+      DriveUsable := FrequencyUsable and NativeGood and
+        ((DriveState = 1) or (DriveState = 2) or (DriveState = 3));
+      if not FrequencyUsable then
+      begin
+        ProcessCurrentNote.Text := 'ПЛК не подтверждает допустимое состояние частоты. Ток скрыт.';
+        ProcessFaultNote.Text := 'ПЛК не подтверждает допустимое состояние частоты. Код ПЧ скрыт.';
+      end
+      else if NativeGood and (not DriveUsable) then
+      begin
+        ProcessCurrentNote.Text := 'Неизвестное слово состояния 900G: ' + IntToStr(DriveState);
+        ProcessFaultNote.Text := 'Неизвестное слово состояния 900G: ' + IntToStr(DriveState);
+      end;
+      if DriveUsable then
+      begin
+        if DriveState = 1 then ProcessFrequencyNote.Text := '900G: слово состояния 1 (вперёд).'
+        else if DriveState = 2 then ProcessFrequencyNote.Text := '900G: слово состояния 2 (назад).'
+        else ProcessFrequencyNote.Text := '900G: слово состояния 3 (стоп).';
+        if CurrentGood then
+        begin
+          ProcessCurrent.Text := FormatFloat('0.0', CurrentRaw / 10.0) + ' А';
+          ProcessCurrentNote.Text := 'Выходной ток U0-06. Масштаб 0,1 А по руководству 900G.';
+        end;
+        if FaultGood then
+        begin
+          ProcessFault.Text := 'Код ' + IntToStr(FaultRaw);
+          ProcessFaultNote.Text := DriveFaultText(FaultRaw);
+          if FaultRaw <> 0 then
+          begin
+            ProcessFault.Color := RGB(165, 50, 50);
+            Status := 'ПЧ 900G: код неисправности ' + IntToStr(FaultRaw);
+            Detail := DriveFaultText(FaultRaw);
+            StatusColor := RGB(165, 50, 50);
+          end;
+        end;
+      end;
+    end;
+    if LoGood and HiGood then
+      ProcessAlarmWords.Text := 'Слова состояния ПЛК: ' + IntToStr(AlarmLo) + ' / ' + IntToStr(AlarmHi);
+  end;
+  ProcessStatus.Text := Status;
+  ProcessStatus.Color := StatusColor;
+  ProcessDetail.Text := Detail;
+  ProcessOPC.Text := 'MasterOPC: доступно новых тегов ' + IntToStr(Count) + ' из 7';
+  ProcessOPC.Color := RGB(105, 105, 105);
+  if MapMatches and (Count = 7) then ProcessOPC.Color := RGB(40, 140, 90);
+  if DriveMap then
+  begin
+    ProcessOPC.Text := 'MasterOPC: базовые теги ' + IntToStr(Count) + ' из 7; теги ПЧ ' + IntToStr(DriveCount) + ' из 3';
+    if (Count <> 7) or (DriveCount <> 3) then ProcessOPC.Color := RGB(165, 100, 0);
+  end;
+  if MapMatches then ProcessMap.Text := 'Версия карты ПЛК: ' + IntToStr(Map)
+  else ProcessMap.Text := 'Версия карты ПЛК: не подтверждена';
+end;
+end.

@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-30",
+  "sourceProject": "codex_diag_05",
+  "targetProject": "Desktop/codex_diag_06",
+  "modeSource": "Existing R2300, interpreted from native vendor-formatted source networks",
+  "newOPCItem": {
+    "name": "StationMode",
+    "address": 2300,
+    "region": "HOLDING_REGISTERS",
+    "deviceType": "uint16",
+    "serverType": "uint32",
+    "access": "ReadOnly",
+    "scalingEnabled": false
+  },
+  "knownCodes": {
+    "0": "STOP selector",
+    "10/11/12": "AUTO",
+    "20/21/22": "MANUAL",
+    "90": "invalid selector"
+  },
+  "readRequiresMap32": true,
+  "readRequiresConfirmedCounterProgress": true,
+  "unknownCodePreserved": true,
+  "badMissingOrStaleNeverMeansStop": true,
+  "changes": [
+    "StationDiagnostics module only in a new project copy"
+  ],
+  "existingPagesPreserved": true,
+  "radioAndTimerRecordsPreserved": true,
+  "PLCProgramChanged": false,
+  "writesOrControlCommandsAdded": false,
+  "sourceCoreSHA256": "fd64b1c932f3426ee0dac1e9d2e358dd8b32d82227c3d298f9ae33c2583697a7",
+  "moduleSHA256": "f1541574e772aba3b5a775292558bf21483e536775833832d2dc2da8bbe7d62e",
+  "installerSHA256": "80d06f89e18dff24c956f15e7ab6eeab33483fd0c00ae94a1cccb8641af0ad2a",
+  "inlineCharacters": 12458,
+  "nativeF9Observed": false,
+  "nativeModeDisplayObserved": true,
+  "sourceReview": "native-source-review-2026-10-30.json",
+  "deliveryPrepared": true,
+  "nativeModeEvidenceKind": "User report",
+  "nativeObservation": "native-observation-2026-10-31.json",
+  "deliverySent": true
+}

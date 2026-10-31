@@ -1,0 +1,18 @@
+{
+  "groupName": "ServiceDiag",
+  "groupId": 9336,
+  "MainGroupId": 7058,
+  "targetImei": "863906061228379",
+  "targetName": "Новый модем 2",
+  "channelType": "Служебный канал",
+  "deviceType": "WRX11x8",
+  "source": "User explicit9336 reply and M2M24 dashboard screenshot30.10.2026 approximately14:08",
+  "correctServiceMembershipObserved": true,
+  "MainRecordStillPresent": true,
+  "modemCloudOnlineObserved": true,
+  "collector02NativeRunObserved": true,
+  "radioValuesFrom9336Observed": true,
+  "passwordStored": false,
+  "nativeObservation": "native-observation-2026-10-30.json",
+  "nativeSuccessSource": "User native SCADA Diagnostics screenshot at18:46:54, followed by a separate PowerShell status-file screenshot at approximately18:47"
+}

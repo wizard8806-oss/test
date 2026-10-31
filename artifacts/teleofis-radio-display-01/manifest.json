@@ -1,0 +1,34 @@
+{
+  "date": "2026-10-29",
+  "radio_read_verified_on_actual_modem": true,
+  "confirmed_sample": {
+    "signal": 26,
+    "RAT": "4G",
+    "supply_mV": 11794
+  },
+  "transport": "USB COM18 bench source; not remote service collection",
+  "polling_ms": 5000,
+  "display_sample_age_limit_s": 15,
+  "publisher_age_limit_s": 20,
+  "source_project": "codex_diag_01, two original script sources checked; source preserved",
+  "target_project": "Desktop/codex_diag_02",
+  "changes": [
+    "Add global Radio module",
+    "Call it from1s timer",
+    "Write collector under Tools"
+  ],
+  "data_file": "C:\\ProgramData\\Automatika\\Station50008\\radio.txt",
+  "protocol": "Only AUTH78 and READ123/131/148; no Main50008 connection, PLC/config writes or new external OPC tags",
+  "secrets": "Prompt once into SecureString, held in memory, no stored password",
+  "bundle_sha256": "58185df9f793fb11b58f2ff264fe4e22d1f1ddf789ae50f7a9af89e53743ac33",
+  "installer_sha256": "9fda089fb2c1152342dd662c6c3bb905cff947549249139b1ebe78114271f0c2",
+  "collector_sha256": "c22c54b62075e30831a98db2ff99277abd0891a103b1daa6665784f25fdc6ee2",
+  "inline_characters": 11683,
+  "native_new_F9_passed": null,
+  "native_radio_UI_passed": true,
+  "actual_continuous_USB_collector_passed": true,
+  "native_radio_module_execution_observed": true,
+  "native_stale_radio_test_passed": true,
+  "native_F9_note": "Explicit F9 command not reported; successful execution of the corrected module is observed on the native client.",
+  "native_observation": "native-observation-2026-10-29.json"
+}

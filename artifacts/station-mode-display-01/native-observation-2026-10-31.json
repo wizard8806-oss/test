@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-31",
+  "timezone": "Europe/Moscow",
+  "source": "User reply works after inline mode-copy06 delivery and instructions to import StationMode/F9/start/compare with local selector",
+  "literalReply": "работает",
+  "nativeModeDisplayConfirmedByUser": true,
+  "evidenceKind": "User report",
+  "nativeScreenshotProvided": false,
+  "actualProjectPathShown": false,
+  "explicitF9CommandReported": false,
+  "actualModeCodeShown": false,
+  "allSelectorPositionsIndividuallyTested": false,
+  "PLCProgramChangeRequired": false
+}

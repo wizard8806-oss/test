@@ -1,0 +1,60 @@
+{
+  "date": "2026-10-30",
+  "CSharp_transport_unchanged": true,
+  "framework_compile": {
+    "result": "PASS Framework4.8: missing System.Xml reproduces CS0234\nPASS Framework4.8: C# payload compiles with explicit System.Xml.dll",
+    "reference_sha256": {
+      "mscorlib.dll": "6b35530467b914b0b195146ca1d1485ddd219afaad6461103f16f54e952f75a9",
+      "System.dll": "2fe343569f794f2ca92ee14a41875571a9f21bf92637b8f8ee86306534209cca",
+      "System.Core.dll": "94a1fc97eb0d36f13acd209bb7207da504c8be10caf7e5096b2c46e671dc6fe2",
+      "System.Xml.dll": "00208e20e3d1d520c233e7ffc10e4e56f9e6b3920bf4a971faee864268c7e5a5"
+    },
+    "actual_Windows_PowerShell_run": false
+  },
+  "repair_cases": [
+    {
+      "case": "old_file",
+      "passed": true
+    },
+    {
+      "case": "already_fixed",
+      "passed": true
+    },
+    {
+      "case": "modified_file",
+      "passed": true
+    },
+    {
+      "case": "foreign_backup",
+      "passed": true
+    },
+    {
+      "case": "known_backup",
+      "passed": true
+    },
+    {
+      "case": "CRLF_paste",
+      "passed": true
+    }
+  ],
+  "transport_cases": [
+    {
+      "case": "normal",
+      "passed": true,
+      "group_logins": 1,
+      "read_only_modem_requests": 10,
+      "complete_publications": 4
+    },
+    {
+      "case": "fragmented",
+      "passed": true,
+      "group_logins": 1,
+      "read_only_modem_requests": 10,
+      "complete_publications": 4
+    }
+  ],
+  "old_collector_sha256": "d09c645ace7a060f5d78e9d8b026ba61245f8607e9c07e772deeea5165d18502",
+  "new_collector_sha256": "e334ef94c55230352441ba44471598faa2212e4dcfa7217a46d2f9d952624585",
+  "actual_cloud_success": false,
+  "native_Windows_run": false
+}

@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-31",
+  "cases": [
+    {
+      "case": "normal",
+      "passed": true
+    },
+    {
+      "case": "unicode_space_quote_path",
+      "passed": true
+    },
+    {
+      "case": "changed_source",
+      "passed": true
+    },
+    {
+      "case": "same_target_exists",
+      "passed": true
+    },
+    {
+      "case": "different_target_exists",
+      "passed": true
+    },
+    {
+      "case": "target_is_source",
+      "passed": true
+    },
+    {
+      "case": "corrupt_patch",
+      "passed": true
+    },
+    {
+      "case": "wrong_output_hash",
+      "passed": true
+    },
+    {
+      "case": "missing_source",
+      "passed": true
+    },
+    {
+      "case": "read_only_source",
+      "passed": true
+    }
+  ],
+  "inlinePayloadExactlyVerified": true,
+  "nativeWindowsFilePickerTested": false,
+  "nativeF8Tested": false,
+  "actualPLCUpdatePerformed": false,
+  "method": "Actual PowerShell7/Linux with explicit paths; Windows-only file chooser bypassed in tests"
+}

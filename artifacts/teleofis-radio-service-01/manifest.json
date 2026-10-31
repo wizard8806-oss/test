@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-30",
+  "status": "Windows XML repair passed at12:54: both secret prompts and Service collector startup shown; cloud radio values not yet seen",
+  "collector_sha256": "e334ef94c55230352441ba44471598faa2212e4dcfa7217a46d2f9d952624585",
+  "configuration": "stations.json",
+  "stationIds": [
+    "station-001"
+  ],
+  "parameters": "StationId, ConfigPath; each entry holds GroupId, IMEI, RadioDataDirectory and polling period",
+  "secrets": "Two local SecureString prompts; no passwords in config/status/files",
+  "validation_cases": 22,
+  "vendor_JVM_frame_reference": true,
+  "native_configurator_service_read_confirmed": true,
+  "actual_new_collector_cloud_read_passed": false,
+  "central_multi_station_scheduler_implemented": false,
+  "delivery_sent": true,
+  "inline_delivery": "Paste-Radio-Service-01.ps1",
+  "SCADA_or_PLC_modified": false,
+  "configuration_sha256": "685bb807d255361d7af76c76e9c44899d832d798c3db995cd406f470bc1f5511",
+  "installer_sha256": "9adbd6264e08473736cbefafe5e07e6ef8e31cbf19946d445adaddfeb780aa3d",
+  "bundle_sha256": "e6ef8382f768b4cfe4d2f5f0b6ca5c6fbe3b2757b330d1cb46e43b8273d1fc5a",
+  "inline_characters": 11485,
+  "install_directory": "C:\\ProgramData\\Automatika\\RadioServicePilot01",
+  "existing_SCADA_consumer": "Unchanged; same ARADIO1 contract and Station50008/radio.txt, SOURCE=SERVICE",
+  "USB_required": false,
+  "Main50008_used": false,
+  "native_windows_pilot_test_pending": true,
+  "repair": "Fix-Service-Xml-Reference-01.ps1",
+  "repair_validation": "xml-reference-validation-2026-10-30.json",
+  "transport_CSharp_unchanged": true,
+  "native_repair_success": true,
+  "native_startup_confirmed": true
+}

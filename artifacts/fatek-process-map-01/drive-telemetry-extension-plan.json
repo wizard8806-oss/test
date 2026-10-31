@@ -1,0 +1,151 @@
+{
+  "status": "Plan only; no PLC patch generated or deployed",
+  "sourcePDWSha256": "41e0788134b7cbd4fa6e0f8ab1b6515a9a396c5fdcef0b40b871d460e38f3dff",
+  "manual": {
+    "url": "https://m-driver.by/wp-content/uploads/2025/11/Manual-M-driver-900G_900M.pdf",
+    "version": "1.26",
+    "registerPage": 50,
+    "modbusPage": 52,
+    "maxConsecutiveReadWords": 12
+  },
+  "block": {
+    "startPDU": 4096,
+    "count": 7,
+    "fields": {
+      "0": "native drive state",
+      "1": "native fault code",
+      "2": "frequency setpoint",
+      "3": "actual frequency",
+      "4": "speed",
+      "5": "output voltage",
+      "6": "output current"
+    },
+    "frequencyFactorReference": 0.1,
+    "currentFactorReference": 0.1,
+    "liveFactorsVerified": false
+  },
+  "rowChanges": [
+    {
+      "drive": 1,
+      "tableRow": 1,
+      "existingFrequencyBuffer": "D200",
+      "existingFrequencyExport": 2500,
+      "existingFreshnessState": 2510,
+      "proposedNativeStartPDU": 4096,
+      "proposedNativeWordCount": 7,
+      "proposedTableAddressOneBased": 4097,
+      "receiveBuffer": null,
+      "newCurrentExport": null,
+      "newFaultCodeExport": null,
+      "preserveOldFrequencyDataFlow": true,
+      "requiredCopiesAndChecks": [
+        "On valid response for this slave/row, copy word3 to existing frequency data flow",
+        "Publish fault word1, state word0 and current word6 with the same successful-snapshot identity",
+        "Invalidate the complete snapshot on timeout, bad response or restart",
+        "Do not enlarge the old D200/D203/D206/D209 destination in place: adjacent words are already used"
+      ]
+    },
+    {
+      "drive": 2,
+      "tableRow": 4,
+      "existingFrequencyBuffer": "D203",
+      "existingFrequencyExport": 2501,
+      "existingFreshnessState": 2511,
+      "proposedNativeStartPDU": 4096,
+      "proposedNativeWordCount": 7,
+      "proposedTableAddressOneBased": 4097,
+      "receiveBuffer": null,
+      "newCurrentExport": null,
+      "newFaultCodeExport": null,
+      "preserveOldFrequencyDataFlow": true,
+      "requiredCopiesAndChecks": [
+        "On valid response for this slave/row, copy word3 to existing frequency data flow",
+        "Publish fault word1, state word0 and current word6 with the same successful-snapshot identity",
+        "Invalidate the complete snapshot on timeout, bad response or restart",
+        "Do not enlarge the old D200/D203/D206/D209 destination in place: adjacent words are already used"
+      ]
+    },
+    {
+      "drive": 3,
+      "tableRow": 17,
+      "existingFrequencyBuffer": "D206",
+      "existingFrequencyExport": 2502,
+      "existingFreshnessState": 2512,
+      "proposedNativeStartPDU": 4096,
+      "proposedNativeWordCount": 7,
+      "proposedTableAddressOneBased": 4097,
+      "receiveBuffer": null,
+      "newCurrentExport": null,
+      "newFaultCodeExport": null,
+      "preserveOldFrequencyDataFlow": true,
+      "requiredCopiesAndChecks": [
+        "On valid response for this slave/row, copy word3 to existing frequency data flow",
+        "Publish fault word1, state word0 and current word6 with the same successful-snapshot identity",
+        "Invalidate the complete snapshot on timeout, bad response or restart",
+        "Do not enlarge the old D200/D203/D206/D209 destination in place: adjacent words are already used"
+      ]
+    },
+    {
+      "drive": 4,
+      "tableRow": 18,
+      "existingFrequencyBuffer": "D209",
+      "existingFrequencyExport": 2503,
+      "existingFreshnessState": 2513,
+      "proposedNativeStartPDU": 4096,
+      "proposedNativeWordCount": 7,
+      "proposedTableAddressOneBased": 4097,
+      "receiveBuffer": null,
+      "newCurrentExport": null,
+      "newFaultCodeExport": null,
+      "preserveOldFrequencyDataFlow": true,
+      "requiredCopiesAndChecks": [
+        "On valid response for this slave/row, copy word3 to existing frequency data flow",
+        "Publish fault word1, state word0 and current word6 with the same successful-snapshot identity",
+        "Invalidate the complete snapshot on timeout, bad response or restart",
+        "Do not enlarge the old D200/D203/D206/D209 destination in place: adjacent words are already used"
+      ]
+    }
+  ],
+  "performance": {
+    "normalPollFramesBefore": 18,
+    "normalPollFramesProposed": 18,
+    "addedResponseDataBytesPerFullRound": 48,
+    "addedWireTimeSecondsAt9600_8N1": 0.05,
+    "limit": "Byte-time estimate only; no measured cycle time or speed guarantee. Keep command/status scheduling and test freshness under fault/timeout."
+  },
+  "pumpSelection": {
+    "mode": "eligible_pump_set",
+    "optionalPerStation": true,
+    "existingPLCTransaction": true,
+    "changeInStop": true,
+    "notFixedRunningCount": true
+  },
+  "unresolved": [
+    "Allocate nonoverlapping buffers and exports after memory audit",
+    "Preserve row acceptance/freshness and existing frequency consumers",
+    "Provide independent monotonic station heartbeat",
+    "Native WinProladder validation and bench tests of the future revision"
+  ],
+  "deployable": false,
+  "PLCModified": false,
+  "memoryReview": "telemetry-memory-review-2026-10-30.json",
+  "candidateRangesForNativeReview": [
+    {
+      "first": "D432",
+      "last": "D463",
+      "encodedWordMatches": [],
+      "tableDRangeOverlaps": [],
+      "allocated": false,
+      "status": "Candidate for native memory/indirection/HMI review only"
+    },
+    {
+      "first": "R2800",
+      "last": "R2831",
+      "encodedWordMatches": [],
+      "tableDRangeOverlaps": [],
+      "allocated": false,
+      "status": "Candidate for native memory/indirection/HMI review only"
+    }
+  ],
+  "allocationStatus": "Candidates only; indirect/block access and external HMI/OPC review remain unresolved"
+}

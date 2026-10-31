@@ -1,0 +1,228 @@
+{
+  "editor_sha256": "c90b3e893d9918c3e0dd95aedb7d0b6744453dc96003244d51dd8d2282078b57",
+  "version": "2.6.15.0",
+  "original": {
+    "bytes": 579,
+    "page_ids": [
+      0
+    ],
+    "objects": [
+      {
+        "page": 0,
+        "page_id_offset": 45,
+        "name": "Field1",
+        "kind": 5,
+        "body": 209,
+        "end": 388,
+        "reads": 48
+      },
+      {
+        "page": 0,
+        "page_id_offset": 45,
+        "name": "Field2",
+        "kind": 5,
+        "body": 400,
+        "end": 579,
+        "reads": 48
+      }
+    ]
+  },
+  "candidate": {
+    "bytes": 5632,
+    "page_ids": [
+      0,
+      1
+    ],
+    "objects": [
+      {
+        "page": 0,
+        "page_id_offset": 45,
+        "name": "Field1",
+        "kind": 5,
+        "body": 209,
+        "end": 388,
+        "reads": 48
+      },
+      {
+        "page": 0,
+        "page_id_offset": 45,
+        "name": "Field2",
+        "kind": 5,
+        "body": 400,
+        "end": 579,
+        "reads": 48
+      },
+      {
+        "page": 0,
+        "page_id_offset": 45,
+        "name": "MainDiagStatus",
+        "kind": 4,
+        "body": 599,
+        "end": 829,
+        "reads": 37
+      },
+      {
+        "page": 0,
+        "page_id_offset": 45,
+        "name": "MainDiagDetail",
+        "kind": 4,
+        "body": 849,
+        "end": 1103,
+        "reads": 37
+      },
+      {
+        "page": 0,
+        "page_id_offset": 45,
+        "name": "MainMapLabel",
+        "kind": 4,
+        "body": 1121,
+        "end": 1337,
+        "reads": 37
+      },
+      {
+        "page": 0,
+        "page_id_offset": 45,
+        "name": "MainCounterLabel",
+        "kind": 4,
+        "body": 1359,
+        "end": 1557,
+        "reads": 37
+      },
+      {
+        "page": 0,
+        "page_id_offset": 45,
+        "name": "MainMapUnknown",
+        "kind": 4,
+        "body": 1577,
+        "end": 1751,
+        "reads": 37
+      },
+      {
+        "page": 0,
+        "page_id_offset": 45,
+        "name": "MainCounterUnknown",
+        "kind": 4,
+        "body": 1775,
+        "end": 1949,
+        "reads": 37
+      },
+      {
+        "page": 1,
+        "page_id_offset": 1994,
+        "name": "DiagTitle",
+        "kind": 4,
+        "body": 2167,
+        "end": 2359,
+        "reads": 37
+      },
+      {
+        "page": 1,
+        "page_id_offset": 1994,
+        "name": "DiagStatus",
+        "kind": 4,
+        "body": 2375,
+        "end": 2605,
+        "reads": 37
+      },
+      {
+        "page": 1,
+        "page_id_offset": 1994,
+        "name": "DiagDetail",
+        "kind": 4,
+        "body": 2621,
+        "end": 2875,
+        "reads": 37
+      },
+      {
+        "page": 1,
+        "page_id_offset": 1994,
+        "name": "DiagOPC",
+        "kind": 4,
+        "body": 2888,
+        "end": 3128,
+        "reads": 37
+      },
+      {
+        "page": 1,
+        "page_id_offset": 1994,
+        "name": "DiagRoute",
+        "kind": 4,
+        "body": 3143,
+        "end": 3397,
+        "reads": 37
+      },
+      {
+        "page": 1,
+        "page_id_offset": 1994,
+        "name": "DiagAge",
+        "kind": 4,
+        "body": 3410,
+        "end": 3638,
+        "reads": 37
+      },
+      {
+        "page": 1,
+        "page_id_offset": 1994,
+        "name": "DiagRadioTitle",
+        "kind": 4,
+        "body": 3658,
+        "end": 3894,
+        "reads": 37
+      },
+      {
+        "page": 1,
+        "page_id_offset": 1994,
+        "name": "DiagRadio",
+        "kind": 4,
+        "body": 3909,
+        "end": 4215,
+        "reads": 37
+      },
+      {
+        "page": 1,
+        "page_id_offset": 1994,
+        "name": "DiagRadioNote",
+        "kind": 4,
+        "body": 4234,
+        "end": 4498,
+        "reads": 37
+      },
+      {
+        "page": 1,
+        "page_id_offset": 1994,
+        "name": "DiagChecksTitle",
+        "kind": 4,
+        "body": 4519,
+        "end": 4751,
+        "reads": 37
+      },
+      {
+        "page": 1,
+        "page_id_offset": 1994,
+        "name": "DiagChecks",
+        "kind": 4,
+        "body": 4767,
+        "end": 5189,
+        "reads": 37
+      },
+      {
+        "page": 1,
+        "page_id_offset": 1994,
+        "name": "DiagScope",
+        "kind": 4,
+        "body": 5204,
+        "end": 5632,
+        "reads": 37
+      }
+    ]
+  },
+  "corrupt_layer_regression": "Stream read error at 652 requesting 131072 (call 12a2a81)",
+  "official_demo_text_reader": {
+    "name": "txtA1",
+    "start": 4380,
+    "end": 4538,
+    "passed": true
+  },
+  "scope": "Native x86 stream reader in emulation; UI/strings/event bindings are adapters.",
+  "native_GUI_or_F9_passed": false
+}

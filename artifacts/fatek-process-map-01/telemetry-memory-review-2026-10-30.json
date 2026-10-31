@@ -1,0 +1,314 @@
+{
+  "source": "station_MC_CM55_CL50S_02.pdw",
+  "sourceSHA256": "41e0788134b7cbd4fa6e0f8ab1b6515a9a396c5fdcef0b40b871d460e38f3dff",
+  "status": "Read-only evidence; no allocations or PLC patch",
+  "sourceRungsChecked": 1833,
+  "sourceMOVAnchorsChecked": 20,
+  "imageBytes": 40960,
+  "tablesChecked": 9,
+  "oldBufferExpansionConflicts": [
+    {
+      "drive": 1,
+      "existingBuffer": "D200",
+      "attemptedCount": 7,
+      "conflictingRows": [
+        {
+          "tableRow": 2,
+          "slave": 1,
+          "first": "D201",
+          "count": 1
+        },
+        {
+          "tableRow": 3,
+          "slave": 1,
+          "first": "D202",
+          "count": 1
+        },
+        {
+          "tableRow": 4,
+          "slave": 2,
+          "first": "D203",
+          "count": 1
+        },
+        {
+          "tableRow": 5,
+          "slave": 2,
+          "first": "D204",
+          "count": 1
+        },
+        {
+          "tableRow": 6,
+          "slave": 2,
+          "first": "D205",
+          "count": 1
+        },
+        {
+          "tableRow": 17,
+          "slave": 3,
+          "first": "D206",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "drive": 2,
+      "existingBuffer": "D203",
+      "attemptedCount": 7,
+      "conflictingRows": [
+        {
+          "tableRow": 5,
+          "slave": 2,
+          "first": "D204",
+          "count": 1
+        },
+        {
+          "tableRow": 6,
+          "slave": 2,
+          "first": "D205",
+          "count": 1
+        },
+        {
+          "tableRow": 7,
+          "slave": 3,
+          "first": "D208",
+          "count": 1
+        },
+        {
+          "tableRow": 17,
+          "slave": 3,
+          "first": "D206",
+          "count": 1
+        },
+        {
+          "tableRow": 18,
+          "slave": 4,
+          "first": "D209",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "drive": 3,
+      "existingBuffer": "D206",
+      "attemptedCount": 7,
+      "conflictingRows": [
+        {
+          "tableRow": 7,
+          "slave": 3,
+          "first": "D208",
+          "count": 1
+        },
+        {
+          "tableRow": 8,
+          "slave": 4,
+          "first": "D211",
+          "count": 1
+        },
+        {
+          "tableRow": 9,
+          "slave": 1,
+          "first": "D212",
+          "count": 1
+        },
+        {
+          "tableRow": 18,
+          "slave": 4,
+          "first": "D209",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "drive": 4,
+      "existingBuffer": "D209",
+      "attemptedCount": 7,
+      "conflictingRows": [
+        {
+          "tableRow": 8,
+          "slave": 4,
+          "first": "D211",
+          "count": 1
+        },
+        {
+          "tableRow": 9,
+          "slave": 1,
+          "first": "D212",
+          "count": 1
+        },
+        {
+          "tableRow": 10,
+          "slave": 1,
+          "first": "D213",
+          "count": 1
+        },
+        {
+          "tableRow": 11,
+          "slave": 1,
+          "first": "D214",
+          "count": 1
+        },
+        {
+          "tableRow": 12,
+          "slave": 1,
+          "first": "D215",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "recoveryRegistersNotFree": {
+    "R2520": [
+      {
+        "pc": 610,
+        "label": "30.R001 | FIRST_USE_DRY_DELAY",
+        "role": "destination"
+      },
+      {
+        "pc": 1308,
+        "label": "30.R062 | SNAPSHOT_DRY_DELAY",
+        "role": "source"
+      },
+      {
+        "pc": 22846,
+        "label": "95.R006 | BEGIN_DRY_DELAY",
+        "role": "source"
+      },
+      {
+        "pc": 23494,
+        "label": "95.R014 | APPLY_DRY_DELAY",
+        "role": "destination"
+      },
+      {
+        "pc": 23642,
+        "label": "95.R016 | IDLE_DRY_COPY",
+        "role": "source"
+      }
+    ],
+    "R2521": [
+      {
+        "pc": 626,
+        "label": "30.R002 | FIRST_USE_POWER_DELAY",
+        "role": "destination"
+      },
+      {
+        "pc": 1316,
+        "label": "30.R063 | SNAPSHOT_POWER_DELAY",
+        "role": "source"
+      },
+      {
+        "pc": 22854,
+        "label": "95.R007 | BEGIN_POWER_DELAY",
+        "role": "source"
+      },
+      {
+        "pc": 23502,
+        "label": "95.R015 | APPLY_POWER_DELAY",
+        "role": "destination"
+      },
+      {
+        "pc": 23650,
+        "label": "95.R017 | IDLE_POWER_COPY",
+        "role": "source"
+      }
+    ],
+    "R2524": [
+      {
+        "pc": 1180,
+        "label": "30.R050 | STATUS_IDLE",
+        "role": "destination"
+      },
+      {
+        "pc": 1188,
+        "label": "30.R051 | STATUS_WAIT_READY",
+        "role": "destination"
+      },
+      {
+        "pc": 1196,
+        "label": "30.R052 | STATUS_DRY_DELAY",
+        "role": "destination"
+      },
+      {
+        "pc": 1208,
+        "label": "30.R053 | STATUS_POWER_DELAY",
+        "role": "destination"
+      },
+      {
+        "pc": 1220,
+        "label": "30.R054 | STATUS_DRY_ABSENT",
+        "role": "destination"
+      },
+      {
+        "pc": 1230,
+        "label": "30.R055 | STATUS_POWER_ABSENT",
+        "role": "destination"
+      },
+      {
+        "pc": 1240,
+        "label": "30.R056 | STATUS_SETTINGS_INVALID",
+        "role": "destination"
+      },
+      {
+        "pc": 1254,
+        "label": "30.R057 | STATUS_MANUAL_REARM",
+        "role": "destination"
+      }
+    ],
+    "R2540": [
+      {
+        "pc": 22846,
+        "label": "95.R006 | BEGIN_DRY_DELAY",
+        "role": "destination"
+      },
+      {
+        "pc": 23494,
+        "label": "95.R014 | APPLY_DRY_DELAY",
+        "role": "source"
+      },
+      {
+        "pc": 23642,
+        "label": "95.R016 | IDLE_DRY_COPY",
+        "role": "destination"
+      }
+    ],
+    "R2542": [
+      {
+        "pc": 1324,
+        "label": "30.R064 | RECOVERY_INTERFACE_VERSION",
+        "role": "destination"
+      },
+      {
+        "pc": 20302,
+        "label": "95.R001 | BOOT_CLEAR_RECOVERY_VERSION",
+        "role": "destination"
+      }
+    ]
+  },
+  "proposedRangesForReview": [
+    {
+      "first": "D432",
+      "last": "D463",
+      "encodedWordMatches": [],
+      "tableDRangeOverlaps": [],
+      "allocated": false,
+      "status": "Candidate for native memory/indirection/HMI review only"
+    },
+    {
+      "first": "R2800",
+      "last": "R2831",
+      "encodedWordMatches": [],
+      "tableDRangeOverlaps": [],
+      "allocated": false,
+      "status": "Candidate for native memory/indirection/HMI review only"
+    }
+  ],
+  "unresolved": [
+    "Decode indirect and multiword access extents",
+    "Check external HMI/OPC use before allocation",
+    "Bind each accepted slave/row result to its full snapshot",
+    "Implement shared freshness/invalidation and preserve old frequency consumers",
+    "Native WinProladder project validation before any bench download"
+  ],
+  "deployable": false,
+  "PLCModified": false,
+  "originalSourceUnchanged": true
+}

@@ -1,0 +1,69 @@
+{
+  "date": "2026-10-30",
+  "timezone": "Europe/Moscow",
+  "source": "User native SCADA Station screenshot with client time20:13:12",
+  "expectedProject": "codex_diag_04",
+  "actualProjectPathShown": false,
+  "newProcessScriptExecutionObserved": true,
+  "explicitF9CommandReported": false,
+  "display": {
+    "nativeVfdState": 3,
+    "nativeVfdStateText": "стоп",
+    "frequency_Hz": 0,
+    "current_A": 0,
+    "nativeFaultCode": 0,
+    "faultNote": "ПЧ передал нулевой код неисправности.",
+    "pressure": "Нет достоверных данных",
+    "pressureSetpoint_bar": 3.5,
+    "status": "ПЛК: нет достоверного источника давления"
+  },
+  "inferenceFromValidatedScript": {
+    "map32BranchExecuted": true,
+    "newItemsResolvedAndPassedAddressHostServerQualityChecks": [
+      "codex.Device1.Vfd1NativeState",
+      "codex.Device1.Vfd1CurrentRaw",
+      "codex.Device1.Vfd1FaultCode"
+    ],
+    "nativeStateAndFrequencyDisplayGuardsPassed": true,
+    "scope": "These conditions follow from the script branches that produce the exact displayed values; they are not a separate OPC/wire trace or PLC readback"
+  },
+  "notObserved": {
+    "explicitPLCProgramDownload": true,
+    "PLCProgramReadbackHash": true,
+    "nativeWinProF8Result": true,
+    "map31NativeSmokeTestBeforeTransition": true,
+    "directDiagnosticsMapVersionAndItemCounts": false,
+    "newVfdWireTransactionTrace": true,
+    "nativeDrivePanelComparison": true,
+    "nonzeroCurrentOrFrequencyScaleComparison": true,
+    "nonzeroNativeFaultCodeAndDecoding": true,
+    "radioBlockInThisScreenshot": true
+  },
+  "remaining": [
+    "General PLC/run/end-to-end freshness is still not automatically confirmed",
+    "Invalid frequency conservatively hides current and fault too",
+    "Nonzero scales/fault encoding and recovery still require live bench comparison",
+    "No station start/stop, setpoint, native reset or pump-selection controls implemented"
+  ],
+  "repeatInstallerOrNewTagImportNeeded": false,
+  "diagnosticsAt202033": {
+    "source": "User native Diagnostics screenshot30.10.2026 at20:20:33 Moscow",
+    "mapVersion": 32,
+    "baseItemsAvailable": 7,
+    "baseItemsExpected": 7,
+    "driveItemsAvailable": 3,
+    "driveItemsExpected": 3,
+    "pressureValidity": "PLC: no reliable pressure source",
+    "freshnessText": "Station-data freshness is not yet automatically confirmed",
+    "AlarmLoRaw": 7624,
+    "AlarmHiRaw": 1792,
+    "radio": {
+      "source": "служебный канал M2M24",
+      "signalNative": 27,
+      "networkMode": "4G",
+      "supply_mV": 11683,
+      "lastSuccessfulPollAgeSeconds": 2,
+      "state": "Green, values visible"
+    }
+  }
+}

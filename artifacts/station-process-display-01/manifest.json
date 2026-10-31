@@ -1,0 +1,446 @@
+{
+  "date": "2026-10-30",
+  "source": "Current codex_diag_02",
+  "target": "Desktop/codex_diag_03",
+  "version": "2.6.15.0",
+  "source_preserved": true,
+  "variables_and_OPC_servers_preserved": true,
+  "process_tags_import_required": true,
+  "lookup": "OPC item address plus exact server/host check; no variable-name dependency",
+  "CL50S_health_dependency": false,
+  "process_writes": false,
+  "current_or_native_fault_export_added": false,
+  "radio_module_preserved": true,
+  "freshness": "Explicitly unconfirmed; no fake success based on GOOD or constant PV",
+  "alarm_decoding": "Deferred pending packing verification; raw words only",
+  "pressure_validity": "Use controller R2303; valid zero is displayed, invalid source hides pressure",
+  "frequency_factor_reference": 0.1,
+  "frequency_nonzero_live_scale_verified": false,
+  "objects": [
+    {
+      "page": 0,
+      "name": "ProcessTitle",
+      "uid": 64100,
+      "rect": [
+        32,
+        64,
+        1376,
+        46
+      ],
+      "scale": 1.3,
+      "caption": "НАСОСНАЯ СТАНЦИЯ · СТЕНД"
+    },
+    {
+      "page": 0,
+      "name": "ProcessStatus",
+      "uid": 64104,
+      "rect": [
+        32,
+        126,
+        1376,
+        48
+      ],
+      "scale": 1.05,
+      "caption": "Ожидание данных станции"
+    },
+    {
+      "page": 0,
+      "name": "ProcessDetail",
+      "uid": 64108,
+      "rect": [
+        32,
+        184,
+        1376,
+        68
+      ],
+      "scale": 0.78,
+      "caption": "Показания и достоверность источника передаются контроллером."
+    },
+    {
+      "page": 0,
+      "name": "ProcessPressureLabel",
+      "uid": 64112,
+      "rect": [
+        32,
+        276,
+        650,
+        36
+      ],
+      "scale": 0.9,
+      "caption": "ДАВЛЕНИЕ"
+    },
+    {
+      "page": 0,
+      "name": "ProcessSetpointLabel",
+      "uid": 64116,
+      "rect": [
+        724,
+        276,
+        684,
+        36
+      ],
+      "scale": 0.9,
+      "caption": "УСТАВКА ДАВЛЕНИЯ"
+    },
+    {
+      "page": 0,
+      "name": "ProcessPressure",
+      "uid": 64120,
+      "rect": [
+        32,
+        322,
+        650,
+        76
+      ],
+      "scale": 1.55,
+      "caption": "Нет данных"
+    },
+    {
+      "page": 0,
+      "name": "ProcessSetpoint",
+      "uid": 64124,
+      "rect": [
+        724,
+        322,
+        684,
+        76
+      ],
+      "scale": 1.9,
+      "caption": "Нет данных"
+    },
+    {
+      "page": 0,
+      "name": "ProcessPressureNote",
+      "uid": 64128,
+      "rect": [
+        32,
+        410,
+        650,
+        70
+      ],
+      "scale": 0.72,
+      "caption": "Ожидание значения и признака достоверности."
+    },
+    {
+      "page": 0,
+      "name": "ProcessSetpointNote",
+      "uid": 64132,
+      "rect": [
+        724,
+        410,
+        684,
+        70
+      ],
+      "scale": 0.75,
+      "caption": "Действующая уставка ПЛК · только чтение"
+    },
+    {
+      "page": 0,
+      "name": "ProcessDriveTitle",
+      "uid": 64136,
+      "rect": [
+        32,
+        508,
+        1376,
+        36
+      ],
+      "scale": 0.95,
+      "caption": "НАСОС 1 · ПЧ 900G"
+    },
+    {
+      "page": 0,
+      "name": "ProcessFrequencyLabel",
+      "uid": 64140,
+      "rect": [
+        32,
+        562,
+        428,
+        36
+      ],
+      "scale": 0.75,
+      "caption": "ФАКТИЧЕСКАЯ ЧАСТОТА"
+    },
+    {
+      "page": 0,
+      "name": "ProcessCurrentLabel",
+      "uid": 64144,
+      "rect": [
+        504,
+        562,
+        428,
+        36
+      ],
+      "scale": 0.75,
+      "caption": "ВЫХОДНОЙ ТОК"
+    },
+    {
+      "page": 0,
+      "name": "ProcessFaultLabel",
+      "uid": 64148,
+      "rect": [
+        976,
+        562,
+        432,
+        36
+      ],
+      "scale": 0.75,
+      "caption": "ОШИБКА ПЧ"
+    },
+    {
+      "page": 0,
+      "name": "ProcessFrequency",
+      "uid": 64152,
+      "rect": [
+        32,
+        608,
+        428,
+        66
+      ],
+      "scale": 1.65,
+      "caption": "Нет данных"
+    },
+    {
+      "page": 0,
+      "name": "ProcessCurrent",
+      "uid": 64156,
+      "rect": [
+        504,
+        608,
+        428,
+        66
+      ],
+      "scale": 1.05,
+      "caption": "Не подключён"
+    },
+    {
+      "page": 0,
+      "name": "ProcessFault",
+      "uid": 64160,
+      "rect": [
+        976,
+        608,
+        432,
+        66
+      ],
+      "scale": 1.05,
+      "caption": "Не подключён"
+    },
+    {
+      "page": 0,
+      "name": "ProcessFrequencyNote",
+      "uid": 64164,
+      "rect": [
+        32,
+        688,
+        428,
+        86
+      ],
+      "scale": 0.68,
+      "caption": "Ожидание состояния частоты."
+    },
+    {
+      "page": 0,
+      "name": "ProcessCurrentNote",
+      "uid": 64168,
+      "rect": [
+        504,
+        688,
+        428,
+        86
+      ],
+      "scale": 0.68,
+      "caption": "Чтение выходного тока ПЧ ещё не добавлено."
+    },
+    {
+      "page": 0,
+      "name": "ProcessFaultNote",
+      "uid": 64172,
+      "rect": [
+        976,
+        688,
+        432,
+        86
+      ],
+      "scale": 0.68,
+      "caption": "Собственный код ошибки ПЧ ещё не подключён."
+    },
+    {
+      "page": 0,
+      "name": "ProcessMainScope",
+      "uid": 64176,
+      "rect": [
+        32,
+        798,
+        1376,
+        58
+      ],
+      "scale": 0.72,
+      "caption": "Первое подключение: мониторинг. Кнопки управления добавляются после проверки команд и подтверждений ПЛК."
+    },
+    {
+      "page": 1,
+      "name": "ProcessDiagTitle",
+      "uid": 64180,
+      "rect": [
+        32,
+        64,
+        1376,
+        46
+      ],
+      "scale": 1.3,
+      "caption": "ДИАГНОСТИКА СТАНЦИИ"
+    },
+    {
+      "page": 1,
+      "name": "ProcessOPC",
+      "uid": 64184,
+      "rect": [
+        32,
+        130,
+        1376,
+        44
+      ],
+      "scale": 0.85,
+      "caption": "MasterOPC: ожидание переменных"
+    },
+    {
+      "page": 1,
+      "name": "ProcessMap",
+      "uid": 64188,
+      "rect": [
+        32,
+        186,
+        1376,
+        36
+      ],
+      "scale": 0.8,
+      "caption": "Версия карты ПЛК: не подтверждена"
+    },
+    {
+      "page": 1,
+      "name": "ProcessValidity",
+      "uid": 64192,
+      "rect": [
+        32,
+        236,
+        1376,
+        44
+      ],
+      "scale": 0.85,
+      "caption": "Давление: достоверность неизвестна"
+    },
+    {
+      "page": 1,
+      "name": "ProcessFreshness",
+      "uid": 64196,
+      "rect": [
+        32,
+        294,
+        1376,
+        56
+      ],
+      "scale": 0.78,
+      "caption": "Свежесть данных станции ещё не подтверждается автоматически."
+    },
+    {
+      "page": 1,
+      "name": "ProcessAlarmWords",
+      "uid": 64200,
+      "rect": [
+        32,
+        368,
+        1376,
+        36
+      ],
+      "scale": 0.8,
+      "caption": "Слова состояния ПЛК: нет данных"
+    },
+    {
+      "page": 1,
+      "name": "ProcessAlarmNote",
+      "uid": 64204,
+      "rect": [
+        32,
+        414,
+        1376,
+        62
+      ],
+      "scale": 0.74,
+      "caption": "Расшифровка слов состояния ещё проверяется. Они не являются собственным кодом ошибки ПЧ."
+    },
+    {
+      "page": 1,
+      "name": "DiagRadioTitle",
+      "uid": 64208,
+      "rect": [
+        32,
+        506,
+        1376,
+        36
+      ],
+      "scale": 0.9,
+      "caption": "TELEOFIS · НЕЗАВИСИМАЯ ДИАГНОСТИКА МОДЕМА"
+    },
+    {
+      "page": 1,
+      "name": "DiagRadio",
+      "uid": 64212,
+      "rect": [
+        32,
+        556,
+        1376,
+        44
+      ],
+      "scale": 0.8,
+      "caption": "Сигнал: нет данных | Режим сети: нет данных | Питание: нет данных"
+    },
+    {
+      "page": 1,
+      "name": "DiagRadioNote",
+      "uid": 64216,
+      "rect": [
+        32,
+        612,
+        1376,
+        68
+      ],
+      "scale": 0.75,
+      "caption": "Ожидание сборщика радиодиагностики."
+    },
+    {
+      "page": 1,
+      "name": "ProcessChecks",
+      "uid": 64220,
+      "rect": [
+        32,
+        712,
+        1376,
+        82
+      ],
+      "scale": 0.75,
+      "caption": "При потере показаний: MasterOPC и Gateway → интернет и M2M24 → модем → ПЛК и RS485.\r\nКаждый участок требует отдельного подтверждения."
+    },
+    {
+      "page": 1,
+      "name": "ProcessScope",
+      "uid": 64224,
+      "rect": [
+        32,
+        812,
+        1376,
+        52
+      ],
+      "scale": 0.72,
+      "caption": "CL50S не участвует в оценке этой карточки. Установившееся давление не означает остановку обмена."
+    }
+  ],
+  "bundle_sha256": "7163a488079a8b9c077716b5fe88947c7ac513c3877b97f93d3e631ced006448",
+  "installer_sha256": "c99f54fc7d69eb27ad129658fb2ac5333e2ac29eea551d31370516af5221eff3",
+  "inline_characters": 11429,
+  "native_GUI_F9_passed": null,
+  "native_pages_opened": true,
+  "native_process_execution_observed": true,
+  "native_radio_module_execution_observed": true,
+  "native_observation": "native-observation-2026-10-30.json",
+  "native_F9_note": "Exact F9 command not separately reported; new pages and process/radio execution observed in native client."
+}

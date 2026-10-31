@@ -1,0 +1,50 @@
+{
+  "candidate": "station_MC_CM55_900G_03.pdw",
+  "sha256": "0c2c847b946f17c39290a056518235b2940a5a29dcc8813e3eadc33de6a4f69d",
+  "programMatchesFiveProposedOperandChanges": true,
+  "unchangedRungLabelsAndPCs": 1833,
+  "tableRows": 18,
+  "changedFrequencyRows": [
+    0,
+    3,
+    16,
+    17
+  ],
+  "otherTablesUnchanged": true,
+  "tableCopiesAgree": true,
+  "observedLocalMemoryType": 12,
+  "localRTypeIndependentlyConfirmed": true,
+  "changedProgramHeaderOffsets": [
+    201,
+    202,
+    203,
+    257
+  ],
+  "editedMOVs": [
+    {
+      "label": "65.T006 | P1_FREQ_VALUE",
+      "source": "R2803",
+      "destination": "R2500"
+    },
+    {
+      "label": "65.T015 | P2_FREQ_VALUE",
+      "source": "R2811",
+      "destination": "R2501"
+    },
+    {
+      "label": "65.T024 | P3_FREQ_VALUE",
+      "source": "R2819",
+      "destination": "R2502"
+    },
+    {
+      "label": "65.T033 | P4_FREQ_VALUE",
+      "source": "R2827",
+      "destination": "R2503"
+    }
+  ],
+  "nativeEditorCompileObserved": false,
+  "candidateMemoryAllocated": false,
+  "PLCModifiedByThisChecker": false,
+  "deployable": false,
+  "remaining": "Independent R memory type/header/indirect-HMI review, compatible SCADA and native bench validation"
+}

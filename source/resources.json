@@ -1,0 +1,89 @@
+{
+  "resources": [
+    {
+      "path": "plc/station_MC_CM55_CL50S_02.pdw",
+      "bytes": 178098,
+      "sha256": "41e0788134b7cbd4fa6e0f8ab1b6515a9a396c5fdcef0b40b871d460e38f3dff",
+      "role": "Original user-supplied PLC source; not a synchronized live PLC image"
+    },
+    {
+      "path": "plc/station_MC_CM55_900G_03.pdw",
+      "bytes": 178169,
+      "sha256": "0c2c847b946f17c39290a056518235b2940a5a29dcc8813e3eadc33de6a4f69d",
+      "role": "Original user-supplied PLC source; not a synchronized live PLC image"
+    },
+    {
+      "path": "plc/station_MC_CM55_900G_04.pdw",
+      "bytes": 178203,
+      "sha256": "a25f9b5d2fe006bcb039896bae3989569b08e1b1adc4b503a755bfd5e3b22993",
+      "role": "Original user-supplied PLC source; not a synchronized live PLC image"
+    },
+    {
+      "path": "scada-seed-2.6.15/Pages.spg",
+      "bytes": 579,
+      "sha256": "c6bb11f3467a640ed04795f2ad5b9c9a77d9f7f559ac5a218dd0e53e99b7dbdb",
+      "role": "Original user-supplied minimal SCADA seed; no compiled scripts, users or license file"
+    },
+    {
+      "path": "scada-seed-2.6.15/Project.spr",
+      "bytes": 375,
+      "sha256": "4f0f2ebe69a167395563466f7578315afbefd012f6e96e55fe9b9d5f8e103e14",
+      "role": "Original user-supplied minimal SCADA seed; no compiled scripts, users or license file"
+    },
+    {
+      "path": "scada-seed-2.6.15/Servers.ssr",
+      "bytes": 241,
+      "sha256": "efd91d5df93359c3320c72e185941247688b9ffad8fe3a5af196a9ed675a15fc",
+      "role": "Original user-supplied minimal SCADA seed; no compiled scripts, users or license file"
+    },
+    {
+      "path": "scada-seed-2.6.15/Variables.svr",
+      "bytes": 9464,
+      "sha256": "eae4c0f98a8cf0c0711251d0c1373c7e57fcf28e33187a9c334067164129f8bd",
+      "role": "Original user-supplied minimal SCADA seed; no compiled scripts, users or license file"
+    },
+    {
+      "path": "scada-seed-2.6.15/Variables.svrr",
+      "bytes": 3420,
+      "sha256": "8d5f14d60ffcdb9ab43ae851814804f9785c8159b8dfc938694d472e50bc4544",
+      "role": "Original user-supplied minimal SCADA seed; no compiled scripts, users or license file"
+    },
+    {
+      "path": "scada-seed-2.6.15/Windows.swn",
+      "bytes": 30,
+      "sha256": "4e53d29526e032b14f30ac808f21215b06268605330dfe7de92c468c88fa9fbb",
+      "role": "Original user-supplied minimal SCADA seed; no compiled scripts, users or license file"
+    },
+    {
+      "path": "scada-seed-2.6.15/Trends.str",
+      "bytes": 107,
+      "sha256": "cfa3e2d73652d179f05c3e21698ab9b46065aeab79271a0c7bf1e67c72a3a8e9",
+      "role": "Original user-supplied minimal SCADA seed; no compiled scripts, users or license file"
+    },
+    {
+      "path": "scada-seed-2.6.15/Messages.smgr",
+      "bytes": 23,
+      "sha256": "446329776b20b2ecb536423ef41c5b599b7bef1ec012bd095b20d8c41b3375d3",
+      "role": "Original user-supplied minimal SCADA seed; no compiled scripts, users or license file"
+    },
+    {
+      "path": "scada-seed-2.6.15/Messages.smg",
+      "bytes": 35,
+      "sha256": "a1e4fa82591c1d151415af6109374902ff5d9faa6e9ab03cacb42052c219da69",
+      "role": "Original user-supplied minimal SCADA seed; no compiled scripts, users or license file"
+    },
+    {
+      "path": "scada-seed-2.6.15/Groups.seg",
+      "bytes": 8,
+      "sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc",
+      "role": "Original user-supplied minimal SCADA seed; no compiled scripts, users or license file"
+    },
+    {
+      "path": "scada-seed-2.6.15/Scripts/Scripts.ssc",
+      "bytes": 23,
+      "sha256": "f3a53c2b469be6ee5aca7579bfce95032e1d97e761f67c83c3c3ca26b48670e3",
+      "role": "Original user-supplied minimal SCADA seed; no compiled scripts, users or license file"
+    }
+  ],
+  "windows_copy_synchronized": false
+}

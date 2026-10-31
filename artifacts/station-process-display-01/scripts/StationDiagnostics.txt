@@ -1,0 +1,142 @@
+interface
+procedure StationProcessUpdate;
+implementation
+const
+  ProcessItemPrefix = 'codex.Device1.';
+  ProcessOPCServer = 'InSAT.ModbusOPCServer.DA';
+  ProcessOPCHost = 'localhost';
+  ProcessMapVersion = 31;
+function ProcessWord(const Item: string; var Raw: Int64): Boolean;
+var V: TM_Variable;
+begin
+  Result := False;
+  Raw := 0;
+  try
+    V := GetVariableByAddress(ProcessItemPrefix + Item);
+    if V = nil then Exit;
+    if not V.Outer then Exit;
+    if V.Address <> ProcessItemPrefix + Item then Exit;
+    if LowerCase(V.OPCServerName) <> LowerCase(ProcessOPCServer) then Exit;
+    if LowerCase(V.ComputerName) <> LowerCase(ProcessOPCHost) then Exit;
+    if not V.IsGoodQuality then Exit;
+    Raw := V.OriginalAsInt;
+    Result := (Raw >= 0) and (Raw <= 65535);
+  except
+    Result := False;
+    Raw := 0;
+  end;
+end;
+procedure StationProcessUpdate;
+var
+  Map, PV, SourceOK, SP, Freq, FreqState, AlarmLo, AlarmHi: Int64;
+  MapGood, PVGood, SourceGood, SPGood, FreqGood, StateGood,
+    LoGood, HiGood, MapMatches: Boolean;
+  Count, StatusColor: Integer;
+  Status, Detail: string;
+begin
+  MapGood := ProcessWord('MapVersion', Map);
+  MapMatches := MapGood and (Map = ProcessMapVersion);
+  PVGood := False; SourceGood := False; SPGood := False;
+  FreqGood := False; StateGood := False; LoGood := False; HiGood := False;
+  if MapMatches then
+  begin
+    PVGood := ProcessWord('PressurePV_x100', PV);
+    SourceGood := ProcessWord('PressureSourceOK', SourceOK);
+    SPGood := ProcessWord('PressureSP_x100', SP);
+    FreqGood := ProcessWord('Vfd1FreqRaw', Freq);
+    StateGood := ProcessWord('Vfd1FreqState', FreqState);
+    LoGood := ProcessWord('AlarmLo', AlarmLo);
+    HiGood := ProcessWord('AlarmHi', AlarmHi);
+  end;
+  Count := 0;
+  if PVGood then Count := Count + 1;
+  if SourceGood then Count := Count + 1;
+  if SPGood then Count := Count + 1;
+  if FreqGood then Count := Count + 1;
+  if StateGood then Count := Count + 1;
+  if LoGood then Count := Count + 1;
+  if HiGood then Count := Count + 1;
+  ProcessPressure.Text := 'Нет данных';
+  ProcessPressureNote.Text := 'Проверить наличие и качество тегов давления.';
+  ProcessSetpoint.Text := 'Нет данных';
+  ProcessFrequency.Text := 'Нет данных';
+  ProcessFrequencyNote.Text := 'Нет достоверного состояния частоты от ПЛК.';
+  ProcessCurrent.Text := 'Не подключён';
+  ProcessFault.Text := 'Не подключён';
+  ProcessCurrentNote.Text := 'Чтение выходного тока ПЧ ещё не добавлено.';
+  ProcessFaultNote.Text := 'Собственный код ошибки ПЧ ещё не подключён.';
+  ProcessValidity.Text := 'Давление: достоверность неизвестна';
+  ProcessValidity.Color := RGB(105, 105, 105);
+  ProcessAlarmWords.Text := 'Слова состояния ПЛК: нет данных';
+  ProcessAlarmWords.Color := RGB(105, 105, 105);
+  ProcessFreshness.Text := 'Свежесть данных станции ещё не подтверждается автоматически.';
+  ProcessFreshness.Color := RGB(165, 100, 0);
+  Status := 'Ожидание данных станции';
+  Detail := 'Проверить MasterOPC, Gateway и наличие переменных в проекте.';
+  StatusColor := RGB(105, 105, 105);
+  if MapGood and (not MapMatches) then
+  begin
+    Status := 'Не совпадает версия карты ПЛК';
+    Detail := 'Ожидается карта 31. Показания этой карточки скрыты.';
+    StatusColor := RGB(165, 50, 50);
+  end;
+  if MapMatches then
+  begin
+    Status := 'Мониторинг: показания доступны частично';
+    Detail := 'Карта ПЛК 31. Проверить импорт и качество недоступных тегов.';
+    StatusColor := RGB(165, 100, 0);
+    if Count = 7 then
+    begin
+      Status := 'Мониторинг: показания OPC доступны';
+      Detail := 'Давление и состояние его источника получены из контроллера.';
+    end;
+    if SPGood then ProcessSetpoint.Text := FormatFloat('0.00', SP / 100.0) + ' бар';
+    if PVGood and SourceGood then
+    begin
+      if SourceOK = 1 then
+      begin
+        ProcessPressure.Text := FormatFloat('0.00', PV / 100.0) + ' бар';
+        ProcessPressureNote.Text := 'Показание OPC. Достоверность источника разрешена ПЛК.';
+        ProcessValidity.Text := 'ПЛК: источник давления выбран';
+        ProcessValidity.Color := RGB(40, 140, 90);
+      end
+      else if SourceOK = 0 then
+      begin
+        ProcessPressure.Text := 'Нет достоверных данных';
+        ProcessPressureNote.Text := 'ПЛК не подтверждает источник давления. Значение не подменяется нулём.';
+        ProcessValidity.Text := 'ПЛК: нет достоверного источника давления';
+        ProcessValidity.Color := RGB(165, 100, 0);
+        Status := 'ПЛК: нет достоверного источника давления';
+        Detail := 'Состояние передано контроллером. Причину обрыва датчика по нему одному не определяем.';
+      end
+      else
+      begin
+        ProcessPressureNote.Text := 'Неизвестное значение признака достоверности давления.';
+        ProcessValidity.Text := 'ПЛК: неизвестный признак достоверности давления';
+      end;
+    end;
+    if FreqGood and StateGood then
+    begin
+      if ((FreqState = 1) and (Freq = 0)) or
+         ((FreqState = 2) and (Freq > 0) and (Freq <= 5999)) then
+      begin
+        ProcessFrequency.Text := FormatFloat('0.0', Freq / 10.0) + ' Гц';
+        if FreqState = 1 then ProcessFrequencyNote.Text := 'ПЛК: частота нулевая.'
+        else ProcessFrequencyNote.Text := 'ПЛК: частота ненулевая. Это не отдельное подтверждение RUN.';
+      end
+      else if FreqState <> 0 then
+        ProcessFrequencyNote.Text := 'Показание частоты не согласуется с её состоянием от ПЛК.';
+    end;
+    if LoGood and HiGood then
+      ProcessAlarmWords.Text := 'Слова состояния ПЛК: ' + IntToStr(AlarmLo) + ' / ' + IntToStr(AlarmHi);
+  end;
+  ProcessStatus.Text := Status;
+  ProcessStatus.Color := StatusColor;
+  ProcessDetail.Text := Detail;
+  ProcessOPC.Text := 'MasterOPC: доступно новых тегов ' + IntToStr(Count) + ' из 7';
+  ProcessOPC.Color := RGB(105, 105, 105);
+  if MapMatches and (Count = 7) then ProcessOPC.Color := RGB(40, 140, 90);
+  if MapMatches then ProcessMap.Text := 'Версия карты ПЛК: 31'
+  else ProcessMap.Text := 'Версия карты ПЛК: не подтверждена';
+end;
+end.

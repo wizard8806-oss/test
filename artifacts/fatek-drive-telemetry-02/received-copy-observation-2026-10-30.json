@@ -1,0 +1,89 @@
+{
+  "date": "2026-10-30",
+  "fileId": "file_000000008cd4820ab1cb0f46c8d572c0",
+  "fileName": "station_MC_CM55_900G_03.pdw",
+  "bytes": 178169,
+  "sha256": "e47797c6a7bea930766b89f70852e04c06bc7d675f66e01e5e4c92e3ff9678e2",
+  "decodedProgramEqualsOriginal": true,
+  "allNineTablesEqualOriginal": true,
+  "rungCommentsAndPCsEqualOriginal": true,
+  "mapVersion": 31,
+  "proposedEditsPresent": false,
+  "status": "Uploaded named copy still contains baseline program/tables; user intent or cause of absent changes not inferred",
+  "programBlocks": [
+    {
+      "pc": 512,
+      "name": "10_PRESSURE"
+    },
+    {
+      "pc": 582,
+      "name": "20_SAFETY"
+    },
+    {
+      "pc": 604,
+      "name": "30_MODES"
+    },
+    {
+      "pc": 1332,
+      "name": "40_PID"
+    },
+    {
+      "pc": 1488,
+      "name": "50_CASCADE"
+    },
+    {
+      "pc": 1640,
+      "name": "60_ROTATION"
+    },
+    {
+      "pc": 6496,
+      "name": "65_MODBUS"
+    },
+    {
+      "pc": 19760,
+      "name": "70_DRIVES"
+    },
+    {
+      "pc": 20098,
+      "name": "90_OUTPUTS"
+    },
+    {
+      "pc": 20302,
+      "name": "95_HMI_STATUS"
+    },
+    {
+      "pc": 25400,
+      "name": "96_CL50S"
+    }
+  ],
+  "targetNetworks": [
+    {
+      "block": "65_MODBUS",
+      "network": "65.T006 | P1_FREQ_VALUE",
+      "pc": 19260
+    },
+    {
+      "block": "65_MODBUS",
+      "network": "65.T015 | P2_FREQ_VALUE",
+      "pc": 19400
+    },
+    {
+      "block": "65_MODBUS",
+      "network": "65.T024 | P3_FREQ_VALUE",
+      "pc": 19540
+    },
+    {
+      "block": "65_MODBUS",
+      "network": "65.T033 | P4_FREQ_VALUE",
+      "pc": 19680
+    },
+    {
+      "block": "95_HMI_STATUS",
+      "network": "95.W032 | WORD_STATUS_VERSION",
+      "pc": 25360
+    }
+  ],
+  "PLCWritePerformed": false,
+  "nativeProgramValidated": false,
+  "deployable": false
+}

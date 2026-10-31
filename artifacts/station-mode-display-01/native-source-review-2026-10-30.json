@@ -1,0 +1,166 @@
+{
+  "date": "2026-10-30",
+  "sourceFile": "station_MC_CM55_900G_04.pdw",
+  "sourceFileId": "file_00000000aea4820abd207d454cbba7eb",
+  "sourceSHA256": "a25f9b5d2fe006bcb039896bae3989569b08e1b1adc4b503a755bfd5e3b22993",
+  "sameBytesAsPreviouslyTestedPDW04": true,
+  "method": "Checksum-verified PDW decoding; original vendor _GetNetNMne formatter executed in isolated x86 emulation. No imported OS function allowed, no native GUI/compiler/PLC execution claimed.",
+  "vendorSoftware": {
+    "url": "https://www.esea.cz/support/fatek/WinProladder/WProlad321-16001-ENU.zip",
+    "archiveSHA256": "dbe6e5c5e429069e074900aad1080eef2baf012f90ad0799bcb995bd4c24f3f4",
+    "formatter": "Prolad18.dll",
+    "formatterSHA256": "daef5641e3f9fb8405e6d614f393f35f279a47bbec4bacac2ce844dbb463b3e9",
+    "tool": "tools/render_fatek_network_01.py"
+  },
+  "mode": {
+    "register": "R2300",
+    "source": "X8/X9 selector decoded by existing PLC mode logic",
+    "codes": {
+      "0": "STOP, neither AUTO nor MANUAL selected",
+      "10": "AUTO selected",
+      "11": "AUTO preparing",
+      "12": "AUTO operation permitted",
+      "20": "MANUAL selected",
+      "21": "MANUAL operation permitted",
+      "22": "MANUAL run command present",
+      "90": "invalid selector, both inputs active"
+    },
+    "selectorModeIsDriveRunFeedback": false,
+    "PLCChangeRequiredForDisplay": false
+  },
+  "setpoint": {
+    "input": "R2100",
+    "mirror": "R2360",
+    "rangePredicate": "R2100 > 9 AND R2100 < 1200 AND D691 = 0",
+    "remainder": "FUN14 R2100 / 10 -> quotient D690, remainder D691",
+    "rawMin": 10,
+    "rawMax": 1190,
+    "rawStep": 10,
+    "barMin": 0.1,
+    "barMax": 11.9,
+    "barStep": 0.1,
+    "verifiedCurrentLeader": "D672",
+    "verifiedPressureRaw": "D673",
+    "currentContextReady": "M969",
+    "noExistingHMIMirrorsForD672D673Found": true,
+    "writeBindingImplemented": false
+  },
+  "evidence": [
+    {
+      "label": "30.01 | SELECTOR_INVALID",
+      "pc": 740,
+      "codeHex": "40088009c942",
+      "vendorMnemonics": "00000M  ORG        X8     \r\n00001M  AND        X9     \r\n00002M  OUT        M306   \r\n"
+    },
+    {
+      "label": "30.02 | MODE_AUTO",
+      "pc": 746,
+      "codeHex": "40089009c93c",
+      "vendorMnemonics": "00000M  ORG        X8     \r\n00001M  AND   NOT  X9     \r\n00002M  OUT        M300   \r\n"
+    },
+    {
+      "label": "30.03 | MODE_MANUAL",
+      "pc": 752,
+      "codeHex": "50088009c93d",
+      "vendorMnemonics": "00000M  ORG   NOT  X8     \r\n00001M  AND        X9     \r\n00002M  OUT        M301   \r\n"
+    },
+    {
+      "label": "30.04 | MODE_STOP",
+      "pc": 758,
+      "codeHex": "593c993dc941",
+      "vendorMnemonics": "00000M  ORG   NOT  M300   \r\n00001M  AND   NOT  M301   \r\n00002M  OUT        M305   \r\n"
+    },
+    {
+      "label": "65.J11 | AUTO_PI_HMI_NATIVE",
+      "pc": 10074,
+      "codeHex": "f67f00161a680009f67f00231a6804b08fed7fe8f6681a68000a4564",
+      "vendorMnemonics": "00000M  ORGF  171_.>      \r\n              Sa:  R2100  \r\n              Sb:  9      \r\n00001M  ANDF  172_.<      \r\n              Sa:  R2100  \r\n              Sb:  1200   \r\n00002M  AND   SHORT       \r\n00003M  LD    OPEN        \r\n00004M  FUN   14 _.(/)    \r\n              Sa:  R2100  \r\n              Sb:  10     \r\n              D :  D690   \r\n"
+    },
+    {
+      "label": "65.J12 | AUTO_PI_HMI_VALID",
+      "pc": 10102,
+      "codeHex": "f67f00161a680009f67f00231a6804b0f67f002145660000cbd4",
+      "vendorMnemonics": "00000M  ORGF  171_.>      \r\n              Sa:  R2100  \r\n              Sb:  9      \r\n00001M  ANDF  172_.<      \r\n              Sa:  R2100  \r\n              Sb:  1200   \r\n00002M  ANDF  170_.=      \r\n              Sa:  D691   \r\n              Sb:  0      \r\n00003M  OUT        M964   \r\n"
+    },
+    {
+      "label": "65.J39 | AUTO_PI_READY",
+      "pc": 10402,
+      "codeHex": "4bd58bd48be5f47f00214540421cf47f002145421a68cbd9",
+      "vendorMnemonics": "00000M  ORG        M965   \r\n00001M  AND        M964   \r\n00002M  AND        M981   \r\n00003M  ANDF  170_.=      \r\n              Sa:  D672   \r\n              Sb:  D270   \r\n00004M  ANDF  170_.=      \r\n              Sa:  D673   \r\n              Sb:  R2100  \r\n00005M  OUT        M969   \r\n"
+    },
+    {
+      "label": "65.K67 | PI_PARAM_SUCCESS_PULSE",
+      "pc": 11990,
+      "codeHex": "4b9d8bad9bac9b986bb0f47f002144c6451c6ba99ba7f47f00214500451ce449e200cbb2",
+      "vendorMnemonics": "00000M  ORG        M909   \r\n00001M  AND        M925   \r\n00002M  AND   NOT  M924   \r\n00003M  AND   NOT  M904   \r\n00004M  LD         M928   \r\n00005M  ANDF  170_.=      \r\n              Sa:  D611   \r\n              Sb:  D654   \r\n00006M  LD         M921   \r\n00007M  AND   NOT  M919   \r\n00008M  ANDF  170_.=      \r\n              Sa:  D640   \r\n              Sb:  D654   \r\n00009M  ORLD              \r\n00010M  ANDLD             \r\n00011M  OUT        M930   \r\n"
+    },
+    {
+      "label": "65.L03 | AUTO_PI_CONFIRMED_LEADER",
+      "pc": 12156,
+      "codeHex": "4bd18b958b978bd69bd79b9d8bd5f4ac45184540",
+      "vendorMnemonics": "00000M  ORG        M961   \r\n00001M  AND        M901   \r\n00002M  AND        M903   \r\n00003M  AND        M966   \r\n00004M  AND   NOT  M967   \r\n00005M  AND   NOT  M909   \r\n00006M  AND        M965   \r\n00007M  FUN   08 _.MOV    \r\n              S :  D652   \r\n              D :  D672   \r\n"
+    },
+    {
+      "label": "65.L04 | AUTO_PI_CONFIRMED_PRESSURE",
+      "pc": 12176,
+      "codeHex": "4bd18b958b978bd69bd79b9d8bd5f4ac451a4542",
+      "vendorMnemonics": "00000M  ORG        M961   \r\n00001M  AND        M901   \r\n00002M  AND        M903   \r\n00003M  AND        M966   \r\n00004M  AND   NOT  M967   \r\n00005M  AND   NOT  M909   \r\n00006M  AND        M965   \r\n00007M  FUN   08 _.MOV    \r\n              S :  D653   \r\n              D :  D673   \r\n"
+    },
+    {
+      "label": "65.L05 | AUTO_PI_CONFIRMED_VALID",
+      "pc": 12196,
+      "codeHex": "4bd18b958b978bd69bd79b9d8bd51be5",
+      "vendorMnemonics": "00000M  ORG        M961   \r\n00001M  AND        M901   \r\n00002M  AND        M903   \r\n00003M  AND        M966   \r\n00004M  AND   NOT  M967   \r\n00005M  AND   NOT  M909   \r\n00006M  AND        M965   \r\n00007M  OUTS       M981   \r\n"
+    },
+    {
+      "label": "95.051 | HMI_MODE_DEFAULT",
+      "pc": 20740,
+      "codeHex": "4fe8f5ac00001bf8",
+      "vendorMnemonics": "00000M  ORG   SHORT       \r\n00001M  FUN   08 _.MOV    \r\n              S :  0      \r\n              D :  R2300  \r\n"
+    },
+    {
+      "label": "95.052 | HMI_MODE_AUTO_SELECTED",
+      "pc": 20748,
+      "codeHex": "493cf5ac000a1bf8",
+      "vendorMnemonics": "00000M  ORG        M300   \r\n00001M  FUN   08 _.MOV    \r\n              S :  10     \r\n              D :  R2300  \r\n"
+    },
+    {
+      "label": "95.053 | HMI_MODE_AUTO_PREPARING",
+      "pc": 20756,
+      "codeHex": "4950f5ac000b1bf8",
+      "vendorMnemonics": "00000M  ORG        M320   \r\n00001M  FUN   08 _.MOV    \r\n              S :  11     \r\n              D :  R2300  \r\n"
+    },
+    {
+      "label": "95.054 | HMI_MODE_AUTO_RUN_PERMITTED",
+      "pc": 20764,
+      "codeHex": "4af4f5ac000c1bf8",
+      "vendorMnemonics": "00000M  ORG        M740   \r\n00001M  FUN   08 _.MOV    \r\n              S :  12     \r\n              D :  R2300  \r\n"
+    },
+    {
+      "label": "95.055 | HMI_MODE_MANUAL_SELECTED",
+      "pc": 20772,
+      "codeHex": "493df5ac00141bf8",
+      "vendorMnemonics": "00000M  ORG        M301   \r\n00001M  FUN   08 _.MOV    \r\n              S :  20     \r\n              D :  R2300  \r\n"
+    },
+    {
+      "label": "95.056 | HMI_MODE_MANUAL_PERMITTED",
+      "pc": 20780,
+      "codeHex": "4951f5ac00151bf8",
+      "vendorMnemonics": "00000M  ORG        M321   \r\n00001M  FUN   08 _.MOV    \r\n              S :  21     \r\n              D :  R2300  \r\n"
+    },
+    {
+      "label": "95.057 | HMI_MODE_MANUAL_RUN_COMMAND",
+      "pc": 20788,
+      "codeHex": "49518d2af5ac00161bf8",
+      "vendorMnemonics": "00000M  ORG        M321   \r\n00001M  AND        M1306  \r\n00002M  FUN   08 _.MOV    \r\n              S :  22     \r\n              D :  R2300  \r\n"
+    },
+    {
+      "label": "95.058 | HMI_MODE_SELECTOR_INVALID",
+      "pc": 20798,
+      "codeHex": "4942f5ac005a1bf8",
+      "vendorMnemonics": "00000M  ORG        M306   \r\n00001M  FUN   08 _.MOV    \r\n              S :  90     \r\n              D :  R2300  \r\n"
+    }
+  ],
+  "PLCModified": false,
+  "liveWritesPerformed": false
+}

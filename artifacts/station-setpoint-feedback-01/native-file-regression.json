@@ -1,0 +1,9 @@
+{
+  "date": "2026-10-31",
+  "referenceOldSHA256": "0c2c847b946f17c39290a056518235b2940a5a29dcc8813e3eadc33de6a4f69d",
+  "referenceNativeSHA256": "a25f9b5d2fe006bcb039896bae3989569b08e1b1adc4b503a755bfd5e3b22993",
+  "decodedImageExactlyMatchesNative": true,
+  "allRecordsExceptLiveWatchExactlyMatchNative": true,
+  "maskRegenerated": false,
+  "scope": "Reconstruct known native counter insertion and validate header sums, word counts, unit/network relocation and record checksums against the actual native save"
+}

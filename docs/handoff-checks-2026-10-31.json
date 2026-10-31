@@ -1,0 +1,164 @@
+{
+  "date": "2026-10-31",
+  "passed": true,
+  "core_build_and_check_groups": 24,
+  "additional_vendor_check_groups": 4,
+  "core": [
+    {
+      "check": "rebuild_scada_inline_delivery_01.py",
+      "passed": true
+    },
+    {
+      "check": "build_radio_display_01.py",
+      "passed": true
+    },
+    {
+      "check": "build_radio_service_delivery_01.py",
+      "passed": true
+    },
+    {
+      "check": "build_service_group_split_02.py",
+      "passed": true
+    },
+    {
+      "check": "build_process_display_01.py",
+      "passed": true
+    },
+    {
+      "check": "build_drive_display_02.py",
+      "passed": true
+    },
+    {
+      "check": "build_station_freshness_03.py",
+      "passed": true
+    },
+    {
+      "check": "build_station_mode_display_01.py",
+      "passed": true
+    },
+    {
+      "check": "build_setpoint_feedback_pdw_01.py",
+      "passed": true
+    },
+    {
+      "check": "PowerShell syntax",
+      "passed": true
+    },
+    {
+      "check": "validate_scada_inline_01.py",
+      "passed": true
+    },
+    {
+      "check": "validate_radio_install_01.py",
+      "passed": true
+    },
+    {
+      "check": "validate_teleofis_radio_usb_probe_04.py",
+      "passed": true
+    },
+    {
+      "check": "validate_teleofis_auth_capture_03.py",
+      "passed": true
+    },
+    {
+      "check": "validate_radio_display_01.py",
+      "passed": true
+    },
+    {
+      "check": "validate_radio_service_delivery_01.py",
+      "passed": true
+    },
+    {
+      "check": "validate_service_group_split_02.py",
+      "passed": true
+    },
+    {
+      "check": "validate_process_display_01.py",
+      "passed": true
+    },
+    {
+      "check": "validate_drive_display_02.py",
+      "passed": true
+    },
+    {
+      "check": "validate_station_freshness_03.py",
+      "passed": true
+    },
+    {
+      "check": "validate_station_mode_display_01.py",
+      "passed": true
+    },
+    {
+      "check": "validate_setpoint_feedback_01.py",
+      "passed": true
+    },
+    {
+      "check": "validate_setpoint_feedback_copy_01.py",
+      "passed": true
+    },
+    {
+      "check": "native PDW feedback comparison",
+      "passed": true
+    }
+  ],
+  "additional": [
+    {
+      "check": "Editor native loader and corruption regression",
+      "passed": true
+    },
+    {
+      "check": "Repair preservation regression",
+      "passed": true
+    },
+    {
+      "check": "Current page control bindings",
+      "passed": true
+    },
+    {
+      "check": "Framework4.8 C# compatibility and repair",
+      "passed": true
+    }
+  ],
+  "actual_runtime": {
+    "python": "3.12.14",
+    "FreePascal": "3.2.2",
+    "PowerShell": "7.5.4",
+    "pefile": "2024.8.26",
+    "unicorn": "2.1.4",
+    "OS": "Linux"
+  },
+  "details": {
+    "original_files_audited": 199,
+    "source_resources_hash_verified": 14,
+    "standalone_PowerShell_files_parsed": 29,
+    "current_mode_logic": {
+      "legacy_assertions": 59,
+      "freshness_and_mode_assertions": 281,
+      "copy_cases": 10
+    },
+    "native_feedback_comparator_mutation_cases": 12,
+    "setpoint_copy_cases": 10,
+    "service_group_setup_cases": 9,
+    "service_session_policy_cases": 3,
+    "optional_page_control_count": 32,
+    "repair_cases": 6,
+    "Framework48": "Missing System.Xml regression reproduced; explicit reference compiled unchanged C# and repair/loopback checks passed",
+    "source_preservation": "All retained Pascal/PowerShell sources byte-identical after isolated rebuild; working sources unchanged",
+    "candidate_PDW05_SHA256": "6aba2a67d07596e4a479c462412859565186de86b410a3cd44476a81f20ffe81"
+  },
+  "not_tested": [
+    "Windows GUI F8/F9",
+    "New PLC download/live feedback tags",
+    "Real pressure setpoint write or physical outputs",
+    "Background Windows service",
+    "Multi-station production scaling"
+  ],
+  "vendor_binaries_redistributed": false,
+  "windows_copy_synchronized": false,
+  "secret_scan": {
+    "tool": "Gitleaks8.24.3",
+    "original_files_findings": 0,
+    "recursively_expanded_payload_findings": 0,
+    "final_published_tree_findings": 0
+  }
+}

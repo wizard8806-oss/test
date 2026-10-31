@@ -1,0 +1,32 @@
+{
+  "cases": [
+    {
+      "case": "normal",
+      "passed": true,
+      "source_unchanged": true
+    },
+    {
+      "case": "native_caret_changed",
+      "passed": true,
+      "source_unchanged": true
+    },
+    {
+      "case": "source_edited",
+      "passed": true,
+      "source_unchanged": true
+    },
+    {
+      "case": "destination_exists",
+      "passed": true,
+      "source_unchanged": true
+    },
+    {
+      "case": "corrupt_bundle",
+      "passed": true,
+      "source_unchanged": true
+    }
+  ],
+  "runtime": "Actual PowerShell7.6.9/Linux fixtures through the SHA-checked compressed bootstrap",
+  "native_editor_F9_passed": false,
+  "copy_fields_servers_variables_preserved": true
+}

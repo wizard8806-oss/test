@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "profileId": "pump-pressure-vfd-v1",
+  "status": "Definition prepared; actual PLC bindings are not yet verified or deployed",
+  "priorities": ["pressure", "drive_faults", "communication", "modem_signal"],
+  "cl50sRequired": false,
+  "cl50sDefinesStationHealth": false,
+  "pressure": {
+    "valueBinding": null,
+    "qualityBinding": null,
+    "engineeringUnit": null,
+    "rawType": null,
+    "scale": null,
+    "offset": null,
+    "setpointBinding": null,
+    "alarmThresholds": null
+  },
+  "driveTemplate": {
+    "repeatPerConfiguredDrive": true,
+    "model": null,
+    "faultCodeBinding": null,
+    "faultCodeDecoder": null,
+    "communicationBinding": null,
+    "runStateBinding": null,
+    "actualFrequencyBinding": null,
+    "motorCurrentBinding": null
+  },
+  "freshness": {
+    "stationHeartbeatBinding": null,
+    "successfulPollEvidenceBinding": null,
+    "configuredPerStation": true,
+    "processValueChangeRequiredForFreshness": false,
+    "unchangedPressureOrFaultCodeImpliesStale": false,
+    "OPCGoodAloneIsFreshnessEvidence": false,
+    "pressureMaxAgeSeconds": null,
+    "driveMaxAgeSeconds": null,
+    "onStalePressure": "Show unknown; do not substitute zero or trigger a low-pressure alarm from missing data",
+    "onStaleDriveFault": "Show drive communication unknown; do not substitute faultCode=0"
+  },
+  "bindingEvidenceRequired": "Current WinProLadder PDW or verified export map plus matching drive-model documentation",
+  "deployable": false
+}

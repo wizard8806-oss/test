@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-30",
+  "cases": [
+    {
+      "case": "new_install",
+      "passed": true
+    },
+    {
+      "case": "repeat_install",
+      "passed": true
+    },
+    {
+      "case": "collector_changed",
+      "passed": true
+    },
+    {
+      "case": "config_changed",
+      "passed": true
+    },
+    {
+      "case": "corrupt_transfer",
+      "passed": true
+    }
+  ],
+  "runtime": "Actual PowerShell7.6.9/Linux through compressed inline wrapper",
+  "collector_launched_in_delivery_tests": false,
+  "collector_transport_validation": "22 independent loopback cases already passed; collector code unchanged",
+  "real_cloud_or_Windows_test_passed": false
+}
