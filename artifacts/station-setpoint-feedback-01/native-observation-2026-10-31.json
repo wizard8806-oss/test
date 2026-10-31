@@ -1,0 +1,13 @@
+{
+  "date": "2026-10-31",
+  "source": "Explicit user answer to the question whether codex.Device1.SpFeedbackVersion=1 and all seven SpFeedbackVersion..SpApplyFlags tags have GOOD quality",
+  "verbatimAnswer": "=1  good",
+  "SpFeedbackVersion": 1,
+  "allSevenFeedbackTagsGoodConfirmedByUser": true,
+  "feedbackExportRuntimeConfirmedByUser": true,
+  "individualOtherValuesReported": false,
+  "exactRunningPDWHashObserved": false,
+  "nativeF8ScreenshotObserved": false,
+  "setpointWriteOrDriveOperationPerformed": false,
+  "nextStep": "Display existing feedback tags in a preserved SCADA copy codex_diag_07; obtain native display observation before adding write controls."
+}

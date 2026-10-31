@@ -1,0 +1,54 @@
+{
+  "date": "2026-10-31",
+  "logicReports": [
+    "PASS process-card assertions=59",
+    "PASS freshness/mode/setpoint assertions=520"
+  ],
+  "copyCases": [
+    {
+      "case": "normal",
+      "passed": true
+    },
+    {
+      "case": "unit_header_carets",
+      "passed": true
+    },
+    {
+      "case": "changed_radio",
+      "passed": true
+    },
+    {
+      "case": "changed_core",
+      "passed": true
+    },
+    {
+      "case": "wrong_timer",
+      "passed": true
+    },
+    {
+      "case": "destination_exists",
+      "passed": true
+    },
+    {
+      "case": "wrong_version",
+      "passed": true
+    },
+    {
+      "case": "corrupt_module",
+      "passed": true
+    },
+    {
+      "case": "project_parent_folder",
+      "passed": true
+    },
+    {
+      "case": "folder_without_project",
+      "passed": true
+    }
+  ],
+  "nativeWindowsF9Observed": false,
+  "nativeNewFeedbackDisplayObserved": false,
+  "method": "Actual generated Pascal under strict FPC stubs; deterministic clock; PowerShell copy/preservation on Linux; all referenced existing control names checked",
+  "liveWritesPerformed": false,
+  "PLCOrHMIChanged": false
+}

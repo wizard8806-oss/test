@@ -548,7 +548,7 @@
       "sha256": "c4affce4911cd763503e10ad603fa4772e2380ca08e11edbab0cd9a9aaeafea6",
       "decision": "keep",
       "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence; current HMI source/provenance added after user supplied the missing SKTool project",
-      "published_sha256": "614f46a1c21e286e0f858dec51fdbc6c0de32e0c8c7fe21e62ad1c2711977f13"
+      "published_sha256": "ed5023cdbe1f199722b23be60067f2e8e918f83bf9e98009d3fd7269b16acff5"
     },
     {
       "path": "docs/deferred-work.md",
@@ -1255,7 +1255,7 @@
       "sha256": "58e053ee1abb13d3f8241eb73d61ec453182d6565e87c1367958bcbfc7f79ef2",
       "decision": "keep",
       "reason": "Source, runtime entry point, configuration without credentials, or validation/native-observation evidence",
-      "published_sha256": "58e053ee1abb13d3f8241eb73d61ec453182d6565e87c1367958bcbfc7f79ef2"
+      "published_sha256": "84c5b2fb1def6226d78c3ca7d9a8399a0240472768d9cfa198ecf9d7d916ce70"
     },
     {
       "path": "artifacts/station-setpoint-feedback-01/masteropc-feedback-tags.json",

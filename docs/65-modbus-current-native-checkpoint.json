@@ -952,7 +952,7 @@
     "new_exports_range": "R2850..R2856",
     "new_export_count": 7,
     "new_export_flags": "WM968 ->R2856: bit0=M968 application failure latch,bit1=M969 current-context confirmation",
-    "next_user_step": "If native F8 passed, update only the bench PLC to this05 and return RUN. Add seven read-only feedback tags in existing codex.Device1 and observe feedback version1 plus GOOD quality. Keep SCADA06; no setpoint writes yet."
+    "next_user_step": "Install new preserved SCADA07 copy of06 and import seven existing OPC tags in SCADA if missing; F9/save/display observation. Do not repeat MasterOPC marker/tag setup. No write control yet."
   },
   "station_mode_display": {
     "directory": "artifacts/station-mode-display-01",
@@ -1037,14 +1037,15 @@
     "nativeWindowsF8Observed": false,
     "actualPLCUpdatePerformed": false,
     "manualNetworkEditsRequired": false,
-    "nextUserStep": "If native F8 passed, update only the bench PLC to this05 and return RUN. Add seven read-only feedback tags in existing codex.Device1 and observe feedback version1 plus GOOD quality. Keep SCADA06; no setpoint writes yet.",
+    "nextUserStep": "Install new preserved SCADA07 copy of06 and import seven existing OPC tags in SCADA if missing; F9/save/display observation. Do not repeat MasterOPC marker/tag setup. No write control yet.",
     "receivedFileId": "file_00000000c288820a9c7669573674c796",
     "receivedFilePath": "/workspace/attachments/a820f714-9d85-4d4b-8765-0b3c083c47c8/station_MC_CM55_900G_05.pdw",
     "receivedFileSHA256": "6aba2a67d07596e4a479c462412859565186de86b410a3cd44476a81f20ffe81",
     "receivedComparison": "artifacts/station-setpoint-feedback-01/received-native-comparison-2026-10-31.json",
     "nativeF8ExplicitlyShown": false,
     "comparisonPassed": true,
-    "actualPLCFeedbackObserved": false
+    "actualPLCFeedbackObserved": false,
+    "runtimeFeedbackNowConfirmed": "See setpointFeedbackRuntimeObservation; explicit user version1/GOOD confirmation supersedes pending marker check."
   },
   "currentHmiSource": {
     "path": "source/hmi/pump_station_4_37.skm",
@@ -1055,5 +1056,15 @@
     "review": "artifacts/hmi-source-review-01/review.json",
     "nativeValidationObserved": false,
     "panelSynchronized": false
+  },
+  "setpointFeedbackRuntimeObservation": {
+    "path": "artifacts/station-setpoint-feedback-01/native-observation-2026-10-31.json",
+    "version": 1,
+    "allSevenGoodConfirmedByUser": true,
+    "verbatimAnswer": "=1  good",
+    "displayPrepared": "artifacts/station-setpoint-display-01",
+    "targetProject": "codex_diag_07",
+    "nativeNewDisplayObserved": false,
+    "nextStep": "Install new preserved SCADA07 copy of06 and import seven existing OPC tags in SCADA if missing; F9/save/display observation. Do not repeat MasterOPC marker/tag setup. No write control yet."
   }
 }

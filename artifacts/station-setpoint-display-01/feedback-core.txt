@@ -1,0 +1,132 @@
+procedure SpFeedbackReset;
+begin
+  SpFeedbackHasSample := False;
+  SpFeedbackSampleKey := '';
+  SpFeedbackSampleCounter := 0;
+end;
+function SpPressureValid(Raw: Int64): Boolean;
+begin
+  Result := (Raw >= 10) and (Raw <= 1190) and ((Raw mod 10) = 0);
+end;
+procedure SpFeedbackView(Active, WorkingGood: Boolean; Working, Counter: Int64;
+  var State, Count, Color: Integer; var Caption, Note: string);
+var
+  Version, Drive, Pressure, Phase, ErrorCode, ErrorDetail, Flags, LowFlags: Int64;
+  Good, AllGood: Boolean;
+  SampleKey: string;
+begin
+  State := 0;
+  Count := 0;
+  Color := RGB(105, 105, 105);
+  Caption := 'Нет свежей обратной связи уставки';
+  Note := 'Нужно подтверждение обновления ПЛК.';
+  if not Active then begin SpFeedbackReset; Exit; end;
+  if not WorkingGood then
+  begin
+    SpFeedbackReset;
+    Caption := 'Нет достоверной уставки ПЛК';
+    Note := 'Подтверждение ПЧ скрыто до восстановления уставки ПЛК.';
+    Exit;
+  end;
+  if not ProcessWord('SpFeedbackVersion', Version) then
+  begin
+    SpFeedbackReset;
+    Caption := 'Нет данных обратной связи уставки';
+    Note := 'Проверить наличие и качество тегов подтверждения.';
+    Exit;
+  end;
+  Count := 1;
+  if Version <> 1 then
+  begin
+    SpFeedbackReset;
+    Caption := 'Неизвестная версия обратной связи: ' + IntToStr(Version);
+    Note := 'Ожидается версия 1; подтверждение ПЧ скрыто.';
+    Exit;
+  end;
+  AllGood := True;
+  Good := ProcessWord('SpConfirmedDrive', Drive);
+  if Good then Count := Count + 1 else AllGood := False;
+  Good := ProcessWord('SpConfirmed_x100', Pressure);
+  if Good then Count := Count + 1 else AllGood := False;
+  Good := ProcessWord('SpApplyPhase', Phase);
+  if Good then Count := Count + 1 else AllGood := False;
+  Good := ProcessWord('SpApplyError', ErrorCode);
+  if Good then Count := Count + 1 else AllGood := False;
+  Good := ProcessWord('SpApplyDetail', ErrorDetail);
+  if Good then Count := Count + 1 else AllGood := False;
+  Good := ProcessWord('SpApplyFlags', Flags);
+  if Good then Count := Count + 1 else AllGood := False;
+  if not AllGood then
+  begin
+    SpFeedbackReset;
+    Caption := 'Нет полных данных подтверждения ПЧ';
+    Note := 'Прочитано тегов: ' + IntToStr(Count) + ' из 7. Старое подтверждение скрыто.';
+    Exit;
+  end;
+  LowFlags := Flags and 3;
+  Note := 'Этап ПЛК: ' + IntToStr(Phase) + '; слово признаков: ' + IntToStr(Flags) + '.';
+  if LowFlags = 3 then
+  begin
+    SpFeedbackReset;
+    State := 5;
+    Color := RGB(165, 100, 0);
+    Caption := 'Несогласованные признаки подтверждения ПЧ';
+    Exit;
+  end;
+  if not SpPressureValid(Working) then
+  begin
+    SpFeedbackReset;
+    State := 5;
+    Color := RGB(165, 100, 0);
+    Caption := 'Уставка ПЛК вне профиля 0.10-11.90 бар, шаг 0.10';
+    Exit;
+  end;
+  if LowFlags = 2 then
+  begin
+    if (Drive < 1) or (Drive > 4) or (not SpPressureValid(Pressure)) or (Pressure <> Working) then
+    begin
+      SpFeedbackReset;
+      State := 5;
+      Color := RGB(165, 100, 0);
+      Caption := 'Нет согласованного подтверждения текущей уставки';
+      Exit;
+    end;
+  end;
+  SampleKey := IntToStr(Version) + '|' + IntToStr(Drive) + '|' + IntToStr(Pressure) +
+    '|' + IntToStr(Phase) + '|' + IntToStr(ErrorCode) + '|' + IntToStr(ErrorDetail) +
+    '|' + IntToStr(Flags) + '|' + IntToStr(Working);
+  State := 1;
+  Color := RGB(165, 100, 0);
+  Caption := 'Сверка обратной связи уставки';
+  if (not SpFeedbackHasSample) or (SampleKey <> SpFeedbackSampleKey) then
+  begin
+    SpFeedbackHasSample := True;
+    SpFeedbackSampleKey := SampleKey;
+    SpFeedbackSampleCounter := Counter;
+    Exit;
+  end;
+  if Counter = SpFeedbackSampleCounter then Exit;
+  if LowFlags = 1 then
+  begin
+    State := 4;
+    Color := RGB(165, 50, 50);
+    Caption := 'ПЛК: ошибка применения уставки, код ' + IntToStr(ErrorCode);
+    Note := Note + ' Подробность: ' + IntToStr(ErrorDetail) + '. Это не код аварии 900G.';
+    Exit;
+  end;
+  if Phase <> 0 then
+  begin
+    State := 2;
+    Caption := 'Подтверждение уставки не завершено; этап ПЛК: ' + IntToStr(Phase);
+    Exit;
+  end;
+  if LowFlags = 2 then
+  begin
+    State := 3;
+    Color := RGB(40, 140, 90);
+    Caption := 'Подтверждено ПЛК: ПЧ ' + IntToStr(Drive) + ', ' + FormatFloat('0.00', Pressure / 100.0) + ' бар';
+    Note := Note + ' Текущий статус ПЛК, не результат новой команды SCADA.';
+    Exit;
+  end;
+  Caption := 'Подтверждение уставки ведущим ПЧ не получено';
+end;

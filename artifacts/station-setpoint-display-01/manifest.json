@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-31",
+  "sourceProject": "codex_diag_06",
+  "targetProject": "Desktop/codex_diag_07",
+  "sourceCoreSHA256": "fd620f410a4ba24d4412d8181306a553a097725d7aff8948cf1cd4d409317fea",
+  "moduleSHA256": "61a0d85172deafbc09b6049779b7e5105d85424145047911406d2db46f2a57ff",
+  "installerSHA256": "b86af05fa94cf060a9e513647c557f297d7b36fdc21cfa187f94aaa495710834",
+  "inlineCharacters": 14196,
+  "feedbackVersion": 1,
+  "existingReadOnlyTags": "artifacts/station-setpoint-feedback-01/masteropc-feedback-tags.json",
+  "snapshotPolicy": "Two equal complete tuples including working pressure, with observed PLC counter change. This is not an atomic PLC snapshot or a request-ID acknowledgment.",
+  "successRequires": "Map32, fresh counter, compatible complete good bindings, valid matching pressure, drive1..4, low flags2 and idle phase0",
+  "errorCodesUsedOnlyWhenM968": true,
+  "M969RequiredForVerifiedCache": true,
+  "flagsBeyondBits0and1NotDecoded": true,
+  "nativeFaultPriorityPreserved": true,
+  "PLCProgramChanged": false,
+  "existingPagesPreserved": true,
+  "radioAndTimerRecordsPreserved": true,
+  "writesOrControlCommandsAdded": false,
+  "nativeF9Observed": false,
+  "nativeNewDisplayObserved": false
+}
