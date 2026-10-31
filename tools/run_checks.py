@@ -33,6 +33,7 @@ CHECKS = [
     'validate_setpoint_display_01.py',
     'validate_setpoint_control_01.py',
     'validate_setpoint_click_fix_01.py',
+    'validate_click_install_retry.py',
 ]
 
 
