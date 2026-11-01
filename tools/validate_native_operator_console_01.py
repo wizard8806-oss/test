@@ -18,7 +18,11 @@ from pathlib import Path
 from _runtime import PWSH, SCADA_SEED, fpc, fpc_units
 from build_native_operator_console_01 import ROOT, UI, build, catalog, parse_pages, Builder, PAGES_SHA
 from validate_process_display_01 import serialize_scripts
-from validate_radio_install_01 import parse_scripts, hashes
+from validate_radio_install_01 import parse_scripts, hashes as _source_hashes
+
+
+def hashes(root):
+    return {name.replace('\\','/'):digest for name,digest in _source_hashes(root).items()}
 
 STUB = r'''unit UiApi;
 {$mode objfpc}{$H+}{$codepage utf8}
@@ -62,7 +66,7 @@ end.
 
 
 def two_stations():
-    data=json.loads((UI/'catalog.json').read_text())
+    data=json.loads((UI/'catalog.json').read_text(encoding='utf8'))
     s=dict(data['stations'][0],id='station-002',name='Вторая станция',itemPrefix='codex.Device2.',commandEnabled=False)
     data['stations'].append(s)
     return data
@@ -71,9 +75,9 @@ def two_stations():
 def runtime(folder):
     b=Builder(two_stations()).build()
     names=sorted(set(re.findall(r'\b(Ui\w+|ProcessTitle)\.Text',b.module)))
-    (folder/'UiApi.pas').write_text(STUB.replace('__CONTROLS__',','.join(names)))
+    (folder/'UiApi.pas').write_text(STUB.replace('__CONTROLS__',','.join(names)),encoding='utf8')
     code='unit UiConsole;\n{$mode objfpc}{$H+}{$codepage utf8}\n'+b.module.replace('interface','interface\nuses SysUtils,UiApi;',1)
-    (folder/'UiConsole.pas').write_text(code)
+    (folder/'UiConsole.pas').write_text(code,encoding='utf8')
     init='\n'.join(n+':=TControl.Create;' for n in names)
     callbacks='\n'.join('procedure TestClick'+str(i)+';\n'+e['body'].rsplit('end.',1)[0]+'end;' for i,e in enumerate(b.events))
     harness=r'''program VerifyUi;
@@ -108,7 +112,7 @@ begin
  WriteLn('PASS native UI runtime assertions=',N);
 end.
 '''.replace('__INIT__',init).replace('__CALLBACKS__',callbacks)
-    (folder/'VerifyUi.pas').write_text(harness)
+    (folder/'VerifyUi.pas').write_text(harness,encoding='utf8')
     compiler=fpc();cmd=[str(compiler),'-gl','-Cr','-Co','-Fu'+str(folder),'-FE'+str(folder),'-FU'+str(folder)]+['-Fu'+str(p) for p in fpc_units(compiler)]+[str(folder/'VerifyUi.pas')]
     compiled=subprocess.run(cmd,text=True,capture_output=True,timeout=60)
     assert compiled.returncode==0,compiled.stdout+compiled.stderr
@@ -130,9 +134,9 @@ def windows(raw):
     assert text()=='..\\' and scalar('I')==0 and scalar('I')==0
     assert text()=='..\\' and scalar('I')==0
     for i in range(scalar('I')):
-        assert scalar('B')==254 and scalar('q')==i
+        assert scalar('B')==254 and scalar('q')==i+1
         names.append(text());pos+=63;text(True)
-        tail=raw[pos:pos+42];assert tail[9:33]==b'\xff'*24;uids.append(struct.unpack_from('<I',tail,5)[0]);pos+=42
+        tail=raw[pos:pos+42];assert tail[:4]==bytes(4) and tail[9:33]==b'\xff'*24;uids.append(struct.unpack_from('<I',tail,5)[0]);pos+=42
         for _ in range(scalar('I')):
             assert scalar('H')==4;names.append(text());body=raw[pos:pos+141];uids.append(struct.unpack_from('<I',body,107)[0]);pos+=141;text(True);pos+=9
     assert pos==len(raw) and len(set(names))==len(names) and len(set(uids))==len(uids)
@@ -146,11 +150,11 @@ def copies(folder,out):
     rows=parse_scripts((ROOT/'source/scada-native-08/Scripts.ssc').read_bytes())
     for i,(id_,name,meta,lines) in enumerate(rows):
         path=ROOT/'artifacts/station-setpoint-click-fix-01/scripts'/(name+'.txt')
-        if path.exists():rows[i]=(id_,name,meta,path.read_text().splitlines())
+        if path.exists():rows[i]=(id_,name,meta,path.read_text(encoding='utf8').splitlines())
     (source/'Scripts/Scripts.ssc').write_bytes(serialize_scripts(rows))
     (source/'PrivateSettings.fixture').write_text('SYNTHETIC settings retained locally')
     (source/'Scripts/Compiled').mkdir(exist_ok=True);(source/'Scripts/Compiled/cache.exs').write_bytes(b'cache')
-    base=hashes(source);installer=(out/'Install-Operator-Console-01.ps1').read_text()
+    base=hashes(source);installer=(out/'Install-Operator-Console-01.ps1').read_text(encoding='utf8')
     for name,pinned in [('Scripts/Scripts.ssc','51cc9561bb7a2b3ad3b7068db28b860d70ef9587a4586ea27a0d0eb683e7a858'),('Variables.svr','c13c163398f114a4c8ba96a93f1355a876692a65ee3b020cf32e95bb9634fd3a'),('Servers.ssr','c0662185786f2204479c9ad90d2dcc2ed0dbb79d9d532942f1841f650ef498b6')]:
         installer=installer.replace(pinned,base[name])
     results=[]
@@ -163,7 +167,7 @@ def copies(folder,out):
         if case=='destination_exists':target.mkdir();(target/'keep').write_text('preserve')
         if case=='nested_destination':target=src/'nested'
         if case=='corrupt_packet':code=code.replace("if((UiHash $packetRaw) -ne '","if((UiHash $packetRaw) -ne '00",1)
-        script=folder/('install-'+case+'.ps1');script.write_text(code)
+        script=folder/('install-'+case+'.ps1');script.write_text(code,encoding='utf8')
         env=dict(os.environ,XDG_CACHE_HOME=str(folder/'cache'),XDG_CONFIG_HOME=str(folder/'config'),XDG_DATA_HOME=str(folder/'data'))
         before=hashes(src)
         p=subprocess.run([PWSH,'-NoLogo','-NoProfile','-NonInteractive','-File',str(script),'-SourcePath',str(src),'-TargetPath',str(target)],env=env,text=True,capture_output=True,timeout=30)
@@ -176,6 +180,13 @@ def copies(folder,out):
                 assert after[name]==digest,(case,name)
             assert not (target/'Scripts/Compiled/cache.exs').exists()
             updated=parse_scripts((target/'Scripts/Scripts.ssc').read_bytes())
+            by_name={r[1]:r for r in updated}
+            old_by_name={r[1]:r for r in rows}
+            for row in updated[7:]:
+                prototype=old_by_name['StationDiagnostics' if row[1]=='OperatorConsole' else 'ProcessSpPlus_OnClick'][2]
+                assert row[2][:2]==prototype[:2] and row[2][6:9]==prototype[6:9],row[1]
+                assert row[2][6]==1 and row[2][8]==0,row[1]
+            assert by_name['OperatorConsole'][2][1]==16
             for a,b in zip(rows,updated[:7]):
                 if a[1]=='StationDiagnosticsTimer':assert '\n'.join(b[3]).count('OperatorUiUpdate;')==1
                 else:assert a[3]==b[3],a[1]

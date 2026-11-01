@@ -83,10 +83,12 @@ try {
  if([regex]::Matches($body,'StationProcessUpdate\s*;').Count -ne 1){throw 'Reviewed process refresh call not found'}
  $body=[regex]::Replace($body,'StationProcessUpdate\s*;','StationProcessUpdate;'+"`n"+'  OperatorUiUpdate;')
  $timer.Lines=$body.Split([string[]]@("`n"),[StringSplitOptions]::None)
- $added=@(@{id=7;name='OperatorConsole';body=[string]$packet.module;kind=10})
- foreach($event in $packet.events){$added+=@{id=[long]$event.id;name=[string]$event.name;body=[string]$event.body;kind=1}}
+ $added=@(@{id=7;name='OperatorConsole';body=[string]$packet.module;prototype='StationDiagnostics'})
+ foreach($event in $packet.events){$added+=@{id=[long]$event.id;name=[string]$event.name;body=[string]$event.body;prototype='ProcessSpPlus_OnClick'}}
  foreach($item in $added) {
-  [byte[]]$meta=New-Object byte[] 17;$meta[0]=[byte]$item.kind;$meta[8]=1
+  $prototype=@($rows|Where-Object {$_.Name -ceq $item.prototype})
+  if($prototype.Count -ne 1){throw 'Reviewed script metadata prototype not found'}
+  [byte[]]$meta=$prototype[0].Meta.Clone()
   [BitConverter]::GetBytes([int](170000+4*$item.id)).CopyTo($meta,2)
   $rows.Add(@{Id=[long]$item.id;Name=[string]$item.name;Meta=$meta;Lines=$item.body.Split([string[]]@("`n"),[StringSplitOptions]::None)})
  }

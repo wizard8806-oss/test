@@ -86,7 +86,7 @@ function Start-ProjectPythonInstaller([string]$Installer,[string]$Directory,[str
   'Include_doc=0','Include_tcltk=0','Include_dev=0','Include_debug=0','Include_symbols=0',
   'Include_exe=1','Include_lib=1','CompileAll=0',
   ('TargetDir="'+$Directory+'"'),'/log',('"'+$LogPath+'"'))
- $process=Start-Process -FilePath $Installer -ArgumentList $arguments -Wait -PassThru
+ $process=Start-Process -FilePath $Installer -ArgumentList $arguments -WindowStyle Hidden -Wait -PassThru
  return [int]$process.ExitCode
 }
 

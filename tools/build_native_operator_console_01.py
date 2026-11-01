@@ -237,11 +237,12 @@ class Builder:
         windows=[]
         for i,s in enumerate(self.stations):
             frame=bytearray(prefix);struct.pack_into('<4f',frame,8,80,90,1100,640)
-            end=bytearray(tail);struct.pack_into('<I',end,0,BG);struct.pack_into('<I',end,5,95000+4*i)
+            struct.pack_into('<I',frame,45,BG)
+            end=bytearray(tail);struct.pack_into('<I',end,5,95000+4*i)
             rows=[self.text('UiWindow'+str(i)+'Title',s['name'],(100,138,1060,64),1.3)]
             for j,suffix in enumerate(['Mode','Pressure','Setpoint','Status']):rows.append(self.text('UiWindow'+str(i)+suffix,'Нет данных',(100,220+88*j,1060,64),1.1))
             rows.append(self.text('UiWindow'+str(i)+'Note','Наблюдение. Изменение уставки — в основной карточке станции.',(100,596,1060,68),.8,fg=MUTED))
-            windows.append(b'\xfe'+I64(i)+string('UiWindow_'+s['id'].replace('-','_'))+frame+string(s['name'],True)+end+U32(len(rows))+b''.join(rows))
+            windows.append(b'\xfe'+I64(i+1)+string('UiWindow_'+s['id'].replace('-','_'))+frame+string(s['name'],True)+end+U32(len(rows))+b''.join(rows))
         return string('..\\')+U32(0)+U32(0)+string('..\\')+U32(0)+U32(len(windows))+b''.join(windows)
 
     def build_module(self):

@@ -54,10 +54,10 @@ function Invoke-WebRequest{
  [IO.File]::WriteAllBytes($OutFile,$b)
 }
 function Start-Process{
- param([string]$FilePath,[string[]]$ArgumentList,[switch]$Wait,[switch]$PassThru)
+ param([string]$FilePath,[string[]]$ArgumentList,[string]$WindowStyle,[switch]$Wait,[switch]$PassThru)
  $script:starts++
  if($script:starts -ne 1){throw 'Automatic installer retry detected'}
- if($FilePath -ne (Join-Path $script:cache 'python-fixture-amd64.exe') -or -not $Wait -or -not $PassThru){throw 'Unexpected process invocation'}
+ if($FilePath -ne (Join-Path $script:cache 'python-fixture-amd64.exe') -or $WindowStyle -ne 'Hidden' -or -not $Wait -or -not $PassThru){throw 'Unexpected process invocation'}
  foreach($required in @('/quiet','InstallAllUsers=0','PrependPath=0','AssociateFiles=0','Include_launcher=0','InstallLauncherAllUsers=0','Include_pip=0','Include_test=0')){
   if($ArgumentList -notcontains $required){throw ('Missing scope flag '+$required)}
  }
