@@ -1,0 +1,853 @@
+{
+  "source": "station_MC_CM55_900G_05.pdw",
+  "sourceSHA256": "6aba2a67d07596e4a479c462412859565186de86b410a3cd44476a81f20ffe81",
+  "formatterSHA256": "daef5641e3f9fb8405e6d614f393f35f279a47bbec4bacac2ce844dbb463b3e9",
+  "preservedBaseline": {
+    "addedNetworksVerified": 7,
+    "addedProgramBytes": 56,
+    "allExistingNetworksPreserved": 1834,
+    "allNineTablesPreserved": true,
+    "newDrivePollRequests": 0,
+    "mapVersionRemains32": true,
+    "changedImageHeaderOffsets": [
+      200,
+      202,
+      203,
+      262,
+      263,
+      264,
+      265,
+      268,
+      269,
+      270,
+      271
+    ],
+    "scope": "Strict network/MOV/body/table comparison; header deltas and native F8/runtime require separate observation",
+    "candidate": "station_MC_CM55_900G_05.pdw",
+    "candidateSHA256": "6aba2a67d07596e4a479c462412859565186de86b410a3cd44476a81f20ffe81",
+    "nativeF8Observed": false,
+    "actualPLCUpdateObserved": false,
+    "actualFeedbackObserved": false,
+    "checkerModifiedFiles": false
+  },
+  "networkSpansFormatted": 1841,
+  "formatterFailures": [],
+  "programEnd": 27182,
+  "rawEvenOperandOffsets": {
+    "R2100": [
+      558,
+      10078,
+      10086,
+      10096,
+      10106,
+      10114,
+      10132,
+      10150,
+      10422,
+      10474,
+      20694,
+      23728
+    ],
+    "R2360": [
+      23730
+    ]
+  },
+  "directReferences": [
+    {
+      "pc": 554,
+      "label": "10.03 | PRESSURE_SETPOINT",
+      "codeHex": "4fe8f4ac1a680adc",
+      "mnemonics": "00000M  ORG   SHORT       \r\n00001M  FUN   08 _.MOV    \r\n              S :  R2100  \r\n              D :  R110   \r\n"
+    },
+    {
+      "pc": 10074,
+      "label": "65.J11 | AUTO_PI_HMI_NATIVE",
+      "codeHex": "f67f00161a680009f67f00231a6804b08fed7fe8f6681a68000a4564",
+      "mnemonics": "00000M  ORGF  171_.>      \r\n              Sa:  R2100  \r\n              Sb:  9      \r\n00001M  ANDF  172_.<      \r\n              Sa:  R2100  \r\n              Sb:  1200   \r\n00002M  AND   SHORT       \r\n00003M  LD    OPEN        \r\n00004M  FUN   14 _.(/)    \r\n              Sa:  R2100  \r\n              Sb:  10     \r\n              D :  D690   \r\n"
+    },
+    {
+      "pc": 10102,
+      "label": "65.J12 | AUTO_PI_HMI_VALID",
+      "codeHex": "f67f00161a680009f67f00231a6804b0f67f002145660000cbd4",
+      "mnemonics": "00000M  ORGF  171_.>      \r\n              Sa:  R2100  \r\n              Sb:  9      \r\n00001M  ANDF  172_.<      \r\n              Sa:  R2100  \r\n              Sb:  1200   \r\n00002M  ANDF  170_.=      \r\n              Sa:  D691   \r\n              Sb:  0      \r\n00003M  OUT        M964   \r\n"
+    },
+    {
+      "pc": 10128,
+      "label": "65.J13 | AUTO_PI_EDIT_CHANGED",
+      "codeHex": "f47f00181a684568f47f002a421c456acbe4",
+      "mnemonics": "00000M  ORGF  173_.<>     \r\n              Sa:  R2100  \r\n              Sb:  D692   \r\n00001M  ORF   173_.<>     \r\n              Sa:  D270   \r\n              Sb:  D693   \r\n00002M  OUT        M980   \r\n"
+    },
+    {
+      "pc": 10146,
+      "label": "65.J14 | AUTO_PI_EDIT_PRESSURE",
+      "codeHex": "4be4f4ac1a684568",
+      "mnemonics": "00000M  ORG        M980   \r\n00001M  FUN   08 _.MOV    \r\n              S :  R2100  \r\n              D :  D692   \r\n"
+    },
+    {
+      "pc": 10402,
+      "label": "65.J39 | AUTO_PI_READY",
+      "codeHex": "4bd58bd48be5f47f00214540421cf47f002145421a68cbd9",
+      "mnemonics": "00000M  ORG        M965   \r\n00001M  AND        M964   \r\n00002M  AND        M981   \r\n00003M  ANDF  170_.=      \r\n              Sa:  D672   \r\n              Sb:  D270   \r\n00004M  ANDF  170_.=      \r\n              Sa:  D673   \r\n              Sb:  R2100  \r\n00005M  OUT        M969   \r\n"
+    },
+    {
+      "pc": 10452,
+      "label": "65.J41 | AUTO_PI_JOB_PRESSURE",
+      "codeHex": "4bd58bd4824a8bda9bd9f67f0021453e00008febf4ac1a684546",
+      "mnemonics": "00000M  ORG        M965   \r\n00001M  AND        M964   \r\n00002M  AND        T74    \r\n00003M  AND        M970   \r\n00004M  AND   NOT  M969   \r\n00005M  ANDF  170_.=      \r\n              Sa:  D671   \r\n              Sb:  0      \r\n00006M  AND   SHORT       \r\n00007M  FUN   08 _.MOV    \r\n              S :  R2100  \r\n              D :  D675   \r\n"
+    },
+    {
+      "pc": 20690,
+      "label": "95.045 | HMI_ARM_SNAPSHOT_D965",
+      "codeHex": "4d28f4ac1a68478a",
+      "mnemonics": "00000M  ORG        M1304  \r\n00001M  FUN   08 _.MOV    \r\n              S :  R2100  \r\n              D :  D965   \r\n"
+    },
+    {
+      "pc": 23724,
+      "label": "95.A001 | HMI_TREND_SETPOINT",
+      "codeHex": "4fe8f4ac1a681c70",
+      "mnemonics": "00000M  ORG   SHORT       \r\n00001M  FUN   08 _.MOV    \r\n              S :  R2100  \r\n              D :  R2360  \r\n"
+    }
+  ],
+  "nearbyReferences": [
+    {
+      "label": "10.03 | PRESSURE_SETPOINT",
+      "pc": 554,
+      "mnemonics": "00000M  ORG   SHORT       \r\n00001M  FUN   08 _.MOV    \r\n              S :  R2100  \r\n              D :  R110   \r\n"
+    },
+    {
+      "label": "65.G03 | AUTO_FREQ_HMI_VALID",
+      "pc": 7820,
+      "mnemonics": "00000M  ORGF  171_.>      \r\n              Sa:  R2110  \r\n              Sb:  199    \r\n00001M  ANDF  172_.<      \r\n              Sa:  R2110  \r\n              Sb:  501    \r\n00002M  OUT        M841   \r\n"
+    },
+    {
+      "label": "65.G11 | AUTO_FREQ_SETPOINT_CHANGED",
+      "pc": 8200,
+      "mnemonics": "00000M  ORGF  173_.<>     \r\n              Sa:  R2110  \r\n              Sb:  D404   \r\n00001M  OUT        M855   \r\n"
+    },
+    {
+      "label": "65.G28 | AUTO_FREQ_CONTEXT_RESET",
+      "pc": 8482,
+      "mnemonics": "00000M  ORG   NOT  M840   \r\n00001M  OR         M855   \r\n00002M  OR         M1924  \r\n00003M  FUN   08 _.MOV    \r\n              S :  0      \r\n              D :  D400   \r\n00004M  FUN   08 _.MOV    \r\n              S :  0      \r\n              D :  D401   \r\n00005M  FUN   08 _.MOV    \r\n              S :  R2110  \r\n              D :  D404   \r\n00006M  OUTR       M850   \r\n00007M  OUTR       M851   \r\n00008M  OUTR       M852   \r\n00009M  OUTR       M853   \r\n"
+    },
+    {
+      "label": "65.J11 | AUTO_PI_HMI_NATIVE",
+      "pc": 10074,
+      "mnemonics": "00000M  ORGF  171_.>      \r\n              Sa:  R2100  \r\n              Sb:  9      \r\n00001M  ANDF  172_.<      \r\n              Sa:  R2100  \r\n              Sb:  1200   \r\n00002M  AND   SHORT       \r\n00003M  LD    OPEN        \r\n00004M  FUN   14 _.(/)    \r\n              Sa:  R2100  \r\n              Sb:  10     \r\n              D :  D690   \r\n"
+    },
+    {
+      "label": "65.J12 | AUTO_PI_HMI_VALID",
+      "pc": 10102,
+      "mnemonics": "00000M  ORGF  171_.>      \r\n              Sa:  R2100  \r\n              Sb:  9      \r\n00001M  ANDF  172_.<      \r\n              Sa:  R2100  \r\n              Sb:  1200   \r\n00002M  ANDF  170_.=      \r\n              Sa:  D691   \r\n              Sb:  0      \r\n00003M  OUT        M964   \r\n"
+    },
+    {
+      "label": "65.J13 | AUTO_PI_EDIT_CHANGED",
+      "pc": 10128,
+      "mnemonics": "00000M  ORGF  173_.<>     \r\n              Sa:  R2100  \r\n              Sb:  D692   \r\n00001M  ORF   173_.<>     \r\n              Sa:  D270   \r\n              Sb:  D693   \r\n00002M  OUT        M980   \r\n"
+    },
+    {
+      "label": "65.J14 | AUTO_PI_EDIT_PRESSURE",
+      "pc": 10146,
+      "mnemonics": "00000M  ORG        M980   \r\n00001M  FUN   08 _.MOV    \r\n              S :  R2100  \r\n              D :  D692   \r\n"
+    },
+    {
+      "label": "65.J39 | AUTO_PI_READY",
+      "pc": 10402,
+      "mnemonics": "00000M  ORG        M965   \r\n00001M  AND        M964   \r\n00002M  AND        M981   \r\n00003M  ANDF  170_.=      \r\n              Sa:  D672   \r\n              Sb:  D270   \r\n00004M  ANDF  170_.=      \r\n              Sa:  D673   \r\n              Sb:  R2100  \r\n00005M  OUT        M969   \r\n"
+    },
+    {
+      "label": "65.J41 | AUTO_PI_JOB_PRESSURE",
+      "pc": 10452,
+      "mnemonics": "00000M  ORG        M965   \r\n00001M  AND        M964   \r\n00002M  AND        T74    \r\n00003M  AND        M970   \r\n00004M  AND   NOT  M969   \r\n00005M  ANDF  170_.=      \r\n              Sa:  D671   \r\n              Sb:  0      \r\n00006M  AND   SHORT       \r\n00007M  FUN   08 _.MOV    \r\n              S :  R2100  \r\n              D :  D675   \r\n"
+    },
+    {
+      "label": "65.H08 | AUTO_FREQ_APPLIED_P1",
+      "pc": 13442,
+      "mnemonics": "00000M  ORG   NOT  M750   \r\n00001M  ORF   170_.=      \r\n              Sa:  D270   \r\n              Sb:  1      \r\n00002M  LD         M850   \r\n00003M  ANDF  170_.=      \r\n              Sa:  D420   \r\n              Sb:  R2110  \r\n00004M  ORLD              \r\n00005M  OUT        M874   \r\n"
+    },
+    {
+      "label": "65.H09 | AUTO_FREQ_APPLIED_P2",
+      "pc": 13466,
+      "mnemonics": "00000M  ORG   NOT  M751   \r\n00001M  ORF   170_.=      \r\n              Sa:  D270   \r\n              Sb:  2      \r\n00002M  LD         M851   \r\n00003M  ANDF  170_.=      \r\n              Sa:  D421   \r\n              Sb:  R2110  \r\n00004M  ORLD              \r\n00005M  OUT        M875   \r\n"
+    },
+    {
+      "label": "65.H10 | AUTO_FREQ_APPLIED_P3",
+      "pc": 13490,
+      "mnemonics": "00000M  ORG   NOT  M752   \r\n00001M  ORF   170_.=      \r\n              Sa:  D270   \r\n              Sb:  3      \r\n00002M  LD         M852   \r\n00003M  ANDF  170_.=      \r\n              Sa:  D422   \r\n              Sb:  R2110  \r\n00004M  ORLD              \r\n00005M  OUT        M876   \r\n"
+    },
+    {
+      "label": "65.H11 | AUTO_FREQ_APPLIED_P4",
+      "pc": 13514,
+      "mnemonics": "00000M  ORG   NOT  M753   \r\n00001M  ORF   170_.=      \r\n              Sa:  D270   \r\n              Sb:  4      \r\n00002M  LD         M853   \r\n00003M  ANDF  170_.=      \r\n              Sa:  D423   \r\n              Sb:  R2110  \r\n00004M  ORLD              \r\n00005M  OUT        M877   \r\n"
+    },
+    {
+      "label": "65.C037 | CASCADE_FREQ_CURRENT_P1",
+      "pc": 16248,
+      "mnemonics": "00000M  ORG        M850   \r\n00001M  ANDF  170_.=      \r\n              Sa:  D420   \r\n              Sb:  R2110  \r\n00002M  OUT        M1224  \r\n"
+    },
+    {
+      "label": "65.C040 | CASCADE_FREQ_CURRENT_P2",
+      "pc": 16286,
+      "mnemonics": "00000M  ORG        M851   \r\n00001M  ANDF  170_.=      \r\n              Sa:  D421   \r\n              Sb:  R2110  \r\n00002M  OUT        M1225  \r\n"
+    },
+    {
+      "label": "65.C043 | CASCADE_FREQ_CURRENT_P3",
+      "pc": 16324,
+      "mnemonics": "00000M  ORG        M852   \r\n00001M  ANDF  170_.=      \r\n              Sa:  D422   \r\n              Sb:  R2110  \r\n00002M  OUT        M1226  \r\n"
+    },
+    {
+      "label": "65.C046 | CASCADE_FREQ_CURRENT_P4",
+      "pc": 16362,
+      "mnemonics": "00000M  ORG        M853   \r\n00001M  ANDF  170_.=      \r\n              Sa:  D423   \r\n              Sb:  R2110  \r\n00002M  OUT        M1227  \r\n"
+    },
+    {
+      "label": "95.045 | HMI_ARM_SNAPSHOT_D965",
+      "pc": 20690,
+      "mnemonics": "00000M  ORG        M1304  \r\n00001M  FUN   08 _.MOV    \r\n              S :  R2100  \r\n              D :  D965   \r\n"
+    },
+    {
+      "label": "95.073 | HMI_AUTO_REASON_FREQUENCY_HMI_LOW",
+      "pc": 21070,
+      "mnemonics": "00000M  ORGF  170_.=      \r\n              Sa:  R2301  \r\n              Sb:  0      \r\n00001M  AND        M300   \r\n00002M  AND   NOT  M740   \r\n00003M  ANDF  172_.<      \r\n              Sa:  R2110  \r\n              Sb:  200    \r\n00004M  AND   SHORT       \r\n00005M  FUN   08 _.MOV    \r\n              S :  14     \r\n              D :  R2301  \r\n"
+    },
+    {
+      "label": "95.074 | HMI_AUTO_REASON_FREQUENCY_HMI_HIGH",
+      "pc": 21098,
+      "mnemonics": "00000M  ORGF  170_.=      \r\n              Sa:  R2301  \r\n              Sb:  0      \r\n00001M  AND        M300   \r\n00002M  AND   NOT  M740   \r\n00003M  ANDF  171_.>      \r\n              Sa:  R2110  \r\n              Sb:  500    \r\n00004M  AND   SHORT       \r\n00005M  FUN   08 _.MOV    \r\n              S :  14     \r\n              D :  R2301  \r\n"
+    },
+    {
+      "label": "95.A001 | HMI_TREND_SETPOINT",
+      "pc": 23724,
+      "mnemonics": "00000M  ORG   SHORT       \r\n00001M  FUN   08 _.MOV    \r\n              S :  R2100  \r\n              D :  R2360  \r\n"
+    },
+    {
+      "label": "95.A002 | HMI_TREND_PRESSURE",
+      "pc": 23732,
+      "mnemonics": "00000M  ORG   SHORT       \r\n00001M  FUN   08 _.MOV    \r\n              S :  R2302  \r\n              D :  R2361  \r\n"
+    },
+    {
+      "label": "95.A003 | HMI_TREND_QUALITY",
+      "pc": 23740,
+      "mnemonics": "00000M  ORG   SHORT       \r\n00001M  FUN   08 _.MOV    \r\n              S :  R2303  \r\n              D :  R2362  \r\n"
+    },
+    {
+      "label": "95.A027 | HMI_ALARM_FOLLOWER_SETPOINT",
+      "pc": 23996,
+      "mnemonics": "00000M  ORG   NOT  M1924  \r\n00001M  LDF   172_.<      \r\n              Sa:  R2110  \r\n              Sb:  200    \r\n00002M  ORF   171_.>      \r\n              Sa:  R2110  \r\n              Sb:  500    \r\n00003M  ANDLD             \r\n00004M  OUT        M1572  \r\n"
+    },
+    {
+      "label": "95.A029 | HMI_ALARM_ACTIVE_COUNT_RESET",
+      "pc": 24030,
+      "mnemonics": "00000M  ORG   SHORT       \r\n00001M  FUN   08 _.MOV    \r\n              S :  0      \r\n              D :  R2363  \r\n"
+    },
+    {
+      "label": "95.A030 | HMI_ALARM_ACTIVE_COUNT_0",
+      "pc": 24038,
+      "mnemonics": "00000M  ORG        M1550  \r\n00001M  LD    OPEN        \r\n00002M  FUN   12 _.(-)    \r\n              Sa:  R2363  \r\n              Sb:  -1     \r\n              D :  R2363  \r\n"
+    },
+    {
+      "label": "95.A031 | HMI_ALARM_ACTIVE_COUNT_1",
+      "pc": 24050,
+      "mnemonics": "00000M  ORG        M1551  \r\n00001M  LD    OPEN        \r\n00002M  FUN   12 _.(-)    \r\n              Sa:  R2363  \r\n              Sb:  -1     \r\n              D :  R2363  \r\n"
+    },
+    {
+      "label": "95.A032 | HMI_ALARM_ACTIVE_COUNT_2",
+      "pc": 24062,
+      "mnemonics": "00000M  ORG        M1552  \r\n00001M  LD    OPEN        \r\n00002M  FUN   12 _.(-)    \r\n              Sa:  R2363  \r\n              Sb:  -1     \r\n              D :  R2363  \r\n"
+    },
+    {
+      "label": "95.A033 | HMI_ALARM_ACTIVE_COUNT_3",
+      "pc": 24074,
+      "mnemonics": "00000M  ORG        M1553  \r\n00001M  LD    OPEN        \r\n00002M  FUN   12 _.(-)    \r\n              Sa:  R2363  \r\n              Sb:  -1     \r\n              D :  R2363  \r\n"
+    },
+    {
+      "label": "95.A034 | HMI_ALARM_ACTIVE_COUNT_4",
+      "pc": 24086,
+      "mnemonics": "00000M  ORG        M1554  \r\n00001M  LD    OPEN        \r\n00002M  FUN   12 _.(-)    \r\n              Sa:  R2363  \r\n              Sb:  -1     \r\n              D :  R2363  \r\n"
+    },
+    {
+      "label": "95.A035 | HMI_ALARM_ACTIVE_COUNT_5",
+      "pc": 24098,
+      "mnemonics": "00000M  ORG        M1555  \r\n00001M  LD    OPEN        \r\n00002M  FUN   12 _.(-)    \r\n              Sa:  R2363  \r\n              Sb:  -1     \r\n              D :  R2363  \r\n"
+    },
+    {
+      "label": "95.A036 | HMI_ALARM_ACTIVE_COUNT_6",
+      "pc": 24110,
+      "mnemonics": "00000M  ORG        M1556  \r\n00001M  LD    OPEN        \r\n00002M  FUN   12 _.(-)    \r\n              Sa:  R2363  \r\n              Sb:  -1     \r\n              D :  R2363  \r\n"
+    },
+    {
+      "label": "95.A037 | HMI_ALARM_ACTIVE_COUNT_7",
+      "pc": 24122,
+      "mnemonics": "00000M  ORG        M1557  \r\n00001M  LD    OPEN        \r\n00002M  FUN   12 _.(-)    \r\n              Sa:  R2363  \r\n              Sb:  -1     \r\n              D :  R2363  \r\n"
+    },
+    {
+      "label": "95.A038 | HMI_ALARM_ACTIVE_COUNT_8",
+      "pc": 24134,
+      "mnemonics": "00000M  ORG        M1558  \r\n00001M  LD    OPEN        \r\n00002M  FUN   12 _.(-)    \r\n              Sa:  R2363  \r\n              Sb:  -1     \r\n              D :  R2363  \r\n"
+    },
+    {
+      "label": "95.A039 | HMI_ALARM_ACTIVE_COUNT_9",
+      "pc": 24146,
+      "mnemonics": "00000M  ORG        M1559  \r\n00001M  LD    OPEN        \r\n00002M  FUN   12 _.(-)    \r\n              Sa:  R2363  \r\n              Sb:  -1     \r\n              D :  R2363  \r\n"
+    },
+    {
+      "label": "95.A040 | HMI_ALARM_ACTIVE_COUNT_10",
+      "pc": 24158,
+      "mnemonics": "00000M  ORG        M1560  \r\n00001M  LD    OPEN        \r\n00002M  FUN   12 _.(-)    \r\n              Sa:  R2363  \r\n              Sb:  -1     \r\n              D :  R2363  \r\n"
+    },
+    {
+      "label": "95.A041 | HMI_ALARM_ACTIVE_COUNT_11",
+      "pc": 24170,
+      "mnemonics": "00000M  ORG        M1561  \r\n00001M  LD    OPEN        \r\n00002M  FUN   12 _.(-)    \r\n              Sa:  R2363  \r\n              Sb:  -1     \r\n              D :  R2363  \r\n"
+    },
+    {
+      "label": "95.A042 | HMI_ALARM_ACTIVE_COUNT_12",
+      "pc": 24182,
+      "mnemonics": "00000M  ORG        M1562  \r\n00001M  LD    OPEN        \r\n00002M  FUN   12 _.(-)    \r\n              Sa:  R2363  \r\n              Sb:  -1     \r\n              D :  R2363  \r\n"
+    },
+    {
+      "label": "95.A043 | HMI_ALARM_ACTIVE_COUNT_13",
+      "pc": 24194,
+      "mnemonics": "00000M  ORG        M1563  \r\n00001M  LD    OPEN        \r\n00002M  FUN   12 _.(-)    \r\n              Sa:  R2363  \r\n              Sb:  -1     \r\n              D :  R2363  \r\n"
+    },
+    {
+      "label": "95.A044 | HMI_ALARM_ACTIVE_COUNT_14",
+      "pc": 24206,
+      "mnemonics": "00000M  ORG        M1564  \r\n00001M  LD    OPEN        \r\n00002M  FUN   12 _.(-)    \r\n              Sa:  R2363  \r\n              Sb:  -1     \r\n              D :  R2363  \r\n"
+    },
+    {
+      "label": "95.A045 | HMI_ALARM_ACTIVE_COUNT_15",
+      "pc": 24218,
+      "mnemonics": "00000M  ORG        M1565  \r\n00001M  LD    OPEN        \r\n00002M  FUN   12 _.(-)    \r\n              Sa:  R2363  \r\n              Sb:  -1     \r\n              D :  R2363  \r\n"
+    },
+    {
+      "label": "95.A046 | HMI_ALARM_ACTIVE_COUNT_16",
+      "pc": 24230,
+      "mnemonics": "00000M  ORG        M1566  \r\n00001M  LD    OPEN        \r\n00002M  FUN   12 _.(-)    \r\n              Sa:  R2363  \r\n              Sb:  -1     \r\n              D :  R2363  \r\n"
+    },
+    {
+      "label": "95.A047 | HMI_ALARM_ACTIVE_COUNT_17",
+      "pc": 24242,
+      "mnemonics": "00000M  ORG        M1567  \r\n00001M  LD    OPEN        \r\n00002M  FUN   12 _.(-)    \r\n              Sa:  R2363  \r\n              Sb:  -1     \r\n              D :  R2363  \r\n"
+    },
+    {
+      "label": "95.A048 | HMI_ALARM_ACTIVE_COUNT_18",
+      "pc": 24254,
+      "mnemonics": "00000M  ORG        M1568  \r\n00001M  LD    OPEN        \r\n00002M  FUN   12 _.(-)    \r\n              Sa:  R2363  \r\n              Sb:  -1     \r\n              D :  R2363  \r\n"
+    },
+    {
+      "label": "95.A049 | HMI_ALARM_ACTIVE_COUNT_19",
+      "pc": 24266,
+      "mnemonics": "00000M  ORG        M1569  \r\n00001M  LD    OPEN        \r\n00002M  FUN   12 _.(-)    \r\n              Sa:  R2363  \r\n              Sb:  -1     \r\n              D :  R2363  \r\n"
+    },
+    {
+      "label": "95.A050 | HMI_ALARM_ACTIVE_COUNT_20",
+      "pc": 24278,
+      "mnemonics": "00000M  ORG        M1570  \r\n00001M  LD    OPEN        \r\n00002M  FUN   12 _.(-)    \r\n              Sa:  R2363  \r\n              Sb:  -1     \r\n              D :  R2363  \r\n"
+    },
+    {
+      "label": "95.A051 | HMI_ALARM_ACTIVE_COUNT_21",
+      "pc": 24290,
+      "mnemonics": "00000M  ORG        M1571  \r\n00001M  LD    OPEN        \r\n00002M  FUN   12 _.(-)    \r\n              Sa:  R2363  \r\n              Sb:  -1     \r\n              D :  R2363  \r\n"
+    },
+    {
+      "label": "95.A052 | HMI_ALARM_ACTIVE_COUNT_22",
+      "pc": 24302,
+      "mnemonics": "00000M  ORG        M1572  \r\n00001M  LD    OPEN        \r\n00002M  FUN   12 _.(-)    \r\n              Sa:  R2363  \r\n              Sb:  -1     \r\n              D :  R2363  \r\n"
+    },
+    {
+      "label": "95.A053 | HMI_ALARM_ACTIVE_COUNT_23",
+      "pc": 24314,
+      "mnemonics": "00000M  ORG        M1573  \r\n00001M  LD    OPEN        \r\n00002M  FUN   12 _.(-)    \r\n              Sa:  R2363  \r\n              Sb:  -1     \r\n              D :  R2363  \r\n"
+    },
+    {
+      "label": "95.M004 | MAN_CHANNEL_NOT_READY",
+      "pc": 24386,
+      "mnemonics": "00000M  ORG   SHORT       \r\n00001M  FUN   08 _.MOV    \r\n              S :  0      \r\n              D :  R2350  \r\n"
+    },
+    {
+      "label": "95.M005 | MAN_CHANNEL_READY",
+      "pc": 24394,
+      "mnemonics": "00000M  ORGF  170_.=      \r\n              Sa:  R2498  \r\n              Sb:  27110  \r\n00001M  ANDF  170_.=      \r\n              Sa:  R2499  \r\n              Sb:  27110  \r\n00002M  AND   NOT  M1924  \r\n00003M  FUN   08 _.MOV    \r\n              S :  1      \r\n              D :  R2350  \r\n"
+    },
+    {
+      "label": "96.L077 | ACTUAL_ALARM",
+      "pc": 25912,
+      "mnemonics": "00000M  ORGF  171_.>      \r\n              Sa:  R2363  \r\n              Sb:  0      \r\n00001M  OUT        M1800  \r\n"
+    }
+  ],
+  "explicitBlockTransfers": [
+    {
+      "label": "65.S32 | STOP_PROBE_TABLE_COPY",
+      "source": "R5600",
+      "destination": "D820",
+      "words": 10
+    },
+    {
+      "label": "65.K32 | PI_PARAM_COPY_R6200",
+      "source": "R6200",
+      "destination": "D700",
+      "words": 17
+    },
+    {
+      "label": "65.K33 | PI_PARAM_COPY_R6400",
+      "source": "R6400",
+      "destination": "D720",
+      "words": 10
+    },
+    {
+      "label": "65.K34 | PI_PARAM_COPY_R6600",
+      "source": "R6600",
+      "destination": "D740",
+      "words": 10
+    },
+    {
+      "label": "65.K38A | PI_PARAM_CONFIG_HEADER",
+      "source": "D700",
+      "destination": "D800",
+      "words": 2
+    },
+    {
+      "label": "65.K38B | PI_PARAM_CONFIG_ROW",
+      "source": "D709",
+      "destination": "D802",
+      "words": 8
+    },
+    {
+      "label": "65.F14 | VFD_FREQ_TABLES_COPY",
+      "source": "R5800",
+      "destination": "D560",
+      "words": 10
+    },
+    {
+      "label": "65.F14 | VFD_FREQ_TABLES_COPY",
+      "source": "R6000",
+      "destination": "D580",
+      "words": 10
+    },
+    {
+      "label": "65.36A | VFD_MODE_TABLES_COPY",
+      "source": "R5200",
+      "destination": "D500",
+      "words": 10
+    },
+    {
+      "label": "65.36A | VFD_MODE_TABLES_COPY",
+      "source": "R5400",
+      "destination": "D520",
+      "words": 10
+    },
+    {
+      "label": "65.36A | VFD_MODE_TABLES_COPY",
+      "source": "R5600",
+      "destination": "D540",
+      "words": 10
+    }
+  ],
+  "indirectOperandCandidates": [],
+  "functionInventory": {
+    "08 _.MOV": 897,
+    "12 _.(-)": 99,
+    "172 _.<": 101,
+    "173 _.<>": 77,
+    "171 _.>": 108,
+    "170 _.=": 715,
+    "30 .PID": 1,
+    "17 _.CMP": 8,
+    "11 D_.(+)": 4,
+    "08 D_.MOV": 21,
+    "17 D_.CMP": 8,
+    "11 _.(+)": 2,
+    "103 _.BT_M": 11,
+    "14 _.(/)": 3,
+    "13 _.(*)": 9,
+    "15 P.(+1)": 1
+  },
+  "masterTables": [
+    {
+      "address": "R6000",
+      "name": "M900G_FREQ_READBACK",
+      "rows": [
+        [
+          1,
+          1,
+          1,
+          13,
+          282,
+          4,
+          4099
+        ]
+      ]
+    },
+    {
+      "address": "R5800",
+      "name": "M900G_FREQ_WRITE",
+      "rows": [
+        [
+          1,
+          3,
+          1,
+          13,
+          294,
+          4,
+          2
+        ]
+      ]
+    },
+    {
+      "address": "R5400",
+      "name": "M900G_MODE_READBACK_TEST",
+      "rows": [
+        [
+          1,
+          1,
+          1,
+          13,
+          232,
+          4,
+          61442
+        ]
+      ]
+    },
+    {
+      "address": "R5200",
+      "name": "M900G_MODE_WRITE_TEST",
+      "rows": [
+        [
+          1,
+          3,
+          1,
+          13,
+          231,
+          4,
+          61442
+        ]
+      ]
+    },
+    {
+      "address": "R6600",
+      "name": "M900G_PI_F501_READBACK",
+      "rows": [
+        [
+          1,
+          1,
+          1,
+          13,
+          640,
+          4,
+          62722
+        ]
+      ]
+    },
+    {
+      "address": "R6400",
+      "name": "M900G_PI_F501_WRITE",
+      "rows": [
+        [
+          1,
+          3,
+          1,
+          13,
+          630,
+          4,
+          62722
+        ]
+      ]
+    },
+    {
+      "address": "R6200",
+      "name": "M900G_PI_PREFLIGHT",
+      "rows": [
+        [
+          1,
+          1,
+          4,
+          13,
+          600,
+          4,
+          4097
+        ],
+        [
+          1,
+          1,
+          10,
+          13,
+          610,
+          4,
+          62721
+        ]
+      ]
+    },
+    {
+      "address": "R5600",
+      "name": "M900G_STOP_CHECK_TEST",
+      "rows": [
+        [
+          1,
+          1,
+          4,
+          13,
+          240,
+          4,
+          4097
+        ]
+      ]
+    },
+    {
+      "address": "R5000",
+      "name": "M900G_TEST",
+      "rows": [
+        [
+          1,
+          1,
+          7,
+          12,
+          2800,
+          4,
+          4097
+        ],
+        [
+          1,
+          1,
+          1,
+          13,
+          201,
+          4,
+          4105
+        ],
+        [
+          1,
+          1,
+          1,
+          13,
+          202,
+          4,
+          4115
+        ],
+        [
+          2,
+          1,
+          7,
+          12,
+          2808,
+          4,
+          4097
+        ],
+        [
+          2,
+          1,
+          1,
+          13,
+          204,
+          4,
+          4105
+        ],
+        [
+          2,
+          1,
+          1,
+          13,
+          205,
+          4,
+          4115
+        ],
+        [
+          3,
+          1,
+          1,
+          13,
+          208,
+          4,
+          4115
+        ],
+        [
+          4,
+          1,
+          1,
+          13,
+          211,
+          4,
+          4115
+        ],
+        [
+          1,
+          1,
+          1,
+          13,
+          212,
+          4,
+          4111
+        ],
+        [
+          1,
+          1,
+          1,
+          13,
+          213,
+          4,
+          4113
+        ],
+        [
+          1,
+          1,
+          1,
+          13,
+          214,
+          4,
+          61442
+        ],
+        [
+          1,
+          1,
+          1,
+          13,
+          215,
+          4,
+          4115
+        ],
+        [
+          2,
+          1,
+          1,
+          13,
+          216,
+          4,
+          4111
+        ],
+        [
+          3,
+          1,
+          1,
+          13,
+          217,
+          4,
+          4111
+        ],
+        [
+          4,
+          1,
+          1,
+          13,
+          218,
+          4,
+          4111
+        ],
+        [
+          4,
+          1,
+          1,
+          13,
+          219,
+          4,
+          61442
+        ],
+        [
+          3,
+          1,
+          7,
+          12,
+          2816,
+          4,
+          4097
+        ],
+        [
+          4,
+          1,
+          7,
+          12,
+          2824,
+          4,
+          4097
+        ]
+      ]
+    }
+  ],
+  "limits": [
+    "No PLC connection/native compilation/hardware action",
+    "Saved source is not a readback of the active PLC or HMI",
+    "Formatter is not a complete decoder; section metadata and native MODBUS worker instructions need separate interpretation",
+    "No proof of absence of external/HMI/indirect writers"
+  ],
+  "sourceUnchanged": true,
+  "auditTool": "tools/audit_setpoint_input_01.py",
+  "auditToolSHA256": "a97f6a017f02eb90fc11a23c15520e1fc05b8f5ed72833f806d50ef22c21b841",
+  "baseCommit": "d9c135752c696f3792bfcd854205d4f78433a309",
+  "date": "2026-11-01",
+  "method": "Linux cloud, Python 3.12.14; hash-checked original Prolad18.dll _GetNetNMne in isolated x86 emulation with OS imports blocked. Network spans include adjacent section metadata; not complete native instruction decoding.",
+  "pidSupplement": {
+    "label": "40.04 | PID_CONTROL",
+    "pc": 1448,
+    "codeHex": "4a0488768a9a7fe86fe8f51700640d340d480d5c0d70",
+    "mnemonics": "Ts:100; SR:R410; OR:R420; PR:R430; WR:R440",
+    "scope": "Separately formatted same source span; no R2100/R2360 operand. Not a proof of general PID workspace extents."
+  },
+  "hmiSavedSourceEvidence": {
+    "source": "source/hmi/pump_station_4_37.skm",
+    "sha256": "13cc9f7d1c5fa59d25c0eb871a2deb3e6f1ef6ca5079be2f5828df5f9e8f5867",
+    "bytes": 1321227,
+    "strings": [
+      {
+        "text": "NE5002",
+        "encoding": "UTF-16BE",
+        "offsets": [
+          109477,
+          109761
+        ]
+      },
+      {
+        "text": "ND3014",
+        "encoding": "UTF-16BE",
+        "offsets": [
+          190145,
+          190345
+        ]
+      },
+      {
+        "text": "R2100",
+        "encoding": "UTF-16BE",
+        "offsets": [
+          109875,
+          109889,
+          109991,
+          110049,
+          110217,
+          190459,
+          190473,
+          190715,
+          915596,
+          915610,
+          915852,
+          1020580,
+          1020594,
+          1020836,
+          1076993,
+          1077007,
+          1077249,
+          1133382,
+          1133396,
+          1133638
+        ]
+      },
+      {
+        "text": "R2100#1#6#1#2100#R#1#",
+        "encoding": "UTF-16BE",
+        "offsets": [
+          109889,
+          109991,
+          110217,
+          190473,
+          190715,
+          915610,
+          915852,
+          1020594,
+          1020836,
+          1077007,
+          1077249,
+          1133396,
+          1133638
+        ]
+      }
+    ],
+    "scope": "Bounded read-only exact string evidence; R2100 descriptor near NE5002/ND3014. No full native object/macro decoder and no active-panel readback.",
+    "sourceUnchanged": true
+  }
+}
