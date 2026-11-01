@@ -1,0 +1,28 @@
+{
+  "method": "FreePascal source replay with mock TM_Variable and actual caller-aware event sources",
+  "sourceSHA256": {
+    "scripts/StationDiagnostics.txt": "feca88803c867e379cf3af83fd09ad146471ec0cb4a467e0d4539c0f27ed834a",
+    "scripts/ProcessSpMinus_OnClick.txt": "fffca1d88deab9150d9bbb32299230616200a725c079d20bd6391cb4454be8c3",
+    "scripts/ProcessSpPlus_OnClick.txt": "d78cd4d5a8d24bb2eeda82d4bef3f4c7d7b02f47e24891b64b35680dfae3c43d",
+    "scripts/ProcessSpApply_OnClick.txt": "dbca15c74ed427fac047c051ade7e08f1b962b062113939b24a01932864fdb45",
+    "scripts/ProcessSpCancel_OnClick.txt": "91b851e9526c37685ea1c55fe3e09b54d84255a9417e7088466dbb485f1ae167"
+  },
+  "assumptions": [
+    "Both readbacks set to400 immediately in mock, not observed on hardware",
+    "After submission, counter visible changes every14 seconds; hypothetical schedule, not measured SCADA timer trace",
+    "Timer runs each second with GOOD quality; actual OPC delivery is not simulated"
+  ],
+  "output": [
+    "FAST: ПЛК принял 4.00 бар; ожидается подтверждение ПЧ.",
+    "SLOW20: Приём уставки ПЛК за 20 с не подтверждён. Автоматического повтора нет.",
+    "LATE: Приём уставки ПЛК за 20 с не подтверждён. Автоматического повтора нет.",
+    "PASS echo latency assertions=8"
+  ],
+  "hardwareConnections": false,
+  "liveWriteTested": false,
+  "runtimeSourceModified": false,
+  "date": "2026-11-01",
+  "baseCommit": "cd40a14226867963caf322afaa0d8393f870ae5b",
+  "testTool": "tools/check_setpoint_echo_latency_01.py",
+  "testToolSHA256": "17950729481a70def207abfb541328d1f620513addf36605fe1a5092a56603c0"
+}
