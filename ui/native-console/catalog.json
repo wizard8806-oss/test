@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "stations": [
+    {
+      "id": "station-001",
+      "name": "Насосная станция · стенд",
+      "group": "Стенд",
+      "itemPrefix": "codex.Device1.",
+      "computer": "localhost",
+      "server": "InSAT.ModbusOPCServer.DA",
+      "pumpCount": 4,
+      "staleSeconds": 15,
+      "commandEnabled": true
+    }
+  ]
+}

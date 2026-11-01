@@ -1,0 +1,147 @@
+interface
+procedure OperatorUiUpdate;
+procedure UiGoPage(const Name, Client: string);
+procedure UiOpenWindow(Index: Integer; const Client: string);
+procedure UiOpenTrends(Index: Integer; const Client: string);
+implementation
+const
+  UiStationCount = __STATION_COUNT__;
+var
+  UiHasSample, UiHasProgress: array[0..15] of Boolean;
+  UiLastCounter: array[0..15] of Int64;
+  UiLastTick, UiLastProgress: array[0..15] of Double;
+  UiModeText, UiPressureText, UiSetpointText, UiStatusText: array[0..15] of string;
+
+__STATION_FUNCTIONS__
+
+function UiWord(Index: Integer; const Item: string; var Raw: Int64): Boolean;
+var V: TM_Variable;
+begin
+  Result := False;
+  Raw := 0;
+  try
+    V := GetVariableByAddress(UiPrefix(Index) + Item);
+    if V = nil then Exit;
+    if not V.Outer then Exit;
+    if V.Address <> UiPrefix(Index) + Item then Exit;
+    if LowerCase(V.ComputerName) <> LowerCase(UiHost(Index)) then Exit;
+    if LowerCase(V.OPCServerName) <> LowerCase(UiServer(Index)) then Exit;
+    if not V.IsGoodQuality then Exit;
+    Raw := V.OriginalAsInt;
+    Result := (Raw >= 0) and (Raw <= 65535);
+  except
+    Raw := 0;
+    Result := False;
+  end;
+end;
+
+procedure UiReset(Index: Integer);
+begin
+  UiHasSample[Index] := False;
+  UiHasProgress[Index] := False;
+end;
+
+function UiFresh(Index: Integer; Valid: Boolean; Counter: Int64;
+  SecondsNow: Double): Boolean;
+var Delta: Int64;
+begin
+  Result := False;
+  if not Valid then begin UiReset(Index); Exit; end;
+  if UiHasSample[Index] then
+    if (SecondsNow < UiLastTick[Index]) or
+       (SecondsNow - UiLastTick[Index] > 10) then UiReset(Index);
+  UiLastTick[Index] := SecondsNow;
+  if not UiHasSample[Index] then
+  begin
+    UiHasSample[Index] := True;
+    UiLastCounter[Index] := Counter;
+    UiLastProgress[Index] := SecondsNow;
+    Exit;
+  end;
+  if Counter <> UiLastCounter[Index] then
+  begin
+    Delta := Counter - UiLastCounter[Index];
+    if Delta < 0 then Delta := Delta + 65536;
+    UiLastCounter[Index] := Counter;
+    UiLastProgress[Index] := SecondsNow;
+    UiHasProgress[Index] := Delta <= 60;
+  end;
+  if SecondsNow - UiLastProgress[Index] >= UiStale(Index) then
+    UiHasProgress[Index] := False;
+  Result := UiHasProgress[Index];
+end;
+
+function UiMode(Raw: Int64): string;
+begin
+  Result := 'НЕИЗВЕСТНЫЙ РЕЖИМ';
+  case Raw of
+    0: Result := 'СТОП';
+    10, 11, 12: Result := 'АВТО';
+    20, 21, 22: Result := 'РУЧНОЙ';
+    90: Result := 'ОШИБКА СЕЛЕКТОРА';
+  end;
+end;
+
+procedure UiSample(Index: Integer);
+var Map, Counter, Mode, PV, SP, Source, Fault: Int64; Valid, Live: Boolean;
+begin
+  Counter := 0;
+  UiModeText[Index] := 'Нет данных';
+  UiPressureText[Index] := 'Нет достоверных данных';
+  UiSetpointText[Index] := 'Нет данных';
+  UiStatusText[Index] := 'Нет подтверждения обновления ПЛК';
+  Valid := UiWord(Index, 'MapVersion', Map);
+  if Valid then Valid := Map = 32;
+  if Valid then Valid := UiWord(Index, 'PlcAliveCounter', Counter);
+  Live := UiFresh(Index, Valid, Counter, Now * 86400.0);
+  if not Live then Exit;
+  UiStatusText[Index] := 'Обновление ПЛК подтверждено';
+  if UiWord(Index, 'StationMode', Mode) then UiModeText[Index] := UiMode(Mode);
+  if UiWord(Index, 'PressureSP_x100', SP) then
+    if (SP >= 10) and (SP <= 1190) and ((SP mod 10) = 0) then
+      UiSetpointText[Index] := FormatFloat('0.00', SP / 100.0) + ' бар';
+  Valid := UiWord(Index, 'PressureSourceOK', Source);
+  if Valid then Valid := Source = 1;
+  if Valid then Valid := UiWord(Index, 'PressurePV_x100', PV);
+  if Valid then UiPressureText[Index] := FormatFloat('0.00', PV / 100.0) + ' бар'
+  else UiStatusText[Index] := 'Нет достоверного источника давления';
+  if UiWord(Index, 'Vfd1FaultCode', Fault) then
+    if Fault <> 0 then UiStatusText[Index] := 'Насос 1: ошибка ПЧ, код ' + IntToStr(Fault);
+end;
+
+procedure UiGoPage(const Name, Client: string);
+var Page: TM_Page;
+begin
+  if Client = '' then Exit;
+  Page := GetPageByName(Name);
+  if Page <> nil then Page.GoToPageClient(Client);
+end;
+
+procedure UiOpenWindow(Index: Integer; const Client: string);
+var Window: TM_Window;
+begin
+  if (Client = '') or (Index < 0) or (Index >= UiStationCount) then Exit;
+  Window := GetWindowByName('UiWindow_' + UiKey(Index));
+  if Window <> nil then Window.ShowClient(Client);
+end;
+
+procedure UiOpenTrends(Index: Integer; const Client: string);
+var Group: TM_TrendGroup;
+begin
+  if (Client = '') or (Index < 0) or (Index >= UiStationCount) then Exit;
+  Group := GetTrendGroupByName('UiTrend_' + UiKey(Index));
+  if Group = nil then
+  begin
+    ShowMessageClient(Client, 'Графики', 'Группа архивных трендов станции ещё не настроена. Наладчик должен проверить архивирование переменных.');
+    Exit;
+  end;
+  GoToTrendsGroupClient(Client, Group.ID, Now - 6/24.0, Now);
+end;
+
+procedure OperatorUiUpdate;
+var Index: Integer;
+begin
+  for Index := 0 to UiStationCount - 1 do UiSample(Index);
+__PAINT__
+end;
+end.

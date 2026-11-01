@@ -21,6 +21,7 @@ BUILDERS = [
     'build_setpoint_feedback_pdw_01.py', 'build_setpoint_display_01.py',
     'build_setpoint_control_01.py',
     'build_setpoint_click_fix_01.py',
+    'build_native_operator_console_01.py',
 ]
 CHECKS = [
     'validate_scada_inline_01.py', 'validate_radio_install_01.py',
@@ -35,6 +36,7 @@ CHECKS = [
     'validate_setpoint_click_fix_01.py',
     'validate_click_install_retry.py',
     'validate_scada_variable_metadata_reader.py',
+    'validate_native_operator_console_01.py',
 ]
 
 
