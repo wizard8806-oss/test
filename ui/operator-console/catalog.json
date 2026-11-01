@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "timezone": "Europe/Moscow",
+  "groups": [
+    {"id": "bench", "name": "Стенд"},
+    {"id": "north", "name": "Северный район"},
+    {"id": "south", "name": "Южный район"}
+  ],
+  "connections": [
+    {"id": "local-masteropc", "name": "Локальный MasterOPC", "type": "opc-da", "computer": "localhost", "server": "InSAT.ModbusOPCServer.DA"},
+    {"id": "demo", "name": "Модельные данные", "type": "demo", "computer": "", "server": ""}
+  ],
+  "stations": [
+    {"id": "station-001", "name": "Насосная станция · стенд", "location": "Испытательный стенд", "groupId": "bench", "profileId": "fatek-900g", "pumpCount": 4, "connectionId": "local-masteropc", "itemPrefix": "codex.Device1", "enabled": true, "controlEnabled": true, "limits": {"pressureLow": 2, "pressureHigh": 6, "staleSeconds": 15}},
+    {"id": "station-002", "name": "НС-02 · пример", "location": "Северный район, участок 1", "groupId": "north", "profileId": "fatek-900g", "pumpCount": 3, "connectionId": "demo", "itemPrefix": "demo.Station2", "enabled": true, "controlEnabled": true, "limits": {"pressureLow": 2, "pressureHigh": 6, "staleSeconds": 15}},
+    {"id": "station-003", "name": "НС-03 · пример", "location": "Северный район, участок 2", "groupId": "north", "profileId": "fatek-900g", "pumpCount": 2, "connectionId": "demo", "itemPrefix": "demo.Station3", "enabled": true, "controlEnabled": true, "limits": {"pressureLow": 2, "pressureHigh": 6, "staleSeconds": 15}},
+    {"id": "station-004", "name": "НС-04 · пример", "location": "Южный район", "groupId": "south", "profileId": "generic-monitor", "pumpCount": 4, "connectionId": "demo", "itemPrefix": "demo.Station4", "enabled": true, "controlEnabled": false, "limits": {"pressureLow": 2, "pressureHigh": 6, "staleSeconds": 15}}
+  ]
+}

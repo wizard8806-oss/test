@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ru" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <title>Насосные станции · рабочее место оператора</title>
+  <style>/*__STYLES__*/</style>
+</head>
+<body data-mode="preview">
+  <div class="preview-strip"><span class="preview-dot"></span><strong>МАКЕТ ИНТЕРФЕЙСА</strong><span>Демонстрационные данные · оборудование не подключено</span></div>
+  <aside class="sidebar">
+    <a class="brand" href="#overview" aria-label="Диспетчерская — все станции"><span class="brand-icon">Н</span><span>НАСОСНЫЕ<br><b>СТАНЦИИ</b></span></a>
+    <div class="nav-heading">ДИСПЕТЧЕРСКАЯ</div>
+    <nav id="navigation" aria-label="Основная навигация"></nav>
+    <div class="sidebar-bottom"><span class="model-indicator"></span><div><strong>Предпросмотр</strong><small>Без связи с оборудованием</small></div></div>
+  </aside>
+  <div class="workspace">
+    <header class="topbar"><div id="breadcrumbs"></div><div class="topbar-actions"><label class="role-label">Роль в макете<select id="role-select" aria-label="Роль в макете"><option value="operator">Оператор</option><option value="engineer">Наладчик</option><option value="viewer">Наблюдатель</option></select></label><button id="theme-toggle" class="icon-button" data-action="theme" aria-label="Сменить тему"></button></div></header>
+    <main id="view" tabindex="-1"></main>
+    <footer class="app-footer"><span>Единый каталог · общие и отдельные окна станций</span><span>Время: МСК · UTC+3</span></footer>
+  </div>
+  <div id="modal-root"></div>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <div id="chart-tooltip" role="status"></div>
+  <script id="initial-catalog" type="application/json">__CATALOG_JSON__</script>
+  <script>/*__MODEL__*/</script>
+  <script>/*__APP__*/</script>
+</body>
+</html>

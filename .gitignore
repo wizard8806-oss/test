@@ -33,6 +33,8 @@ artifacts/**/*.patch.gz
 artifacts/station-setpoint-feedback-01/*.pdw
 artifacts/**/Install-*.ps1
 artifacts/**/Paste-*.ps1
+artifacts/operator-ui-preview-01/*.html
+artifacts/operator-ui-preview-01/*.png
 artifacts/simple-scada-diagnostics-01/Save-Codex-Diag-01.ps1
 artifacts/station-setpoint-feedback-01/Create-Setpoint-Feedback-Copy-01.ps1
 artifacts/teleofis-radio-service-02/Set-Service-Group-And-Run-02.ps1
