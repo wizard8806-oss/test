@@ -1,0 +1,160 @@
+{
+  "editorSHA256": "c90b3e893d9918c3e0dd95aedb7d0b6744453dc96003244d51dd8d2282078b57",
+  "sourceSHA256": "efd91d5df93359c3320c72e185941247688b9ffad8fe3a5af196a9ed675a15fc",
+  "hypotheticalWriteEnabledSHA256": "c0662185786f2204479c9ad90d2dcc2ed0dbb79d9d532942f1841f650ef498b6",
+  "loaderVA": "0x11e0214",
+  "loaderStopVA": "0x11e049c",
+  "versionArgument": 2615000,
+  "readOnlyObjectOffset": 38,
+  "readOnlyFileOffset": 236,
+  "readOnlyFieldRTTIVerified": true,
+  "original": {
+    "connectionReadOnly": true,
+    "trace": [
+      {
+        "fileOffset": 20,
+        "end": 42,
+        "objectOffset": 16,
+        "kind": "wideString",
+        "value": null
+      },
+      {
+        "fileOffset": 42,
+        "end": 94,
+        "objectOffset": 20,
+        "kind": "wideString",
+        "value": null
+      },
+      {
+        "fileOffset": 94,
+        "end": 146,
+        "objectOffset": 24,
+        "kind": "wideString",
+        "value": null
+      },
+      {
+        "fileOffset": 146,
+        "end": 226,
+        "objectOffset": 28,
+        "kind": "wideString",
+        "value": null
+      },
+      {
+        "fileOffset": 226,
+        "end": 230,
+        "objectOffset": 40,
+        "kind": "I",
+        "value": 0
+      },
+      {
+        "fileOffset": 230,
+        "end": 234,
+        "objectOffset": 32,
+        "kind": "I",
+        "value": 10
+      },
+      {
+        "fileOffset": 234,
+        "end": 235,
+        "objectOffset": 36,
+        "kind": "B",
+        "value": 0
+      },
+      {
+        "fileOffset": 235,
+        "end": 236,
+        "objectOffset": 37,
+        "kind": "B",
+        "value": 0
+      },
+      {
+        "fileOffset": 236,
+        "end": 237,
+        "objectOffset": 38,
+        "kind": "B",
+        "value": 1
+      }
+    ]
+  },
+  "candidate": {
+    "connectionReadOnly": false,
+    "trace": [
+      {
+        "fileOffset": 20,
+        "end": 42,
+        "objectOffset": 16,
+        "kind": "wideString",
+        "value": null
+      },
+      {
+        "fileOffset": 42,
+        "end": 94,
+        "objectOffset": 20,
+        "kind": "wideString",
+        "value": null
+      },
+      {
+        "fileOffset": 94,
+        "end": 146,
+        "objectOffset": 24,
+        "kind": "wideString",
+        "value": null
+      },
+      {
+        "fileOffset": 146,
+        "end": 226,
+        "objectOffset": 28,
+        "kind": "wideString",
+        "value": null
+      },
+      {
+        "fileOffset": 226,
+        "end": 230,
+        "objectOffset": 40,
+        "kind": "I",
+        "value": 0
+      },
+      {
+        "fileOffset": 230,
+        "end": 234,
+        "objectOffset": 32,
+        "kind": "I",
+        "value": 10
+      },
+      {
+        "fileOffset": 234,
+        "end": 235,
+        "objectOffset": 36,
+        "kind": "B",
+        "value": 0
+      },
+      {
+        "fileOffset": 235,
+        "end": 236,
+        "objectOffset": 37,
+        "kind": "B",
+        "value": 0
+      },
+      {
+        "fileOffset": 236,
+        "end": 237,
+        "objectOffset": 38,
+        "kind": "B",
+        "value": 0
+      }
+    ]
+  },
+  "method": "Original loader in Unicorn; string/stream adapters, no OS import",
+  "workingFileModified": false,
+  "nativeGUIRun": false,
+  "hardwareWriteTested": false,
+  "date": "2026-11-01",
+  "baseCommit": "2313366ed89bc70ba30ee8f001bb4541f39c26d1",
+  "verifier": "tools/verify_scada_opc_write_gate_native.py",
+  "verifierSHA256": "8cd56aa7c6f56925a0c11875796762ceefd5017a1ec5c8cb16b612800c16bdcc",
+  "reader": "tools/Read-ScadaOpcWriteGate.ps1",
+  "readerSHA256": "943a9ee3e9d64d5b7fc7d6a4bcc6e2e90ffad43beed3fdda2c4d3d3a3e52bc6c",
+  "sameProfileSHAReportedByWindows": true,
+  "nativeWindowsReadByCloud": false,
+  "manualReference": "https://simple-scada.com/help/manual/opcdanew.html"
+}
