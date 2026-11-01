@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "version": "3.13.17",
+  "architecture": "amd64",
+  "fileName": "python-3.13.17-amd64.exe",
+  "url": "https://www.python.org/ftp/python/3.13.17/python-3.13.17-amd64.exe",
+  "sha256": "5da012101ba2e17113a9a1cd901e9ce1441086f2b7ecb5de06ec94163899a190",
+  "releasePage": "https://www.python.org/downloads/release/python-31317/",
+  "publisher": "Python Software Foundation",
+  "scope": "current-user",
+  "targetFolder": "Python313"
+}

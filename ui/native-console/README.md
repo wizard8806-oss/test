@@ -6,12 +6,24 @@
 
 ## Сборка и создание копии
 
-В репозитории достаточно Python3.10+ без дополнительных пакетов:
+Для сборки достаточно Python3.10+ без дополнительных пакетов. Если его нет,
+пользователь разрешил установку официального Python для своей учётной записи:
 
 ```powershell
-python .\tools\build_native_operator_console_01.py
+$setupOutput = & powershell -NoProfile -File .\tools\Install-ProjectPython.ps1
+if ($LASTEXITCODE -ne 0) { throw 'Project Python setup failed' }
+$projectPython = $setupOutput | ConvertFrom-Json
+& $projectPython.pythonPath -I -B .\tools\build_native_operator_console_01.py
+if ($LASTEXITCODE -ne 0) { throw 'SCADA11 build failed' }
 powershell -NoProfile -File .\artifacts\operator-console-native-01\Install-Operator-Console-01.ps1 -SourcePath "$env:USERPROFILE\Documents\Simple-Scada 2\Projects\codex_diag_10"
 ```
+
+Helper проверяет закреплённый SHA256 и действительную подпись Python Software
+Foundation. Установка по умолчанию LOCALAPPDATA\Programs\Python\Python313,
+без добавления в PATH/ассоциаций/launcher/pip, без автоматической перезагрузки.
+Существующая совместимая подписанная версия повторно не устанавливается.
+Результат/лог нужно сохранить локально; Windows-установка ещё не подтверждена
+облачными тестами. [Проверка источника и ограничений](../../docs/reports/station11-python-bootstrap-20261102.md).
 
 Источник указывать после проверки фактического пути. Установщик **только
 создаёт файлы кандидата** по умолчанию в

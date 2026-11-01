@@ -37,6 +37,7 @@ CHECKS = [
     'validate_click_install_retry.py',
     'validate_scada_variable_metadata_reader.py',
     'validate_native_operator_console_01.py',
+    'validate_project_python_setup.py',
 ]
 
 
