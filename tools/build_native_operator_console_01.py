@@ -8,6 +8,7 @@ import argparse
 import base64
 import hashlib
 import json
+import math
 import re
 import struct
 from pathlib import Path
@@ -114,6 +115,57 @@ def parse_pages(raw):
         pages.append(dict(name=name,caption=caption,id=id_,header=header,objects=objects))
     if pos!=len(raw) or next_id<=max(p['id'] for p in pages): raise ValueError('Page framing mismatch')
     return pages
+
+
+def visual_layout_pages(raw, project_width, project_height, client_width=1366,
+                        client_height=768, header_pixels=64, footer_pixels=24):
+    """Presentation-only reflow of the reviewed saved11 Text pages.
+
+    Project dimensions must be read in native Editor; they are not inferred from
+    a photograph. Client dimensions are a reference, not a measured runtime.
+    All page/control identities, event links and non-presentation bytes survive.
+    Font enum11 is ftRegular18 in the official2.6.15 TM_FontType reference;
+    the old enum4 (ftMedium11) with scale .78 yielded only8.58 design pixels.
+    """
+    for value, low, high in [(project_width,640,7680),(project_height,480,4320),
+                              (client_width,640,7680),(client_height,480,4320),
+                              (header_pixels,32,160),(footer_pixels,16,80)]:
+        if type(value) is not int or not low <= value <= high:
+            raise ValueError('Invalid measured layout dimensions')
+    fit = min(client_width/project_width, client_height/project_height)
+    top, bottom = header_pixels/fit, footer_pixels/fit
+    content_height = project_height-top-bottom
+    if content_height*fit < 360:
+        raise ValueError('Insufficient operator area')
+    parsed = parse_pages(raw)
+    if len(parsed) != 6 or {p['name'] for p in parsed} != {
+            'PageProcess','PageDiagnostics','PageUiOverview',
+            'PageUiAlarms','PageUiCharts','PageUiSettings'}:
+        raise ValueError('Expected the reviewed one-station six-page layout')
+    result = [raw[:12]]
+    for page in parsed:
+        result += [page['header'], U32(len(page['objects']))]
+        for obj in page['objects']:
+            body = bytearray(obj['body'])
+            x,y,w,h = struct.unpack_from('<4f',body,8)
+            scale = struct.unpack_from('<f',body,32)[0]
+            if (body[31] != 4 or not math.isfinite(scale) or not .4 <= scale <= 2
+                    or min(x,y) < 0 or min(w,h) <= 0
+                    or x+w > 1440.01 or y+h > 920.01):
+                raise ValueError('Layout differs from reviewed design; source preserved')
+            # Full-height backgrounds cover the project, not a hard-coded corner.
+            backdrop = not obj['caption'] and y == 0 and h == 920
+            rect = (x*project_width/1440,
+                    0 if backdrop else top+y*content_height/920,
+                    w*project_width/1440,
+                    project_height if backdrop else h*content_height/920)
+            struct.pack_into('<4f',body,8,*rect)
+            body[31] = 11  # ftRegular18, not a guessed byte/pixel size
+            struct.pack_into('<f',body,32,scale/fit)
+            old = obj['record']
+            start = 6+len(obj['name'].encode('utf8'))
+            result.append(old[:start]+body+old[start+141:])
+    return b''.join(result)
 
 
 class Builder:

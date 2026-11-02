@@ -42,6 +42,7 @@ CHECKS = [
     'validate_native_ui_event_probe.py',
     'validate_pressure_display_01.py',
     'validate_scada_ui_context.py',
+    'validate_native_visual_layout.py',
 ]
 
 

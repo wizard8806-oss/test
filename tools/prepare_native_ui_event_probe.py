@@ -234,7 +234,27 @@ def prepare_pressure_display(project, out):
                               rawPressureDivisor=100, commandPrecisionUnchanged=True))
 
 
-def _prepare_copy(project, out, transform, output_pattern, details):
+def prepare_visual_layout(project, out, project_width, project_height,
+                          client_width=1366, client_height=768,
+                          header_pixels=64, footer_pixels=24):
+    spec = importlib.util.spec_from_file_location(
+        '_visual_layout_builder', Path(__file__).resolve().with_name('build_native_operator_console_01.py'))
+    builder = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(builder)
+    def reflow(raw):
+        return builder.visual_layout_pages(raw, project_width, project_height,
+            client_width, client_height, header_pixels, footer_pixels)
+    return _prepare_copy(project, out, pressure_display_scripts,
+        r'codex_diag_11_layout_[a-z0-9_-]{8,80}',
+        dict(purpose='visual-layout-first-pass', pressureDecimals=1,
+             projectDimensionsProvided=[project_width,project_height],
+             referenceClientDimensions=[client_width,client_height],
+             headerPixelsReserved=header_pixels, footerPixelsReserved=footer_pixels,
+             dimensionsMeasuredByHelper=False, visualAcceptancePassed=False,
+             commandPrecisionUnchanged=True), page_transform=reflow)
+
+
+def _prepare_copy(project, out, transform, output_pattern, details, page_transform=None):
     project, out = Path(project).absolute(), Path(out).absolute()
     if any('\n' in str(p) or '\r' in str(p) for p in [project, out]):
         raise ValueError('Unsupported path characters')
@@ -263,6 +283,7 @@ def _prepare_copy(project, out, transform, output_pattern, details):
         raise ValueError('Saved native bindings need review')
     source_scripts = (project/'Scripts/Scripts.ssc').read_bytes()
     patched = transform(source_scripts)
+    patched_pages = None if page_transform is None else page_transform((project/'Pages.spg').read_bytes())
     old_records, new_records = scripts(source_scripts), scripts(patched)
     changed = [row['name'] for id_,row in old_records.items() if row != new_records[id_]]
     excluded = [n for n in before if n.lower().startswith('scripts/compiled/') or
@@ -278,9 +299,12 @@ def _prepare_copy(project, out, transform, output_pattern, details):
             shutil.copyfile(project/name, dest)
         (stage/'Scripts/Compiled').mkdir(parents=True, exist_ok=True)
         (stage/'Scripts/Scripts.ssc').write_bytes(patched)
+        if patched_pages is not None:
+            (stage/'Pages.spg').write_bytes(patched_pages)
         copied = inventory(stage)
+        allowed = {'Scripts/Scripts.ssc'} | ({'Pages.spg'} if patched_pages is not None else set())
         for name, expected in before.items():
-            if name not in excluded and name != 'Scripts/Scripts.ssc' and copied.get(name) != expected:
+            if name not in excluded and name not in allowed and copied.get(name) != expected:
                 raise ValueError('Candidate preservation check failed')
         verified = audit(stage)
         if verified['findings'] or inventory(project) != before:
@@ -307,14 +331,28 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--project', type=Path, required=True)
     parser.add_argument('--out', type=Path, required=True)
-    parser.add_argument('--mode', choices=['event', 'pressure-display'], default='event')
+    parser.add_argument('--mode', choices=['event', 'pressure-display', 'visual-layout'], default='event')
     parser.add_argument('--probe-id')
+    parser.add_argument('--project-width', type=int)
+    parser.add_argument('--project-height', type=int)
+    parser.add_argument('--client-width', type=int, default=1366)
+    parser.add_argument('--client-height', type=int, default=768)
+    parser.add_argument('--header-pixels', type=int, default=64)
+    parser.add_argument('--footer-pixels', type=int, default=24)
     args = parser.parse_args()
+    if args.mode != 'visual-layout' and (args.project_width is not None or args.project_height is not None):
+        parser.error('Project dimensions are only valid in visual-layout mode')
     if args.mode == 'event':
         if not args.probe_id: parser.error('--probe-id is required in event mode')
         prepare(args.project, args.out, args.probe_id)
         print('PREPARED: private disk-derived probe; unsaved Editor model excluded. Native compile/load/BOOT not yet tested.')
-    else:
+    elif args.mode == 'pressure-display':
         if args.probe_id: parser.error('--probe-id is only valid in event mode')
         prepare_pressure_display(args.project, args.out)
         print('PREPARED: private display candidate; one decimal, raw precision unchanged. Native compile/load not yet tested.')
+    else:
+        if args.probe_id or args.project_width is None or args.project_height is None:
+            parser.error('visual-layout requires both native project dimensions and no probe-id')
+        prepare_visual_layout(args.project, args.out, args.project_width, args.project_height,
+            args.client_width, args.client_height, args.header_pixels, args.footer_pixels)
+        print('PREPARED: private layout candidate; native dimensions supplied by caller. Compile/load/visual acceptance not yet tested.')
