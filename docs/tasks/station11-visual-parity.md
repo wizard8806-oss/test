@@ -37,6 +37,26 @@
    и разрядность, не считать наличие OpcEnum.exe клиентом чтения и не
    регистрировать DLL/менять DCOM по предположению. Запись о задержке7265мс
    в Server-log не является сама по себе диагнозом связи или поводом перезапуска.
+
+   Начальная проверка в **том же терминале, из которого работает CLI**
+   (не отправляет команды SCADA/оборудованию):
+
+   ```powershell
+   [pscustomobject]@{
+     Role = 'caller'
+     ProcessId = $PID
+     SessionId = (Get-Process -Id $PID).SessionId
+     UserInteractive = [Environment]::UserInteractive
+     Is64BitProcess = [Environment]::Is64BitProcess
+   }
+   Get-Process -Name Server,Client,Editor,modbusopcserver -ErrorAction SilentlyContinue |
+     Select-Object ProcessName,Id,SessionId,@{Name='HasMainWindow';Expression={$_.MainWindowHandle -ne [IntPtr]::Zero}}
+   ```
+
+   Это исходные метаданные, не полный тест UI. При одинаковых session ID и
+   нулевых MainWindowHandle проверить перечисление верхних окон/desktop,
+   а не повторять только Get-Process. В отчёт включить факты сопоставления,
+   не личные заголовки чужих окон/профили.
 3. Штатно открыть/загрузить проверяемую копию11 и получить исходные снимки
    её карточки/обзора. Для других страниц при необходимости использовать
    штатную навигацию; отказ новой кнопки отмечать отдельно. Сгенерировать
