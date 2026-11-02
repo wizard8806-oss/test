@@ -16,7 +16,7 @@ import tempfile
 from pathlib import Path
 
 from _runtime import PWSH, SCADA_SEED, fpc, fpc_units
-from build_native_operator_console_01 import ROOT, UI, build, catalog, parse_pages, Builder, PAGES_SHA
+from build_native_operator_console_01 import ROOT, UI, build, catalog, parse_pages, Builder, PAGES_SHA, pressure_display_module
 from validate_process_display_01 import serialize_scripts
 from validate_radio_install_01 import parse_scripts, hashes as _source_hashes
 
@@ -95,16 +95,20 @@ begin
  P:=TM_Page.Create;W:=TM_Window.Create;
  for I:=0 to 1 do for J:=0 to 6 do begin V[I,J]:=TM_Variable.Create;V[I,J].Outer:=True;V[I,J].IsGoodQuality:=True;V[I,J].ComputerName:='localhost';V[I,J].OPCServerName:='InSAT.ModbusOPCServer.DA';V[I,J].Address:='codex.Device'+IntToStr(I+1)+'.'+Items[J];V[I,J].OriginalAsInt:=Values[J];end;
  Tick(1000,100,100);Check(UiRow0Setpoint.Text='Нет данных','startup requires new PLC progress');
- Tick(1001,101,101);Check(UiRow0Setpoint.Text='4.00 бар','common setpoint displays live readback');
+ Tick(1001,101,101);Check(UiRow0Setpoint.Text='4.0 бар','common setpoint displays live readback');
  Check(UiRow0Mode.Text='СТОП','STOP comes from PLC mode');
  Check(UiRow0Pressure.Text='Нет достоверных данных','no source is not zero');
- V[0,3].OriginalAsInt:=1;Tick(1002,102,102);Check(UiRow0Pressure.Text='0.00 бар','valid zero remains zero');
+ V[0,3].OriginalAsInt:=1;Tick(1002,102,102);Check(UiRow0Pressure.Text='0.0 бар','valid zero remains zero');
+ V[0,4].OriginalAsInt:=290;OperatorUiUpdate;Check(UiRow0Pressure.Text='2.9 бар','calibrator value displays one decimal');
+ V[0,4].OriginalAsInt:=294;OperatorUiUpdate;Check(UiRow0Pressure.Text='2.9 бар','presentation rounds only');
+ Check(V[0,4].OriginalAsInt=294,'formatting retains raw hundredths');
+ V[0,4].OriginalAsInt:=299;OperatorUiUpdate;Check(UiRow0Pressure.Text='3.0 бар','display rounding carries');
  V[0,4].IsGoodQuality:=False;Tick(1003,103,103);Check(UiRow0Pressure.Text='Нет достоверных данных','bad pressure quality hidden');
  V[0,4].IsGoodQuality:=True;V[0,4].ComputerName:='wrong';Tick(1004,104,104);Check(UiRow0Pressure.Text='Нет достоверных данных','wrong OPC endpoint rejected');V[0,4].ComputerName:='localhost';
  V[1,2].OriginalAsInt:=12;Tick(1005,105,105);Check(UiRow1Mode.Text='АВТО','second station binding independent');
- V[0,0].OriginalAsInt:=31;Tick(1006,106,106);Check(UiRow0Setpoint.Text='Нет данных','unsupported map hides values');Check(UiRow1Setpoint.Text='4.00 бар','another station stays valid');V[0,0].OriginalAsInt:=32;
+ V[0,0].OriginalAsInt:=31;Tick(1006,106,106);Check(UiRow0Setpoint.Text='Нет данных','unsupported map hides values');Check(UiRow1Setpoint.Text='4.0 бар','another station stays valid');V[0,0].OriginalAsInt:=32;
  Tick(1007,107,107);Tick(1008,108,108);Tick(1015,108,115);Tick(1022,108,122);Tick(1023,108,123);Check(UiRow0Setpoint.Text='Нет данных','stale counter hidden despite fresh OPC quality');
- Tick(1040,30000,124);Check(UiRow1Setpoint.Text='Нет данных','clock gap invalidates cached freshness');Tick(1041,30001,125);Check(UiRow0Setpoint.Text='4.00 бар','new progress recovers');
+ Tick(1040,30000,124);Check(UiRow1Setpoint.Text='Нет данных','clock gap invalidates cached freshness');Tick(1041,30001,125);Check(UiRow0Setpoint.Text='4.0 бар','new progress recovers');
  Check(V[0,5].OriginalAsInt=400,'refresh never writes setpoint');
  C:=Calls;UiGoPage('PageProcess','');Check(Calls=C,'missing caller cannot navigate every client');UiGoPage('PageProcess','ClientB');Check(LastClient='ClientB','navigation is caller-local');
  C:=Calls;UiOpenWindow(16,'ClientA');Check(Calls=C,'invalid station cannot open another window');UiOpenWindow(1,'ClientB');Check((LastName='UiWindow_station_002')and(LastClient='ClientB'),'separate window uses exact station and client');
@@ -189,6 +193,7 @@ def copies(folder,out):
             assert by_name['OperatorConsole'][2][1]==16
             for a,b in zip(rows,updated[:7]):
                 if a[1]=='StationDiagnosticsTimer':assert '\n'.join(b[3]).count('OperatorUiUpdate;')==1
+                elif a[1]=='StationDiagnostics':assert b[3]==pressure_display_module('\n'.join(a[3]),a[1]).split('\n')
                 else:assert a[3]==b[3],a[1]
             assert len({r[0] for r in updated})==len(updated)==len({r[1] for r in updated})
         else:

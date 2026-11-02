@@ -24,6 +24,35 @@ U32 = lambda n: struct.pack('<I',n)
 I64 = lambda n: struct.pack('<q',n)
 
 
+def pressure_display_changes(name):
+    # Presentation masks only. The command journal keeps its exact/raw values.
+    pairs = {
+        'StationDiagnostics': [
+            ("Caption := 'Подтверждено ПЛК: ПЧ ' + IntToStr(Drive) + ', ' + ", 'Pressure'),
+            ("SpControlText := 'Черновик: ' + ", 'SpDraftRaw'),
+            ("SpControlText := 'Отправлена уставка ' + ", 'SpControlTarget'),
+            ("SpControlText := 'ПЛК принял ' + ", 'SpControlTarget'),
+            ("SpControlFinish(4, 'Уставка ' + ", 'SpControlTarget'),
+            ("SpControlFinish(7, 'ПЛК принял ' + ", 'SpControlTarget'),
+            ('ProcessSetpoint.Text := ', 'SP'),
+            ('ProcessPressure.Text := ', 'PV'),
+        ],
+        'OperatorConsole': [('UiSetpointText[Index] := ', 'SP'), ('UiPressureText[Index] := ', 'PV')],
+    }
+    return [dict(old=prefix+"FormatFloat('0.00', "+value+' / 100.0)',
+                 new=prefix+"FormatFloat('0.0', "+value+' / 100.0)') for prefix,value in pairs[name]]
+
+
+def pressure_display_module(text, name):
+    for edit in pressure_display_changes(name):
+        old, new = text.count(edit['old']), text.count(edit['new'])
+        if old == 1 and new == 0:
+            text = text.replace(edit['old'], edit['new'], 1)
+        elif old != 0 or new != 1:
+            raise ValueError('Unexpected pressure display expression; source preserved')
+    return text
+
+
 def string(s, wide=False):
     b=s.encode('utf-16le' if wide else 'utf8')
     return U32(len(b)//2 if wide else len(b))+b
@@ -276,7 +305,8 @@ def build(path=UI/'catalog.json',out=OUT):
     data=catalog(path);b=Builder(data).build();out.mkdir(parents=True,exist_ok=True)
     (out/'Pages.spg').write_bytes(b.pages);(out/'Windows.swn').write_bytes(b.windows)
     (out/'OperatorConsole.txt').write_text(b.module,encoding='utf8',newline='\n')
-    packet=dict(schemaVersion=1,pages=base64.b64encode(b.pages).decode(),windows=base64.b64encode(b.windows).decode(),module=b.module,events=b.events)
+    packet=dict(schemaVersion=1,pages=base64.b64encode(b.pages).decode(),windows=base64.b64encode(b.windows).decode(),module=b.module,events=b.events,
+                pressureDisplayChanges=pressure_display_changes('StationDiagnostics'))
     plan=[]
     for s in data['stations']:
         key=s['id'].replace('-','_')

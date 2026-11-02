@@ -40,6 +40,7 @@ CHECKS = [
     'validate_project_python_setup.py',
     'validate_native_ui_navigation.py',
     'validate_native_ui_event_probe.py',
+    'validate_pressure_display_01.py',
 ]
 
 

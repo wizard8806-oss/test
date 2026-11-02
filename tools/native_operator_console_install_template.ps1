@@ -77,6 +77,14 @@ try {
   }
   if($memory.Position -ne $memory.Length){throw 'Unexpected trailing script data'}
  } finally {$reader.Dispose();$memory.Dispose()}
+ $displayCore=@($rows|Where-Object {$_.Name -ceq 'StationDiagnostics'})
+ if($displayCore.Count -ne 1 -or @($packet.pressureDisplayChanges).Count -ne 8){throw 'Reviewed pressure display module not found'}
+ $displayBody=[string]::Join("`n",[string[]]$displayCore[0].Lines)
+ foreach($edit in $packet.pressureDisplayChanges) {
+  if([regex]::Matches($displayBody,[regex]::Escape([string]$edit.old)).Count -ne 1){throw 'Pressure display expression differs; source preserved'}
+  $displayBody=$displayBody.Replace([string]$edit.old,[string]$edit.new)
+ }
+ $displayCore[0].Lines=$displayBody.Split([string[]]@("`n"),[StringSplitOptions]::None)
  $timer=@($rows|Where-Object {$_.Name -eq 'StationDiagnosticsTimer'})
  if($timer.Count -ne 1 -or $timer[0].Id -ne 1){throw 'Reviewed timer not found'}
  $timer=$timer[0];$body=[string]::Join("`n",[string[]]$timer.Lines)

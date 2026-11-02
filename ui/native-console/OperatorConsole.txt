@@ -99,11 +99,11 @@ begin
   if UiWord(Index, 'StationMode', Mode) then UiModeText[Index] := UiMode(Mode);
   if UiWord(Index, 'PressureSP_x100', SP) then
     if (SP >= 10) and (SP <= 1190) and ((SP mod 10) = 0) then
-      UiSetpointText[Index] := FormatFloat('0.00', SP / 100.0) + ' бар';
+      UiSetpointText[Index] := FormatFloat('0.0', SP / 100.0) + ' бар';
   Valid := UiWord(Index, 'PressureSourceOK', Source);
   if Valid then Valid := Source = 1;
   if Valid then Valid := UiWord(Index, 'PressurePV_x100', PV);
-  if Valid then UiPressureText[Index] := FormatFloat('0.00', PV / 100.0) + ' бар'
+  if Valid then UiPressureText[Index] := FormatFloat('0.0', PV / 100.0) + ' бар'
   else UiStatusText[Index] := 'Нет достоверного источника давления';
   if UiWord(Index, 'Vfd1FaultCode', Fault) then
     if Fault <> 0 then UiStatusText[Index] := 'Насос 1: ошибка ПЧ, код ' + IntToStr(Fault);
