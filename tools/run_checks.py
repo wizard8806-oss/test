@@ -39,6 +39,7 @@ CHECKS = [
     'validate_native_operator_console_01.py',
     'validate_project_python_setup.py',
     'validate_native_ui_navigation.py',
+    'validate_native_ui_event_probe.py',
 ]
 
 
