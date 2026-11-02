@@ -38,6 +38,7 @@ CHECKS = [
     'validate_scada_variable_metadata_reader.py',
     'validate_native_operator_console_01.py',
     'validate_project_python_setup.py',
+    'validate_native_ui_navigation.py',
 ]
 
 
