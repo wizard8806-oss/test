@@ -1,4 +1,34 @@
 # Передача контекста Codex — 02.11.2026 (МСК)
+## Диагностика доступа к Client и визуальная приёмка — 02.11.2026
+
+Получен branch ref `5727a43f4de416cee9e3de9c5aeeee5bf051e4b9` через GitHub API;
+основная локальная копия остаётся на `5e3cbaec17ec2c78e248be5fea1b3483dbe6e934`
+с изменённым HANDOFF и тремя untracked-файлами, без переключения/сброса.
+Локальный `git fetch` не открыл `.git/FETCH_HEAD` (Access denied); managed
+worktree-инструмент выдал старый SHA 5e3cbae и не использовался для правок.
+
+Изменённый инструмент не запускался: выполнен оригинальный
+`tools/Get-ScadaUiContext.ps1` из `5727a43`, сохранённый вне Git. Результат:
+executor SessionId 1, WinSta0, desktop `CodexSandboxDesktop-<instance>`,
+не elevated; Server/Client/Editor/modbusopcserver тоже SessionId 1, но elevated.
+В desktop executor `EnumWindows=false`, error=0, окон0. Это указывает на
+изолированный desktop-контекст самого CLI и разницу уровней запуска, а не на
+доказанный другой Windows Session. Окна Client на другом desktop и активный
+путь проекта измерить не удалось. OPC Automation ProgID отсутствуют в обеих
+registry views; COM-объекты не активировались.
+
+Реальных кадров Client11 нет, поэтому сравнение с эталоном и исправление
+интерфейса не выполнены; native/UI исходники и SCADA не менялись. Точное
+измерение и ограничения: [отчёт диагностики](reports/station11-visual-parity-session-diagnosis-20261102.md).
+Следующий шаг — обеспечить штатное выполнение снимка с desktop видимого Client
+или поддерживаемую доставку скриншотов, затем сравнить парные кадры Client11 и
+макета и только после этого вносить конкретные UI-правки. Изоляцию desktop,
+уровни прав и ввод не обходить. Отчёт опубликован коммитом
+`d7bf0916672d8e6caac60ae5ae78a5b93654fd6b`; это база, не собственный SHA этой
+редакции HANDOFF.
+
+---
+
 
 ## Текущий приоритет: соответствие согласованному интерфейсу
 
