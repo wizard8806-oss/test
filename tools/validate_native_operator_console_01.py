@@ -72,8 +72,9 @@ def two_stations():
     return data
 
 
-def runtime(folder):
+def runtime(folder, module_transform=None, extra_harness=''):
     b=Builder(two_stations()).build()
+    if module_transform is not None:b.module=module_transform(b.module)
     names=sorted(set(re.findall(r'\b(Ui\w+|ProcessTitle)\.Text',b.module)))
     (folder/'UiApi.pas').write_text(STUB.replace('__CONTROLS__',','.join(names)),encoding='utf8')
     code='unit UiConsole;\n{$mode objfpc}{$H+}{$codepage utf8}\n'+b.module.replace('interface','interface\nuses SysUtils,UiApi;',1)
@@ -113,9 +114,10 @@ begin
  C:=Calls;UiGoPage('PageProcess','');Check(Calls=C,'missing caller cannot navigate every client');UiGoPage('PageProcess','ClientB');Check(LastClient='ClientB','navigation is caller-local');
  C:=Calls;UiOpenWindow(16,'ClientA');Check(Calls=C,'invalid station cannot open another window');UiOpenWindow(1,'ClientB');Check((LastName='UiWindow_station_002')and(LastClient='ClientB'),'separate window uses exact station and client');
  UiOpenTrends(0,'ClientB');Check(Notice<>'','unconfigured group explained without fake history');G:=TM_TrendGroup.Create;G.ID:=21;UiOpenTrends(1,'ClientB');Check((GroupID=21)and(LastClient='ClientB'),'native trend group resolves by name not invented ID');
+ __EXTRA__
  WriteLn('PASS native UI runtime assertions=',N);
 end.
-'''.replace('__INIT__',init).replace('__CALLBACKS__',callbacks)
+'''.replace('__INIT__',init).replace('__CALLBACKS__',callbacks).replace('__EXTRA__',extra_harness)
     (folder/'VerifyUi.pas').write_text(harness,encoding='utf8')
     compiler=fpc();cmd=[str(compiler),'-gl','-Cr','-Co','-Fu'+str(folder),'-FE'+str(folder),'-FU'+str(folder)]+['-Fu'+str(p) for p in fpc_units(compiler)]+[str(folder/'VerifyUi.pas')]
     compiled=subprocess.run(cmd,text=True,capture_output=True,timeout=60)

@@ -79,7 +79,8 @@ def review_copy_cases(folder):
     for suffix,probe_id,native in [('font0001',None,False),('probe001','UINAV11-REVIEW0001',False),('native01',None,True)]:
         out=folder/('codex_diag_11_review_'+suffix)
         report=candidate.prepare_layout_review(source,out,*pins,probe_id=probe_id,native_navigation=native)
-        assert candidate.inventory(source)==before and report['geometryUnchanged'] and not report['runtimeNavigationVerified']
+        assert candidate.inventory(source)==before
+        assert report['geometryUnchanged']==(not native) and not report['runtimeNavigationVerified']
         assert report['replacedPreparationManifests']==['CodexProbeManifest.json']
         assert 'CodexProbeManifest.json' not in report['candidateSHA256']
         old=parse_pages((source/'Pages.spg').read_bytes());new=parse_pages((out/'Pages.spg').read_bytes())
@@ -99,6 +100,11 @@ def review_copy_cases(folder):
                 restored=bytearray(y['record']);offset=6+len(y['name'].encode())+31
                 assert restored[offset]==16;restored[offset]=x['body'][31]
                 if native:
+                    base=offset-31
+                    x0,y0,w0,h0=struct.unpack_from('<4f',y['body'],8)
+                    assert 0<=x0 and 64<=y0 and w0>0 and h0>0 and x0+w0<=1920 and y0+h0<=1080
+                    restored[base+8:base+24]=x['body'][8:24]
+                    restored[base+32:base+36]=x['body'][32:36]
                     layer=offset-31+54
                     assert struct.unpack_from('<I',restored,layer)[0]==z
                     restored[layer:layer+4]=x['body'][54:58]

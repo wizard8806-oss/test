@@ -233,7 +233,7 @@ def native_navigation_grid_pages(raw, project_width=1920, project_height=1080):
                 # those tabs in Client, so keep the background below them.
                 setr(name,0,64,1920,1016)
             elif name.endswith('Sidebar'):
-                setr(name,0,60,248,976)
+                setr(name,0,64,248,972)
             elif name.endswith('Brand'):
                 setr(name,24,82,200,76,1.0)
 
@@ -242,8 +242,9 @@ def native_navigation_grid_pages(raw, project_width=1920, project_height=1080):
     setr('UiOverviewCount0',main_x,148,main_w,48,.95)
     columns=[('Station',300,350),('Mode',660,150),('Pressure',820,220),
              ('Setpoint',1050,220),('Status',1280,390),('Open',1680,190)]
+    overview=next(p for p in pages if p['name']=='PageUiOverview')
     for suffix,x,w in columns:
-        title=next((o['name'] for o in pages[0]['objects'] if o['name'].startswith('UiOverviewHeader') and
+        title=next((o['name'] for o in overview['objects'] if o['name'].startswith('UiOverviewHeader') and
                     ((suffix=='Station' and o['name'].endswith('252')) or
                      (suffix=='Mode' and o['name'].endswith('540')) or
                      (suffix=='Pressure' and o['name'].endswith('678')) or

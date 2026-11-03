@@ -43,6 +43,8 @@ CHECKS = [
     'validate_pressure_display_01.py',
     'validate_scada_ui_context.py',
     'validate_native_visual_layout.py',
+    'validate_native_operator_geometry.py',
+    'validate_native_overview_panel.py',
 ]
 
 
