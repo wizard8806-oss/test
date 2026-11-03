@@ -43,13 +43,24 @@ def station_card_pages(raw):
         if name not in ov:
             raise ValueError('Unexpected saved overview controls: ' + name)
     _set_caption(ov['UiOverviewPumpHeader'], 'СТАТУС НАСОСОВ')
-    _set_rect(ov['UiOverviewPumpHeader'], (1140, 482, 470, 32))
+    _set_rect(ov['UiOverviewPumpHeader'], (1030, 482, 440, 32))
     _set_caption(ov['UiOverviewPumpInfo'], 'Насосы 2–4: данных нет')
-    _set_rect(ov['UiOverviewPumpInfo'], (1140, 626, 470, 28))
+    _set_rect(ov['UiOverviewPumpInfo'], (1030, 626, 440, 24))
+    # Allocate all columns together; widening pumps cannot cover status/age.
+    for suffix, header, x, width in [
+        ('Mode', '540', 620, 100), ('Pressure', '678', 730, 140),
+        ('Setpoint', '846', 880, 140), ('Status', '1004', 1480, 180),
+        ('Open', None, 1800, 70),
+    ]:
+        _set_rect(ov['UiRow0' + suffix], (x, 530, width, 80))
+        if header:
+            _set_rect(ov['UiOverviewHeader0' + header], (x, 482, width, 32))
+    _set_rect(ov['UiOverviewUpdatedHeader'], (1670, 482, 120, 32))
+    _set_rect(ov['UiOverviewUpdated'], (1670, 538, 120, 70))
     for i in range(4):
         obj = ov[f'UiOverviewPumpMarker{i}']
         _set_caption(obj, f'НАСОС {i + 1}')
-        _set_rect(obj, (1140 + 118 * i, 538, 110, 30))
+        _set_rect(obj, (1030 + 110 * i, 538, 100, 30))
 
     uid = max(struct.unpack_from('<I', o['body'], 107)[0]
               for p in pages for o in p['objects'])
@@ -150,7 +161,7 @@ def station_card_pages(raw):
         if page is overview_page:
             for i in range(4):
                 overview_status_records.append(add(f'UiOverviewPumpStatus{i}', 'Нет данных',
-                    (1140 + 118 * i, 574, 110, 44), .68, fg=builder.MUTED))
+                    (1030 + 110 * i, 574, 100, 44), .68, fg=builder.MUTED))
             page_records = []
             for obj in page['objects']:
                 name = obj['name']

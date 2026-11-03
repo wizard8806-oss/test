@@ -9,6 +9,32 @@ import prepare_native_ui_event_probe as candidate
 from build_native_operator_console_01 import native_navigation_grid_pages, parse_pages, repair_visual_page_style
 from native_station_card import station_card_pages
 from validate_native_ui_event_probe import fixture
+from validate_native_operator_console_01 import runtime
+from validate_native_overview_panel import EXTRA as OVERVIEW_EXTRA
+from native_overview_panel import overview_module, station_card_module
+
+CARD_EXTRA = r'''
+ Check(UiOverviewMetric3Note.Text='Нет свежего подтверждения ПЛК','no fresh counter note');
+ V[0,0].ComputerName:='localhost';V[1,0].OriginalAsInt:=32;
+ Tick(1060,30003,142);Tick(1061,30004,143);
+ Check(UiOverviewMetric3Note.Text='У всех станций есть свежее обновление','fresh note agrees with zero missing');
+ Check(UiOverviewPumpStatus0.Text='Ошибка ПЧ: 7','confirmed fault displayed');
+ Check(Pos('7.',UiCardEventText.Text)>0,'event summary uses current fault');
+ Check(Pos('0 с назад',UiCardConnectionText.Text)>0,'connection summary uses PLC progress');
+ Check(UiOverviewPumpStatus1.Text='Нет данных','pump2 stays unknown');
+ Check(UiOverviewPumpStatus2.Text='Нет данных','pump3 stays unknown');
+ Check(UiOverviewPumpStatus3.Text='Нет данных','pump4 stays unknown');
+ Check(UiPumpState0.Text='Рабочий статус: нет данных','fault code is not motor state');
+ V[0,6].IsGoodQuality:=False;OperatorUiUpdate;
+ Check(UiOverviewPumpStatus0.Text='Нет данных','unknown fault cannot remain old confirmed fault');
+ Check(Pos('нет данных',UiCardEventText.Text)>0,'bad fault quality resets summary');
+ Tick(1065,30004,147);
+ Check(Pos('4 с назад',UiCardConnectionText.Text)>0,'connection age is not refresh time');
+ Tick(1070,30004,152);Tick(1076,30004,158);
+ Check(UiOverviewMetric3Note.Text='Есть станции без свежих данных','partial freshness note');
+ Check(Pos('Нет свежего подтверждения',UiCardConnectionText.Text)>0,'stale link does not look live');
+ Check(V[0,5].OriginalAsInt=400,'card never writes setpoint');
+'''
 
 
 def main():
@@ -56,6 +82,14 @@ def main():
             assert overview[f'UiOverviewPumpStatus{i}']['caption'] == 'Нет данных'
         assert overview['UiOverviewPumpInfo']['caption'] == 'Насосы 2–4: данных нет'
         assert new['PageUiOverview']['objects'][0]['body']
+        rect=lambda name:struct.unpack_from('<4f',overview[name]['body'],8)
+        columns=[rect(n) for n in ('UiRow0Name','UiRow0Mode','UiRow0Pressure','UiRow0Setpoint',
+                 'UiOverviewPumpHeader','UiRow0Status','UiOverviewUpdatedHeader','UiRow0Open')]
+        assert all(a[0]+a[2]<=b[0] for a,b in zip(columns,columns[1:])), 'table columns overlap'
+        for i in range(4):
+            for name in (f'UiOverviewPumpMarker{i}', f'UiOverviewPumpStatus{i}'):
+                x,y,w,h=rect(name)
+                assert columns[4][0]<=x and x+w<=columns[4][0]+columns[4][2]
 
         card = {o['name']: o for o in new['PageProcess']['objects']}
         for i in range(4):
@@ -82,6 +116,9 @@ def main():
         assert not re.search(r'\.Value\s*:=|SetVariableValue|AddActionMessage', body)
         assert all(scripts[i]['name'] == candidate.scripts((overview_out / 'Scripts/Scripts.ssc').read_bytes())[i]['name']
                    for i in scripts)
+
+        pascal=root/'pascal';pascal.mkdir()
+        print(runtime(pascal,lambda text:station_card_module(overview_module(text)),OVERVIEW_EXTRA+CARD_EXTRA))
 
         print('PASS native station card: overview stale-note branches, four named pumps, unknown pump2-4, read-only event/connection summaries, 169 Text, 15 bindings, source/resource preservation')
 

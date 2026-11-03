@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-03",
+  "sourceCollectorSHA256": "89c5762599b6b43044d0688f98f5df4e0d80ac603a70d446ee131351607b0e82",
+  "files": {
+    "Run-Radio-Service-Collector-03.ps1": "2ac5d78a66546c4bd76ff330d0f9210f239f7d8fd259bdf25e0f8666ba281870",
+    "Radio-Autostart.Common.ps1": "add9bea3e88588a206d07c0b5b02cf89e708167d24952766656f51b46611b782",
+    "Manage-Radio-Autostart03.ps1": "0f011b164939c1ea202a251acad11f75025e8932bea8888463819d78e9398e07"
+  },
+  "taskName": "Automatika-Radio-Service03",
+  "taskRegisteredEnabled": false,
+  "installationRoot": "%ProgramFiles%\\AutomatikaRadioAutostart03",
+  "credentialScope": "Windows DPAPI LocalMachine; SYSTEM/Admin ACL",
+  "stationCount": 1,
+  "serviceGroup": 9336,
+  "hardwareCommandsSent": 0,
+  "windowsInstallObserved": false,
+  "bootObserved": false,
+  "publicationFailureResolved": false
+}

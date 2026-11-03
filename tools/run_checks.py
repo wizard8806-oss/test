@@ -22,6 +22,7 @@ BUILDERS = [
     'build_setpoint_control_01.py',
     'build_setpoint_click_fix_01.py',
     'build_native_operator_console_01.py',
+    'build_radio_autostart_03.py',
 ]
 CHECKS = [
     'validate_scada_inline_01.py', 'validate_radio_install_01.py',
@@ -46,6 +47,7 @@ CHECKS = [
     'validate_native_operator_geometry.py',
     'validate_native_overview_panel.py',
     'validate_native_station_card.py',
+    'validate_radio_autostart_03.py',
 ]
 
 

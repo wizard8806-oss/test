@@ -177,7 +177,7 @@ def station_card_module(text):
             "    UiCardConnectionText.Text := 'Счётчик ПЛК обновлялся ' + IntToStr(Round(Now * 86400.0 - UiLastProgress[0])) + ' с назад. Подробности — вкладка «Диагностика».';\n"
             "  end;")
     replace("    if UiDashboardFault[0] then UiOverviewPumpInfo.Text := '1: ошибка; 2-4: н/д'\n"
-            "    else UiOverviewPumpInfo.Text := '1: код 0; 2-4: н/д';",
+            "    else UiOverviewPumpInfo.Text := '1: код 0; 2-4: н/д';\n  end;",
             "    if UiDashboardFault[0] then UiOverviewPumpInfo.Text := '1: ошибка; 2-4: н/д'\n"
             "    else UiOverviewPumpInfo.Text := '1: код 0; 2-4: н/д';\n"
             "    if UiDashboardFault[0] then UiOverviewPumpStatus0.Text := 'Ошибка ПЧ: ' + IntToStr(UiDashboardFaultCode[0])\n"
