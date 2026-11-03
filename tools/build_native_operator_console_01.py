@@ -20,6 +20,8 @@ UI = ROOT/'ui/native-console'
 PAGES_SHA = '7ac3a4647f7a49b0d5c50d88dd024ab38e92ee427e59101dd929c3ebcc1e631b'
 SCRIPTS_SHA = '51cc9561bb7a2b3ad3b7068db28b860d70ef9587a4586ea27a0d0eb683e7a858'
 BG, PANEL, MUTED, TEXT, ACCENT = 0x0D1520, 0x152131, 0xA4B6C8, 0xEDF4FB, 0x51C8B2
+# Native2.6.15 RTTI order differs from the documentation's display order.
+FONT_REGULAR18 = 16
 SHA = lambda b: hashlib.sha256(b).hexdigest()
 U32 = lambda n: struct.pack('<I',n)
 I64 = lambda n: struct.pack('<q',n)
@@ -124,12 +126,12 @@ def visual_layout_pages(raw, project_width, project_height, client_width=1366,
     Project dimensions must be read in native Editor; they are not inferred from
     a photograph. Client dimensions are a reference, not a measured runtime.
     All page/control identities, event links and non-presentation bytes survive.
-    Font enum11 is ftRegular18 in the official2.6.15 TM_FontType reference;
-    the old enum4 (ftMedium11) with scale .78 yielded only8.58 design pixels.
+    Native RTTI confirms enum16=ftRegular18; enum11 is ftAsOwner and enum4
+    is ftMedium15. Documentation row order is not a serialized enum mapping.
     """
     for value, low, high in [(project_width,640,7680),(project_height,480,4320),
                               (client_width,640,7680),(client_height,480,4320),
-                              (header_pixels,32,160),(footer_pixels,16,80)]:
+                              (header_pixels,0,160),(footer_pixels,16,80)]:
         if type(value) is not int or not low <= value <= high:
             raise ValueError('Invalid measured layout dimensions')
     fit = min(client_width/project_width, client_height/project_height)
@@ -160,11 +162,43 @@ def visual_layout_pages(raw, project_width, project_height, client_width=1366,
                     w*project_width/1440,
                     project_height if backdrop else h*content_height/920)
             struct.pack_into('<4f',body,8,*rect)
-            body[31] = 11  # ftRegular18, not a guessed byte/pixel size
+            body[31] = FONT_REGULAR18
             struct.pack_into('<f',body,32,scale/fit)
             old = obj['record']
             start = 6+len(obj['name'].encode('utf8'))
             result.append(old[:start]+body+old[start+141:])
+    return b''.join(result)
+
+
+def repair_visual_page_style(raw, native_navigation=False):
+    """Fix the deployed font; optionally keep native tabs as primary navigation.
+
+    The operator chose native tabs after manually exposing their hit area.
+    Remove only the duplicate sidebar/diagnostics page-navigation controls;
+    preserve all data, command controls, scripts and their existing identities.
+    Subpage header[-5] is FShowPagesPanel:0 inherits,1 shows,2 hides; confirmed
+    against native loader129bd75 and getter129c28c, not guessed from a flag.
+    """
+    parsed=parse_pages(raw)
+    if len(parsed)!=6 or sum(len(p['objects']) for p in parsed) not in (102,131):
+        raise ValueError('Expected the reviewed single-station layout')
+    result=[raw[:12]]
+    for page in parsed:
+        header=bytearray(page['header'])
+        if header[-5] not in (0,1,2):
+            raise ValueError('Unexpected native page panel setting')
+        if native_navigation:header[-5]=1
+        objects=[o for o in page['objects'] if not native_navigation or not re.fullmatch(
+            r'Ui(?:Main|Overview0|Alarms|Charts|Settings)Nav[0-4]|UiDiagNav[0-3]',o['name'])]
+        result += [bytes(header), U32(len(objects))]
+        for z,obj in enumerate(objects):
+            body=bytearray(obj['body'])
+            if body[31] not in (4,11,FONT_REGULAR18):
+                raise ValueError('Unexpected custom font; review before changing')
+            body[31]=FONT_REGULAR18
+            if native_navigation:struct.pack_into('<I',body,54,z)
+            start=6+len(obj['name'].encode('utf8'));record=obj['record']
+            result.append(record[:start]+body+record[start+141:])
     return b''.join(result)
 
 

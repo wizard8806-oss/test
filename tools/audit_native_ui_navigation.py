@@ -80,6 +80,7 @@ def pages(raw):
                 r.text(True); r.take(9)
                 result.append(dict(page=page, name=name, uid=struct.unpack_from('<I', body, 107)[0],
                                    rect=list(rect), z=struct.unpack_from('<I', body, 54)[0],
+                                   fontType=body[31],fontScale=struct.unpack_from('<f',body,32)[0],
                                    onClick=struct.unpack_from('<q', body, 75)[0],
                                    rawControlFlags=body[24:32].hex()))
     r.done()
@@ -191,6 +192,10 @@ def audit(project):
                 scope='Static native file bindings only; no Client invocation or permissions test',
                 fileSHA256=before, pageCount=len(page_ids), textObjects=len(controls),
                 scripts=len(rows), buttons=len(bindings), findings=findings, bindings=bindings,
+                layoutControls=[dict(control=public_name(c['name']),page=public_name(c['page']),
+                    rect=c['rect'],fontType=c['fontType'],fontScale=c['fontScale'])
+                    for c in controls if c['name'].endswith(('Background','Brand','Heading')) or
+                    c['name'] in ('ProcessTitle','ProcessPressure','ProcessSetpoint')],
                 topMarginCandidates=[public_name(c['name']) for c in controls
                     if (c['name'].endswith(('Heading','Brand')) or c['name']=='ProcessTitle') and c['rect'][1]<64],
                 sourceUnchanged=True, hardwareCommands=0, runtimeNavigationVerified=False)
