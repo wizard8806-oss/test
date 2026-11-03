@@ -89,3 +89,49 @@ Windows/PLC/радио-опыта облако не проводило. HMI-па
 новое подтверждение не получено. Push — передача исходников, не развёртывание.
 Следующий шаг — [новая копия и один кадр обзора](../tasks/station11-overview-components.md),
 затем карточка по уже полученному сравнению.
+
+## Локальный Windows-приём f34e957 — подготовка кандидата
+
+03.11.2026. Рабочая ветка `codex/station11-native-navigation-20261103`
+fast-forward до `f34e957e87663476faab91b57e6f2fd7cc9cf6ab`; дерево на момент
+проверки чистое. Проверенный источник сохранён в
+`C:\Users\user\Documents\Simple-Scada 2\Projects\codex_diag_11_review_tabs_20261103t1500z`.
+Pages SHA256 `c9c054451c75364334ba578fff1b51c100602719f76435dfd8fea8ff39471999`;
+Scripts SHA256 `f2967df9165d800186bf5fcbae19abbbbdaa6ecee1b11a1c9923ca8048c988ad`.
+Native audit: 6 страниц, 102 Text, 15 bindings, 0 findings; все фоны
+`[0,64,1920,1016]`; probe-маркеров 0. ArcSystem/Variables/Servers/Trends/Windows
+сверены по наличию и SHA; источник при подготовке не менялся.
+
+Установленный Python 3.13.17 подготовил отдельный private-кандидат:
+`%LOCALAPPDATA%\CodexCandidates\SCADA11\codex_diag_11_review_overview_20261103t1540z`.
+Manifest: purpose `native-overview-components-v1`, sourceUnchanged true,
+changedScripts только `OperatorConsole`, hardwareCommands 0. Повторный audit:
+137 Text/6 страниц/15 bindings/0 findings; всего48 скриптов. SHA Pages
+`C0239829AFAD9D52ED21A542EE438C77AC64202D1DCA6B77A49E4831382DDCC4`, Scripts
+`7FE26E6FD99CF274B20A171DD89FBA07360DB290F785F81F26C1593B34EFD5B3`.
+Синтетический Python runner `tools/run_checks.py --vendor-pages` локально
+остановился до тестов на отсутствующем `fp-compiler`; установщики не запускались.
+Результат cloud `42/42 PASS` в этом задании зафиксирован отдельно и не является
+Windows runtime-проверкой.
+
+Пассивный desktop context после проверки показывает Editor, но не Client или
+Server process; активная Server-копия остаётся неизвестной. Окна/проекты агент
+не переключал. В Projects сохранён кандидат
+`C:\Users\user\Documents\Simple-Scada 2\Projects\codex_diag_11_review_overview_20261103t1540z`.
+Editor-log содержит два успешных прохода в 17:18:29 и 17:18:48
+(`Start compile all` → `Create bytecode end` → `End compile all`). Project.spr,
+Pages.spg и Scripts.ssc сохранены в 17:18:47–48; `program.exs` и `words.exs` —
+в 17:18:48. Итоговый read-only audit: 6 страниц, 137 Text, 15 bindings,
+0 findings. SHA Pages
+`76aaca34aabd5c6dee11f2412ea1babe386133df83d01b3929f941dbafe03d5c`, Scripts
+`475151e0beed8ef0f98a522ebc8a3378b54746fd44de0a8986c106edf401e664`.
+
+Сверка скриптов между подготовленным и сохранённым кандидатом: все 48 ID/names
+и нормализованные bodies совпадают. Metadata byte9 отличается у
+StationDiagnostics (ID0), StationRadioDiagnostics (ID2), OperatorConsole (ID7);
+кодовые тела не менялись при Save. Декодировать назначение этих байтов доступный
+audit не позволяет. Client overview, визуальное сравнение, реальные значения,
+действие «Окно» и полная UI-приёмка остаются непроверенными. Следующий шаг —
+оператор показывает существующее Simple-Scada Server → Projects без смены
+проекта; затем один overview кадр в Client после подтверждения, что активен
+ровно один проект. Apply, пуски и команды оборудованию не выполнялись.

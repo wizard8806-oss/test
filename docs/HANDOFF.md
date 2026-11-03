@@ -10,13 +10,31 @@ Save As ручной модели, semantic-grid, Compile/Save и устране
 вкладок фонами уже выполнены локально. Верхние вкладки разрешены и, по
 сообщению пользователя, работают. Не повторять этот цикл/диагностику sandbox.
 
-Последняя проверенная локальным отчётом сохранённая копия:
+Последняя проверенная сохранённая копия-источник:
 `C:\Users\user\Documents\Simple-Scada 2\Projects\codex_diag_11_review_tabs_20261103t1500z`.
-Облако не определяло заново активную Server-копию. SHA итоговых Pages/Scripts
-после последнего native Save не опубликованы: взять локально, не применять
-старые grid SHA. Backup `codex_diag_11_review_20261103t1019z` сохранить.
-Основная грязная папка ноутбука на5e3cbae оставалась нетронутой; локальная
-работа выполнена в `C:\Temp\pump-station-6a5a10b`. Её статус проверить заново.
+Pages SHA `c9c054451c75364334ba578fff1b51c100602719f76435dfd8fea8ff39471999`,
+Scripts SHA `f2967df9165d800186bf5fcbae19abbbbdaa6ecee1b11a1c9923ca8048c988ad`.
+Из неё подготовлен file-only candidate
+`%LOCALAPPDATA%\CodexCandidates\SCADA11\codex_diag_11_review_overview_20261103t1540z`:
+137 Text/6 страниц/48 скриптов/15 bindings; только OperatorConsole изменён,
+static audit 0 findings, hardwareCommands0, sourceUnchanged true. SHA кандидата
+Pages `C0239829AFAD9D52ED21A542EE438C77AC64202D1DCA6B77A49E4831382DDCC4`,
+Scripts `7FE26E6FD99CF274B20A171DD89FBA07360DB290F785F81F26C1593B34EFD5B3`.
+Backup `codex_diag_11_review_20261103t1019z` сохранить. Основная грязная папка
+ноутбука на5e3cbae и источник не изменялись. Основная работа ведётся в
+`C:\Temp\pump-station-6a5a10b`.
+
+Пользователь открыл candidate в Editor, выполнил Compile All/Save. Проверено:
+сохранённая Projects-копия
+`C:\Users\user\Documents\Simple-Scada 2\Projects\codex_diag_11_review_overview_20261103t1540z`;
+Editor-log подтверждает успешные End compile all в17:18:29 и17:18:48, последние
+файлы сохранены17:18:47–48. Итоговые SHA Pages
+`76aaca34aabd5c6dee11f2412ea1babe386133df83d01b3929f941dbafe03d5c`, Scripts
+`475151e0beed8ef0f98a522ebc8a3378b54746fd44de0a8986c106edf401e664`.
+Audit: 6 страниц/137 Text/15 bindings/0 findings; body содержимое всех48
+скриптов совпадает с подготовленным candidate, но 17-byte metadata поменялась
+в одном байте у ID0/ID2 и двух байтах у ID7. Compile/Save PASS, причина этих
+metadata отличий без native metadata decoder не установлена.
 
 Пользователь прислал два парных кадра Client/утверждённого HTML: обзор и
 карточка станции. На Client видны3,9бар/уставка4,1бар/СТОП; это чтение картинки,
@@ -41,17 +59,20 @@ PASS. Прежний локальный пробел из-за отсутств�
 проверкой, устанавливать FPC на ноутбук не нужно. Старый layout-тест обновлён
 для изменяющейся сетки без удаления проверок сохранности; проверены фоновые
 исправления и независимость порядка страниц. После прогона менялись документы.
-Windows Compile/Save/Client **новой** overview-правки и полная UI-приёмка
-не выполнены. Поиск/фильтры, карточка/формы/inline-графики ещё впереди.
+Windows Compile/Save **выполнен** для новой overview-правки. Client-кадр/runtime
+обзора и полная UI-приёмка ещё не выполнены. Поиск/фильтры, карточка/формы/
+inline-графики ещё впереди.
 
 [Отчёт](reports/station11-overview-components-review-20261103.md),
-[следующее локальное задание](tasks/station11-overview-components.md):
-новый overview-кандидат из сохранённой tabs-копии, Compile/Save/Client и один
-кадр обзора, затем карточка станции. Не возвращаться к10→11/БД/радио/левому меню.
-Проверенная база16d7284; изменения публикуются следующим коммитом handoff-ветки,
-точный SHA — в Git. Source SCADA/ПЛК/HMI, ProgramData-радиосборщик02, архивные
-профили и пароли облако не изменяло. Push не устанавливает файлы на ноутбуке.
-Новых команд оборудованию нет.
+[задание](tasks/station11-overview-components.md): новая копия подготовлена,
+Compile/Save подтверждены; Client review ожидает показа окна. Runner локально остановился из-за
+отсутствующего `fp-compiler`; ничего не устанавливать. UI context показывает
+Editor, но Client и Server process не найден; активное состояние Server
+неизвестно. Следующий шаг: оператор показывает существующее Server → Projects
+без переключения; затем один overview кадр Client при подтверждённом одиночном
+активном проекте.
+Не возвращаться к10→11/БД/радио/левому меню. Source SCADA/ПЛК/HMI, радио02,
+архивные профили и пароли не изменялись. Команды оборудованию0.
 
 ## История локального продолжения03.11: перекрытие вкладок фоном
 
