@@ -284,11 +284,34 @@ def prepare_layout_review(project, out, expected_pages_sha, expected_scripts_sha
         dict(purpose='layout-navigation-review',correctedFontOrdinal=16,
              nativeTabsVisible=native_navigation,duplicateSidebarRemoved=native_navigation,probeId=probe_id,
              pressureDecimals=1 if native_navigation else None,
-             geometryUnchanged=True,controlLogicUnchanged=True,
+             geometryStrategy='semantic-grid-1920x1080-v1' if native_navigation else 'unchanged',
+             geometryUnchanged=not native_navigation,controlLogicUnchanged=True,
              visualAcceptancePassed=False),
-        page_transform=lambda raw:builder.repair_visual_page_style(raw,native_navigation),
+        page_transform=lambda raw:(builder.native_navigation_grid_pages(
+            builder.repair_visual_page_style(raw,True),1920,1080) if native_navigation else
+            builder.repair_visual_page_style(raw,False)),
         pins={'Pages.spg':expected_pages_sha,'Scripts/Scripts.ssc':expected_scripts_sha},
         expected_button_counts=(44,15))
+
+
+def prepare_tab_clearance(project, out, expected_pages_sha, expected_scripts_sha):
+    """Create a separate candidate that moves only page backgrounds below tabs."""
+    if Path(project).name != 'codex_diag_11_review_grid_20261103t1030z':
+        raise ValueError('Use the operator-confirmed saved grid candidate')
+    if not all(re.fullmatch(r'[0-9a-f]{64}',v or '') for v in
+               (expected_pages_sha,expected_scripts_sha)):
+        raise ValueError('Explicit reviewed Pages/Scripts digests are required')
+    spec=importlib.util.spec_from_file_location(
+        '_tab_clearance_builder',Path(__file__).resolve().with_name('build_native_operator_console_01.py'))
+    builder=importlib.util.module_from_spec(spec);spec.loader.exec_module(builder)
+    return _prepare_copy(project,out,lambda raw:raw,
+        r'codex_diag_11_review_tabs_[a-z0-9_-]{8,80}',
+        dict(purpose='native-page-tab-clearance',backgroundTop=64,backgroundBottom=1080,
+             changedScripts=[],controlLogicUnchanged=True,sourceUnchanged=True,
+             runtimeNavigationVerified=False,hardwareCommands=0),
+        page_transform=builder.native_tab_clearance_pages,
+        pins={'Pages.spg':expected_pages_sha,'Scripts/Scripts.ssc':expected_scripts_sha},
+        expected_button_counts=(15,))
 
 
 def _prepare_copy(project, out, transform, output_pattern, details, page_transform=None, pins=None,
@@ -371,7 +394,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--project', type=Path, required=True)
     parser.add_argument('--out', type=Path, required=True)
-    parser.add_argument('--mode', choices=['event', 'pressure-display', 'visual-layout', 'layout-review'], default='event')
+    parser.add_argument('--mode', choices=['event', 'pressure-display', 'visual-layout', 'layout-review', 'tab-clearance'], default='event')
     parser.add_argument('--probe-id')
     parser.add_argument('--project-width', type=int)
     parser.add_argument('--project-height', type=int)
@@ -383,8 +406,10 @@ if __name__ == '__main__':
     parser.add_argument('--expected-scripts-sha')
     parser.add_argument('--native-navigation', action='store_true')
     args = parser.parse_args()
-    if args.mode != 'layout-review' and (args.expected_pages_sha or args.expected_scripts_sha or args.native_navigation):
-        parser.error('Reviewed digests/native-navigation are only valid in layout-review mode')
+    if args.mode not in ('layout-review','tab-clearance') and (args.expected_pages_sha or args.expected_scripts_sha or args.native_navigation):
+        parser.error('Reviewed digests are only valid in layout-review/tab-clearance modes')
+    if args.mode == 'tab-clearance' and args.native_navigation:
+        parser.error('tab-clearance only changes page backgrounds')
     if args.mode != 'visual-layout' and (args.project_width is not None or args.project_height is not None):
         parser.error('Project dimensions are only valid in visual-layout mode')
     if args.mode == 'event':
@@ -401,9 +426,14 @@ if __name__ == '__main__':
         prepare_visual_layout(args.project, args.out, args.project_width, args.project_height,
             args.client_width, args.client_height, args.header_pixels, args.footer_pixels)
         print('PREPARED: private layout candidate; native dimensions supplied by caller. Compile/load/visual acceptance not yet tested.')
-    else:
+    elif args.mode == 'layout-review':
         if not args.expected_pages_sha or not args.expected_scripts_sha:
             parser.error('layout-review requires both reviewed digests')
         prepare_layout_review(args.project,args.out,args.expected_pages_sha,args.expected_scripts_sha,
                               args.probe_id,args.native_navigation)
         print('PREPARED: private layout review; native font ordinal corrected. Windows navigation/visual acceptance not yet tested.')
+    else:
+        if args.probe_id or not args.expected_pages_sha or not args.expected_scripts_sha:
+            parser.error('tab-clearance requires reviewed Pages/Scripts digests and no probe-id')
+        prepare_tab_clearance(args.project,args.out,args.expected_pages_sha,args.expected_scripts_sha)
+        print('PREPARED: separate candidate changes only page-background top clearance; compile/load/Client review still required.')

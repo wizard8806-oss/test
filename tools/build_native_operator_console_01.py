@@ -202,6 +202,189 @@ def repair_visual_page_style(raw, native_navigation=False):
     return b''.join(result)
 
 
+def native_navigation_grid_pages(raw, project_width=1920, project_height=1080):
+    """Reflow the reviewed operator pages into the measured native canvas.
+
+    The 1920x1080 design canvas and 1366x768 Client were measured in Editor and
+    Client. Native page tabs reserve about 60 design units at the top; reserve
+    46 units for the footer. This is a semantic grid, not a scale of the old
+    1440x920 artwork: overview columns, process KPI cards, pump cards and
+    command row have independent dimensions and positions.
+    """
+    if (project_width, project_height) != (1920, 1080):
+        raise ValueError('Reflow requires the measured 1920x1080 project canvas')
+    pages = parse_pages(raw)
+    expected = {'PageProcess','PageDiagnostics','PageUiOverview','PageUiAlarms',
+                'PageUiCharts','PageUiSettings'}
+    if len(pages) != 6 or {p['name'] for p in pages} != expected:
+        raise ValueError('Expected the reviewed six-page operator UI')
+    main_x, main_w = 280.0, 1600.0
+    rects = {}
+    scales = {}
+    def setr(name, x, y, w, h, scale=None):
+        rects[name] = (float(x),float(y),float(w),float(h))
+        if scale is not None: scales[name] = float(scale)
+    for page in pages:
+        for obj in page['objects']:
+            name=obj['name']
+            if name.endswith('Background'):
+                # Native page tabs reserve the top 64 design units. The
+                # operator confirmed a full-canvas Text background intercepts
+                # those tabs in Client, so keep the background below them.
+                setr(name,0,64,1920,1016)
+            elif name.endswith('Sidebar'):
+                setr(name,0,60,248,976)
+            elif name.endswith('Brand'):
+                setr(name,24,82,200,76,1.0)
+
+    # Overview: fixed column grid uses the full width under native tabs.
+    setr('UiOverview0Heading',main_x,80,main_w,58,1.45)
+    setr('UiOverviewCount0',main_x,148,main_w,48,.95)
+    columns=[('Station',300,350),('Mode',660,150),('Pressure',820,220),
+             ('Setpoint',1050,220),('Status',1280,390),('Open',1680,190)]
+    for suffix,x,w in columns:
+        title=next((o['name'] for o in pages[0]['objects'] if o['name'].startswith('UiOverviewHeader') and
+                    ((suffix=='Station' and o['name'].endswith('252')) or
+                     (suffix=='Mode' and o['name'].endswith('540')) or
+                     (suffix=='Pressure' and o['name'].endswith('678')) or
+                     (suffix=='Setpoint' and o['name'].endswith('846')) or
+                     (suffix=='Status' and o['name'].endswith('1004')))),None)
+        if title:
+            setr(title,x,220,w,48,.92)
+        row_name={'Station':'UiRow0Name','Mode':'UiRow0Mode','Pressure':'UiRow0Pressure',
+                  'Setpoint':'UiRow0Setpoint','Status':'UiRow0Status','Open':'UiRow0Open'}[suffix]
+        setr(row_name,x,278,w,76,1.0 if suffix in ('Pressure','Setpoint') else .95)
+
+    # Station card: three KPI cards, four equal pump cards and one distinct
+    # command block. Existing objects, IDs and handlers are kept in place.
+    setr('UiMainHeading',main_x,72,main_w,60)
+    setr('ProcessTitle',main_x,78,1190,58,1.45)
+    setr('UiMainWindow',1510,82,340,50,.95)
+    setr('ProcessStatus',main_x,142,main_w,42,1.0)
+    setr('ProcessDetail',main_x,190,main_w,52,.95)
+    cards=[(main_x,520),(main_x+540,520),(main_x+1080,520)]
+    for i,(x,w) in enumerate(cards): setr(f'UiMainPanel{i}',x,252,w,172)
+    for name,x in [('ProcessPressureLabel',cards[0][0]+20),('ProcessSetpointLabel',cards[1][0]+20),('UiStationModeLabel',cards[2][0]+20)]: setr(name,x,266,480,32,.95)
+    for name,x in [('ProcessPressure',cards[0][0]+20),('ProcessSetpoint',cards[1][0]+20),('UiStationMode',cards[2][0]+20)]: setr(name,x,302,480,66,1.75)
+    for name,x in [('ProcessPressureNote',cards[0][0]+20),('ProcessSetpointNote',cards[1][0]+20),('UiStationModeNote',cards[2][0]+20)]: setr(name,x,372,480,40,.82)
+    pump_w=383.0; pump_gap=16.0; pump_y=442.0; pump_h=222.0
+    pump_x=[main_x+i*(pump_w+pump_gap) for i in range(4)]
+    for i,x in enumerate(pump_x): setr(f'UiPumpPanel{i}',x,pump_y,pump_w,pump_h)
+    x=pump_x[0]
+    setr('ProcessDriveTitle',x+18,456,pump_w-36,34,.95)
+    setr('ProcessFrequencyLabel',x+18,496,158,28,.78)
+    setr('ProcessCurrentLabel',x+194,496,171,28,.78)
+    setr('ProcessFrequency',x+18,526,158,48,1.0)
+    setr('ProcessCurrent',x+194,526,171,48,1.0)
+    setr('ProcessFaultLabel',x+18,580,130,26,.78)
+    setr('ProcessFault',x+154,578,211,32,.92)
+    setr('ProcessFrequencyNote',x+18,614,158,38,.76)
+    setr('ProcessCurrentNote',x+194,614,171,38,.76)
+    for i in range(1,4): setr(f'UiPumpUnknown{i}',pump_x[i]+18,456,pump_w-36,190,.88)
+    setr('ProcessFaultNote',main_x,672,main_w,40,.82)
+    setr('UiCommandPanel',main_x,728,main_w,174)
+    setr('ProcessSpTitle',main_x+20,746,300,48,1.0)
+    setr('ProcessSpMinus',main_x+360,744,70,60,1.05)
+    setr('ProcessSpDraft',main_x+446,744,190,60,1.35)
+    setr('ProcessSpPlus',main_x+652,744,70,60,1.05)
+    setr('ProcessSpApply',main_x+748,744,350,60,1.0)
+    setr('ProcessSpCancel',main_x+1118,744,350,60,1.0)
+    setr('ProcessMainScope',main_x+20,818,main_w-40,64,.86)
+
+    # Diagnostics: one readable full-width column with clear vertical groups.
+    diag={'ProcessDiagTitle':(80,78,1760,58,1.4),'ProcessOPC':(80,152,1760,50,1.0),
+          'ProcessMap':(80,216,850,46,.9),'ProcessValidity':(960,216,880,46,.9),
+          'ProcessFreshness':(80,276,1760,58,.9),'ProcessAlarmWords':(80,350,1760,46,.9),
+          'ProcessAlarmNote':(80,408,1760,70,.86),'DiagRadioTitle':(80,500,1760,42,.95),
+          'DiagRadio':(80,552,1760,50,.9),'DiagRadioNote':(80,614,1760,44,.84),
+          'ProcessChecks':(80,680,1760,100,.82),'ProcessScope':(80,800,1760,64,.82)}
+    for n,v in diag.items():setr(n,*v)
+
+    # Alarms and trends use large action targets and explicit status areas.
+    setr('UiAlarmsHeading',main_x,80,main_w,58,1.4)
+    alarm_x=[main_x+20+i*395 for i in range(4)]
+    for i,x in enumerate(alarm_x):setr(f'UiMessages{i}',x,160,375,64,.95)
+    setr('UiAlarmNote',main_x+20,250,main_w-40,94,.86)
+    setr('UiAlarmStation0',main_x+20,370,380,62,.92)
+    setr('UiAlarmState0',main_x+420,370,main_w-440,62,.92)
+
+    setr('UiChartsHeading',main_x,80,main_w,58,1.4)
+    setr('UiChartDescription',main_x+20,154,main_w-40,88,.9)
+    for i,name in enumerate(('UiTrendsAll1','UiTrendsAll6','UiTrendsAll24')):
+        setr(name,main_x+20+i*520,270,500,66,.95)
+    setr('UiChartQuality',main_x+20,370,main_w-40,126,.86)
+    setr('UiStationTrends0',main_x+20,530,main_w-40,70,1.0)
+
+    setr('UiSettingsHeading',main_x,80,main_w,58,1.4)
+    setr('UiSettingsIntro',main_x+20,154,main_w-40,92,.9)
+    setr('UiSettingsStation0',main_x+20,280,main_w-40,112,.95)
+    setr('UiSettingsHelp',main_x+20,424,main_w-40,180,.84)
+
+    required={o['name'] for p in pages for o in p['objects']}
+    if required-set(rects): raise ValueError('Unmapped native controls: '+','.join(sorted(required-set(rects))))
+    # Require every object to fit the measured canvas and prevent accidental
+    # collisions among the visible controls; card/background containers are
+    # intentionally allowed to contain their child Text objects.
+    for page in pages:
+        controls=[o for o in page['objects'] if o['name'] in rects and
+                  not o['name'].endswith(('Background','Sidebar','Heading','Brand')) and
+                  not re.search(r'Panel\d*$',o['name']) and
+                  o['name'] not in ('UiCommandPanel',)]
+        for o in controls:
+            x,y,w,h=rects[o['name']]
+            if x<0 or y<0 or w<=0 or h<=0 or x+w>1920 or y+h>1080:
+                raise ValueError('Control outside measured canvas: '+o['name'])
+        for i,left in enumerate(controls):
+            ax,ay,aw,ah=rects[left['name']]
+            for right in controls[i+1:]:
+                bx,by,bw,bh=rects[right['name']]
+                if min(ax+aw,bx+bw)-max(ax,bx)>1 and min(ay+ah,by+bh)-max(ay,by)>1:
+                    raise ValueError('Overlapping content controls: '+left['name']+' / '+right['name'])
+    out=[raw[:12]]
+    for page in pages:
+        out.extend([page['header'],U32(len(page['objects']))])
+        for z,o in enumerate(page['objects']):
+            body=bytearray(o['body']);struct.pack_into('<4f',body,8,*rects[o['name']])
+            if o['name'] in scales:struct.pack_into('<f',body,32,scales[o['name']])
+            struct.pack_into('<I',body,54,z)
+            record=o['record'];start=6+len(o['name'].encode('utf8'))
+            out.append(record[:start]+body+record[start+141:])
+    return b''.join(out)
+
+
+def native_tab_clearance_pages(raw, project_width=1920, project_height=1080,
+                               tab_height=64):
+    """Move only page backgrounds below the native tab hit area."""
+    if (project_width, project_height, tab_height) != (1920, 1080, 64):
+        raise ValueError('Tab clearance must match the measured native canvas')
+    pages = parse_pages(raw)
+    expected = {'PageProcess','PageDiagnostics','PageUiOverview','PageUiAlarms',
+                'PageUiCharts','PageUiSettings'}
+    if len(pages) != 6 or {p['name'] for p in pages} != expected:
+        raise ValueError('Expected the reviewed six-page operator UI')
+    out = [raw[:12]]
+    changed = 0
+    for page in pages:
+        out.extend([page['header'], U32(len(page['objects']))])
+        backgrounds = [o for o in page['objects'] if o['name'].endswith('Background')]
+        if len(backgrounds) != 1:
+            raise ValueError('Expected one background on '+page['name'])
+        for obj in page['objects']:
+            body = bytearray(obj['body'])
+            if obj['name'].endswith('Background'):
+                x,y,w,h = struct.unpack_from('<4f',body,8)
+                if (x,w) != (0.0,1920.0) or (y,h) not in ((0.0,1080.0),(64.0,1016.0)):
+                    raise ValueError('Unexpected background geometry on '+page['name'])
+                if (y,h) != (64.0,1016.0):
+                    struct.pack_into('<4f',body,8,0.0,64.0,1920.0,1016.0)
+                    changed += 1
+            start = 6+len(obj['name'].encode('utf8'))
+            out.append(obj['record'][:start]+body+obj['record'][start+141:])
+    if changed not in (0,4):
+        raise ValueError('Expected four uncovered pages or an already corrected copy')
+    return b''.join(out)
+
+
 class Builder:
     def __init__(self,data):
         self.catalog=data;self.stations=data['stations'];self.events=[];self.objects=[];self.uid=100000
