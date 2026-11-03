@@ -114,6 +114,14 @@ def overview_module(text):
   if KnownCount = 0 then UiOverviewMetric2Value.Text := 'Нет данных'
   else UiOverviewMetric2Value.Text := IntToStr(FaultCount);
   UiOverviewMetric2Note.Text := 'Подтверждено тегов ПЧ 1: ' + IntToStr(KnownCount);
+  if UiStationCount = 0 then
+    UiOverviewMetric3Note.Text := 'Нет станций в обзоре'
+  else if FreshCount = 0 then
+    UiOverviewMetric3Note.Text := 'Нет свежего подтверждения ПЛК'
+  else if FreshCount = UiStationCount then
+    UiOverviewMetric3Note.Text := 'У всех станций есть свежее обновление'
+  else
+    UiOverviewMetric3Note.Text := 'Есть станции без свежих данных';
   UiOverviewUpdated.Text := 'Нет обновлений';
   UiOverviewPumpInfo.Text := 'Нет данных';
   if UiDashboardFresh[0] then
@@ -125,4 +133,64 @@ def overview_module(text):
   end;''')
     if re.search(r'\.Value\s*:=|SetVariableValue|AddActionMessage',text):
         raise ValueError('Overview module must remain read-only')
+    return text
+
+
+def station_card_module(text):
+    """Extend the saved read-only overview module with card status summaries."""
+    if 'UiCardEventText' in text or 'UiCardConnectionText' in text:
+        raise ValueError('Station card module already changed')
+    if 'UiDashboardFresh' not in text or 'UiOverviewPumpInfo' not in text:
+        raise ValueError('Expected saved overview-panel OperatorConsole')
+
+    def replace(old, new):
+        nonlocal text
+        if text.count(old) != 1:
+            raise ValueError('Unexpected saved OperatorConsole; original preserved')
+        text = text.replace(old, new, 1)
+
+    replace("  UiDashboardFresh, UiDashboardFaultKnown, UiDashboardFault: array[0..15] of Boolean;",
+            "  UiDashboardFresh, UiDashboardFaultKnown, UiDashboardFault: array[0..15] of Boolean;\n"
+            "  UiDashboardFaultCode: array[0..15] of Integer;")
+    replace("  UiDashboardFault[Index] := False;\n  UiModeText[Index]",
+            "  UiDashboardFault[Index] := False;\n  UiDashboardFaultCode[Index] := -1;\n  UiModeText[Index]")
+    replace("    UiDashboardFaultKnown[Index] := True;\n    UiDashboardFault[Index] := Fault <> 0;",
+            "    UiDashboardFaultKnown[Index] := True;\n    UiDashboardFaultCode[Index] := Fault;\n    UiDashboardFault[Index] := Fault <> 0;")
+    replace("  UiOverviewPumpInfo.Text := 'Нет данных';",
+            "  UiOverviewPumpInfo.Text := 'Нет данных';\n"
+            "  UiOverviewPumpStatus0.Text := 'Нет данных';\n"
+            "  UiOverviewPumpStatus1.Text := 'Нет данных';\n"
+            "  UiOverviewPumpStatus2.Text := 'Нет данных';\n"
+            "  UiOverviewPumpStatus3.Text := 'Нет данных';\n"
+            "  UiCardEventText.Text := 'Текущий код ПЧ 1: нет данных. История — вкладка «Аварии».';\n"
+            "  UiCardConnectionText.Text := 'Нет свежего подтверждения ПЛК. Подробности — вкладка «Диагностика».';")
+    if "UiOverviewMetric3Note.Text := 'У всех станций есть свежее обновление'" not in text:
+        replace("  UiOverviewMetric3Value.Text := IntToStr(UiStationCount - FreshCount);",
+                "  UiOverviewMetric3Value.Text := IntToStr(UiStationCount - FreshCount);\n"
+                "  if UiStationCount = 0 then UiOverviewMetric3Note.Text := 'Нет станций в обзоре'\n"
+                "  else if FreshCount = 0 then UiOverviewMetric3Note.Text := 'Нет свежего подтверждения ПЛК'\n"
+                "  else if FreshCount = UiStationCount then UiOverviewMetric3Note.Text := 'У всех станций есть свежее обновление'\n"
+                "  else UiOverviewMetric3Note.Text := 'Есть станции без свежих данных';")
+    replace("  if UiDashboardFresh[0] then\n    UiOverviewUpdated.Text := 'Счётчик: ' + IntToStr(Round(Now * 86400.0 - UiLastProgress[0])) + ' с';",
+            "  if UiDashboardFresh[0] then\n  begin\n"
+            "    UiOverviewUpdated.Text := 'Счётчик: ' + IntToStr(Round(Now * 86400.0 - UiLastProgress[0])) + ' с';\n"
+            "    UiCardConnectionText.Text := 'Счётчик ПЛК обновлялся ' + IntToStr(Round(Now * 86400.0 - UiLastProgress[0])) + ' с назад. Подробности — вкладка «Диагностика».';\n"
+            "  end;")
+    replace("    if UiDashboardFault[0] then UiOverviewPumpInfo.Text := '1: ошибка; 2-4: н/д'\n"
+            "    else UiOverviewPumpInfo.Text := '1: код 0; 2-4: н/д';",
+            "    if UiDashboardFault[0] then UiOverviewPumpInfo.Text := '1: ошибка; 2-4: н/д'\n"
+            "    else UiOverviewPumpInfo.Text := '1: код 0; 2-4: н/д';\n"
+            "    if UiDashboardFault[0] then UiOverviewPumpStatus0.Text := 'Ошибка ПЧ: ' + IntToStr(UiDashboardFaultCode[0])\n"
+            "    else UiOverviewPumpStatus0.Text := 'Код ПЧ: 0';\n"
+            "    UiCardEventText.Text := 'Текущий код ПЧ 1: ' + IntToStr(UiDashboardFaultCode[0]) + '. История — вкладка «Аварии».';\n"
+            "  end;\n"
+            "  UiOverviewPumpStatus1.Text := 'Нет данных';\n"
+            "  UiOverviewPumpStatus2.Text := 'Нет данных';\n"
+            "  UiOverviewPumpStatus3.Text := 'Нет данных';\n"
+            "  UiPumpState0.Text := 'Рабочий статус: нет данных';\n"
+            "  UiPumpState1.Text := 'Рабочий статус: нет данных';\n"
+            "  UiPumpState2.Text := 'Рабочий статус: нет данных';\n"
+            "  UiPumpState3.Text := 'Рабочий статус: нет данных';")
+    if re.search(r'\.Value\s*:=|SetVariableValue|AddActionMessage', text):
+        raise ValueError('Station card module must remain read-only')
     return text

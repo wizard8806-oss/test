@@ -358,6 +358,72 @@ def prepare_overview_panel(project, out, expected_pages_sha, expected_scripts_sh
         expected_button_counts=(15,))
 
 
+def prepare_station_card(project, out, expected_pages_sha, expected_scripts_sha):
+    """Create a separate card copy from the saved native overview candidate."""
+    if not re.fullmatch(r'codex_diag_11_review_overview_[a-z0-9_-]{8,80}', Path(project).name):
+        raise ValueError('Use the saved native overview review candidate')
+    if not all(re.fullmatch(r'[0-9a-f]{64}', v or '') for v in
+               (expected_pages_sha, expected_scripts_sha)):
+        raise ValueError('Explicit reviewed Pages/Scripts digests are required')
+    panel_spec = importlib.util.spec_from_file_location(
+        '_station_card_overview', Path(__file__).resolve().with_name('native_overview_panel.py'))
+    panel = importlib.util.module_from_spec(panel_spec)
+    panel_spec.loader.exec_module(panel)
+    card_spec = importlib.util.spec_from_file_location(
+        '_station_card_pages', Path(__file__).resolve().with_name('native_station_card.py'))
+    card = importlib.util.module_from_spec(card_spec)
+    card_spec.loader.exec_module(card)
+
+    def transform(raw):
+        before = scripts(raw)
+        if len(before) != 48 or before[7]['name'] != 'OperatorConsole':
+            raise ValueError('Expected saved 48-script operator console')
+        if any('UiCardEventText' in row['body'] or 'UiPumpState0' in row['body']
+               for row in before.values()):
+            raise ValueError('Station-card script already exists')
+        reader = Reader(raw)
+        reader.number('q')
+        reader.take(reader.count(1024))
+        if reader.number('I') != 0:
+            raise ValueError('Unsupported script folders')
+        count = reader.count(2048)
+        parts = [raw[:reader.pos]]
+        for _ in range(count):
+            start = reader.pos
+            id_ = reader.number('q')
+            reader.text(True)
+            reader.take(17)
+            text_start = reader.pos
+            lines = [reader.text(True) for _ in range(reader.count(8192))]
+            if id_ != 7:
+                parts.append(raw[start:reader.pos])
+                continue
+            body = panel.station_card_module('\n'.join(lines))
+            encoded = [line.encode('utf-16le') for line in body.split('\n')]
+            parts.append(raw[start:text_start] + struct.pack('<I', len(encoded)) + b''.join(
+                struct.pack('<I', len(line)//2) + line for line in encoded))
+        reader.done()
+        result = b''.join(parts)
+        after = scripts(result)
+        for id_, old in before.items():
+            if old['name'] != after[id_]['name'] or old['meta'] != after[id_]['meta']:
+                raise ValueError('Script identity or metadata changed')
+            if id_ != 7 and old != after[id_]:
+                raise ValueError('Untargeted script changed')
+        return result
+
+    return _prepare_copy(project, out, transform,
+        r'codex_diag_11_review_station_card_[a-z0-9_-]{8,80}',
+        dict(purpose='native-station-card-v1', nativeTabsVisible=True,
+             unknownPumpStatesPreserved=True, eventHistorySource='PageUiAlarms',
+             connectionFreshnessSource='PlcAliveCounter', radioHealthInferred=False,
+             controllerBindingsUnchanged=True, visualAcceptancePassed=False,
+             WindowsCompileObserved=False),
+        page_transform=card.station_card_pages,
+        pins={'Pages.spg': expected_pages_sha, 'Scripts/Scripts.ssc': expected_scripts_sha},
+        expected_button_counts=(15,))
+
+
 def _prepare_copy(project, out, transform, output_pattern, details, page_transform=None, pins=None,
                   expected_button_counts=(44,)):
     project, out = Path(project).absolute(), Path(out).absolute()
@@ -438,7 +504,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--project', type=Path, required=True)
     parser.add_argument('--out', type=Path, required=True)
-    parser.add_argument('--mode', choices=['event', 'pressure-display', 'visual-layout', 'layout-review', 'tab-clearance', 'overview-panel'], default='event')
+    parser.add_argument('--mode', choices=['event', 'pressure-display', 'visual-layout', 'layout-review', 'tab-clearance', 'overview-panel', 'station-card'], default='event')
     parser.add_argument('--probe-id')
     parser.add_argument('--project-width', type=int)
     parser.add_argument('--project-height', type=int)
@@ -450,9 +516,9 @@ if __name__ == '__main__':
     parser.add_argument('--expected-scripts-sha')
     parser.add_argument('--native-navigation', action='store_true')
     args = parser.parse_args()
-    if args.mode not in ('layout-review','tab-clearance','overview-panel') and (args.expected_pages_sha or args.expected_scripts_sha or args.native_navigation):
+    if args.mode not in ('layout-review','tab-clearance','overview-panel','station-card') and (args.expected_pages_sha or args.expected_scripts_sha or args.native_navigation):
         parser.error('Reviewed digests are only valid in layout-review/tab-clearance/overview-panel modes')
-    if args.mode in ('tab-clearance','overview-panel') and args.native_navigation:
+    if args.mode in ('tab-clearance','overview-panel','station-card') and args.native_navigation:
         parser.error('Native navigation is already required for this candidate')
     if args.mode != 'visual-layout' and (args.project_width is not None or args.project_height is not None):
         parser.error('Project dimensions are only valid in visual-layout mode')
@@ -481,8 +547,13 @@ if __name__ == '__main__':
             parser.error('tab-clearance requires reviewed Pages/Scripts digests and no probe-id')
         prepare_tab_clearance(args.project,args.out,args.expected_pages_sha,args.expected_scripts_sha)
         print('PREPARED: separate candidate changes only page-background top clearance; compile/load/Client review still required.')
-    else:
+    elif args.mode == 'overview-panel':
         if args.probe_id or not args.expected_pages_sha or not args.expected_scripts_sha:
             parser.error('overview-panel requires reviewed Pages/Scripts digests and no probe-id')
         prepare_overview_panel(args.project,args.out,args.expected_pages_sha,args.expected_scripts_sha)
         print('PREPARED: separate real-data overview candidate. Native compile/load/visual acceptance not yet tested.')
+    else:
+        if args.probe_id or not args.expected_pages_sha or not args.expected_scripts_sha:
+            parser.error('station-card requires reviewed Pages/Scripts digests and no probe-id')
+        prepare_station_card(args.project,args.out,args.expected_pages_sha,args.expected_scripts_sha)
+        print('PREPARED: separate station-card candidate; native Compile/Save and Client review still required.')
