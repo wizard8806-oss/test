@@ -10,12 +10,16 @@ rows: actual pressure, PLC setpoint, and VFD frequency, with the intended bar
 and Hz scales. No PLC/OPC command was sent, no Apply was performed, and the
 working SCADA10 project was not changed.
 
-Runtime acceptance is still open: the timer's execution, live values/quality,
-and actual archive points were not verified. The existing Server was visible
-through the approved read-only desktop channel and reported no active clients,
-but the new copy was absent from its project catalog; the Server process
-predates the copy. No project switch or restart was made because refreshing the
-catalog may pause the active archive. The next step is a supported catalog
-refresh, then checking the imported copy in the existing Server/Client.
-Detailed evidence remains in the local-only report.
+The imported copy was activated in the existing Server after confirming no
+active Clients. The previous diagnostic project was stopped so only the test
+copy remained active; Client then connected to that copy. Server showed one OPC
+connection and zero write operations. The native trend displayed all three
+rows and both scales; the selected cursor read 3.9 bar, 4.1 bar, and 0.0 Hz.
+Pressure/setpoint traces were visible; frequency coincided with the zero axis.
+No Apply or equipment command was sent, and SCADA10 was not changed.
+
+Archive samples were visible and are consistent with timer operation, but the
+exact one-second cadence, source quality/freshness, and physical VFD frequency
+were not independently verified. Detailed evidence remains in the local-only
+report.
 
