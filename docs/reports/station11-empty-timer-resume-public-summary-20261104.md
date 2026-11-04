@@ -11,9 +11,11 @@ and Hz scales. No PLC/OPC command was sent, no Apply was performed, and the
 working SCADA10 project was not changed.
 
 Runtime acceptance is still open: the timer's execution, live values/quality,
-and actual archive points were not verified. The existing Server process had
-no visible window during this pass, so no blind project switch or restart was
-made. The next step is to inspect the existing Server's clients/current project
-and, only if safe, test the imported copy in the existing Server/Client.
+and actual archive points were not verified. The existing Server was visible
+through the approved read-only desktop channel and reported no active clients,
+but the new copy was absent from its project catalog; the Server process
+predates the copy. No project switch or restart was made because refreshing the
+catalog may pause the active archive. The next step is a supported catalog
+refresh, then checking the imported copy in the existing Server/Client.
 Detailed evidence remains in the local-only report.
 
