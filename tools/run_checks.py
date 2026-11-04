@@ -48,6 +48,7 @@ CHECKS = [
     'validate_native_overview_panel.py',
     'validate_native_station_card.py',
     'validate_native_panel_probe.py',
+    'validate_native_empty_timer_import.py',
     'validate_radio_autostart_03.py',
 ]
 
