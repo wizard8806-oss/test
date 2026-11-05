@@ -5,6 +5,8 @@ Rung comments and symbols have additive checksums. The compiled image is
 decoded from its repeated blank-FF padding and checked against the FBS header
 and independently named MOV anchors. Only MOV operands needed for the process
 map are interpreted; this is not a full ladder simulator or native compiler.
+This legacy contract expects map31 and D200/D203/D206/D209 frequency sources.
+For the exact reviewed map32 source04/generated05, use review_fatek_map32.py.
 """
 import argparse,hashlib,json,re,struct
 from pathlib import Path
