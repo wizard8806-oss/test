@@ -49,6 +49,7 @@ CHECKS = [
     'validate_native_station_card.py',
     'validate_native_panel_probe.py',
     'validate_native_empty_timer_import.py',
+    'validate_station11_trend_checker_regression.py',
     'validate_radio_autostart_03.py',
 ]
 

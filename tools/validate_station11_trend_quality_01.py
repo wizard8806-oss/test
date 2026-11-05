@@ -1,14 +1,16 @@
 #!/usr/bin/env python3
-"""Static contract checks and synthetic quality-gate cases for Station 11.
+"""Static source clues and reference quality-gate examples for Station 11.
 
 This does not run Pascal, connect to OPC, change a project, or write an archive.
-The source body is parsed from an explicitly supplied saved SCADA copy.
+Source clues are not control-flow, write-safety or native gap verification.
+The reference model is not inferred from the supplied saved Pascal body.
 """
 from __future__ import annotations
 
 import argparse
 import hashlib
 import importlib.util
+import re
 from pathlib import Path
 
 
@@ -29,15 +31,88 @@ def require(condition: bool, name: str) -> None:
     print(f"PASS {name}")
 
 
+def executable_text(body: str) -> str:
+    """Mask Pascal comments/literals without joining adjacent code tokens."""
+    out = list(body)
+    i, size = 0, len(body)
+    while i < size:
+        start = i
+        if body.startswith('//', i):
+            end = body.find('\n', i)
+            i = size if end < 0 else end
+        elif body[i] == "'":
+            i += 1
+            while i < size:
+                if body[i] in '\r\n':
+                    raise ValueError('Unterminated Pascal string literal')
+                if body[i] == "'":
+                    i += 1
+                    if i < size and body[i] == "'":
+                        i += 1
+                        continue
+                    break
+                i += 1
+            else:
+                raise ValueError('Unterminated Pascal string literal')
+        elif body[i] == '{' or body.startswith('(*', i):
+            stack = ['}' if body[i] == '{' else '*)']
+            i += 1 if body[i] == '{' else 2
+            while stack:
+                if i >= size:
+                    raise ValueError('Unterminated Pascal block comment')
+                if body.startswith(stack[-1], i):
+                    i += len(stack.pop())
+                elif body[i] == '{':
+                    stack.append('}'); i += 1
+                elif body.startswith('(*', i):
+                    stack.append('*)'); i += 2
+                else:
+                    i += 1
+        else:
+            i += 1
+            continue
+        for pos in range(start, i):
+            if out[pos] not in '\r\n':
+                out[pos] = ' '
+    return ''.join(out)
+
+
+def static_clues(body: str) -> dict[str, bool]:
+    code = executable_text(body)
+    flat = re.sub(r'\s+', '', code).lower()
+    present = lambda *parts: all(re.sub(r'\s+', '', p).lower() in flat for p in parts)
+    writes_source = re.search(
+        r'\b\w*(?:PressurePV_x100|PressureSP_x100|PressureSP_Command|Vfd1FreqRaw)'
+        r'\s*\.\s*Value\s*:=|\bWriteValue\b', code, re.I)
+    return {
+        'map-clues-present': present('codex_Device1_MapVersion.IsGoodQuality', '=32'),
+        'timestamp-age-clues-present': present('PlcAliveCounter.Timestamp', '<=15.0'),
+        'pv-clues-present': present('PressurePV_x100.IsGoodQuality', 'PressureSourceOK.IsGoodQuality',
+                                   'PressureSourceOK.OriginalAsInt=1', 'PvRaw>=0', 'PvRaw<=1600'),
+        'sp-clues-present': present('PressureSP_x100.IsGoodQuality', 'SpRaw>=10', 'SpRaw<=1190', 'SpRaw mod 10'),
+        'frequency-clues-present': present('Vfd1FreqRaw.IsGoodQuality', 'Vfd1FreqState.IsGoodQuality',
+                                          'FreqState=1', 'FreqState=2', 'FreqRaw<=500'),
+        'named-target-assignments-present': present('TrendPressurePVBar.Value:=',
+                                                   'TrendPressureSPBar.Value:=', 'TrendVfd1FreqHz.Value:='),
+        'three-archive-disable-markers-present': len(re.findall(r'\.\s*Archiving\s*:=\s*False\b', code, re.I)) == 3,
+        'no-recognized-direct-source-assignment': writes_source is None,
+    }
+
+
 def gate(x: dict) -> dict:
-    """Pure synthetic mirror of the predicates and assignments in Script_49."""
+    """Reference contract, not execution or reconstruction of Script_49.
+
+    Frequency needs common PLC freshness unless separate fresh-source evidence
+    is explicitly supplied. Archive disable alone does not establish a gap.
+    """
     map_ok = x["map_good"] and x["map"] == 32
-    plc_fresh = x["counter_good"] and 0 <= x["age"] <= 15
+    plc_fresh = x["counter_good"] and x.get('counter_progress_seen', False) and 0 <= x["age"] <= 15
     pv_ok = (map_ok and plc_fresh and x["pv_good"] and x["source_good"]
              and x["source_ok"] == 1 and 0 <= x["pv_raw"] <= 1600)
     sp_ok = (map_ok and plc_fresh and x["sp_good"]
              and 10 <= x["sp_raw"] <= 1190 and x["sp_raw"] % 10 == 0)
-    freq_ok = (map_ok and x["freq_good"] and x["state_good"]
+    freq_fresh = plc_fresh or x.get('freq_independent_fresh', False)
+    freq_ok = (map_ok and freq_fresh and x["freq_good"] and x["state_good"]
                and ((x["state"] == 1 and x["freq_raw"] == 0)
                     or (x["state"] == 2 and 1 <= x["freq_raw"] <= 500)))
     out = dict(x["previous"])
@@ -47,6 +122,7 @@ def gate(x: dict) -> dict:
         ("freq", freq_ok, x["freq_raw"] / 10.0),
     ):
         out[key + "_archive"] = ok
+        out[key + "_valid"] = ok
         if ok:
             out[key] = value
     return out
@@ -55,6 +131,7 @@ def gate(x: dict) -> dict:
 def sample(**overrides: object) -> dict:
     x = {
         "map_good": True, "map": 32, "counter_good": True, "age": 1,
+        "counter_progress_seen": True,
         "pv_good": True, "source_good": True, "source_ok": 1, "pv_raw": 390,
         "sp_good": True, "sp_raw": 410,
         "freq_good": True, "state_good": True, "state": 2, "freq_raw": 120,
@@ -79,27 +156,9 @@ def main() -> None:
     print("scripts-sha256:", scripts_sha)
     print("script-49-body-sha256:", hashlib.sha256(body.encode("utf-8")).hexdigest())
 
-    checks = {
-        "map-quality-and-version": "codex_Device1_MapVersion.IsGoodQuality" in body and "= 32" in body,
-        "plc-freshness-15s": "PlcAliveCounter.Timestamp" in body and "<= 15.0" in body,
-        "pv-quality-source-mask-and-range": all(s in body for s in (
-            "PressurePV_x100.IsGoodQuality", "PressureSourceOK.IsGoodQuality",
-            "PressureSourceOK.OriginalAsInt = 1", "PvRaw >= 0", "PvRaw <= 1600")),
-        "sp-quality-and-range": all(s in body for s in (
-            "PressureSP_x100.IsGoodQuality", "SpRaw >= 10", "SpRaw <= 1190", "SpRaw mod 10")),
-        "frequency-zero-state-and-range": all(s in body for s in (
-            "Vfd1FreqRaw.IsGoodQuality", "Vfd1FreqState.IsGoodQuality",
-            "FreqState = 1", "FreqState = 2", "FreqRaw <= 500")),
-        "internal-targets-only": all(s in body for s in (
-            "TrendPressurePVBar.Value :=", "TrendPressureSPBar.Value :=", "TrendVfd1FreqHz.Value :=")),
-        "invalid-disables-per-row-archive": body.count(".Archiving := False") == 3,
-    }
-    for name, ok in checks.items():
-        require(ok, name)
-    require(not any(s in body for s in (
-        "PressurePV_x100.Value :=", "PressureSP_x100.Value :=",
-        "PressureSP_Command.Value :=", "Vfd1FreqRaw.Value :=", "WriteValue")),
-        "no-source-or-command-assignment")
+    print('source-check-scope: lexical presence only; not control flow, target binding or write-safety proof')
+    for name, ok in static_clues(body).items():
+        require(ok, 'static-clue: ' + name)
 
     valid = gate(sample())
     require(valid["pv_archive"] and valid["sp_archive"] and valid["freq_archive"],
@@ -108,6 +167,7 @@ def main() -> None:
     invalid = gate(sample(source_ok=0, previous=valid))
     require(not invalid["pv_archive"] and invalid["pv"] == valid["pv"],
             "valid-invalid-keeps-value-but-disables-pv-archive")
+    require(not invalid['pv_valid'], 'invalid-pv-is-unavailable-despite-retained-number')
     require(invalid["sp_archive"] and invalid["freq_archive"],
             "invalid-pv-does-not-suppress-good-sp-or-frequency")
 
@@ -118,7 +178,13 @@ def main() -> None:
     stale = gate(sample(age=16, previous=valid))
     require(not stale["pv_archive"] and not stale["sp_archive"],
             "stale-plc-gates-pressure-and-setpoint")
-    require(stale["freq_archive"], "plc-counter-staleness-does-not-suppress-independent-frequency")
+    require(not stale['freq_archive'], 'stale-plc-also-gates-frequency-without-independent-freshness')
+    independent = gate(sample(age=16, freq_independent_fresh=True, previous=valid))
+    require(independent['freq_valid'] and not independent['pv_valid'],
+            'independent-frequency-requires-explicit-freshness-evidence')
+    startup = gate(sample(counter_progress_seen=False, previous=valid))
+    require(not any(startup[k+'_valid'] for k in ['pv','sp','freq']),
+            'a-single-startup-counter-sample-is-not-progression-proof')
     fresh = gate(sample(age=0, previous=stale))
     require(fresh["pv_archive"] and fresh["sp_archive"], "fresh-counter-restores-valid-pressure-rows")
 
@@ -132,8 +198,13 @@ def main() -> None:
     wrong_map = gate(sample(map=31, previous=valid))
     require(not wrong_map["pv_archive"] and not wrong_map["sp_archive"],
             "wrong-map-version-gates-pressure-rows")
-    print("synthetic-cases: PASS")
-    print("execution-scope: python semantic model; Pascal and native archive not executed")
+    for key in ['map_good','counter_good','pv_good','sp_good','freq_good','state_good']:
+        require(not gate(sample(**{key:False}))[{'map_good':'pv','counter_good':'freq','pv_good':'pv',
+                    'sp_good':'sp','freq_good':'freq','state_good':'freq'}[key]+'_valid'],
+                'reference-bad-quality: '+key)
+    print('reference-examples: PASS; this model is independent of the supplied Pascal body')
+    print('native-quality-gap-acceptance: UNVERIFIED')
+    print('execution-scope: Python reference contract only; Pascal and native archive not executed')
 
 
 if __name__ == "__main__":
