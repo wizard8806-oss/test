@@ -1,33 +1,35 @@
 {
   "schemaVersion": 1,
   "selectionDate": "2026-11-06",
-  "userApproved": true,
-  "style": "vertical-blue-silver-pumps-silver-lower-collector-no-upper-pipe-no-rear-posts",
+  "style": "vertical-blue-silver-pumps-silver-lower-collector-side-panels-no-upper-pipe-no-rear-posts",
   "assets": [
     {
       "installedPumpCount": 2,
       "file": "pumps-2.png",
       "width": 1620,
       "height": 971,
-      "bytes": 1579651,
-      "sha256": "f28bfabfdeb6f52ca5043fed90e8c4548c7a13d5d2cb3d5f3be1cfdbfe64bb8c"
+      "bytes": 1651723,
+      "sha256": "1f0e7b15104df51e38fc3067eadc61d9e0954065477c90471bec2e49063c682d"
     },
     {
       "installedPumpCount": 3,
       "file": "pumps-3.png",
       "width": 1620,
       "height": 971,
-      "bytes": 1635677,
-      "sha256": "c9fbd107056f1698dfc50c635e6ff855f4d1138e77cce8fbe0719c1365969b06"
+      "bytes": 1675079,
+      "sha256": "9989d24f65b3868fca13b905ab8e9c99c2d9e15161c349900a21170de54957a1"
     },
     {
       "installedPumpCount": 4,
       "file": "pumps-4.png",
       "width": 1620,
       "height": 971,
-      "bytes": 1650013,
-      "sha256": "6fe563117983fce66fa2c2f0232a100864ff5133a4658f290496acfe42f8ddd4"
+      "bytes": 1711087,
+      "sha256": "81d5114633ee453f6632276d405d6bed10c2f61d78565e37a24b3e0a58ba8702"
     }
   ],
-  "nativeSKMImportCompleted": false
+  "nativeSKMImportCompleted": false,
+  "baseDesignUserApproved": true,
+  "revision": "with-side-panels",
+  "sideInformationPanels": true
 }
