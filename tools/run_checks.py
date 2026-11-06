@@ -33,6 +33,7 @@ CHECKS = [
     'validate_station_mode_display_01.py', 'validate_setpoint_feedback_01.py',
     'validate_setpoint_feedback_copy_01.py',
     'validate_fatek_map32_review.py',
+    'validate_hmi_layout_recipe.py',
     'validate_setpoint_display_01.py',
     'validate_setpoint_control_01.py',
     'validate_setpoint_click_fix_01.py',

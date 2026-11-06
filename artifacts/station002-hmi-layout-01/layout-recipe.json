@@ -1,0 +1,1913 @@
+{
+  "schemaVersion": 1,
+  "format": "sktool-geometry-pinned-v1",
+  "sourceBytes": 1321783,
+  "sourceSHA256": "7484c9475391201b37d408a68e63233b970a7d33c77e276cdbf7376539a2e5e7",
+  "targetSHA256": "d9f089f09b87fff4cb347664457fbfa171f297defd96a2fd713b65da23f43175",
+  "geometryRegion": [
+    493,
+    225604
+  ],
+  "screen": 0,
+  "targetCanvas": [
+    800,
+    480
+  ],
+  "objects": [
+    {
+      "id": "SB6002",
+      "frameOffset": 103175,
+      "graphicsEnd": 103989,
+      "before": {
+        "x": 173.4375,
+        "y": 440.8,
+        "width": 93.75,
+        "height": 32.800000000000004
+      },
+      "after": {
+        "x": 4,
+        "y": 440,
+        "width": 88,
+        "height": 36
+      },
+      "sizeOffsets": [
+        103195,
+        103356,
+        103522
+      ],
+      "positionOffsets": [
+        103252,
+        103413,
+        103671
+      ]
+    },
+    {
+      "id": "SB6004",
+      "frameOffset": 100874,
+      "graphicsEnd": 101688,
+      "before": {
+        "x": 270.3125,
+        "y": 440.8,
+        "width": 93.75,
+        "height": 32.800000000000004
+      },
+      "after": {
+        "x": 96,
+        "y": 440,
+        "width": 88,
+        "height": 36
+      },
+      "sizeOffsets": [
+        100894,
+        101055,
+        101221
+      ],
+      "positionOffsets": [
+        100951,
+        101112,
+        101370
+      ]
+    },
+    {
+      "id": "SB6006",
+      "frameOffset": 98559,
+      "graphicsEnd": 99375,
+      "before": {
+        "x": 367.1875,
+        "y": 440.8,
+        "width": 93.75,
+        "height": 32.800000000000004
+      },
+      "after": {
+        "x": 188,
+        "y": 440,
+        "width": 88,
+        "height": 36
+      },
+      "sizeOffsets": [
+        98579,
+        98740,
+        98906
+      ],
+      "positionOffsets": [
+        98636,
+        98797,
+        99057
+      ]
+    },
+    {
+      "id": "SB6008",
+      "frameOffset": 96258,
+      "graphicsEnd": 97072,
+      "before": {
+        "x": 464.0625,
+        "y": 440.8,
+        "width": 93.75,
+        "height": 32.800000000000004
+      },
+      "after": {
+        "x": 280,
+        "y": 440,
+        "width": 88,
+        "height": 36
+      },
+      "sizeOffsets": [
+        96278,
+        96439,
+        96605
+      ],
+      "positionOffsets": [
+        96335,
+        96496,
+        96754
+      ]
+    },
+    {
+      "id": "SB6010",
+      "frameOffset": 93887,
+      "graphicsEnd": 94711,
+      "before": {
+        "x": 560.9375,
+        "y": 440.8,
+        "width": 93.75,
+        "height": 32.800000000000004
+      },
+      "after": {
+        "x": 372,
+        "y": 440,
+        "width": 112,
+        "height": 36
+      },
+      "sizeOffsets": [
+        93907,
+        94068,
+        94234
+      ],
+      "positionOffsets": [
+        93964,
+        94125,
+        94393
+      ]
+    },
+    {
+      "id": "SB8002",
+      "frameOffset": 91460,
+      "graphicsEnd": 92292,
+      "before": {
+        "x": 221.875,
+        "y": 35.2,
+        "width": 148.4375,
+        "height": 32.0
+      },
+      "after": {
+        "x": 488,
+        "y": 440,
+        "width": 140,
+        "height": 36
+      },
+      "sizeOffsets": [
+        91480,
+        91641,
+        91807
+      ],
+      "positionOffsets": [
+        91537,
+        91698,
+        91974
+      ]
+    },
+    {
+      "id": "SB8004",
+      "frameOffset": 89019,
+      "graphicsEnd": 89853,
+      "before": {
+        "x": 448.4375,
+        "y": 35.2,
+        "width": 164.0625,
+        "height": 32.0
+      },
+      "after": {
+        "x": 632,
+        "y": 440,
+        "width": 164,
+        "height": 36
+      },
+      "sizeOffsets": [
+        89039,
+        89200,
+        89366
+      ],
+      "positionOffsets": [
+        89096,
+        89257,
+        89535
+      ]
+    },
+    {
+      "id": "MD3062",
+      "frameOffset": 110946,
+      "graphicsEnd": 111769,
+      "before": {
+        "x": 174.21875,
+        "y": 75.2,
+        "width": 464.84375,
+        "height": 40.800000000000004
+      },
+      "after": {
+        "x": 4,
+        "y": 29,
+        "width": 792,
+        "height": 20
+      },
+      "sizeOffsets": [
+        110966,
+        111127,
+        111288
+      ],
+      "positionOffsets": [
+        111023,
+        111184,
+        111459
+      ]
+    },
+    {
+      "id": "Text3002",
+      "frameOffset": 224161,
+      "graphicsEnd": 224813,
+      "before": {
+        "x": 15.625,
+        "y": 65.60000000000001,
+        "width": 140.625,
+        "height": 19.200000000000003
+      },
+      "after": {
+        "x": 12,
+        "y": 65,
+        "width": 140,
+        "height": 20
+      },
+      "sizeOffsets": [
+        224181,
+        224342
+      ],
+      "positionOffsets": [
+        224238,
+        224511
+      ]
+    },
+    {
+      "id": "MD3004",
+      "frameOffset": 198639,
+      "graphicsEnd": 199436,
+      "before": {
+        "x": 15.625,
+        "y": 89.60000000000001,
+        "width": 140.625,
+        "height": 21.6
+      },
+      "after": {
+        "x": 12,
+        "y": 85,
+        "width": 140,
+        "height": 18
+      },
+      "sizeOffsets": [
+        198659,
+        198820,
+        198981
+      ],
+      "positionOffsets": [
+        198716,
+        198877,
+        199126
+      ]
+    },
+    {
+      "id": "Text3006",
+      "frameOffset": 197236,
+      "graphicsEnd": 197882,
+      "before": {
+        "x": 18.75,
+        "y": 128.8,
+        "width": 134.375,
+        "height": 18.400000000000002
+      },
+      "after": {
+        "x": 16,
+        "y": 118,
+        "width": 136,
+        "height": 18
+      },
+      "sizeOffsets": [
+        197256,
+        197417
+      ],
+      "positionOffsets": [
+        197313,
+        197580
+      ]
+    },
+    {
+      "id": "Text3012",
+      "frameOffset": 191868,
+      "graphicsEnd": 192512,
+      "before": {
+        "x": 18.75,
+        "y": 204.0,
+        "width": 134.375,
+        "height": 18.400000000000002
+      },
+      "after": {
+        "x": 16,
+        "y": 184,
+        "width": 136,
+        "height": 18
+      },
+      "sizeOffsets": [
+        191888,
+        192049
+      ],
+      "positionOffsets": [
+        191945,
+        192210
+      ]
+    },
+    {
+      "id": "Text3016",
+      "frameOffset": 188080,
+      "graphicsEnd": 188738,
+      "before": {
+        "x": 17.96875,
+        "y": 274.40000000000003,
+        "width": 135.9375,
+        "height": 18.400000000000002
+      },
+      "after": {
+        "x": 16,
+        "y": 250,
+        "width": 136,
+        "height": 18
+      },
+      "sizeOffsets": [
+        188100,
+        188261
+      ],
+      "positionOffsets": [
+        188157,
+        188436
+      ]
+    },
+    {
+      "id": "Text3020",
+      "frameOffset": 184344,
+      "graphicsEnd": 184990,
+      "before": {
+        "x": 18.75,
+        "y": 344.0,
+        "width": 134.375,
+        "height": 18.400000000000002
+      },
+      "after": {
+        "x": 16,
+        "y": 318,
+        "width": 136,
+        "height": 18
+      },
+      "sizeOffsets": [
+        184364,
+        184525
+      ],
+      "positionOffsets": [
+        184421,
+        184688
+      ]
+    },
+    {
+      "id": "Text3024",
+      "frameOffset": 180043,
+      "graphicsEnd": 180703,
+      "before": {
+        "x": 17.1875,
+        "y": 399.20000000000005,
+        "width": 137.5,
+        "height": 18.400000000000002
+      },
+      "after": {
+        "x": 16,
+        "y": 370,
+        "width": 136,
+        "height": 18
+      },
+      "sizeOffsets": [
+        180063,
+        180224
+      ],
+      "positionOffsets": [
+        180120,
+        180401
+      ]
+    },
+    {
+      "id": "ND3008",
+      "frameOffset": 194933,
+      "graphicsEnd": 195733,
+      "before": {
+        "x": 18.75,
+        "y": 152.0,
+        "width": 134.375,
+        "height": 39.2
+      },
+      "after": {
+        "x": 20,
+        "y": 138,
+        "width": 128,
+        "height": 32
+      },
+      "sizeOffsets": [
+        194953,
+        195114,
+        195280
+      ],
+      "positionOffsets": [
+        195010,
+        195171,
+        195427
+      ]
+    },
+    {
+      "id": "MD3010",
+      "frameOffset": 193257,
+      "graphicsEnd": 194048,
+      "before": {
+        "x": 18.75,
+        "y": 152.0,
+        "width": 134.375,
+        "height": 39.2
+      },
+      "after": {
+        "x": 20,
+        "y": 138,
+        "width": 128,
+        "height": 32
+      },
+      "sizeOffsets": [
+        193277,
+        193438,
+        193599
+      ],
+      "positionOffsets": [
+        193334,
+        193495,
+        193738
+      ]
+    },
+    {
+      "id": "ND3014",
+      "frameOffset": 189567,
+      "graphicsEnd": 190367,
+      "before": {
+        "x": 18.75,
+        "y": 227.20000000000002,
+        "width": 134.375,
+        "height": 36.0
+      },
+      "after": {
+        "x": 20,
+        "y": 204,
+        "width": 128,
+        "height": 32
+      },
+      "sizeOffsets": [
+        189587,
+        189748,
+        189914
+      ],
+      "positionOffsets": [
+        189644,
+        189805,
+        190061
+      ]
+    },
+    {
+      "id": "NE5002",
+      "frameOffset": 108209,
+      "graphicsEnd": 109037,
+      "before": {
+        "x": 18.75,
+        "y": 227.20000000000002,
+        "width": 134.375,
+        "height": 36.0
+      },
+      "after": {
+        "x": 20,
+        "y": 204,
+        "width": 128,
+        "height": 32
+      },
+      "sizeOffsets": [
+        108229,
+        108390,
+        108556
+      ],
+      "positionOffsets": [
+        108286,
+        108447,
+        108703
+      ]
+    },
+    {
+      "id": "ND3018",
+      "frameOffset": 185749,
+      "graphicsEnd": 186549,
+      "before": {
+        "x": 18.75,
+        "y": 296.8,
+        "width": 134.375,
+        "height": 36.0
+      },
+      "after": {
+        "x": 20,
+        "y": 270,
+        "width": 128,
+        "height": 32
+      },
+      "sizeOffsets": [
+        185769,
+        185930,
+        186096
+      ],
+      "positionOffsets": [
+        185826,
+        185987,
+        186243
+      ]
+    },
+    {
+      "id": "NE5004",
+      "frameOffset": 105476,
+      "graphicsEnd": 106304,
+      "before": {
+        "x": 18.75,
+        "y": 296.8,
+        "width": 134.375,
+        "height": 36.0
+      },
+      "after": {
+        "x": 20,
+        "y": 270,
+        "width": 128,
+        "height": 32
+      },
+      "sizeOffsets": [
+        105496,
+        105657,
+        105823
+      ],
+      "positionOffsets": [
+        105553,
+        105714,
+        105970
+      ]
+    },
+    {
+      "id": "MD3028",
+      "frameOffset": 176040,
+      "graphicsEnd": 176831,
+      "before": {
+        "x": 21.875,
+        "y": 435.20000000000005,
+        "width": 87.5,
+        "height": 23.200000000000003
+      },
+      "after": {
+        "x": 20,
+        "y": 396,
+        "width": 128,
+        "height": 24
+      },
+      "sizeOffsets": [
+        176060,
+        176221,
+        176382
+      ],
+      "positionOffsets": [
+        176117,
+        176278,
+        176521
+      ]
+    },
+    {
+      "id": "ND3026",
+      "frameOffset": 177712,
+      "graphicsEnd": 178512,
+      "before": {
+        "x": 21.875,
+        "y": 435.20000000000005,
+        "width": 87.5,
+        "height": 23.200000000000003
+      },
+      "after": {
+        "x": 20,
+        "y": 396,
+        "width": 128,
+        "height": 24
+      },
+      "sizeOffsets": [
+        177732,
+        177893,
+        178059
+      ],
+      "positionOffsets": [
+        177789,
+        177950,
+        178206
+      ]
+    },
+    {
+      "id": "MD3022",
+      "frameOffset": 181546,
+      "graphicsEnd": 182353,
+      "before": {
+        "x": 18.75,
+        "y": 366.40000000000003,
+        "width": 134.375,
+        "height": 23.200000000000003
+      },
+      "after": {
+        "x": 16,
+        "y": 340,
+        "width": 136,
+        "height": 22
+      },
+      "sizeOffsets": [
+        181566,
+        181727,
+        181888
+      ],
+      "positionOffsets": [
+        181623,
+        181784,
+        182043
+      ]
+    },
+    {
+      "id": "Text3030",
+      "frameOffset": 174573,
+      "graphicsEnd": 175227,
+      "before": {
+        "x": 662.5,
+        "y": 70.4,
+        "width": 129.6875,
+        "height": 20.0
+      },
+      "after": {
+        "x": 648,
+        "y": 65,
+        "width": 140,
+        "height": 20
+      },
+      "sizeOffsets": [
+        174593,
+        174754
+      ],
+      "positionOffsets": [
+        174650,
+        174925
+      ]
+    },
+    {
+      "id": "Text3032",
+      "frameOffset": 173102,
+      "graphicsEnd": 173758,
+      "before": {
+        "x": 661.71875,
+        "y": 93.60000000000001,
+        "width": 131.25,
+        "height": 17.6
+      },
+      "after": {
+        "x": 648,
+        "y": 87,
+        "width": 140,
+        "height": 16
+      },
+      "sizeOffsets": [
+        173122,
+        173283
+      ],
+      "positionOffsets": [
+        173179,
+        173456
+      ]
+    },
+    {
+      "id": "Text3034",
+      "frameOffset": 171781,
+      "graphicsEnd": 172415,
+      "before": {
+        "x": 662.5,
+        "y": 126.4,
+        "width": 129.6875,
+        "height": 16.8
+      },
+      "after": {
+        "x": 648,
+        "y": 116,
+        "width": 140,
+        "height": 16
+      },
+      "sizeOffsets": [
+        171801,
+        171962
+      ],
+      "positionOffsets": [
+        171858,
+        172113
+      ]
+    },
+    {
+      "id": "Text16002",
+      "frameOffset": 37240,
+      "graphicsEnd": 37866,
+      "before": {
+        "x": 662.5,
+        "y": 144.8,
+        "width": 54.6875,
+        "height": 18.400000000000002
+      },
+      "after": {
+        "x": 648,
+        "y": 133,
+        "width": 44,
+        "height": 18
+      },
+      "sizeOffsets": [
+        37260,
+        37421
+      ],
+      "positionOffsets": [
+        37317,
+        37564
+      ]
+    },
+    {
+      "id": "Text10010",
+      "frameOffset": 80203,
+      "graphicsEnd": 80827,
+      "before": {
+        "x": 768.75,
+        "y": 144.8,
+        "width": 23.4375,
+        "height": 18.400000000000002
+      },
+      "after": {
+        "x": 764,
+        "y": 133,
+        "width": 24,
+        "height": 18
+      },
+      "sizeOffsets": [
+        80223,
+        80384
+      ],
+      "positionOffsets": [
+        80280,
+        80525
+      ]
+    },
+    {
+      "id": "MD10008",
+      "frameOffset": 81456,
+      "graphicsEnd": 82247,
+      "before": {
+        "x": 721.875,
+        "y": 144.8,
+        "width": 46.875,
+        "height": 18.400000000000002
+      },
+      "after": {
+        "x": 700,
+        "y": 133,
+        "width": 62,
+        "height": 18
+      },
+      "sizeOffsets": [
+        81476,
+        81637,
+        81798
+      ],
+      "positionOffsets": [
+        81533,
+        81694,
+        81937
+      ]
+    },
+    {
+      "id": "ND10006",
+      "frameOffset": 83384,
+      "graphicsEnd": 84183,
+      "before": {
+        "x": 721.875,
+        "y": 144.8,
+        "width": 46.875,
+        "height": 18.400000000000002
+      },
+      "after": {
+        "x": 700,
+        "y": 133,
+        "width": 62,
+        "height": 18
+      },
+      "sizeOffsets": [
+        83404,
+        83565,
+        83726
+      ],
+      "positionOffsets": [
+        83461,
+        83622,
+        83873
+      ]
+    },
+    {
+      "id": "MD3036",
+      "frameOffset": 167857,
+      "graphicsEnd": 168686,
+      "before": {
+        "x": 662.5,
+        "y": 165.60000000000002,
+        "width": 129.6875,
+        "height": 16.0
+      },
+      "after": {
+        "x": 648,
+        "y": 151,
+        "width": 140,
+        "height": 16
+      },
+      "sizeOffsets": [
+        167877,
+        168038,
+        168199
+      ],
+      "positionOffsets": [
+        167934,
+        168095,
+        168376
+      ]
+    },
+    {
+      "id": "MD3038",
+      "frameOffset": 162893,
+      "graphicsEnd": 163714,
+      "before": {
+        "x": 662.5,
+        "y": 184.0,
+        "width": 129.6875,
+        "height": 16.0
+      },
+      "after": {
+        "x": 648,
+        "y": 167,
+        "width": 140,
+        "height": 16
+      },
+      "sizeOffsets": [
+        162913,
+        163074,
+        163235
+      ],
+      "positionOffsets": [
+        162970,
+        163131,
+        163404
+      ]
+    },
+    {
+      "id": "Text3040",
+      "frameOffset": 161572,
+      "graphicsEnd": 162206,
+      "before": {
+        "x": 662.5,
+        "y": 200.8,
+        "width": 129.6875,
+        "height": 16.8
+      },
+      "after": {
+        "x": 648,
+        "y": 184,
+        "width": 140,
+        "height": 16
+      },
+      "sizeOffsets": [
+        161592,
+        161753
+      ],
+      "positionOffsets": [
+        161649,
+        161904
+      ]
+    },
+    {
+      "id": "Text16004",
+      "frameOffset": 35973,
+      "graphicsEnd": 36599,
+      "before": {
+        "x": 662.5,
+        "y": 219.20000000000002,
+        "width": 54.6875,
+        "height": 18.400000000000002
+      },
+      "after": {
+        "x": 648,
+        "y": 201,
+        "width": 44,
+        "height": 18
+      },
+      "sizeOffsets": [
+        35993,
+        36154
+      ],
+      "positionOffsets": [
+        36050,
+        36297
+      ]
+    },
+    {
+      "id": "Text10024",
+      "frameOffset": 67575,
+      "graphicsEnd": 68199,
+      "before": {
+        "x": 768.75,
+        "y": 219.20000000000002,
+        "width": 23.4375,
+        "height": 18.400000000000002
+      },
+      "after": {
+        "x": 764,
+        "y": 201,
+        "width": 24,
+        "height": 18
+      },
+      "sizeOffsets": [
+        67595,
+        67756
+      ],
+      "positionOffsets": [
+        67652,
+        67897
+      ]
+    },
+    {
+      "id": "MD10022",
+      "frameOffset": 68828,
+      "graphicsEnd": 69619,
+      "before": {
+        "x": 721.875,
+        "y": 219.20000000000002,
+        "width": 46.875,
+        "height": 18.400000000000002
+      },
+      "after": {
+        "x": 700,
+        "y": 201,
+        "width": 62,
+        "height": 18
+      },
+      "sizeOffsets": [
+        68848,
+        69009,
+        69170
+      ],
+      "positionOffsets": [
+        68905,
+        69066,
+        69309
+      ]
+    },
+    {
+      "id": "ND10020",
+      "frameOffset": 70756,
+      "graphicsEnd": 71555,
+      "before": {
+        "x": 721.875,
+        "y": 219.20000000000002,
+        "width": 46.875,
+        "height": 18.400000000000002
+      },
+      "after": {
+        "x": 700,
+        "y": 201,
+        "width": 62,
+        "height": 18
+      },
+      "sizeOffsets": [
+        70776,
+        70937,
+        71098
+      ],
+      "positionOffsets": [
+        70833,
+        70994,
+        71245
+      ]
+    },
+    {
+      "id": "MD3042",
+      "frameOffset": 157648,
+      "graphicsEnd": 158477,
+      "before": {
+        "x": 662.5,
+        "y": 240.0,
+        "width": 129.6875,
+        "height": 16.0
+      },
+      "after": {
+        "x": 648,
+        "y": 219,
+        "width": 140,
+        "height": 16
+      },
+      "sizeOffsets": [
+        157668,
+        157829,
+        157990
+      ],
+      "positionOffsets": [
+        157725,
+        157886,
+        158167
+      ]
+    },
+    {
+      "id": "MD3044",
+      "frameOffset": 152684,
+      "graphicsEnd": 153505,
+      "before": {
+        "x": 662.5,
+        "y": 258.40000000000003,
+        "width": 129.6875,
+        "height": 16.0
+      },
+      "after": {
+        "x": 648,
+        "y": 235,
+        "width": 140,
+        "height": 16
+      },
+      "sizeOffsets": [
+        152704,
+        152865,
+        153026
+      ],
+      "positionOffsets": [
+        152761,
+        152922,
+        153195
+      ]
+    },
+    {
+      "id": "Text3046",
+      "frameOffset": 151363,
+      "graphicsEnd": 151997,
+      "before": {
+        "x": 662.5,
+        "y": 275.2,
+        "width": 129.6875,
+        "height": 16.8
+      },
+      "after": {
+        "x": 648,
+        "y": 252,
+        "width": 140,
+        "height": 16
+      },
+      "sizeOffsets": [
+        151383,
+        151544
+      ],
+      "positionOffsets": [
+        151440,
+        151695
+      ]
+    },
+    {
+      "id": "Text16006",
+      "frameOffset": 34706,
+      "graphicsEnd": 35332,
+      "before": {
+        "x": 662.5,
+        "y": 293.6,
+        "width": 54.6875,
+        "height": 18.400000000000002
+      },
+      "after": {
+        "x": 648,
+        "y": 269,
+        "width": 44,
+        "height": 18
+      },
+      "sizeOffsets": [
+        34726,
+        34887
+      ],
+      "positionOffsets": [
+        34783,
+        35030
+      ]
+    },
+    {
+      "id": "Text10038",
+      "frameOffset": 54947,
+      "graphicsEnd": 55571,
+      "before": {
+        "x": 768.75,
+        "y": 293.6,
+        "width": 23.4375,
+        "height": 18.400000000000002
+      },
+      "after": {
+        "x": 764,
+        "y": 269,
+        "width": 24,
+        "height": 18
+      },
+      "sizeOffsets": [
+        54967,
+        55128
+      ],
+      "positionOffsets": [
+        55024,
+        55269
+      ]
+    },
+    {
+      "id": "MD10036",
+      "frameOffset": 56200,
+      "graphicsEnd": 56991,
+      "before": {
+        "x": 721.875,
+        "y": 293.6,
+        "width": 46.875,
+        "height": 18.400000000000002
+      },
+      "after": {
+        "x": 700,
+        "y": 269,
+        "width": 62,
+        "height": 18
+      },
+      "sizeOffsets": [
+        56220,
+        56381,
+        56542
+      ],
+      "positionOffsets": [
+        56277,
+        56438,
+        56681
+      ]
+    },
+    {
+      "id": "ND10034",
+      "frameOffset": 58128,
+      "graphicsEnd": 58927,
+      "before": {
+        "x": 721.875,
+        "y": 293.6,
+        "width": 46.875,
+        "height": 18.400000000000002
+      },
+      "after": {
+        "x": 700,
+        "y": 269,
+        "width": 62,
+        "height": 18
+      },
+      "sizeOffsets": [
+        58148,
+        58309,
+        58470
+      ],
+      "positionOffsets": [
+        58205,
+        58366,
+        58617
+      ]
+    },
+    {
+      "id": "MD3048",
+      "frameOffset": 147439,
+      "graphicsEnd": 148268,
+      "before": {
+        "x": 662.5,
+        "y": 314.40000000000003,
+        "width": 129.6875,
+        "height": 16.0
+      },
+      "after": {
+        "x": 648,
+        "y": 287,
+        "width": 140,
+        "height": 16
+      },
+      "sizeOffsets": [
+        147459,
+        147620,
+        147781
+      ],
+      "positionOffsets": [
+        147516,
+        147677,
+        147958
+      ]
+    },
+    {
+      "id": "MD3050",
+      "frameOffset": 142475,
+      "graphicsEnd": 143296,
+      "before": {
+        "x": 662.5,
+        "y": 332.8,
+        "width": 129.6875,
+        "height": 16.0
+      },
+      "after": {
+        "x": 648,
+        "y": 303,
+        "width": 140,
+        "height": 16
+      },
+      "sizeOffsets": [
+        142495,
+        142656,
+        142817
+      ],
+      "positionOffsets": [
+        142552,
+        142713,
+        142986
+      ]
+    },
+    {
+      "id": "Text3052",
+      "frameOffset": 141154,
+      "graphicsEnd": 141788,
+      "before": {
+        "x": 662.5,
+        "y": 349.6,
+        "width": 129.6875,
+        "height": 16.8
+      },
+      "after": {
+        "x": 648,
+        "y": 320,
+        "width": 140,
+        "height": 16
+      },
+      "sizeOffsets": [
+        141174,
+        141335
+      ],
+      "positionOffsets": [
+        141231,
+        141486
+      ]
+    },
+    {
+      "id": "Text16008",
+      "frameOffset": 33439,
+      "graphicsEnd": 34065,
+      "before": {
+        "x": 662.5,
+        "y": 368.0,
+        "width": 54.6875,
+        "height": 18.400000000000002
+      },
+      "after": {
+        "x": 648,
+        "y": 337,
+        "width": 44,
+        "height": 18
+      },
+      "sizeOffsets": [
+        33459,
+        33620
+      ],
+      "positionOffsets": [
+        33516,
+        33763
+      ]
+    },
+    {
+      "id": "Text10052",
+      "frameOffset": 42319,
+      "graphicsEnd": 42943,
+      "before": {
+        "x": 768.75,
+        "y": 368.0,
+        "width": 23.4375,
+        "height": 18.400000000000002
+      },
+      "after": {
+        "x": 764,
+        "y": 337,
+        "width": 24,
+        "height": 18
+      },
+      "sizeOffsets": [
+        42339,
+        42500
+      ],
+      "positionOffsets": [
+        42396,
+        42641
+      ]
+    },
+    {
+      "id": "MD10050",
+      "frameOffset": 43572,
+      "graphicsEnd": 44363,
+      "before": {
+        "x": 721.875,
+        "y": 368.0,
+        "width": 46.875,
+        "height": 18.400000000000002
+      },
+      "after": {
+        "x": 700,
+        "y": 337,
+        "width": 62,
+        "height": 18
+      },
+      "sizeOffsets": [
+        43592,
+        43753,
+        43914
+      ],
+      "positionOffsets": [
+        43649,
+        43810,
+        44053
+      ]
+    },
+    {
+      "id": "ND10048",
+      "frameOffset": 45500,
+      "graphicsEnd": 46299,
+      "before": {
+        "x": 721.875,
+        "y": 368.0,
+        "width": 46.875,
+        "height": 18.400000000000002
+      },
+      "after": {
+        "x": 700,
+        "y": 337,
+        "width": 62,
+        "height": 18
+      },
+      "sizeOffsets": [
+        45520,
+        45681,
+        45842
+      ],
+      "positionOffsets": [
+        45577,
+        45738,
+        45989
+      ]
+    },
+    {
+      "id": "MD3054",
+      "frameOffset": 137230,
+      "graphicsEnd": 138059,
+      "before": {
+        "x": 662.5,
+        "y": 388.8,
+        "width": 129.6875,
+        "height": 16.0
+      },
+      "after": {
+        "x": 648,
+        "y": 355,
+        "width": 140,
+        "height": 16
+      },
+      "sizeOffsets": [
+        137250,
+        137411,
+        137572
+      ],
+      "positionOffsets": [
+        137307,
+        137468,
+        137749
+      ]
+    },
+    {
+      "id": "MD3056",
+      "frameOffset": 132266,
+      "graphicsEnd": 133087,
+      "before": {
+        "x": 662.5,
+        "y": 407.20000000000005,
+        "width": 129.6875,
+        "height": 16.0
+      },
+      "after": {
+        "x": 648,
+        "y": 371,
+        "width": 140,
+        "height": 16
+      },
+      "sizeOffsets": [
+        132286,
+        132447,
+        132608
+      ],
+      "positionOffsets": [
+        132343,
+        132504,
+        132777
+      ]
+    },
+    {
+      "id": "Text3058",
+      "frameOffset": 130809,
+      "graphicsEnd": 131463,
+      "before": {
+        "x": 661.71875,
+        "y": 436.8,
+        "width": 100.0,
+        "height": 17.6
+      },
+      "after": {
+        "x": 648,
+        "y": 399,
+        "width": 110,
+        "height": 18
+      },
+      "sizeOffsets": [
+        130829,
+        130990
+      ],
+      "positionOffsets": [
+        130886,
+        131161
+      ]
+    },
+    {
+      "id": "ND3060",
+      "frameOffset": 128478,
+      "graphicsEnd": 129278,
+      "before": {
+        "x": 763.28125,
+        "y": 434.40000000000003,
+        "width": 25.78125,
+        "height": 23.200000000000003
+      },
+      "after": {
+        "x": 762,
+        "y": 396,
+        "width": 24,
+        "height": 24
+      },
+      "sizeOffsets": [
+        128498,
+        128659,
+        128825
+      ],
+      "positionOffsets": [
+        128555,
+        128716,
+        128972
+      ]
+    },
+    {
+      "id": "MD10014",
+      "frameOffset": 76391,
+      "graphicsEnd": 77182,
+      "before": {
+        "x": 198.4375,
+        "y": 194.4,
+        "width": 17.1875,
+        "height": 76.80000000000001
+      },
+      "after": {
+        "x": 230.40625,
+        "y": 210,
+        "width": 17.1875,
+        "height": 76.80000000000001
+      },
+      "sizeOffsets": [
+        76411,
+        76572,
+        76733
+      ],
+      "positionOffsets": [
+        76468,
+        76629,
+        76872
+      ]
+    },
+    {
+      "id": "BG10012",
+      "frameOffset": 78319,
+      "graphicsEnd": 79056,
+      "before": {
+        "x": 198.4375,
+        "y": 194.4,
+        "width": 17.1875,
+        "height": 76.80000000000001
+      },
+      "after": {
+        "x": 230.40625,
+        "y": 210,
+        "width": 17.1875,
+        "height": 76.80000000000001
+      },
+      "sizeOffsets": [
+        78339,
+        78500,
+        78661
+      ],
+      "positionOffsets": [
+        78396,
+        78557,
+        78718
+      ]
+    },
+    {
+      "id": "Text10002",
+      "frameOffset": 87696,
+      "graphicsEnd": 88330,
+      "before": {
+        "x": 171.82348901098905,
+        "y": 380.8,
+        "width": 88.28125,
+        "height": 17.6
+      },
+      "after": {
+        "x": 195,
+        "y": 398,
+        "width": 88,
+        "height": 18
+      },
+      "sizeOffsets": [
+        87716,
+        87877
+      ],
+      "positionOffsets": [
+        87773,
+        88028
+      ]
+    },
+    {
+      "id": "MD10004",
+      "frameOffset": 85512,
+      "graphicsEnd": 86321,
+      "before": {
+        "x": 171.82348901098905,
+        "y": 400.0,
+        "width": 88.28125,
+        "height": 17.6
+      },
+      "after": {
+        "x": 195,
+        "y": 418,
+        "width": 88,
+        "height": 18
+      },
+      "sizeOffsets": [
+        85532,
+        85693,
+        85854
+      ],
+      "positionOffsets": [
+        85589,
+        85750,
+        86011
+      ]
+    },
+    {
+      "id": "MD10028",
+      "frameOffset": 63763,
+      "graphicsEnd": 64554,
+      "before": {
+        "x": 307.8125,
+        "y": 204.0,
+        "width": 17.1875,
+        "height": 76.80000000000001
+      },
+      "after": {
+        "x": 338.40625,
+        "y": 210,
+        "width": 17.1875,
+        "height": 76.80000000000001
+      },
+      "sizeOffsets": [
+        63783,
+        63944,
+        64105
+      ],
+      "positionOffsets": [
+        63840,
+        64001,
+        64244
+      ]
+    },
+    {
+      "id": "BG10026",
+      "frameOffset": 65691,
+      "graphicsEnd": 66428,
+      "before": {
+        "x": 307.8125,
+        "y": 203.20000000000002,
+        "width": 17.1875,
+        "height": 76.80000000000001
+      },
+      "after": {
+        "x": 338.40625,
+        "y": 210,
+        "width": 17.1875,
+        "height": 76.80000000000001
+      },
+      "sizeOffsets": [
+        65711,
+        65872,
+        66033
+      ],
+      "positionOffsets": [
+        65768,
+        65929,
+        66090
+      ]
+    },
+    {
+      "id": "Text10016",
+      "frameOffset": 75068,
+      "graphicsEnd": 75702,
+      "before": {
+        "x": 286.6672390109891,
+        "y": 380.8,
+        "width": 88.28125,
+        "height": 17.6
+      },
+      "after": {
+        "x": 303,
+        "y": 398,
+        "width": 88,
+        "height": 18
+      },
+      "sizeOffsets": [
+        75088,
+        75249
+      ],
+      "positionOffsets": [
+        75145,
+        75400
+      ]
+    },
+    {
+      "id": "MD10018",
+      "frameOffset": 72884,
+      "graphicsEnd": 73693,
+      "before": {
+        "x": 286.6672390109891,
+        "y": 400.0,
+        "width": 88.28125,
+        "height": 17.6
+      },
+      "after": {
+        "x": 303,
+        "y": 418,
+        "width": 88,
+        "height": 18
+      },
+      "sizeOffsets": [
+        72904,
+        73065,
+        73226
+      ],
+      "positionOffsets": [
+        72961,
+        73122,
+        73383
+      ]
+    },
+    {
+      "id": "MD10042",
+      "frameOffset": 51135,
+      "graphicsEnd": 51926,
+      "before": {
+        "x": 428.90625,
+        "y": 212.0,
+        "width": 17.1875,
+        "height": 76.80000000000001
+      },
+      "after": {
+        "x": 448.40625,
+        "y": 210,
+        "width": 17.1875,
+        "height": 76.80000000000001
+      },
+      "sizeOffsets": [
+        51155,
+        51316,
+        51477
+      ],
+      "positionOffsets": [
+        51212,
+        51373,
+        51616
+      ]
+    },
+    {
+      "id": "BG10040",
+      "frameOffset": 53063,
+      "graphicsEnd": 53800,
+      "before": {
+        "x": 428.90625,
+        "y": 212.0,
+        "width": 17.1875,
+        "height": 76.80000000000001
+      },
+      "after": {
+        "x": 448.40625,
+        "y": 210,
+        "width": 17.1875,
+        "height": 76.80000000000001
+      },
+      "sizeOffsets": [
+        53083,
+        53244,
+        53405
+      ],
+      "positionOffsets": [
+        53140,
+        53301,
+        53462
+      ]
+    },
+    {
+      "id": "Text10030",
+      "frameOffset": 62440,
+      "graphicsEnd": 63074,
+      "before": {
+        "x": 401.5109890109891,
+        "y": 380.8,
+        "width": 88.28125,
+        "height": 17.6
+      },
+      "after": {
+        "x": 413,
+        "y": 398,
+        "width": 88,
+        "height": 18
+      },
+      "sizeOffsets": [
+        62460,
+        62621
+      ],
+      "positionOffsets": [
+        62517,
+        62772
+      ]
+    },
+    {
+      "id": "MD10032",
+      "frameOffset": 60256,
+      "graphicsEnd": 61065,
+      "before": {
+        "x": 401.5109890109891,
+        "y": 400.0,
+        "width": 88.28125,
+        "height": 17.6
+      },
+      "after": {
+        "x": 413,
+        "y": 418,
+        "width": 88,
+        "height": 18
+      },
+      "sizeOffsets": [
+        60276,
+        60437,
+        60598
+      ],
+      "positionOffsets": [
+        60333,
+        60494,
+        60755
+      ]
+    },
+    {
+      "id": "MD10056",
+      "frameOffset": 38507,
+      "graphicsEnd": 39298,
+      "before": {
+        "x": 525.0,
+        "y": 204.0,
+        "width": 17.1875,
+        "height": 76.80000000000001
+      },
+      "after": {
+        "x": 556.40625,
+        "y": 210,
+        "width": 17.1875,
+        "height": 76.80000000000001
+      },
+      "sizeOffsets": [
+        38527,
+        38688,
+        38849
+      ],
+      "positionOffsets": [
+        38584,
+        38745,
+        38988
+      ]
+    },
+    {
+      "id": "BG10054",
+      "frameOffset": 40435,
+      "graphicsEnd": 41172,
+      "before": {
+        "x": 525.0,
+        "y": 204.0,
+        "width": 17.1875,
+        "height": 76.80000000000001
+      },
+      "after": {
+        "x": 556.40625,
+        "y": 210,
+        "width": 17.1875,
+        "height": 76.80000000000001
+      },
+      "sizeOffsets": [
+        40455,
+        40616,
+        40777
+      ],
+      "positionOffsets": [
+        40512,
+        40673,
+        40834
+      ]
+    },
+    {
+      "id": "Text10044",
+      "frameOffset": 49812,
+      "graphicsEnd": 50446,
+      "before": {
+        "x": 516.3547390109891,
+        "y": 380.8,
+        "width": 88.28125,
+        "height": 17.6
+      },
+      "after": {
+        "x": 521,
+        "y": 398,
+        "width": 88,
+        "height": 18
+      },
+      "sizeOffsets": [
+        49832,
+        49993
+      ],
+      "positionOffsets": [
+        49889,
+        50144
+      ]
+    },
+    {
+      "id": "MD10046",
+      "frameOffset": 47628,
+      "graphicsEnd": 48437,
+      "before": {
+        "x": 516.3547390109891,
+        "y": 400.0,
+        "width": 88.28125,
+        "height": 17.6
+      },
+      "after": {
+        "x": 521,
+        "y": 418,
+        "width": 88,
+        "height": 18
+      },
+      "sizeOffsets": [
+        47648,
+        47809,
+        47970
+      ],
+      "positionOffsets": [
+        47705,
+        47866,
+        48127
+      ]
+    }
+  ],
+  "nativeValidationRequired": true
+}
