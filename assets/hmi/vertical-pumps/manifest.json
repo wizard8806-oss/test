@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "selectionDate": "2026-11-06",
+  "userApproved": true,
+  "style": "vertical-blue-silver-pumps-silver-lower-collector-no-upper-pipe-no-rear-posts",
+  "assets": [
+    {
+      "installedPumpCount": 2,
+      "file": "pumps-2.png",
+      "width": 1620,
+      "height": 971,
+      "bytes": 1579651,
+      "sha256": "f28bfabfdeb6f52ca5043fed90e8c4548c7a13d5d2cb3d5f3be1cfdbfe64bb8c"
+    },
+    {
+      "installedPumpCount": 3,
+      "file": "pumps-3.png",
+      "width": 1620,
+      "height": 971,
+      "bytes": 1635677,
+      "sha256": "c9fbd107056f1698dfc50c635e6ff855f4d1138e77cce8fbe0719c1365969b06"
+    },
+    {
+      "installedPumpCount": 4,
+      "file": "pumps-4.png",
+      "width": 1620,
+      "height": 971,
+      "bytes": 1650013,
+      "sha256": "6fe563117983fce66fa2c2f0232a100864ff5133a4658f290496acfe42f8ddd4"
+    }
+  ],
+  "nativeSKMImportCompleted": false
+}
