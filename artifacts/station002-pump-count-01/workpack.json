@@ -1,0 +1,811 @@
+{
+  "schemaVersion": 1,
+  "sourceSHA256": "6aba2a67d07596e4a479c462412859565186de86b410a3cd44476a81f20ffe81",
+  "sourceBytes": 178479,
+  "mapVersion": 32,
+  "sourceUnchanged": true,
+  "nativeCompileObserved": false,
+  "nativePumpCountImplemented": false,
+  "physicalAddressesAllocated": false,
+  "candidateRegisters": {
+    "InstalledPumpCount": "R2860",
+    "ConfigurationMarker": "R2861",
+    "PumpCountDraft": "R2862",
+    "PumpCountStatus": "R2863",
+    "InstalledPumpMask": "R2864",
+    "PumpCountValid": "R2865",
+    "PumpCountRevision": "R2866",
+    "PumpPictureIndex": "R2867"
+  },
+  "candidateBlock": "R2860..R2879",
+  "rawEvenWordPossibleReferences": {
+    "R2860": [],
+    "R2861": [],
+    "R2862": [],
+    "R2863": [],
+    "R2864": [],
+    "R2865": [],
+    "R2866": [],
+    "R2867": [],
+    "R2868": [],
+    "R2869": [],
+    "R2870": [],
+    "R2871": [],
+    "R2872": [],
+    "R2873": [],
+    "R2874": [],
+    "R2875": [],
+    "R2876": [],
+    "R2877": [],
+    "R2878": [],
+    "R2879": []
+  },
+  "tableOrBufferOverlaps": [],
+  "requirements": {
+    "allowedCounts": [
+      2,
+      3,
+      4
+    ],
+    "newStationDesiredCount": 3,
+    "fourAddressSlotsPreserved": true,
+    "autoMembershipIsSeparate": true,
+    "unconfiguredBoot": "count invalid; block run until commissioned in STOP",
+    "acceptedConfigurationBoot": "retain count; do not generate apply or run request",
+    "change": "explicit STOP transaction; all RUN outputs off, queues idle, no start on commit",
+    "unknownOrStaleConfiguration": "show unknown; do not infer four installed pumps",
+    "imageIndex": "0 for 2, 1 for 3, 2 for 4; valid configuration required"
+  },
+  "normalPollSchedules": {
+    "2": [
+      {
+        "sourceRowOneBased": 1,
+        "fields": [
+          1,
+          1,
+          7,
+          12,
+          2800,
+          4,
+          4097
+        ]
+      },
+      {
+        "sourceRowOneBased": 2,
+        "fields": [
+          1,
+          1,
+          1,
+          13,
+          201,
+          4,
+          4105
+        ]
+      },
+      {
+        "sourceRowOneBased": 3,
+        "fields": [
+          1,
+          1,
+          1,
+          13,
+          202,
+          4,
+          4115
+        ]
+      },
+      {
+        "sourceRowOneBased": 4,
+        "fields": [
+          2,
+          1,
+          7,
+          12,
+          2808,
+          4,
+          4097
+        ]
+      },
+      {
+        "sourceRowOneBased": 5,
+        "fields": [
+          2,
+          1,
+          1,
+          13,
+          204,
+          4,
+          4105
+        ]
+      },
+      {
+        "sourceRowOneBased": 6,
+        "fields": [
+          2,
+          1,
+          1,
+          13,
+          205,
+          4,
+          4115
+        ]
+      },
+      {
+        "sourceRowOneBased": 9,
+        "fields": [
+          1,
+          1,
+          1,
+          13,
+          212,
+          4,
+          4111
+        ]
+      },
+      {
+        "sourceRowOneBased": 10,
+        "fields": [
+          1,
+          1,
+          1,
+          13,
+          213,
+          4,
+          4113
+        ]
+      },
+      {
+        "sourceRowOneBased": 11,
+        "fields": [
+          1,
+          1,
+          1,
+          13,
+          214,
+          4,
+          61442
+        ]
+      },
+      {
+        "sourceRowOneBased": 12,
+        "fields": [
+          1,
+          1,
+          1,
+          13,
+          215,
+          4,
+          4115
+        ]
+      },
+      {
+        "sourceRowOneBased": 13,
+        "fields": [
+          2,
+          1,
+          1,
+          13,
+          216,
+          4,
+          4111
+        ]
+      }
+    ],
+    "3": [
+      {
+        "sourceRowOneBased": 1,
+        "fields": [
+          1,
+          1,
+          7,
+          12,
+          2800,
+          4,
+          4097
+        ]
+      },
+      {
+        "sourceRowOneBased": 2,
+        "fields": [
+          1,
+          1,
+          1,
+          13,
+          201,
+          4,
+          4105
+        ]
+      },
+      {
+        "sourceRowOneBased": 3,
+        "fields": [
+          1,
+          1,
+          1,
+          13,
+          202,
+          4,
+          4115
+        ]
+      },
+      {
+        "sourceRowOneBased": 4,
+        "fields": [
+          2,
+          1,
+          7,
+          12,
+          2808,
+          4,
+          4097
+        ]
+      },
+      {
+        "sourceRowOneBased": 5,
+        "fields": [
+          2,
+          1,
+          1,
+          13,
+          204,
+          4,
+          4105
+        ]
+      },
+      {
+        "sourceRowOneBased": 6,
+        "fields": [
+          2,
+          1,
+          1,
+          13,
+          205,
+          4,
+          4115
+        ]
+      },
+      {
+        "sourceRowOneBased": 7,
+        "fields": [
+          3,
+          1,
+          1,
+          13,
+          208,
+          4,
+          4115
+        ]
+      },
+      {
+        "sourceRowOneBased": 9,
+        "fields": [
+          1,
+          1,
+          1,
+          13,
+          212,
+          4,
+          4111
+        ]
+      },
+      {
+        "sourceRowOneBased": 10,
+        "fields": [
+          1,
+          1,
+          1,
+          13,
+          213,
+          4,
+          4113
+        ]
+      },
+      {
+        "sourceRowOneBased": 11,
+        "fields": [
+          1,
+          1,
+          1,
+          13,
+          214,
+          4,
+          61442
+        ]
+      },
+      {
+        "sourceRowOneBased": 12,
+        "fields": [
+          1,
+          1,
+          1,
+          13,
+          215,
+          4,
+          4115
+        ]
+      },
+      {
+        "sourceRowOneBased": 13,
+        "fields": [
+          2,
+          1,
+          1,
+          13,
+          216,
+          4,
+          4111
+        ]
+      },
+      {
+        "sourceRowOneBased": 14,
+        "fields": [
+          3,
+          1,
+          1,
+          13,
+          217,
+          4,
+          4111
+        ]
+      },
+      {
+        "sourceRowOneBased": 17,
+        "fields": [
+          3,
+          1,
+          7,
+          12,
+          2816,
+          4,
+          4097
+        ]
+      }
+    ],
+    "4": [
+      {
+        "sourceRowOneBased": 1,
+        "fields": [
+          1,
+          1,
+          7,
+          12,
+          2800,
+          4,
+          4097
+        ]
+      },
+      {
+        "sourceRowOneBased": 2,
+        "fields": [
+          1,
+          1,
+          1,
+          13,
+          201,
+          4,
+          4105
+        ]
+      },
+      {
+        "sourceRowOneBased": 3,
+        "fields": [
+          1,
+          1,
+          1,
+          13,
+          202,
+          4,
+          4115
+        ]
+      },
+      {
+        "sourceRowOneBased": 4,
+        "fields": [
+          2,
+          1,
+          7,
+          12,
+          2808,
+          4,
+          4097
+        ]
+      },
+      {
+        "sourceRowOneBased": 5,
+        "fields": [
+          2,
+          1,
+          1,
+          13,
+          204,
+          4,
+          4105
+        ]
+      },
+      {
+        "sourceRowOneBased": 6,
+        "fields": [
+          2,
+          1,
+          1,
+          13,
+          205,
+          4,
+          4115
+        ]
+      },
+      {
+        "sourceRowOneBased": 7,
+        "fields": [
+          3,
+          1,
+          1,
+          13,
+          208,
+          4,
+          4115
+        ]
+      },
+      {
+        "sourceRowOneBased": 8,
+        "fields": [
+          4,
+          1,
+          1,
+          13,
+          211,
+          4,
+          4115
+        ]
+      },
+      {
+        "sourceRowOneBased": 9,
+        "fields": [
+          1,
+          1,
+          1,
+          13,
+          212,
+          4,
+          4111
+        ]
+      },
+      {
+        "sourceRowOneBased": 10,
+        "fields": [
+          1,
+          1,
+          1,
+          13,
+          213,
+          4,
+          4113
+        ]
+      },
+      {
+        "sourceRowOneBased": 11,
+        "fields": [
+          1,
+          1,
+          1,
+          13,
+          214,
+          4,
+          61442
+        ]
+      },
+      {
+        "sourceRowOneBased": 12,
+        "fields": [
+          1,
+          1,
+          1,
+          13,
+          215,
+          4,
+          4115
+        ]
+      },
+      {
+        "sourceRowOneBased": 13,
+        "fields": [
+          2,
+          1,
+          1,
+          13,
+          216,
+          4,
+          4111
+        ]
+      },
+      {
+        "sourceRowOneBased": 14,
+        "fields": [
+          3,
+          1,
+          1,
+          13,
+          217,
+          4,
+          4111
+        ]
+      },
+      {
+        "sourceRowOneBased": 15,
+        "fields": [
+          4,
+          1,
+          1,
+          13,
+          218,
+          4,
+          4111
+        ]
+      },
+      {
+        "sourceRowOneBased": 16,
+        "fields": [
+          4,
+          1,
+          1,
+          13,
+          219,
+          4,
+          61442
+        ]
+      },
+      {
+        "sourceRowOneBased": 17,
+        "fields": [
+          3,
+          1,
+          7,
+          12,
+          2816,
+          4,
+          4097
+        ]
+      },
+      {
+        "sourceRowOneBased": 18,
+        "fields": [
+          4,
+          1,
+          7,
+          12,
+          2824,
+          4,
+          4097
+        ]
+      }
+    ]
+  },
+  "oneShotTables": [
+    {
+      "address": "R5200",
+      "name": "M900G_MODE_WRITE_TEST",
+      "rows": [
+        [
+          1,
+          3,
+          1,
+          13,
+          231,
+          4,
+          61442
+        ]
+      ],
+      "rule": "validate immutable job target 1..N before admission and dispatch; match reply to that job"
+    },
+    {
+      "address": "R5400",
+      "name": "M900G_MODE_READBACK_TEST",
+      "rows": [
+        [
+          1,
+          1,
+          1,
+          13,
+          232,
+          4,
+          61442
+        ]
+      ],
+      "rule": "validate immutable job target 1..N before admission and dispatch; match reply to that job"
+    },
+    {
+      "address": "R5600",
+      "name": "M900G_STOP_CHECK_TEST",
+      "rows": [
+        [
+          1,
+          1,
+          4,
+          13,
+          240,
+          4,
+          4097
+        ]
+      ],
+      "rule": "validate immutable job target 1..N before admission and dispatch; match reply to that job"
+    },
+    {
+      "address": "R5800",
+      "name": "M900G_FREQ_WRITE",
+      "rows": [
+        [
+          1,
+          3,
+          1,
+          13,
+          294,
+          4,
+          2
+        ]
+      ],
+      "rule": "validate immutable job target 1..N before admission and dispatch; match reply to that job"
+    },
+    {
+      "address": "R6000",
+      "name": "M900G_FREQ_READBACK",
+      "rows": [
+        [
+          1,
+          1,
+          1,
+          13,
+          282,
+          4,
+          4099
+        ]
+      ],
+      "rule": "validate immutable job target 1..N before admission and dispatch; match reply to that job"
+    },
+    {
+      "address": "R6200",
+      "name": "M900G_PI_PREFLIGHT",
+      "rows": [
+        [
+          1,
+          1,
+          4,
+          13,
+          600,
+          4,
+          4097
+        ],
+        [
+          1,
+          1,
+          10,
+          13,
+          610,
+          4,
+          62721
+        ]
+      ],
+      "rule": "validate immutable job target 1..N before admission and dispatch; match reply to that job"
+    },
+    {
+      "address": "R6400",
+      "name": "M900G_PI_F501_WRITE",
+      "rows": [
+        [
+          1,
+          3,
+          1,
+          13,
+          630,
+          4,
+          62722
+        ]
+      ],
+      "rule": "validate immutable job target 1..N before admission and dispatch; match reply to that job"
+    },
+    {
+      "address": "R6600",
+      "name": "M900G_PI_F501_READBACK",
+      "rows": [
+        [
+          1,
+          1,
+          1,
+          13,
+          640,
+          4,
+          62722
+        ]
+      ],
+      "rule": "validate immutable job target 1..N before admission and dispatch; match reply to that job"
+    }
+  ],
+  "existingSettings": {
+    "begin": "M1460",
+    "apply": "M1461",
+    "cancel": "M1462",
+    "session": "M1463",
+    "inputAllowed": "M1464",
+    "stopAllowed": "M1465",
+    "status": "R2166",
+    "revision": "R2168",
+    "autoDraft": [
+      "R2170",
+      "R2171",
+      "R2172",
+      "R2173"
+    ],
+    "autoInstalledMembership": [
+      "R720",
+      "R721",
+      "R722",
+      "R723"
+    ],
+    "occupiedManualFrequencyInputs": [
+      "R2180",
+      "R2181",
+      "R2182",
+      "R2183"
+    ]
+  },
+  "changeAnchors": {
+    "settingsValidation": [
+      "95.S007",
+      "95.S037",
+      "95.S038",
+      "95.S050",
+      "95.S053"
+    ],
+    "normalPoll": [
+      "65.00"
+    ],
+    "availabilityAndRotation": [
+      "50.04",
+      "50.08",
+      "50.AI21",
+      "60.07"
+    ],
+    "pressureSelection": [
+      "65.14",
+      "65.15",
+      "65.16",
+      "65.17"
+    ],
+    "manualQueue": [
+      "65.M048",
+      "65.M052",
+      "65.M096",
+      "65.M097"
+    ],
+    "modeQueue": [
+      "60.137",
+      "65.36B",
+      "65.36C"
+    ],
+    "frequencyQueue": [
+      "65.F15",
+      "65.F16"
+    ],
+    "pressureParameterQueue": [
+      "65.K32",
+      "65.K38"
+    ],
+    "stopProbe": [
+      "65.S32",
+      "65.S33"
+    ],
+    "physicalRunOutputs": [
+      "90.02",
+      "90.03",
+      "90.04",
+      "90.05"
+    ]
+  },
+  "openNativeChecks": [
+    "Current native CPU/retentive ranges, full cross-reference including indirect and multiword extents",
+    "Current HMI/SCADA external read/write bindings and scripts",
+    "Comment span can contain several networks: one successful formatter call is not complete coverage",
+    "Native Modbus table format, worker state and safe runtime schedule switch",
+    "Apply STOP checks, fresh stopped feedback for installed drives, and idle owners/queues",
+    "Native compile and 2/3/4 behavior in isolated copies; no equipment download in this workpack"
+  ]
+}
