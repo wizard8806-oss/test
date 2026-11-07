@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Reproduce the exact offline high-pressure candidate locally without chat attachments or a native editor",
+  "baseCommit": "be6c4b8259a9f415b7f1557b2ea2680f483c23f6",
+  "rawBase": "https://raw.githubusercontent.com/wizard8806-oss/test/be6c4b8259a9f415b7f1557b2ea2680f483c23f6/",
+  "runtime": "Python3 standard library only; no pip or vendor DLL required for generation",
+  "files": [
+    {
+      "path": "tools/_runtime.py",
+      "bytes": 1434,
+      "sha256": "4ea72322da0a0eb893ed9f22bcbd4536445c846bde649cc280d22726b49b99fa"
+    },
+    {
+      "path": "tools/build_high_pressure_pdw_candidate.py",
+      "bytes": 11366,
+      "sha256": "0e8186b990906c9d341fc5c229a4d0cb054e2362e67d6dd91fe81e9c0daf2c59"
+    },
+    {
+      "path": "tools/build_setpoint_feedback_pdw_01.py",
+      "bytes": 10106,
+      "sha256": "bbe76f36c496b105c955474af644286954efcf3ded5551f2d17bd7d21f1d24ac"
+    },
+    {
+      "path": "tools/check_native_drive_edit_02.py",
+      "bytes": 7172,
+      "sha256": "2ca30beacb3a4a001dcdc33d70b191c1e5c56dbcae2d5dbe57c6e1208023fd38"
+    },
+    {
+      "path": "tools/check_setpoint_feedback_01.py",
+      "bytes": 3571,
+      "sha256": "6372ace11d17e450a77d3f9eef0effed88df9f395a537795b8db172b6c6a5f51"
+    },
+    {
+      "path": "tools/prepare_native_drive_edit_02.py",
+      "bytes": 6797,
+      "sha256": "6b3827754403194baf0d232201c1834bd614a2e06b213b0c56214922c56546eb"
+    },
+    {
+      "path": "tools/prepare_setpoint_feedback_01.py",
+      "bytes": 7780,
+      "sha256": "e86f2f1700cb4522ea17cc3707a645216a4d5e50597891bb066c4592c2141a7c"
+    },
+    {
+      "path": "tools/review_fatek_process_map_01.py",
+      "bytes": 10608,
+      "sha256": "3eef71c56ebd323e135429ba0d45312d831a1243e9d20ab099173b8a4940b857"
+    }
+  ],
+  "entrypoint": "tools/build_high_pressure_pdw_candidate.py",
+  "source": {
+    "suggestedName": "station_MC_CM55_900G_2-4_24MC_candidate.pdw",
+    "bytes": 178400,
+    "sha256": "96686b9948079d700d96e37483063b21de0cbef8f24a3e63785eed5be101abf5"
+  },
+  "target": {
+    "name": "station_MC_CM55_900G_24MC_HP_auto_candidate.pdw",
+    "bytes": 179579,
+    "sha256": "13da2180df15cf538e45bdb8a351c5713936f0b9b69fd8a109191e67c04c0263"
+  },
+  "reportName": "high-pressure-local-build.json",
+  "expectedAddedNativeNetworks": 29,
+  "pressure": {
+    "defaultMarginBar": 2.0,
+    "trip": "PV > SP + margin; original12bar absolute ceiling retained",
+    "automaticReset": "valid PV <= SP",
+    "deadband": "hold previous state"
+  },
+  "remaining": {
+    "nativeOpenObserved": false,
+    "nativeF8Observed": false,
+    "HMIFileModified": false,
+    "pumpCountImplemented": false
+  },
+  "equipmentActionsAllowed": false,
+  "fullNativeProjectPublicationAllowed": false
+}
