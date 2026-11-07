@@ -41,6 +41,7 @@ class Component:
     def execute(self, code):
         w = list(struct.unpack('>' + 'H' * (len(code)//2), code))
         stack = []
+        temporary = {}
         i = 0
         while i < len(w):
             op = w[i]
@@ -76,7 +77,13 @@ class Component:
                 stack = [True]; i += 1
             elif op == 0x7fe8:
                 stack.append(False); i += 1
-            elif op in (0x8fe8, 0x8fe9, 0x8feb):
+            elif op == 0xc400:
+                temporary[0] = bool(stack[-1]); i += 1
+            elif op == 0x6400:
+                stack.append(temporary[0]); i += 1
+            elif op == 0x9fe7:
+                stack[-1] = False; i += 1
+            elif op in (0x8fe7, 0x8fe8, 0x8fe9, 0x8feb):
                 stack[-1] = bool(stack[-1]); i += 1
             elif op == 0xe200 or op & 0xff00 == 0xe400:
                 right, left = stack.pop(), stack.pop()
@@ -128,15 +135,33 @@ def validate(source, candidate, vendor_dll=None):
     assert len(new['rungs']) == len(old['rungs']) + len(plan)
     codes = [bytes.fromhex(r['expectedCodeHex']) for r in plan] + [bytes.fromhex(report['replacementCodeHex'])]
 
-    formatted = []
+    formatted, graphs, rejected_regressions = [], [], []
     if vendor_dll:
         from render_fatek_network_01 import render
+        from check_fatek_network_graph import GraphChecker
+        graph = GraphChecker(vendor_dll)
+        # These exact malformed r1 patterns passed mnemonic/behavior tests.
+        # Structural regression checks must reject them before release.
+        bad = {
+            'r1_unrepresentable_arithmetic_carry': bytes.fromhex('4fe87fe8f4620adc2068206c'),
+            'r1_unrepresentable_long_condition': bytes.fromhex(
+                '48769f94f67f00220adc0009f67f00230adc04b0f67f0021207469e9'
+                'f67f002220680009f67f0023206801f5f47f00230aca0adcf5ac0000206e'),
+        }
+        for label, code in bad.items():
+            diagnosis = graph.inspect(code)
+            assert diagnosis['nodeError'] or diagnosis['errorFlag'],label
+            rejected_regressions.append({'label':label,'error':diagnosis['nodeError']})
+        for code in (bytes.fromhex('4fe8f5ac00012044'),bytes.fromhex('f67f00170aca04b0c8ed')):
+            graph.require(code)
         for row, code in zip(plan,codes):
             text = render(code,Path(vendor_dll))
             assert 'FUN' in text and ('MOV' in text or '_.(+)' in text)
             formatted.append({'label':row['label'],'mnemonics':text})
+            graphs.append({'label':row['label'],**graph.require(code)})
         anchor = render(codes[-1],Path(vendor_dll))
         assert 'R2878' in anchor and 'M221' in anchor
+        graphs.append({'label':ANCHOR,**graph.require(codes[-1])})
 
     cases = []
     def check(name, observed, expected_value):
@@ -202,6 +227,8 @@ def validate(source, candidate, vendor_dll=None):
                 originalNetworksPreservedExceptSafetyPermit=True, tablesPreserved=9,
                 decodedDataFramePreserved=True, sourceUnchanged=True,
                 vendorFormattedNetworks=len(formatted), componentInterpreter=True,
+                vendorGraphNetworks=len(graphs), vendorGraphRoundTrips=all(g['roundTrip'] for g in graphs) if graphs else False,
+                rejectedR1Regressions=rejected_regressions, graphEvidence=graphs,
                 nativeF8=False, nativePLCExecution=False, equipmentActions=0,
                 pumpCountImplemented=False, HMIFileModified=False,
                 formatterEvidence=formatted)
@@ -218,7 +245,7 @@ def main():
         raise ValueError('Report must be a new distinct file')
     result=validate(a.source,a.candidate,a.vendor_dll)
     write_new(a.out,(json.dumps(result,ensure_ascii=False,indent=2)+'\n').encode('utf-8'))
-    print('PASS:',result['passed'],'component cases;',result['vendorFormattedNetworks'],'vendor-formatted networks; original tables/data preserved.')
+    print('PASS:',result['passed'],'component cases;',result['vendorFormattedNetworks'],'vendor-formatted networks;',result['vendorGraphNetworks'],'graph round trips; original tables/data preserved.')
     print('Not native F8, full PLC simulation or hardware validation.')
 
 

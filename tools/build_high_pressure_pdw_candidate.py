@@ -21,6 +21,7 @@ SOURCE_SHA = '96686b9948079d700d96e37483063b21de0cbef8f24a3e63785eed5be101abf5'
 ANCHOR = '20.03 | PRESSURE_BELOW_LIMIT'
 ORIGINAL = bytes.fromhex('f67f00170aca04b0c8ed')
 MARKER = 27113
+CANDIDATE_REVISION = 2
 REGISTERS = {
     'marginConfirmed_x100': 'R2868', 'marginDraft_x100': 'R2869',
     'tripThreshold_x100': 'R2870', 'tripActive': 'R2871',
@@ -28,6 +29,8 @@ REGISTERS = {
     'configurationMarker': 'R2874', 'applyStatus': 'R2875',
     'acceptedEditsCounter': 'R2876', 'applyRequest': 'R2877',
     'runPermit': 'R2878', 'extensionVersion': 'R2879',
+    'marginValidInternal': 'R2880', 'configurationValidInternal': 'R2881',
+    'measurementValidInternal': 'R2882', 'editAcceptedInternal': 'R2883',
 }
 
 
@@ -74,8 +77,11 @@ def move(destination, value, immediate=True):
 
 
 def add(destination, left, right):
-    # Existing native arithmetic uses a separate OPEN carry input.
-    return words(0x7fe8, 0xf462, register(left), register(right), register(destination))
+    # Materialize EN and the OPEN carry as separate, representable branches.
+    # This is the existing native60.138 arithmetic topology, with R operands.
+    # Bare LD OPEN + ADD formats as mnemonics but fails the editor node parser.
+    return words(0xc400, 0x8fe7, 0x6400, 0x9fe7,
+                 0xf462, register(left), register(right), register(destination))
 
 
 def networks():
@@ -99,7 +105,9 @@ def networks():
                + b''.join(bit('ANDN', 'Y', i) for i in range(1, 5))
                + bit('ANDN', 'M', 1924))
     draft_valid = compare('AND', '>', 2869, 9) + compare('AND', '<', 2869, 501)
-    accept = request + stopped + draft_valid
+    emit('EDIT_ACCEPT_DEFAULT_OFF', words(0x4fe8) + move(2883, 0))
+    emit('EDIT_ACCEPT_CONDITION', request + stopped + draft_valid + move(2883, 1))
+    accept = compare('ORG', '=', 2883, 1)
     not_stopped = (bit('LD', 'X', 8) + bit('OR', 'X', 9)
                    + b''.join(bit('OR', 'Y', i) for i in range(1, 5))
                    + bit('OR', 'M', 1924) + words(0xe200))
@@ -115,10 +123,19 @@ def networks():
     emit('EDIT_CONSUME_REQUEST', compare('ORG', '<>', 2877, 0) + move(2877, 0))
     emit('THRESHOLD_SP_PLUS_MARGIN', words(0x4fe8) + add(2870, 110, 2868))
 
-    valid = (bit('ORG', 'M', 102) + bit('ANDN', 'M', 1924)
-             + compare('AND', '>', 110, 9) + compare('AND', '<', 110, 1200)
-             + compare('AND', '=', 2874, MARKER)
-             + compare('AND', '>', 2868, 9) + compare('AND', '<', 2868, 501))
+    # A long chain of function contacts is not representable by the native
+    # editor despite successful mnemonic formatting. Use short word flags,
+    # default-off on every scan, computed in dependency order.
+    emit('MARGIN_VALID_DEFAULT_OFF', words(0x4fe8) + move(2880, 0))
+    emit('MARGIN_VALID', compare('ORG', '=', 2874, MARKER)
+         + compare('AND', '>', 2868, 9) + compare('AND', '<', 2868, 501) + move(2880, 1))
+    emit('CONFIG_VALID_DEFAULT_OFF', words(0x4fe8) + move(2881, 0))
+    emit('CONFIG_VALID', compare('ORG', '=', 2880, 1)
+         + compare('AND', '>', 110, 9) + compare('AND', '<', 110, 1200) + move(2881, 1))
+    emit('MEASUREMENT_VALID_DEFAULT_OFF', words(0x4fe8) + move(2882, 0))
+    emit('MEASUREMENT_VALID', bit('ORG', 'M', 102) + bit('ANDN', 'M', 1924)
+         + compare('AND', '=', 2881, 1) + move(2882, 1))
+    valid = compare('ORG', '=', 2882, 1)
     emit('AUTO_RESET_BELOW_SP', valid + compare('AND', '<', 101, 110, False) + move(2871, 0))
     emit('AUTO_RESET_AT_SP', valid + compare('AND', '=', 101, 110, False) + move(2871, 0))
     # The original fixed12bar ceiling remains an additional protective limit.
@@ -160,10 +177,17 @@ def build_candidate(source):
     if original['image'][pc:pc+len(ORIGINAL)] != ORIGINAL:
         raise ValueError('Original fixed12bar safety network differs')
     used_end = int.from_bytes(original['image'][270:272], 'little')
-    for number in range(2868, 2880):
+    for number in range(2868, 2884):
         encoded = words(register(number))
         if any(original['image'][i:i+2] == encoded for i in range(512, used_end, 2)):
             raise ValueError('Candidate register has possible original code references')
+    for name, table in obj['tables'].items():
+        start = int(name[1:])
+        if max(start, 2868) < min(start+4+8*len(table['rows']), 2884):
+            raise ValueError('Candidate register overlaps a native master table')
+        for row in table['rows']:
+            if row[3] == 12 and max(row[4], 2868) < min(row[4]+row[2], 2884):
+                raise ValueError('Candidate register overlaps a native R-buffer')
     plan = networks()
     generated, _, evidence = build(raw, plan, ANCHOR)
     part = layout(generated)
@@ -194,7 +218,8 @@ def build_candidate(source):
         raise ValueError('Output image/model round-trip differs')
     # Existing program/data and all source records outside insertion/anchor
     # are independently compared by the separate validator.
-    report = dict(schemaVersion=1, sourceSHA256=SOURCE_SHA, sourceBytes=len(raw),
+    report = dict(schemaVersion=1, candidateRevision=CANDIDATE_REVISION,
+                  sourceSHA256=SOURCE_SHA, sourceBytes=len(raw),
                   sourceSavedModel='FBs-32MC', candidateModel='FBs-24MC',
                   candidateSHA256=sha(result), candidateBytes=len(result),
                   insertedNetworks=len(plan), insertedProgramBytes=insert_bytes,

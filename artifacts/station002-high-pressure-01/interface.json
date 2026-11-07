@@ -1,6 +1,8 @@
 {
   "schemaVersion": 1,
+  "candidateRevision": 2,
   "state": "offline-native-pressure-candidate",
+  "rejectedPredecessor": {"revision": 1, "sha256": "13da2180df15cf538e45bdb8a351c5713936f0b9b69fd8a109191e67c04c0263", "nativeF8": "E0 Unrecognized network in20_SAFETY, user screenshot"},
   "nativeOpenObserved": false,
   "nativeF8Observed": false,
   "pumpCountImplemented": false,
@@ -25,9 +27,13 @@
     "acceptedEditsCounter": {"address": "R2876", "HMI": "read-only; saturates at32767"},
     "applyRequest": {"address": "R2877", "HMI": "write1 once on Apply; no cyclic/release write"},
     "runPermit": {"address": "R2878", "HMI": "read-only"},
-    "extensionVersion": {"address": "R2879", "HMI": "read-only; expected1"}
+    "extensionVersion": {"address": "R2879", "HMI": "read-only; expected1"},
+    "marginValidInternal": {"address": "R2880", "HMI": "no write; internal flag recomputed every scan"},
+    "configurationValidInternal": {"address": "R2881", "HMI": "no write; internal flag recomputed every scan"},
+    "measurementValidInternal": {"address": "R2882", "HMI": "no write; internal flag recomputed every scan"},
+    "editAcceptedInternal": {"address": "R2883", "HMI": "no write; internal flag recomputed every scan"}
   },
   "applyStatusCodes": {"0": "initial", "2": "accepted", "3": "not STOP or RUN output active", "4": "margin out of range", "5": "unsupported command"},
   "existingAlarmChannel": "M1554 / R2550 bit4; existing producer remains availability-gated",
-  "nativeEditorChecksRemaining": ["Open new24MC candidate, confirm model and F8 result", "Add HMI controls in a separate native SKM and run Offline Simulator", "Integrate N2/3/4 without overwriting R2868..R2879 or the protection"]
+  "nativeEditorChecksRemaining": ["Open new24MC r2 candidate, confirm model and F8 result", "Add HMI controls in a separate native SKM and run Offline Simulator", "Integrate N2/3/4 without overwriting R2868..R2883 or the protection"]
 }
