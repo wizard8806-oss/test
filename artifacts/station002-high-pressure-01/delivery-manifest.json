@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "purpose": "Reproduce the exact offline high-pressure candidate locally without chat attachments or a native editor",
-  "baseCommit": "be6c4b8259a9f415b7f1557b2ea2680f483c23f6",
-  "rawBase": "https://raw.githubusercontent.com/wizard8806-oss/test/be6c4b8259a9f415b7f1557b2ea2680f483c23f6/",
+  "baseCommit": "78f0cb727e615ba22b4a1daa1b6cec2ba172af04",
+  "rawBase": "https://raw.githubusercontent.com/wizard8806-oss/test/78f0cb727e615ba22b4a1daa1b6cec2ba172af04/",
   "runtime": "Python3 standard library only; no pip or vendor DLL required for generation",
   "files": [
     {
@@ -12,8 +12,8 @@
     },
     {
       "path": "tools/build_high_pressure_pdw_candidate.py",
-      "bytes": 11366,
-      "sha256": "0e8186b990906c9d341fc5c229a4d0cb054e2362e67d6dd91fe81e9c0daf2c59"
+      "bytes": 12999,
+      "sha256": "ae93ac4e498ffd6ba3e15343ac8f815ec8347e97871d8e848e733091614ee1d9"
     },
     {
       "path": "tools/build_setpoint_feedback_pdw_01.py",
@@ -53,12 +53,12 @@
     "sha256": "96686b9948079d700d96e37483063b21de0cbef8f24a3e63785eed5be101abf5"
   },
   "target": {
-    "name": "station_MC_CM55_900G_24MC_HP_auto_candidate.pdw",
-    "bytes": 179579,
-    "sha256": "13da2180df15cf538e45bdb8a351c5713936f0b9b69fd8a109191e67c04c0263"
+    "name": "station_MC_CM55_900G_24MC_HP_auto_candidate_r2.pdw",
+    "bytes": 179925,
+    "sha256": "7d436bec9fab5a50bd60ae22e269be90a5adfb9a579426b397a7520c82a82db4"
   },
-  "reportName": "high-pressure-local-build.json",
-  "expectedAddedNativeNetworks": 29,
+  "reportName": "high-pressure-local-build-r2.json",
+  "expectedAddedNativeNetworks": 37,
   "pressure": {
     "defaultMarginBar": 2.0,
     "trip": "PV > SP + margin; original12bar absolute ceiling retained",
@@ -72,5 +72,20 @@
     "pumpCountImplemented": false
   },
   "equipmentActionsAllowed": false,
-  "fullNativeProjectPublicationAllowed": false
+  "fullNativeProjectPublicationAllowed": false,
+  "candidateRevision": 2,
+  "rejectedPredecessor": {
+    "revision": 1,
+    "sha256": "13da2180df15cf538e45bdb8a351c5713936f0b9b69fd8a109191e67c04c0263",
+    "nativeF8": "E0 Unrecognized network in20_SAFETY; user screenshot",
+    "oldDeliveryCommit": "50dd383d230653e743ef218fb44f89bef088d173"
+  },
+  "cloudValidation": {
+    "componentCasesPassed": 27,
+    "vendorGraphNetworksPassed": 38,
+    "vendorGraphRoundTrips": true,
+    "rejectedR1Regressions": 2,
+    "repositoryCheckGroupsPassed": 51,
+    "nativeF8": false
+  }
 }
