@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "state": "offline-native-pressure-candidate",
+  "nativeOpenObserved": false,
+  "nativeF8Observed": false,
+  "pumpCountImplemented": false,
+  "HMIFileModified": false,
+  "pressureSource": "Existing R101/M102, selected working pressure and its existing availability indication",
+  "trip": "PV > SP + confirmedMargin; original absolute12bar ceiling retained as an additional trip",
+  "automaticReset": "valid PV <= SP; no HMI acknowledgment required",
+  "deadband": "hold previous protection state",
+  "invalidPressure": "do not reset trip and inhibit run permit",
+  "defaultMargin_x100": 200,
+  "marginDraftRange_x100": [10, 500],
+  "settingChange": "explicit one-shot word1 to R2877, selector STOP and Y1..Y4 off; PLC consumes request",
+  "registers": {
+    "marginConfirmed_x100": {"address": "R2868", "HMI": "read-only", "scale": 0.01},
+    "marginDraft_x100": {"address": "R2869", "HMI": "numeric-entry", "scale": 0.01, "decimals": 2},
+    "tripThreshold_x100": {"address": "R2870", "HMI": "read-only", "scale": 0.01},
+    "tripActive": {"address": "R2871", "HMI": "read-only; show Высокое давление when equal1"},
+    "pressureAtTrip_x100": {"address": "R2872", "HMI": "read-only", "scale": 0.01},
+    "setpointAtTrip_x100": {"address": "R2873", "HMI": "read-only", "scale": 0.01},
+    "configurationMarker": {"address": "R2874", "HMI": "no write"},
+    "applyStatus": {"address": "R2875", "HMI": "read-only"},
+    "acceptedEditsCounter": {"address": "R2876", "HMI": "read-only; saturates at32767"},
+    "applyRequest": {"address": "R2877", "HMI": "write1 once on Apply; no cyclic/release write"},
+    "runPermit": {"address": "R2878", "HMI": "read-only"},
+    "extensionVersion": {"address": "R2879", "HMI": "read-only; expected1"}
+  },
+  "applyStatusCodes": {"0": "initial", "2": "accepted", "3": "not STOP or RUN output active", "4": "margin out of range", "5": "unsupported command"},
+  "existingAlarmChannel": "M1554 / R2550 bit4; existing producer remains availability-gated",
+  "nativeEditorChecksRemaining": ["Open new24MC candidate, confirm model and F8 result", "Add HMI controls in a separate native SKM and run Offline Simulator", "Integrate N2/3/4 without overwriting R2868..R2879 or the protection"]
+}
