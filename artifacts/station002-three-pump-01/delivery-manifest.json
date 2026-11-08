@@ -81,11 +81,18 @@
     "repositoryCheckGroupsPassed": 51
   },
   "remaining": {
-    "nativeF8Observed": false,
+    "nativeF8Observed": true,
     "serialBehaviorObserved": false,
     "HMIFileModified": false,
     "selectableCount2or4Implemented": false
   },
   "equipmentActionsAllowed": false,
-  "fullNativeProjectPublicationAllowed": false
+  "fullNativeProjectPublicationAllowed": false,
+  "userNativeObservation": {
+    "date": "2026-11-08",
+    "source": "user message: local finished, file opened and F8 performed",
+    "errorCount": null,
+    "warningCount": null,
+    "countsNotSupplied": true
+  }
 }

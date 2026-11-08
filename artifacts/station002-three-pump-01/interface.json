@@ -41,12 +41,19 @@
   "highPressureRegisters": "R2868..R2883 unchanged from HP-r2",
   "pressureTrip": "PV > SP + margin; default2.00bar; legacy12bar ceiling retained",
   "pressureReset": "automatic when valid PV <= SP; state held in deadband or on invalid PV",
-  "nativeF8Observed": false,
+  "nativeF8Observed": true,
   "componentChecksPassed": 129,
   "newGraphChecksPassed": 113,
   "editedGraphChecksPassed": 25,
   "inheritedGraphLimitation": "65.G31: vendor19 before/after, only bound5->4; not full PLC simulation",
   "HMIFileModified": false,
   "equipmentActionsAllowed": false,
-  "fullNativeProjectPublicationAllowed": false
+  "fullNativeProjectPublicationAllowed": false,
+  "nativeObservation": {
+    "date": "2026-11-08",
+    "source": "user message: local finished, file opened and F8 performed",
+    "errorCount": null,
+    "warningCount": null,
+    "countsNotSupplied": true
+  }
 }

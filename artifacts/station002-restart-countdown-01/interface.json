@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "markerRegister": "R2537",
+  "markerValue": 27115,
+  "installedPumps": 3,
+  "readOnlyFromHMI": true,
+  "main": {
+    "seconds": "R2528",
+    "visibility": "R2533",
+    "activeValue": 1,
+    "inactiveValue": 0,
+    "inactiveDisplay": "—",
+    "integerDigits": 5,
+    "decimals": 0
+  },
+  "settings": {
+    "dry": "R2538",
+    "power": "R2539",
+    "status": "R2532",
+    "idleBehavior": "confirmed configured pause",
+    "activeCauseBehavior": "remaining common restart wait when enabled, otherwise own running pause"
+  },
+  "statusCodes": {
+    "0": "idle",
+    "1": "waiting for water",
+    "2": "waiting for power",
+    "3": "dry-run restart countdown",
+    "4": "power restart countdown",
+    "5": "waiting for other readiness conditions",
+    "6": "manual STOP rearm required",
+    "7": "invalid pause setting"
+  },
+  "internal": {
+    "R2525": "dry pause remaining s",
+    "R2526": "power pause remaining s",
+    "R2534": "max primary remaining s",
+    "R2535": "T96 current value,0.1s,read-only",
+    "R2536": "final stability remaining2/1/0s"
+  },
+  "calculation": "max of active primary pauses, then existing2s stability; no addition of concurrent pauses",
+  "controllerWritesAdded": false,
+  "configuredDelaysUnchanged": {
+    "dry": "R2520",
+    "power": "R2521",
+    "draftDry": "R2540",
+    "draftPower": "R2541",
+    "rangeSeconds": [
+      15,
+      3600
+    ]
+  },
+  "maxDisplayedSeconds": 3602,
+  "PLC": {
+    "name": "station_3p_24MC_HP_countdown_r2.pdw",
+    "bytes": 185409,
+    "sha256": "780267f80d2f107c584ded1e8f48a63c65ad23d977255cdcbe895ed2b791b73b",
+    "nativeF8Observed": false
+  },
+  "HMI": {
+    "name": "pump_station_3p_countdown_r2.skm",
+    "bytes": 1321783,
+    "sha256": "ee8c98b9024e765cbc924782442cfe64db252c19f9f86078bca5f50c99d86cc9",
+    "nativeOpenObserved": false,
+    "offlineSimulatorObserved": false,
+    "background": "pumps-3.png"
+  },
+  "cloudChecks": {
+    "countdownSnapshots": 56,
+    "newGraphConversions": 29,
+    "typedHMIEdits": 108,
+    "threePumpRegressionCases": 129,
+    "repositoryGroups": 51
+  },
+  "equipmentActionsAllowed": false,
+  "fullNativeProjectPublicationAllowed": false
+}

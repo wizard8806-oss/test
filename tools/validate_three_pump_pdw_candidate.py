@@ -21,6 +21,7 @@ class Machine:
         self.bits={}
 
     def reg(self,word):
+        if word==0x0450:return ('T',96)
         if 0xa00<=word<0x2800 and not word%2:return ('R',(word-0xa00)//2)
         if 0x4000<=word<0x4800 and not word%2:return ('D',(word-0x4000)//2)
         raise ValueError('Unsupported register '+hex(word))
@@ -51,6 +52,13 @@ class Machine:
                 a,b=w[i+1:i+3]
                 if s[-1]:self.regs[self.reg(b)]=(a if op==0xf5ac else self.regs.get(self.reg(a),0))&65535
                 i+=3
+            elif op in (0xf462,0xf464):
+                a,b,destination=w[i+1:i+4];carry=s.pop()
+                if carry:raise ValueError('Only known OPEN carry is modelled')
+                if s[-1]:
+                    left,right=self.regs.get(self.reg(a),0),self.regs.get(self.reg(b),0)
+                    self.regs[self.reg(destination)]=(left+right if op==0xf462 else left-right)&65535
+                i+=4
             elif op in (0x4fe8,0x5feb):s=[op==0x4fe8];i+=1
             elif op==0xc400:temp[0]=s[-1];i+=1
             elif op==0x6400:s.append(temp[0]);i+=1
