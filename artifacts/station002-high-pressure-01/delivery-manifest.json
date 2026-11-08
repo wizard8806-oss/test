@@ -66,8 +66,8 @@
     "deadband": "hold previous state"
   },
   "remaining": {
-    "nativeOpenObserved": false,
-    "nativeF8Observed": false,
+    "nativeOpenObserved": true,
+    "nativeF8Observed": true,
     "HMIFileModified": false,
     "pumpCountImplemented": false
   },
@@ -87,5 +87,15 @@
     "rejectedR1Regressions": 2,
     "repositoryCheckGroupsPassed": 51,
     "nativeF8": false
+  },
+  "userNativeValidation": {
+    "date": "2026-11-08",
+    "source": "user screenshot of WinProLadder Syntax Check",
+    "modelShown": "FBs-24MC",
+    "errorCount": 0,
+    "warningCount": 25,
+    "warningListReviewed": false,
+    "runtimePressureBehaviorObserved": false,
+    "equipmentDownloadObserved": false
   }
 }

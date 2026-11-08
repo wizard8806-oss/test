@@ -3,8 +3,8 @@
   "candidateRevision": 2,
   "state": "offline-native-pressure-candidate",
   "rejectedPredecessor": {"revision": 1, "sha256": "13da2180df15cf538e45bdb8a351c5713936f0b9b69fd8a109191e67c04c0263", "nativeF8": "E0 Unrecognized network in20_SAFETY, user screenshot"},
-  "nativeOpenObserved": false,
-  "nativeF8Observed": false,
+  "nativeOpenObserved": true,
+  "nativeF8Observed": true,
   "pumpCountImplemented": false,
   "HMIFileModified": false,
   "pressureSource": "Existing R101/M102, selected working pressure and its existing availability indication",
@@ -35,5 +35,6 @@
   },
   "applyStatusCodes": {"0": "initial", "2": "accepted", "3": "not STOP or RUN output active", "4": "margin out of range", "5": "unsupported command"},
   "existingAlarmChannel": "M1554 / R2550 bit4; existing producer remains availability-gated",
-  "nativeEditorChecksRemaining": ["Open new24MC r2 candidate, confirm model and F8 result", "Add HMI controls in a separate native SKM and run Offline Simulator", "Integrate N2/3/4 without overwriting R2868..R2883 or the protection"]
+  "nativeEditorChecksRemaining": ["Review25 native F8 warnings and compare with baseline", "Verify pressure trip and automatic reset behavior offline", "Add HMI controls in a separate native SKM and run Offline Simulator", "Integrate N2/3/4 without overwriting R2868..R2883 or the protection"],
+  "nativeCheckObservation": {"date": "2026-11-08", "source": "user screenshot of WinProLadder Syntax Check", "modelShown": "FBs-24MC", "errorCount": 0, "warningCount": 25, "warningListReviewed": false, "runtimePressureBehaviorObserved": false, "equipmentDownloadObserved": false}
 }
