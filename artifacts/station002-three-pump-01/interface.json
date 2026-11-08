@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "configuration": "fixed-three-pump-build",
+  "sourceHPRevision": 2,
+  "installedPumps": 3,
+  "projectName": "PUMP_STATION_3",
+  "model": "FBs-24MC",
+  "outputName": "station_3p_24MC_HP_auto_r1.pdw",
+  "outputBytes": 184126,
+  "outputSHA256": "a6e9c5c057ad324635c10e73b61f25ceb08604c4651eaaf943880f2dc176c745",
+  "outputs": {
+    "pump1": "Y1",
+    "pump2": "Y2",
+    "pump3": "Y3",
+    "spare": "Y4 forced reset; no RUN coil"
+  },
+  "normalPoll": {
+    "RAMStart": "R2900",
+    "RAMEnd": "R3000",
+    "rows": 14,
+    "slaveIDs": [
+      1,
+      2,
+      3
+    ],
+    "tableWrittenEveryScan": true,
+    "readOnlyFromHMI": true,
+    "legacyStaticTemplatesPreserved": 9
+  },
+  "countRegisters": {
+    "R2860": 3,
+    "R2861": 27114,
+    "R2862": 3,
+    "R2863": 0,
+    "R2864": 7,
+    "R2865": 1,
+    "R2866": 1,
+    "R2867": 1
+  },
+  "countRegistersAccess": "PLC-owned read-only; changing count2/4 is not implemented by this fixed build",
+  "highPressureRegisters": "R2868..R2883 unchanged from HP-r2",
+  "pressureTrip": "PV > SP + margin; default2.00bar; legacy12bar ceiling retained",
+  "pressureReset": "automatic when valid PV <= SP; state held in deadband or on invalid PV",
+  "nativeF8Observed": false,
+  "componentChecksPassed": 129,
+  "newGraphChecksPassed": 113,
+  "editedGraphChecksPassed": 25,
+  "inheritedGraphLimitation": "65.G31: vendor19 before/after, only bound5->4; not full PLC simulation",
+  "HMIFileModified": false,
+  "equipmentActionsAllowed": false,
+  "fullNativeProjectPublicationAllowed": false
+}
