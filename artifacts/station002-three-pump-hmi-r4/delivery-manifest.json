@@ -101,9 +101,18 @@
     "stdlibR2R3FallbackExact": true,
     "sourceLockAndNoOverwritePassed": true
   },
-  "nativeSKToolOpenObserved": false,
+  "nativeSKToolOpenObserved": true,
   "nativeCompileObserved": false,
   "offlineSimulatorObserved": false,
   "equipmentActionsAllowed": false,
-  "fullNativeProjectPublicationAllowed": false
+  "fullNativeProjectPublicationAllowed": false,
+  "nativeObservation": {
+    "date": "2026-11-09",
+    "kind": "user screenshot",
+    "filenameShown": "pump_station_3p_countdown_r4.skm",
+    "fileSHA256ReadFromWindows": null,
+    "manualOfflineSimulatorShown": true,
+    "remainingIssue": "fourth controls overlap third column; use r5 removal"
+  },
+  "supersededForLayoutBy": "docs/tasks/station002-three-pump-hmi-r5-local-delivery.md"
 }

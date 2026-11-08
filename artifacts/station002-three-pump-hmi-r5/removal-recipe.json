@@ -1,0 +1,1232 @@
+{
+  "schemaVersion": 1,
+  "format": "sktool-r4-remove-fourth-pump-records",
+  "sourceSHA256": "2375cf125dff7568292b501fddcab73fa9320e02023d2d0f6b0a5a719c0656ba",
+  "sourceBytes": 1322197,
+  "objectsToRemove": [
+    {
+      "id": "Text16008",
+      "screen": 1,
+      "start": 33431,
+      "stop": 34702,
+      "firstID": 34069,
+      "ordinal": 73,
+      "recordSHA256": "93dab23ec5e531fa722de6c2bec4d5996d1b50971f576c1f3ed88c7c72e652e1"
+    },
+    {
+      "id": "MD10056",
+      "screen": 1,
+      "start": 38503,
+      "stop": 40431,
+      "firstID": 39302,
+      "ordinal": 69,
+      "recordSHA256": "17c4c6e0994c779c7923379ad926ae55d0749c35eeaf470b1162e00ce10c111f"
+    },
+    {
+      "id": "BG10054",
+      "screen": 1,
+      "start": 40431,
+      "stop": 42315,
+      "firstID": 41176,
+      "ordinal": 68,
+      "recordSHA256": "c4d2d50a2ad41a464434dac47d42684464a514e04601128acd048ba675f80277"
+    },
+    {
+      "id": "MD10046",
+      "screen": 1,
+      "start": 47940,
+      "stop": 50124,
+      "firstID": 48757,
+      "ordinal": 64,
+      "recordSHA256": "68bb4798b92d7e553c5127cdce6bb382549fa98ac5aa738a65ed213494ac847a"
+    },
+    {
+      "id": "Text10044",
+      "screen": 1,
+      "start": 50124,
+      "stop": 51451,
+      "firstID": 50770,
+      "ordinal": 63,
+      "recordSHA256": "faafdef2abbc9e0911419dda86b56c390ce83f4f0648714c76df7df1c01482a4"
+    },
+    {
+      "id": "MD3056",
+      "screen": 1,
+      "start": 132582,
+      "stop": 137546,
+      "firstID": 133411,
+      "ordinal": 29,
+      "recordSHA256": "3d67dbe93df2eba5d34966268d4dbf95ecb198c3cd6bc6114cc60905dd9b4464"
+    },
+    {
+      "id": "MD3054",
+      "screen": 1,
+      "start": 137546,
+      "stop": 141470,
+      "firstID": 138383,
+      "ordinal": 28,
+      "recordSHA256": "4e5d51832de2c86486d96124a8718b28eb6e77dd2ffdb999fb63b8e8066d55d5"
+    },
+    {
+      "id": "ND14016",
+      "screen": 6,
+      "start": 574039,
+      "stop": 576392,
+      "firstID": 574851,
+      "ordinal": 14016,
+      "recordSHA256": "6e40f13bc44d8892b84849481630674668f906e58b4b434780b3e46fdcf05844"
+    },
+    {
+      "id": "Text14014",
+      "screen": 6,
+      "start": 576392,
+      "stop": 577795,
+      "firstID": 577048,
+      "ordinal": 14014,
+      "recordSHA256": "37adbf7dc72be11bae7fc37bfe5c63c3ec4f5d856d139381b98b63a0510da1a1"
+    },
+    {
+      "id": "BB6130",
+      "screen": 6,
+      "start": 648777,
+      "stop": 651760,
+      "firstID": 649629,
+      "ordinal": 6130,
+      "recordSHA256": "0e53d13f7fa95f517d5bf183462a3f42f41a4d521fb59dc5e9572a92a529e1c4"
+    },
+    {
+      "id": "Text6128",
+      "screen": 6,
+      "start": 651760,
+      "stop": 653123,
+      "firstID": 652410,
+      "ordinal": 6128,
+      "recordSHA256": "59f4fc711a2e63bceff7aced277f21c8434b6d671aa0842c3afe86b57bbe4ced"
+    },
+    {
+      "id": "BB6126",
+      "screen": 6,
+      "start": 653123,
+      "stop": 656184,
+      "firstID": 653981,
+      "ordinal": 6126,
+      "recordSHA256": "b17f0c84205de37e86ca9f5f92df6c69ba10d0acce6b017b6e6c20802e0e3022"
+    },
+    {
+      "id": "Text6124",
+      "screen": 6,
+      "start": 656184,
+      "stop": 657589,
+      "firstID": 656840,
+      "ordinal": 6124,
+      "recordSHA256": "b28a51e42d9151d3eeaf9d46ee558be0cc2ea1676006d2a02dbe3e08f7c927cf"
+    },
+    {
+      "id": "MD6122",
+      "screen": 6,
+      "start": 657589,
+      "stop": 659487,
+      "firstID": 658404,
+      "ordinal": 6122,
+      "recordSHA256": "a2ea0d0f8dc28be5afb50e912c538159cf0ce010ce6b5835e54a8b05ff8d3a52"
+    },
+    {
+      "id": "Text6120",
+      "screen": 6,
+      "start": 659487,
+      "stop": 660942,
+      "firstID": 660151,
+      "ordinal": 6120,
+      "recordSHA256": "2a85444cbb02222cc7f7cb6e5aba8688457cb83c2c937873372c2f93adac25ac"
+    },
+    {
+      "id": "MD6118",
+      "screen": 6,
+      "start": 660942,
+      "stop": 662958,
+      "firstID": 661771,
+      "ordinal": 6118,
+      "recordSHA256": "9bf66dd08cadccb34054b4a4bc920428119b07af1be58eefe14e4a06bebbd3ba"
+    },
+    {
+      "id": "Text6116",
+      "screen": 6,
+      "start": 662958,
+      "stop": 664371,
+      "firstID": 663616,
+      "ordinal": 6116,
+      "recordSHA256": "a9648f8e16f75b3198560ae8b9ae12df41d14bb58a66091c43e82400e6c356f5"
+    },
+    {
+      "id": "Text6114",
+      "screen": 6,
+      "start": 664371,
+      "stop": 665700,
+      "firstID": 665017,
+      "ordinal": 6114,
+      "recordSHA256": "3f965051cbdbb5b6cd1cf1abcede53caac437981a89a9aea6653155ac074be7e"
+    },
+    {
+      "id": "BB9120",
+      "screen": 7,
+      "start": 738718,
+      "stop": 741701,
+      "firstID": 739570,
+      "ordinal": 9120,
+      "recordSHA256": "de951843579e1fc04ceeac7ca3d9eaee7334a6d609c8c269a1ceb3fd72e01a84"
+    },
+    {
+      "id": "Text9118",
+      "screen": 7,
+      "start": 741701,
+      "stop": 743064,
+      "firstID": 742351,
+      "ordinal": 9118,
+      "recordSHA256": "62df2c4570fa7d242cebae4c6a174e5872ede7077a5d59703883ed93309f74cc"
+    },
+    {
+      "id": "BB9116",
+      "screen": 7,
+      "start": 743064,
+      "stop": 745917,
+      "firstID": 743906,
+      "ordinal": 9116,
+      "recordSHA256": "985444f71578dfe31f9c2d426dbd3e86022e873c9d08fac26cd0ed680d94c1ae"
+    },
+    {
+      "id": "Text9114",
+      "screen": 7,
+      "start": 745917,
+      "stop": 747210,
+      "firstID": 746557,
+      "ordinal": 9114,
+      "recordSHA256": "0a05b09ce35b644fb6d22d9e9cd25b6bff42d0b80049b984404a562ee89cd809"
+    },
+    {
+      "id": "BB9112",
+      "screen": 7,
+      "start": 747210,
+      "stop": 750051,
+      "firstID": 748052,
+      "ordinal": 9112,
+      "recordSHA256": "cdd57f4c9407c372db90621bf3fd07da5f8f6f49a35f86822de386f0938a2e13"
+    },
+    {
+      "id": "Text9110",
+      "screen": 7,
+      "start": 750051,
+      "stop": 751344,
+      "firstID": 750691,
+      "ordinal": 9110,
+      "recordSHA256": "71de9c6d514300fa8186d3cb650e06198fa2b6b6a63f07bcf0242c0ac79d0bf9"
+    },
+    {
+      "id": "MD9108",
+      "screen": 7,
+      "start": 751344,
+      "stop": 753026,
+      "firstID": 752143,
+      "ordinal": 9108,
+      "recordSHA256": "296e68bd2fabda57a072ce4df260afe35f617e1ea03497b496066e2a2369cea8"
+    },
+    {
+      "id": "ND9106",
+      "screen": 7,
+      "start": 753026,
+      "stop": 755335,
+      "firstID": 753838,
+      "ordinal": 9106,
+      "recordSHA256": "d1e82c54250b8850cc9d0e6f319bdccb245abf876e0262cf3db63837f0c9c332"
+    },
+    {
+      "id": "Text9104",
+      "screen": 7,
+      "start": 755335,
+      "stop": 756762,
+      "firstID": 755995,
+      "ordinal": 9104,
+      "recordSHA256": "c597b89467a4bbe021ca32bedef42f7e28543ff943ea985a46877fcfd6cb97eb"
+    },
+    {
+      "id": "NE9102",
+      "screen": 7,
+      "start": 756762,
+      "stop": 759479,
+      "firstID": 757590,
+      "ordinal": 9102,
+      "recordSHA256": "714dfdff2e430730beec40f8ad81bcf53013ee4a63d6232f0f71567b95e3c0a4"
+    },
+    {
+      "id": "Text9100",
+      "screen": 7,
+      "start": 759479,
+      "stop": 760730,
+      "firstID": 760113,
+      "ordinal": 9100,
+      "recordSHA256": "da4d92934533271b1b37548289a111025d64d9e9e5972c9a20e8ad7a1f2d791d"
+    },
+    {
+      "id": "Text9098",
+      "screen": 7,
+      "start": 760730,
+      "stop": 762213,
+      "firstID": 761398,
+      "ordinal": 9098,
+      "recordSHA256": "06ce5d50a33265ff143eb568e91d0f2fc4a44a0fc72e707dc53dd58998da1943"
+    },
+    {
+      "id": "MD9096",
+      "screen": 7,
+      "start": 762213,
+      "stop": 767153,
+      "firstID": 763054,
+      "ordinal": 9096,
+      "recordSHA256": "b37ee3e99e72b9d6c980b9637031a51cf3d1ea6bdc6c377ffe18a0446d5bec25"
+    },
+    {
+      "id": "Text9094",
+      "screen": 7,
+      "start": 767153,
+      "stop": 768482,
+      "firstID": 767799,
+      "ordinal": 9094,
+      "recordSHA256": "5950a016e9ecc1df1500d1b11045bd9a0f3d9fdad5639cc3e9851cfdf031355c"
+    }
+  ],
+  "sceneHeaders": [
+    {
+      "screen": 1,
+      "countOffset": 481,
+      "beforeCount": 80,
+      "afterCount": 73
+    },
+    {
+      "screen": 2,
+      "countOffset": 226445,
+      "beforeCount": 45,
+      "afterCount": 45
+    },
+    {
+      "screen": 3,
+      "countOffset": 335097,
+      "beforeCount": 38,
+      "afterCount": 38
+    },
+    {
+      "screen": 4,
+      "countOffset": 461204,
+      "beforeCount": 38,
+      "afterCount": 38
+    },
+    {
+      "screen": 5,
+      "countOffset": 536471,
+      "beforeCount": 6,
+      "afterCount": 6
+    },
+    {
+      "screen": 6,
+      "countOffset": 574035,
+      "beforeCount": 66,
+      "afterCount": 55
+    },
+    {
+      "screen": 7,
+      "countOffset": 720176,
+      "beforeCount": 67,
+      "afterCount": 53
+    },
+    {
+      "screen": 8,
+      "countOffset": 864499,
+      "beforeCount": 23,
+      "afterCount": 23
+    },
+    {
+      "screen": 9,
+      "countOffset": 920762,
+      "beforeCount": 19,
+      "afterCount": 19
+    },
+    {
+      "screen": 10,
+      "countOffset": 969595,
+      "beforeCount": 23,
+      "afterCount": 23
+    },
+    {
+      "screen": 11,
+      "countOffset": 1025734,
+      "beforeCount": 23,
+      "afterCount": 23
+    },
+    {
+      "screen": 12,
+      "countOffset": 1082147,
+      "beforeCount": 23,
+      "afterCount": 23
+    },
+    {
+      "screen": 13,
+      "countOffset": 1138550,
+      "beforeCount": 80,
+      "afterCount": 80
+    },
+    {
+      "screen": 14,
+      "countOffset": 1281399,
+      "beforeCount": 1,
+      "afterCount": 1
+    }
+  ],
+  "retainedManualWrites": [
+    "R2180",
+    "R2181",
+    "R2182",
+    "M380",
+    "M381",
+    "M382",
+    "M384",
+    "M385",
+    "M386",
+    "M1660",
+    "M1661",
+    "M1662"
+  ],
+  "retainedPumpsWrites": [
+    "M1490",
+    "M1491",
+    "M1492",
+    "M1494",
+    "M1495",
+    "M1496"
+  ],
+  "PLCChanged": false,
+  "retainedControls": [
+    {
+      "id": "ND14012",
+      "screen": 6,
+      "start": 577795,
+      "stop": 580144,
+      "x": 543.75,
+      "y": 128.0,
+      "width": 181.25,
+      "height": 28.8,
+      "recordSHA256": "871be5356cf873c1c68782116fb8b4aac70294e4eb497b43d51783afe4f5e2b3"
+    },
+    {
+      "id": "Text14010",
+      "screen": 6,
+      "start": 580144,
+      "stop": 581543,
+      "x": 543.75,
+      "y": 107.2,
+      "width": 181.25,
+      "height": 17.6,
+      "recordSHA256": "d1d9cd2d48fe1c47b8650fa7d81dd3eee1db7f9127a63119b386ef03c41e4bb2"
+    },
+    {
+      "id": "ND14008",
+      "screen": 6,
+      "start": 581543,
+      "stop": 583892,
+      "x": 309.375,
+      "y": 128.0,
+      "width": 181.25,
+      "height": 28.8,
+      "recordSHA256": "b09440e5a16120a3e1f2e9db90768b9097fb6f969eb04b0b25ee4a1b98ea0154"
+    },
+    {
+      "id": "Text14006",
+      "screen": 6,
+      "start": 583892,
+      "stop": 585291,
+      "x": 309.375,
+      "y": 107.2,
+      "width": 181.25,
+      "height": 17.6,
+      "recordSHA256": "9b469220b45f0425c04b50bccf71925acdb71bbb6055226bdff61ad63dc8987b"
+    },
+    {
+      "id": "ND14004",
+      "screen": 6,
+      "start": 585291,
+      "stop": 587640,
+      "x": 75.0,
+      "y": 128.0,
+      "width": 181.25,
+      "height": 28.8,
+      "recordSHA256": "c9f76d9d3c6d3f091cd19a437ec8d191a0af175ba207ea8d687f8e11b32e17bf"
+    },
+    {
+      "id": "Text14002",
+      "screen": 6,
+      "start": 587640,
+      "stop": 589039,
+      "x": 75.0,
+      "y": 107.2,
+      "width": 181.25,
+      "height": 17.6,
+      "recordSHA256": "391918ed192db2ba3a9de762cb95e6f1e5060ddf59b4cdf5a4ef3e09ef9d0f6f"
+    },
+    {
+      "id": "BB6112",
+      "screen": 6,
+      "start": 665700,
+      "stop": 668691,
+      "x": 543.75,
+      "y": 304.8,
+      "width": 181.25,
+      "height": 27.200000000000003,
+      "recordSHA256": "2bd3651df387867d4189077ab4102869324ab2e8d0aa9dc9c962941d9c071db9"
+    },
+    {
+      "id": "Text6110",
+      "screen": 6,
+      "start": 668691,
+      "stop": 670050,
+      "x": 543.75,
+      "y": 304.8,
+      "width": 181.25,
+      "height": 27.200000000000003,
+      "recordSHA256": "0a525084aa1b314ac149cbd8a0c8ce1c56173e223a52f8ba6eab463125f87da2"
+    },
+    {
+      "id": "BB6108",
+      "screen": 6,
+      "start": 670050,
+      "stop": 673119,
+      "x": 543.75,
+      "y": 271.2,
+      "width": 181.25,
+      "height": 27.200000000000003,
+      "recordSHA256": "dc4c65a43f64162f8224033782395887ccd6b20494113ef289a1c215d20566b8"
+    },
+    {
+      "id": "Text6106",
+      "screen": 6,
+      "start": 673119,
+      "stop": 674520,
+      "x": 543.75,
+      "y": 271.2,
+      "width": 181.25,
+      "height": 27.200000000000003,
+      "recordSHA256": "033c1ba02bc65e9eb999df4787533e58f5b413f7941abce56818b81c1996ebc0"
+    },
+    {
+      "id": "MD6104",
+      "screen": 6,
+      "start": 674520,
+      "stop": 676418,
+      "x": 543.75,
+      "y": 236.8,
+      "width": 181.25,
+      "height": 25.6,
+      "recordSHA256": "c52f5ba169c61479522c2011ae7469430791aea9e77f9688fb32f162d5b1149e"
+    },
+    {
+      "id": "Text6102",
+      "screen": 6,
+      "start": 676418,
+      "stop": 677869,
+      "x": 543.75,
+      "y": 216.0,
+      "width": 181.25,
+      "height": 17.6,
+      "recordSHA256": "84774b116b48f20c152f216a00eb7e020c06bec6af43ece307468fb0cbf2b5b9"
+    },
+    {
+      "id": "MD6100",
+      "screen": 6,
+      "start": 677869,
+      "stop": 679881,
+      "x": 543.75,
+      "y": 184.0,
+      "width": 181.25,
+      "height": 25.6,
+      "recordSHA256": "e480fe31bb60634cb2c1f5c52afdfdb0e92950294f569041fb7e22f58216af57"
+    },
+    {
+      "id": "Text6098",
+      "screen": 6,
+      "start": 679881,
+      "stop": 681290,
+      "x": 543.75,
+      "y": 163.20000000000002,
+      "width": 181.25,
+      "height": 17.6,
+      "recordSHA256": "446401799c273c2c1e5f277678a16867fa6a9f3eb4e6ccd2ae07ebb091d48d38"
+    },
+    {
+      "id": "Text6096",
+      "screen": 6,
+      "start": 681290,
+      "stop": 682615,
+      "x": 543.75,
+      "y": 80.0,
+      "width": 181.25,
+      "height": 24.0,
+      "recordSHA256": "54a1103a852013bb12a78c11ad96275d16b3eccb36cc9ef6a0f4435806512464"
+    },
+    {
+      "id": "BB6094",
+      "screen": 6,
+      "start": 682615,
+      "stop": 685606,
+      "x": 309.375,
+      "y": 304.8,
+      "width": 181.25,
+      "height": 27.200000000000003,
+      "recordSHA256": "25889fa7e692fc52e7395e9f9a49fb729e9cb0aac840b0eedd68944f5edadf4f"
+    },
+    {
+      "id": "Text6092",
+      "screen": 6,
+      "start": 685606,
+      "stop": 686965,
+      "x": 309.375,
+      "y": 304.8,
+      "width": 181.25,
+      "height": 27.200000000000003,
+      "recordSHA256": "ecb0ab77c89e36120b245301df0a12fcc35e210e507dee3a70fbc1a27170a871"
+    },
+    {
+      "id": "BB6090",
+      "screen": 6,
+      "start": 686965,
+      "stop": 690034,
+      "x": 309.375,
+      "y": 271.2,
+      "width": 181.25,
+      "height": 27.200000000000003,
+      "recordSHA256": "6142caed3633aabd13dd39a67ed5bce0701d43d34efb1dd91384e56349e6111b"
+    },
+    {
+      "id": "Text6088",
+      "screen": 6,
+      "start": 690034,
+      "stop": 691435,
+      "x": 309.375,
+      "y": 271.2,
+      "width": 181.25,
+      "height": 27.200000000000003,
+      "recordSHA256": "f7a7f1d9107c5d563d02dd7e78c1bdda85137a53abc76b3c25ceac9f42205199"
+    },
+    {
+      "id": "MD6086",
+      "screen": 6,
+      "start": 691435,
+      "stop": 693333,
+      "x": 309.375,
+      "y": 236.8,
+      "width": 181.25,
+      "height": 25.6,
+      "recordSHA256": "aba123112d1ebdbdabe965a7c07e8db0d3e44ad97306f7e9ab095cb1f2d59bb4"
+    },
+    {
+      "id": "Text6084",
+      "screen": 6,
+      "start": 693333,
+      "stop": 694784,
+      "x": 309.375,
+      "y": 216.0,
+      "width": 181.25,
+      "height": 17.6,
+      "recordSHA256": "104cd7a361f142cfe4f765bafe18a2359cca172628160307d1ef3fa17874364a"
+    },
+    {
+      "id": "MD6082",
+      "screen": 6,
+      "start": 694784,
+      "stop": 696796,
+      "x": 309.375,
+      "y": 184.0,
+      "width": 181.25,
+      "height": 25.6,
+      "recordSHA256": "a1c326b48ae469097b5eb1a1458e7528ed0b956040aac380e748546af384cc22"
+    },
+    {
+      "id": "Text6080",
+      "screen": 6,
+      "start": 696796,
+      "stop": 698205,
+      "x": 309.375,
+      "y": 163.20000000000002,
+      "width": 181.25,
+      "height": 17.6,
+      "recordSHA256": "606718285370158123039c24a9931fac1296fa9a2b0ad97dbf542384fcee9ce4"
+    },
+    {
+      "id": "Text6078",
+      "screen": 6,
+      "start": 698205,
+      "stop": 699530,
+      "x": 309.375,
+      "y": 80.0,
+      "width": 181.25,
+      "height": 24.0,
+      "recordSHA256": "f42e962ec4483da5e176edffb87757f392bcb5343c580cdb2b8825e8b47a6871"
+    },
+    {
+      "id": "BB6076",
+      "screen": 6,
+      "start": 699530,
+      "stop": 702521,
+      "x": 75.0,
+      "y": 304.8,
+      "width": 181.25,
+      "height": 27.200000000000003,
+      "recordSHA256": "bb29acc7db8c62eaa0464da6eb632d9099f8599fbae4aa0c34fb3ae186b0a9d6"
+    },
+    {
+      "id": "Text6074",
+      "screen": 6,
+      "start": 702521,
+      "stop": 703880,
+      "x": 75.0,
+      "y": 304.8,
+      "width": 181.25,
+      "height": 27.200000000000003,
+      "recordSHA256": "08fb29e32c8b502a977a597665d7cee323b076d1718f568b1ba6837676325357"
+    },
+    {
+      "id": "BB6072",
+      "screen": 6,
+      "start": 703880,
+      "stop": 706949,
+      "x": 75.0,
+      "y": 271.2,
+      "width": 181.25,
+      "height": 27.200000000000003,
+      "recordSHA256": "c1ac3e2968ae9815dbd0018c7bbe1a0109bfe2e1b697c6f8823928fa87c8af55"
+    },
+    {
+      "id": "Text6070",
+      "screen": 6,
+      "start": 706949,
+      "stop": 708350,
+      "x": 75.0,
+      "y": 271.2,
+      "width": 181.25,
+      "height": 27.200000000000003,
+      "recordSHA256": "98acda4f1e23cff966953a6c1fa625a80ed08e9a50c0e76924e2b6c146926682"
+    },
+    {
+      "id": "MD6068",
+      "screen": 6,
+      "start": 708350,
+      "stop": 710248,
+      "x": 75.0,
+      "y": 236.8,
+      "width": 181.25,
+      "height": 25.6,
+      "recordSHA256": "d3e6b311fe289102fb0436df9a30cd4bb1018dc25f9e2bfa03b0c884b0f430e4"
+    },
+    {
+      "id": "Text6066",
+      "screen": 6,
+      "start": 710248,
+      "stop": 711699,
+      "x": 75.0,
+      "y": 216.0,
+      "width": 181.25,
+      "height": 17.6,
+      "recordSHA256": "6b95f667b979c91a230c34162bc9c9dbc3fac6eec1035c4847c37a65c9b91b89"
+    },
+    {
+      "id": "MD6064",
+      "screen": 6,
+      "start": 711699,
+      "stop": 713711,
+      "x": 75.0,
+      "y": 184.0,
+      "width": 181.25,
+      "height": 25.6,
+      "recordSHA256": "164c28567568390bc6578fbcfddbdabde4a8148287eba3281e0d9cf3dac06799"
+    },
+    {
+      "id": "Text6062",
+      "screen": 6,
+      "start": 713711,
+      "stop": 715120,
+      "x": 75.0,
+      "y": 163.20000000000002,
+      "width": 181.25,
+      "height": 17.6,
+      "recordSHA256": "3771bb60c5447f0c4e0c48d1a52c063ed7ed5f842f65a183cff7c78e835455ec"
+    },
+    {
+      "id": "Text6060",
+      "screen": 6,
+      "start": 715120,
+      "stop": 716445,
+      "x": 75.0,
+      "y": 80.0,
+      "width": 181.25,
+      "height": 24.0,
+      "recordSHA256": "a0b9dad71b95228a8f28dbc98b01a0dd2a0edbefc6c77eef7e49f5dc956cba38"
+    },
+    {
+      "id": "BB9092",
+      "screen": 7,
+      "start": 768482,
+      "stop": 771473,
+      "x": 543.75,
+      "y": 393.6,
+      "width": 181.25,
+      "height": 32.0,
+      "recordSHA256": "a36201fe76f77e5a018fdfcf88a9ceb8c87c9bbe05909c6efa379d73192e404d"
+    },
+    {
+      "id": "Text9090",
+      "screen": 7,
+      "start": 771473,
+      "stop": 772832,
+      "x": 543.75,
+      "y": 393.6,
+      "width": 181.25,
+      "height": 32.0,
+      "recordSHA256": "2f80fc19ef0570d2b8c81996b3cfc78d86fb7871d5d76fd5b5ea5a6982a6b8f0"
+    },
+    {
+      "id": "BB9088",
+      "screen": 7,
+      "start": 772832,
+      "stop": 775693,
+      "x": 543.75,
+      "y": 352.0,
+      "width": 181.25,
+      "height": 35.2,
+      "recordSHA256": "cc77167df1bcb45dce55f1ae7a80468b51f023d8830390a47f4f24d8c6ce846f"
+    },
+    {
+      "id": "Text9086",
+      "screen": 7,
+      "start": 775693,
+      "stop": 776982,
+      "x": 543.75,
+      "y": 352.0,
+      "width": 181.25,
+      "height": 35.2,
+      "recordSHA256": "9738df047503db49a5fc7e02a3e28f64e7d31244b303b422caa46e6e0ae51c52"
+    },
+    {
+      "id": "BB9084",
+      "screen": 7,
+      "start": 776982,
+      "stop": 779831,
+      "x": 543.75,
+      "y": 310.40000000000003,
+      "width": 181.25,
+      "height": 35.2,
+      "recordSHA256": "5d44789198ff38dded5e0b7f783a582ab3521f981a0763b9f0dd5110c925ce9a"
+    },
+    {
+      "id": "Text9082",
+      "screen": 7,
+      "start": 779831,
+      "stop": 781120,
+      "x": 543.75,
+      "y": 310.40000000000003,
+      "width": 181.25,
+      "height": 35.2,
+      "recordSHA256": "df7eaa42669f69167b14436c0d0b85683081ae47cf8d996c29005ea2cf22971e"
+    },
+    {
+      "id": "MD9080",
+      "screen": 7,
+      "start": 781120,
+      "stop": 782802,
+      "x": 564.0625,
+      "y": 272.0,
+      "width": 140.625,
+      "height": 30.400000000000002,
+      "recordSHA256": "073a3d6fe42456908f4a6d432eebd621bd9e918806f566b74f09bce07eb8d4db"
+    },
+    {
+      "id": "ND9078",
+      "screen": 7,
+      "start": 782802,
+      "stop": 785107,
+      "x": 564.0625,
+      "y": 272.0,
+      "width": 140.625,
+      "height": 30.400000000000002,
+      "recordSHA256": "a56ecba9fadf2cd2cf36bb5a0b75074d816a41c0de4c3b1e23b7356d574719cd"
+    },
+    {
+      "id": "Text9076",
+      "screen": 7,
+      "start": 785107,
+      "stop": 786530,
+      "x": 543.75,
+      "y": 248.0,
+      "width": 181.25,
+      "height": 20.0,
+      "recordSHA256": "9fe62b3048a57722a26a2d8dfc89441e716aa1783b50eecd60ee3ad7f7854027"
+    },
+    {
+      "id": "NE9074",
+      "screen": 7,
+      "start": 786530,
+      "stop": 789255,
+      "x": 564.0625,
+      "y": 206.4,
+      "width": 140.625,
+      "height": 35.2,
+      "recordSHA256": "c25ae60e2ed9f0210bd0587c1078498432f175730312a991bc061f9bf7903750"
+    },
+    {
+      "id": "Text9072",
+      "screen": 7,
+      "start": 789255,
+      "stop": 790502,
+      "x": 564.0625,
+      "y": 206.4,
+      "width": 140.625,
+      "height": 35.2,
+      "recordSHA256": "9256bfd1b9cda8a91ceba987ae1d4f5cda612852c12f31ef988488e7ab7593ad"
+    },
+    {
+      "id": "Text9070",
+      "screen": 7,
+      "start": 790502,
+      "stop": 791981,
+      "x": 543.75,
+      "y": 182.4,
+      "width": 181.25,
+      "height": 20.0,
+      "recordSHA256": "8cc2e28b6242d2dc45b5e4419022701060e3ba79ab204924099ec23ff44e30cf"
+    },
+    {
+      "id": "MD9068",
+      "screen": 7,
+      "start": 791981,
+      "stop": 796921,
+      "x": 543.75,
+      "y": 140.8,
+      "width": 181.25,
+      "height": 35.2,
+      "recordSHA256": "a6e703ee6e67f03afb2448e38369d5bb8cab3598f26da63da7cc3e757ec682b1"
+    },
+    {
+      "id": "Text9066",
+      "screen": 7,
+      "start": 796921,
+      "stop": 798246,
+      "x": 543.75,
+      "y": 108.80000000000001,
+      "width": 181.25,
+      "height": 27.200000000000003,
+      "recordSHA256": "23249387d4c89a6082b9e7e358ef56b0204148ddb9bbd9a20e3d0299010d062f"
+    },
+    {
+      "id": "BB9064",
+      "screen": 7,
+      "start": 798246,
+      "stop": 801237,
+      "x": 309.375,
+      "y": 393.6,
+      "width": 181.25,
+      "height": 32.0,
+      "recordSHA256": "db716d962689d36b915d2fec525a5a893510ef620df9d9ca9550797ae11be6b8"
+    },
+    {
+      "id": "Text9062",
+      "screen": 7,
+      "start": 801237,
+      "stop": 802596,
+      "x": 309.375,
+      "y": 393.6,
+      "width": 181.25,
+      "height": 32.0,
+      "recordSHA256": "6860b66c76f16377bfeee256044bc6785c6bf962042b7dd00ec13b441ba01456"
+    },
+    {
+      "id": "BB9060",
+      "screen": 7,
+      "start": 802596,
+      "stop": 805457,
+      "x": 309.375,
+      "y": 352.0,
+      "width": 181.25,
+      "height": 35.2,
+      "recordSHA256": "0f9c7cfeda4ad603a7706d711b27d12832dc14902eebd50f12a4ab50ec9b9f95"
+    },
+    {
+      "id": "Text9058",
+      "screen": 7,
+      "start": 805457,
+      "stop": 806746,
+      "x": 309.375,
+      "y": 352.0,
+      "width": 181.25,
+      "height": 35.2,
+      "recordSHA256": "4a12ad76042c37122bc22d34dcb681ce65b70f976f385d6c4537f60aea2f6531"
+    },
+    {
+      "id": "BB9056",
+      "screen": 7,
+      "start": 806746,
+      "stop": 809595,
+      "x": 309.375,
+      "y": 310.40000000000003,
+      "width": 181.25,
+      "height": 35.2,
+      "recordSHA256": "bf64eaa601526e00db5fdbfcfe439593471721c738a7bb7ad94dac93e7b5d001"
+    },
+    {
+      "id": "Text9054",
+      "screen": 7,
+      "start": 809595,
+      "stop": 810884,
+      "x": 309.375,
+      "y": 310.40000000000003,
+      "width": 181.25,
+      "height": 35.2,
+      "recordSHA256": "2dae0be80b62a28402bc5a02815cbbd0d122377e49699878b23bcc0db69bf79b"
+    },
+    {
+      "id": "MD9052",
+      "screen": 7,
+      "start": 810884,
+      "stop": 812566,
+      "x": 329.6875,
+      "y": 272.0,
+      "width": 140.625,
+      "height": 30.400000000000002,
+      "recordSHA256": "40439305a5134de8cd52e2286210bc8569bfee157c016f0a478ed2337cf46d87"
+    },
+    {
+      "id": "ND9050",
+      "screen": 7,
+      "start": 812566,
+      "stop": 814871,
+      "x": 329.6875,
+      "y": 272.0,
+      "width": 140.625,
+      "height": 30.400000000000002,
+      "recordSHA256": "ffab8506656904c0b4a6ae0ae552a314f85db69f01f9e03042fb7e75584cecd6"
+    },
+    {
+      "id": "Text9048",
+      "screen": 7,
+      "start": 814871,
+      "stop": 816294,
+      "x": 309.375,
+      "y": 248.0,
+      "width": 181.25,
+      "height": 20.0,
+      "recordSHA256": "22ff249eb0449d65cb90d2687b43a35da46be75ef840b3ecd34e39a87682d579"
+    },
+    {
+      "id": "NE9046",
+      "screen": 7,
+      "start": 816294,
+      "stop": 819019,
+      "x": 329.6875,
+      "y": 206.4,
+      "width": 140.625,
+      "height": 35.2,
+      "recordSHA256": "cf60af09b993bc90e76ff2d07fdc64faf9b33e7bf566a96806f3c480d1248f95"
+    },
+    {
+      "id": "Text9044",
+      "screen": 7,
+      "start": 819019,
+      "stop": 820266,
+      "x": 329.6875,
+      "y": 206.4,
+      "width": 140.625,
+      "height": 35.2,
+      "recordSHA256": "fbad1efc3b66f72b31ca332e58e16747ea23071757ee4264f32f9368564ce496"
+    },
+    {
+      "id": "Text9042",
+      "screen": 7,
+      "start": 820266,
+      "stop": 821745,
+      "x": 309.375,
+      "y": 182.4,
+      "width": 181.25,
+      "height": 20.0,
+      "recordSHA256": "433e5a6a0b15c266ce87d74e3552bf4a20e8f06f3eb4fb45d01aa3030f7522e2"
+    },
+    {
+      "id": "MD9040",
+      "screen": 7,
+      "start": 821745,
+      "stop": 826685,
+      "x": 309.375,
+      "y": 140.8,
+      "width": 181.25,
+      "height": 35.2,
+      "recordSHA256": "85ec261910e534d0a2e48efdf4c18539d2642428722cbdedd39a57c65bb2da9d"
+    },
+    {
+      "id": "Text9038",
+      "screen": 7,
+      "start": 826685,
+      "stop": 828010,
+      "x": 309.375,
+      "y": 108.80000000000001,
+      "width": 181.25,
+      "height": 27.200000000000003,
+      "recordSHA256": "1cf9018c35c1d4b41e74d85f915148c27dc455e50814fae3f7646692a837d4c7"
+    },
+    {
+      "id": "BB9036",
+      "screen": 7,
+      "start": 828010,
+      "stop": 831001,
+      "x": 75.0,
+      "y": 393.6,
+      "width": 181.25,
+      "height": 32.0,
+      "recordSHA256": "016ed1efa8e150abf5be927c76cbbbd245f8c3a23e70ff5a272b0acda85c37e4"
+    },
+    {
+      "id": "Text9034",
+      "screen": 7,
+      "start": 831001,
+      "stop": 832360,
+      "x": 75.0,
+      "y": 393.6,
+      "width": 181.25,
+      "height": 32.0,
+      "recordSHA256": "338257e31657d0c95194cb1a2148a5e6e706ecf0b29bea8e610cbde482a7b2df"
+    },
+    {
+      "id": "BB9032",
+      "screen": 7,
+      "start": 832360,
+      "stop": 835221,
+      "x": 75.0,
+      "y": 352.0,
+      "width": 181.25,
+      "height": 35.2,
+      "recordSHA256": "3068eba31d6846623f0b6dfa0e60b647aea875e3052b0c8bc7df72478838cde4"
+    },
+    {
+      "id": "Text9030",
+      "screen": 7,
+      "start": 835221,
+      "stop": 836510,
+      "x": 75.0,
+      "y": 352.0,
+      "width": 181.25,
+      "height": 35.2,
+      "recordSHA256": "0bb30d87d9f244b042de362adf23ea19cea267a61829dd47682d4cb77dd54312"
+    },
+    {
+      "id": "BB9028",
+      "screen": 7,
+      "start": 836510,
+      "stop": 839359,
+      "x": 75.0,
+      "y": 310.40000000000003,
+      "width": 181.25,
+      "height": 35.2,
+      "recordSHA256": "36e68cb0610b7c2de33c0ef34c61dd2cc6a304d5db962dd27869bb59d6b55f6b"
+    },
+    {
+      "id": "Text9026",
+      "screen": 7,
+      "start": 839359,
+      "stop": 840648,
+      "x": 75.0,
+      "y": 310.40000000000003,
+      "width": 181.25,
+      "height": 35.2,
+      "recordSHA256": "c6278924375c35e2f2383b7305e0082a759e787af26b8e3797011a0093b51143"
+    },
+    {
+      "id": "MD9024",
+      "screen": 7,
+      "start": 840648,
+      "stop": 842330,
+      "x": 95.3125,
+      "y": 272.0,
+      "width": 140.625,
+      "height": 30.400000000000002,
+      "recordSHA256": "e4497fe80f08e078cd4bcfed4d17b6525e3f1ac5936bdaeb1e40a4eea78c9a3e"
+    },
+    {
+      "id": "ND9022",
+      "screen": 7,
+      "start": 842330,
+      "stop": 844635,
+      "x": 95.3125,
+      "y": 272.0,
+      "width": 140.625,
+      "height": 30.400000000000002,
+      "recordSHA256": "c831f5c83d0df42e2e85060e9b716925a48480e6a262c4c3d051c9fd8b22723e"
+    },
+    {
+      "id": "Text9020",
+      "screen": 7,
+      "start": 844635,
+      "stop": 846058,
+      "x": 75.0,
+      "y": 248.0,
+      "width": 181.25,
+      "height": 20.0,
+      "recordSHA256": "eb6047745373689b842a0c264900ce6aebe29f437b4486b06bffb3f146818425"
+    },
+    {
+      "id": "NE9018",
+      "screen": 7,
+      "start": 846058,
+      "stop": 848783,
+      "x": 95.3125,
+      "y": 206.4,
+      "width": 140.625,
+      "height": 35.2,
+      "recordSHA256": "1d2079f3289d7b14960b82d23a4b06094e7879c6e05b926a3d93bf95649a8b36"
+    },
+    {
+      "id": "Text9016",
+      "screen": 7,
+      "start": 848783,
+      "stop": 850030,
+      "x": 95.3125,
+      "y": 206.4,
+      "width": 140.625,
+      "height": 35.2,
+      "recordSHA256": "706056302e73d7f6877215fa6da0a8ca394dac4c2315b24c72a8b0f8bb860edd"
+    },
+    {
+      "id": "Text9014",
+      "screen": 7,
+      "start": 850030,
+      "stop": 851509,
+      "x": 75.0,
+      "y": 182.4,
+      "width": 181.25,
+      "height": 20.0,
+      "recordSHA256": "a2c3f0360d9cebe374881f8817ebe7f959e0c8e571a123bb04618882ddb6fc30"
+    },
+    {
+      "id": "MD9012",
+      "screen": 7,
+      "start": 851509,
+      "stop": 856449,
+      "x": 75.0,
+      "y": 140.8,
+      "width": 181.25,
+      "height": 35.2,
+      "recordSHA256": "1dd6957042c078bf30a9a29ff06b5b84be5860a8155d3c504fd3d85b1264e312"
+    },
+    {
+      "id": "Text9010",
+      "screen": 7,
+      "start": 856449,
+      "stop": 857774,
+      "x": 75.0,
+      "y": 108.80000000000001,
+      "width": 181.25,
+      "height": 27.200000000000003,
+      "recordSHA256": "ddb4b2175084187c89a4514d17d31dc708f1ba57628c6fa6b2407190f9392fa5"
+    }
+  ]
+}

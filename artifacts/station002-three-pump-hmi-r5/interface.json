@@ -1,0 +1,44 @@
+{
+  "revision": 5,
+  "purpose": "Remove remaining fourth-pump objects, including overlapping manual controls",
+  "source": {
+    "name": "pump_station_3p_countdown_r4.skm",
+    "bytes": 1322197,
+    "sha256": "2375cf125dff7568292b501fddcab73fa9320e02023d2d0f6b0a5a719c0656ba",
+    "nativeOpenObservedByUser": true,
+    "nativeScreenshotHashKnown": false
+  },
+  "target": {
+    "name": "pump_station_3p_countdown_r5.skm",
+    "bytes": 1254272,
+    "sha256": "1d6449d8884fb9f44e3c6a2c71193d044788d8c2832e884c88e44c0707bdf3a3"
+  },
+  "removedWholeRecords": {
+    "manual": 14,
+    "pumps": 11,
+    "mainRetiredFourthSlot": 7,
+    "total": 32
+  },
+  "primaryThreeRecordsPreserved": 75,
+  "originalSceneCount": 14,
+  "changedSceneItemCounts": {
+    "Screen1": 73,
+    "Screen6": 55,
+    "Screen7": 53
+  },
+  "removedBytes": 67925,
+  "absoluteDirectoryEntriesRelocated": 24,
+  "directoryBackPointerAndEOFCorrect": true,
+  "metadataSectionsPreserved": 22,
+  "r4OverlapsReproduced": [
+    "START3/4",
+    "STOP3/4",
+    "RETRY3/4",
+    "frequencyInput3/4"
+  ],
+  "independentTimerNDAndLabelsChanged": false,
+  "timerLiveVisibilityNativeVerified": false,
+  "PLCChanged": false,
+  "nativeR5OpenObserved": false,
+  "equipmentActionsAllowed": false
+}

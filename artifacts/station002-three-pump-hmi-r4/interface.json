@@ -37,6 +37,15 @@
   },
   "PLCChanged": false,
   "PLCBaseSHA256": "780267f80d2f107c584ded1e8f48a63c65ad23d977255cdcbe895ed2b791b73b",
-  "nativeSKToolOpenObserved": false,
-  "equipmentActionsAllowed": false
+  "nativeSKToolOpenObserved": true,
+  "equipmentActionsAllowed": false,
+  "nativeObservation": {
+    "date": "2026-11-09",
+    "kind": "user screenshot",
+    "filenameShown": "pump_station_3p_countdown_r4.skm",
+    "fileSHA256ReadFromWindows": null,
+    "manualOfflineSimulatorShown": true,
+    "remainingIssue": "fourth controls overlap third column; use r5 removal"
+  },
+  "supersededForLayoutBy": "docs/tasks/station002-three-pump-hmi-r5-local-delivery.md"
 }
