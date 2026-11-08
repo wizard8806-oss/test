@@ -73,3 +73,9 @@ Native-приёмку r4 выполнить локально, источник/�
 чистой минимальной8файловой папки Python `-S` воспроизвёл один exact-r4
 изr2, изr3 и черезdraft→r2. Wrong-source/no-overwrite/source-preservation
 и отключение старого r3CLI PASS. Это не native-open r4.
+
+Доставка r4 проверена:8файлов pinned
+`83f4ff0217cb34a5b9d993a1b3747ff572ed0828`, HTTP200/размеры/SHA; из
+чистой HTTP-папки Python-S изr2 иr3 дал одинаковый exact-r4. Новый
+manifest/task готовы. Передать их из следующего delivery-коммита,
+создать локальную r4 и проверить её открытие; старую r3 не выдавать.

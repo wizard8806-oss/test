@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "revision": 4,
+  "purpose": "Repair native-rejected HMI-r3 stale directory/back-pointer/EOF while preserving three-pump pages and separate countdown rows",
+  "baseCommit": "83f4ff0217cb34a5b9d993a1b3747ff572ed0828",
+  "rawBase": "https://raw.githubusercontent.com/wizard8806-oss/test/83f4ff0217cb34a5b9d993a1b3747ff572ed0828/",
+  "runtime": "Python3 standard library only, no GUI/DLL/pip required for generation",
+  "files": [
+    {
+      "path": "tools/apply_hmi_layout_recipe.py",
+      "bytes": 7052,
+      "sha256": "08be2401e194051f170cef5f5f90b07ad9d8dfb00b65bc00f673ea680a8ddac4"
+    },
+    {
+      "path": "tools/build_restart_countdown_hmi.py",
+      "bytes": 8711,
+      "sha256": "519bf790a38dc56cb75bb51f6d1d7c1ad17e924589258e732eeca7d5d23f8b63"
+    },
+    {
+      "path": "tools/build_three_pump_hmi_r3.py",
+      "bytes": 9509,
+      "sha256": "b2f6160a6f03a5b05d3758d1f2e9ef5d5a86181c75a27570fbe951c106533b06"
+    },
+    {
+      "path": "tools/repair_skm_section_index.py",
+      "bytes": 2816,
+      "sha256": "c5b29065a28561dd00db2e118a8ad157259fad90c9160e439c8adcd7df0214ef"
+    },
+    {
+      "path": "tools/build_three_pump_hmi_r4.py",
+      "bytes": 2447,
+      "sha256": "6fa41164dec59d9831e58458e9a4a6f0f3bf56ab61fb98a0fe98d97feb99755d"
+    },
+    {
+      "path": "artifacts/station002-hmi-layout-01/layout-recipe.json",
+      "bytes": 34764,
+      "sha256": "d7a4815bd7d662ac7a812fe7ddf82131af125ea31784c1b1db1e0f56ea02aa76"
+    },
+    {
+      "path": "artifacts/station002-three-pump-hmi-r3/widget-recipe.json",
+      "bytes": 72803,
+      "sha256": "de9d24b911de6190e57b9b58ce050247aa32fe6d50eac389001e6fc83995e084"
+    },
+    {
+      "path": "artifacts/station002-three-pump-hmi-r4/interface.json",
+      "bytes": 1337,
+      "sha256": "4c7919783ac798a9c47c8a967f823394b5d7d57a487a076767077d071f2a0050"
+    }
+  ],
+  "entrypoint": "tools/build_three_pump_hmi_r4.py",
+  "recipe": "artifacts/station002-three-pump-hmi-r3/widget-recipe.json",
+  "acceptedSources": [
+    {
+      "name": "pump_station_3p_countdown_r2.skm",
+      "bytes": 1321783,
+      "sha256": "ee8c98b9024e765cbc924782442cfe64db252c19f9f86078bca5f50c99d86cc9"
+    },
+    {
+      "name": "pump_station_3p_countdown_r3.skm",
+      "bytes": 1322197,
+      "sha256": "aaed37837dc96595cfcbe447057b55c1bc67bc15801d4055197937e39bd90b58",
+      "status": "rejected-native-open"
+    }
+  ],
+  "target": {
+    "name": "pump_station_3p_countdown_r4.skm",
+    "bytes": 1322197,
+    "sha256": "2375cf125dff7568292b501fddcab73fa9320e02023d2d0f6b0a5a719c0656ba"
+  },
+  "reportName": "hmi-r4-local-build.json",
+  "rejectedDeliveryCommit": "fbf2eb497813fd8d985cc4c7db46f3ae008e0d92",
+  "rejectR3AsDeliverable": true,
+  "fallback": {
+    "entrypoint": "tools/build_restart_countdown_hmi.py",
+    "recipe": "artifacts/station002-hmi-layout-01/layout-recipe.json",
+    "acceptedSourceBytes": 1321783,
+    "acceptedSourceSHA256": [
+      "d9f089f09b87fff4cb347664457fbfa171f297defd96a2fd713b65da23f43175",
+      "7484c9475391201b37d408a68e63233b970a7d33c77e276cdbf7376539a2e5e7"
+    ],
+    "purpose": "Reproduce exact r2 only if no exact r3/r2 remains; preserve native saves"
+  },
+  "expected": {
+    "relocatedDirectoryEntries": 24,
+    "relocatedBackPointer": true,
+    "EOFCorrect": true,
+    "UIChangesFromR3": false,
+    "PLCChanged": false,
+    "hiddenFourthWidgets": 25,
+    "independentTimerWords": [
+      "R2525",
+      "R2526"
+    ]
+  },
+  "checks": {
+    "knownRejectedR3FailsNewDirectoryCheck": true,
+    "corruptDirectoryCasesRejected": 4,
+    "metadataSectionsPreserved": 22,
+    "UIComponentSnapshotsPassed": 58,
+    "repositoryGroupsPassed": 51,
+    "stdlibR2R3FallbackExact": true,
+    "sourceLockAndNoOverwritePassed": true
+  },
+  "nativeSKToolOpenObserved": false,
+  "nativeCompileObserved": false,
+  "offlineSimulatorObserved": false,
+  "equipmentActionsAllowed": false,
+  "fullNativeProjectPublicationAllowed": false
+}
