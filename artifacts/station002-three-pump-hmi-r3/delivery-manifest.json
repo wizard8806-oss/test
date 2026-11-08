@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Repair delivered HMI-r2: remove fourth-pump UI from Manual/Pumps and show two independent cause countdown rows only while counting",
+  "baseCommit": "f86a6dd00398b547fb5faac0f00e56eabe2d5e8f",
+  "rawBase": "https://raw.githubusercontent.com/wizard8806-oss/test/f86a6dd00398b547fb5faac0f00e56eabe2d5e8f/",
+  "runtime": "Python3 standard library only; GUI/DLL/pip not required for generation",
+  "files": [
+    {
+      "path": "tools/apply_hmi_layout_recipe.py",
+      "bytes": 7052,
+      "sha256": "08be2401e194051f170cef5f5f90b07ad9d8dfb00b65bc00f673ea680a8ddac4"
+    },
+    {
+      "path": "tools/build_restart_countdown_hmi.py",
+      "bytes": 8711,
+      "sha256": "519bf790a38dc56cb75bb51f6d1d7c1ad17e924589258e732eeca7d5d23f8b63"
+    },
+    {
+      "path": "tools/build_three_pump_hmi_r3.py",
+      "bytes": 10108,
+      "sha256": "cc3c5ee574339dedbe9dd1b2725e89b9710ae4fb2e7cd924049c82af55becec8"
+    },
+    {
+      "path": "artifacts/station002-hmi-layout-01/layout-recipe.json",
+      "bytes": 34764,
+      "sha256": "d7a4815bd7d662ac7a812fe7ddf82131af125ea31784c1b1db1e0f56ea02aa76"
+    },
+    {
+      "path": "artifacts/station002-three-pump-hmi-r3/widget-recipe.json",
+      "bytes": 72803,
+      "sha256": "de9d24b911de6190e57b9b58ce050247aa32fe6d50eac389001e6fc83995e084"
+    },
+    {
+      "path": "artifacts/station002-three-pump-hmi-r3/interface.json",
+      "bytes": 1588,
+      "sha256": "7aaae591c27ac16de2b313647bc055e015e2d81ec5923b41a04cc518eedd77e7"
+    }
+  ],
+  "entrypoint": "tools/build_three_pump_hmi_r3.py",
+  "recipe": "artifacts/station002-three-pump-hmi-r3/widget-recipe.json",
+  "source": {
+    "name": "pump_station_3p_countdown_r2.skm",
+    "bytes": 1321783,
+    "sha256": "ee8c98b9024e765cbc924782442cfe64db252c19f9f86078bca5f50c99d86cc9"
+  },
+  "fallback": {
+    "entrypoint": "tools/build_restart_countdown_hmi.py",
+    "recipe": "artifacts/station002-hmi-layout-01/layout-recipe.json",
+    "sourceBytes": 1321783,
+    "acceptedSourceSHA256": [
+      "d9f089f09b87fff4cb347664457fbfa171f297defd96a2fd713b65da23f43175",
+      "7484c9475391201b37d408a68e63233b970a7d33c77e276cdbf7376539a2e5e7"
+    ],
+    "outputIsExactSourceR2": true
+  },
+  "target": {
+    "name": "pump_station_3p_countdown_r3.skm",
+    "bytes": 1322197,
+    "sha256": "aaed37837dc96595cfcbe447057b55c1bc67bc15801d4055197937e39bd90b58",
+    "report": "hmi-r3-local-build.json"
+  },
+  "unchangedPLC": {
+    "name": "station_3p_24MC_HP_countdown_r2.pdw",
+    "bytes": 185409,
+    "sha256": "780267f80d2f107c584ded1e8f48a63c65ad23d977255cdcbe895ed2b791b73b"
+  },
+  "expected": {
+    "hiddenFourthWidgets": 25,
+    "centeredFirstThreeWidgets": 75,
+    "separateTimerWords": [
+      "R2525",
+      "R2526"
+    ],
+    "captionAndNumberVisibleOnlyWhenOwnWordPositive": true,
+    "replacedInactiveDashWithExistingNDClone": true,
+    "sceneCountsChanged": false,
+    "PLCChanged": false
+  },
+  "cloudChecks": {
+    "snapshotCasesPassed": 58,
+    "repositoryGroupsPassed": 51,
+    "stdlibDirectExact": true,
+    "stdlibFallbackExact": true,
+    "sourceLockAndNoOverwritePassed": true
+  },
+  "nativeSKToolValidationObserved": false,
+  "offlineSimulatorObserved": false,
+  "equipmentActionsAllowed": false,
+  "fullNativeProjectPublicationAllowed": false
+}
