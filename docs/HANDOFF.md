@@ -35,9 +35,13 @@ QString и descriptor-индексы, включая packed-миррор.108то
 56snapshot-проверок и29newgraph PASS; источникT96=0450 подтверждёнvendorMOV
 и не пишется. HMIbinaryструктура проверена по typed edits; это ещё не
 SKTool/nativeSimulator. Все файлы раздельны, полные PDW/SKM приватны.
-Сейчас завершить delivery bundle и дать локальному
-[задание](tasks/station002-restart-countdown-local-delivery.md) на два файла,
-картинку3 и их native-проверки; GUI не нужен для генерации. Не делать новый
+Delivery bundle завершён:12файлов наf5054bdb061db5b3c4a6052a60ebdd11b56ed2cc,
+все HTTP200/размеры/SHA совпали, Python-S из чистой HTTP-папки дал оба
+точных файла. Обе HMI-sourceветви, no-overwrite/source-lock PASS, общий51группа
+и регрессия3r1 129PASS. Дать локальному
+[задание](tasks/station002-restart-countdown-local-delivery.md) из нового
+pinnedкоммита с manifest той же версии на два файла, картинку3 и их native-
+проверки; GUI не нужен для генерации. Не делать новый
 круг общих audits/не требовать заново F8 прежнего3r1. Базовый SHAa6b977d.
 
 ## 08.11: приоритет изменён — фактическая трёхнасосная PLC-копия

@@ -13,7 +13,11 @@ SHA780267f80d2f107c584ded1e8f48a63c65ad23d977255cdcbe895ed2b791b73b.
 целые секунды,3насоса на согласованном фоне; поля пауз читаютR2538/39.
 Только108typed string/descriptor/geometry edits, новых Qt-объектов/кнопок нет.
 56snapshot-сценариев/29graph PASS; nativeF8 новогоPLC/SKTool/Simulator ещё нет.
-Готовится локальная доставка обоих файлов; исходники не перезаписывать.
+Локальная доставка готова:12файлов pinnedf5054bdb061db5b3c4a6052a60ebdd11b56ed2cc,
+HTTP200/размеры/SHA проверены, Python-S из чистой HTTP-папки воспроизвёл
+оба target. Source-lock/no-overwrite и обе HMI-ветви PASS; общий51группаPASS,
+регрессия3r1 129PASS. Передать новое задание локальному в countdown-local-01;
+native-проверки пары ещё нужны. Исходники не перезаписывать.
 См. docs/reports/station002-restart-countdown-20261108.md.
 
 **08.11, новый приоритет пользователя — закончить PLC для трёх насосов.**
