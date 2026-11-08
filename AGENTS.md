@@ -13,7 +13,11 @@ PUMP_STATION_3/24MC, фиксированные3, Y4reset,14pollстрок в RA
 129component-проверок и113newgraph PASS;25из26editedgraph PASS, исходный
 65.G31 сохраняет тот же DLL19 (меняется только числовой предел).
 Новый native F8/обмен/оборудование не проверены. Доставка локальным Python
-готовится в station002-three-pump-local-01, HMI/выбор2/4 ещё не сделаны.
+готова:8helpers закреплены на48bbc82ab7c1d8de172bc6b149c0b9ece7f72e7c;
+HTTP200/SHA и Python-S из чистой папки воспроизвели точный target, guards PASS,
+общий run_checks51группа PASS. Дать новое задание/manifest локальному,
+результат в station002-three-pump-local-01, затем F8 новой копии.
+HMI/выбор2/4 ещё не сделаны; не выдавать их за часть этого PLC-результата.
 См. docs/reports/station002-three-pump-candidate-20261108.md.
 
 **08.11, нативный F8 HP-r2: 0 ошибок, 25 предупреждений — снимок пользователя.**

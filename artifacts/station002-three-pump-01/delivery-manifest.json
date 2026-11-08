@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Reproduce a fixed-three-pump offline PLC candidate from accepted HP-r2, without chat downloads",
+  "baseCommit": "48bbc82ab7c1d8de172bc6b149c0b9ece7f72e7c",
+  "rawBase": "https://raw.githubusercontent.com/wizard8806-oss/test/48bbc82ab7c1d8de172bc6b149c0b9ece7f72e7c/",
+  "runtime": "Python3 standard library only; no native GUI/vendor DLL/pip needed for generation",
+  "files": [
+    {
+      "path": "tools/_runtime.py",
+      "bytes": 1434,
+      "sha256": "4ea72322da0a0eb893ed9f22bcbd4536445c846bde649cc280d22726b49b99fa"
+    },
+    {
+      "path": "tools/build_setpoint_feedback_pdw_01.py",
+      "bytes": 10106,
+      "sha256": "bbe76f36c496b105c955474af644286954efcf3ded5551f2d17bd7d21f1d24ac"
+    },
+    {
+      "path": "tools/build_three_pump_pdw_candidate.py",
+      "bytes": 9665,
+      "sha256": "806fd520f70576b9351e5ebf685c3b75ceccb96e264d745c6daf097eb41aea29"
+    },
+    {
+      "path": "tools/check_native_drive_edit_02.py",
+      "bytes": 7172,
+      "sha256": "2ca30beacb3a4a001dcdc33d70b191c1e5c56dbcae2d5dbe57c6e1208023fd38"
+    },
+    {
+      "path": "tools/check_setpoint_feedback_01.py",
+      "bytes": 3571,
+      "sha256": "6372ace11d17e450a77d3f9eef0effed88df9f395a537795b8db172b6c6a5f51"
+    },
+    {
+      "path": "tools/prepare_native_drive_edit_02.py",
+      "bytes": 6797,
+      "sha256": "6b3827754403194baf0d232201c1834bd614a2e06b213b0c56214922c56546eb"
+    },
+    {
+      "path": "tools/prepare_setpoint_feedback_01.py",
+      "bytes": 7780,
+      "sha256": "e86f2f1700cb4522ea17cc3707a645216a4d5e50597891bb066c4592c2141a7c"
+    },
+    {
+      "path": "tools/review_fatek_process_map_01.py",
+      "bytes": 10608,
+      "sha256": "3eef71c56ebd323e135429ba0d45312d831a1243e9d20ab099173b8a4940b857"
+    }
+  ],
+  "entrypoint": "tools/build_three_pump_pdw_candidate.py",
+  "source": {
+    "suggestedName": "station_MC_CM55_900G_24MC_HP_auto_candidate_r2.pdw",
+    "bytes": 179925,
+    "sha256": "7d436bec9fab5a50bd60ae22e269be90a5adfb9a579426b397a7520c82a82db4"
+  },
+  "target": {
+    "name": "station_3p_24MC_HP_auto_r1.pdw",
+    "bytes": 184126,
+    "sha256": "a6e9c5c057ad324635c10e73b61f25ceb08604c4651eaaf943880f2dc176c745"
+  },
+  "reportName": "three-pump-local-build.json",
+  "expected": {
+    "installedPumps": 3,
+    "projectName": "PUMP_STATION_3",
+    "normalPollRows": 14,
+    "insertedNetworks": 113,
+    "edits": 26,
+    "HPRevision2Preserved": true
+  },
+  "cloudValidation": {
+    "componentChecksPassed": 129,
+    "newNetworkGraphsPassed": 113,
+    "editedNetworkGraphsPassed": 25,
+    "inheritedGraphLimitations": [
+      {
+        "label": "65.G31",
+        "before": 19,
+        "after": 19,
+        "change": "numeric bound5->4 only"
+      }
+    ],
+    "repositoryCheckGroupsPassed": 51
+  },
+  "remaining": {
+    "nativeF8Observed": false,
+    "serialBehaviorObserved": false,
+    "HMIFileModified": false,
+    "selectableCount2or4Implemented": false
+  },
+  "equipmentActionsAllowed": false,
+  "fullNativeProjectPublicationAllowed": false
+}
