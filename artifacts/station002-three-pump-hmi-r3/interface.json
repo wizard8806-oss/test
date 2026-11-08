@@ -1,0 +1,53 @@
+{
+  "revision": 3,
+  "configuration": "fixed-three-pump-hmi-repair",
+  "sourceHMI": {
+    "name": "pump_station_3p_countdown_r2.skm",
+    "bytes": 1321783,
+    "sha256": "ee8c98b9024e765cbc924782442cfe64db252c19f9f86078bca5f50c99d86cc9"
+  },
+  "targetHMI": {
+    "name": "pump_station_3p_countdown_r3.skm",
+    "bytes": 1322197,
+    "sha256": "aaed37837dc96595cfcbe447057b55c1bc67bc15801d4055197937e39bd90b58"
+  },
+  "PLCChanged": false,
+  "PLCBaseSHA256": "780267f80d2f107c584ded1e8f48a63c65ad23d977255cdcbe895ed2b791b73b",
+  "installedPumps": 3,
+  "fourthColumn": {
+    "screens": [
+      6,
+      7
+    ],
+    "widgetsHidden": 25,
+    "condition": "R2860 == 4; PLC-owned R2860 is3 in this fixed build",
+    "includesInteractiveTargets": true
+  },
+  "columnsCentered": 75,
+  "timerRows": [
+    {
+      "cause": "dry run",
+      "caption": "Сухой ход, с",
+      "word": "R2525",
+      "visibility": "label and ND both R2525 nonzero"
+    },
+    {
+      "cause": "power failure",
+      "caption": "Питание, с",
+      "word": "R2526",
+      "visibility": "label and ND both R2526 nonzero"
+    }
+  ],
+  "appliedDelaySettings": [
+    "R2520",
+    "R2521"
+  ],
+  "editableDelayDrafts": [
+    "R2540",
+    "R2541"
+  ],
+  "finalReadiness2s": "existing T96 unchanged; cause rows hide when their own pause is completed, including during this separate readiness phase",
+  "onCommunicationLoss": "PLC remaining values are authoritative; native HMI link-loss blanking has not been independently observed",
+  "nativeHMIValidationObserved": false,
+  "equipmentActionsAllowed": false
+}

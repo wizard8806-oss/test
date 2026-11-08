@@ -1,0 +1,3976 @@
+{
+  "schemaVersion": 1,
+  "format": "sktool-countdown-r2-reviewed-widgets",
+  "sourceBytes": 1321783,
+  "sourceSHA256": "ee8c98b9024e765cbc924782442cfe64db252c19f9f86078bca5f50c99d86cc9",
+  "objects": [
+    {
+      "id": "Text16008",
+      "start": 33431,
+      "stop": 34698,
+      "firstID": 34065,
+      "x": 648.0,
+      "y": 337.0,
+      "width": 44.0,
+      "height": 18.0,
+      "screen": 1,
+      "action": "timer-or-retired-main-slot",
+      "newX": 648.0,
+      "positionOffsets": [
+        33516,
+        33763
+      ],
+      "sizeOffsets": [
+        33459,
+        33620
+      ],
+      "visibilityOffset": 33943,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "MD10056",
+      "start": 38499,
+      "stop": 40427,
+      "firstID": 39298,
+      "x": 556.40625,
+      "y": 210.0,
+      "width": 17.1875,
+      "height": 76.80000000000001,
+      "screen": 1,
+      "action": "timer-or-retired-main-slot",
+      "newX": 556.40625,
+      "positionOffsets": [
+        38584,
+        38745,
+        38988
+      ],
+      "sizeOffsets": [
+        38527,
+        38688,
+        38849
+      ],
+      "visibilityOffset": 39172,
+      "visibilityValues": [
+        "1",
+        "0",
+        "1",
+        "0",
+        "R2513#1#6#1#2513#R#1#",
+        "2",
+        "0",
+        "2",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "BG10054",
+      "start": 40427,
+      "stop": 42311,
+      "firstID": 41172,
+      "x": 556.40625,
+      "y": 210.0,
+      "width": 17.1875,
+      "height": 76.80000000000001,
+      "screen": 1,
+      "action": "timer-or-retired-main-slot",
+      "newX": 556.40625,
+      "positionOffsets": [
+        40512,
+        40673,
+        40834
+      ],
+      "sizeOffsets": [
+        40455,
+        40616,
+        40777
+      ],
+      "visibilityOffset": 41046,
+      "visibilityValues": [
+        "1",
+        "0",
+        "1",
+        "0",
+        "R2513#1#6#1#2513#R#1#",
+        "2",
+        "0",
+        "2",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "Text10052",
+      "start": 42311,
+      "stop": 43564,
+      "firstID": 42943,
+      "x": 764.0,
+      "y": 337.0,
+      "width": 24.0,
+      "height": 18.0,
+      "screen": 1,
+      "action": "timer-or-retired-main-slot",
+      "newX": 764.0,
+      "positionOffsets": [
+        42396,
+        42641
+      ],
+      "sizeOffsets": [
+        42339,
+        42500
+      ],
+      "visibilityOffset": 42821,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "MD10050",
+      "start": 43564,
+      "stop": 45492,
+      "firstID": 44363,
+      "x": 700.0,
+      "y": 337.0,
+      "width": 62.0,
+      "height": 18.0,
+      "screen": 1,
+      "action": "timer-or-retired-main-slot",
+      "newX": 700.0,
+      "positionOffsets": [
+        43649,
+        43810,
+        44053
+      ],
+      "sizeOffsets": [
+        43592,
+        43753,
+        43914
+      ],
+      "visibilityOffset": 44237,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "R2533#1#6#1#2533#R#1#",
+        "1",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "ND10048",
+      "start": 45492,
+      "stop": 47620,
+      "firstID": 46299,
+      "x": 700.0,
+      "y": 337.0,
+      "width": 62.0,
+      "height": 18.0,
+      "screen": 1,
+      "action": "timer-or-retired-main-slot",
+      "newX": 700.0,
+      "positionOffsets": [
+        45577,
+        45738,
+        45989
+      ],
+      "sizeOffsets": [
+        45520,
+        45681,
+        45842
+      ],
+      "visibilityOffset": 46173,
+      "visibilityValues": [
+        "1",
+        "0",
+        "1",
+        "0",
+        "R2533#1#6#1#2533#R#1#",
+        "3",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "MD10046",
+      "start": 47620,
+      "stop": 49804,
+      "firstID": 48437,
+      "x": 521.0,
+      "y": 418.0,
+      "width": 88.0,
+      "height": 18.0,
+      "screen": 1,
+      "action": "timer-or-retired-main-slot",
+      "newX": 521.0,
+      "positionOffsets": [
+        47705,
+        47866,
+        48127
+      ],
+      "sizeOffsets": [
+        47648,
+        47809,
+        47970
+      ],
+      "visibilityOffset": 48311,
+      "visibilityValues": [
+        "1",
+        "0",
+        "1",
+        "0",
+        "R2513#1#6#1#2513#R#1#",
+        "2",
+        "0",
+        "2",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "Text10044",
+      "start": 49804,
+      "stop": 51127,
+      "firstID": 50446,
+      "x": 521.0,
+      "y": 398.0,
+      "width": 88.0,
+      "height": 18.0,
+      "screen": 1,
+      "action": "timer-or-retired-main-slot",
+      "newX": 521.0,
+      "positionOffsets": [
+        49889,
+        50144
+      ],
+      "sizeOffsets": [
+        49832,
+        49993
+      ],
+      "visibilityOffset": 50324,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "MD3056",
+      "start": 132258,
+      "stop": 137222,
+      "firstID": 133087,
+      "x": 648.0,
+      "y": 371.0,
+      "width": 140.0,
+      "height": 16.0,
+      "screen": 1,
+      "action": "timer-or-retired-main-slot",
+      "newX": 648.0,
+      "positionOffsets": [
+        132343,
+        132504,
+        132777
+      ],
+      "sizeOffsets": [
+        132286,
+        132447,
+        132608
+      ],
+      "visibilityOffset": 132961,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "R2323#1#6#1#2323#R#1#",
+        "1",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "MD3054",
+      "start": 137222,
+      "stop": 141146,
+      "firstID": 138059,
+      "x": 648.0,
+      "y": 355.0,
+      "width": 140.0,
+      "height": 16.0,
+      "screen": 1,
+      "action": "timer-or-retired-main-slot",
+      "newX": 648.0,
+      "positionOffsets": [
+        137307,
+        137468,
+        137749
+      ],
+      "sizeOffsets": [
+        137250,
+        137411,
+        137572
+      ],
+      "visibilityOffset": 137933,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "R2327#1#6#1#2327#R#1#",
+        "1",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "Text3052",
+      "start": 141146,
+      "stop": 142467,
+      "firstID": 141788,
+      "x": 648.0,
+      "y": 320.0,
+      "width": 140.0,
+      "height": 16.0,
+      "screen": 1,
+      "action": "timer-or-retired-main-slot",
+      "newX": 648.0,
+      "positionOffsets": [
+        141231,
+        141486
+      ],
+      "sizeOffsets": [
+        141174,
+        141335
+      ],
+      "visibilityOffset": 141666,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "ND12012",
+      "start": 344647,
+      "stop": 346958,
+      "firstID": 345455,
+      "x": 593.75,
+      "y": 156.0,
+      "width": 164.0625,
+      "height": 31.200000000000003,
+      "screen": 3,
+      "action": "restore-applied-delay",
+      "newX": 593.75,
+      "positionOffsets": [
+        344732,
+        344893,
+        345149
+      ],
+      "sizeOffsets": [
+        344675,
+        344836,
+        345002
+      ],
+      "visibilityOffset": 345333,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "ND12004",
+      "start": 352493,
+      "stop": 354804,
+      "firstID": 353301,
+      "x": 593.75,
+      "y": 116.0,
+      "width": 164.0625,
+      "height": 31.200000000000003,
+      "screen": 3,
+      "action": "restore-applied-delay",
+      "newX": 593.75,
+      "positionOffsets": [
+        352578,
+        352739,
+        352995
+      ],
+      "sizeOffsets": [
+        352521,
+        352682,
+        352848
+      ],
+      "visibilityOffset": 353179,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "ND14016",
+      "start": 573641,
+      "stop": 575990,
+      "firstID": 574449,
+      "x": 600.0,
+      "y": 128.0,
+      "width": 181.25,
+      "height": 28.8,
+      "screen": 6,
+      "action": "hide-fourth",
+      "newX": 600.0,
+      "positionOffsets": [
+        573726,
+        573887,
+        574143
+      ],
+      "sizeOffsets": [
+        573669,
+        573830,
+        573996
+      ],
+      "visibilityOffset": 574327,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "Text14014",
+      "start": 575990,
+      "stop": 577389,
+      "firstID": 576642,
+      "x": 600.0,
+      "y": 107.2,
+      "width": 181.25,
+      "height": 17.6,
+      "screen": 6,
+      "action": "hide-fourth",
+      "newX": 600.0,
+      "positionOffsets": [
+        576075,
+        576340
+      ],
+      "sizeOffsets": [
+        576018,
+        576179
+      ],
+      "visibilityOffset": 576520,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "ND14012",
+      "start": 577389,
+      "stop": 579738,
+      "firstID": 578197,
+      "x": 406.25,
+      "y": 128.0,
+      "width": 181.25,
+      "height": 28.8,
+      "screen": 6,
+      "action": "center-three-columns",
+      "newX": 543.75,
+      "positionOffsets": [
+        577474,
+        577635,
+        577891
+      ],
+      "sizeOffsets": [
+        577417,
+        577578,
+        577744
+      ],
+      "visibilityOffset": 578075,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "Text14010",
+      "start": 579738,
+      "stop": 581137,
+      "firstID": 580390,
+      "x": 406.25,
+      "y": 107.2,
+      "width": 181.25,
+      "height": 17.6,
+      "screen": 6,
+      "action": "center-three-columns",
+      "newX": 543.75,
+      "positionOffsets": [
+        579823,
+        580088
+      ],
+      "sizeOffsets": [
+        579766,
+        579927
+      ],
+      "visibilityOffset": 580268,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "ND14008",
+      "start": 581137,
+      "stop": 583486,
+      "firstID": 581945,
+      "x": 212.5,
+      "y": 128.0,
+      "width": 181.25,
+      "height": 28.8,
+      "screen": 6,
+      "action": "center-three-columns",
+      "newX": 309.375,
+      "positionOffsets": [
+        581222,
+        581383,
+        581639
+      ],
+      "sizeOffsets": [
+        581165,
+        581326,
+        581492
+      ],
+      "visibilityOffset": 581823,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "Text14006",
+      "start": 583486,
+      "stop": 584885,
+      "firstID": 584138,
+      "x": 212.5,
+      "y": 107.2,
+      "width": 181.25,
+      "height": 17.6,
+      "screen": 6,
+      "action": "center-three-columns",
+      "newX": 309.375,
+      "positionOffsets": [
+        583571,
+        583836
+      ],
+      "sizeOffsets": [
+        583514,
+        583675
+      ],
+      "visibilityOffset": 584016,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "ND14004",
+      "start": 584885,
+      "stop": 587234,
+      "firstID": 585693,
+      "x": 18.75,
+      "y": 128.0,
+      "width": 181.25,
+      "height": 28.8,
+      "screen": 6,
+      "action": "center-three-columns",
+      "newX": 75.0,
+      "positionOffsets": [
+        584970,
+        585131,
+        585387
+      ],
+      "sizeOffsets": [
+        584913,
+        585074,
+        585240
+      ],
+      "visibilityOffset": 585571,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "Text14002",
+      "start": 587234,
+      "stop": 588633,
+      "firstID": 587886,
+      "x": 18.75,
+      "y": 107.2,
+      "width": 181.25,
+      "height": 17.6,
+      "screen": 6,
+      "action": "center-three-columns",
+      "newX": 75.0,
+      "positionOffsets": [
+        587319,
+        587584
+      ],
+      "sizeOffsets": [
+        587262,
+        587423
+      ],
+      "visibilityOffset": 587764,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "BB6130",
+      "start": 648371,
+      "stop": 651362,
+      "firstID": 649231,
+      "x": 600.0,
+      "y": 304.8,
+      "width": 181.25,
+      "height": 27.200000000000003,
+      "screen": 6,
+      "action": "hide-fourth",
+      "newX": 600.0,
+      "positionOffsets": [
+        648456,
+        648617,
+        648881
+      ],
+      "sizeOffsets": [
+        648399,
+        648560,
+        648726
+      ],
+      "visibilityOffset": 649081,
+      "visibilityValues": [
+        "1",
+        "0",
+        "1",
+        "0",
+        "R2329#1#6#1#2329#R#1#",
+        "2",
+        "0",
+        "27110",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "Text6128",
+      "start": 651362,
+      "stop": 652721,
+      "firstID": 652008,
+      "x": 600.0,
+      "y": 304.8,
+      "width": 181.25,
+      "height": 27.200000000000003,
+      "screen": 6,
+      "action": "hide-fourth",
+      "newX": 600.0,
+      "positionOffsets": [
+        651447,
+        651706
+      ],
+      "sizeOffsets": [
+        651390,
+        651551
+      ],
+      "visibilityOffset": 651886,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "BB6126",
+      "start": 652721,
+      "stop": 655790,
+      "firstID": 653587,
+      "x": 600.0,
+      "y": 271.2,
+      "width": 181.25,
+      "height": 27.200000000000003,
+      "screen": 6,
+      "action": "hide-fourth",
+      "newX": 600.0,
+      "positionOffsets": [
+        652806,
+        652967,
+        653237
+      ],
+      "sizeOffsets": [
+        652749,
+        652910,
+        653076
+      ],
+      "visibilityOffset": 653437,
+      "visibilityValues": [
+        "1",
+        "0",
+        "1",
+        "0",
+        "R2329#1#6#1#2329#R#1#",
+        "2",
+        "0",
+        "27110",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "Text6124",
+      "start": 655790,
+      "stop": 657191,
+      "firstID": 656442,
+      "x": 600.0,
+      "y": 271.2,
+      "width": 181.25,
+      "height": 27.200000000000003,
+      "screen": 6,
+      "action": "hide-fourth",
+      "newX": 600.0,
+      "positionOffsets": [
+        655875,
+        656140
+      ],
+      "sizeOffsets": [
+        655818,
+        655979
+      ],
+      "visibilityOffset": 656320,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "MD6122",
+      "start": 657191,
+      "stop": 659089,
+      "firstID": 658006,
+      "x": 600.0,
+      "y": 236.8,
+      "width": 181.25,
+      "height": 25.6,
+      "screen": 6,
+      "action": "hide-fourth",
+      "newX": 600.0,
+      "positionOffsets": [
+        657276,
+        657437,
+        657696
+      ],
+      "sizeOffsets": [
+        657219,
+        657380,
+        657541
+      ],
+      "visibilityOffset": 657880,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "R2173#1#6#1#2173#R#1#",
+        "1",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "Text6120",
+      "start": 659089,
+      "stop": 660540,
+      "firstID": 659749,
+      "x": 600.0,
+      "y": 216.0,
+      "width": 181.25,
+      "height": 17.6,
+      "screen": 6,
+      "action": "hide-fourth",
+      "newX": 600.0,
+      "positionOffsets": [
+        659174,
+        659447
+      ],
+      "sizeOffsets": [
+        659117,
+        659278
+      ],
+      "visibilityOffset": 659627,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "MD6118",
+      "start": 660540,
+      "stop": 662552,
+      "firstID": 661365,
+      "x": 600.0,
+      "y": 184.0,
+      "width": 181.25,
+      "height": 25.6,
+      "screen": 6,
+      "action": "hide-fourth",
+      "newX": 600.0,
+      "positionOffsets": [
+        660625,
+        660786,
+        661059
+      ],
+      "sizeOffsets": [
+        660568,
+        660729,
+        660890
+      ],
+      "visibilityOffset": 661243,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "R723#1#6#1#723#R#1#",
+        "1",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "Text6116",
+      "start": 662552,
+      "stop": 663961,
+      "firstID": 663206,
+      "x": 600.0,
+      "y": 163.20000000000002,
+      "width": 181.25,
+      "height": 17.6,
+      "screen": 6,
+      "action": "hide-fourth",
+      "newX": 600.0,
+      "positionOffsets": [
+        662637,
+        662904
+      ],
+      "sizeOffsets": [
+        662580,
+        662741
+      ],
+      "visibilityOffset": 663084,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "Text6114",
+      "start": 663961,
+      "stop": 665286,
+      "firstID": 664603,
+      "x": 600.0,
+      "y": 80.0,
+      "width": 181.25,
+      "height": 24.0,
+      "screen": 6,
+      "action": "hide-fourth",
+      "newX": 600.0,
+      "positionOffsets": [
+        664046,
+        664301
+      ],
+      "sizeOffsets": [
+        663989,
+        664150
+      ],
+      "visibilityOffset": 664481,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "BB6112",
+      "start": 665286,
+      "stop": 668277,
+      "firstID": 666146,
+      "x": 406.25,
+      "y": 304.8,
+      "width": 181.25,
+      "height": 27.200000000000003,
+      "screen": 6,
+      "action": "center-three-columns",
+      "newX": 543.75,
+      "positionOffsets": [
+        665371,
+        665532,
+        665796
+      ],
+      "sizeOffsets": [
+        665314,
+        665475,
+        665641
+      ],
+      "visibilityOffset": 665996,
+      "visibilityValues": [
+        "1",
+        "0",
+        "1",
+        "0",
+        "R2329#1#6#1#2329#R#1#",
+        "2",
+        "0",
+        "27110",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "Text6110",
+      "start": 668277,
+      "stop": 669636,
+      "firstID": 668923,
+      "x": 406.25,
+      "y": 304.8,
+      "width": 181.25,
+      "height": 27.200000000000003,
+      "screen": 6,
+      "action": "center-three-columns",
+      "newX": 543.75,
+      "positionOffsets": [
+        668362,
+        668621
+      ],
+      "sizeOffsets": [
+        668305,
+        668466
+      ],
+      "visibilityOffset": 668801,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "BB6108",
+      "start": 669636,
+      "stop": 672705,
+      "firstID": 670502,
+      "x": 406.25,
+      "y": 271.2,
+      "width": 181.25,
+      "height": 27.200000000000003,
+      "screen": 6,
+      "action": "center-three-columns",
+      "newX": 543.75,
+      "positionOffsets": [
+        669721,
+        669882,
+        670152
+      ],
+      "sizeOffsets": [
+        669664,
+        669825,
+        669991
+      ],
+      "visibilityOffset": 670352,
+      "visibilityValues": [
+        "1",
+        "0",
+        "1",
+        "0",
+        "R2329#1#6#1#2329#R#1#",
+        "2",
+        "0",
+        "27110",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "Text6106",
+      "start": 672705,
+      "stop": 674106,
+      "firstID": 673357,
+      "x": 406.25,
+      "y": 271.2,
+      "width": 181.25,
+      "height": 27.200000000000003,
+      "screen": 6,
+      "action": "center-three-columns",
+      "newX": 543.75,
+      "positionOffsets": [
+        672790,
+        673055
+      ],
+      "sizeOffsets": [
+        672733,
+        672894
+      ],
+      "visibilityOffset": 673235,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "MD6104",
+      "start": 674106,
+      "stop": 676004,
+      "firstID": 674921,
+      "x": 406.25,
+      "y": 236.8,
+      "width": 181.25,
+      "height": 25.6,
+      "screen": 6,
+      "action": "center-three-columns",
+      "newX": 543.75,
+      "positionOffsets": [
+        674191,
+        674352,
+        674611
+      ],
+      "sizeOffsets": [
+        674134,
+        674295,
+        674456
+      ],
+      "visibilityOffset": 674795,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "R2172#1#6#1#2172#R#1#",
+        "1",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "Text6102",
+      "start": 676004,
+      "stop": 677455,
+      "firstID": 676664,
+      "x": 406.25,
+      "y": 216.0,
+      "width": 181.25,
+      "height": 17.6,
+      "screen": 6,
+      "action": "center-three-columns",
+      "newX": 543.75,
+      "positionOffsets": [
+        676089,
+        676362
+      ],
+      "sizeOffsets": [
+        676032,
+        676193
+      ],
+      "visibilityOffset": 676542,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "MD6100",
+      "start": 677455,
+      "stop": 679467,
+      "firstID": 678280,
+      "x": 406.25,
+      "y": 184.0,
+      "width": 181.25,
+      "height": 25.6,
+      "screen": 6,
+      "action": "center-three-columns",
+      "newX": 543.75,
+      "positionOffsets": [
+        677540,
+        677701,
+        677974
+      ],
+      "sizeOffsets": [
+        677483,
+        677644,
+        677805
+      ],
+      "visibilityOffset": 678158,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "R722#1#6#1#722#R#1#",
+        "1",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "Text6098",
+      "start": 679467,
+      "stop": 680876,
+      "firstID": 680121,
+      "x": 406.25,
+      "y": 163.20000000000002,
+      "width": 181.25,
+      "height": 17.6,
+      "screen": 6,
+      "action": "center-three-columns",
+      "newX": 543.75,
+      "positionOffsets": [
+        679552,
+        679819
+      ],
+      "sizeOffsets": [
+        679495,
+        679656
+      ],
+      "visibilityOffset": 679999,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "Text6096",
+      "start": 680876,
+      "stop": 682201,
+      "firstID": 681518,
+      "x": 406.25,
+      "y": 80.0,
+      "width": 181.25,
+      "height": 24.0,
+      "screen": 6,
+      "action": "center-three-columns",
+      "newX": 543.75,
+      "positionOffsets": [
+        680961,
+        681216
+      ],
+      "sizeOffsets": [
+        680904,
+        681065
+      ],
+      "visibilityOffset": 681396,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "BB6094",
+      "start": 682201,
+      "stop": 685192,
+      "firstID": 683061,
+      "x": 212.5,
+      "y": 304.8,
+      "width": 181.25,
+      "height": 27.200000000000003,
+      "screen": 6,
+      "action": "center-three-columns",
+      "newX": 309.375,
+      "positionOffsets": [
+        682286,
+        682447,
+        682711
+      ],
+      "sizeOffsets": [
+        682229,
+        682390,
+        682556
+      ],
+      "visibilityOffset": 682911,
+      "visibilityValues": [
+        "1",
+        "0",
+        "1",
+        "0",
+        "R2329#1#6#1#2329#R#1#",
+        "2",
+        "0",
+        "27110",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "Text6092",
+      "start": 685192,
+      "stop": 686551,
+      "firstID": 685838,
+      "x": 212.5,
+      "y": 304.8,
+      "width": 181.25,
+      "height": 27.200000000000003,
+      "screen": 6,
+      "action": "center-three-columns",
+      "newX": 309.375,
+      "positionOffsets": [
+        685277,
+        685536
+      ],
+      "sizeOffsets": [
+        685220,
+        685381
+      ],
+      "visibilityOffset": 685716,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "BB6090",
+      "start": 686551,
+      "stop": 689620,
+      "firstID": 687417,
+      "x": 212.5,
+      "y": 271.2,
+      "width": 181.25,
+      "height": 27.200000000000003,
+      "screen": 6,
+      "action": "center-three-columns",
+      "newX": 309.375,
+      "positionOffsets": [
+        686636,
+        686797,
+        687067
+      ],
+      "sizeOffsets": [
+        686579,
+        686740,
+        686906
+      ],
+      "visibilityOffset": 687267,
+      "visibilityValues": [
+        "1",
+        "0",
+        "1",
+        "0",
+        "R2329#1#6#1#2329#R#1#",
+        "2",
+        "0",
+        "27110",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "Text6088",
+      "start": 689620,
+      "stop": 691021,
+      "firstID": 690272,
+      "x": 212.5,
+      "y": 271.2,
+      "width": 181.25,
+      "height": 27.200000000000003,
+      "screen": 6,
+      "action": "center-three-columns",
+      "newX": 309.375,
+      "positionOffsets": [
+        689705,
+        689970
+      ],
+      "sizeOffsets": [
+        689648,
+        689809
+      ],
+      "visibilityOffset": 690150,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "MD6086",
+      "start": 691021,
+      "stop": 692919,
+      "firstID": 691836,
+      "x": 212.5,
+      "y": 236.8,
+      "width": 181.25,
+      "height": 25.6,
+      "screen": 6,
+      "action": "center-three-columns",
+      "newX": 309.375,
+      "positionOffsets": [
+        691106,
+        691267,
+        691526
+      ],
+      "sizeOffsets": [
+        691049,
+        691210,
+        691371
+      ],
+      "visibilityOffset": 691710,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "R2171#1#6#1#2171#R#1#",
+        "1",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "Text6084",
+      "start": 692919,
+      "stop": 694370,
+      "firstID": 693579,
+      "x": 212.5,
+      "y": 216.0,
+      "width": 181.25,
+      "height": 17.6,
+      "screen": 6,
+      "action": "center-three-columns",
+      "newX": 309.375,
+      "positionOffsets": [
+        693004,
+        693277
+      ],
+      "sizeOffsets": [
+        692947,
+        693108
+      ],
+      "visibilityOffset": 693457,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "MD6082",
+      "start": 694370,
+      "stop": 696382,
+      "firstID": 695195,
+      "x": 212.5,
+      "y": 184.0,
+      "width": 181.25,
+      "height": 25.6,
+      "screen": 6,
+      "action": "center-three-columns",
+      "newX": 309.375,
+      "positionOffsets": [
+        694455,
+        694616,
+        694889
+      ],
+      "sizeOffsets": [
+        694398,
+        694559,
+        694720
+      ],
+      "visibilityOffset": 695073,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "R721#1#6#1#721#R#1#",
+        "1",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "Text6080",
+      "start": 696382,
+      "stop": 697791,
+      "firstID": 697036,
+      "x": 212.5,
+      "y": 163.20000000000002,
+      "width": 181.25,
+      "height": 17.6,
+      "screen": 6,
+      "action": "center-three-columns",
+      "newX": 309.375,
+      "positionOffsets": [
+        696467,
+        696734
+      ],
+      "sizeOffsets": [
+        696410,
+        696571
+      ],
+      "visibilityOffset": 696914,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "Text6078",
+      "start": 697791,
+      "stop": 699116,
+      "firstID": 698433,
+      "x": 212.5,
+      "y": 80.0,
+      "width": 181.25,
+      "height": 24.0,
+      "screen": 6,
+      "action": "center-three-columns",
+      "newX": 309.375,
+      "positionOffsets": [
+        697876,
+        698131
+      ],
+      "sizeOffsets": [
+        697819,
+        697980
+      ],
+      "visibilityOffset": 698311,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "BB6076",
+      "start": 699116,
+      "stop": 702107,
+      "firstID": 699976,
+      "x": 18.75,
+      "y": 304.8,
+      "width": 181.25,
+      "height": 27.200000000000003,
+      "screen": 6,
+      "action": "center-three-columns",
+      "newX": 75.0,
+      "positionOffsets": [
+        699201,
+        699362,
+        699626
+      ],
+      "sizeOffsets": [
+        699144,
+        699305,
+        699471
+      ],
+      "visibilityOffset": 699826,
+      "visibilityValues": [
+        "1",
+        "0",
+        "1",
+        "0",
+        "R2329#1#6#1#2329#R#1#",
+        "2",
+        "0",
+        "27110",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "Text6074",
+      "start": 702107,
+      "stop": 703466,
+      "firstID": 702753,
+      "x": 18.75,
+      "y": 304.8,
+      "width": 181.25,
+      "height": 27.200000000000003,
+      "screen": 6,
+      "action": "center-three-columns",
+      "newX": 75.0,
+      "positionOffsets": [
+        702192,
+        702451
+      ],
+      "sizeOffsets": [
+        702135,
+        702296
+      ],
+      "visibilityOffset": 702631,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "BB6072",
+      "start": 703466,
+      "stop": 706535,
+      "firstID": 704332,
+      "x": 18.75,
+      "y": 271.2,
+      "width": 181.25,
+      "height": 27.200000000000003,
+      "screen": 6,
+      "action": "center-three-columns",
+      "newX": 75.0,
+      "positionOffsets": [
+        703551,
+        703712,
+        703982
+      ],
+      "sizeOffsets": [
+        703494,
+        703655,
+        703821
+      ],
+      "visibilityOffset": 704182,
+      "visibilityValues": [
+        "1",
+        "0",
+        "1",
+        "0",
+        "R2329#1#6#1#2329#R#1#",
+        "2",
+        "0",
+        "27110",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "Text6070",
+      "start": 706535,
+      "stop": 707936,
+      "firstID": 707187,
+      "x": 18.75,
+      "y": 271.2,
+      "width": 181.25,
+      "height": 27.200000000000003,
+      "screen": 6,
+      "action": "center-three-columns",
+      "newX": 75.0,
+      "positionOffsets": [
+        706620,
+        706885
+      ],
+      "sizeOffsets": [
+        706563,
+        706724
+      ],
+      "visibilityOffset": 707065,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "MD6068",
+      "start": 707936,
+      "stop": 709834,
+      "firstID": 708751,
+      "x": 18.75,
+      "y": 236.8,
+      "width": 181.25,
+      "height": 25.6,
+      "screen": 6,
+      "action": "center-three-columns",
+      "newX": 75.0,
+      "positionOffsets": [
+        708021,
+        708182,
+        708441
+      ],
+      "sizeOffsets": [
+        707964,
+        708125,
+        708286
+      ],
+      "visibilityOffset": 708625,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "R2170#1#6#1#2170#R#1#",
+        "1",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "Text6066",
+      "start": 709834,
+      "stop": 711285,
+      "firstID": 710494,
+      "x": 18.75,
+      "y": 216.0,
+      "width": 181.25,
+      "height": 17.6,
+      "screen": 6,
+      "action": "center-three-columns",
+      "newX": 75.0,
+      "positionOffsets": [
+        709919,
+        710192
+      ],
+      "sizeOffsets": [
+        709862,
+        710023
+      ],
+      "visibilityOffset": 710372,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "MD6064",
+      "start": 711285,
+      "stop": 713297,
+      "firstID": 712110,
+      "x": 18.75,
+      "y": 184.0,
+      "width": 181.25,
+      "height": 25.6,
+      "screen": 6,
+      "action": "center-three-columns",
+      "newX": 75.0,
+      "positionOffsets": [
+        711370,
+        711531,
+        711804
+      ],
+      "sizeOffsets": [
+        711313,
+        711474,
+        711635
+      ],
+      "visibilityOffset": 711988,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "R720#1#6#1#720#R#1#",
+        "1",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "Text6062",
+      "start": 713297,
+      "stop": 714706,
+      "firstID": 713951,
+      "x": 18.75,
+      "y": 163.20000000000002,
+      "width": 181.25,
+      "height": 17.6,
+      "screen": 6,
+      "action": "center-three-columns",
+      "newX": 75.0,
+      "positionOffsets": [
+        713382,
+        713649
+      ],
+      "sizeOffsets": [
+        713325,
+        713486
+      ],
+      "visibilityOffset": 713829,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "Text6060",
+      "start": 714706,
+      "stop": 716031,
+      "firstID": 715348,
+      "x": 18.75,
+      "y": 80.0,
+      "width": 181.25,
+      "height": 24.0,
+      "screen": 6,
+      "action": "center-three-columns",
+      "newX": 75.0,
+      "positionOffsets": [
+        714791,
+        715046
+      ],
+      "sizeOffsets": [
+        714734,
+        714895
+      ],
+      "visibilityOffset": 715226,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "BB9120",
+      "start": 738304,
+      "stop": 741295,
+      "firstID": 739164,
+      "x": 600.0,
+      "y": 393.6,
+      "width": 181.25,
+      "height": 32.0,
+      "screen": 7,
+      "action": "hide-fourth",
+      "newX": 600.0,
+      "positionOffsets": [
+        738389,
+        738550,
+        738814
+      ],
+      "sizeOffsets": [
+        738332,
+        738493,
+        738659
+      ],
+      "visibilityOffset": 739014,
+      "visibilityValues": [
+        "1",
+        "0",
+        "1",
+        "0",
+        "R2329#1#6#1#2329#R#1#",
+        "2",
+        "0",
+        "27110",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "Text9118",
+      "start": 741295,
+      "stop": 742654,
+      "firstID": 741941,
+      "x": 600.0,
+      "y": 393.6,
+      "width": 181.25,
+      "height": 32.0,
+      "screen": 7,
+      "action": "hide-fourth",
+      "newX": 600.0,
+      "positionOffsets": [
+        741380,
+        741639
+      ],
+      "sizeOffsets": [
+        741323,
+        741484
+      ],
+      "visibilityOffset": 741819,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "BB9116",
+      "start": 742654,
+      "stop": 745515,
+      "firstID": 743504,
+      "x": 600.0,
+      "y": 352.0,
+      "width": 181.25,
+      "height": 35.2,
+      "screen": 7,
+      "action": "hide-fourth",
+      "newX": 600.0,
+      "positionOffsets": [
+        742739,
+        742900,
+        743154
+      ],
+      "sizeOffsets": [
+        742682,
+        742843,
+        743009
+      ],
+      "visibilityOffset": 743354,
+      "visibilityValues": [
+        "1",
+        "0",
+        "1",
+        "0",
+        "R2329#1#6#1#2329#R#1#",
+        "2",
+        "0",
+        "27110",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "Text9114",
+      "start": 745515,
+      "stop": 746804,
+      "firstID": 746151,
+      "x": 600.0,
+      "y": 352.0,
+      "width": 181.25,
+      "height": 35.2,
+      "screen": 7,
+      "action": "hide-fourth",
+      "newX": 600.0,
+      "positionOffsets": [
+        745600,
+        745849
+      ],
+      "sizeOffsets": [
+        745543,
+        745704
+      ],
+      "visibilityOffset": 746029,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "BB9112",
+      "start": 746804,
+      "stop": 749653,
+      "firstID": 747654,
+      "x": 600.0,
+      "y": 310.40000000000003,
+      "width": 181.25,
+      "height": 35.2,
+      "screen": 7,
+      "action": "hide-fourth",
+      "newX": 600.0,
+      "positionOffsets": [
+        746889,
+        747050,
+        747304
+      ],
+      "sizeOffsets": [
+        746832,
+        746993,
+        747159
+      ],
+      "visibilityOffset": 747504,
+      "visibilityValues": [
+        "1",
+        "0",
+        "1",
+        "0",
+        "R2329#1#6#1#2329#R#1#",
+        "2",
+        "0",
+        "27110",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "Text9110",
+      "start": 749653,
+      "stop": 750942,
+      "firstID": 750289,
+      "x": 600.0,
+      "y": 310.40000000000003,
+      "width": 181.25,
+      "height": 35.2,
+      "screen": 7,
+      "action": "hide-fourth",
+      "newX": 600.0,
+      "positionOffsets": [
+        749738,
+        749987
+      ],
+      "sizeOffsets": [
+        749681,
+        749842
+      ],
+      "visibilityOffset": 750167,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "MD9108",
+      "start": 750942,
+      "stop": 752624,
+      "firstID": 751741,
+      "x": 620.3125,
+      "y": 272.0,
+      "width": 140.625,
+      "height": 30.400000000000002,
+      "screen": 7,
+      "action": "hide-fourth",
+      "newX": 620.3125,
+      "positionOffsets": [
+        751027,
+        751188,
+        751431
+      ],
+      "sizeOffsets": [
+        750970,
+        751131,
+        751292
+      ],
+      "visibilityOffset": 751615,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "R2397#1#6#1#2397#R#1#",
+        "1",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "ND9106",
+      "start": 752624,
+      "stop": 754929,
+      "firstID": 753432,
+      "x": 620.3125,
+      "y": 272.0,
+      "width": 140.625,
+      "height": 30.400000000000002,
+      "screen": 7,
+      "action": "hide-fourth",
+      "newX": 620.3125,
+      "positionOffsets": [
+        752709,
+        752870,
+        753126
+      ],
+      "sizeOffsets": [
+        752652,
+        752813,
+        752979
+      ],
+      "visibilityOffset": 753310,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "Text9104",
+      "start": 754929,
+      "stop": 756352,
+      "firstID": 755585,
+      "x": 600.0,
+      "y": 248.0,
+      "width": 181.25,
+      "height": 20.0,
+      "screen": 7,
+      "action": "hide-fourth",
+      "newX": 600.0,
+      "positionOffsets": [
+        755014,
+        755283
+      ],
+      "sizeOffsets": [
+        754957,
+        755118
+      ],
+      "visibilityOffset": 755463,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "NE9102",
+      "start": 756352,
+      "stop": 759077,
+      "firstID": 757188,
+      "x": 620.3125,
+      "y": 206.4,
+      "width": 140.625,
+      "height": 35.2,
+      "screen": 7,
+      "action": "hide-fourth",
+      "newX": 620.3125,
+      "positionOffsets": [
+        756437,
+        756598,
+        756854
+      ],
+      "sizeOffsets": [
+        756380,
+        756541,
+        756707
+      ],
+      "visibilityOffset": 757054,
+      "visibilityValues": [
+        "1",
+        "0",
+        "1",
+        "0",
+        "R2329#1#6#1#2329#R#1#",
+        "2",
+        "0",
+        "27110",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "Text9100",
+      "start": 759077,
+      "stop": 760324,
+      "firstID": 759707,
+      "x": 620.3125,
+      "y": 206.4,
+      "width": 140.625,
+      "height": 35.2,
+      "screen": 7,
+      "action": "hide-fourth",
+      "newX": 620.3125,
+      "positionOffsets": [
+        759162,
+        759405
+      ],
+      "sizeOffsets": [
+        759105,
+        759266
+      ],
+      "visibilityOffset": 759585,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "Text9098",
+      "start": 760324,
+      "stop": 761803,
+      "firstID": 760988,
+      "x": 600.0,
+      "y": 182.4,
+      "width": 181.25,
+      "height": 20.0,
+      "screen": 7,
+      "action": "hide-fourth",
+      "newX": 600.0,
+      "positionOffsets": [
+        760409,
+        760686
+      ],
+      "sizeOffsets": [
+        760352,
+        760513
+      ],
+      "visibilityOffset": 760866,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "MD9096",
+      "start": 761803,
+      "stop": 766743,
+      "firstID": 762644,
+      "x": 600.0,
+      "y": 140.8,
+      "width": 181.25,
+      "height": 35.2,
+      "screen": 7,
+      "action": "hide-fourth",
+      "newX": 600.0,
+      "positionOffsets": [
+        761888,
+        762049,
+        762334
+      ],
+      "sizeOffsets": [
+        761831,
+        761992,
+        762153
+      ],
+      "visibilityOffset": 762518,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "R2383#1#6#1#2383#R#1#",
+        "1",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "Text9094",
+      "start": 766743,
+      "stop": 768068,
+      "firstID": 767385,
+      "x": 600.0,
+      "y": 108.80000000000001,
+      "width": 181.25,
+      "height": 27.200000000000003,
+      "screen": 7,
+      "action": "hide-fourth",
+      "newX": 600.0,
+      "positionOffsets": [
+        766828,
+        767083
+      ],
+      "sizeOffsets": [
+        766771,
+        766932
+      ],
+      "visibilityOffset": 767263,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "BB9092",
+      "start": 768068,
+      "stop": 771059,
+      "firstID": 768928,
+      "x": 406.25,
+      "y": 393.6,
+      "width": 181.25,
+      "height": 32.0,
+      "screen": 7,
+      "action": "center-three-columns",
+      "newX": 543.75,
+      "positionOffsets": [
+        768153,
+        768314,
+        768578
+      ],
+      "sizeOffsets": [
+        768096,
+        768257,
+        768423
+      ],
+      "visibilityOffset": 768778,
+      "visibilityValues": [
+        "1",
+        "0",
+        "1",
+        "0",
+        "R2329#1#6#1#2329#R#1#",
+        "2",
+        "0",
+        "27110",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "Text9090",
+      "start": 771059,
+      "stop": 772418,
+      "firstID": 771705,
+      "x": 406.25,
+      "y": 393.6,
+      "width": 181.25,
+      "height": 32.0,
+      "screen": 7,
+      "action": "center-three-columns",
+      "newX": 543.75,
+      "positionOffsets": [
+        771144,
+        771403
+      ],
+      "sizeOffsets": [
+        771087,
+        771248
+      ],
+      "visibilityOffset": 771583,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "BB9088",
+      "start": 772418,
+      "stop": 775279,
+      "firstID": 773268,
+      "x": 406.25,
+      "y": 352.0,
+      "width": 181.25,
+      "height": 35.2,
+      "screen": 7,
+      "action": "center-three-columns",
+      "newX": 543.75,
+      "positionOffsets": [
+        772503,
+        772664,
+        772918
+      ],
+      "sizeOffsets": [
+        772446,
+        772607,
+        772773
+      ],
+      "visibilityOffset": 773118,
+      "visibilityValues": [
+        "1",
+        "0",
+        "1",
+        "0",
+        "R2329#1#6#1#2329#R#1#",
+        "2",
+        "0",
+        "27110",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "Text9086",
+      "start": 775279,
+      "stop": 776568,
+      "firstID": 775915,
+      "x": 406.25,
+      "y": 352.0,
+      "width": 181.25,
+      "height": 35.2,
+      "screen": 7,
+      "action": "center-three-columns",
+      "newX": 543.75,
+      "positionOffsets": [
+        775364,
+        775613
+      ],
+      "sizeOffsets": [
+        775307,
+        775468
+      ],
+      "visibilityOffset": 775793,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "BB9084",
+      "start": 776568,
+      "stop": 779417,
+      "firstID": 777418,
+      "x": 406.25,
+      "y": 310.40000000000003,
+      "width": 181.25,
+      "height": 35.2,
+      "screen": 7,
+      "action": "center-three-columns",
+      "newX": 543.75,
+      "positionOffsets": [
+        776653,
+        776814,
+        777068
+      ],
+      "sizeOffsets": [
+        776596,
+        776757,
+        776923
+      ],
+      "visibilityOffset": 777268,
+      "visibilityValues": [
+        "1",
+        "0",
+        "1",
+        "0",
+        "R2329#1#6#1#2329#R#1#",
+        "2",
+        "0",
+        "27110",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "Text9082",
+      "start": 779417,
+      "stop": 780706,
+      "firstID": 780053,
+      "x": 406.25,
+      "y": 310.40000000000003,
+      "width": 181.25,
+      "height": 35.2,
+      "screen": 7,
+      "action": "center-three-columns",
+      "newX": 543.75,
+      "positionOffsets": [
+        779502,
+        779751
+      ],
+      "sizeOffsets": [
+        779445,
+        779606
+      ],
+      "visibilityOffset": 779931,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "MD9080",
+      "start": 780706,
+      "stop": 782388,
+      "firstID": 781505,
+      "x": 426.5625,
+      "y": 272.0,
+      "width": 140.625,
+      "height": 30.400000000000002,
+      "screen": 7,
+      "action": "center-three-columns",
+      "newX": 564.0625,
+      "positionOffsets": [
+        780791,
+        780952,
+        781195
+      ],
+      "sizeOffsets": [
+        780734,
+        780895,
+        781056
+      ],
+      "visibilityOffset": 781379,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "R2396#1#6#1#2396#R#1#",
+        "1",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "ND9078",
+      "start": 782388,
+      "stop": 784693,
+      "firstID": 783196,
+      "x": 426.5625,
+      "y": 272.0,
+      "width": 140.625,
+      "height": 30.400000000000002,
+      "screen": 7,
+      "action": "center-three-columns",
+      "newX": 564.0625,
+      "positionOffsets": [
+        782473,
+        782634,
+        782890
+      ],
+      "sizeOffsets": [
+        782416,
+        782577,
+        782743
+      ],
+      "visibilityOffset": 783074,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "Text9076",
+      "start": 784693,
+      "stop": 786116,
+      "firstID": 785349,
+      "x": 406.25,
+      "y": 248.0,
+      "width": 181.25,
+      "height": 20.0,
+      "screen": 7,
+      "action": "center-three-columns",
+      "newX": 543.75,
+      "positionOffsets": [
+        784778,
+        785047
+      ],
+      "sizeOffsets": [
+        784721,
+        784882
+      ],
+      "visibilityOffset": 785227,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "NE9074",
+      "start": 786116,
+      "stop": 788841,
+      "firstID": 786952,
+      "x": 426.5625,
+      "y": 206.4,
+      "width": 140.625,
+      "height": 35.2,
+      "screen": 7,
+      "action": "center-three-columns",
+      "newX": 564.0625,
+      "positionOffsets": [
+        786201,
+        786362,
+        786618
+      ],
+      "sizeOffsets": [
+        786144,
+        786305,
+        786471
+      ],
+      "visibilityOffset": 786818,
+      "visibilityValues": [
+        "1",
+        "0",
+        "1",
+        "0",
+        "R2329#1#6#1#2329#R#1#",
+        "2",
+        "0",
+        "27110",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "Text9072",
+      "start": 788841,
+      "stop": 790088,
+      "firstID": 789471,
+      "x": 426.5625,
+      "y": 206.4,
+      "width": 140.625,
+      "height": 35.2,
+      "screen": 7,
+      "action": "center-three-columns",
+      "newX": 564.0625,
+      "positionOffsets": [
+        788926,
+        789169
+      ],
+      "sizeOffsets": [
+        788869,
+        789030
+      ],
+      "visibilityOffset": 789349,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "Text9070",
+      "start": 790088,
+      "stop": 791567,
+      "firstID": 790752,
+      "x": 406.25,
+      "y": 182.4,
+      "width": 181.25,
+      "height": 20.0,
+      "screen": 7,
+      "action": "center-three-columns",
+      "newX": 543.75,
+      "positionOffsets": [
+        790173,
+        790450
+      ],
+      "sizeOffsets": [
+        790116,
+        790277
+      ],
+      "visibilityOffset": 790630,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "MD9068",
+      "start": 791567,
+      "stop": 796507,
+      "firstID": 792408,
+      "x": 406.25,
+      "y": 140.8,
+      "width": 181.25,
+      "height": 35.2,
+      "screen": 7,
+      "action": "center-three-columns",
+      "newX": 543.75,
+      "positionOffsets": [
+        791652,
+        791813,
+        792098
+      ],
+      "sizeOffsets": [
+        791595,
+        791756,
+        791917
+      ],
+      "visibilityOffset": 792282,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "R2382#1#6#1#2382#R#1#",
+        "1",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "Text9066",
+      "start": 796507,
+      "stop": 797832,
+      "firstID": 797149,
+      "x": 406.25,
+      "y": 108.80000000000001,
+      "width": 181.25,
+      "height": 27.200000000000003,
+      "screen": 7,
+      "action": "center-three-columns",
+      "newX": 543.75,
+      "positionOffsets": [
+        796592,
+        796847
+      ],
+      "sizeOffsets": [
+        796535,
+        796696
+      ],
+      "visibilityOffset": 797027,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "BB9064",
+      "start": 797832,
+      "stop": 800823,
+      "firstID": 798692,
+      "x": 212.5,
+      "y": 393.6,
+      "width": 181.25,
+      "height": 32.0,
+      "screen": 7,
+      "action": "center-three-columns",
+      "newX": 309.375,
+      "positionOffsets": [
+        797917,
+        798078,
+        798342
+      ],
+      "sizeOffsets": [
+        797860,
+        798021,
+        798187
+      ],
+      "visibilityOffset": 798542,
+      "visibilityValues": [
+        "1",
+        "0",
+        "1",
+        "0",
+        "R2329#1#6#1#2329#R#1#",
+        "2",
+        "0",
+        "27110",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "Text9062",
+      "start": 800823,
+      "stop": 802182,
+      "firstID": 801469,
+      "x": 212.5,
+      "y": 393.6,
+      "width": 181.25,
+      "height": 32.0,
+      "screen": 7,
+      "action": "center-three-columns",
+      "newX": 309.375,
+      "positionOffsets": [
+        800908,
+        801167
+      ],
+      "sizeOffsets": [
+        800851,
+        801012
+      ],
+      "visibilityOffset": 801347,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "BB9060",
+      "start": 802182,
+      "stop": 805043,
+      "firstID": 803032,
+      "x": 212.5,
+      "y": 352.0,
+      "width": 181.25,
+      "height": 35.2,
+      "screen": 7,
+      "action": "center-three-columns",
+      "newX": 309.375,
+      "positionOffsets": [
+        802267,
+        802428,
+        802682
+      ],
+      "sizeOffsets": [
+        802210,
+        802371,
+        802537
+      ],
+      "visibilityOffset": 802882,
+      "visibilityValues": [
+        "1",
+        "0",
+        "1",
+        "0",
+        "R2329#1#6#1#2329#R#1#",
+        "2",
+        "0",
+        "27110",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "Text9058",
+      "start": 805043,
+      "stop": 806332,
+      "firstID": 805679,
+      "x": 212.5,
+      "y": 352.0,
+      "width": 181.25,
+      "height": 35.2,
+      "screen": 7,
+      "action": "center-three-columns",
+      "newX": 309.375,
+      "positionOffsets": [
+        805128,
+        805377
+      ],
+      "sizeOffsets": [
+        805071,
+        805232
+      ],
+      "visibilityOffset": 805557,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "BB9056",
+      "start": 806332,
+      "stop": 809181,
+      "firstID": 807182,
+      "x": 212.5,
+      "y": 310.40000000000003,
+      "width": 181.25,
+      "height": 35.2,
+      "screen": 7,
+      "action": "center-three-columns",
+      "newX": 309.375,
+      "positionOffsets": [
+        806417,
+        806578,
+        806832
+      ],
+      "sizeOffsets": [
+        806360,
+        806521,
+        806687
+      ],
+      "visibilityOffset": 807032,
+      "visibilityValues": [
+        "1",
+        "0",
+        "1",
+        "0",
+        "R2329#1#6#1#2329#R#1#",
+        "2",
+        "0",
+        "27110",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "Text9054",
+      "start": 809181,
+      "stop": 810470,
+      "firstID": 809817,
+      "x": 212.5,
+      "y": 310.40000000000003,
+      "width": 181.25,
+      "height": 35.2,
+      "screen": 7,
+      "action": "center-three-columns",
+      "newX": 309.375,
+      "positionOffsets": [
+        809266,
+        809515
+      ],
+      "sizeOffsets": [
+        809209,
+        809370
+      ],
+      "visibilityOffset": 809695,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "MD9052",
+      "start": 810470,
+      "stop": 812152,
+      "firstID": 811269,
+      "x": 232.8125,
+      "y": 272.0,
+      "width": 140.625,
+      "height": 30.400000000000002,
+      "screen": 7,
+      "action": "center-three-columns",
+      "newX": 329.6875,
+      "positionOffsets": [
+        810555,
+        810716,
+        810959
+      ],
+      "sizeOffsets": [
+        810498,
+        810659,
+        810820
+      ],
+      "visibilityOffset": 811143,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "R2395#1#6#1#2395#R#1#",
+        "1",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "ND9050",
+      "start": 812152,
+      "stop": 814457,
+      "firstID": 812960,
+      "x": 232.8125,
+      "y": 272.0,
+      "width": 140.625,
+      "height": 30.400000000000002,
+      "screen": 7,
+      "action": "center-three-columns",
+      "newX": 329.6875,
+      "positionOffsets": [
+        812237,
+        812398,
+        812654
+      ],
+      "sizeOffsets": [
+        812180,
+        812341,
+        812507
+      ],
+      "visibilityOffset": 812838,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "Text9048",
+      "start": 814457,
+      "stop": 815880,
+      "firstID": 815113,
+      "x": 212.5,
+      "y": 248.0,
+      "width": 181.25,
+      "height": 20.0,
+      "screen": 7,
+      "action": "center-three-columns",
+      "newX": 309.375,
+      "positionOffsets": [
+        814542,
+        814811
+      ],
+      "sizeOffsets": [
+        814485,
+        814646
+      ],
+      "visibilityOffset": 814991,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "NE9046",
+      "start": 815880,
+      "stop": 818605,
+      "firstID": 816716,
+      "x": 232.8125,
+      "y": 206.4,
+      "width": 140.625,
+      "height": 35.2,
+      "screen": 7,
+      "action": "center-three-columns",
+      "newX": 329.6875,
+      "positionOffsets": [
+        815965,
+        816126,
+        816382
+      ],
+      "sizeOffsets": [
+        815908,
+        816069,
+        816235
+      ],
+      "visibilityOffset": 816582,
+      "visibilityValues": [
+        "1",
+        "0",
+        "1",
+        "0",
+        "R2329#1#6#1#2329#R#1#",
+        "2",
+        "0",
+        "27110",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "Text9044",
+      "start": 818605,
+      "stop": 819852,
+      "firstID": 819235,
+      "x": 232.8125,
+      "y": 206.4,
+      "width": 140.625,
+      "height": 35.2,
+      "screen": 7,
+      "action": "center-three-columns",
+      "newX": 329.6875,
+      "positionOffsets": [
+        818690,
+        818933
+      ],
+      "sizeOffsets": [
+        818633,
+        818794
+      ],
+      "visibilityOffset": 819113,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "Text9042",
+      "start": 819852,
+      "stop": 821331,
+      "firstID": 820516,
+      "x": 212.5,
+      "y": 182.4,
+      "width": 181.25,
+      "height": 20.0,
+      "screen": 7,
+      "action": "center-three-columns",
+      "newX": 309.375,
+      "positionOffsets": [
+        819937,
+        820214
+      ],
+      "sizeOffsets": [
+        819880,
+        820041
+      ],
+      "visibilityOffset": 820394,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "MD9040",
+      "start": 821331,
+      "stop": 826271,
+      "firstID": 822172,
+      "x": 212.5,
+      "y": 140.8,
+      "width": 181.25,
+      "height": 35.2,
+      "screen": 7,
+      "action": "center-three-columns",
+      "newX": 309.375,
+      "positionOffsets": [
+        821416,
+        821577,
+        821862
+      ],
+      "sizeOffsets": [
+        821359,
+        821520,
+        821681
+      ],
+      "visibilityOffset": 822046,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "R2381#1#6#1#2381#R#1#",
+        "1",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "Text9038",
+      "start": 826271,
+      "stop": 827596,
+      "firstID": 826913,
+      "x": 212.5,
+      "y": 108.80000000000001,
+      "width": 181.25,
+      "height": 27.200000000000003,
+      "screen": 7,
+      "action": "center-three-columns",
+      "newX": 309.375,
+      "positionOffsets": [
+        826356,
+        826611
+      ],
+      "sizeOffsets": [
+        826299,
+        826460
+      ],
+      "visibilityOffset": 826791,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "BB9036",
+      "start": 827596,
+      "stop": 830587,
+      "firstID": 828456,
+      "x": 18.75,
+      "y": 393.6,
+      "width": 181.25,
+      "height": 32.0,
+      "screen": 7,
+      "action": "center-three-columns",
+      "newX": 75.0,
+      "positionOffsets": [
+        827681,
+        827842,
+        828106
+      ],
+      "sizeOffsets": [
+        827624,
+        827785,
+        827951
+      ],
+      "visibilityOffset": 828306,
+      "visibilityValues": [
+        "1",
+        "0",
+        "1",
+        "0",
+        "R2329#1#6#1#2329#R#1#",
+        "2",
+        "0",
+        "27110",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "Text9034",
+      "start": 830587,
+      "stop": 831946,
+      "firstID": 831233,
+      "x": 18.75,
+      "y": 393.6,
+      "width": 181.25,
+      "height": 32.0,
+      "screen": 7,
+      "action": "center-three-columns",
+      "newX": 75.0,
+      "positionOffsets": [
+        830672,
+        830931
+      ],
+      "sizeOffsets": [
+        830615,
+        830776
+      ],
+      "visibilityOffset": 831111,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "BB9032",
+      "start": 831946,
+      "stop": 834807,
+      "firstID": 832796,
+      "x": 18.75,
+      "y": 352.0,
+      "width": 181.25,
+      "height": 35.2,
+      "screen": 7,
+      "action": "center-three-columns",
+      "newX": 75.0,
+      "positionOffsets": [
+        832031,
+        832192,
+        832446
+      ],
+      "sizeOffsets": [
+        831974,
+        832135,
+        832301
+      ],
+      "visibilityOffset": 832646,
+      "visibilityValues": [
+        "1",
+        "0",
+        "1",
+        "0",
+        "R2329#1#6#1#2329#R#1#",
+        "2",
+        "0",
+        "27110",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "Text9030",
+      "start": 834807,
+      "stop": 836096,
+      "firstID": 835443,
+      "x": 18.75,
+      "y": 352.0,
+      "width": 181.25,
+      "height": 35.2,
+      "screen": 7,
+      "action": "center-three-columns",
+      "newX": 75.0,
+      "positionOffsets": [
+        834892,
+        835141
+      ],
+      "sizeOffsets": [
+        834835,
+        834996
+      ],
+      "visibilityOffset": 835321,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "BB9028",
+      "start": 836096,
+      "stop": 838945,
+      "firstID": 836946,
+      "x": 18.75,
+      "y": 310.40000000000003,
+      "width": 181.25,
+      "height": 35.2,
+      "screen": 7,
+      "action": "center-three-columns",
+      "newX": 75.0,
+      "positionOffsets": [
+        836181,
+        836342,
+        836596
+      ],
+      "sizeOffsets": [
+        836124,
+        836285,
+        836451
+      ],
+      "visibilityOffset": 836796,
+      "visibilityValues": [
+        "1",
+        "0",
+        "1",
+        "0",
+        "R2329#1#6#1#2329#R#1#",
+        "2",
+        "0",
+        "27110",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "Text9026",
+      "start": 838945,
+      "stop": 840234,
+      "firstID": 839581,
+      "x": 18.75,
+      "y": 310.40000000000003,
+      "width": 181.25,
+      "height": 35.2,
+      "screen": 7,
+      "action": "center-three-columns",
+      "newX": 75.0,
+      "positionOffsets": [
+        839030,
+        839279
+      ],
+      "sizeOffsets": [
+        838973,
+        839134
+      ],
+      "visibilityOffset": 839459,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "MD9024",
+      "start": 840234,
+      "stop": 841916,
+      "firstID": 841033,
+      "x": 39.0625,
+      "y": 272.0,
+      "width": 140.625,
+      "height": 30.400000000000002,
+      "screen": 7,
+      "action": "center-three-columns",
+      "newX": 95.3125,
+      "positionOffsets": [
+        840319,
+        840480,
+        840723
+      ],
+      "sizeOffsets": [
+        840262,
+        840423,
+        840584
+      ],
+      "visibilityOffset": 840907,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "R2394#1#6#1#2394#R#1#",
+        "1",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "ND9022",
+      "start": 841916,
+      "stop": 844221,
+      "firstID": 842724,
+      "x": 39.0625,
+      "y": 272.0,
+      "width": 140.625,
+      "height": 30.400000000000002,
+      "screen": 7,
+      "action": "center-three-columns",
+      "newX": 95.3125,
+      "positionOffsets": [
+        842001,
+        842162,
+        842418
+      ],
+      "sizeOffsets": [
+        841944,
+        842105,
+        842271
+      ],
+      "visibilityOffset": 842602,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "Text9020",
+      "start": 844221,
+      "stop": 845644,
+      "firstID": 844877,
+      "x": 18.75,
+      "y": 248.0,
+      "width": 181.25,
+      "height": 20.0,
+      "screen": 7,
+      "action": "center-three-columns",
+      "newX": 75.0,
+      "positionOffsets": [
+        844306,
+        844575
+      ],
+      "sizeOffsets": [
+        844249,
+        844410
+      ],
+      "visibilityOffset": 844755,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "NE9018",
+      "start": 845644,
+      "stop": 848369,
+      "firstID": 846480,
+      "x": 39.0625,
+      "y": 206.4,
+      "width": 140.625,
+      "height": 35.2,
+      "screen": 7,
+      "action": "center-three-columns",
+      "newX": 95.3125,
+      "positionOffsets": [
+        845729,
+        845890,
+        846146
+      ],
+      "sizeOffsets": [
+        845672,
+        845833,
+        845999
+      ],
+      "visibilityOffset": 846346,
+      "visibilityValues": [
+        "1",
+        "0",
+        "1",
+        "0",
+        "R2329#1#6#1#2329#R#1#",
+        "2",
+        "0",
+        "27110",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "Text9016",
+      "start": 848369,
+      "stop": 849616,
+      "firstID": 848999,
+      "x": 39.0625,
+      "y": 206.4,
+      "width": 140.625,
+      "height": 35.2,
+      "screen": 7,
+      "action": "center-three-columns",
+      "newX": 95.3125,
+      "positionOffsets": [
+        848454,
+        848697
+      ],
+      "sizeOffsets": [
+        848397,
+        848558
+      ],
+      "visibilityOffset": 848877,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "Text9014",
+      "start": 849616,
+      "stop": 851095,
+      "firstID": 850280,
+      "x": 18.75,
+      "y": 182.4,
+      "width": 181.25,
+      "height": 20.0,
+      "screen": 7,
+      "action": "center-three-columns",
+      "newX": 75.0,
+      "positionOffsets": [
+        849701,
+        849978
+      ],
+      "sizeOffsets": [
+        849644,
+        849805
+      ],
+      "visibilityOffset": 850158,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "MD9012",
+      "start": 851095,
+      "stop": 856035,
+      "firstID": 851936,
+      "x": 18.75,
+      "y": 140.8,
+      "width": 181.25,
+      "height": 35.2,
+      "screen": 7,
+      "action": "center-three-columns",
+      "newX": 75.0,
+      "positionOffsets": [
+        851180,
+        851341,
+        851626
+      ],
+      "sizeOffsets": [
+        851123,
+        851284,
+        851445
+      ],
+      "visibilityOffset": 851810,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "R2380#1#6#1#2380#R#1#",
+        "1",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    },
+    {
+      "id": "Text9010",
+      "start": 856035,
+      "stop": 857360,
+      "firstID": 856677,
+      "x": 18.75,
+      "y": 108.80000000000001,
+      "width": 181.25,
+      "height": 27.200000000000003,
+      "screen": 7,
+      "action": "center-three-columns",
+      "newX": 75.0,
+      "positionOffsets": [
+        856120,
+        856375
+      ],
+      "sizeOffsets": [
+        856063,
+        856224
+      ],
+      "visibilityOffset": 856555,
+      "visibilityValues": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "LW0#0#1#100#0#LW#1#",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100"
+      ]
+    }
+  ],
+  "recordReplacement": {
+    "oldID": "MD10050",
+    "newID": "ND10050",
+    "destinationStart": 43564,
+    "destinationEnd": 45492,
+    "templateStart": 45492,
+    "templateEnd": 47620,
+    "templateID": "ND10048",
+    "templateOrdinal": "65",
+    "destinationOrdinal": "66"
+  },
+  "unchangedPLC": "780267f80d2f107c584ded1e8f48a63c65ad23d977255cdcbe895ed2b791b73b"
+}
