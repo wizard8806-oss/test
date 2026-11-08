@@ -86,5 +86,7 @@
   "nativeSKToolValidationObserved": false,
   "offlineSimulatorObserved": false,
   "equipmentActionsAllowed": false,
-  "fullNativeProjectPublicationAllowed": false
+  "fullNativeProjectPublicationAllowed": false,
+  "status": "native-open-rejected-stale-section-directory",
+  "supersededBy": "docs/tasks/station002-three-pump-hmi-r4-local-delivery.md"
 }

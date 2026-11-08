@@ -14,6 +14,7 @@ from apply_hmi_layout_recipe import qstring
 from build_three_pump_hmi_r3 import prepare, descriptor
 from check_native_drive_edit_02 import unpack
 from validate_three_pump_pdw_candidate import Machine
+from repair_skm_section_index import read_directory
 
 
 def read_strings(raw, at, count):
@@ -26,7 +27,8 @@ def read_strings(raw, at, count):
     return values
 
 
-def validate(source, candidate, recipe_path, plc_path):
+def validate_ui_assembly(source, candidate, recipe_path, plc_path):
+    """Historic UI-only component checks; explicitly excludes file directory."""
     raw, target = Path(source).read_bytes(), Path(candidate).read_bytes()
     recipe = json.loads(Path(recipe_path).read_text())
     expected, report = prepare(source, recipe_path)
@@ -159,6 +161,13 @@ def validate(source, candidate, recipe_path, plc_path):
             'centeredWidgets': 75, 'unlistedBytesPreserved': True, 'sceneCountsPreserved': True,
             'twoIndependentNumericRecords': True, 'causeLabelAndValueVisibilityMatched': True,
             'PLCUnchanged': True, 'nativeSKToolValidation': False, 'equipmentActions': 0}
+
+
+def validate(source, candidate, recipe_path, plc_path):
+    # The old component checks missed this mandatory whole-file constraint.
+    # Public validation now rejects the native-failing r3 before reporting PASS.
+    read_directory(Path(candidate).read_bytes())
+    return validate_ui_assembly(source, candidate, recipe_path, plc_path)
 
 
 def main():

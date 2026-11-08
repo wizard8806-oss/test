@@ -49,5 +49,9 @@
   "finalReadiness2s": "existing T96 unchanged; cause rows hide when their own pause is completed, including during this separate readiness phase",
   "onCommunicationLoss": "PLC remaining values are authoritative; native HMI link-loss blanking has not been independently observed",
   "nativeHMIValidationObserved": false,
-  "equipmentActionsAllowed": false
+  "equipmentActionsAllowed": false,
+  "status": "rejected-native-open",
+  "nativeOpenFailure": "Illegal opening of configuration file!",
+  "screenshotFileSHA256": null,
+  "reproducedDefect": "stale absolute section directory/EOF in exact generator target"
 }

@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""Repair the reviewed countdown-r2 HMI in a new, source-locked copy.
+"""Historic r3 UI assembly; its standalone output was rejected by SKTool.
 
 Only reviewed Qt QString fields, geometry mirrors and one complete existing
-ND record are reused. No new control binding or PLC edit. Native SKTool
-validation is a separate acceptance step.
+ND record are reused. Its directory was not relocated. The prepare function
+is retained only as an in-memory intermediate for build_three_pump_hmi_r4.py.
+Do not issue the historic r3 as a usable project.
 """
-import argparse
 import hashlib
 import json
 from pathlib import Path
@@ -193,20 +193,7 @@ def prepare(source, recipe_path):
 
 
 def main():
-    p = argparse.ArgumentParser(description=__doc__)
-    for name in ('source', 'recipe', 'out', 'report'):
-        p.add_argument('--' + name, type=Path, required=True)
-    a = p.parse_args()
-    if len({v.resolve() for v in (a.source, a.recipe, a.out, a.report)}) != 4 or any(v.exists() or v.is_symlink() for v in (a.out, a.report)):
-        raise ValueError('Distinct new output/report paths required')
-    result, report = prepare(a.source, a.recipe)
-    with a.out.open('xb') as f:
-        f.write(result)
-    with a.report.open('x', encoding='utf8') as f:
-        json.dump(report, f, ensure_ascii=False, indent=2)
-        f.write('\n')
-    print('Built NEW three-pump HMI-r3:', len(result), 'bytes;', sha(result))
-    print('PLC source preserved; native SKTool/Offline Simulator checks remain.')
+    raise SystemExit('HMI-r3 was rejected by SKTool (stale section index). Use build_three_pump_hmi_r4.py; preserve source.')
 
 
 if __name__ == '__main__':

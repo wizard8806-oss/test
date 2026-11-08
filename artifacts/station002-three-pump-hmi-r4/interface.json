@@ -1,0 +1,42 @@
+{
+  "revision": 4,
+  "purpose": "Repair exact rejected r3 section directory; preserve requested three-pump UI and independent timers",
+  "acceptedSources": [
+    {
+      "name": "pump_station_3p_countdown_r2.skm",
+      "bytes": 1321783,
+      "sha256": "ee8c98b9024e765cbc924782442cfe64db252c19f9f86078bca5f50c99d86cc9"
+    },
+    {
+      "name": "pump_station_3p_countdown_r3.skm",
+      "bytes": 1322197,
+      "sha256": "aaed37837dc96595cfcbe447057b55c1bc67bc15801d4055197937e39bd90b58",
+      "status": "rejected-native-open"
+    }
+  ],
+  "target": {
+    "name": "pump_station_3p_countdown_r4.skm",
+    "bytes": 1322197,
+    "sha256": "2375cf125dff7568292b501fddcab73fa9320e02023d2d0f6b0a5a719c0656ba"
+  },
+  "directory": {
+    "entries": 24,
+    "encoding": "big-endian quint64",
+    "countEncoding": "big-endian quint32",
+    "relocationDelta": 414,
+    "backPointerUpdated": true,
+    "EOFMatchesActualSize": true,
+    "metadataSectionsPreserved": 22
+  },
+  "retainedUI": {
+    "hiddenFourthWidgets": 25,
+    "centeredWidgets": 75,
+    "dryWord": "R2525",
+    "powerWord": "R2526",
+    "captionAndNumberVisibleOnlyWhenOwnWordNonzero": true
+  },
+  "PLCChanged": false,
+  "PLCBaseSHA256": "780267f80d2f107c584ded1e8f48a63c65ad23d977255cdcbe895ed2b791b73b",
+  "nativeSKToolOpenObserved": false,
+  "equipmentActionsAllowed": false
+}
