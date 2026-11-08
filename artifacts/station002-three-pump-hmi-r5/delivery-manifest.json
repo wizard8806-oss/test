@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "revision": 5,
+  "purpose": "Remove remaining fourth-pump widget records; eliminate overlap on third manual column",
+  "baseCommit": "51ff3aca33e27542aa7a83902c92d8b6643c9276",
+  "rawBase": "https://raw.githubusercontent.com/wizard8806-oss/test/51ff3aca33e27542aa7a83902c92d8b6643c9276/",
+  "runtime": "Python3 standard library only; no GUI/DLL/pip required for generation",
+  "files": [
+    {
+      "path": "tools/build_three_pump_hmi_r5.py",
+      "bytes": 7666,
+      "sha256": "a690db4b7fe4e5e85d4f6c3510e6adfc9119f93b0fc6ac2ed625479159f48629"
+    },
+    {
+      "path": "tools/repair_skm_section_index.py",
+      "bytes": 2816,
+      "sha256": "c5b29065a28561dd00db2e118a8ad157259fad90c9160e439c8adcd7df0214ef"
+    },
+    {
+      "path": "artifacts/station002-three-pump-hmi-r5/removal-recipe.json",
+      "bytes": 30464,
+      "sha256": "1e5055a0aa6f291045efe982404ec26c3d4bf9f2bbc2dca797ae4884c94a971a"
+    },
+    {
+      "path": "artifacts/station002-three-pump-hmi-r5/interface.json",
+      "bytes": 1239,
+      "sha256": "ef527239119b6cf54ddf72dc520a7a17bd94e38ace42ed5c72b552fa4f7ac521"
+    }
+  ],
+  "entrypoint": "tools/build_three_pump_hmi_r5.py",
+  "recipe": "artifacts/station002-three-pump-hmi-r5/removal-recipe.json",
+  "source": {
+    "name": "pump_station_3p_countdown_r4.skm",
+    "bytes": 1322197,
+    "sha256": "2375cf125dff7568292b501fddcab73fa9320e02023d2d0f6b0a5a719c0656ba",
+    "nativeOpenObservedByUser": true,
+    "nativeScreenshotHashKnown": false
+  },
+  "target": {
+    "name": "pump_station_3p_countdown_r5.skm",
+    "bytes": 1254272,
+    "sha256": "1d6449d8884fb9f44e3c6a2c71193d044788d8c2832e884c88e44c0707bdf3a3"
+  },
+  "report": "hmi-r5-local-build.json",
+  "fallbackR4Manifest": "https://raw.githubusercontent.com/wizard8806-oss/test/fe5a69da09f28b1a5024d30bb35ed774ffc4cae8/artifacts/station002-three-pump-hmi-r4/delivery-manifest.json",
+  "expected": {
+    "recordsRemoved": 32,
+    "manualFourthRemoved": 14,
+    "pumpsFourthRemoved": 11,
+    "mainRetiredRemoved": 7,
+    "primaryThreeRecordsUnchanged": 75,
+    "sceneCounts": [
+      73,
+      55,
+      53
+    ],
+    "totalScreensUnchanged": 14,
+    "directoryAndEOFCorrect": true,
+    "PLCChanged": false
+  },
+  "cloudChecks": {
+    "r4GeometryCollisionsReproducedAndEliminated": 4,
+    "removedIDsAbsent": 32,
+    "primaryRecordBytesPreserved": 75,
+    "metadataSectionsPreserved": 22,
+    "repositoryGroupsPassed": 51,
+    "stdlibExactFourFilePackage": true,
+    "sourceLockAndNoOverwritePassed": true
+  },
+  "nativeR5OpenObserved": false,
+  "nativeR5LayoutObserved": false,
+  "timerActiveVisibilityNativeVerified": false,
+  "equipmentActionsAllowed": false,
+  "fullNativeProjectPublicationAllowed": false
+}
