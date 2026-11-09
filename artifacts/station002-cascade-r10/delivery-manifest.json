@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "revision": 10,
+  "purpose": "Independent follower add timers, fast follower stop, alarm-table service restoration; native acceptance pending",
+  "baseCommit": "43f8b34f413bc4fc20e4277c26be2a61956c330c",
+  "rawBase": "https://raw.githubusercontent.com/wizard8806-oss/test/43f8b34f413bc4fc20e4277c26be2a61956c330c/",
+  "files": [
+    {
+      "path": "tools/build_cascade_r10.py",
+      "bytes": 11085,
+      "sha256": "b4fcadc6d80cbac3df506b54722879de00eaa5e19a5d750f9275d7259cc8f545"
+    },
+    {
+      "path": "tools/build_cascade_hmi_r10.py",
+      "bytes": 8776,
+      "sha256": "b6f00a88e02de3570c4c7f5c2ee723f8c4d2d6e76a4d8d6f02d3f1d2e0c4ed64"
+    },
+    {
+      "path": "tools/repair_alarm_table_r9.py",
+      "bytes": 2641,
+      "sha256": "6b17e2ffa528b84b84baecfbb1f9ae9a49a6f8ad7a860ebadd5e292666525bc3"
+    },
+    {
+      "path": "tools/build_manual_no_sensor_pdw.py",
+      "bytes": 6011,
+      "sha256": "4dc3de6dc692a8b4b0f86f29562a6603601dea340727d14a7888d884bf928929"
+    },
+    {
+      "path": "tools/repair_skm_section_index.py",
+      "bytes": 2816,
+      "sha256": "c5b29065a28561dd00db2e118a8ad157259fad90c9160e439c8adcd7df0214ef"
+    },
+    {
+      "path": "artifacts/station002-cascade-r10/interface.json",
+      "bytes": 3202,
+      "sha256": "12db53b78ad245c768a6ad4065ee030387ab5a2110cb552410205776109df910"
+    }
+  ],
+  "runtime": "Python3 standard library; existing Windows editors for native checks",
+  "sources": {
+    "plc": {
+      "name": "station_3p_24MC_HP_countdown_manual_no_sensor_r3.pdw",
+      "bytes": 185409,
+      "sha256": "3b1ffdac9646a525b3e2113bc60c93bdaa3efc3b48ada20ee3b5246d5ca6ad9c"
+    },
+    "hmiR8": {
+      "name": "pump_station_3p_services_r8_candidate.skm",
+      "bytes": 1272222,
+      "sha256": "587038bbe7f0bb59299e37fac092a6dd4ec484b9529bec2e8f78c05f69339280"
+    },
+    "hmiR9Intermediate": {
+      "name": "pump_station_3p_alarm_table_r9_candidate.skm",
+      "bytes": 1272222,
+      "sha256": "1b38484782f2c325d3f731f70d2b6079a6d94a033388b2789ab7bb7ad7f4321e"
+    }
+  },
+  "targets": {
+    "plc": {
+      "name": "station_3p_24MC_cascade_r10_candidate.pdw",
+      "bytes": 187549,
+      "sha256": "b5de31e3fddd45041c8f11b97be94eb55cf13f7aad7b63f3467707227c192a8b"
+    },
+    "hmi": {
+      "name": "pump_station_3p_cascade_r10_candidate.skm",
+      "bytes": 1287912,
+      "sha256": "e7752b52bfbbc9e74f04391aa0aa9ffc09e9437cc189d55632a41401495c76f4"
+    }
+  },
+  "entrypoints": {
+    "alarmTableIntermediate": "tools/repair_alarm_table_r9.py",
+    "plc": "tools/build_cascade_r10.py",
+    "hmi": "tools/build_cascade_hmi_r10.py"
+  },
+  "fallbackManifestR8": "https://raw.githubusercontent.com/wizard8806-oss/test/7c66ceefbe99d38d7025439606c669823799b006/artifacts/station002-panel-services-r8/delivery-manifest.json",
+  "rules": {
+    "delayRelationEnforced": false,
+    "equalOrShorterSecondDelayAllowed": true,
+    "counterResetOnDemandLossOrStageChange": true,
+    "leaderMayStartFromZeroWithoutFollowers": true,
+    "manualCommandsUnaffected": true,
+    "stoppedStaleOrUnavailableLeaderClearsFollowerMemberships": true,
+    "mechanicalStopTiming": "VFD stop/ramp follows removal of RUN; telemetry observation includes serial polling latency"
+  },
+  "checks": {
+    "repositoryGroupsPassed": 53,
+    "compiledCascadeComponentScenariosPassed": 50,
+    "isolatedVendorNodeConversionsPassed": 57,
+    "actualMap32CScenariosPassed": 21,
+    "finalHMIEightRowsBindingsStackingAndBytePreservationPassed": true,
+    "all6PinnedFilesHTTPSizeAndSHAVerified": true,
+    "freshHTTPPythonSExactPair": true,
+    "wrongSourceNoOverwriteAndSourcePreservationPassed": true
+  },
+  "nativeF8Observed": false,
+  "nativeHMICompileObserved": false,
+  "nativeAlarmGridObserved": false,
+  "liveAnimationCauseEstablished": false,
+  "automaticEquipmentActionsAllowed": false,
+  "fullNativeProjectsPublished": false
+}
