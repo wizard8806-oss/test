@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "revision": 7,
+  "purpose": "Read-only three-pump impellers, state indicators and confirmed-leader badges; existing dynamic bars retained",
+  "baseCommit": "3935e59f8a8a1de8228351e5e3ee0157c7810d9c",
+  "rawBase": "https://raw.githubusercontent.com/wizard8806-oss/test/3935e59f8a8a1de8228351e5e3ee0157c7810d9c/",
+  "runtime": "Generation: Python3 standard library; no pip/vendor DLL/GUI. Native check: existing Windows SKTool and supplied per-user font. Optional C validator requires host C compiler.",
+  "files": [
+    {
+      "path": "tools/build_pump_animation_hmi.py",
+      "bytes": 11906,
+      "sha256": "1407c1583a0fcfc5c5eb792c71a93768553b9a5d16afedaaccc990b66d008e05"
+    },
+    {
+      "path": "tools/repair_skm_section_index.py",
+      "bytes": 2816,
+      "sha256": "c5b29065a28561dd00db2e118a8ad157259fad90c9160e439c8adcd7df0214ef"
+    },
+    {
+      "path": "assets/hmi/pump-animation/pump_animation.c",
+      "bytes": 2594,
+      "sha256": "db093de49fb474f9a2830694a228aa238f02b0a1197c0cceb1ab73132b9d26b9"
+    },
+    {
+      "path": "assets/hmi/pump-animation/PumpStationRotor.ttf",
+      "bytes": 3520,
+      "sha256": "70c76c96778838c13b384cee32578b6ef967ef0774165b02bf5173f4dd862f22"
+    },
+    {
+      "path": "tools/Install-PumpAnimationFont.ps1",
+      "bytes": 1935,
+      "sha256": "494f70ea85f6abb1c4c72f17a2a5a01d2f0aab695f9948bf30bb3847597abcdc"
+    },
+    {
+      "path": "artifacts/station002-pump-animation-r7/animation-recipe.json",
+      "bytes": 2831,
+      "sha256": "730afdd034ce65b24f933a20194f2e0d9146239da38654c7aaae4ec8d500335b"
+    },
+    {
+      "path": "artifacts/station002-pump-animation-r7/interface.json",
+      "bytes": 2432,
+      "sha256": "99e655ce0dd4c8b0bb3c043b2098ab854277e3730b53789a9858a213956fce96"
+    },
+    {
+      "path": "tools/build_three_pump_hmi_r6.py",
+      "bytes": 7411,
+      "sha256": "db640cf3e2fd98c019ea7aa173a1651c04f4dfa0aaee67d865d7ba4b7e35e43a"
+    },
+    {
+      "path": "artifacts/station002-three-pump-hmi-r6/navigation-recipe.json",
+      "bytes": 35545,
+      "sha256": "4eb1a0f5f8c22bf34033db79bc841c49fb053befbd3010ae94bb6c96be2931b8"
+    },
+    {
+      "path": "tools/validate_pump_animation.py",
+      "bytes": 10287,
+      "sha256": "595bc5d96e40aaf7bbeeb6e7876c0680985ccfc4ee319ba6f7c186c1795a6f98"
+    },
+    {
+      "path": "assets/hmi/pump-animation/preview.html",
+      "bytes": 7312,
+      "sha256": "2eb071b240bfc34d4ce8dcf8493c2cb62f0140288587f3958feacee29dbb207b"
+    },
+    {
+      "path": "assets/hmi/vertical-pumps/pumps-3.png",
+      "bytes": 1675079,
+      "sha256": "9989d24f65b3868fca13b905ab8e9c99c2d9e15161c349900a21170de54957a1"
+    },
+    {
+      "path": "assets/hmi/pump-animation/README.md",
+      "bytes": 1845,
+      "sha256": "3cc48d4f3bfef6d881134e5e057f4b3fd35e65b7a52ecc9024811596e0caebb2"
+    },
+    {
+      "path": "assets/hmi/pump-animation/preview.png",
+      "bytes": 377317,
+      "sha256": "6673e7cb9d58bb2467c90a05de299da51196f90ea5d372c05a536dd5c6270d34"
+    }
+  ],
+  "entrypoint": "tools/build_pump_animation_hmi.py",
+  "recipe": "artifacts/station002-pump-animation-r7/animation-recipe.json",
+  "macro": "assets/hmi/pump-animation/pump_animation.c",
+  "fontInstaller": "tools/Install-PumpAnimationFont.ps1",
+  "source": {
+    "name": "pump_station_3p_navigation_r6.skm",
+    "bytes": 1240334,
+    "sha256": "e8c1a0f6ca3684f301728b97f43d481a252cb89cd5b6296ccac8b4f76fce7ade"
+  },
+  "target": {
+    "name": "pump_station_3p_animation_r7_candidate.skm",
+    "bytes": 1271370,
+    "sha256": "61ec747e1ff6629d931063e8df429255071fe1f8229cf1bd6b66e772658fe25d"
+  },
+  "report": "hmi-r7-local-build.json",
+  "fallbackR5": {
+    "name": "pump_station_3p_countdown_r5.skm",
+    "bytes": 1254272,
+    "sha256": "1d6449d8884fb9f44e3c6a2c71193d044788d8c2832e884c88e44c0707bdf3a3",
+    "entrypoint": "tools/build_three_pump_hmi_r6.py",
+    "recipe": "artifacts/station002-three-pump-hmi-r6/navigation-recipe.json"
+  },
+  "checks": {
+    "actualCScenariosPassed": 59,
+    "repositoryGroupsPassed": 52,
+    "all14HTTPFilesHashVerified": true,
+    "freshHTTPPythonSExactDirectAndFallback": true,
+    "sourceLockAndNoOverwritePassed": true,
+    "sourceBytesPreserved": true,
+    "existingAll3DynamicBarsPreserved": true,
+    "other13SceneCountsAndNavigationTimersControlsPreserved": true,
+    "macroOnlyMetadataSectionChanged": 17,
+    "directoryAndEOFCorrect": true,
+    "browserPreviewFontFramesStateAndDisconnectPassed": true
+  },
+  "nativeSKToolOpeningObserved": false,
+  "nativeSKToolCompileAndFontEmbeddingObserved": false,
+  "nativeOfflineSimulationObserved": false,
+  "PLCChanged": false,
+  "equipmentActionsAllowed": false,
+  "fullNativeProjectPublicationAllowed": false
+}
