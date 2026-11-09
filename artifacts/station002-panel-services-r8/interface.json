@@ -1,0 +1,76 @@
+{
+  "revision": 8,
+  "purpose": "Restore panel sound/manual navigation, fit alarms; allow physical MANUAL without pressure sensors",
+  "sources": {
+    "hmi": {
+      "name": "pump_station_3p_animation_r7_candidate.skm",
+      "bytes": 1271370,
+      "sha256": "61ec747e1ff6629d931063e8df429255071fe1f8229cf1bd6b66e772658fe25d"
+    },
+    "plc": {
+      "name": "station_3p_24MC_HP_countdown_r2.pdw",
+      "bytes": 185409,
+      "sha256": "780267f80d2f107c584ded1e8f48a63c65ad23d977255cdcbe895ed2b791b73b"
+    }
+  },
+  "targets": {
+    "hmi": {
+      "name": "pump_station_3p_services_r8_candidate.skm",
+      "bytes": 1272222,
+      "sha256": "587038bbe7f0bb59299e37fac092a6dd4ec484b9529bec2e8f78c05f69339280"
+    },
+    "plc": {
+      "name": "station_3p_24MC_HP_countdown_manual_no_sensor_r3.pdw",
+      "bytes": 185409,
+      "sha256": "3b1ffdac9646a525b3e2113bc60c93bdaa3efc3b48ada20ee3b5246d5ca6ad9c"
+    }
+  },
+  "panel": {
+    "expectedMapVersionR2554": 32,
+    "nativeAlarmSoundEnable": "LB60117",
+    "undocumentedBuzzerBitWritten": false,
+    "diagnosticMacroRevisionLW820": 8,
+    "manualNavigation": "native LB810 zero synchronization then selector rising edge to Screen7, no trapping",
+    "alarmTable": [
+      16,
+      112,
+      768,
+      288
+    ],
+    "alarmTextColumnPixels": 464,
+    "historyRows": 15,
+    "preserved": [
+      "alarm definitions/count",
+      "all three animation widgets and dynamic bars",
+      "r6 navigation",
+      "countdown settings and timer widgets",
+      "manual command bindings"
+    ]
+  },
+  "PLC": {
+    "changedNetwork": "20.03 | PRESSURE_BELOW_LIMIT",
+    "addedProgramBytes": 18,
+    "newBitsOrRegisters": 0,
+    "permit": "R2878=1 OR (!X8 AND X9 AND !M102 AND R2871=0)",
+    "noPressureSourceManualOnly": true,
+    "autoRequiresValidPressure": true,
+    "latchedHighPressureCannotBeClearedBySensorDisconnect": true,
+    "pressureProtectionWithValidMeasurementUnchanged": true,
+    "dryRunPowerEstopReadyLinkFrequencyArmingGuardsUnchanged": true,
+    "oneM221CoilStill": true,
+    "countsTablesDataFrameCPUUnchanged": true
+  },
+  "evidence": {
+    "userReportedRealPanelAndPLCProjectsLoaded": true,
+    "userReportedCalibratorRestoresManualRunAt25Hz": true,
+    "userReportedTwoDiagnosticValues27110": true,
+    "liveR2554ValueIndependentlyConfirmed": false,
+    "sourcePLCMap32Verified": true,
+    "actualPanelCScenariosPassed": 14,
+    "compiledPermitTruthCasesPassed": 32,
+    "all3ManualRelayNetworksExecutedOffline": true,
+    "vendorGraphExactRoundTripPassed": true,
+    "nativeF8AndSKToolCompileForThisPairObserved": false,
+    "hardwareActionsPerformed": 0
+  }
+}
