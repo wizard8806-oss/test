@@ -1,0 +1,44 @@
+{
+  "revision": 12,
+  "scope": "diagnostic removal base for native alarm-control recreation; not deployable",
+  "source": {
+    "name": "pump_station_3p_alarm_restore_r11_candidate.skm",
+    "bytes": 1287916,
+    "sha256": "3e6d60e52d3177d786fe72e89cb4cb64c842e16867974c4f8ca5a5fb1065b0d7"
+  },
+  "target": {
+    "name": "pump_station_3p_alarm_rebuild_r12_base.skm",
+    "bytes": 1282099,
+    "sha256": "e5ae403199a9fc774a80e95905babc876a443b1e792c1e391b1a6a817c64606a"
+  },
+  "removed": {
+    "widget": "HAD8288",
+    "bytes": 5817,
+    "scene": "Screen9",
+    "countBefore": 19,
+    "countAfter": 18
+  },
+  "preserved": [
+    "all other widgets",
+    "all alarm definitions",
+    "all macros",
+    "r10 eight cascade settings and independent delays",
+    "PLC r10"
+  ],
+  "r11UserObservations": {
+    "simulatorGridVisible": true,
+    "editorScreen9Unresponsive": true,
+    "reproducedWithSimulatorClosedAndOpen": true
+  },
+  "nativeR12Screen9OpenObserved": false,
+  "replacementAlarmControlPresent": false,
+  "nativeR12CompileObserved": false,
+  "fullPanelReadyForDownload": false,
+  "PLCChanged": false,
+  "checks": {
+    "allUnlistedBytesExactlyRestored": true,
+    "metadataAndDirectoryValid": true,
+    "cleanPythonSExactTargetAndValidatorPassed": true,
+    "sourceLockNoOverwriteSourcePreservationPassed": true
+  }
+}

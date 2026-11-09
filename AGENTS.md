@@ -1,5 +1,28 @@
 # Работа с проектом
 
+**09.11, r11 Simulator grid PASS, но Screen9 редактора зависает; r12 base.**
+На новом снимке local-11/pump_station_3p_alarm_restore_r11_candidate.skm
+Simulator показывает сетку/рамку/headers. Это подтверждает только отрисовку,
+НЕ native-edit/fitting/готовность. Затем пользователь показал SKTool Screen9
+«Не отвечает» и подтвердил оба варианта: Simulator открыт/закрыт, всегдаhang.
+Не предлагать повторить эти проверки и не переустанавливать редактор.
+Причина hang ещё НЕ доказана; исходный HAD имеет размеры от1024×600,
+больше800×480, но это пока фактор/гипотеза, не окончательный диагноз.
+Новая р12 — ДИАГНОСТИЧЕСКАЯ основа без всего HAD8288, Scene9 count19→18,
+все остальныеwidgets/macros/alarmdefs/Cascade8/PLC сохранены. Проверить,
+открывается ли Screen9; если да — создать НОВЫЙ native Historical alarm
+Display через SKTool, не копировать старый, затем подгонка/nativeSaveAs/
+повторное открытие/Compile/Simulator. Если без HAD тожеhang — не считать
+причину изолированной. Base НЕ готова к загрузке: таблицы в ней пока нет.
+Private /workspace/shared/station002-alarm-rebuild-r12-20261109/
+pump_station_3p_alarm_rebuild_r12_base.skm:1282099bytes,
+SHAe5ae403199a9fc774a80e95905babc876a443b1e792c1e391b1a6a817c64606a.
+Source exact r11 3e6d60…5b0d7. Preservation/directory/3filePythonS/source-lock/
+no-overwrite PASS. Native r12 PageOpen ещё НЕ наблюдался, PLC не менялся,
+оборудование не трогалось. Старые файлы сохранить. Report:
+docs/reports/station002-alarm-rebuild-r12-20261109.md. Current next task:
+native создание нового HAD после проверки r12 base, а не новый PLC.
+
 **09.11, native r10: таблица НЕ появилась; whole-widget r11.**
 Принят локальный16c38ca: exact-пара r10 создана, но CLI не выполнил native
 F8/Compile/Simulator. На следующем снимке пользователя открыт именно
