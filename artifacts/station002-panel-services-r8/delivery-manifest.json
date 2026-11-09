@@ -1,0 +1,129 @@
+{
+  "schemaVersion": 1,
+  "revision": 8,
+  "purpose": "Panel sound/manual navigation/alarm fitting plus PLC manual operation without pressure sensors",
+  "baseCommit": "7cfc0b75837edda62c016f3f9518a2a33063f4d5",
+  "rawBase": "https://raw.githubusercontent.com/wizard8806-oss/test/7cfc0b75837edda62c016f3f9518a2a33063f4d5/",
+  "files": [
+    {
+      "path": "tools/build_panel_services_r8.py",
+      "bytes": 7309,
+      "sha256": "d0b76a9346ddb9985c830d5b41f6ad1c32bc64124592b3ce6ba6be252ee997c0"
+    },
+    {
+      "path": "tools/repair_skm_section_index.py",
+      "bytes": 2816,
+      "sha256": "c5b29065a28561dd00db2e118a8ad157259fad90c9160e439c8adcd7df0214ef"
+    },
+    {
+      "path": "tools/build_manual_no_sensor_pdw.py",
+      "bytes": 6011,
+      "sha256": "4dc3de6dc692a8b4b0f86f29562a6603601dea340727d14a7888d884bf928929"
+    },
+    {
+      "path": "assets/hmi/panel-services-r8/panel_services.c",
+      "bytes": 10219,
+      "sha256": "495b4aedf2e76f7a2ea87e9612e76727a2a6ebb964ab0a71f5c8e99e9a99dc5c"
+    },
+    {
+      "path": "artifacts/station002-panel-services-r8/repair-recipe.json",
+      "bytes": 1954,
+      "sha256": "305e9a1439272c6b791d56a9f497f38266828de4150a2acc98ae3b77e8e4e0fe"
+    },
+    {
+      "path": "artifacts/station002-panel-services-r8/interface.json",
+      "bytes": 2630,
+      "sha256": "0b0b4f5335bb51df43d142a4fe8bb94e8c9154aeaa26a68c96513d91cd3526cd"
+    },
+    {
+      "path": "tools/Install-PumpAnimationFont.ps1",
+      "bytes": 1935,
+      "sha256": "494f70ea85f6abb1c4c72f17a2a5a01d2f0aab695f9948bf30bb3847597abcdc"
+    },
+    {
+      "path": "assets/hmi/pump-animation/PumpStationRotor.ttf",
+      "bytes": 3520,
+      "sha256": "70c76c96778838c13b384cee32578b6ef967ef0774165b02bf5173f4dd862f22"
+    }
+  ],
+  "runtime": "Python3 standard library only for both generators; installed Windows editors needed for native acceptance",
+  "sources": {
+    "hmi": {
+      "name": "pump_station_3p_animation_r7_candidate.skm",
+      "bytes": 1271370,
+      "sha256": "61ec747e1ff6629d931063e8df429255071fe1f8229cf1bd6b66e772658fe25d"
+    },
+    "plc": {
+      "name": "station_3p_24MC_HP_countdown_r2.pdw",
+      "bytes": 185409,
+      "sha256": "780267f80d2f107c584ded1e8f48a63c65ad23d977255cdcbe895ed2b791b73b"
+    }
+  },
+  "targets": {
+    "hmi": {
+      "name": "pump_station_3p_services_r8_candidate.skm",
+      "bytes": 1272222,
+      "sha256": "587038bbe7f0bb59299e37fac092a6dd4ec484b9529bec2e8f78c05f69339280"
+    },
+    "plc": {
+      "name": "station_3p_24MC_HP_countdown_manual_no_sensor_r3.pdw",
+      "bytes": 185409,
+      "sha256": "3b1ffdac9646a525b3e2113bc60c93bdaa3efc3b48ada20ee3b5246d5ca6ad9c"
+    }
+  },
+  "entrypoints": {
+    "hmi": "tools/build_panel_services_r8.py",
+    "plc": "tools/build_manual_no_sensor_pdw.py"
+  },
+  "recipe": "artifacts/station002-panel-services-r8/repair-recipe.json",
+  "macro": "assets/hmi/panel-services-r8/panel_services.c",
+  "reports": {
+    "hmi": "hmi-r8-local-build.json",
+    "plc": "plc-manual-r3-local-build.json"
+  },
+  "fallbackManifests": {
+    "hmiR7": "https://raw.githubusercontent.com/wizard8806-oss/test/8497a59507c240f37699c04fb6aade052414a62c/artifacts/station002-pump-animation-r7/delivery-manifest.json",
+    "plcCountdownR2": "https://raw.githubusercontent.com/wizard8806-oss/test/8497a59507c240f37699c04fb6aade052414a62c/artifacts/station002-restart-countdown-01/delivery-manifest.json"
+  },
+  "checks": {
+    "repositoryGroupsPassed": 53,
+    "actualPanelCScenariosPassed": 14,
+    "compiledPermitTruthCasesPassed": 32,
+    "all3OriginalManualOutputNetworksExecuted": true,
+    "highPressureTripResetAndSensorDisconnectRegressionPassed": true,
+    "nativeNetworkExactVendorRoundTripPassed": true,
+    "all8PinnedFilesHTTPSizeAndHashVerified": true,
+    "freshHTTPPythonSPairExact": true,
+    "wrongSourceAndNoOverwritePassed": true,
+    "sourcesPreserved": true
+  },
+  "photoObservation": {
+    "diagnosticScreenExpectedAndDisplayed27110": true,
+    "sourceBindingForThisDiagnosticMarker": "R2329",
+    "firstAutoInhibitEvent": {
+      "reasonCode": 2,
+      "pressureBar": 0.0,
+      "setpointBar": 3.5,
+      "hardwarePermit": 1,
+      "pressureSignal": 0,
+      "eventCount": 3
+    },
+    "isSavedFirstEvent": true,
+    "confirmsLiveAlarmMapR2554": false
+  },
+  "manualNoSensorRule": "strict R2878 OR (!X8 AND X9 AND !M102 AND R2871=0)",
+  "preservedGuards": [
+    "AUTO pressure requirement",
+    "latched high-pressure trip",
+    "power",
+    "dry run",
+    "emergency stop",
+    "drive readiness/link",
+    "manual frequency range",
+    "arming"
+  ],
+  "nativePairF8CompileObserved": false,
+  "nativeHardwareVerificationObserved": false,
+  "automaticEquipmentActionsAllowed": false,
+  "fullNativeProjectPublicationAllowed": false
+}
