@@ -1,5 +1,20 @@
 # Работа с проектом
 
+**09.11, принят локальный статус r12 5296671: следующий шаг только операторский PageOpen.**
+Локальный создал exact base1282099/e5ae403…64606a, входr11 сохранён,
+4packagefiles и validator PASS. Новый native HAD НЕ создан; Screen9/native
+Compile/Simulator/native image НЕ проверены. Два процесса SKTool не удалось
+надёжно связать с зависшим r11, поэтому CLI ничего не завершал; возможные
+несохранённые буферы не извлечены, дисковые копии сохранены. Не выдавать
+это за готовую HMI/успешный PageOpen и не собирать новые версии до результата.
+Следующий один тест: пользователь закрывает только зависший экземпляр r11,
+открывает в SKTool .worktrees/station002-alarm-rebuild-local-12/
+pump_station_3p_alarm_rebuild_r12_base.skm и без Simulator выбирает008:Screen9.
+Таблицы в base намеренно нет. Узнать, открывается ли страница; при успехе
+следующий этап — новый native Historical alarm Display. PLC не трогать.
+Source локальной сводки: docs/reports/station002-alarm-rebuild-r12-local-status.md,
+commit52966711fc72042172c13def6959a2251982f14d.
+
 **09.11, r11 Simulator grid PASS, но Screen9 редактора зависает; r12 base.**
 На новом снимке local-11/pump_station_3p_alarm_restore_r11_candidate.skm
 Simulator показывает сетку/рамку/headers. Это подтверждает только отрисовку,
