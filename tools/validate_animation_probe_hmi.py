@@ -108,7 +108,7 @@ def validate(source, candidate, macro, fixture=False):
     if final != expected:
         raise ValueError('Candidate differs from the diagnostic-only transformation')
     _, objects = scene(final, 13)
-    if len(objects) != 71 or sum(o['id'].startswith('ND') for o in objects.values()) != 28:
+    if len(objects) != 78 or sum(o['id'].startswith('ND') for o in objects.values()) != 31:
         raise ValueError('Probe scene inventory differs')
     if any(o['id'].startswith(('NE', 'BB', 'FB')) for o in objects.values()):
         raise ValueError('Process command control added to diagnostic page')
@@ -131,7 +131,7 @@ def validate(source, candidate, macro, fixture=False):
     result = {'candidateSHA256': sha(final), 'candidateBytes': len(final),
               'fixtureOnly': fixture, 'sourceAndAllUnlistedBytesPreserved': True,
               'screens2Through12IncludingAlarmPagePreserved': True,
-              'all28ReadOnlyBindingsUnique': True, 'allObjectsFit800x480': True,
+              'all31ReadOnlyBindingsUnique': True, 'allObjectsFit800x480': True,
               'nativeCompileObserved': False, 'animationFaultDiagnosed': False}
     return result
 
@@ -150,7 +150,7 @@ def main():
         result.update(host_check(a.macro))
     with a.report.open('x', encoding='utf8') as f:
         json.dump(result, f, ensure_ascii=False, indent=2); f.write('\n')
-    print('PASS diagnostic-only preservation, 28 bindings and 800x480 geometry.')
+    print('PASS diagnostic-only preservation, 31 bindings and 800x480 geometry.')
     if a.host_check:
         print('PASS', result['hostDifferentialCases'], 'host instrumentation cases; NOT native ABI proof.')
 

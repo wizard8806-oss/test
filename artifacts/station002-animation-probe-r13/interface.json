@@ -23,149 +23,170 @@
     },
     {
       "address": "R2500",
-      "x": 88,
+      "x": 80,
       "y": 116,
-      "width": 84,
+      "width": 78,
       "height": 28
     },
     {
       "address": "R2510",
-      "x": 186,
+      "x": 166,
       "y": 116,
-      "width": 84,
+      "width": 78,
       "height": 28
     },
     {
       "address": "LW920",
-      "x": 284,
+      "x": 252,
       "y": 116,
-      "width": 84,
+      "width": 78,
       "height": 28
     },
     {
       "address": "LW923",
-      "x": 382,
+      "x": 338,
       "y": 116,
-      "width": 84,
+      "width": 78,
       "height": 28
     },
     {
       "address": "LW900",
-      "x": 480,
+      "x": 424,
       "y": 116,
-      "width": 84,
+      "width": 78,
       "height": 28
     },
     {
       "address": "LW903",
-      "x": 578,
+      "x": 510,
       "y": 116,
-      "width": 84,
+      "width": 78,
+      "height": 28
+    },
+    {
+      "address": "R2803",
+      "x": 596,
+      "y": 116,
+      "width": 78,
       "height": 28
     },
     {
       "address": "R2801",
-      "x": 676,
+      "x": 682,
       "y": 116,
-      "width": 84,
+      "width": 78,
       "height": 28
     },
     {
       "address": "R2501",
-      "x": 88,
+      "x": 80,
       "y": 182,
-      "width": 84,
+      "width": 78,
       "height": 28
     },
     {
       "address": "R2511",
-      "x": 186,
+      "x": 166,
       "y": 182,
-      "width": 84,
+      "width": 78,
       "height": 28
     },
     {
       "address": "LW921",
-      "x": 284,
+      "x": 252,
       "y": 182,
-      "width": 84,
+      "width": 78,
       "height": 28
     },
     {
       "address": "LW924",
-      "x": 382,
+      "x": 338,
       "y": 182,
-      "width": 84,
+      "width": 78,
       "height": 28
     },
     {
       "address": "LW901",
-      "x": 480,
+      "x": 424,
       "y": 182,
-      "width": 84,
+      "width": 78,
       "height": 28
     },
     {
       "address": "LW904",
-      "x": 578,
+      "x": 510,
       "y": 182,
-      "width": 84,
+      "width": 78,
+      "height": 28
+    },
+    {
+      "address": "R2811",
+      "x": 596,
+      "y": 182,
+      "width": 78,
       "height": 28
     },
     {
       "address": "R2809",
-      "x": 676,
+      "x": 682,
       "y": 182,
-      "width": 84,
+      "width": 78,
       "height": 28
     },
     {
       "address": "R2502",
-      "x": 88,
+      "x": 80,
       "y": 248,
-      "width": 84,
+      "width": 78,
       "height": 28
     },
     {
       "address": "R2512",
-      "x": 186,
+      "x": 166,
       "y": 248,
-      "width": 84,
+      "width": 78,
       "height": 28
     },
     {
       "address": "LW922",
-      "x": 284,
+      "x": 252,
       "y": 248,
-      "width": 84,
+      "width": 78,
       "height": 28
     },
     {
       "address": "LW925",
-      "x": 382,
+      "x": 338,
       "y": 248,
-      "width": 84,
+      "width": 78,
       "height": 28
     },
     {
       "address": "LW902",
-      "x": 480,
+      "x": 424,
       "y": 248,
-      "width": 84,
+      "width": 78,
       "height": 28
     },
     {
       "address": "LW905",
-      "x": 578,
+      "x": 510,
       "y": 248,
-      "width": 84,
+      "width": 78,
+      "height": 28
+    },
+    {
+      "address": "R2819",
+      "x": 596,
+      "y": 248,
+      "width": 78,
       "height": 28
     },
     {
       "address": "R2817",
-      "x": 676,
+      "x": 682,
       "y": 248,
-      "width": 84,
+      "width": 78,
       "height": 28
     },
     {
@@ -221,15 +242,15 @@
   "animationFaultDiagnosed": false,
   "fixtureOnlyReference": {
     "sourceSHA256": "e5ae403199a9fc774a80e95905babc876a443b1e792c1e391b1a6a817c64606a",
-    "candidateSHA256": "5dfcf4b9675a82bd4e9675da12cf133c934f012e00e2b0bd4c7e5e108b82b8ef",
-    "candidateBytes": 1262004,
+    "candidateSHA256": "aac71de2d5ebcc59ab0b25604d8643eaa17acbd79a5a5ed15140628c1777338e",
+    "candidateBytes": 1273582,
     "deployable": false
   },
   "checks": {
     "hostDifferentialCases": 64,
     "ticksCompared": 576,
-    "independentReadOnlyBindings": 28,
-    "all71ObjectsFit800x480": true,
-    "sourceGuardNoOverwriteAndTamperRejection": true
+    "independentReadOnlyBindings": 31,
+    "sourceGuardNoOverwriteAndTamperRejection": true,
+    "all78ObjectsFit800x480": true
   }
 }

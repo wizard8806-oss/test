@@ -178,19 +178,19 @@ def prepare(source, macro, fixture=False):
     label('АНИМАЦИЯ: ПЛК И МАКРОС', 16, 10, 768, 28)
     label('Частоты F: целое число × 0.1 Гц. Зонд должен показывать 27119.', 16, 44, 600)
     display('LW930', 688, 42)
-    titles = ['F ПЛК', 'Q ПЛК', 'F макр.', 'Q макр.', 'Кадр', 'Статус', 'Код*']
+    titles = ['F ПЛК', 'Q ПЛК', 'F макр.', 'Q макр.', 'Кадр', 'Статус', 'RX F*', 'Код*']
     for j, title in enumerate(titles):
-        label(title, 88+98*j, 86, 84)
+        label(title, 80+86*j, 86, 78)
     for i in range(3):
         y = 116+66*i
         label('ПЧ '+str(i+1), 16, y, 62, 28)
         addresses = ['R'+str(2500+i), 'R'+str(2510+i), 'LW'+str(920+i),
-                     'LW'+str(923+i), 'LW'+str(900+i), 'LW'+str(903+i),
+                     'LW'+str(923+i), 'LW'+str(900+i), 'LW'+str(903+i), 'R'+str(2803+8*i),
                      'R'+str(2801+8*i)]
         for j, address in enumerate(addresses):
-            x = 88+98*j
-            display(address, x, y)
-            label(address, x, y+30, 84, 16)
+            x = 80+86*j
+            display(address, x, y, 78)
+            label(address, x, y+30, 78, 16)
     for row, entries in enumerate((
             [('Карта ПЛК', 'R2554'), ('Карта макр.', 'LW927'), ('Связь HMI', 'LW929')],
             [('Аварии ПЛК', 'R2550'), ('Аварии макр.', 'LW928'), ('Снимок', 'LW926')])):
@@ -199,7 +199,7 @@ def prepare(source, macro, fixture=False):
             label(caption, x, y, 108, 28)
             display(address, x+112, y, 86)
     label('Q: 0 нет данных, 1 стоп, 2 работа. Кадр: 0 стоп, 1..4 вращение.', 16, 396, 768)
-    label('* Код — сырой приёмный буфер ПЧ; его актуальность здесь не подтверждается.', 16, 416, 768)
+    label('* RX F и код — сырые буферы ПЧ; их актуальность здесь не подтверждается.', 16, 416, 768)
     # Preserve all existing footer navigation in this temporary diagnostic page.
     footer = [v['raw'] for v in original.values()
               if struct.unpack_from('>2d', v['raw'], 85)[1] >= 436]

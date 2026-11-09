@@ -21,8 +21,8 @@ production копии по guard и native приёмка должны быть 
 - Screen13 временно показывает диагностику вместо истории запусков CPU.
   Главная кнопка «Диагностика» временно ведёт туда. Сохранены две кнопки
   выхода на главную/к авариям. Исходная рабочая HMI не перезаписывается.
-- 28 ND-полей: для каждого ПЧ direct PLC frequency/quality, эти же значения
-  **внутри PumpAnimation**, кадр/статус и raw fault. Ни один новый ND не
+- 31 ND-поле: для каждого ПЧ direct PLC frequency/quality, эти же значения
+  **внутри PumpAnimation**, кадр/статус, RX frequency и raw fault. Ни один новый ND не
   является кнопкой ввода или процессной командой.
 - В том же вызове PumpAnimation сохраняются frequency/quality вLW920..925.
   LW926 — счётчик вызовов modulo60000, LW927 — карта, увиденная макросом,
@@ -45,11 +45,11 @@ production копии по guard и native приёмка должны быть 
 
 `build_animation_probe_hmi.py`, `validate_animation_probe_hmi.py` и
 `repair_skm_section_index.py` используют Python3stdlib. Зафиксированный
-fixture без HAD:1282099/e5ae403…64606a; diagnostic fixture1262004байт,
-SHA256 `5dfcf4b9675a82bd4e9675da12cf133c934f012e00e2b0bd4c7e5e108b82b8ef`.
+fixture без HAD:1282099/e5ae403…64606a; diagnostic fixture1273582байт,
+SHA256 `aac71de2d5ebcc59ab0b25604d8643eaa17acbd79a5a5ed15140628c1777338e`.
 Эти данные служат воспроизведению проверки кода, не приёмке production файла.
 
-PASS: exact reconstruction,71объект/28уникальныхread-only bindings, размеры
+PASS: exact reconstruction,78объектов/31уникальныйread-only bindings, размеры
 всех объектов внутри800×480; другие экраны/неперечисленныеbytes сохранены.
 Чистый пакет из4файлов с Python-S воспроизводит точный fixture и validator.
 Проверены production guard (не принимает основу без HAD), no-overwrite,
