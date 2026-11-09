@@ -1,5 +1,18 @@
 # Работа с проектом
 
+**09.11, r13 production собран локально; пользователь показал нужный Simulator.**
+Приняты2693225/1c5112f: source native562b…54958 сохранён, новый SKM1272079,
+SHA5e4e14f6e6b13045fe3a2d1dc8ef7e646ea0bef4850f9908b1b02cc9ce1330c9;
+package/build/preservation31bindings PASS. На новом снимке пользовательского
+Simulator видна вся страница «АНИМАЦИЯ: ПЛК И МАКРОС», signature27119,
+«Снимок»31, direct/macro карты0, частоты/quality0, связьHMI1. Это подтверждает
+новую страницу и исполнение instrumented C в Simulator; link1 здесь НЕ
+доказательство реальной связи с PLC. Отдельный panel Compile/image/live ещё
+не подтверждены. Рабочий маршрут в Simulator: Аварии→ЗапускиПЛК (Screen13).
+Следующий шаг — Compile именно r13 для панели, затем операторское наблюдение
+на реальном HMI в MANUAL/onlyПЧ3, та же страница и фото после15с. Нулевую
+offline карту не путать с отказом рабочего PLC, diag27110 не менять на32.
+
 **09.11, доставка animation probe r13 проверена и подготовлена локальному.**
 Пакет5HTTPфайлов pinned98c79cb7f657f200cd3e4b6ce1021be4e4461866 проверен
 по bytes/SHA; Python-S воспроизводит final fixture1273582/aac71de…7338e.
