@@ -1,3 +1,9 @@
+## 10.11.2026 — station002 r14: offline PLC result, HMI remains unbuilt
+
+Separate r14 PLC candidate matches pinned expected SHA/size; local validation passed 258 component cases. This is not native F8/PLC simulator. Exact user r13 was preserved. Separate HMI workcopy is unchanged from source and not r14-ready; fault page/journal, aliases, compile/simulator and animation root cause remain pending. WinProLadder is not running; SKTool has no accessible top-level window. Embedded Screen14 reference points to an unavailable JPEG, so identity/load/saver were not changed. No panel/equipment actions.
+
+Brief summary: `docs/reports/station002-native-fault-r14-local-status.md`; detailed files remain local.
+
 # 09.11.2026 — новый пользовательский r13; offline r14 передаётся локальному
 
 Панель сейчас недоступна; пользователь поручил подготовить доработки/проверки
