@@ -23,6 +23,14 @@ no-overwrite PASS. Native r12 PageOpen ещё НЕ наблюдался, PLC н�
 docs/reports/station002-alarm-rebuild-r12-20261109.md. Current next task:
 native создание нового HAD после проверки r12 base, а не новый PLC.
 
+
+Доставка r12:4файла pinned a0dcdded163f96fca9714356202fa080af9e8b02
+проверены HTTP/размер/SHA; свежий Python-S создаёт exact e5ae403…64606a
+и выполняет preservation validator, source-lock/no-overwrite/source PASS.
+Manifest/task — отдельным delivery-коммитом. Это только diagnostic base
+без старогоHAD, nativePageOpen и новый native элемент ещё не подтверждены.
+См.docs/tasks/station002-alarm-rebuild-r12-local-delivery.md.
+
 **09.11, native r10: таблица НЕ появилась; whole-widget r11.**
 Принят локальный16c38ca: exact-пара r10 создана, но CLI не выполнил native
 F8/Compile/Simulator. На следующем снимке пользователя открыт именно

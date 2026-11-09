@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "revision": 12,
+  "purpose": "diagnostic removal base for native alarm-control recreation; not deployable",
+  "baseCommit": "a0dcdded163f96fca9714356202fa080af9e8b02",
+  "rawBase": "https://raw.githubusercontent.com/wizard8806-oss/test/a0dcdded163f96fca9714356202fa080af9e8b02/",
+  "files": [
+    {
+      "path": "tools/prepare_alarm_page_rebuild_r12.py",
+      "bytes": 4721,
+      "sha256": "abcb28dcd8aede6036081109c10e7cac7722c977e4bbdc1b5641f03f8ca64e11"
+    },
+    {
+      "path": "tools/repair_skm_section_index.py",
+      "bytes": 2816,
+      "sha256": "c5b29065a28561dd00db2e118a8ad157259fad90c9160e439c8adcd7df0214ef"
+    },
+    {
+      "path": "tools/validate_alarm_page_rebuild_r12.py",
+      "bytes": 2128,
+      "sha256": "17707d6b884f93af975eafc26dee0f96233f170bb5e1142f82c3e9abd7b9f56c"
+    },
+    {
+      "path": "artifacts/station002-alarm-rebuild-r12/interface.json",
+      "bytes": 1325,
+      "sha256": "612cfc9b6a0d7ca84d8450cbe4471a75d449250f524a9080a24c3a03eecf3462"
+    }
+  ],
+  "runtime": "Python3 standard library for diagnostic base; installed interactive SKTool required for native rebuild",
+  "source": {
+    "name": "pump_station_3p_alarm_restore_r11_candidate.skm",
+    "bytes": 1287916,
+    "sha256": "3e6d60e52d3177d786fe72e89cb4cb64c842e16867974c4f8ca5a5fb1065b0d7"
+  },
+  "target": {
+    "name": "pump_station_3p_alarm_rebuild_r12_base.skm",
+    "bytes": 1282099,
+    "sha256": "e5ae403199a9fc774a80e95905babc876a443b1e792c1e391b1a6a817c64606a"
+  },
+  "entrypoint": "tools/prepare_alarm_page_rebuild_r12.py",
+  "validator": "tools/validate_alarm_page_rebuild_r12.py",
+  "fallbackR11Manifest": "https://raw.githubusercontent.com/wizard8806-oss/test/2d0b219826ccbc3747833afc718a2509221cc73d/artifacts/station002-alarm-restore-r11/delivery-manifest.json",
+  "r11UserObservations": {
+    "simulatorGridVisible": true,
+    "editorScreen9Unresponsive": true,
+    "reproducedWithSimulatorClosedAndOpen": true
+  },
+  "removed": {
+    "widget": "HAD8288",
+    "bytes": 5817,
+    "scene": "Screen9",
+    "countBefore": 19,
+    "countAfter": 18
+  },
+  "replacementAlarmControlPresent": false,
+  "nativeScreen9OpenObserved": false,
+  "nativeCompileObserved": false,
+  "fullPanelReadyForDownload": false,
+  "PLCChanged": false,
+  "checks": {
+    "all4PinnedFilesHTTPSizeAndSHAVerified": true,
+    "freshHTTPPythonSExactTargetAndValidatorPassed": true,
+    "onlySuspectWidgetAndSceneCountRemoved": true,
+    "otherWidgetsMacrosAlarmDefinitionsAndMetadataPreserved": true,
+    "sourceLockNoOverwriteSourcePreservation": true
+  },
+  "automaticEquipmentActionsAllowed": false,
+  "fullNativeProjectsPublished": false
+}

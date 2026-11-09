@@ -49,3 +49,9 @@ Native strings поставки SKTool подтверждают названия
 Display`, `History Alarm`, отдельно `Alarm Display`. Обычный вывод текущих
 аварий не заменяет требуемую историю. Вендорские EXE/QM/сырые исследования
 остались внеGit. Аппаратные команды/загрузка этим сеансом не выполнялись.
+
+Перед доставкой4 HTTP-файла pinned a0dcdded163f96fca9714356202fa080af9e8b02
+сверены по размеру/SHA. Чистый Python-S создаёт exact base и проходит
+preservation validator; source-lock/no-overwrite/source подтверждены.
+Это не подтверждает открытие страницы в SKTool или создание нового HAD.
+Manifest и задача публикуются отдельным delivery-коммитом.
