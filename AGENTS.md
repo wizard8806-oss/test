@@ -1,5 +1,19 @@
 # Работа с проектом
 
+**09.11, доставка animation probe r13 проверена и подготовлена локальному.**
+Пакет5HTTPфайлов pinned98c79cb7f657f200cd3e4b6ce1021be4e4461866 проверен
+по bytes/SHA; Python-S воспроизводит final fixture1273582/aac71de…7338e.
+31readonly ND/78объектов, RX частоты также включены. Guard/no-overwrite/
+tamper/source-preservation PASS;64host differential/576ticks проверили
+неизменность прежних выходов от instrumentation, НЕ native ABI. Общие53
+build/checkgroups PASS на неизменяемом worktree98c79cb; попытка в основной
+папке прежде остановилась на source-changed из-за параллельного редактирования
+документов, это не засчитано как PASS. Native build из562b… ещё нужен наПК.
+Текущее задание: docs/tasks/station002-animation-probe-r13-local-delivery.md.
+Отдельная копия → штатный Compile → операторский снимок Screen13 через
+главную «Диагностика» при onlyПЧ3; signature27119 и счётчик должны работать.
+Не повторять старую host-анимацию вместо изготовления диагностической копии.
+
 **09.11, A52 подтверждена; для анимации подготовлен временный HMI probe.**
 Пользователь назвал код ПЧ «А52». В ранее выбранном руководстве900G/900M
 ver1.26 наPDFстр58 явно Err52(A52)=«Ошибка нехватки воды»; SHA manual849574…da1.

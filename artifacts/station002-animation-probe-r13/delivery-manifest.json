@@ -1,0 +1,54 @@
+{
+  "purpose": "temporary read-only HMI probe; not animation fix",
+  "sourceCommit": "98c79cb7f657f200cd3e4b6ce1021be4e4461866",
+  "rawBase": "https://raw.githubusercontent.com/wizard8806-oss/test/98c79cb7f657f200cd3e4b6ce1021be4e4461866/",
+  "files": [
+    {
+      "path": "tools/build_animation_probe_hmi.py",
+      "bytes": 14207,
+      "sha256": "689b891b40eb0c1040dc9671e7ba400be490ce351fce26fb6ebd991207923708"
+    },
+    {
+      "path": "tools/validate_animation_probe_hmi.py",
+      "bytes": 7854,
+      "sha256": "2965af8bf9ee9f1834d2772894c0df72c8dba6350cba2a8b7267376592aa5e3f"
+    },
+    {
+      "path": "tools/repair_skm_section_index.py",
+      "bytes": 2816,
+      "sha256": "c5b29065a28561dd00db2e118a8ad157259fad90c9160e439c8adcd7df0214ef"
+    },
+    {
+      "path": "assets/hmi/panel-services-r8/panel_services.c",
+      "bytes": 10219,
+      "sha256": "495b4aedf2e76f7a2ea87e9612e76727a2a6ebb964ab0a71f5c8e99e9a99dc5c"
+    },
+    {
+      "path": "artifacts/station002-animation-probe-r13/interface.json",
+      "bytes": 4660,
+      "sha256": "211eff357b6e3e6d9caf89891521d3275961b565d10790e68d5450e0f91421cd"
+    }
+  ],
+  "sourceNative": {
+    "name": "pump_station_3p_alarm_r12_native.skm",
+    "bytes": 1280596,
+    "sha256": "562b049266e9fb3ede17a870c928392f2ff008eed816463a075f9fd05ef54958"
+  },
+  "targetName": "pump_station_3p_animation_probe_r13.skm",
+  "expectedNativeTargetSHA256": null,
+  "nativeBuildRequiredLocally": true,
+  "fixtureOutputNotDeployable": true,
+  "newPLCWriteInputs": 0,
+  "PLCChanged": false,
+  "nativeCompileObserved": false,
+  "checks": {
+    "pinnedFilesHTTPBytesAndSHA256Passed": true,
+    "cleanPythonSFixtureReproductionPassed": true,
+    "guardNoOverwriteAndTamperRejectionPassed": true,
+    "hostInstrumentationCases": 64,
+    "nativeABIValidated": false,
+    "repositoryBuildCheckGroupsPassed": 53,
+    "repositorySourceUnchanged": true,
+    "verifiedCodeCommit": "98c79cb7f657f200cd3e4b6ce1021be4e4461866"
+  }
+}
