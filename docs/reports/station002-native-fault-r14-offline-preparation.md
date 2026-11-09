@@ -47,3 +47,18 @@ Native memory/retain/косвенные ссылки, F8, Compile, нативн�
 проверить R3040..3079 иR2832..2837/R2844..2848 не только direct operands:
 явные ссылки отсутствуют, но это не вся карта распределения памяти.
 ПК к оборудованию не подключался; Download/Force/RUN/reset не выполнялись.
+
+## Доставка собственных исходников
+
+Код и задание опубликованы в проверенном базовом коммите
+`10a5adaadb366d4fe4b5759e6b97c5fd850045e4`. Проверены bytes/SHA всех20файлов
+пакета по pinned HTTP, а также опубликованные task/report. Свежая папка с
+только этими файлами и Python `-S -B` воспроизвела exact PLC candidate и
+258сценариев. Wrong-source и existing-output отвергнуты без перезаписи/нового
+результата. Manifest добавляется следующим коммитом документации, указывает
+этот sourceCommit, не подменяет private native binary публичной копией.
+
+Полный `tools/run_checks.py` на отдельном неизменяемом worktree10a5ada
+завершён: **53build/checkgroups PASS, source tree unchanged**. Новые258PLC
+scenarios проверены отдельно, поскольку требуют private source PDW; native
+F8/Compile/ABI и реальные устройства этим прогоном не проверяются.

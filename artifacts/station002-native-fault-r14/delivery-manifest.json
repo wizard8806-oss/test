@@ -1,0 +1,140 @@
+{
+  "purpose": "offline native VFD fault PLC candidate and local HMI completion; HMI candidate not yet created",
+  "sourceCommit": "10a5adaadb366d4fe4b5759e6b97c5fd850045e4",
+  "rawBase": "https://raw.githubusercontent.com/wizard8806-oss/test/10a5adaadb366d4fe4b5759e6b97c5fd850045e4/",
+  "files": [
+    {
+      "path": "tools/_runtime.py",
+      "bytes": 1434,
+      "sha256": "4ea72322da0a0eb893ed9f22bcbd4536445c846bde649cc280d22726b49b99fa"
+    },
+    {
+      "path": "tools/build_high_pressure_pdw_candidate.py",
+      "bytes": 12999,
+      "sha256": "ae93ac4e498ffd6ba3e15343ac8f815ec8347e97871d8e848e733091614ee1d9"
+    },
+    {
+      "path": "tools/build_manual_no_sensor_pdw.py",
+      "bytes": 6011,
+      "sha256": "4dc3de6dc692a8b4b0f86f29562a6603601dea340727d14a7888d884bf928929"
+    },
+    {
+      "path": "tools/build_radio_display_01.py",
+      "bytes": 4397,
+      "sha256": "82db9a5984fc88eabc5a17d47400c2ad898c04f6c5776e8b66a1cf55f8d3c2d1"
+    },
+    {
+      "path": "tools/build_setpoint_feedback_pdw_01.py",
+      "bytes": 10106,
+      "sha256": "bbe76f36c496b105c955474af644286954efcf3ded5551f2d17bd7d21f1d24ac"
+    },
+    {
+      "path": "tools/build_three_pump_pdw_candidate.py",
+      "bytes": 9665,
+      "sha256": "806fd520f70576b9351e5ebf685c3b75ceccb96e264d745c6daf097eb41aea29"
+    },
+    {
+      "path": "tools/build_vfd_fault_export_r14.py",
+      "bytes": 11029,
+      "sha256": "1d92d0ad8155bd884acccaf086cea615035ca008f6d577f9c78c55b0602bd881"
+    },
+    {
+      "path": "tools/check_fatek_network_graph.py",
+      "bytes": 4407,
+      "sha256": "034a43a9355c19281c50ab18839e1955cd8f5878ed97520d671b7917e45380c7"
+    },
+    {
+      "path": "tools/check_native_drive_edit_02.py",
+      "bytes": 7172,
+      "sha256": "2ca30beacb3a4a001dcdc33d70b191c1e5c56dbcae2d5dbe57c6e1208023fd38"
+    },
+    {
+      "path": "tools/check_setpoint_feedback_01.py",
+      "bytes": 3571,
+      "sha256": "6372ace11d17e450a77d3f9eef0effed88df9f395a537795b8db172b6c6a5f51"
+    },
+    {
+      "path": "tools/prepare_native_drive_edit_02.py",
+      "bytes": 6797,
+      "sha256": "6b3827754403194baf0d232201c1834bd614a2e06b213b0c56214922c56546eb"
+    },
+    {
+      "path": "tools/prepare_setpoint_feedback_01.py",
+      "bytes": 7780,
+      "sha256": "e86f2f1700cb4522ea17cc3707a645216a4d5e50597891bb066c4592c2141a7c"
+    },
+    {
+      "path": "tools/render_fatek_network_01.py",
+      "bytes": 2615,
+      "sha256": "e22ef9969ede3a468edacea49a61a166f31a395865213d4da18d61a50c94471e"
+    },
+    {
+      "path": "tools/review_fatek_process_map_01.py",
+      "bytes": 10608,
+      "sha256": "3eef71c56ebd323e135429ba0d45312d831a1243e9d20ab099173b8a4940b857"
+    },
+    {
+      "path": "tools/validate_high_pressure_pdw_candidate.py",
+      "bytes": 12679,
+      "sha256": "9636c03038a50733ce5b3c20a2d834bd4df667c9e9e880e6e10462041a36ec0a"
+    },
+    {
+      "path": "tools/validate_three_pump_pdw_candidate.py",
+      "bytes": 13016,
+      "sha256": "be7e1cf2d90d2804216db937410a6598e9dc4ef00f76b56c1db75c9e73d104ad"
+    },
+    {
+      "path": "tools/validate_vfd_fault_export_r14.py",
+      "bytes": 7158,
+      "sha256": "14dc2ee1b9bb7c07c8e733fc0838f7fe929a527ba50a21c13d256e8c1dbf28a4"
+    },
+    {
+      "path": "tools/verify_scada_native_loader_01.py",
+      "bytes": 7213,
+      "sha256": "5492abb14928e6e94f4a553975519ab49188f97b5a21d28557b8150e75c418a6"
+    },
+    {
+      "path": "assets/hmi/native-vfd-faults-r14/catalog.json",
+      "bytes": 2415,
+      "sha256": "f239f770e02bc90c0c7fbc1d91a7b9ca1130ec214237b5c695fc334ad8be1e55"
+    },
+    {
+      "path": "artifacts/station002-native-fault-r14/interface.json",
+      "bytes": 5656,
+      "sha256": "5da2de77498d27355b61b13a04bcc893b75628fe2a78ae63489d4f9330baadd4"
+    }
+  ],
+  "sourcePLC": {
+    "name": "station_3p_24MC_cascade_r10_candidate.pdw",
+    "bytes": 187549,
+    "sha256": "b5de31e3fddd45041c8f11b97be94eb55cf13f7aad7b63f3467707227c192a8b"
+  },
+  "sourceHMI": {
+    "name": "pump_station_3p_animation_probe_r13.skm",
+    "bytes": 1273731,
+    "sha256": "1ea6cece228acbb1dd5d99750a44399bfc9a3a36fa261403649b0297d251bfc2",
+    "userMainObjects": 80,
+    "userLayoutMustBePreserved": true,
+    "alarmObject": "HAD1794244624"
+  },
+  "candidatePLC": {
+    "name": "station_3p_24MC_native_fault_r14_candidate.pdw",
+    "bytes": 201327,
+    "sha256": "718a004b098f32493829db4cd42475eb842669a157511c90066883e5d9ea84cf"
+  },
+  "candidateHMICreated": false,
+  "checks": {
+    "pinnedFilesHTTPBytesAndSHA256Passed": true,
+    "cleanPythonSReproductionPassed": true,
+    "sourceAndNoOverwriteGuardsPassed": true,
+    "componentCases": 258,
+    "isolatedVendorNodeConversions": 384,
+    "nativeF8": false,
+    "nativeHMICompile": false,
+    "nativeABI": false,
+    "equipmentActions": 0,
+    "repositoryBuildCheckGroupsPassed": 53,
+    "repositorySourceUnchanged": true,
+    "repositoryVerifiedCodeCommit": "10a5adaadb366d4fe4b5759e6b97c5fd850045e4"
+  }
+}

@@ -29,6 +29,14 @@ hardware Download/Force/RUN/reset; не просить сейчас измере
 Реальное raw52→A52 ещё не измерено, описание по900G/900M reference p58.
 Нельзя выдавать PLC component/host checks за native/hardware PASS.
 
+Опубликованный sourceCommit этого пакета/задания:
+`10a5adaadb366d4fe4b5759e6b97c5fd850045e4`. 20pinnedHTTPfiles+task/report
+проверены bytes/SHA; свежая Python-S сборка/258cases/source/no-overwrite
+guards PASS. Manifest идёт следующим документальным коммитом и закрепляет
+эти собственные исходники; новых HMI/Compile результатов это не добавляет.
+Общие53build/checkgroups PASS на immutable worktree10a5ada, source unchanged;
+новые258PLCcases отдельно PASS. Native HMI/F8/ABI/устройства не проверены.
+
 # 09.11.2026 — нужная страница r13 и новый C подтверждены в Simulator
 
 Приняты локальные2693225/1c5112f: production diagnostic SKM1272079байт,
