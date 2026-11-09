@@ -1,0 +1,5 @@
+# Station002 — pump 3 display trace
+
+The user reports that with only VFD 3 enabled, animation and “Работа” appear at pump 1. Static review of the saved PLC/HMI candidates found separate mappings: VFD 3 exports frequency/state through R2502/R2512; the HMI macro reads those inputs for channel 3 and writes LW902/LW905, which are bound to pump 3 objects. No cross-binding was found in these candidate files.
+
+The embedded C animation function passed an isolated host test for pumps 1, 2 and 3. This does not verify SKTool Compile, generated macro offsets, the deployed image, or live equipment. The active panel image and runtime R/LW values remain unknown, so the reported symptom is not yet explained. No source, PLC, HMI hardware, or equipment was changed. Next evidence needed is a read-only snapshot of R2500–R2502, R2510–R2512, R2554, available LW900–LW908, and the active image identity while only VFD 3 is running.
