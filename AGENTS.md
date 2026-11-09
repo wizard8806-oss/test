@@ -1,5 +1,21 @@
 # Работа с проектом
 
+**09.11, новый native History Alarm создан пользователем и виден в редакторе.**
+Путь найден на установленном SKTool7.1: Tool Box → Function elements →
+Display → History Alarm (диалог Historical alarm display); Draw — примитивы.
+В диалоге нового объекта ID HAD1794244624. Пользователь показал Rows6,
+Reverse, Time/Date/Select all alarm content включены, Clear Alarm Date/Time
+выключены, русские3заголовка в языкеChinese; Visibility без условий.
+На последнем снимке новая таблица с6строками/3колонками помещается между
+верхними кнопками и нижней статусной полосой Screen9. Это РЕДАКТОР, не Simulator.
+Title всё ещё pump_station_3p_alarm_rebuild_r12_base.skm: SaveAs/reopen/
+Compile/Simulator с НОВОЙ таблицей пока не подтверждены. Не пересоздавать base
+поверх пользовательских правок, не возвращать старый HAD8288. Следующий шаг:
+File→SaveAs рядом pump_station_3p_alarm_r12_native.skm, заново открыть этот
+файл/Screen9, затем Offline Simulator. Находится ли Text Color уже в красном,
+снимок пустой таблицы не доказывает. Два длинных события и кнопка экспорта
+ещё не проверены. PLC/железо не менять. Контекст принят на83bb77dc89a0d2a83b431cf10eaf167ba631278f.
+
 **09.11, пользователь подтвердил открытие Screen9 r12 в редакторе и Simulator.**
 На снимке title указывает local-12/pump_station_3p_alarm_rebuild_r12_base.skm,
 выбран008:Screen9, Simulator показывает ту же страницу без таблицы. Пользователь
