@@ -71,3 +71,9 @@ Simulator запускать без связи с реальным шкафом.
 Общий `run_checks.py`:51группа PASS, source tree unchanged. Из новой
 4файловой папки Python `-S` дал exact-r6; неправильный source/overwrite
 отклоняются, исходникr5 сохранён. Это не native-открытие/routing-click.
+
+Доставка r6 проверена:4файла pinned
+`b9d864c2d8ea407ac14d708bbbe12a973f318acc`, HTTP200/размеры/SHA; из
+чистой HTTP-папки Python-S воспроизвёл exact-r6. Source сохранён, manifest/
+локальное задание готовы. Передать их из следующего delivery-коммита;
+после генерации нужен интерактивный File→Open/осмотр и проверка кликовr6.

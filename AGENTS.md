@@ -23,6 +23,12 @@ Python-S4-file/exact/source-lock/no-overwrite PASS. Native-r6
 отдельным: Port0 общийПК/HMI, шкаф под питанием без двигателей, физическая
 связь/backup/Download пока не подтверждены новым сообщением.
 
+Доставка r6 проверена:4файла pinned
+`b9d864c2d8ea407ac14d708bbbe12a973f318acc`, HTTP200/размеры/SHA; из
+чистой HTTP-папки Python-S воспроизвёл exact-r6. Source сохранён, manifest/
+локальное задание готовы. Передать их из следующего delivery-коммита;
+после генерации нужен интерактивный File→Open/осмотр и проверка кликовr6.
+
 **09.11, продолжение PLC: Simulation активен/CPU STOP; шкаф готов к стенду.**
 На снимке WinProLadder открыт station_3p_24MC_HP_countdown_r2_validation-copy.pdw:
 End Simulation активен, Run PLC активен, Stop PLC серый — виртуальнаяCPU STOP.

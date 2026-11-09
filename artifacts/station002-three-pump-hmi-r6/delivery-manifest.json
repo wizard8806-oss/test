@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "revision": 6,
+  "purpose": "Flat static current HMI section and graph-period labels; other navigation retained",
+  "baseCommit": "b9d864c2d8ea407ac14d708bbbe12a973f318acc",
+  "rawBase": "https://raw.githubusercontent.com/wizard8806-oss/test/b9d864c2d8ea407ac14d708bbbe12a973f318acc/",
+  "runtime": "Python3 standard library only; no GUI/DLL/pip required for generation",
+  "files": [
+    {
+      "path": "tools/build_three_pump_hmi_r6.py",
+      "bytes": 7411,
+      "sha256": "db640cf3e2fd98c019ea7aa173a1651c04f4dfa0aaee67d865d7ba4b7e35e43a"
+    },
+    {
+      "path": "tools/repair_skm_section_index.py",
+      "bytes": 2816,
+      "sha256": "c5b29065a28561dd00db2e118a8ad157259fad90c9160e439c8adcd7df0214ef"
+    },
+    {
+      "path": "artifacts/station002-three-pump-hmi-r6/navigation-recipe.json",
+      "bytes": 35545,
+      "sha256": "4eb1a0f5f8c22bf34033db79bc841c49fb053befbd3010ae94bb6c96be2931b8"
+    },
+    {
+      "path": "artifacts/station002-three-pump-hmi-r6/interface.json",
+      "bytes": 1233,
+      "sha256": "5e04bd7ae846d89069794d276e01723b73017b07d7b7e3ad5b20117daf89ebe2"
+    }
+  ],
+  "entrypoint": "tools/build_three_pump_hmi_r6.py",
+  "recipe": "artifacts/station002-three-pump-hmi-r6/navigation-recipe.json",
+  "source": {
+    "name": "pump_station_3p_countdown_r5.skm",
+    "bytes": 1254272,
+    "sha256": "1d6449d8884fb9f44e3c6a2c71193d044788d8c2832e884c88e44c0707bdf3a3",
+    "latestSourceConfirmedByUser": true
+  },
+  "target": {
+    "name": "pump_station_3p_navigation_r6.skm",
+    "bytes": 1240334,
+    "sha256": "e8c1a0f6ca3684f301728b97f43d481a252cb89cd5b6296ccac8b4f76fce7ade"
+  },
+  "report": "hmi-r6-local-build.json",
+  "fallbackManifest": "https://raw.githubusercontent.com/wizard8806-oss/test/0c27c5e6eb387e20316881de5a0b92388f2146ba/artifacts/station002-three-pump-hmi-r5/delivery-manifest.json",
+  "expected": {
+    "currentButtonsReplacedByStaticText": 14,
+    "otherNavigationButtonsUnchanged": 94,
+    "selfScreenLinksRemaining": 0,
+    "all14ScreenReachabilityPreserved": true,
+    "graphCurrentSectionDoesNotResetPeriod": true,
+    "nestedReturnsPreserved": true,
+    "sceneCountsPreserved": true,
+    "directoryAndEOFCorrect": true,
+    "PLCChanged": false
+  },
+  "checks": {
+    "activeLabelAndRouteAuditPassed": true,
+    "allNonNavigationBytesPreserved": true,
+    "metadataSectionsPreserved": 22,
+    "repositoryGroupsPassed": 51,
+    "minimalStdlibFourFilePackageExact": true,
+    "wrongSourceNoOverwriteAndSourcePreservationPassed": true
+  },
+  "nativeR6OpenObserved": false,
+  "nativeR6ClickBehaviorObserved": false,
+  "equipmentActionsAllowed": false,
+  "fullNativeProjectPublicationAllowed": false
+}
