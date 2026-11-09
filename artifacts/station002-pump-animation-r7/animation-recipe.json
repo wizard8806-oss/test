@@ -1,0 +1,137 @@
+{
+  "format": "sktool-r6-pump-animation-r7",
+  "sourceSHA256": "e8c1a0f6ca3684f301728b97f43d481a252cb89cd5b6296ccac8b4f76fce7ade",
+  "sourceBytes": 1240334,
+  "sceneHeaders": [
+    {
+      "screen": 1,
+      "countOffset": 481,
+      "count": 73
+    },
+    {
+      "screen": 2,
+      "countOffset": 208963,
+      "count": 45
+    },
+    {
+      "screen": 3,
+      "countOffset": 316621,
+      "count": 38
+    },
+    {
+      "screen": 4,
+      "countOffset": 441734,
+      "count": 38
+    },
+    {
+      "screen": 5,
+      "countOffset": 516007,
+      "count": 6
+    },
+    {
+      "screen": 6,
+      "countOffset": 553571,
+      "count": 55
+    },
+    {
+      "screen": 7,
+      "countOffset": 678039,
+      "count": 53
+    },
+    {
+      "screen": 8,
+      "countOffset": 791604,
+      "count": 23
+    },
+    {
+      "screen": 9,
+      "countOffset": 845879,
+      "count": 19
+    },
+    {
+      "screen": 10,
+      "countOffset": 893718,
+      "count": 23
+    },
+    {
+      "screen": 11,
+      "countOffset": 947867,
+      "count": 23
+    },
+    {
+      "screen": 12,
+      "countOffset": 1002282,
+      "count": 23
+    },
+    {
+      "screen": 13,
+      "countOffset": 1056687,
+      "count": 80
+    },
+    {
+      "screen": 14,
+      "countOffset": 1199536,
+      "count": 1
+    }
+  ],
+  "screen1End": 208941,
+  "objects": [
+    {
+      "id": "MD3022",
+      "start": 164454,
+      "stop": 167252,
+      "sha256": "d6f34ce005441231c06fb404d668c104c29084646128c8abca31cf85a55a3c53",
+      "ordinal": 12
+    },
+    {
+      "id": "MD10004",
+      "start": 77234,
+      "stop": 79418,
+      "sha256": "2797eb3d4a9e1a5ec4570495794d1b2502d370d3d69bd8d50a604764ddca320e",
+      "ordinal": 43
+    },
+    {
+      "id": "MD10018",
+      "start": 64606,
+      "stop": 66790,
+      "sha256": "bd502dfe3915cf19489f162c018284eaae4e8031e3403031fc63c6ce7c27e53d",
+      "ordinal": 50
+    },
+    {
+      "id": "MD10032",
+      "start": 51978,
+      "stop": 54162,
+      "sha256": "9458f70be6d29368a5089741fd43b9aba6c2353755e898e25eecca13e8762f94",
+      "ordinal": 57
+    },
+    {
+      "id": "BG10012",
+      "start": 70041,
+      "stop": 71925,
+      "sha256": "1a9a1ef2be7836570dc7704c209f84ed314ae9a1d9bbfebff96a4bd2197c22ee",
+      "ordinal": 47
+    },
+    {
+      "id": "BG10026",
+      "start": 57413,
+      "stop": 59297,
+      "sha256": "87fd7b32052818723a55876391cce6e7b6a8cc1afb7a83cb1bf6c1942a7c4ee7",
+      "ordinal": 54
+    },
+    {
+      "id": "BG10040",
+      "start": 44785,
+      "stop": 46669,
+      "sha256": "7728b82b73c219b1af25348c3010b3f6909bbebbb32813d5fd429fcb78443a6d",
+      "ordinal": 61
+    }
+  ],
+  "template": {
+    "id": "MD3022",
+    "start": 164454,
+    "stop": 167252,
+    "sha256": "d6f34ce005441231c06fb404d668c104c29084646128c8abca31cf85a55a3c53",
+    "ordinal": 12
+  },
+  "screen1InsertOffset": 208862
+}

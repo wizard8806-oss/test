@@ -1,5 +1,28 @@
 # Работа с проектом
 
+**09.11, HMI-r7: принята анимация; существующие BG-шкалы сохраняются.**
+Пользователь согласовал индикатор состояния + крыльчатку + метку ведущего,
+отдельно оставил существующие динамические шкалы. Из точной r6e8c1…7ade
+создан отдельный кандидат1271370байт,SHA61ec747e1ff6629d931063e8df429255071fe1f8229cf1bd6b66e772658fe25d.
+Путь /workspace/shared/station002-three-pump-hmi-r7-20261109/pump_station_3p_animation_r7_candidate.skm.
+3statusMD заменены клонами штатного5-stateMD3022; добавлены3rotor+3badge.
+Собственный шрифт Pump Station Rotor, SHA70c76c…62f22; поставить per-user
+включённымPS1 перед nativeFile→Open/Compile. Новых opaqueGIF/DP нет.
+Существующийglobalmacro250мс расширен:4read-onlyinputs, толькоLW900..908;
+original3inputs/order/alarm/boot/manual сохраняются. ГейтыLB60107/map31/
+свежиеR2510..12/actualR2500..2/ready/link; лидерR2304ANDроль6R2324..26.
+Общий52группыPASS; Python-S minimal/exact/source-lock/no-overwritePASS.
+59исполняемыхCсценариевPASS, побайтное восстановлениеsource/3BG/14scenes/
+24directory+EOF PASS. Browserpreview(font/frames/disconnect)PASS; этоНЕnative.
+SKTool в Linux/Wine не дошёл до приложения(32bitloader); Windows переустановку
+не предлагать. Native-open/Compile/fontembedding/Simulator ещё не наблюдались.
+Следующийшаг: pinnedlocaldelivery → новыйSKM в Windows → native-приёмка;
+исходники/native-save/r6 сохранять. Если r6 ещё нет, собрать её включённым
+предыдущимr6helper из точнойr5. PLC/таймеры/команды не менялись, в оборудование
+не загружалось. «Нет данных» объединяет stale/link/map; не выдаватьнеизвестный
+внутреннийfaultcodeПЧ. См.docs/reports/station002-pump-animation-r7-20261109.md.
+
+
 **09.11, новая HMI-навигация r6: текущий раздел — статичная вкладка.**
 Пользователь: в открытом «Ручной» лишняя кнопка «Ручной», аналогично другим
 окнам. Подтвердил последнюю обычную r5, не r5_native. На снимке локального

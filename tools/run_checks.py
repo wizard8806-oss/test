@@ -34,6 +34,7 @@ CHECKS = [
     'validate_setpoint_feedback_copy_01.py',
     'validate_fatek_map32_review.py',
     'validate_pump_count_workpack.py',
+    'validate_pump_animation.py',
     'validate_hmi_layout_recipe.py',
     'validate_setpoint_display_01.py',
     'validate_setpoint_control_01.py',

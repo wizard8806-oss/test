@@ -1,0 +1,63 @@
+{
+  "revision": 7,
+  "purpose": "Fixed-three-pump HMI decoration; retain existing dynamic frequency bars and r6 navigation",
+  "source": {
+    "name": "pump_station_3p_navigation_r6.skm",
+    "bytes": 1240334,
+    "sha256": "e8c1a0f6ca3684f301728b97f43d481a252cb89cd5b6296ccac8b4f76fce7ade"
+  },
+  "target": {
+    "name": "pump_station_3p_animation_r7_candidate.skm",
+    "bytes": 1271370,
+    "sha256": "61ec747e1ff6629d931063e8df429255071fe1f8229cf1bd6b66e772658fe25d"
+  },
+  "font": {
+    "family": "Pump Station Rotor",
+    "path": "assets/hmi/pump-animation/PumpStationRotor.ttf",
+    "sha256": "70c76c96778838c13b384cee32578b6ef967ef0774165b02bf5173f4dd862f22",
+    "install": "per-user Windows font; native SKTool compilation must embed/generatedownload font resources",
+    "originalArtwork": true
+  },
+  "macroPeriodMs": 250,
+  "newInputsReadOnly": {
+    "PumpAnimTelemetry": "R2500..R2512, batch26 bytes",
+    "PumpAnimRoles": "R2320..R2326, batch14 bytes",
+    "PumpAnimManual": "R2380..R2382, batch6 bytes",
+    "PumpAnimLeader": "R2304, UInt16"
+  },
+  "outputs": {
+    "LW900..902": "0 stopped; 1..4 impeller orientations",
+    "LW903..905": "0 no data, 1 stopped, 2 VFD output active, 3 preparing, 4 VFD not ready",
+    "LW906..908": "confirmed leader flag0/1"
+  },
+  "guards": [
+    "HMI PLC-connection LB60107",
+    "map version31",
+    "no per-drive communication alarm R2550 bits9..11",
+    "fresh R2510..2512 status consistent with actual frequency R2500..2502",
+    "VFD not-ready R2550 bits5..7 overrides run",
+    "leader R2304 AND confirmed role6 in R2324..2326"
+  ],
+  "tempo": {
+    "below20Hz": "750ms/frame",
+    "20ThroughBelow35Hz": "500ms/frame",
+    "35HzAndAbove": "250ms/frame",
+    "framesPerCycle": 4,
+    "actualFrequencyScaleTentative": "existing 0.1Hz display scale; nonzero live calibration still unconfirmed",
+    "mechanicalRpmOrFlowMeasurement": false
+  },
+  "preserved": [
+    "all three dynamic bars BG10012/BG10026/BG10040",
+    "all r6 navigation and three-pump controls",
+    "all timers/settings/apply widgets",
+    "all original macro behavior except added decoration call",
+    "original three macro variables and their order"
+  ],
+  "newDisplayWidgets": 6,
+  "updatedStatusWidgets": 3,
+  "scene1WidgetCount": 79,
+  "other13SceneCountsUnchanged": true,
+  "newPLCCodeOrCommandWrites": false,
+  "nativeOpeningCompilationRenderingObserved": false,
+  "equipmentActionsAllowed": false
+}

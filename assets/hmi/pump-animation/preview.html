@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ru"><meta charset="utf-8"><meta name="viewport" content="width=device-width">
+<title>Анимация трёх насосов — предпросмотр</title>
+<style>
+@font-face{font-family:Rotor;src:url(PumpStationRotor.ttf)}
+*{box-sizing:border-box}body{margin:24px;background:#eef2f5;color:#182c3b;font:15px Arial,sans-serif}
+h1{font-size:23px;margin-bottom:6px}p{margin-top:6px;color:#50616d}.wrap{width:800px;max-width:100%}
+#panel{position:relative;width:800px;height:480px;background:#363b40 url(../vertical-pumps/pumps-3.png) center/800px 480px;color:#edf0f2;overflow:hidden}
+.label,.rotor,.status,.badge,.bar,.hz{position:absolute;text-align:center}.rotor{top:108px;width:34px;height:38px;font:28px/38px Rotor;color:#32d17d}
+.status{top:418px;width:88px;height:18px;font-size:10px;line-height:18px}.badge{top:376px;width:88px;height:18px;font-size:10px;line-height:18px;color:#ffd459}
+.name{top:398px;width:88px;height:18px;font-size:12px;line-height:18px;color:#182c3b}.hz{top:302px;width:88px;font-size:13px;font-weight:bold;text-shadow:0 1px #fff;color:#182c3b}
+.bar{top:210px;width:17.1875px;height:76.8px;border:1px solid #75838c;background:#b8c5caaa;display:flex;align-items:end}.bar i{display:block;width:100%;background:#32d17d}
+.left{position:absolute;left:17px;top:68px;width:136px;text-align:center;font-size:12px;line-height:25px}.left .value{background:#cedfdf;color:#182c3b;margin:4px 12px 10px;font-size:22px;border:2px inset #9aa}
+.right{position:absolute;left:650px;top:70px;width:139px;font-size:11px;line-height:18px;text-align:center;color:#182c3b}.right h3{font-size:11px;color:#edf0f2}.right div{margin:13px 0}
+.header{position:absolute;top:0;width:100%;height:28px;background:#31434e;display:flex;justify-content:space-between;padding:5px 15px}
+.nav{position:absolute;bottom:0;width:100%;height:32px;display:flex;gap:5px;padding:0 5px;background:#484c4f}.nav span{flex:1;background:#e8edf0;color:#182c3b;text-align:center;padding:8px 0;font-size:11px;border:1px solid #89959b}.nav .active{background:#484c4f;color:#67c4ff;border:0}
+.controls{display:flex;gap:12px;margin:15px 0}.controls fieldset{width:33.333%;border:1px solid #c2cdd5;border-radius:5px;padding:12px}.controls select{width:100%;margin:6px 0}.controls input[type=range]{width:100%}.global{display:flex;gap:20px;align-items:center;flex-wrap:wrap}button,select{padding:6px;border:1px solid #9eafb9;border-radius:4px;background:white;color:#182c3b}
+</style>
+<div class="wrap"><h1>Анимация насосов</h1><p>Демонстрационные данные. Макет для оценки внешнего вида; подключений к оборудованию нет.</p>
+<div id="panel"><div class="header"><span>НАСОСНАЯ СТАНЦИЯ</span><span>АВТО</span><span>12:00:00</span></div>
+<div class="left">НАСОСНАЯ СТАНЦИЯ<br>РАБОТАЕТ<br><br><span style="color:#182c3b">Давление, бар</span><div class="value">3.50</div><span style="color:#182c3b">Уставка, бар</span><div class="value">3.50</div><span style="color:#182c3b">Частота ведущего, Гц</span><div class="value" id="leadHz">42.0</div></div>
+<div class="right"><h3>СОСТОЯНИЕ НАСОСОВ</h3><div id="role1"></div><div id="role2"></div><div id="role3"></div></div>
+<div class="nav"><span class="active">Станция</span><span>Насосы</span><span>Каскад</span><span>Ротация</span><span>Ручной</span><span>График</span><span>Аварии</span><span>Диагностика</span></div></div>
+<div class="controls" id="controls"></div><div class="global"><label><input id="online" type="checkbox" checked> Связь с ПЛК</label><label>Ведущий: <select id="leader"><option value="0">Не выбран</option><option value="1" selected>Насос 1</option><option value="2">Насос 2</option><option value="3">Насос 3</option></select></label><button id="reset">Исходный пример</button></div>
+<p>Крыльчатка показывает выдачу частоты ПЧ. Серый — остановлен; зелёный — работает; жёлтый — подготовка; красный — ПЧ не готов. При потере связи вращение останавливается, метка ведущего исчезает.</p></div>
+<script>
+const panel=document.querySelector('#panel'), controls=document.querySelector('#controls');
+const names=['Нет данных','Остановлен','Работа','Подготовка','ПЧ не готов'];
+const fills=['#e0d7c5','#c7d0d6','#2e995a','#f2c14d','#c84a4a'];
+const pumps=[];
+for(let i=0;i<3;i++){
+ const x=232+124*i;
+ const create=(cls,text,left,width)=>{const e=document.createElement('div');e.className=cls;e.textContent=text;e.style.left=left+'px';if(width)e.style.width=width+'px';panel.append(e);return e};
+ create('label name','НАСОС '+(i+1),x);
+ const rotor=create('rotor','\ue001',259+124*i), status=create('status','',x),badge=create('badge','',x),hz=create('hz','',x),bar=create('bar','',267.40625+124*i);bar.innerHTML='<i></i>';
+ const f=document.createElement('fieldset');f.innerHTML=`<legend>Насос ${i+1}</legend><select aria-label="Состояние насоса ${i+1}">${names.map((n,j)=>`<option value="${j}">${n}</option>`).join('')}</select><label>Частота: <output></output> Гц<input aria-label="Частота насоса ${i+1}" type="range" min="1" max="50" step=".1"></label>`;controls.append(f);
+ pumps.push({rotor,status,badge,hz,bar:bar.firstChild,select:f.querySelector('select'),range:f.querySelector('input'),output:f.querySelector('output'),phase:0,ticks:0});
+}
+const online=document.querySelector('#online'), leader=document.querySelector('#leader');
+function reset(){online.checked=true;leader.value='1';pumps.forEach((p,i)=>{p.select.value=[2,2,1][i];p.range.value=[42,28,20][i];p.phase=p.ticks=0});render(false)}
+function render(advance=true){pumps.forEach((p,i)=>{
+ const state=online.checked?Number(p.select.value):0, run=state===2, freq=Number(p.range.value);
+ p.output.value=freq.toFixed(1);p.status.textContent=names[state];p.status.style.background=fills[state];p.status.style.color=state===2||state===4?'#fff':'#182c3b';
+ if(!run)p.phase=p.ticks=0;
+ p.rotor.textContent=String.fromCharCode(0xe001+(run?p.phase:0));p.rotor.style.color=run?'#32d17d':'#8495a3';
+ if(advance&&run&&++p.ticks>=(freq<20?3:freq<35?2:1)){p.ticks=0;p.phase=(p.phase+1)%4}
+ const leading=state!==0&&state!==4&&Number(leader.value)===i+1;
+ p.badge.textContent=leading?'ВЕДУЩИЙ':'';p.hz.textContent=state===0?'—':(run?freq.toFixed(1):'0.0')+' Гц';p.bar.style.height=state===0?'0':(run?freq*2:0)+'%';
+ document.querySelector('#role'+(i+1)).innerHTML='Насос '+(i+1)+'<br>'+names[state]+'<br>'+(leading?'Ведущий':state===0?'—':'Ведомый');
+ });const p=pumps[Number(leader.value)-1];document.querySelector('#leadHz').textContent=!online.checked||!p?'—':p.select.value==='2'?Number(p.range.value).toFixed(1):'0.0'}
+document.querySelector('#reset').onclick=reset;document.querySelectorAll('input,select').forEach(e=>e.addEventListener('input',()=>render(false)));reset();setInterval(render,250);
+</script></html>
