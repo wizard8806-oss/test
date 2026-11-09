@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "revision": 11,
+  "purpose": "HMI-only whole-widget restoration after native r10 grid failure; native fitting pending",
+  "baseCommit": "040f26a95be3cd8146d117e0bc2e738338466fbc",
+  "rawBase": "https://raw.githubusercontent.com/wizard8806-oss/test/040f26a95be3cd8146d117e0bc2e738338466fbc/",
+  "files": [
+    {
+      "path": "tools/restore_alarm_widget_r11.py",
+      "bytes": 6366,
+      "sha256": "e50890046983d37bbe028c1272bf9ce92a78c084d3cc07c7d287ec18208abea3"
+    },
+    {
+      "path": "tools/repair_skm_section_index.py",
+      "bytes": 2816,
+      "sha256": "c5b29065a28561dd00db2e118a8ad157259fad90c9160e439c8adcd7df0214ef"
+    },
+    {
+      "path": "tools/validate_alarm_restore_r11.py",
+      "bytes": 3443,
+      "sha256": "5c50f3e79dcd9ff602d3fa541b2f029122d2ad6394471cc8980f199e6517cbe4"
+    },
+    {
+      "path": "artifacts/station002-alarm-restore-r11/interface.json",
+      "bytes": 1451,
+      "sha256": "f46f09853489ce0f795b51ad45a53a5475bf72e7c83348228b95b4dc1f58432c"
+    }
+  ],
+  "runtime": "Python3 standard library; existing interactive SKTool for required native fitting",
+  "source": {
+    "name": "pump_station_3p_cascade_r10_candidate.skm",
+    "bytes": 1287912,
+    "sha256": "e7752b52bfbbc9e74f04391aa0aa9ffc09e9437cc189d55632a41401495c76f4"
+  },
+  "target": {
+    "name": "pump_station_3p_alarm_restore_r11_candidate.skm",
+    "bytes": 1287916,
+    "sha256": "3e6d60e52d3177d786fe72e89cb4cb64c842e16867974c4f8ca5a5fb1065b0d7"
+  },
+  "entrypoint": "tools/restore_alarm_widget_r11.py",
+  "validator": "tools/validate_alarm_restore_r11.py",
+  "fallbackR10Manifest": "https://raw.githubusercontent.com/wizard8806-oss/test/0e59fc17dfa24b85377eed33e6b0f779c94069ec/artifacts/station002-cascade-r10/delivery-manifest.json",
+  "PLCChanged": false,
+  "r10NativeGridFailureObserved": true,
+  "wholeKnownVisibleWidgetRestored": true,
+  "originalLargeBoundsAlsoRestored": [
+    18.75,
+    111.2,
+    976,
+    360
+  ],
+  "r11NativeGridObserved": false,
+  "r11NativeFittingCompleted": false,
+  "fullPanelReadyForDownload": false,
+  "checks": {
+    "independentWholeR7Compared": true,
+    "all135PropertiesAnd26PrimitivesRestored": true,
+    "allOtherR10BytesAndMetadataPreserved": true,
+    "all4PinnedFilesHTTPSizeAndSHAVerified": true,
+    "freshHTTPPythonSExactTargetAndPreservationValidator": true,
+    "sourceLockNoOverwriteSourcePreservation": true
+  },
+  "automaticEquipmentActionsAllowed": false,
+  "fullNativeProjectsPublished": false
+}

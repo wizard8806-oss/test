@@ -24,6 +24,15 @@ SKTool, сохранить отдельный *_native_fit.skm и снова о�
 Код управления и PLC не менялись, оборудование не трогалось. См.
 docs/reports/station002-alarm-restore-r11-20261109.md. Анимация2/3 отдельно.
 
+
+Доставка r11:4файла pinned040f26a95be3cd8146d117e0bc2e738338466fbc
+проверены HTTP/размер/SHA; чистый Python-S создаёт exact3e6d60…5b0d7,
+выполняет preservation validator, source-lock/no-overwrite/source PASS.
+Manifest/task подготовлены отдельным delivery-коммитом. Рамка native r11
+ещё не наблюдалась; большие исходные bounds возвращены намеренно, fitting
+нужен через свойства SKTool, а не новая binary-подгонка. См.
+docs/tasks/station002-alarm-restore-r11-local-delivery.md. PLC r10 сохранять.
+
 **09.11, фото анимации относятся к ПРЕЖНИМ проектам.**
 Пользователь1000298228: Cascade6строк со старыми подписями. На новых
 1000298229/1000298230 AUTO/MANUAL у2/3показаны25Гц/командыRUN, но роторы
