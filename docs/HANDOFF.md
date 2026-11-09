@@ -1,3 +1,20 @@
+## 10.11.2026 — пользователь открыл оба файла; продолжить native r14
+
+Прочитаны локальные6df9d83/08159a9 и фактический статус ниже: новый PLC
+кандидат воспроизведён, HMI workcopy ещё byte-identical пользовательскому
+r13, не законченнаяr14. Затем пользователь сообщил «готово. оба файла
+запущены». Это готовность продолжить работу с открытыми проектами, не факт
+F8/Compile, появления страницы кодов или аппаратной загрузки. Названия окон/
+пути/доступность GUI локальный должен сверить заново. Следующий шаг —
+продолжить прежнее docs/tasks/station002-native-fault-r14-local-offline.md:
+завершить HMI в отдельной копии, native F8/Compile/aliases/Offline Simulator.
+Не пересобирать снова неизменённый PLC вместо HMI и не считать отсутствие
+GUI препятствием самостоятельным файловым доработкам. Обновлённые им
+надписи/main и HAD сохранять. РисунокJPEG по старому пути не найден;
+отдельно найти оригинал AUTOMATIKA KG/импортировать, отсутствие картинки
+не блокирует работу над кодами, журналом и анимацией. Панель остаётся
+недоступной по последнему явному сообщению; аппаратных команд0.
+
 ## 10.11.2026 — station002 r14: offline PLC result, HMI remains unbuilt
 
 Separate r14 PLC candidate matches pinned expected SHA/size; local validation passed 258 component cases. This is not native F8/PLC simulator. Exact user r13 was preserved. Separate HMI workcopy is unchanged from source and not r14-ready; fault page/journal, aliases, compile/simulator and animation root cause remain pending. WinProLadder is not running; SKTool has no accessible top-level window. Embedded Screen14 reference points to an unavailable JPEG, so identity/load/saver were not changed. No panel/equipment actions.
