@@ -1,0 +1,221 @@
+{
+  "revision": 14,
+  "purpose": "offline PLC candidate and native HMI completion contract; not deploy-ready",
+  "sourcePLC": {
+    "name": "station_3p_24MC_cascade_r10_candidate.pdw",
+    "bytes": 187549,
+    "sha256": "b5de31e3fddd45041c8f11b97be94eb55cf13f7aad7b63f3467707227c192a8b"
+  },
+  "candidatePLC": {
+    "name": "station_3p_24MC_native_fault_r14_candidate.pdw",
+    "bytes": 201327,
+    "sha256": "718a004b098f32493829db4cd42475eb842669a157511c90066883e5d9ea84cf"
+  },
+  "sourceHMI": {
+    "name": "pump_station_3p_animation_probe_r13.skm",
+    "bytes": 1273731,
+    "sha256": "1ea6cece228acbb1dd5d99750a44399bfc9a3a36fa261403649b0297d251bfc2",
+    "userMainObjects": 80,
+    "userLayoutMustBePreserved": true,
+    "alarmObject": "HAD1794244624"
+  },
+  "candidateHMI": {
+    "name": "pump_station_3p_native_fault_r14_candidate.skm",
+    "created": false,
+    "nativeCompletionRequired": true
+  },
+  "contract": {
+    "address": "R3049",
+    "value": 27120,
+    "doesNotReplaceAlarmMapR2554": 32,
+    "doesNotReplaceDiagnosticMap": 27110,
+    "doesNotReplaceProbeSignatureLW930": 27119
+  },
+  "activePolling": {
+    "table": "R2900",
+    "rows": 14,
+    "readRowsZeroBased": [
+      0,
+      3,
+      13
+    ],
+    "startPDU": 4096,
+    "wordCount": 7,
+    "nativeFaultPDU": 4097,
+    "newJobsAdded": 0
+  },
+  "drives": [
+    {
+      "drive": 1,
+      "rawReceiveBuffer": "R2801",
+      "qualifiedSampleBit": "M1744",
+      "freshCacheBit": "M1748",
+      "rawCode": "R3040",
+      "quality": "R3043",
+      "sampleSequence": "R3046",
+      "state": "R3050",
+      "lastNonzero": "R3053",
+      "eventWords": [
+        "R3056",
+        "R3057",
+        "R3058",
+        "R3059",
+        "R3060"
+      ],
+      "unknownBitWord": "R3071",
+      "unknownBit": 0
+    },
+    {
+      "drive": 2,
+      "rawReceiveBuffer": "R2809",
+      "qualifiedSampleBit": "M1745",
+      "freshCacheBit": "M1749",
+      "rawCode": "R3041",
+      "quality": "R3044",
+      "sampleSequence": "R3047",
+      "state": "R3051",
+      "lastNonzero": "R3054",
+      "eventWords": [
+        "R3061",
+        "R3062",
+        "R3063",
+        "R3064",
+        "R3065"
+      ],
+      "unknownBitWord": "R3072",
+      "unknownBit": 0
+    },
+    {
+      "drive": 3,
+      "rawReceiveBuffer": "R2817",
+      "qualifiedSampleBit": "M1746",
+      "freshCacheBit": "M1750",
+      "rawCode": "R3042",
+      "quality": "R3045",
+      "sampleSequence": "R3048",
+      "state": "R3052",
+      "lastNonzero": "R3055",
+      "eventWords": [
+        "R3066",
+        "R3067",
+        "R3068",
+        "R3069",
+        "R3070"
+      ],
+      "unknownBitWord": "R3073",
+      "unknownBit": 0
+    }
+  ],
+  "stateCodes": {
+    "0": "No accepted sample yet",
+    "1": "Fresh confirmed zero / no native fault",
+    "2": "Fresh nonzero fault; see numeric code and journal",
+    "3": "Stale last confirmed code retained",
+    "4": "Reserved invalid format; not emitted by PLC"
+  },
+  "qualityCodes": {
+    "0": "Not confirmed fresh",
+    "1": "Existing five-second cache valid; not gated by READY"
+  },
+  "faultEventBitRule": {
+    "range": [
+      1,
+      80
+    ],
+    "wordIndex": "(code-1)//16",
+    "bitIndex": "(code-1)%16",
+    "persistentUntil": "changed accepted code or accepted zero; not cleared by timeout",
+    "unknownOutsideRange": "per-drive unknown bit plus numeric current/last code"
+  },
+  "summary": "R3075",
+  "newNonzeroCodeEventSequence": "R3076",
+  "displayAlarmCount": "R3077",
+  "displayCountRule": "old R2363 plus number of remembered nonzero native faults; readiness messages may also remain active",
+  "controlCountR2363Unchanged": true,
+  "heartbeatR2840Unchanged": true,
+  "volatileWords": [
+    3040,
+    3079
+  ],
+  "retainedWords": [
+    2832,
+    2833,
+    2834,
+    2835,
+    2836,
+    2837,
+    2844,
+    2845,
+    2846,
+    2847,
+    2848
+  ],
+  "retainedSignatures": {
+    "R2847": 27120,
+    "R2848": 38415
+  },
+  "retentionLimit": "Source native retain R0..2999; explicit operand/symbol vacancy checked, native indirect/external allocation and actual hardware retention still require review/test",
+  "hmiMacroReadInputs": [
+    {
+      "name": "NativeFaultContract",
+      "type": "16-Bit Unsigned Int",
+      "address": "R3049",
+      "mode": "R"
+    },
+    {
+      "name": "NativeFaultSummary",
+      "type": "16-Bit Unsigned Int",
+      "address": "R3075",
+      "mode": "R"
+    },
+    {
+      "name": "NativeFaultEventSeq",
+      "type": "16-Bit Unsigned Int",
+      "address": "R3076",
+      "mode": "R"
+    }
+  ],
+  "nativeMacroOrderReview": "All R inputs before final BootAck W is an ABI hypothesis to check in actual generated C/H; no hardcoded pVar offsets",
+  "logo": {
+    "screen": 14,
+    "originalPath": "C:/Users/user/Desktop/Pump_HMI_35/automatikakg.jpg",
+    "name": "AUTOMATIKA KG",
+    "configuredAsLoadAndSaver": false,
+    "nativeHMIStartSettingRequired": true,
+    "suggestedLoadSeconds": 3,
+    "suggestedSaverIdleSeconds": 60
+  },
+  "mainRoutingRepair": {
+    "widget": "SB6010",
+    "target": "Screen13",
+    "nativeStringListIndices": [
+      48,
+      49,
+      57
+    ],
+    "oldValues": [
+      3,
+      3,
+      3
+    ],
+    "newValues": [
+      12,
+      12,
+      12
+    ],
+    "targetNameField": 56,
+    "geometryAndCaptionsMustBePreserved": true
+  },
+  "referenceCatalog": "assets/hmi/native-vfd-faults-r14/catalog.json",
+  "raw52ASDAMappingLiveVerified": false,
+  "driveResetCommandsAdded": 0,
+  "hardwareActions": 0,
+  "checks": {
+    "componentCases": 258,
+    "isolatedVendorNodeConversions": 384,
+    "nativeF8": false,
+    "nativeHMICompile": false,
+    "nativeAlarmRendering": false,
+    "realPanel": false
+  }
+}

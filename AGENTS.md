@@ -1,5 +1,27 @@
 # Работа с проектом
 
+**09.11, новый приоритет: всё готовить OFFLINE, панели сейчас нет.**
+Пользователь поручил закончить вывод native fault/проверки и добавил новую
+базуHMI с переставленными надписями: uploaded r13,1273731байт,
+SHA1ea6cece228acbb1dd5d99750a44399bfc9a3a36fa261403649b0297d251bfc2.
+Private /workspace/shared/station002-user-r13-20261109/pump_station_3p_user_layout_r13.skm.
+MainScene1 теперь80объектов; его раскладку сохранить. HAD1794244624 и оба
+одинаковых r13 macro mirror/Scene13probe сохранены. Старый source562b…
+не использовать поверх нового. Пользователь дал фирменный AUTOMATIKA KG
+рисунок; Screen14 уже ссылается C:/Users/user/Desktop/Pump_HMI_35/automatikakg.jpg.
+Нужны loading/saver на эту страницу через штатные HMI Start Setting.
+Обнаружен отдельный дефект main SB6010: имяtargetScreen13, но native props
+48/49/57 по-прежнему3(Screen4); исправлять ВСЕ три cachedиндекса на12.
+Это не установленная причина анимации. Текущая работа — r14 nativefault:
+созданы PLC exportsR3040..3079/marker27120 иretainedR2832..2837/R2844..2848,
+поток уже7WORD. Candidate201327/SHA718a004b…ea84cf,258component/384vendor
+conversions PASS, не native F8. HMI-r14 ещё НЕ создан: его завершает локальный
+по docs/tasks/station002-native-fault-r14-local-offline.md; добавления к Alarm
+Login + новая15, Main labels/HAD/probe13/brand14 сохранять. Память/retain/
+косвенные диапазоны сверить native, не менять R2363 илиR2840. Не сбрасывать
+ПЧ и не обещать native/livePASS. Пользователь попросил текст для локального;
+передавать это новое offline-задание, не вновь просить тест на панели.
+
 **09.11, r13 production собран локально; пользователь показал нужный Simulator.**
 Приняты2693225/1c5112f: source native562b…54958 сохранён, новый SKM1272079,
 SHA5e4e14f6e6b13045fe3a2d1dc8ef7e646ea0bef4850f9908b1b02cc9ce1330c9;

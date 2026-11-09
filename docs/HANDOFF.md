@@ -1,3 +1,34 @@
+# 09.11.2026 — новый пользовательский r13; offline r14 передаётся локальному
+
+Панель сейчас недоступна; пользователь поручил подготовить доработки/проверки
+и спросил текст для локального. Новая HMI-база — переданный1273731байт r13,
+SHA256 `1ea6cece228acbb1dd5d99750a44399bfc9a3a36fa261403649b0297d251bfc2`.
+Сдвинутые им надписи main сохранить:80объектов, новый HAD1794244624,
+probe13/два одинаковых macro mirror сохранены. Старый r13 SHA5e4e… или native
+r12 SHA562b… не подставлять вместо него. Рисунок AUTOMATIKA KG предоставлен,
+Scene14 ссылается на Desktop/Pump_HMI_35/automatikakg.jpg; native включение
+loading/saver ещё нужно. Main SB6010 targetName Screen13, cached indexes
+48/49/57=3; исправить на12 без изменения main geometry/captions.
+
+PLC builder r14 готов: source r10 b5de31…2a8b, candidate201327байт/SHA256
+`718a004b098f32493829db4cd42475eb842669a157511c90066883e5d9ea84cf`.
+258component/384isolated vendor conversions PASS; все старые control/data/
+poll bytes сохранены, аппаратных команд0. ExportsR3040..3079,retained
+R2832..2837/R2844..2848; signatures27120/38415; память/retain/косвенные ссылки
+нужно проверить native до применения. R2363/R2840 не менялись. Fault доступен
+при READY-off; stale не снимает подтверждённую аварию, fresh0 снимает,
+последний ненулевой сохраняется. Новый display countR3077 не участвует вcontrol.
+
+HMI-r14 пока НЕ создан. Задание завершения:
+`docs/tasks/station002-native-fault-r14-local-offline.md`, report:
+`docs/reports/station002-native-fault-r14-offline-preparation.md`, interface:
+`artifacts/station002-native-fault-r14/interface.json`.
+Локальному закончить страницу кодов/журнал/звук, нативные aliases/анимацию,
+настройки загрузки/заставки, F8/Compile и отдельный OFFLINE_TEST. Никаких
+hardware Download/Force/RUN/reset; не просить сейчас измерения панели.
+Реальное raw52→A52 ещё не измерено, описание по900G/900M reference p58.
+Нельзя выдавать PLC component/host checks за native/hardware PASS.
+
 # 09.11.2026 — нужная страница r13 и новый C подтверждены в Simulator
 
 Приняты локальные2693225/1c5112f: production diagnostic SKM1272079байт,
