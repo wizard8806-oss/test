@@ -1,0 +1,37 @@
+{
+  "revision": 6,
+  "purpose": "Current HMI section is a flat static selected tab, not a repeated screen transition",
+  "source": {
+    "name": "pump_station_3p_countdown_r5.skm",
+    "bytes": 1254272,
+    "sha256": "1d6449d8884fb9f44e3c6a2c71193d044788d8c2832e884c88e44c0707bdf3a3",
+    "latestSourceConfirmedByUser": true
+  },
+  "target": {
+    "name": "pump_station_3p_navigation_r6.skm",
+    "bytes": 1240334,
+    "sha256": "e8c1a0f6ca3684f301728b97f43d481a252cb89cd5b6296ccac8b4f76fce7ade"
+  },
+  "activeTab": {
+    "widget": "existing static Text clone",
+    "color": "#0060A0",
+    "clickAction": null,
+    "threeDimensionalButtonFrame": false,
+    "count": 14
+  },
+  "unchangedNavigationButtons": 94,
+  "selfScreenTransitionsRemaining": 0,
+  "all14ScreenReachabilityPreserved": true,
+  "graphRangeFooterDoesNotResetTo24h": true,
+  "graphCurrentPeriodIsStaticLabel": true,
+  "explicitNestedReturnsPreserved": true,
+  "sceneCountsUnchanged": true,
+  "directoryRelocationBytes": -13938,
+  "all22MetadataSectionsPreserved": true,
+  "PLCChanged": false,
+  "pumpCommandWidgetsChanged": false,
+  "timerWidgetsChanged": false,
+  "nativeR6OpenObserved": false,
+  "nativeR6LayoutObserved": false,
+  "equipmentActionsAllowed": false
+}

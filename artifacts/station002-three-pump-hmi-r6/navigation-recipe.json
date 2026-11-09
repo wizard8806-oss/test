@@ -1,0 +1,1334 @@
+{
+  "schemaVersion": 1,
+  "format": "sktool-r5-static-current-navigation",
+  "sourceSHA256": "1d6449d8884fb9f44e3c6a2c71193d044788d8c2832e884c88e44c0707bdf3a3",
+  "sourceBytes": 1254272,
+  "template": {
+    "id": "Text25014",
+    "caption": "Ручной",
+    "start": 1093813,
+    "stop": 1095128,
+    "ordinal": 25014,
+    "recordSHA256": "8d2ffd89dae1b2a31bfa2dd45c01b27bcfd4d85b59f51133aaf09f5c1071f6eb",
+    "idOffset": 640,
+    "positionOffsets": [
+      85,
+      338
+    ],
+    "sizeOffsets": [
+      28,
+      189
+    ],
+    "geometry": {
+      "x": 304.6875,
+      "y": 377.6,
+      "width": 87.5,
+      "height": 17.6
+    },
+    "oldColor": "24+44+59",
+    "newColor": "0+96+160",
+    "cachedColorOffset": 263,
+    "cachedColorBefore": "01ffff18182c2c3b3b0000",
+    "cachedColorAfter": "01ffff00006060a0a00000"
+  },
+  "replacements": [
+    {
+      "oldID": "SB8010",
+      "newID": "Text8010",
+      "screen": 2,
+      "caption": "Каскад",
+      "target": "Screen2",
+      "start": 220576,
+      "stop": 222881,
+      "recordSHA256": "942a24efccd3bf3c1189173c4dfe6711079836e45583c2771e5087741962b04e",
+      "ordinal": 8010,
+      "geometry": {
+        "x": 203.125,
+        "y": 438.40000000000003,
+        "width": 93.75,
+        "height": 35.2
+      }
+    },
+    {
+      "oldID": "SB8028",
+      "newID": "Text8028",
+      "screen": 3,
+      "caption": "Ротация",
+      "target": "Screen3",
+      "start": 348521,
+      "stop": 350840,
+      "recordSHA256": "8d88dfe3db9ad4d4d283d4ca24e5e0fdf9481c6f22139c0679561da2ce37445a",
+      "ordinal": 8028,
+      "geometry": {
+        "x": 303.125,
+        "y": 438.40000000000003,
+        "width": 93.75,
+        "height": 35.2
+      }
+    },
+    {
+      "oldID": "SB8052",
+      "newID": "Text8052",
+      "screen": 4,
+      "caption": "Диагностика",
+      "target": "Screen4",
+      "start": 445163,
+      "stop": 447538,
+      "recordSHA256": "835e8d5129e7b09c116c14d2781ff39b2f8c760efb40e947299e62852e0a6535",
+      "ordinal": 8052,
+      "geometry": {
+        "x": 703.125,
+        "y": 438.40000000000003,
+        "width": 93.75,
+        "height": 35.2
+      }
+    },
+    {
+      "oldID": "SB8056",
+      "newID": "Text8056",
+      "screen": 6,
+      "caption": "Насосы",
+      "target": "Screen6",
+      "start": 581715,
+      "stop": 584020,
+      "recordSHA256": "bd2c9de0afd0b016d0c60d13d73776d52993ad384f66be331157abfba43e234b",
+      "ordinal": 8056,
+      "geometry": {
+        "x": 103.125,
+        "y": 438.40000000000003,
+        "width": 93.75,
+        "height": 35.2
+      }
+    },
+    {
+      "oldID": "SB9130",
+      "newID": "Text9130",
+      "screen": 7,
+      "caption": "Ручной",
+      "target": "Screen7",
+      "start": 689004,
+      "stop": 691309,
+      "recordSHA256": "3fcf74a050df07e823a5ef395bbc46f51e93a99ed82d67bbf974f27a871f3f47",
+      "ordinal": 9130,
+      "geometry": {
+        "x": 403.125,
+        "y": 438.40000000000003,
+        "width": 93.75,
+        "height": 35.2
+      }
+    },
+    {
+      "oldID": "SB8266",
+      "newID": "Text8266",
+      "screen": 8,
+      "caption": "График",
+      "target": "Screen8",
+      "start": 801258,
+      "stop": 803563,
+      "recordSHA256": "bae074ee734d92ee934fee9bdcf97d817267105f8c16dc1f35633656f6b8017e",
+      "ordinal": 8266,
+      "geometry": {
+        "x": 503.125,
+        "y": 438.40000000000003,
+        "width": 93.75,
+        "height": 35.2
+      }
+    },
+    {
+      "oldID": "SB8248",
+      "newID": "Text8248",
+      "screen": 8,
+      "caption": "24 ч",
+      "target": "Screen8",
+      "start": 821213,
+      "stop": 823490,
+      "recordSHA256": "a81f81d2ecef05d3fa6bc1d42c7d77420c5c34388686448ac1e35787471c5683",
+      "ordinal": 8248,
+      "geometry": {
+        "x": 318.75,
+        "y": 397.6,
+        "width": 90.625,
+        "height": 30.400000000000002
+      }
+    },
+    {
+      "oldID": "SB8304",
+      "newID": "Text8304",
+      "screen": 9,
+      "caption": "Аварии",
+      "target": "Screen9",
+      "start": 862163,
+      "stop": 864468,
+      "recordSHA256": "fd6d836c4e249095cb9f21204faa8e4d7d3bbeb1987537b91edc721206c01935",
+      "ordinal": 8304,
+      "geometry": {
+        "x": 603.125,
+        "y": 438.40000000000003,
+        "width": 93.75,
+        "height": 35.2
+      }
+    },
+    {
+      "oldID": "SB8128",
+      "newID": "Text8128",
+      "screen": 10,
+      "caption": "График",
+      "target": "Screen8",
+      "start": 906354,
+      "stop": 908659,
+      "recordSHA256": "979e487a05869f7925177f3799ecc9f6928506a208a90f289aceb39b9284993c",
+      "ordinal": 8128,
+      "geometry": {
+        "x": 503.125,
+        "y": 438.40000000000003,
+        "width": 93.75,
+        "height": 35.2
+      }
+    },
+    {
+      "oldID": "SB8104",
+      "newID": "Text8104",
+      "screen": 10,
+      "caption": "1 ч",
+      "target": "Screen10",
+      "start": 933146,
+      "stop": 935411,
+      "recordSHA256": "1559f0c921327857c9a867dd1f62590bdde686f1509b71af46ccc65a56498dfd",
+      "ordinal": 8104,
+      "geometry": {
+        "x": 18.75,
+        "y": 397.6,
+        "width": 90.625,
+        "height": 30.400000000000002
+      }
+    },
+    {
+      "oldID": "SB8174",
+      "newID": "Text8174",
+      "screen": 11,
+      "caption": "График",
+      "target": "Screen8",
+      "start": 962493,
+      "stop": 964798,
+      "recordSHA256": "4b964047b308b6a648f3ec6c2fc05d965eee6015e31bea2bbcbd8aad234c64e1",
+      "ordinal": 8174,
+      "geometry": {
+        "x": 503.125,
+        "y": 438.40000000000003,
+        "width": 93.75,
+        "height": 35.2
+      }
+    },
+    {
+      "oldID": "SB8152",
+      "newID": "Text8152",
+      "screen": 11,
+      "caption": "6 ч",
+      "target": "Screen11",
+      "start": 987012,
+      "stop": 989285,
+      "recordSHA256": "8ce4300ee96d826a44272e63476e4c83ff9a7d1538775f93e7c6f90c0bd66a08",
+      "ordinal": 8152,
+      "geometry": {
+        "x": 118.75,
+        "y": 397.6,
+        "width": 90.625,
+        "height": 30.400000000000002
+      }
+    },
+    {
+      "oldID": "SB8220",
+      "newID": "Text8220",
+      "screen": 12,
+      "caption": "График",
+      "target": "Screen8",
+      "start": 1018906,
+      "stop": 1021211,
+      "recordSHA256": "3901308820515630ac24a73b30e9e68622dab123e56bd731f195f841ccc001bc",
+      "ordinal": 8220,
+      "geometry": {
+        "x": 503.125,
+        "y": 438.40000000000003,
+        "width": 93.75,
+        "height": 35.2
+      }
+    },
+    {
+      "oldID": "SB8200",
+      "newID": "Text8200",
+      "screen": 12,
+      "caption": "12 ч",
+      "target": "Screen12",
+      "start": 1041138,
+      "stop": 1043425,
+      "recordSHA256": "07206d71148d765f6a7c7c605e381ede3b46ddc00a15e5ad08928c64aab7db55",
+      "ordinal": 8200,
+      "geometry": {
+        "x": 218.75,
+        "y": 397.6,
+        "width": 90.625,
+        "height": 30.400000000000002
+      }
+    }
+  ],
+  "sceneHeaders": [
+    {
+      "firstRecordOffset": 485,
+      "screen": 1,
+      "countOffset": 481,
+      "count": 73
+    },
+    {
+      "firstRecordOffset": 208967,
+      "screen": 2,
+      "countOffset": 208963,
+      "count": 45
+    },
+    {
+      "firstRecordOffset": 317619,
+      "screen": 3,
+      "countOffset": 317615,
+      "count": 38
+    },
+    {
+      "firstRecordOffset": 443726,
+      "screen": 4,
+      "countOffset": 443722,
+      "count": 38
+    },
+    {
+      "firstRecordOffset": 518993,
+      "screen": 5,
+      "countOffset": 518989,
+      "count": 6
+    },
+    {
+      "firstRecordOffset": 556557,
+      "screen": 6,
+      "countOffset": 556553,
+      "count": 55
+    },
+    {
+      "firstRecordOffset": 682019,
+      "screen": 7,
+      "countOffset": 682015,
+      "count": 53
+    },
+    {
+      "firstRecordOffset": 796578,
+      "screen": 8,
+      "countOffset": 796574,
+      "count": 23
+    },
+    {
+      "firstRecordOffset": 852841,
+      "screen": 9,
+      "countOffset": 852837,
+      "count": 19
+    },
+    {
+      "firstRecordOffset": 901674,
+      "screen": 10,
+      "countOffset": 901670,
+      "count": 23
+    },
+    {
+      "firstRecordOffset": 957813,
+      "screen": 11,
+      "countOffset": 957809,
+      "count": 23
+    },
+    {
+      "firstRecordOffset": 1014226,
+      "screen": 12,
+      "countOffset": 1014222,
+      "count": 23
+    },
+    {
+      "firstRecordOffset": 1070629,
+      "screen": 13,
+      "countOffset": 1070625,
+      "count": 80
+    },
+    {
+      "firstRecordOffset": 1213478,
+      "screen": 14,
+      "countOffset": 1213474,
+      "count": 1
+    }
+  ],
+  "originalNavigation": [
+    {
+      "id": "SB8004",
+      "screen": 1,
+      "start": 80741,
+      "stop": 83182,
+      "target": "Screen9",
+      "caption": "Аварии и история",
+      "recordSHA256": "68e237e4f4fcbbc40c35be1119587822c215904e6ff66e20c707b21df7db65c2"
+    },
+    {
+      "id": "SB8002",
+      "screen": 1,
+      "start": 83182,
+      "stop": 85609,
+      "target": "Screen8",
+      "caption": "График давления",
+      "recordSHA256": "fc7a6e6a87995f99c6febf27ffc46cfad81a505b4e7b7dc479f1e82e82e45179"
+    },
+    {
+      "id": "SB6010",
+      "screen": 1,
+      "start": 85609,
+      "stop": 87980,
+      "target": "Screen4",
+      "caption": "Диагностика",
+      "recordSHA256": "b16024c4aa7fcc8b647a569c209fa8280c6f9b27d587bb0619c9fb13c1de6b19"
+    },
+    {
+      "id": "SB6008",
+      "screen": 1,
+      "start": 87980,
+      "stop": 90281,
+      "target": "Screen7",
+      "caption": "Ручной",
+      "recordSHA256": "d6e7e4d474124a31b299a4f88ed8f5d1a750dd9d39694b91fd603d4905bce02f"
+    },
+    {
+      "id": "SB6006",
+      "screen": 1,
+      "start": 90281,
+      "stop": 92596,
+      "target": "Screen3",
+      "caption": "Ротация",
+      "recordSHA256": "0d7639df494eeb36da8b69c36b38fb30c8f0a5b43983b469ae353807b0c27236"
+    },
+    {
+      "id": "SB6004",
+      "screen": 1,
+      "start": 92596,
+      "stop": 94897,
+      "target": "Screen2",
+      "caption": "Каскад",
+      "recordSHA256": "8a04b2b07e0a0f01cca878b77037ee25bb5ef7531d502000b04485f93a1e3168"
+    },
+    {
+      "id": "SB6002",
+      "screen": 1,
+      "start": 94897,
+      "stop": 97198,
+      "target": "Screen6",
+      "caption": "Насосы",
+      "recordSHA256": "59de3885830722cfb27f098616f846f4dd2b02b29f5ac05329516b4bab59e029"
+    },
+    {
+      "id": "SB8020",
+      "screen": 2,
+      "start": 208967,
+      "stop": 211342,
+      "target": "Screen4",
+      "caption": "Диагностика",
+      "recordSHA256": "acd93feda25c3fe48f011e34104d3542e13b8903fb5bfb6782b8936a7d3a400c"
+    },
+    {
+      "id": "SB8018",
+      "screen": 2,
+      "start": 211342,
+      "stop": 213647,
+      "target": "Screen9",
+      "caption": "Аварии",
+      "recordSHA256": "ce14a2097ce938bc4e9fb733b70442d3e8ae2301a57bf22166f737a0da1a90b1"
+    },
+    {
+      "id": "SB8016",
+      "screen": 2,
+      "start": 213647,
+      "stop": 215952,
+      "target": "Screen8",
+      "caption": "График",
+      "recordSHA256": "c4c3cf628aaca74b7944ac38d216ef374e82858e85823cb93affbb703a308e62"
+    },
+    {
+      "id": "SB8014",
+      "screen": 2,
+      "start": 215952,
+      "stop": 218257,
+      "target": "Screen7",
+      "caption": "Ручной",
+      "recordSHA256": "d00b80db27d66a1e60d7a825bd39170ed6614254bf1d48518edadb3331911343"
+    },
+    {
+      "id": "SB8012",
+      "screen": 2,
+      "start": 218257,
+      "stop": 220576,
+      "target": "Screen3",
+      "caption": "Ротация",
+      "recordSHA256": "2fb09ac529e9c91ace9ff121afbdf9616d765589684e8d86bb6a5de0469a293d"
+    },
+    {
+      "id": "SB8010",
+      "screen": 2,
+      "start": 220576,
+      "stop": 222881,
+      "target": "Screen2",
+      "caption": "Каскад",
+      "recordSHA256": "942a24efccd3bf3c1189173c4dfe6711079836e45583c2771e5087741962b04e"
+    },
+    {
+      "id": "SB8008",
+      "screen": 2,
+      "start": 222881,
+      "stop": 225186,
+      "target": "Screen6",
+      "caption": "Насосы",
+      "recordSHA256": "921a3845fb0dbb297f4914cfece805c1439c92ee4a50e5b84b2f05b1c74e710b"
+    },
+    {
+      "id": "SB8006",
+      "screen": 2,
+      "start": 225186,
+      "stop": 227505,
+      "target": "Screen1",
+      "caption": "Станция",
+      "recordSHA256": "620eccf2b9e12219a9269ee823bc73ff14def6ef738c5474a573b9c8fc935f30"
+    },
+    {
+      "id": "SB8036",
+      "screen": 3,
+      "start": 339231,
+      "stop": 341606,
+      "target": "Screen4",
+      "caption": "Диагностика",
+      "recordSHA256": "a3e6d631fc5d34824d0c56bc1d931bb77c2c37cd127cfdd59d0ab8bfec6d57a6"
+    },
+    {
+      "id": "SB8034",
+      "screen": 3,
+      "start": 341606,
+      "stop": 343911,
+      "target": "Screen9",
+      "caption": "Аварии",
+      "recordSHA256": "95d9a393916c2c74d381e4375a4d0bc904d18654b1969efab9d8bb563cd234c4"
+    },
+    {
+      "id": "SB8032",
+      "screen": 3,
+      "start": 343911,
+      "stop": 346216,
+      "target": "Screen8",
+      "caption": "График",
+      "recordSHA256": "4a3c1b7aa07230c5698b1b50f9b8ab45fc34eaf1fe985a59bb21f1f03385f735"
+    },
+    {
+      "id": "SB8030",
+      "screen": 3,
+      "start": 346216,
+      "stop": 348521,
+      "target": "Screen7",
+      "caption": "Ручной",
+      "recordSHA256": "e8715d7e1028643f3be101968d655e0c399293496f9bae6bf454f69c42197a6b"
+    },
+    {
+      "id": "SB8028",
+      "screen": 3,
+      "start": 348521,
+      "stop": 350840,
+      "target": "Screen3",
+      "caption": "Ротация",
+      "recordSHA256": "8d88dfe3db9ad4d4d283d4ca24e5e0fdf9481c6f22139c0679561da2ce37445a"
+    },
+    {
+      "id": "SB8026",
+      "screen": 3,
+      "start": 350840,
+      "stop": 353145,
+      "target": "Screen2",
+      "caption": "Каскад",
+      "recordSHA256": "6150e9c304fc15b5003d80e8076ba87ed275cec2fd4741701e1e8657f6d746c8"
+    },
+    {
+      "id": "SB8024",
+      "screen": 3,
+      "start": 353145,
+      "stop": 355450,
+      "target": "Screen6",
+      "caption": "Насосы",
+      "recordSHA256": "ed7e98ed1f04592a87cc51d29be7d8b3095ccc4fba66e802feece880df076b36"
+    },
+    {
+      "id": "SB8022",
+      "screen": 3,
+      "start": 355450,
+      "stop": 357769,
+      "target": "Screen1",
+      "caption": "Станция",
+      "recordSHA256": "da49b6f3245112ad2300eac8bfbe1541ec41901d0c488bd8b338794fb47304f3"
+    },
+    {
+      "id": "SB5148",
+      "screen": 3,
+      "start": 397611,
+      "stop": 400182,
+      "target": "Screen5",
+      "caption": "Запросить смену ведущего…",
+      "recordSHA256": "e0964de335a46bb0d0e26d40f17b49f5c429885ad4df3b2016c4ce3bd0615db7"
+    },
+    {
+      "id": "SB8052",
+      "screen": 4,
+      "start": 445163,
+      "stop": 447538,
+      "target": "Screen4",
+      "caption": "Диагностика",
+      "recordSHA256": "835e8d5129e7b09c116c14d2781ff39b2f8c760efb40e947299e62852e0a6535"
+    },
+    {
+      "id": "SB8050",
+      "screen": 4,
+      "start": 447538,
+      "stop": 449843,
+      "target": "Screen9",
+      "caption": "Аварии",
+      "recordSHA256": "c512f480bacd99b5f549d58ef6a2e219bd644e1a487e6f17b3a69b018ac6ad8b"
+    },
+    {
+      "id": "SB8048",
+      "screen": 4,
+      "start": 449843,
+      "stop": 452148,
+      "target": "Screen8",
+      "caption": "График",
+      "recordSHA256": "1d0e8ad289812b0a6410f8844d45d1f9f7b8d1c8e8fdcc9dab7ae2d2b1239112"
+    },
+    {
+      "id": "SB8046",
+      "screen": 4,
+      "start": 452148,
+      "stop": 454453,
+      "target": "Screen7",
+      "caption": "Ручной",
+      "recordSHA256": "84250626f7f60dfe089dddb2d745f9bf837d88515aea0f933c069e50bd6de59c"
+    },
+    {
+      "id": "SB8044",
+      "screen": 4,
+      "start": 454453,
+      "stop": 456772,
+      "target": "Screen3",
+      "caption": "Ротация",
+      "recordSHA256": "e1f2436722fd82fc2576e954dd52f7f58690e09cd4c06a42325c2f05b8d6ab29"
+    },
+    {
+      "id": "SB8042",
+      "screen": 4,
+      "start": 456772,
+      "stop": 459077,
+      "target": "Screen2",
+      "caption": "Каскад",
+      "recordSHA256": "04dce9cc7ee33b4e00952c0726c62ebd17adfe0e2711c752d78690543b96b92d"
+    },
+    {
+      "id": "SB8040",
+      "screen": 4,
+      "start": 459077,
+      "stop": 461382,
+      "target": "Screen6",
+      "caption": "Насосы",
+      "recordSHA256": "cca5d471dc917bb971a50d4cc92b08b02bb605ada1a2cbf0325d697d96d97f36"
+    },
+    {
+      "id": "SB8038",
+      "screen": 4,
+      "start": 461382,
+      "stop": 463701,
+      "target": "Screen1",
+      "caption": "Станция",
+      "recordSHA256": "2aaae6e59e212cd172a618b25a79a1ddae910a54f3104d9e3cbb075e94cecfca"
+    },
+    {
+      "id": "SB5254",
+      "screen": 5,
+      "start": 518993,
+      "stop": 521424,
+      "target": "Screen3",
+      "caption": "Назад к ротации",
+      "recordSHA256": "ce566222395e48955bbaf3dffc6cb59147eba91bf854b37b574e7cecf1ac66af"
+    },
+    {
+      "id": "SB8068",
+      "screen": 6,
+      "start": 567801,
+      "stop": 570176,
+      "target": "Screen4",
+      "caption": "Диагностика",
+      "recordSHA256": "7bc14040661a24cf8df87a6fccaec89c7aba3f18a34239437f184b815e87a3d5"
+    },
+    {
+      "id": "SB8066",
+      "screen": 6,
+      "start": 570176,
+      "stop": 572481,
+      "target": "Screen9",
+      "caption": "Аварии",
+      "recordSHA256": "226b3b12b8c061f615de4d6eaf86732851ec467460941c130cd1eda7a507bdbc"
+    },
+    {
+      "id": "SB8064",
+      "screen": 6,
+      "start": 572481,
+      "stop": 574786,
+      "target": "Screen8",
+      "caption": "График",
+      "recordSHA256": "a2ee20644af33acad554120131df94187bbbafcb25e0f90bc4c876aebeac70fa"
+    },
+    {
+      "id": "SB8062",
+      "screen": 6,
+      "start": 574786,
+      "stop": 577091,
+      "target": "Screen7",
+      "caption": "Ручной",
+      "recordSHA256": "3b7a902889f406f16e43760406cb68649863c611ee99e8f244a3626b4596e90e"
+    },
+    {
+      "id": "SB8060",
+      "screen": 6,
+      "start": 577091,
+      "stop": 579410,
+      "target": "Screen3",
+      "caption": "Ротация",
+      "recordSHA256": "baa361c7625a048491966353ecb7a2ae8ff0133ef9492cdf340d80f7982557e8"
+    },
+    {
+      "id": "SB8058",
+      "screen": 6,
+      "start": 579410,
+      "stop": 581715,
+      "target": "Screen2",
+      "caption": "Каскад",
+      "recordSHA256": "1a5e7d17f9b3ddd7e282b433c1b794038bb47e59ee99422464fa2aa43550391a"
+    },
+    {
+      "id": "SB8056",
+      "screen": 6,
+      "start": 581715,
+      "stop": 584020,
+      "target": "Screen6",
+      "caption": "Насосы",
+      "recordSHA256": "bd2c9de0afd0b016d0c60d13d73776d52993ad384f66be331157abfba43e234b"
+    },
+    {
+      "id": "SB8054",
+      "screen": 6,
+      "start": 584020,
+      "stop": 586339,
+      "target": "Screen1",
+      "caption": "Станция",
+      "recordSHA256": "e4ffd7e9e206efe996b8601791542a2b23a283055521affbef6874a5b0187a24"
+    },
+    {
+      "id": "SB9136",
+      "screen": 7,
+      "start": 682019,
+      "stop": 684394,
+      "target": "Screen4",
+      "caption": "Диагностика",
+      "recordSHA256": "759fe563d293e5120eba87bf63c3099502136fd0374b15c64f02d87d36a68c32"
+    },
+    {
+      "id": "SB9134",
+      "screen": 7,
+      "start": 684394,
+      "stop": 686699,
+      "target": "Screen9",
+      "caption": "Аварии",
+      "recordSHA256": "831f8d5a5d4ee3eef95d168a62d70034f790034fa1869c4c1ed2c296a173652d"
+    },
+    {
+      "id": "SB9132",
+      "screen": 7,
+      "start": 686699,
+      "stop": 689004,
+      "target": "Screen8",
+      "caption": "График",
+      "recordSHA256": "abdb19d423ebb10f9a595fbdff1ac094fc8dc1c7fa0dfdbd21e5d250dae3b8bc"
+    },
+    {
+      "id": "SB9130",
+      "screen": 7,
+      "start": 689004,
+      "stop": 691309,
+      "target": "Screen7",
+      "caption": "Ручной",
+      "recordSHA256": "3fcf74a050df07e823a5ef395bbc46f51e93a99ed82d67bbf974f27a871f3f47"
+    },
+    {
+      "id": "SB9128",
+      "screen": 7,
+      "start": 691309,
+      "stop": 693628,
+      "target": "Screen3",
+      "caption": "Ротация",
+      "recordSHA256": "17579d38ad1a7116c513c60955d51caadd1e842b52a2ad9853e5b39daad69aee"
+    },
+    {
+      "id": "SB9126",
+      "screen": 7,
+      "start": 693628,
+      "stop": 695933,
+      "target": "Screen2",
+      "caption": "Каскад",
+      "recordSHA256": "f443a0dc569ab4929abf881420ad313ee994d99296b3bd9b357fabe8effb7a9f"
+    },
+    {
+      "id": "SB9124",
+      "screen": 7,
+      "start": 695933,
+      "stop": 698238,
+      "target": "Screen6",
+      "caption": "Насосы",
+      "recordSHA256": "f65784c6936e5ba35530010f095ff22f41e60b48befa4aead4589f70f534b5cf"
+    },
+    {
+      "id": "SB9122",
+      "screen": 7,
+      "start": 698238,
+      "stop": 700557,
+      "target": "Screen1",
+      "caption": "Станция",
+      "recordSHA256": "e697c8ac552af01c6c5f987bb804b55b574055e56b910de38e38c7c63bd9ba73"
+    },
+    {
+      "id": "SB8270",
+      "screen": 8,
+      "start": 796578,
+      "stop": 798953,
+      "target": "Screen4",
+      "caption": "Диагностика",
+      "recordSHA256": "0e010fbd2b445e6ae6b4871949024d944bf7b8f4e547b7e6d0736be5d13cf6a4"
+    },
+    {
+      "id": "SB8268",
+      "screen": 8,
+      "start": 798953,
+      "stop": 801258,
+      "target": "Screen9",
+      "caption": "Аварии",
+      "recordSHA256": "187522b7b2fe45c6be6049311b9a0bcba34c3c06213119a919bae81cfea1b95f"
+    },
+    {
+      "id": "SB8266",
+      "screen": 8,
+      "start": 801258,
+      "stop": 803563,
+      "target": "Screen8",
+      "caption": "График",
+      "recordSHA256": "bae074ee734d92ee934fee9bdcf97d817267105f8c16dc1f35633656f6b8017e"
+    },
+    {
+      "id": "SB8264",
+      "screen": 8,
+      "start": 803563,
+      "stop": 805868,
+      "target": "Screen7",
+      "caption": "Ручной",
+      "recordSHA256": "0bc03aba06c3577ef704bd82d040a436d1e0e3ab64e9658b500e32022d1b216d"
+    },
+    {
+      "id": "SB8262",
+      "screen": 8,
+      "start": 805868,
+      "stop": 808187,
+      "target": "Screen3",
+      "caption": "Ротация",
+      "recordSHA256": "f3cbaccc9dcdd81d411be17bc82b2c8802790df73e94970cd62db691cdf10417"
+    },
+    {
+      "id": "SB8260",
+      "screen": 8,
+      "start": 808187,
+      "stop": 810492,
+      "target": "Screen2",
+      "caption": "Каскад",
+      "recordSHA256": "a60c9f798c074c5e635197e9661c917d54512873ef176565e1cddf35d422ead9"
+    },
+    {
+      "id": "SB8258",
+      "screen": 8,
+      "start": 810492,
+      "stop": 812797,
+      "target": "Screen6",
+      "caption": "Насосы",
+      "recordSHA256": "f608d8baf26cb31a5a2fe125c625c9d67c439aecaf0674be5ce63ec079f2027a"
+    },
+    {
+      "id": "SB8256",
+      "screen": 8,
+      "start": 812797,
+      "stop": 815116,
+      "target": "Screen1",
+      "caption": "Станция",
+      "recordSHA256": "7fd13dab646d64f90fc3bf211173aef3c4039fd9cf796d07caed59b598c27795"
+    },
+    {
+      "id": "SB8248",
+      "screen": 8,
+      "start": 821213,
+      "stop": 823490,
+      "target": "Screen8",
+      "caption": "24 ч",
+      "recordSHA256": "a81f81d2ecef05d3fa6bc1d42c7d77420c5c34388686448ac1e35787471c5683"
+    },
+    {
+      "id": "SB8246",
+      "screen": 8,
+      "start": 823490,
+      "stop": 825777,
+      "target": "Screen12",
+      "caption": "12 ч",
+      "recordSHA256": "68c377ac38684d94aac1084d157aeb1aa34d1e75141a03623f3909257441836c"
+    },
+    {
+      "id": "SB8244",
+      "screen": 8,
+      "start": 825777,
+      "stop": 828050,
+      "target": "Screen11",
+      "caption": "6 ч",
+      "recordSHA256": "517bc06f307b414f98a91dd20d70647b3adde920f48ebad8dc06a1db40c4f503"
+    },
+    {
+      "id": "SB8242",
+      "screen": 8,
+      "start": 828050,
+      "stop": 830315,
+      "target": "Screen10",
+      "caption": "1 ч",
+      "recordSHA256": "95173ca7c3979861a751d862b15f2cf624d020be5260288f4a67129a3aee13ff"
+    },
+    {
+      "id": "SB24002",
+      "screen": 9,
+      "start": 852841,
+      "stop": 855232,
+      "target": "Screen13",
+      "caption": "Запуски ПЛК",
+      "recordSHA256": "b7c619e3db5f9c7849b1b357e6a55b0fee9943b06b608d0c4845b2406ea0e179"
+    },
+    {
+      "id": "SB8306",
+      "screen": 9,
+      "start": 859788,
+      "stop": 862163,
+      "target": "Screen4",
+      "caption": "Диагностика",
+      "recordSHA256": "59bc44218b75a3d6aa9a8cc2f9947c6189c4b5102f0e8b51189bdfd68f319eb3"
+    },
+    {
+      "id": "SB8304",
+      "screen": 9,
+      "start": 862163,
+      "stop": 864468,
+      "target": "Screen9",
+      "caption": "Аварии",
+      "recordSHA256": "fd6d836c4e249095cb9f21204faa8e4d7d3bbeb1987537b91edc721206c01935"
+    },
+    {
+      "id": "SB8302",
+      "screen": 9,
+      "start": 864468,
+      "stop": 866773,
+      "target": "Screen8",
+      "caption": "График",
+      "recordSHA256": "df81c1303e5d1e4f05ba39fec859ab2951f42d23efea71c0cbef6f3ccbb03a30"
+    },
+    {
+      "id": "SB8300",
+      "screen": 9,
+      "start": 866773,
+      "stop": 869078,
+      "target": "Screen7",
+      "caption": "Ручной",
+      "recordSHA256": "0dc345e56ba422df5fe2cde0d9f6e8ade446b30e8f6ff2eef39fafe22bf38cc8"
+    },
+    {
+      "id": "SB8298",
+      "screen": 9,
+      "start": 869078,
+      "stop": 871397,
+      "target": "Screen3",
+      "caption": "Ротация",
+      "recordSHA256": "e040285ee81a5531ce5c8bbf158b7e11f5a72ba1560553f5cb28fbaea976e459"
+    },
+    {
+      "id": "SB8296",
+      "screen": 9,
+      "start": 871397,
+      "stop": 873702,
+      "target": "Screen2",
+      "caption": "Каскад",
+      "recordSHA256": "69884ba289994b43fa1ce747dc4304e73c834362134c7ebdcc6867ef8552426a"
+    },
+    {
+      "id": "SB8294",
+      "screen": 9,
+      "start": 873702,
+      "stop": 876007,
+      "target": "Screen6",
+      "caption": "Насосы",
+      "recordSHA256": "8fde650be115831645bd54377d763a924597297c59901a9e94dd3a56906b7cb9"
+    },
+    {
+      "id": "SB8292",
+      "screen": 9,
+      "start": 876007,
+      "stop": 878326,
+      "target": "Screen1",
+      "caption": "Станция",
+      "recordSHA256": "940c673baf6d48ac2ea9595bf6a54733964a137360c22831db7270089a990b32"
+    },
+    {
+      "id": "SB8132",
+      "screen": 10,
+      "start": 901674,
+      "stop": 904049,
+      "target": "Screen4",
+      "caption": "Диагностика",
+      "recordSHA256": "491fee9331243881c93ae8651515ac04a517e8efa1c6367e203a84287789a176"
+    },
+    {
+      "id": "SB8130",
+      "screen": 10,
+      "start": 904049,
+      "stop": 906354,
+      "target": "Screen9",
+      "caption": "Аварии",
+      "recordSHA256": "d760a17bbe5216f7cb5dd72e11e7e9e7c4c87482adf7e53f13527a49820ae310"
+    },
+    {
+      "id": "SB8128",
+      "screen": 10,
+      "start": 906354,
+      "stop": 908659,
+      "target": "Screen8",
+      "caption": "График",
+      "recordSHA256": "979e487a05869f7925177f3799ecc9f6928506a208a90f289aceb39b9284993c"
+    },
+    {
+      "id": "SB8126",
+      "screen": 10,
+      "start": 908659,
+      "stop": 910964,
+      "target": "Screen7",
+      "caption": "Ручной",
+      "recordSHA256": "10a29a0e55f9ef4c47a6bc6ccb4afb61fa0220b0e6ddcc5308fb29ac72f855c6"
+    },
+    {
+      "id": "SB8124",
+      "screen": 10,
+      "start": 910964,
+      "stop": 913283,
+      "target": "Screen3",
+      "caption": "Ротация",
+      "recordSHA256": "17a7f6520f830489ec8204713933b03e055a4bacaf330e942741c85ac6e900c0"
+    },
+    {
+      "id": "SB8122",
+      "screen": 10,
+      "start": 913283,
+      "stop": 915588,
+      "target": "Screen2",
+      "caption": "Каскад",
+      "recordSHA256": "163eea4a9de67f60ddac049afcd2859e0ad926cec2e3e787313983bb5ffa834e"
+    },
+    {
+      "id": "SB8120",
+      "screen": 10,
+      "start": 915588,
+      "stop": 917893,
+      "target": "Screen6",
+      "caption": "Насосы",
+      "recordSHA256": "f9d95429136005b5ed64cda3bf862b9e2799f5a37b2e8ec042ab4bc70a34ad7c"
+    },
+    {
+      "id": "SB8118",
+      "screen": 10,
+      "start": 917893,
+      "stop": 920212,
+      "target": "Screen1",
+      "caption": "Станция",
+      "recordSHA256": "df30fcd5956ba26a7b3fb4c2d8128bff16de7fa3edd325a121eab43b134190b9"
+    },
+    {
+      "id": "SB8110",
+      "screen": 10,
+      "start": 926309,
+      "stop": 928586,
+      "target": "Screen8",
+      "caption": "24 ч",
+      "recordSHA256": "c82ee21f3bae472fde8ed9fb79d033d90046ca76f20bdb1722e5144e2eef15a5"
+    },
+    {
+      "id": "SB8108",
+      "screen": 10,
+      "start": 928586,
+      "stop": 930873,
+      "target": "Screen12",
+      "caption": "12 ч",
+      "recordSHA256": "32ce4a1aef361a7962d17f44f0d370003b462019b6819781388cebb1c9b5131f"
+    },
+    {
+      "id": "SB8106",
+      "screen": 10,
+      "start": 930873,
+      "stop": 933146,
+      "target": "Screen11",
+      "caption": "6 ч",
+      "recordSHA256": "7986571738141fc4a6f735c6849d4e0929f6f05c1de745783371f7d47020da30"
+    },
+    {
+      "id": "SB8104",
+      "screen": 10,
+      "start": 933146,
+      "stop": 935411,
+      "target": "Screen10",
+      "caption": "1 ч",
+      "recordSHA256": "1559f0c921327857c9a867dd1f62590bdde686f1509b71af46ccc65a56498dfd"
+    },
+    {
+      "id": "SB8178",
+      "screen": 11,
+      "start": 957813,
+      "stop": 960188,
+      "target": "Screen4",
+      "caption": "Диагностика",
+      "recordSHA256": "b463ef41a020d924b954d1e130c71102c8130c4b1524cc296beced0289234697"
+    },
+    {
+      "id": "SB8176",
+      "screen": 11,
+      "start": 960188,
+      "stop": 962493,
+      "target": "Screen9",
+      "caption": "Аварии",
+      "recordSHA256": "595b5196bdcd694d9a6741a31c939ce2615859c3382d7360b0e4674bc7f0db99"
+    },
+    {
+      "id": "SB8174",
+      "screen": 11,
+      "start": 962493,
+      "stop": 964798,
+      "target": "Screen8",
+      "caption": "График",
+      "recordSHA256": "4b964047b308b6a648f3ec6c2fc05d965eee6015e31bea2bbcbd8aad234c64e1"
+    },
+    {
+      "id": "SB8172",
+      "screen": 11,
+      "start": 964798,
+      "stop": 967103,
+      "target": "Screen7",
+      "caption": "Ручной",
+      "recordSHA256": "e01b6998b446ba372200ed7a42a77b688bf7a38ff00335e5f7bc5b689904eb80"
+    },
+    {
+      "id": "SB8170",
+      "screen": 11,
+      "start": 967103,
+      "stop": 969422,
+      "target": "Screen3",
+      "caption": "Ротация",
+      "recordSHA256": "fc05745b269c21eacfe659ab725ecfe37be3b644b88b8fb4d118f010a4efc7e8"
+    },
+    {
+      "id": "SB8168",
+      "screen": 11,
+      "start": 969422,
+      "stop": 971727,
+      "target": "Screen2",
+      "caption": "Каскад",
+      "recordSHA256": "88d397fa5e0faedb4ad31521e3457b41006395f89d869c94ef20181b7e3b32c1"
+    },
+    {
+      "id": "SB8166",
+      "screen": 11,
+      "start": 971727,
+      "stop": 974032,
+      "target": "Screen6",
+      "caption": "Насосы",
+      "recordSHA256": "e0fe4c72719db405c42acf3d03d6e7b986740cd42155f3415b128d462270f7b9"
+    },
+    {
+      "id": "SB8164",
+      "screen": 11,
+      "start": 974032,
+      "stop": 976351,
+      "target": "Screen1",
+      "caption": "Станция",
+      "recordSHA256": "5ccb0c2cc792fb3c9c29e65d014dd0603a565e4fc4dc58ca941df3ce23cd25f5"
+    },
+    {
+      "id": "SB8156",
+      "screen": 11,
+      "start": 982448,
+      "stop": 984725,
+      "target": "Screen8",
+      "caption": "24 ч",
+      "recordSHA256": "7cd820174e53cb1ad5bc15543a6cf032e500768ca219199bc4dcc7d7b9a0d15c"
+    },
+    {
+      "id": "SB8154",
+      "screen": 11,
+      "start": 984725,
+      "stop": 987012,
+      "target": "Screen12",
+      "caption": "12 ч",
+      "recordSHA256": "0a3d092a41fcee99269c095fbc253da6a23e296785325042f5ee20df7ba51cc8"
+    },
+    {
+      "id": "SB8152",
+      "screen": 11,
+      "start": 987012,
+      "stop": 989285,
+      "target": "Screen11",
+      "caption": "6 ч",
+      "recordSHA256": "8ce4300ee96d826a44272e63476e4c83ff9a7d1538775f93e7c6f90c0bd66a08"
+    },
+    {
+      "id": "SB8150",
+      "screen": 11,
+      "start": 989285,
+      "stop": 991550,
+      "target": "Screen10",
+      "caption": "1 ч",
+      "recordSHA256": "7adecb2226b232ae32d2ee98c99733cc47390203ea3a0edb8c9c12c7d5bd7591"
+    },
+    {
+      "id": "SB8224",
+      "screen": 12,
+      "start": 1014226,
+      "stop": 1016601,
+      "target": "Screen4",
+      "caption": "Диагностика",
+      "recordSHA256": "294bef7da1121466869717a93deac9939082f23a662598f151147f95347a6eeb"
+    },
+    {
+      "id": "SB8222",
+      "screen": 12,
+      "start": 1016601,
+      "stop": 1018906,
+      "target": "Screen9",
+      "caption": "Аварии",
+      "recordSHA256": "d225910d728195bf2d837e3150b2a6a40a1473f6acb5551161c378a7bd0afdf6"
+    },
+    {
+      "id": "SB8220",
+      "screen": 12,
+      "start": 1018906,
+      "stop": 1021211,
+      "target": "Screen8",
+      "caption": "График",
+      "recordSHA256": "3901308820515630ac24a73b30e9e68622dab123e56bd731f195f841ccc001bc"
+    },
+    {
+      "id": "SB8218",
+      "screen": 12,
+      "start": 1021211,
+      "stop": 1023516,
+      "target": "Screen7",
+      "caption": "Ручной",
+      "recordSHA256": "f3a8037b66f4f9121d6328de58402bc6cb6cbfc7aff2f8152782c657f07e6f8c"
+    },
+    {
+      "id": "SB8216",
+      "screen": 12,
+      "start": 1023516,
+      "stop": 1025835,
+      "target": "Screen3",
+      "caption": "Ротация",
+      "recordSHA256": "f5a8ff4c2ce51e6ef71de6525dd9e220cf35e31c8f0031acc26549e0f582cd0b"
+    },
+    {
+      "id": "SB8214",
+      "screen": 12,
+      "start": 1025835,
+      "stop": 1028140,
+      "target": "Screen2",
+      "caption": "Каскад",
+      "recordSHA256": "36497c38b244daeed04224155c559dec74e012fe3034dce81a00d4ebee4ea96e"
+    },
+    {
+      "id": "SB8212",
+      "screen": 12,
+      "start": 1028140,
+      "stop": 1030445,
+      "target": "Screen6",
+      "caption": "Насосы",
+      "recordSHA256": "cc5dba1e257d1000ecd9a447c2edc675a4a401b06cebadd333df843cd3cda872"
+    },
+    {
+      "id": "SB8210",
+      "screen": 12,
+      "start": 1030445,
+      "stop": 1032764,
+      "target": "Screen1",
+      "caption": "Станция",
+      "recordSHA256": "e6d056b10ea24a9e9b896638eb745d2b38fc1699e3beb1e195506d7a00924344"
+    },
+    {
+      "id": "SB8202",
+      "screen": 12,
+      "start": 1038861,
+      "stop": 1041138,
+      "target": "Screen8",
+      "caption": "24 ч",
+      "recordSHA256": "b0618f9acfe973d108c91dfdbd4a85b6aee3646018b34a19572b9212a6476762"
+    },
+    {
+      "id": "SB8200",
+      "screen": 12,
+      "start": 1041138,
+      "stop": 1043425,
+      "target": "Screen12",
+      "caption": "12 ч",
+      "recordSHA256": "07206d71148d765f6a7c7c605e381ede3b46ddc00a15e5ad08928c64aab7db55"
+    },
+    {
+      "id": "SB8198",
+      "screen": 12,
+      "start": 1043425,
+      "stop": 1045698,
+      "target": "Screen11",
+      "caption": "6 ч",
+      "recordSHA256": "0df3d553c9030b43834c5f4174d959a5a5a625812734d3dbada5c0c901338be4"
+    },
+    {
+      "id": "SB8196",
+      "screen": 12,
+      "start": 1045698,
+      "stop": 1047963,
+      "target": "Screen10",
+      "caption": "1 ч",
+      "recordSHA256": "fc946d4a09529f46b1b0516abbced1b5cf41c36bab6f1ac18083bc9f073dcd7c"
+    },
+    {
+      "id": "SB23120",
+      "screen": 13,
+      "start": 1105431,
+      "stop": 1107798,
+      "target": "Screen1",
+      "caption": "На главную",
+      "recordSHA256": "e2cbb97fc227fdf8a9478ebdae9d4fae332408f21fe57f588b28516cc680b425"
+    },
+    {
+      "id": "SB23118",
+      "screen": 13,
+      "start": 1107798,
+      "stop": 1110151,
+      "target": "Screen9",
+      "caption": "К авариям",
+      "recordSHA256": "b814b8f342e2467859731a31ffc912e2a820e9c4f858b662a50bc6471bb8b5aa"
+    }
+  ]
+}
