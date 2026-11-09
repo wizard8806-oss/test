@@ -1,0 +1,47 @@
+{
+  "revision": 11,
+  "scope": "HMI-only whole-widget restoration after native r10 grid failure; native fitting pending",
+  "source": {
+    "name": "pump_station_3p_cascade_r10_candidate.skm",
+    "bytes": 1287912,
+    "sha256": "e7752b52bfbbc9e74f04391aa0aa9ffc09e9437cc189d55632a41401495c76f4"
+  },
+  "target": {
+    "name": "pump_station_3p_alarm_restore_r11_candidate.skm",
+    "bytes": 1287916,
+    "sha256": "3e6d60e52d3177d786fe72e89cb4cb64c842e16867974c4f8ca5a5fb1065b0d7"
+  },
+  "restoredWidget": {
+    "name": "HAD8288",
+    "bytes": 5817,
+    "sha256": "e830b58a30d24ea7698462b543a994e8b5af2d423de6e2cbacf92accfe33a9b1",
+    "source": "exact native-visible r7 widget",
+    "restoresAll135NativeProperties": true,
+    "restoresAll26CachedPrimitives": true,
+    "originalBounds": [
+      18.75,
+      111.2,
+      976,
+      360
+    ]
+  },
+  "preserved": [
+    "r10 eight cascade rows",
+    "independent delay presets",
+    "all macros and alarm definitions",
+    "all other widgets and routes",
+    "PLC r10"
+  ],
+  "PLCChanged": false,
+  "r10NativeMissingGridObserved": true,
+  "r11NativeGridObserved": false,
+  "r11NativeFittingCompleted": false,
+  "fullPanelReadyForDownload": false,
+  "checks": {
+    "independentR7WidgetBytesCompared": true,
+    "allUnlistedR10BytesPreserved": true,
+    "allMetadataSectionsAndDirectoryValid": true,
+    "freshPythonSExactTarget": true,
+    "wrongSourceNoOverwriteSourcePreservationPassed": true
+  }
+}
