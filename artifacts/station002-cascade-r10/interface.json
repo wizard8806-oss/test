@@ -1,0 +1,103 @@
+{
+  "revision": 10,
+  "baseCommit": "7c66ceefbe99d38d7025439606c669823799b006",
+  "sources": {
+    "plc": {
+      "name": "station_3p_24MC_HP_countdown_manual_no_sensor_r3.pdw",
+      "bytes": 185409,
+      "sha256": "3b1ffdac9646a525b3e2113bc60c93bdaa3efc3b48ada20ee3b5246d5ca6ad9c"
+    },
+    "hmiR8": {
+      "name": "pump_station_3p_services_r8_candidate.skm",
+      "bytes": 1272222,
+      "sha256": "587038bbe7f0bb59299e37fac092a6dd4ec484b9529bec2e8f78c05f69339280"
+    },
+    "hmiR9Intermediate": {
+      "name": "pump_station_3p_alarm_table_r9_candidate.skm",
+      "bytes": 1272222,
+      "sha256": "1b38484782f2c325d3f731f70d2b6079a6d94a033388b2789ab7bb7ad7f4321e"
+    }
+  },
+  "targets": {
+    "plc": {
+      "name": "station_3p_24MC_cascade_r10_candidate.pdw",
+      "bytes": 187549,
+      "sha256": "b5de31e3fddd45041c8f11b97be94eb55cf13f7aad7b63f3467707227c192a8b"
+    },
+    "hmi": {
+      "name": "pump_station_3p_cascade_r10_candidate.skm",
+      "bytes": 1287912,
+      "sha256": "e7752b52bfbbc9e74f04391aa0aa9ffc09e9437cc189d55632a41401495c76f4"
+    }
+  },
+  "parameters": {
+    "R2884": {
+      "meaning": "fast follower stop below leader actual frequency",
+      "unit": "0.1Hz",
+      "default": 200,
+      "min": 100,
+      "max": 499,
+      "mustBeBelow": "R2121",
+      "edit": "R2887"
+    },
+    "R2885": {
+      "meaning": "second follower add delay",
+      "unit": "seconds",
+      "default": 30,
+      "min": 1,
+      "max": 3600,
+      "edit": "R2888",
+      "independentOfFirstDelay": true
+    },
+    "R2123": {
+      "meaning": "existing first follower add delay",
+      "unit": "seconds",
+      "range": [
+        1,
+        600
+      ],
+      "retainedValuePreserved": true
+    }
+  },
+  "registers": {
+    "R2886": "retained extension marker27116",
+    "R2889": "selected stage preset",
+    "R2890": "followers blocked0/1",
+    "R2891": "active extra settings valid0/1",
+    "R2892": "edited extra settings valid0/1",
+    "R2893": "previous threshold",
+    "R2894": "previous second delay",
+    "R2895": "counter increment1",
+    "R2896": "second-stage elapsed seconds",
+    "R2897": "selected elapsed snapshot",
+    "R2898": "leader at/above threshold0/1",
+    "D910": "original first-stage elapsed"
+  },
+  "rules": {
+    "delayRelationEnforced": false,
+    "equalOrShorterSecondDelayAllowed": true,
+    "counterResetOnDemandLossOrStageChange": true,
+    "leaderMayStartFromZeroWithoutFollowers": true,
+    "manualCommandsUnaffected": true,
+    "stoppedStaleOrUnavailableLeaderClearsFollowerMemberships": true,
+    "mechanicalStopTiming": "VFD stop/ramp follows removal of RUN; telemetry observation includes serial polling latency"
+  },
+  "hmi": {
+    "scene": "Screen2/Cascade",
+    "rows": 8,
+    "addedWidgets": 8,
+    "newInputsRequire": "R2886=27116",
+    "transactions": "existing STOP/edit/apply/cancel",
+    "alarmTableService36Restored": true,
+    "animationAndBarsChanged": false
+  },
+  "checks": {
+    "compiledPLCScenariosPassed": 50,
+    "isolatedVendorRepresentableNetworks": 57,
+    "fullMap32CScenariosPassed": 21,
+    "nativeF8Observed": false,
+    "nativeHMICompileObserved": false,
+    "nativeGridObserved": false,
+    "equipmentActions": 0
+  }
+}

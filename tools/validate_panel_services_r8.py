@@ -83,6 +83,25 @@ void clear_nav(void){bits[810]=0;}
         for i in range(4):tick(p);frames.append(lib.get_word(900))
         assert frames==[1,2,3,4] and lib.get_word(906)==1
         tick(p,link=0);assert lib.get_word(900)==0 and lib.get_word(906)==0;cases.append('animation now accepts map32 and rejects lost link')
+        for pump in range(3):
+            for manual in (0,1):
+                p=fresh();p.alarm[2]=manual
+                # Pressure/source warnings are deliberately present. They
+                # must not suppress actual-frequency telemetry decoration.
+                p.alarm[0]=(1<<0)|(1<<1);p.alarm[1]=1<<4
+                p.telemetry[pump]=250;p.telemetry[10+pump]=2
+                frames=[]
+                for i in range(8):tick(p);frames.append(lib.get_word(900+pump))
+                assert frames==[1,1,2,2,3,3,4,4] and lib.get_word(903+pump)==2
+                assert all(lib.get_word(900+j)==0 for j in range(3) if j!=pump)
+                p.telemetry[10+pump]=0;tick(p)
+                assert lib.get_word(900+pump)==0 and lib.get_word(903+pump)==0
+                cases.append('pump%d %s actual25Hz/no-pressure/stale'%(pump+1,'MANUAL' if manual else 'AUTO'))
+        p=fresh()
+        for i in range(3):p.telemetry[i]=450;p.telemetry[10+i]=2
+        for n in range(4):
+            tick(p);assert [lib.get_word(900+i) for i in range(3)]==[n+1]*3
+        cases.append('all3 independent rotors can run together')
     return cases
 
 
@@ -108,6 +127,13 @@ def validate_hmi(source,candidate,recipe,macro):
         at=shift(e['sourceOffset']);restored.extend(final[cursor:at]);restored.extend(raw[e['sourceOffset']:e['sourceOffset']+e['sourceBytes']]);cursor=at+e['targetBytes']
     restored.extend(final[cursor:]);assert bytes(restored)==raw
     spec=json.loads(Path(recipe).read_text());t=spec['table'];a=shift(t['start']);b=final[a:shift(t['stop'])]
+    # User's native r8 screenshot disproved the old geometry-only PASS:
+    # this service field was incorrectly changed from the visible r7's36.
+    # Preserve r8 generation as an intermediate for the source-locked r9
+    # repair, but never accept the broken table as native-ready.
+    broken=qs('0')+qs('24')+qs('5')+qs('10')+qs('Arial')+qs('Время')+qs('Дата')+qs('Событие')
+    if broken in b:
+        raise ValueError('Known r8 alarm-table regression: service value24 replaced original36; apply repair_alarm_table_r9.py')
     assert struct.unpack_from('>2d',b,28)==(768.,288.) and struct.unpack_from('>2d',b,85)==(16.,112.)
     widths=[66.,86.,86.,66.,464.];left=16.
     for i,start in enumerate((332,553,772,1007,1228)):

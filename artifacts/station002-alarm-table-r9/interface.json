@@ -1,0 +1,30 @@
+{
+  "revision": 9,
+  "source": {
+    "name": "pump_station_3p_services_r8_candidate.skm",
+    "bytes": 1272222,
+    "sha256": "587038bbe7f0bb59299e37fac092a6dd4ec484b9529bec2e8f78c05f69339280"
+  },
+  "target": {
+    "name": "pump_station_3p_alarm_table_r9_candidate.skm",
+    "bytes": 1272222,
+    "sha256": "1b38484782f2c325d3f731f70d2b6079a6d94a033388b2789ab7bb7ad7f4321e"
+  },
+  "fix": {
+    "widget": "HAD8288",
+    "sourceOffset": 900368,
+    "before": "24",
+    "after": "36",
+    "sourceOfOriginalValue": "native-visible HMI r7 HAD8288",
+    "field": "service QString immediately before language-count/font/title table; not header height"
+  },
+  "preserved": [
+    "r8 table dimensions/columns",
+    "map32 sound and manual-navigation macro",
+    "all3 animations and dynamic bars",
+    "manual commands and timer widgets",
+    "current working PLC manual-no-sensor r3"
+  ],
+  "nativeR9DisplayObserved": false,
+  "PLCChanged": false
+}
