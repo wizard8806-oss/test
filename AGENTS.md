@@ -1,5 +1,14 @@
 # Работа с проектом
 
+**10.11: принят локальный8642ca2 — подготовкаизоляциивыполнена, nativeOpenpending.**
+station002-hmi-open-isolation-r15b-prep.md: 15pinnedfiles/8SKMsizeSHA
+совпали, CONTROLbyte-identicalaccepted3599, sourceнеизменён. Этоотчёт
+локального, не прямое cloudизмерение Windows. Оннеповторялстаруюr15a.
+Теперьненазначатьповторизготовления/GUIпоиска: следующийшагтольконастоящие
+FileOpen CONTROL→A/B/C, приAFAILG, дальнейшиеD/E/Fпоисходам. Полныхпутей
+впубличнойсводкенет; еслиGUIне доступенагенту, операторупоказатьпутиготовых
+файлов. NativeOpen/Compile/Simulator/аппаратныхдействийещёнет, ремонтнезакрыт.
+
 **10.11: проверен локальный4761f93 — он ещё настаромr15aOpen, изоляция не подтверждена.**
 Новыйотчётstation002-hmi-header-r15a-open-check-followup.md: толькоshell/Tips,
 CtrlOбезнаблюдаемогоFileOpen, d08неизменён, compile/simнет. CONTROL/A/B/C
