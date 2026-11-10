@@ -11,9 +11,13 @@ Leader[0] вC, signature/probecaption27124. Main/HAD/PLC сохранены, п�
 инверсия/директория PASS. Candidate1273871/SHA476138…0b7f;
 7packagechecks/256hostcases2304tick логическихвыходов PASS, НЕ nativeABI.
 Срочное задание docs/tasks/station002-animation-batch-r14b-live.md.
-Пользователь напомнил об отсутствующемлого. СтарыйJPEGнедоступен,
-embedded4PNG — cachedtrend; путь к оригиналу запрошен. Loading/saver
-этимиузкимикандидатами ещё не включались. Не объявлятьготовыми.
+Пользователь напомнил об отсутствующемлого и ДАЛ ПУТЬ:
+C:\Users\user\Documents\HMI\Samkoon\Automatika визитка print.jpg.
+СтарыйDesktopJPEGнедоступен, embedded4PNG — cachedtrend. Локальному
+использовать новыйпуть, скопировать asset в папку14b, штатно привязать
+Screen14/включитьLoadScreen+saver, отдельныйnativeSave/Compile. GoldenSHA
+доэтихGUIправок иной, nativeSaveсверятьотдельно. Сам helperloading/saver
+не меняет; не объявлятьготовыми по одной найденнойссылке.
 
 **10.11, LIVEINPUTСДВИГ ЛОКАЛИЗОВАН ПО ФОТО: PLC3→macro1.**
 OnlyПЧ3: directF[0,0,250]/Q[1,1,2], RXF[0,0,250], macroF[250,0,0]/

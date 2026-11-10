@@ -1,0 +1,62 @@
+{
+  "purpose": "All read inputs Batch16 after r14a live residual one-WORD displacement; native ABI/live validation required",
+  "sourceCommit": "32de15d0f882123a482b16a4cc286092ed09ea25",
+  "rawBase": "https://raw.githubusercontent.com/wizard8806-oss/test/32de15d0f882123a482b16a4cc286092ed09ea25/",
+  "files": [
+    {
+      "path": "tools/build_animation_batch_r14b.py",
+      "bytes": 8220,
+      "sha256": "64c3b1207ca3d6d34fe2e60d267520ae84bbac36e806b9f789fdce2b945984b1"
+    },
+    {
+      "path": "tools/reorder_animation_macro_r14a.py",
+      "bytes": 5962,
+      "sha256": "f5cf266eecc1ddd1cc2d9eed69cd2d3ca56ae625eca07f5ee695c67f382b7600"
+    },
+    {
+      "path": "tools/repair_skm_section_index.py",
+      "bytes": 2816,
+      "sha256": "c5b29065a28561dd00db2e118a8ad157259fad90c9160e439c8adcd7df0214ef"
+    }
+  ],
+  "acceptedSources": [
+    {
+      "name": "user r13",
+      "bytes": 1273731,
+      "sha256": "1ea6cece228acbb1dd5d99750a44399bfc9a3a36fa261403649b0297d251bfc2"
+    },
+    {
+      "name": "r14a",
+      "bytes": 1273731,
+      "sha256": "b56648e47a41cdd4eef981060da7a20a0a12cb062f6af9a4c1cf9faf69523323"
+    }
+  ],
+  "candidate": {
+    "name": "pump_station_3p_animation_batch_r14b.skm",
+    "bytes": 1273871,
+    "sha256": "476138a71d10b284da088b145cf38b14bf31d75cfce22f6bce559642bb740b7f"
+  },
+  "newProbeSignature": 27124,
+  "allReadInputsBatch16": true,
+  "oneWordReadBatchBytes": 2,
+  "BootAckScalarWLast": true,
+  "leaderAccess": "PumpAnimLeader[0]",
+  "mainUserLayoutAndHADPreserved": true,
+  "PLCChanged": false,
+  "newPLCWrites": 0,
+  "logoImplemented": false,
+  "logoAssetPathRequested": false,
+  "logoAssetUserPath": "C:\\Users\\user\\Documents\\HMI\\Samkoon\\Automatika визитка print.jpg",
+  "logoNativeImportAndLoadSaverConfigurationStillRequired": true,
+  "checks": {
+    "HTTPBytesAndSHA256Passed": true,
+    "cleanPythonSGuards": 7,
+    "oldAndNewSourceGenerateSameCandidate": true,
+    "logicalHostDifferentialCases": 256,
+    "logicalHostTicks": 2304,
+    "logicalOutputsBootAckAndBitsPreservedExceptNewSignature": true,
+    "nativeCompileObserved": false,
+    "nativeABIValidated": false,
+    "liveRetestPassed": false
+  }
+}

@@ -19,8 +19,16 @@ docs/reports/station002-animation-r14a-live-residual-20261110.md.
 
 Пользователь также сообщил «экран с лого отсутствует». Эта функция ещё
 не включалась вr14a/r14b; старыйexternalJPEGненайден,4embeddedPNG — графики.
-Запрошен путь к оригиналу AUTOMATIKA KG; после получения нужен штатный
-import/HMIStartSetting. Задачу не терять, не подменять её новой картинкой.
+Запрошен путь к оригиналу AUTOMATIKA KG; пользователь ответил:
+`C:\Users\user\Documents\HMI\Samkoon\Automatika визитка print.jpg`.
+Дальше локальному: прочитать/проверитьоригинал, скопировать bytes вassets14b,
+штатныйScreen14background/HMIStartSetting LoadScreen14 иsaver14/60с,
+главная1, касаниевозврат. СохранитьотдельныйnativeSave/Compile; goldenSHA
+helperдоGUIдругой, не считатьэтоtamper. Файл облаком пока не прочитан,
+включениеloading/saverещёненаблюдалось. Задачу не терять/не перерисовывать.
+Кодhelper закреплён в32de15d0f882123a482b16a4cc286092ed09ea25:
+3HTTPhelpers/task bytes/SHA PASS. Manifest/новыйlogoпуть публикуются
+следующимдокументальнымкоммитом; nativeABI/liveподтвержденияещёнет.
 
 ## 10.11.2026, около06:22МСК — r14a создана локально, ожидается повтор на панели
 
