@@ -1,5 +1,23 @@
 # Работа с проектом
 
+**10.11 НОВОЕ: native r15a тоже FAIL — Illegal opening of configuration file.**
+Пользователь подтвердил, что открывал именноpump_station_3p_fault_reset_r15a.skm,
+анеCancelуr15. Принят5726dc7: localготовexactd08r15a/исходникнеизменён,
+доэтогоnativeбылpending. ТеперьэтоРЕАЛЬНЫЙOpenFAIL, r15aнеготовакприменению.
+Header16пар/800x480исправлен, ноновыйблокернеустановлен. Необъявлятьполный
+ремонтпо55static/hostchecks. CachedvendorSKTool7.0/ELF2022неестьточный7.1;
+alarmserializerегоreadloopсхемупохожеобъясняет, нодоказательств7.1нет.
+Создан tools/prepare_hmi_open_isolation_r15b.py: ТОЛЬКОдиагностическиеOpen
+копииизaccepted3599, не productionr15b. CONTROLточныйsource, Aтольконовые
+страницы, Bтолькогруппыаварий, Cтолькомакрос/Batch. ExtendedD/E/Fисключают
+поодномублокуизr15a. 7inverse/header/dir/C/sourceguard/nooverwritePASS;
+nativeисходыЕЩЁНУЖНЫ. Private /workspace/shared/station002-open-isolation-r15b-20261110/.
+Следующийшаглокальномуизготовитьcases, nativeOpenCONTROL→A/B/Cснаблюдением
+оператора/реальнымGUI. НенажиматьDownload/невыдаватьдиагностикузаготовую
+прошивку. PLCне менялся. ЕслиCONTROLFAIL — сначалаoriginalacceptedвтомже
+редакторе; еслировноодинlayerFAIL — нативныйсериализованныйминимальныйпример
+этогоблока/точный7.1reader, анеещёобщийкаталог/переустановка/большиеперестройки.
+
 **10.11 СРОЧНО: r15 HMI не открывается; header repair r15a подготовлен.**
 Пользователь показал Missing Model Replacement/0x0 и подтвердил exactпуть
 station002-fault-reset-local-15/pump_station_3p_fault_reset_r15.skm.

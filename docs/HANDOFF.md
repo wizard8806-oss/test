@@ -1,4 +1,25 @@
-## 10.11.2026 — пользовательский OpenFAIL r15; исправлена структура заголовка
+## 10.11.2026 — native r15a тоже не открывается; изоляция блоков, без новой приёмки
+
+Получен5726dc7: exactd08r15aсозданлокально, nativeдоэтогонеисполнялся.
+Пользовательприслал Illegal opening of configuration file и подтвердил
+вответенаасинхронныйвопрос: открылименноновыйr15a, анеCancelупрежнегоr15.
+Это nativeOpenFAIL. Предыдущий55groupsPASS относитсякпроверкам, некуспеху.
+Остаточнаяпричинапоканеустановлена; невыдаватьr15aзапригоднуюзагрузку.
+
+Добавленprepare_hmi_open_isolation_r15b.py, ноэтонепроизводственнаяr15b.
+Източногопользовательскогорабочегоaccepted3599созданы4Open-onlyкопии:
+CONTROL byte-identical; Aтолькостраницы15/16сheader/common/map; Bтолько
+AlarmLogin13групп; Cтольконовыймакрос/обатаблицыBatch. ExtendedD/E/F для
+второгошагаисключаютпоодномуслоюизполногонеоткрывающегосяr15a.
+Каждаякопияимеетсогласованныйкаталог/EOF/header, полнуюинверсиюкsource.
+7file/guard/inverse/source/C-preservationPASS. Private:
+`/workspace/shared/station002-open-isolation-r15b-20261110/`.
+НужныnativeOpenрезультатыCONTROL→A/B/CнаПК. Генерация/страничныеanchors/
+геометрия/CнаLinuxихнезаменяют. Cachedvendor7.0/ELF2022неэквивалент7.1;
+поегоalarmreadloopдругойконкретныйдефектне доказан. PLCне меняется,
+диагностическиекопиинеDownload/неSimulator/неhardware. Шкафотдан.
+
+## История 10.11.2026 — пользовательский OpenFAIL r15; исправлена структура заголовка
 
 Пользователь подтвердил открываемый файл:
 `C:\Users\user\CodexProjects\pump-station\.worktrees\station002-fault-reset-local-15\pump_station_3p_fault_reset_r15.skm`.
