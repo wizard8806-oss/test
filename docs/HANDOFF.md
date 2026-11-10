@@ -17,6 +17,14 @@ vsmacroLW920..925 иoutputsLW900..905, затем1/2 отдельно; rawfault/
 Не расходовать этот час на повторные старые hostchecks/заставку; logoостаётся
 задачей вне стендового окна. Сохранять конкретные результаты/время/версию,
 Port0 не занимать вторымmaster. Облако аппаратных команд не выполняло.
+При синхронизации принят также5826c26: локальный всё ещё не увидел окна
+в своейSession1 и HMIworkcopy не доработал. Это не опровергает загрузку
+пользователем другогообраза, но новую HMI-функциональность сначала сверять
+на самом устройстве; liveснимки probe остаются первым измерением.
+
+## 10.11.2026 — r14 editor access follow-up
+
+User reported both editors open. The current Session1 still exposes no project window: SKTOOL7.1 handles resolve only to a system UAC indicator; WinProLadder process is absent. No blind input or second instance was used. Native F8/Compile/Simulator remain pending. PLC candidate and HMI workcopy unchanged; HMI workcopy remains the exact r13 base, not a completed r14. No hardware actions. Follow-up: `docs/reports/station002-native-fault-r14-ui-followup.md`.
 
 ## 10.11.2026 — пользователь открыл оба файла; продолжить native r14
 
