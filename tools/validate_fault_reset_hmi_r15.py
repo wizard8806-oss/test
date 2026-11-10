@@ -14,7 +14,7 @@ import subprocess
 import tempfile
 from build_fault_reset_hmi_r15 import prepare,source_macro,extend_macro,scene,qs,sha,properties,LOGO_TARGET
 from skm_project_header import read_project_header
-from skm_alarm_catalog import validate_alarm_catalog,require_sk_group_limit
+from skm_alarm_catalog import validate_alarm_catalog,require_sk_group_limit,validate_alarm_identities
 
 class Input(ct.Structure):
     _fields_=[('alarm',ct.c_ushort*5),('ack',ct.c_ushort),('telemetry',ct.c_ushort*13),
@@ -186,6 +186,7 @@ def validate(source,candidate,logo_target=LOGO_TARGET,host=False):
     alarm_catalog=validate_alarm_catalog(target)
     require_sk_group_limit(alarm_catalog['groupCount'])
     assert alarm_catalog['groupCount']==alarm_catalog['directoryCount']==7
+    alarm_ids=validate_alarm_identities(target)
     # Original HAD is byte-identical; its large group is never reconstructed.
     import build_fault_reset_hmi_r15 as builder
     def had(b):
@@ -228,6 +229,7 @@ def validate(source,candidate,logo_target=LOGO_TARGET,host=False):
         fullInverseAndUnlistedBytesPreserved=True,HADPreserved=True,allGeometryFits800x480=True,
         allReadInputsBatch16=True,BootAckWLastAligned=True,model=header['model'],resolution=list(header['resolution']),
         sequentialHeaderAnd16CommonPairsVerified=True,alarmDefinitionAndDirectoryCount=7,documentedSKGroupLimit=10,
+        alarmGroupIds=alarm_ids,
         nativeCompileObserved=False,hardwareActions=0)
     if host:result.update(host_checks(old))
     assert Path(source).read_bytes()==raw

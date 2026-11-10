@@ -57,6 +57,7 @@
     "retainedBootLogLW": [51000,51031], "BootAckWLast": true,
     "prefixBytesBeforeBootAck": 216,
     "faultJournalGroups": 7, "documentedSKDigitalGroupLimit": 10,
+    "faultJournalGroupIds": [0,1,2,3,4,5,6],
     "rawCodeRangeWithIndividualMessages": [1,80],
     "outsideRange": "Generic journal event; current and last numeric code on page15",
     "logoLoadingAndSaver": "Native HMI Start Setting still required"

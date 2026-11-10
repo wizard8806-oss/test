@@ -16,7 +16,7 @@ import build_animation_probe_hmi as ui
 from reorder_animation_macro_r14a import VARIABLES, ORDER, entry, packed
 from repair_skm_section_index import read_directory
 from skm_project_header import read_project_header
-from skm_alarm_catalog import read_definitions,read_directory_for_names,directory_bytes,validate_alarm_catalog,compact_fault_definitions,require_sk_group_limit
+from skm_alarm_catalog import read_definitions,read_directory_for_names,directory_bytes,validate_alarm_catalog,compact_fault_definitions,require_sk_group_limit,with_sequential_alarm_ids,validate_alarm_identities
 
 SOURCE_SHA='359906cfd85975b9d2955f6b03b8f996761a7612fcbf37a23b95c8e5ee6c0b4c'
 SOURCE_BYTES=1273673
@@ -221,7 +221,7 @@ def alarm_groups(raw,catalog):
             groups.append(group('ПЧ%d коды %d..%d'%(drive,first,first+n-1),base,messages));captions+=messages
         groups.append(group('ПЧ%d неизвестный код'%drive,3070+drive,
             ['ПЧ %d: неизвестный код — откройте «Коды ПЧ»'%drive]))
-    compacted=compact_fault_definitions(u32(13)+original+b''.join(groups))
+    compacted=with_sequential_alarm_ids(compact_fault_definitions(u32(13)+original+b''.join(groups)),0)
     return (count_at,raw[count_at:p],compacted,'native fault alarm groups'),captions
 
 def prepare(source,logo_target=LOGO_TARGET):
@@ -281,6 +281,7 @@ def prepare(source,logo_target=LOGO_TARGET):
     result=apply(raw,edits);checked=read_directory(result)
     fixed_header=read_project_header(result)
     alarm_catalog=validate_alarm_catalog(result)
+    alarm_ids=validate_alarm_identities(result)
     require_sk_group_limit(alarm_catalog['groupCount'])
     if alarm_catalog['groupCount']!=7 or alarm_catalog['directoryCount']!=7:
         raise ValueError('Alarm definitions/name directory do not match')
@@ -297,6 +298,7 @@ def prepare(source,logo_target=LOGO_TARGET):
         batchPrefixBytesBeforeBootAck=216,BootAckWLast=True,allReadInputsBatch16=True,
         newPageObjects={'15':codes_n,'16':history_n},bindings=bindings,alarmGroups=7,alarmDirectoryEntries=7,
         alarmDirectoryCompanionEntries=7,documentedSKGroupLimit=10,newCodeMessages=len(captions),
+        alarmGroupIds=alarm_ids,
         knownDescriptions=len(json.loads(CATALOG.read_text(encoding='utf8'))['codes']),unknownCodeNumeric=True,
         featureMarker=27130,resetMarker=27131,probe27124Preserved=True,
         model=fixed_header['model'],resolution=list(fixed_header['resolution']),sceneCommonPairs=16,

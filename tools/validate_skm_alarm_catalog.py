@@ -6,7 +6,8 @@ validated privately; this test does not claim native editor execution.
 """
 import struct
 from skm_alarm_catalog import (validate_alarm_catalog,read_definitions,
-    require_sk_group_limit,compact_fault_definitions,word_bit_semantics)
+    require_sk_group_limit,compact_fault_definitions,word_bit_semantics,
+    validate_alarm_identities,with_sequential_alarm_ids)
 
 u32=lambda value:struct.pack('>I',value)
 def qstring(value):
@@ -79,5 +80,20 @@ def main():
         try:compact_fault_definitions(definitions.replace(old,new))
         except ValueError:cases.append('refuse unreviewed compaction source')
         else:raise AssertionError('Unreviewed compaction accepted')
+    for count in (1,2,7,10):
+        original=fixture(count);fixed=with_sequential_alarm_ids(original)
+        assert validate_alarm_identities(fixed)==list(range(count))
+        assert with_sequential_alarm_ids(fixed)==fixed
+        groups=read_definitions(original)['groups'];allowed={g['start']+4 for g in groups[1:]}
+        changes={i for i,(a,b) in enumerate(zip(original,fixed)) if a!=b}
+        assert len(original)==len(fixed) and changes==allowed
+        cases.append('unique native group numbers and exact byte changes '+str(count))
+        if count>1:
+            try:validate_alarm_identities(original)
+            except ValueError:cases.append('reject original duplicate group0 count'+str(count))
+            else:raise AssertionError('Duplicate alarm group number accepted')
+    old=compacted;fixed=with_sequential_alarm_ids(old,0)
+    assert word_bit_semantics(old)==word_bit_semantics(fixed)
+    cases.append('renumbering preserves all word/bit/message semantics')
     print('PASS',len(cases),'digital-alarm catalog regressions; native Open remains separate')
 if __name__=='__main__':main()

@@ -63,7 +63,8 @@ def read_definitions(raw,start=None):
         key_count=stream.count(32);keys=[stream.string() for _ in range(key_count)]
         if key_count!=languages:raise ValueError('Alarm language keys do not match messages')
         groups.append(dict(index=index,start=first,end=stream.position,size=size,offset=offset,
-            flags=flags,name=name,address=address,protocol=protocol,number=number,prefix=prefix,
+            flags=flags,groupId=flags[0],scanSeconds=flags[1],alarmType=flags[2],
+            name=name,address=address,protocol=protocol,number=number,prefix=prefix,
             wordType=word_type,keyboardStart=keyboard_start,keyboardEnd=keyboard_end,
             vectors=vectors,messages=messages,keys=keys))
     return dict(start=start,end=stream.position,count=count,groups=groups)
@@ -106,6 +107,28 @@ def require_sk_group_limit(count):
     # it must still read/reject/repair the historical thirteen-group files.
     if not 1 <= count <= SK_SERIES_DIGITAL_GROUP_LIMIT:
         raise ValueError('SK-series digital alarm group limit is 10; got '+str(count))
+
+
+def validate_alarm_identities(raw,start=None):
+    """Check the reviewed B00..Bnn group-number encoding, separately from syntax.
+
+    The first header byte after the two shorts is the serialized group
+    number, not a boolean copied from the original group. Both native7.1
+    LB1 and R3056/80 samples store 0,1. Scan seconds and type follow it.
+    Sparse/deleted-group projects are outside this reviewed layout.
+    """
+    parsed=read_definitions(raw,start);actual=[g['groupId'] for g in parsed['groups']]
+    expected=list(range(parsed['count']))
+    if actual!=expected:raise ValueError('Digital-alarm group numbers differ: expected %r, got %r'%(expected,actual))
+    return actual
+
+
+def with_sequential_alarm_ids(raw,start=None):
+    parsed=read_definitions(raw,start);require_sk_group_limit(parsed['count'])
+    result=bytearray(raw)
+    for group in parsed['groups']:result[group['start']+4]=group['index']
+    result=bytes(result);validate_alarm_identities(result,start)
+    return result
 
 
 def compact_fault_definitions(raw):
@@ -153,7 +176,7 @@ def word_bit_semantics(definitions):
     """Independent address/bit/message mapping for the reviewed R-word mode."""
     result={}
     for group in read_definitions(definitions,0)['groups']:
-        if group['prefix']!='R' or group['flags']!=bytes((0,1,1)) or group['wordType']!=1:
+        if group['prefix']!='R' or group['flags'][1:]!=bytes((1,1)) or group['wordType']!=1:
             raise ValueError('Unreviewed alarm addressing mode')
         for index in range(group['size']):
             key=(int(group['number'])+index//16,index%16)

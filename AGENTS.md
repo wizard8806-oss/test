@@ -1,5 +1,27 @@
 # Работа с проектом
 
+**10.11: получен native R80; найдены дубли номеров групп, r15e — шесть байтов.**
+C_native_R80_sample.skm1298973/SHA4574726a5956695e53d2948219eaeff20c25dc186897dc6211ff6e448ba5417a,
+private /workspace/shared/station002-native-r80-sample-20261110/user_native_R80.skm.
+Две группы: R2550/25 и R3056/80/Fatek1/keys0\x01, enabled80/OFF0,
+новые80сообщенийпусты (повтор TEST не нужен). Reopen именноновогоR80
+отдельноне сообщён; прежнийLBnative0ec OpenPASS принят ранее.
+В обоих native7.1 образцах первый header-byte после2shorts = номера0,1;
+следующие байты scan1/type0или1. Наши r15d7групп имели номера[0]*7,
+хотя каталогB00..B06. Это установленное рассогласование. Cached7.0GUI
+независимо показывает scan→другойbyte/type→другойbyte; не считыватель7.1.
+read_definitions раскрывает groupId/scanSeconds/alarmType; добавлены
+validate_alarm_identities/with_sequential_alarm_ids, producer+validator
+теперь требуют0..6. Структурный parser оставлен для анализа старыхbadфайлов.
+repair_alarm_group_ids_r15e.py принимаетТОЛЬКОполный9a r15d и меняет6bytes.
+Quick==fullrebuild accepted3599: 1480005/SHA
+2198325315f9b9a6918f483f07f164f855ef454fb3454d7363fe73b6e3fb171d.
+29catalog/identity regressions PASS, nativeR80record побайтноre-encoded,
+native0ec/457 identityPASS/knownbad9a identityFAIL. Все268битов/тексты/
+UI/C/Batch/HAD/указатели/PLC сохранены. NativeOpen/Compile r15e pending.
+Задание docs/tasks/station002-alarm-group-ids-r15e-local.md: одинfullr15e
+Open→Compile. Эталон уже получен, старые3probes/r15c/r15d не повторять.
+
 **10.11: новый отказ после r15d; C_native_alarm_sample native Open PASS.**
 Принят af1c121: local создал exact r15d1480005/SHA9a4829…8bb, native у
 агента pending. Пользователь снова прислал Illegal opening (имя файла
