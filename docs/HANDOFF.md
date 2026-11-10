@@ -1,3 +1,7 @@
+## 10.11.2026 — r14 editor access follow-up
+
+User reported both editors open. The current Session1 still exposes no project window: SKTOOL7.1 handles resolve only to a system UAC indicator; WinProLadder process is absent. No blind input or second instance was used. Native F8/Compile/Simulator remain pending. PLC candidate and HMI workcopy unchanged; HMI workcopy remains the exact r13 base, not a completed r14. No hardware actions. Follow-up: `docs/reports/station002-native-fault-r14-ui-followup.md`.
+
 ## 10.11.2026 — пользователь открыл оба файла; продолжить native r14
 
 Прочитаны локальные6df9d83/08159a9 и фактический статус ниже: новый PLC
