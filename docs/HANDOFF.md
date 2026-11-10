@@ -1,3 +1,20 @@
+## 10.11.2026, около06:48МСК — после r14b пользователь: «теперь работает»
+
+Принят локальныйf0cd3a3/ab56a6f: exact r14b source-check/копия логотипа
+подтверждены, nativeGUI у локального оставался недоступен. После передачи
+готовогоr14b пользователь выполнил повтор и сообщил «теперь работает».
+Принимаем положительный live-результат перекрёстной индикации по контексту
+onlyПЧ3; новый снимок F/Q и отдельные1/2/AUTOLeader/BootAck ещё не даны.
+Сохранять all-Batch16R/BootAckW последним. Этот ответ не подтверждает
+логотип/журналfault/звук/таймеры. Native generated aliases/imageSHA
+по-прежнему не получены, но живой результат позже отчёта об отсутствииGUI.
+
+До ориентира07:04МСК осталось примерно16мин: коротко1/2отдельно, затем
+прежний намеренный A52-сценарийПЧ1 и фото probe27124/Код* (R2801), самкод
+наПЧ, звук и журнал; далееdry/powercountdown/AUTO если успеваем.
+Raw52↔A52 ещё не подтверждено actual данными. Полная страница кодов/каталог
+в журналеHMI ещё не реализованы: не направлять в несуществующий Screen15.
+
 ## 10.11.2026 — r14b Batch16 candidate prepared
 
 Source-locked builder/check pass; candidate signature27124, all read inputs Batch16, BootAck W last; PLC unchanged. Original logo copied byte-for-byte locally; Screen14 import/startup/saver and native save/Compile are pending because no SKTool project window is accessible. No hardware actions. Summary: `docs/reports/station002-animation-batch-r14b-local-status.md`.
