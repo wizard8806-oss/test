@@ -7,7 +7,7 @@ PLC201327/SHA35d22b…d182, private accepted_hmi.skm/accepted_plc.pdw в
 `/workspace/shared/station002-user-accepted-20261110/`. Сохранены отдельно.
 
 Созданы PLC206320/SHAde693ad24d339a2597e66dd9a9d07e57d8a24a3243612e838f9f63dd330cbb01
-и HMI1480325/SHA15c35adfd26e7011b41104a139db11d33daa6d43edcbf4b3da3b3c9e3a0eaa43
+и HMI1480325/SHAf410a9c1e0fb9198c092f18b9b54b62207ff6d1d44d821f64564906fc6913a31
 в private `/workspace/shared/station002-reset-r15-20261110/`. Старые drafts
 не доставлять. Новые source-locked helpers/validators опубликованы отдельно
 от native-проектов. Карта и ограничения: `docs/interfaces/station002-vfd-reset-r15.md`.

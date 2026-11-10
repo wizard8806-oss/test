@@ -119,12 +119,13 @@ def pages(raw):
         b=replace_string(b,'R2500',address)
         widgets.append(b);bindings.append((name,address))
     old_captions=('Нет данных','Остановлен','Работа','Подготовка','ПЧ не готов')
-    def state(address,captions,x,y,w,h=30):
+    def state(address,captions,x,y,w,h=30,colors=None):
         name=next_id('MD');b=clone(lamps['MD10004'],name,serial,x,y,w,h)
         b=replace_string(b,'LW903#0#1#100#903#LW#1#',address+'#0#1#100#'+address[2:]+'#LW#1#')
         b=replace_string(b,'LW903',address)
         for old,new in zip(old_captions,captions):b=replace_string(b,old,new,6 if old==old_captions[0] else 5)
-        colors=('224+224+224','255+220+130','180+230+190','245+210+150','245+160+160')
+        if colors is None:
+            colors=('224+224+224','255+220+130','180+230+190','245+210+150','245+160+160')
         changes={}
         for i,color in enumerate(colors):
             changes.update({80+4*i:'1',81+4*i:color,82+4*i:color,83+4*i:color,
@@ -150,7 +151,8 @@ def pages(raw):
     for i in range(3):
         y=104+96*i;text(str(i+1),12,y,48,30)
         numeric('R'+str(3040+i),72,y)
-        state('LW'+str(956+i),fault_states,184,y,345)
+        state('LW'+str(956+i),fault_states,184,y,345,
+              colors=('224+224+224','180+230+190','245+160+160','245+210+150','224+224+224'))
         numeric('R'+str(3053+i),556,y,100)
         numeric('R'+str(3046+i),680,y,100)
         reset_button(i+1,72,y+38)

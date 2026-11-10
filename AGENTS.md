@@ -20,7 +20,7 @@ VFDmaster Port3/M1936; CL50 наPort2 не трогать. Старые функ
 Private design: /workspace/shared/station002-reset-r15-20261110/design.json.
 Статус: созданы реальные r15 offline-кандидаты на этих exact source.
 PLC206320/SHAde693ad24d339a2597e66dd9a9d07e57d8a24a3243612e838f9f63dd330cbb01,
-HMI1480325/SHA15c35adfd26e7011b41104a139db11d33daa6d43edcbf4b3da3b3c9e3a0eaa43.
+HMI1480325/SHAf410a9c1e0fb9198c092f18b9b54b62207ff6d1d44d821f64564906fc6913a31.
 Helpers build_drive_reset_r15.py/build_fault_reset_hmi_r15.py и validators.
 ResetR3200..3288 (НЕстарый3080..3159 изdesign), retain2857..59, timers124/125.
 132new native-node conversions; 10preexistingAPIlimitationsсохранены.

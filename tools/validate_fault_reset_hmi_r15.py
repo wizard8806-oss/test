@@ -204,6 +204,12 @@ def validate(source,candidate,logo_target=LOGO_TARGET,host=False):
             if obj['id'].startswith('SB'):
                 vals=properties(obj['raw'],obj['id'])[2]
                 assert vals[48]==vals[49]==vals[57]==str(int(vals[56][6:])-1)
+            if obj['id'].startswith('MD'):
+                vals=properties(obj['raw'],obj['id'])[2]
+                if vals[22] in ('LW956','LW957','LW958'):
+                    assert vals[85]=='180+230+190' and vals[89]=='245+160+160','Healthy green / active fault red'
+                elif vals[22] in ('LW950','LW951','LW952'):
+                    assert vals[89]=='180+230+190','Confirmed reset green'
     for number,identity in ((1,'SB6010'),(9,'SB24002')):
         _,objects=scene(target,number,'SB');v=properties(objects[identity]['raw'],identity)[2]
         assert v[48]==v[49]==v[57]==str(int(v[56][6:])-1)
