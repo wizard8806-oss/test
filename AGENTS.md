@@ -1,5 +1,16 @@
 # Работа с проектом
 
+**10.11 оператор: C_MACRO_ONLY PASS; D уоператоране найден.**
+ТеперьCONTROL/A/CnativeOpenPASS, B_ALARMS_ONLYnativeOpenFAILсIllegalopening.
+Страницыимакроспоотдельностизагружаются; этоНЕихCompile/runtimeприёмка.
+НаD_FULL_WITHOUT_ALARMSпользователь«уменянеттакогофайла»; не считатьD
+FAIL/PASSине зацикливатьсянанём. Localсообщал8файлов, фактическийпутьD
+cloudнеизвестен. СледующийвходдляисправленияB—минимальныйnative7.1Save:
+изоткрывающегосяCотдельныйSaveAs, добавитьОДНУdigitalalarmгруппу(LB1,
+Size1, TEST), сохранить/получитьSKM. Group0R2550позволитпроверитьполную
+запись/межгрупповые/добавочныеданные7.1; cached7.0неэталон. Неугадывать
+паддинг/лимитыигруппынеудалятьизготовогорезультатакакисправление.
+
 **10.11 оператор: A_PAGES_ONLY PASS; B_ALARMS_ONLY FAIL сIllegal opening.**
 Aответ«Открылсябезошибки»; Bответ«Появиласьошибка»+скрин Warning
 Illegalopeningofconfigurationfile/пустоедерево/Screen14. Толькооткрытие,
