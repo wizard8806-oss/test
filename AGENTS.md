@@ -1,5 +1,16 @@
 # Работа с проектом
 
+**10.11: проверен локальный4761f93 — он ещё настаромr15aOpen, изоляция не подтверждена.**
+Новыйотчётstation002-hmi-header-r15a-open-check-followup.md: толькоshell/Tips,
+CtrlOбезнаблюдаемогоFileOpen, d08неизменён, compile/simнет. CONTROL/A/B/C
+результатов/локальногонабора8файловвсводкенет. ЭтоотчётCLI, неотмена
+пользовательскогоnativeOpenFAILr15a/Illegalopening. Неотправлятьоператора
+сноваоткрыватьизвестныйплохойr15a. Следующийдействующийtask:
+docs/tasks/station002-hmi-open-isolation-r15b-local.md. Сначалаstdlibсоздание
+8файловизaccepted3599, SHA/sourcepreservation/полныепути; GUIнужентолько
+дляпоследующегоCONTROL→A/B/C. Невидимостьокнанеблокируетфайловуюгенерацию.
+CloudнеимеетпрямогодоступакWindows, проверенопубликованныйGitотчёт.
+
 **10.11 НОВОЕ: native r15a тоже FAIL — Illegal opening of configuration file.**
 Пользователь подтвердил, что открывал именноpump_station_3p_fault_reset_r15a.skm,
 анеCancelуr15. Принят5726dc7: localготовexactd08r15a/исходникнеизменён,
