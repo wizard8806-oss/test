@@ -14,7 +14,7 @@ import subprocess
 import tempfile
 from build_fault_reset_hmi_r15 import prepare,source_macro,extend_macro,scene,qs,sha,properties,LOGO_TARGET
 from skm_project_header import read_project_header
-from skm_alarm_catalog import validate_alarm_catalog
+from skm_alarm_catalog import validate_alarm_catalog,require_sk_group_limit
 
 class Input(ct.Structure):
     _fields_=[('alarm',ct.c_ushort*5),('ack',ct.c_ushort),('telemetry',ct.c_ushort*13),
@@ -184,7 +184,8 @@ def validate(source,candidate,logo_target=LOGO_TARGET,host=False):
     assert header['model']==source_header['model']=='SK-070HE'
     assert header['firstSceneRect']==source_header['firstSceneRect']==(0.0,0.0,800.0,480.0)
     alarm_catalog=validate_alarm_catalog(target)
-    assert alarm_catalog['groupCount']==alarm_catalog['directoryCount']==13
+    require_sk_group_limit(alarm_catalog['groupCount'])
+    assert alarm_catalog['groupCount']==alarm_catalog['directoryCount']==7
     # Original HAD is byte-identical; its large group is never reconstructed.
     import build_fault_reset_hmi_r15 as builder
     def had(b):
@@ -226,7 +227,7 @@ def validate(source,candidate,logo_target=LOGO_TARGET,host=False):
     _,old=source_macro(raw);result=dict(candidateSHA256=sha(target),candidateBytes=len(target),newPageCounts=counts,
         fullInverseAndUnlistedBytesPreserved=True,HADPreserved=True,allGeometryFits800x480=True,
         allReadInputsBatch16=True,BootAckWLastAligned=True,model=header['model'],resolution=list(header['resolution']),
-        sequentialHeaderAnd16CommonPairsVerified=True,alarmDefinitionAndDirectoryCount=13,
+        sequentialHeaderAnd16CommonPairsVerified=True,alarmDefinitionAndDirectoryCount=7,documentedSKGroupLimit=10,
         nativeCompileObserved=False,hardwareActions=0)
     if host:result.update(host_checks(old))
     assert Path(source).read_bytes()==raw

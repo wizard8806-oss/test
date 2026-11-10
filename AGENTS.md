@@ -1,5 +1,22 @@
 # Работа с проектом
 
+**10.11: r15c native Open FAIL подтверждён; готовится r15d с 7 группами.**
+Получен локальный afff23e: exact 1480911/SHA0141fa…f930 создан, native
+у локального оставался pending. Затем скрин Illegal opening of configuration
+file! и прямой ответ пользователя «Да, открывал r15c» — реальный Open FAIL.
+Больше не отправлять на повтор Open r15c или на старые CONTROL/A/B/C.
+В SoftwareHelp_E.chm из кешированного комплекта SKTool7.0 (2022) раздел
+Digital alarm login прямо говорит: "Number of digital alarm is up to 10
+for SK series HMI." Наши 13 групп превышают документированную ёмкость.
+Это источник ограничения, НЕ доказанное исполнение parser7.1/единственная
+причина отказа. Новый producer/validator и repair_alarm_group_limit_r15d.py
+объединяют 32+32+16 битов каждого ПЧ в 80, всего 7 групп. Все 268 адресов/
+битов, флаги, языки и тексты сохраняются; C/Batch/UI/HAD/PLC не меняются.
+Quick из r15c == rebuild из accepted3599: 1480005/SHA
+9a482900380d56f3bb86a625664ad09b10885fe6d9fd58b15262ef974c9bd8bb.
+21 регрессия каталога/ёмкости/семантики прошла; native r15d ещё pending.
+Следующее задание docs/tasks/station002-alarm-group-limit-r15d-local.md.
+
 **10.11: r15c подготовлена, доставка проверена; следующий шаг — полный Open.**
 Все 56 групп run_checks прошли на неизменяемом коммите кода
 2399113fbc0e4af178d39efac404870d30967b97. HTTP-пакеты 5/15 файлов скачаны

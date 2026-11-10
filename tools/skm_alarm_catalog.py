@@ -10,6 +10,8 @@ This bounded schema check is not the native editor/Compile.
 import struct
 from skm_project_header import read_project_header
 
+SK_SERIES_DIGITAL_GROUP_LIMIT = 10
+
 
 def qs(value):
     data=value.encode('utf-16-be');return struct.pack('>I',len(data))+data
@@ -96,3 +98,67 @@ def validate_alarm_catalog(raw):
     directory=read_directory_for_names(raw,names)
     return dict(groupCount=definitions['count'],directoryCount=len(directory['entries']),
                 names=names,directory=directory,definitions=definitions)
+
+
+def require_sk_group_limit(count):
+    # The supplied SKTool English help (Digital alarm login) documents ten
+    # digital groups for SK-series panels. Keep structural parsing separate:
+    # it must still read/reject/repair the historical thirteen-group files.
+    if not 1 <= count <= SK_SERIES_DIGITAL_GROUP_LIMIT:
+        raise ValueError('SK-series digital alarm group limit is 10; got '+str(count))
+
+
+def compact_fault_definitions(raw):
+    """Merge reviewed 32+32+16 bit ranges into 80 bits per drive: 13 -> 7.
+
+    R3056..3070 already hold three contiguous five-word masks. Addresses,
+    flags, language keys and every message/bit mapping stay unchanged. The
+    original station group and each unknown-code group are copied verbatim.
+    """
+    parsed=read_definitions(raw,0);groups=parsed['groups']
+    if parsed['end']!=len(raw) or parsed['count']!=13 or groups[0]['name']!='События станции':
+        raise ValueError('Expected exact thirteen-group fault definition layout')
+    u32=lambda value:struct.pack('>I',value)
+    rows=[raw[groups[0]['start']:groups[0]['end']]]
+    for drive in (1,2,3):
+        parts=groups[1+4*(drive-1):4+4*(drive-1)];unknown=groups[4*drive]
+        first=parts[0];base=3056+5*(drive-1)
+        for part,(start,size) in zip(parts,((1,32),(33,32),(65,16))):
+            if (part['name']!='ПЧ%d коды %d..%d'%(drive,start,start+size-1)
+                or part['size']!=size or part['address']!='R'+str(base+(start-1)//16)
+                or part['number']!=str(base+(start-1)//16)
+                or part['prefix']!='R' or part['protocol']!=bytes((1,6,1))
+                or part['wordType']!=1 or part['flags']!=bytes((0,1,1))
+                or part['offset']!=0 or part['keys']!=first['keys']):
+                raise ValueError('Fault range/flags/language differs')
+        if unknown['name']!='ПЧ%d неизвестный код'%drive or unknown['size']!=1 or unknown['address']!='R'+str(3070+drive):
+            raise ValueError('Unknown-code range differs')
+        messages=[[message for part in parts for message in part['messages'][language]]
+                  for language in range(len(first['keys']))]
+        if any(message is None for language in messages for message in language):
+            raise ValueError('Unexpected null fault message')
+        merged=struct.pack('>HH',80,0)+first['flags']+qs('ПЧ%d коды 1..80'%drive)
+        merged+=raw[first['keyboardStart']:first['keyboardEnd']]
+        for index in range(2):merged+=u32(80)+b''.join(part['vectors'][index] for part in parts)
+        merged+=u32(len(messages))+b''.join(u32(80)+b''.join(map(qs,language)) for language in messages)
+        merged+=u32(len(first['keys']))+b''.join(map(qs,first['keys']))
+        rows.extend((merged,raw[unknown['start']:unknown['end']]))
+    result=u32(7)+b''.join(rows);checked=read_definitions(result,0)
+    require_sk_group_limit(checked['count'])
+    if checked['end']!=len(result):raise ValueError('Compacted definition boundary differs')
+    return result
+
+
+def word_bit_semantics(definitions):
+    """Independent address/bit/message mapping for the reviewed R-word mode."""
+    result={}
+    for group in read_definitions(definitions,0)['groups']:
+        if group['prefix']!='R' or group['flags']!=bytes((0,1,1)) or group['wordType']!=1:
+            raise ValueError('Unreviewed alarm addressing mode')
+        for index in range(group['size']):
+            key=(int(group['number'])+index//16,index%16)
+            if key in result:raise ValueError('Overlapping alarm bits')
+            result[key]=(group['offset'],group['protocol'],
+                tuple(v[index] for v in group['vectors']),tuple(group['keys']),
+                tuple(language[index] for language in group['messages']))
+    return result

@@ -56,7 +56,8 @@
     "resetBannerLW": 947, "diagnosticLW": [940,941,942,943,944,945],
     "retainedBootLogLW": [51000,51031], "BootAckWLast": true,
     "prefixBytesBeforeBootAck": 216,
-    "faultJournalGroups": 13, "rawCodeRangeWithIndividualMessages": [1,80],
+    "faultJournalGroups": 7, "documentedSKDigitalGroupLimit": 10,
+    "rawCodeRangeWithIndividualMessages": [1,80],
     "outsideRange": "Generic journal event; current and last numeric code on page15",
     "logoLoadingAndSaver": "Native HMI Start Setting still required"
   },
