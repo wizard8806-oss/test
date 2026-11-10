@@ -40,10 +40,23 @@ def prepare_cases(source,extended=False):
     plans=[('CONTROL_WORKING',set()),('A_PAGES_ONLY',PAGES),('B_ALARMS_ONLY',ALARMS),('C_MACRO_ONLY',MACRO)]
     if extended:plans += [('D_FULL_WITHOUT_ALARMS',all_labels-ALARMS),
                          ('E_FULL_WITHOUT_MACRO',all_labels-MACRO),
-                         ('F_FULL_WITHOUT_PAGES',all_labels-PAGES-{'navigation SB24002'})]
+                         ('F_FULL_WITHOUT_PAGES',all_labels-PAGES-{'navigation SB24002'}),
+                         ('G_EMPTY_PAGES_ONLY',PAGES)]
     results=[]
     for name,labels in plans:
         selected=[edit for edit in edits if edit[3] in labels]
+        if name=='G_EMPTY_PAGES_ONLY':
+            # Distinguish page framing from the cloned controls themselves.
+            from build_fault_reset_hmi_r15 import qs,u32
+            replacement=[]
+            for at,old,new,label in selected:
+                if label=='new pages15/16':
+                    header15=new.index(qs('Screen15')+b'\xff'*4)+len(qs('Screen15'))+4
+                    header16=new.index(qs('Screen16')+b'\xff'*4)+len(qs('Screen16'))+4
+                    if header15!=103 or header16<103:raise ValueError('Page header boundary differs')
+                    new=new[:header15]+u32(0)+new[header16-103:header16]+u32(0)
+                replacement.append((at,old,new,label))
+            selected=replacement
         def shifted(address):
             if any(at<address<at+len(old) for at,old,_,_ in selected):raise ValueError('Pointer inside edited field')
             return address+sum(len(new)-len(old) for at,old,new,_ in selected if at<=address)
