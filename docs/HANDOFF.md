@@ -34,6 +34,10 @@ HAD/C/обаBatch/opaque/dataarrays16/268alarm-bit mappings, обратимос�
 сохранить фактические исходы без guessedr17. Ранее принятый NativecodePages
 повторно не тестировать. PLC/STOP-reset/main не менялись, шкафотдан.
 Подробности `docs/reports/station002-native-merge-r16-20261110.md`.
+Код `f76914ef5401420815e6e1d3cdee801625d4afba`; manifest
+`artifacts/station002-native-merge-r16/delivery-manifest.json`.
+HTTP6pinnedhelpers/четыреfreshstdlibзапуска/обаoutputSHA проверены.
+Нужно теперь одно фактическое Open полного кандидата.
 
 ## История 10.11.2026 — контроль открылся; затем получен его native SaveAs
 

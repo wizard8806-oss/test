@@ -65,3 +65,9 @@ Main/STOP-reset неизменны, никаких Download/Force/RUN не вы�
 сначала; приPASS отдельный nativeSave, loading/saver14 и Compile/Simulator.
 ПриFAIL один alarms-only fallback отделит журнал от nav/logo. Source-файлы
 и оригинальный JPEG сохранить. Native SKM/PDW/JPG/vendor не публиковать.
+
+Доставка: код `f76914ef5401420815e6e1d3cdee801625d4afba`, manifest
+`artifacts/station002-native-merge-r16/delivery-manifest.json`. Все6helpers
+скачаны заново по HTTP/размеры/SHA сверены. Fresh stdlib Python -S -B:
+build/check обоих режимов (4запуска) дали оба заявленных размера/SHA.
+Это проверка доставки, новые nativeOpen/Compile всё ещё pending.

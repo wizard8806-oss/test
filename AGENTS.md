@@ -22,6 +22,9 @@ Native pattern93исходныхкнопок подтвердил60=targetNo; в
 →Compile/Simulator. ЕслиfullOpenFAIL, один fallbackOpen ALARMS_ONLY без
 новыхnav/logo; не делать r17наугад. Копии/оригинальныйJPEG сохранить.
 PLC/reset/main неизменны,шкафотдан. Никакого Download/Force/RUN.
+Кодf76914ef5401420815e6e1d3cdee801625d4afba; manifest
+artifacts/station002-native-merge-r16/delivery-manifest.json.
+HTTP6helpers/freshstdlib4runs/обаSHA PASS. Следующий шаг fullnativeOpen.
 
 **История: требуемый native SaveAs code-pages уже получен, см. выше.**
 
