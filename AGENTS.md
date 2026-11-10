@@ -1,5 +1,11 @@
 # Работа с проектом
 
+**10.11: пользователь «открыл control» — CONTROL nativeOpen принят по его сообщению.**
+Этооператорскоеоткрытиерабочейконтрольнойкопии, неindependentcloudGUI/Compile.
+Полныйпуть/активныйSHA/скриннеприсланы. НеотправлятьещёразоткрыватьCONTROL.
+СледующийA_PAGES_ONLY, asyncвопроссрезультатомпоставлен; A/B/Cещёнеизвестны.
+ПриAFAILзатемG_EMPTY_PAGES_ONLY; приAPASSпродолжитьBиC. R15aостаётсяFAIL.
+
 **10.11: принят локальный8642ca2 — подготовкаизоляциивыполнена, nativeOpenpending.**
 station002-hmi-open-isolation-r15b-prep.md: 15pinnedfiles/8SKMsizeSHA
 совпали, CONTROLbyte-identicalaccepted3599, sourceнеизменён. Этоотчёт
