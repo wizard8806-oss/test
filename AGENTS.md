@@ -1,5 +1,24 @@
 # Работа с проектом
 
+**10.11: новый отказ после r15d; C_native_alarm_sample native Open PASS.**
+Принят af1c121: local создал exact r15d1480005/SHA9a4829…8bb, native у
+агента pending. Пользователь снова прислал Illegal opening (имя файла
+на снимке не видно, контекст после r15d); полная HMI не принята. Лимит10
+не объявлять установленной причиной или уже выполненным ремонтом.
+На отдельный вопрос о C_native_alarm_sample.skm с TEST пользователь
+ответил «Открывается без ошибки»: это теперь operator-reported Open PASS
+для exact известного образца2групп0ecac7…7c3f, не Compile/runtime.
+Образец подтверждает LB1/Size1; новая группа R3056/80 ещё не сверена с
+native7.1. Актуальное задание docs/tasks/station002-native-r80-alarm-sample.md:
+сохранить отдельный C_native_R80_sample.skm, изменить только TEST-группу
+на Continuous Bit of Word/R3056 (Fatek как R2550)/Size80, Save+reopen,
+получить файл приватно. Повторять создание LB1 или Open r15c/r15d не надо.
+prepare_alarm_open_differential.py готовит 3 guarded OPEN-ONLY копии из
+accepted3599/full9a/native0ec: native2+однаR80, base+7групп, full+старая1.
+Это диагностические файлы, НЕ production r15e; их Open ещё не наблюдалось.
+9 целевых проверок инверсии/доноров/макросов/guards PASS. Runtime/PLC не
+менялись; не запускать общие56тестов вместо получения точной native-записи.
+
 **10.11: r15d готова к одному полному native Open; проверено 56 групп.**
 Код b2b71cd07a60547dc2cf113470d3ce4331f599a4, отдельный immutable
 run_checks56 PASS. HTTP5/15 файлов, пять stdlib-команд PASS, итог9a4829…8bb.
