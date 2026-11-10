@@ -17,6 +17,10 @@ PLCне менялся. Signature27119таже: сверятьреальныйн
 docs/reports/station002-animation-live-input-shift-20261110.md.
 НуженнезамедлительныйnativeCompileиliveповтор3,1,2/BootAckвоставшийсячас;
 истинностьABIфиксаещёнеподтверждена. Новыенativefault/логотипэтимне сделаны.
+Код пакета закреплён в39d1b8b612cb6d3de5b7a123611ba59b3461ce76:
+два HTTP helper и task проверены по bytes/SHA,8 Python-S packaging/guard
+проверок PASS. Manifest идёт следующим документальным коммитом. Это не
+native Compile или измеренный результат новой копии.
 
 ## 10.11.2026, около06:04МСК — час живого стенда, r14 уже загружены
 

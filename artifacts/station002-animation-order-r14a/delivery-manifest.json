@@ -1,0 +1,62 @@
+{
+  "purpose": "Minimal native variable-order hypothesis test based on measured live P3-to-P1 macro input shift; native Compile/live acceptance required",
+  "sourceCommit": "39d1b8b612cb6d3de5b7a123611ba59b3461ce76",
+  "rawBase": "https://raw.githubusercontent.com/wizard8806-oss/test/39d1b8b612cb6d3de5b7a123611ba59b3461ce76/",
+  "files": [
+    {
+      "path": "tools/reorder_animation_macro_r14a.py",
+      "bytes": 5962,
+      "sha256": "f5cf266eecc1ddd1cc2d9eed69cd2d3ca56ae625eca07f5ee695c67f382b7600"
+    },
+    {
+      "path": "tools/repair_skm_section_index.py",
+      "bytes": 2816,
+      "sha256": "c5b29065a28561dd00db2e118a8ad157259fad90c9160e439c8adcd7df0214ef"
+    }
+  ],
+  "sourceHMI": {
+    "name": "pump_station_3p_animation_probe_r13.skm",
+    "bytes": 1273731,
+    "sha256": "1ea6cece228acbb1dd5d99750a44399bfc9a3a36fa261403649b0297d251bfc2"
+  },
+  "candidateHMI": {
+    "name": "pump_station_3p_animation_order_r14a.skm",
+    "bytes": 1273731,
+    "sha256": "b56648e47a41cdd4eef981060da7a20a0a12cb062f6af9a4c1cf9faf69523323"
+  },
+  "oldOrder": [
+    "AlarmWords",
+    "MapVersion",
+    "BootAck",
+    "PumpAnimTelemetry",
+    "PumpAnimRoles",
+    "PumpAnimManual",
+    "PumpAnimLeader"
+  ],
+  "newOrder": [
+    "AlarmWords",
+    "MapVersion",
+    "PumpAnimTelemetry",
+    "PumpAnimRoles",
+    "PumpAnimManual",
+    "PumpAnimLeader",
+    "BootAck"
+  ],
+  "onlyTwoVariableMetadataTablesChanged": true,
+  "allOtherBytesPreservedByInversion": true,
+  "allUIAndMacroCPreserved": true,
+  "PLCChanged": false,
+  "newPLCWriteInputs": 0,
+  "existingWriteVariable": "BootAck W R2553 preserved",
+  "probeSignature": 27119,
+  "probeSignatureDoesNotIdentifyNewImage": true,
+  "nativeFaultHMIFeatureAdded": false,
+  "checks": {
+    "pinnedHTTPFilesAndTaskVerified": true,
+    "freshPythonSPackagingChecks": 8,
+    "nativeCompileObserved": false,
+    "nativeABIValidated": false,
+    "liveRetestPassed": false
+  },
+  "nextAction": "Native Compile new SKM; save current generated aliases/image; operator live only3, then1/2 and BootAck check"
+}
