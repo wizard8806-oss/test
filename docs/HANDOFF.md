@@ -1,3 +1,15 @@
+## 10.11.2026, около06:22МСК — r14a создана локально, ожидается повтор на панели
+
+Принятыf9ed414/4fafc50: локальная копияr14a совпала с ожидаемыми
+1273731байт/b56648…3323; source/checker и сохранность PASS. В отчёте native
+Compile/aliases ещё pending, оператору оставлен File→Open/Compile. После
+этого пользователь сообщил «готово». Это не отдельное измерение анимации
+и не подтверждение точного image; следующий шаг — повтор onlyПЧ3/25Гц на
+настоящей панели после загрузки новойHMI, фото main/probe, затем1/2.
+Ожидаем direct/macroF[0,0,250], Q[1,1,2], «Работа»/ротор только3. Известное
+часовое окно примерно до07:04МСК, остаётся около40минут. Новый compile/image
+фиксировать по факту; сама подпись27119 не различает старую/новую копии.
+
 ## 10.11.2026 — r14a R-before-W SKM candidate prepared
 
 Exact-source helper build/check PASS; only two Variable settings tables reordered, preserving all other HMI bytes and leaving PLC unchanged. Candidate SHA256 `b56648e47a41cdd4eef981060da7a20a0a12cb062f6af9a4c1cf9faf69523323`. Native Compile/generated aliases and live P3 repeat pending: no visible SKTool project window in this session. Operator action: File → Open r14a → Compile, then capture aliases/image identity. Summary: `docs/reports/station002-animation-order-r14a-local-status.md`.
