@@ -1,6 +1,38 @@
 # Работа с проектом
 
-**10.11: MUTE live PASS; сброс аварии ПЧ отложен пользователем.**
+**10.11 НОВОЕ: шкаф отдан; пользователь разрешил сразу делать resetПЧ с правкойПЛК.**
+Предыдущее откладывание отменено новым сообщением. Прислал проверенные
+«бабанов байтик.skm»1273673/SHA359906cfd85975b9d2955f6b03b8f996761a7612fcbf37a23b95c8e5ee6c0b4c
+и.pdw201327/SHA35d22baa604527bd0b29fd99ed27bd8a2154ddf3768d6ade32d6137ce750d182.
+Private /workspace/shared/station002-user-accepted-20261110/accepted_{hmi.skm,plc.pdw}.
+PDW decoded program/records идентичныr14, весьdataframe отличается только
+нативным XORkeydelta; семантических правок там нет. HMI C2mirror/BatchR/
+probe27124 сохранены, sourceNativeSave отличается отgolden: работать на3599,
+не подставлять старый4761. Лого всё ещё по старомуDesktopпути, оригинал
+локальный найден/скопирован: Documents/HMI/Samkoon/Automatika визитка print.jpg.
+Текущее полное задание — реальные кандидаты PLC/HMI: всеfaultкоды/журнал,
+Screen15коды+персональныеResetкнопки,16bootHistory, logo14relink/StartSetting.
+Не заменять работу очередной пустойкопией/общимиинструкциями локальному.
+Reset только приSTOP/выходыoff/свежаянулеваячастотавыбранногоПЧ, READY
+не требуется, послеFC06reset7 нужнаFC03проверка, безRUN/автоповтора.
+VFDmaster Port3/M1936; CL50 наPort2 не трогать. Старые функцииFUN150
+согласовать/гейтить, новыйSR/WR/relayдиапазон проверить. ОстатокCPU3718байт.
+Private design: /workspace/shared/station002-reset-r15-20261110/design.json.
+Статус: созданы реальные r15 offline-кандидаты на этих exact source.
+PLC206320/SHAde693ad24d339a2597e66dd9a9d07e57d8a24a3243612e838f9f63dd330cbb01,
+HMI1480325/SHA15c35adfd26e7011b41104a139db11d33daa6d43edcbf4b3da3b3c9e3a0eaa43.
+Helpers build_drive_reset_r15.py/build_fault_reset_hmi_r15.py и validators.
+ResetR3200..3288 (НЕстарый3080..3159 изdesign), retain2857..59, timers124/125.
+132new native-node conversions; 10preexistingAPIlimitationsсохранены.
+43PLCscenarios+all65536D4044;64C89diff/576ticks+21protocol/C+PLCcases PASS.
+FullinverseSKM/HAD/geometry/nativePDWdata-key-preservation PASS.
+3054байта добавлены, CPU664байтаfree. Screen15codes/reset,16bootlog,
+13probe27124/Batch16сохранены. Screen14толькоперепривязаннапакетныйJPG:
+nativeStartSettingloading/saver+Compile/aliases+F7/F8 ещёНЕпроверены.
+Карта docs/interfaces/station002-vfd-reset-r15.md. Шкаф уже недоступен:
+толькоoffline/нативнаясборкаПК, безаппаратныхкоманд.
+
+**История10.11: MUTE live PASS; прежнее откладывание отменено выше.**
 После «Отключить звук» пользователь подтвердил: звук исчез, ошибка есть.
 Это глушение звука, не снятие fault; новое событие после mute ещё не тестировали.
 Попросил кнопку сброса аварииПЧ, но явно сказал: если нужна правкаПЛК,

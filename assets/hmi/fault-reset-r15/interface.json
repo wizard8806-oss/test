@@ -1,0 +1,64 @@
+{
+  "revision": 15,
+  "resetContract": 27131,
+  "faultContract": 27120,
+  "hmiFeature": 27130,
+  "animationProbeUnchanged": 27124,
+  "resetStatus": {"firstR": 3200, "words": 32, "macroBytes": 64},
+  "faultStatus": {"firstR": 3040, "words": 40, "macroBytes": 80},
+  "request": {
+    "firstR": 3216,
+    "words": ["mask1or2or4", "nonzeroSequence", "session", "sessionXor65535", "window", "windowXor65535"],
+    "macroBytes": 12,
+    "mode": "Batch16 W",
+    "origin": "explicit local button LB1250..1252 only",
+    "frozenUntilAck": true,
+    "autoRetryReset": false
+  },
+  "publicR": {
+    "3200": "marker27131", "3201": "phase", "3202": "targetDrive",
+    "3203": "elapsed100ms", "3204": "detail", "3205": "resetTxAttempts",
+    "3206": "resultDrive1", "3207": "resultDrive2", "3208": "resultDrive3",
+    "3209": "permitMask", "3210": "Port3Owned", "3211": "lastWriteWR0",
+    "3212": "lastReadWR0", "3213": "faultBefore", "3214": "faultAfter",
+    "3215": "session", "3222": "ackSequence", "3223": "ackMask",
+    "3224": "ackDetail", "3225": "windowCurrent", "3226": "windowPrevious",
+    "3227": "stopPermit", "3228": "expectedWriteTag", "3229": "expectedReadTag",
+    "3230": "phaseAtScanStart", "3231": "ownershipLatch"
+  },
+  "result": {"0": "notRequested", "1": "working", "2": "confirmedFreshZero", "3": "requiresSTOP", "4": "notConfirmed"},
+  "phase": {"0": "idle", "10": "waitForPort", "20": "resetWrite", "25": "waitBeforeRead", "30": "verifyRead", "40": "releaseAfterACTStops"},
+  "detail": {
+    "1": "accepted", "2": "freshZeroConfirmed", "3": "requiresSTOP",
+    "5": "busy", "8": "noFreshStoppedFaultedTarget", "9": "STOPLost",
+    "10": "readFailedOrWrongTag", "11": "writeFailedOrWrongTag", "12": "timeoutOrAbort",
+    "13": "Port3ContinuousModeUnsupported", "14": "expiredOrBrokenWindow", "15": "invalidMask", "16": "faultRemains"
+  },
+  "privateR": [3232, 3288],
+  "retainedR": [2857, 2858, 2859],
+  "timers": {"124": "wholeJob5s", "125": "nonceWindow2s"},
+  "relayRanges": [[1815,1839],[1871,1879]],
+  "serial": {
+    "port": 3,
+    "readyM": 1936,
+    "FUN150Instruction": "F31B",
+    "reset": {"function": 6, "pduAddress": 8192, "FUN150Reference": 8193, "value": 7},
+    "verify": {"function": 3, "pduAddress": 4096, "FUN150Reference": 4097, "words": 7},
+    "SR": {"writeFirstR": 3240, "readFirstR": 3250, "wordsEach": 10},
+    "WR": {"writeFirstR": 3260, "readFirstR": 3270, "wordsEach": 8},
+    "payloadR": 3288,
+    "CL50Port2Changed": false,
+    "systemD4044Written": false
+  },
+  "hmi": {
+    "newPages": {"15": "nativeCodesAndReset", "16": "existingBootLogView"},
+    "faultStatesLW": [956,957,958], "resetResultsLW": [950,951,952],
+    "resetBannerLW": 947, "diagnosticLW": [940,941,942,943,944,945],
+    "retainedBootLogLW": [51000,51031], "BootAckWLast": true,
+    "prefixBytesBeforeBootAck": 216,
+    "faultJournalGroups": 13, "rawCodeRangeWithIndividualMessages": [1,80],
+    "outsideRange": "Generic journal event; current and last numeric code on page15",
+    "logoLoadingAndSaver": "Native HMI Start Setting still required"
+  },
+  "acceptance": {"nativeCompile": false, "hardwareReset": false}
+}

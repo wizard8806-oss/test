@@ -118,6 +118,8 @@ Write-Host ('Parsed PowerShell files: '+$count)
         run('PowerShell syntax', [PWSH, '-NoLogo', '-NoProfile', '-NonInteractive', '-File', str(ps)])
         for check in CHECKS:
             run(check, [sys.executable, str(work/'tools'/check)])
+        run('STOP-only VFD reset bytecode', [sys.executable,
+            str(work/'tools/validate_drive_reset_r15.py'), '--components-only'])
         # Check the candidate against the actual native source in addition to mutation fixtures.
         run('native PDW feedback comparison', [sys.executable, str(work/'tools/check_setpoint_feedback_01.py'),
             str(work/'artifacts/station-setpoint-feedback-01/station_MC_CM55_900G_05.pdw'), '--out', str(work/'native-check.json')])

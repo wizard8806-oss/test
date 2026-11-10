@@ -1,4 +1,40 @@
-## 10.11.2026 — отключение звука проверено; кнопка resetПЧ отложена
+## 10.11.2026 — сброс ПЧ разрешён; подготовлены оба r15 offline-кандидата
+
+Шкаф отдан, аппаратных проверок сейчас нет. Пользователь отменил прежнее
+откладывание и поручил сразу готовить reset, включая изменение ПЛК.
+Взята последняя присланная пара «бабанов байтик»: HMI1273673/SHA359906…b4c,
+PLC201327/SHA35d22b…d182, private accepted_hmi.skm/accepted_plc.pdw в
+`/workspace/shared/station002-user-accepted-20261110/`. Сохранены отдельно.
+
+Созданы PLC206320/SHAde693ad24d339a2597e66dd9a9d07e57d8a24a3243612e838f9f63dd330cbb01
+и HMI1480325/SHA15c35adfd26e7011b41104a139db11d33daa6d43edcbf4b3da3b3c9e3a0eaa43
+в private `/workspace/shared/station002-reset-r15-20261110/`. Старые drafts
+не доставлять. Новые source-locked helpers/validators опубликованы отдельно
+от native-проектов. Карта и ограничения: `docs/interfaces/station002-vfd-reset-r15.md`.
+
+Reset только в STOP, свежая частота0/ненулевой fault, не требует READY.
+Port3 FC06/0x2000=7 один раз, затем FC03/0x1000/7WORD; успех только после
+свежего0. Очередь/арбитраж/abort/nonce/session, Port2CL50 без правки, RUN
+не добавлен. Карта R3200..3288, retainR2857..2859, M1815..1839/M1871..1879,
+T124/T125; старый design3080..3159 устарел. CPU+3054байта/free664.
+43PLCcases/all65536D4044 и132new vendor-node conversions PASS;20old patches,
+10прежнихAPIlimitations не выдаются за проход. 64C89diff/576ticks и21новый
+protocol/sound/C+PLC case PASS. SKM fullinverse/HAD/800x480/layout/Batch16
+и PDW data/nativekey/прочий код сохранены. Guard/nooverwrite PASS.
+
+HMI: Screen15 коды/качество/last/seq/3resetbuttons, Screen16 уже имевшиеся
+5bootlogrecords;13probe27124 сохранён, новаяfeature27130. ВсеRBatch16,
+BootAckWпоследний/offset216. AlarmLogin13групп: прежняя25событий+240кодов
+1..80+3unknown. Коды>80 точнымчислом вcurrent/last, но неизвестнаяистория
+покаобщимсообщением. Screen14 перепривязан на пакетный исходныйJPG.
+
+Следующий доступный шаг наПК: изготовить exact оба файла из присланнойпары,
+скопировать оригиналлого, штатные F7/F8 и Compile/generatedaliases/Simulator,
+nativeStartSettingloading/saver. Это пока НЕвыполнено и не аппаратнаяприёмка.
+Не останавливать файловуюсборку из-за прежнего отсутствияGUI. Загрузок,
+reset/RUN/force наоборудовании0. Main не менять, rawSKM/PDW/vendor не публиковать.
+
+## История 10.11.2026 — отключение звука проверено; прежнее откладывание reset
 
 Пользователь подтвердил после mute: «звук исчез ошибка есть». Принимаем
 отключение звука с сохранением активной аварии, не проверку нового события
