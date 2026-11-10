@@ -1,4 +1,41 @@
-## 10.11.2026 — контроль с новыми страницами открылся; нужен его native SaveAs
+## 10.11.2026 — native SaveAs получен; полный кандидат r16 на рабочей основе
+
+Получен C_native_code_pages.skm1461830/SHA
+`506dec71f62efadca3cc6660707306d2076c4122a83f24b1568c908a95c29b4a`.
+Это SaveAs от operator-OpenPASS контроляb9; его отдельный reopen506 пока
+не сообщён. Не просить ещё один nativeSave того же файла. C/обаBatch и
+opaque-секции0..21 сохранены; новые34/43виджета побайтно те же (порядок
+Page16 изменён при сохранении), metadataUI/указатели пересериализованы.
+
+`build_native_merge_r16.py` использует этот native-файл как основу. Из
+fullr15f заимствованы только7alarm-definitions и catalog. Полный режим
+также согласует48/49/57/60иScreenName внавигации: старая mainДиагностика→13,
+Аварии/КодыПЧ→15, все7новыхfooter-ссылок; activecounter3mirrors→R3077.
+Logo-reference указывает на оригинальный JPEG по указанному пользователем
+пути Documents/HMI/Samkoon/Automatika визитка print.jpg (64символа).
+Layout/sceneheaders/C/Batch/native16tables/HAD сохранены.
+
+- Полный **pump_station_3p_native_merge_r16_candidate.skm**1479661/SHA
+  `84797b73846e5266894812e4bcd7bd7aa8a977baa962934b8eea479aa58420e6`.
+- Только журнал **OPEN_R16_ALARMS_ONLY.skm**1479689/SHA
+  `9e45309a2595462a705e2654f4c82a98b85425fef9c57c6559b8ec7a07ba886b`.
+  Это диагностический fallback исключительно при отказе полного Open.
+
+Проверены native-шаблон93старыхкнопок, все77новыхвиджетов/геометрия,
+HAD/C/обаBatch/opaque/dataarrays16/268alarm-bit mappings, обратимость,
+оба stdlibCLI build/check/guards/источники. Core/runtimeC неизменен;
+общие57проверок не повторялись вместо необходимого nativeOpen.
+Новые Open/Compile/Simulator ещё pending, полная HMI не принята.
+
+Задание `docs/tasks/station002-native-merge-r16-local.md`: создать оба файла,
+дать оператору сначала точный полный путь r16. При fullOpenPASS SaveAs_native,
+штатная настройка load/saverScreen14/проверкаJPEG и Compile/Simulator.
+При fullOpenFAIL один ALARMS_ONLY отделит журнал от навигации/картинки;
+сохранить фактические исходы без guessedr17. Ранее принятый NativecodePages
+повторно не тестировать. PLC/STOP-reset/main не менялись, шкафотдан.
+Подробности `docs/reports/station002-native-merge-r16-20261110.md`.
+
+## История 10.11.2026 — контроль открылся; затем получен его native SaveAs
 
 Принят local `21f618a`: OPEN_NATIVE16_CODE_PAGES.skm1461857/SHA
 `b9fe40ba0e65ac6a41712d6e5116a1f92103208678868f7233566c1c359b58b9`

@@ -1,5 +1,30 @@
 # Работа с проектом
 
+**10.11: C_native_code_pages получен; полный native-based r16 подготовлен.**
+Native SaveAs1461830/SHA506dec71f62efadca3cc6660707306d2076c4122a83f24b1568c908a95c29b4a
+private /workspace/shared/station002-native-merge-r16-20261110/user_native_code_pages.skm.
+Его исходный контрольb9 был operatorOpenPASS; сам506reopen отдельно не сообщён.
+Native-save сохранил C/обаBatch/opaque0..21; виджеты15/16 те же, изменён
+порядок16/служебныеUIполя. Не просить ещё один SaveAs этого же источника.
+build_native_merge_r16.py берёт506какоснову; изfullr15f2fe только7alarm
+definitions+catalog (268битов/тексты неизменны). Fullmode согласует все4
+навигационныхполя48/49/57/60 и56ScreenName в2старых+7новыхкнопках,
+счётчик3R2363→R3077, логотип→реальный пользовательский JPEG64chars:
+C:/Users/user/Documents/HMI/Samkoon/Automatika визитка print.jpg.
+Это полный candidate r16 на нативнойоснове, не guessed padding r15g.
+Full1479661/SHA84797b73846e5266894812e4bcd7bd7aa8a977baa962934b8eea479aa58420e6.
+Fallback --alarms-only1479689/SHA9e45309a2595462a705e2654f4c82a98b85425fef9c57c6559b8ec7a07ba886b.
+Native pattern93исходныхкнопок подтвердил60=targetNo; все77виджетов/
+геометрия/HAD/C/Batch/opaque/arrays16/268maps/inverse/CLIguards PASS.
+Новые NativeOpen/Compile pending;57corechecks не повторялись (runtimeCтотже).
+Актуальное задание docs/tasks/station002-native-merge-r16-local.md:
+создатьоба/показатьсначалаполныйпутьr16; Openfull→SaveAs_native→loading/saver14
+→Compile/Simulator. ЕслиfullOpenFAIL, один fallbackOpen ALARMS_ONLY без
+новыхnav/logo; не делать r17наугад. Копии/оригинальныйJPEG сохранить.
+PLC/reset/main неизменны,шкафотдан. Никакого Download/Force/RUN.
+
+**История: требуемый native SaveAs code-pages уже получен, см. выше.**
+
 **10.11: OPEN_NATIVE16_CODE_PAGES теперь operator-reported native Open PASS.**
 Принят local21f618a: exact1461857/SHAb9fe40…b58b9 создан/сверен; native
 в локальном отчёте pending. Пользователь «ура», затем на явный вопрос
