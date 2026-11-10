@@ -1,0 +1,85 @@
+{
+  "kind": "OPEN-ONLY diagnostic preparation; not a production revision",
+  "commit": "769a1fcdd04f84295a33ac56e85118b0b7156ba6",
+  "rawBase": "https://raw.githubusercontent.com/wizard8806-oss/test/769a1fcdd04f84295a33ac56e85118b0b7156ba6/",
+  "files": [
+    {
+      "path": "tools/prepare_alarm_open_differential.py",
+      "bytes": 7461,
+      "sha256": "e6e899aa62b8f248e371ad8fa387e32466b7b452df52cb7cf24e5efc54739c44"
+    },
+    {
+      "path": "tools/skm_alarm_catalog.py",
+      "bytes": 9116,
+      "sha256": "9936d73df2f74d5e96e87a72461317b58e367ebde41b9f836f60ea12667e82fa"
+    },
+    {
+      "path": "tools/skm_project_header.py",
+      "bytes": 1954,
+      "sha256": "5b5b43ec5db6fce0852e53289a26946fe97f3ed9639e2389db770ca294d25705"
+    },
+    {
+      "path": "tools/repair_skm_section_index.py",
+      "bytes": 2816,
+      "sha256": "c5b29065a28561dd00db2e118a8ad157259fad90c9160e439c8adcd7df0214ef"
+    },
+    {
+      "path": "tools/validate_skm_alarm_catalog.py",
+      "bytes": 5106,
+      "sha256": "547756c84ee3e80a10ad8987ed9c46bf81ac543ace6028f5b862ade8b4d018fb"
+    }
+  ],
+  "sources": [
+    {
+      "bytes": 1273673,
+      "sha256": "359906cfd85975b9d2955f6b03b8f996761a7612fcbf37a23b95c8e5ee6c0b4c"
+    },
+    {
+      "bytes": 1480005,
+      "sha256": "9a482900380d56f3bb86a625664ad09b10885fe6d9fd58b15262ef974c9bd8bb"
+    },
+    {
+      "bytes": 1298542,
+      "sha256": "0ecac7d67dcfc42648f8f468098fadb7b84b782ae4fd6f70f944195ca0947c3f"
+    }
+  ],
+  "sourceKinds": [
+    "acceptedHMI",
+    "fullR15d",
+    "operatorOpenedNativeSample"
+  ],
+  "nativeSampleOperatorOpenReported": true,
+  "outputs": [
+    {
+      "name": "OPEN_NATIVE_ONE_R80_GROUP.skm",
+      "bytes": 1304278,
+      "sha256": "594ea4b81b1093fbc1de4a2fce7d2a3773d682086fffec3df6171beac513eb7a",
+      "alarmGroups": 2,
+      "pageCount": 14,
+      "nativeBasePreservedOutsideAlarmBlocks": true,
+      "completeInversePreservation": true,
+      "nativeOpenObserved": false
+    },
+    {
+      "name": "OPEN_ONLY_ALARMS_7.skm",
+      "bytes": 1292183,
+      "sha256": "f85f4875ec2d0438f23d10741b84905c8d5d5ddafb20cf64f2fdc09f24e13eef",
+      "alarmGroups": 7,
+      "pageCount": 14,
+      "completeInversePreservation": true,
+      "nativeOpenObserved": false
+    },
+    {
+      "name": "OPEN_FULL_WITH_ORIGINAL_ALARMS.skm",
+      "bytes": 1461495,
+      "sha256": "790f095467a359f1896938ab424bb4adb5365af2992ef68046e72d8a53d4700e",
+      "alarmGroups": 1,
+      "pageCount": 16,
+      "completeInversePreservation": true,
+      "nativeOpenObserved": false
+    }
+  ],
+  "nativeOpenObserved": false,
+  "nativeCompileObserved": false,
+  "hardwareActions": 0
+}

@@ -53,6 +53,7 @@ C:\Users\user\CodexProjects\pump-station\.worktrees\station002-open-isolation-lo
 новая production-прошивка и не основание объявить отказ исправленным.
 Пакет описан в `artifacts/station002-r15d-open-differential/delivery-manifest.json`;
 код/размеры/SHA брать из этого manifest, инструменты только Python stdlib.
+Код закреплён на `769a1fcdd04f84295a33ac56e85118b0b7156ba6`.
 
 Скачать пять files[] в отдельную подпапку tools в `open-check-r15d`.
 Source accepted — уже найденный «бабанов байтик.skm»,
