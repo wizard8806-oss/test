@@ -92,4 +92,5 @@ def main():
         with (a.out_dir/item['file']).open('xb') as f:f.write(data)
     with (a.out_dir/'open-isolation.json').open('x',encoding='utf8') as f:json.dump(report,f,ensure_ascii=False,indent=2);f.write('\n')
     print('Created',len(cases),'editor-Open isolation files; control is exact accepted source. Native outcomes pending.')
-if __name__=='__main__':main()
+if __name__=='__main__':
+    raise SystemExit('Historical r15b isolation is superseded by the native alarm-directory fix r15c. Use the pinned7709504 bundle only to reproduce the original diagnostic cases; see docs/tasks/station002-alarm-directory-r15c-local.md.')

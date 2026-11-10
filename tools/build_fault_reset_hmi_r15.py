@@ -16,6 +16,7 @@ import build_animation_probe_hmi as ui
 from reorder_animation_macro_r14a import VARIABLES, ORDER, entry, packed
 from repair_skm_section_index import read_directory
 from skm_project_header import read_project_header
+from skm_alarm_catalog import read_definitions,read_directory_for_names,directory_bytes,validate_alarm_catalog
 
 SOURCE_SHA='359906cfd85975b9d2955f6b03b8f996761a7612fcbf37a23b95c8e5ee6c0b4c'
 SOURCE_BYTES=1273673
@@ -261,6 +262,12 @@ def prepare(source,logo_target=LOGO_TARGET):
     if raw.count(old_map)!=1:raise ValueError('Page identity map differs')
     edits.append((raw.index(old_map),old_map,new_map,'page identity map'))
     group_edit,captions=alarm_groups(raw,json.loads(CATALOG.read_text(encoding='utf8')));edits.append(group_edit)
+    source_groups=read_definitions(raw)
+    source_names=[g['name'] for g in source_groups['groups']]
+    name_directory=read_directory_for_names(raw,source_names)
+    new_names=[g['name'] for g in read_definitions(group_edit[2],0)['groups']]
+    edits.append((name_directory['start'],raw[name_directory['start']:name_directory['end']],
+                  directory_bytes(new_names),'native alarm group directory'))
     if raw.count(qs(LOGO_OLD))!=1:raise ValueError('Brand background link differs')
     edits.append((raw.index(qs(LOGO_OLD)),qs(LOGO_OLD),qs(logo_target),'logo asset reference'))
     def shifted(address):
@@ -272,6 +279,9 @@ def prepare(source,logo_target=LOGO_TARGET):
     edits.append((directory['locatorOffset'],struct.pack('>Q',directory['offset']),struct.pack('>Q',dir_at),'directory locator'))
     result=apply(raw,edits);checked=read_directory(result)
     fixed_header=read_project_header(result)
+    alarm_catalog=validate_alarm_catalog(result)
+    if alarm_catalog['groupCount']!=13 or alarm_catalog['directoryCount']!=13:
+        raise ValueError('Alarm definitions/name directory do not match')
     if fixed_header['pageCount']!=16 or fixed_header['model']!=header['model'] or fixed_header['firstSceneRect']!=header['firstSceneRect']:
         raise ValueError('Final page count/model/first QRectF differs')
     if checked['entries']!=entries or checked['offset']!=dir_at:raise ValueError('Directory relocation differs')
@@ -283,7 +293,8 @@ def prepare(source,logo_target=LOGO_TARGET):
         readInputs=[dict(name=n,bytes=int(size),address='R'+addr) for n,t,size,mode,addr in after if mode=='R'],
         writeInputs=[dict(name=n,type=t,bytes=int(size or 2),address='R'+addr) for n,t,size,mode,addr in after if mode=='W'],
         batchPrefixBytesBeforeBootAck=216,BootAckWLast=True,allReadInputsBatch16=True,
-        newPageObjects={'15':codes_n,'16':history_n},bindings=bindings,alarmGroups=13,newCodeMessages=len(captions),
+        newPageObjects={'15':codes_n,'16':history_n},bindings=bindings,alarmGroups=13,alarmDirectoryEntries=13,
+        alarmDirectoryCompanionEntries=13,newCodeMessages=len(captions),
         knownDescriptions=len(json.loads(CATALOG.read_text(encoding='utf8'))['codes']),unknownCodeNumeric=True,
         featureMarker=27130,resetMarker=27131,probe27124Preserved=True,
         model=fixed_header['model'],resolution=list(fixed_header['resolution']),sceneCommonPairs=16,

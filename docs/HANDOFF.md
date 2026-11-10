@@ -1,4 +1,34 @@
-## 10.11.2026 — C тоже открывается; известные результаты CONTROL/A/C PASS, B FAIL
+## 10.11.2026 — native-образец выявил пропущенный каталог групп; подготовлена r15c
+
+Пользователь прислал C_native_alarm_sample.skm1298542/SHA
+0ecac7d67dcfc42648f8f468098fadb7b84b782ae4fd6f70f944195ca0947c3f.
+Native-save содержит2группы (исходнаяR2550 и LB1/Size1/TEST),2каталожных
+имениB00/B01 и2пустые4-byteсопутствующиезаписи. C,обаBatchтаблицы,
+исходнаяR2550definitionсохранилисьпобайтно. Это предоставленныйnative-save,
+его повторноеOpenоператоротдельнонеподтверждал. Nativeфайлхранитсяprivate:
+`/workspace/shared/station002-native-alarm-sample-20261110/user_native_sample.skm`.
+
+Дефект нашего r15a/B установлен: создавались13definitions, но вторичный
+каталог оставался с1именемB00/1пустойзаписью. Reader ожидает13имён и
+последовательное чтение рассогласовывается. Неподтверждённые догадки о
+padding/лимите256 не использовались. Теперь schema-check принимает
+native2иsource1, отклоняет реальныеr15a/B на отсутствующемB01.
+
+`skm_alarm_catalog.py`/`repair_alarm_directory_r15c.py`, исправлен полный
+producer/validator;12публичныхрегрессийдобавленывrun_checks. Quickrepair
+изexactd08r15a даёттотжефайл, чтопересборкаизaccepted3599:
+**1480911байт/SHA0141fa91f028144ad9fea5d256c464682860515d4d4c4eab0d80f658ae1ff930**.
+Private `/workspace/shared/station002-alarm-directory-r15c-20261110/`.
+Добавлено570байттолькоимен/сопутствующихзаписей;25пойнтеровперемещены.
+Definitions/C/Batch/UI/HAD/PLCнеизменны;TEST-группаобразцавproductionнепереносится.
+Repair==rebuild/fullinverse/source/guards/64C89diff576ticks/21protocolPASS.
+
+Требуетсятеперьодинполныйr15cNativeOpen→Compile/Simulator, не повтор
+CONTROL/A/B/C. ИзвестноCONTROL/A/COpenPASS, BFAIL. СтарыйisolationCLI
+отключёнкакhistorical; pinned770доступендлявоспроизведениястарыхcases.
+СамNativeOpen/Compileполнойr15cздесьещёне наблюдались; шкафотдан.
+
+## История 10.11.2026 — C тоже открывается; известные результаты CONTROL/A/C PASS, B FAIL
 
 ОператорответилнаC_MACRO_ONLY «Открылсябезошибки». Полученаизолированная
 таблица: CONTROL/A/CnativeOpenPASS, BnativeOpenFAIL/Illegalopening. Это

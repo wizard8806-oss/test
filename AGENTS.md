@@ -1,5 +1,23 @@
 # Работа с проектом
 
+**10.11: получен native alarm sample; установлен второй дефект, r15c собрана.**
+Uploaded C_native_alarm_sample.skm1298542/SHA0ecac7d67dcfc42648f8f468098fadb7b84b782ae4fd6f70f944195ca0947c3f,
+private /workspace/shared/station002-native-alarm-sample-20261110/user_native_sample.skm.
+Содержит2группы(исходнаяR2550+LB1/Size1/TEST),2имениB00/B01и2пустые
+4-bytecompanionзаписи передscene-map. C/обаBatchтаблицы/исходнаяR2550
+записьпобайтносохранены. Native-saveпредоставленпользователем, reopenне сообщён.
+Нашr15a/Bписал13definitionsнооставлял1directoryname+1companion. Это
+доказанныйпропуск: новаясхемапринимаетnative2иотклоняетknownbadr15a/B.
+tools/skm_alarm_catalog.py,repair_alarm_directory_r15c.py; producer/validator
+исправлены;12catalogregressionsдобавленывrun_checks. Историческийr15bCLI
+отключёнсссылкойнаpinned770длястарыхcases, негенерироватьихсновымproducer.
+Quickrepairизполногоd08r15a==rebuildиз3599: r15c1480911/SHA
+0141fa91f028144ad9fea5d256c464682860515d4d4c4eab0d80f658ae1ff930.
+Толькоcatalog+570байт/25pointers;UI/C/Batch/HAD/definitions/PLCне менялись,
+TESTневноситсявproduction. 64C89diff/576ticks+21protocol/inverse/guardsPASS.
+NativeOpen/Compileполнойr15cещёнужны. РезультатыоператораCONTROL/A/COpenPASS,
+BFAIL; этоужеизвестно, неповторять. Далееодинполныйr15cOpen→Compile.
+
 **10.11 оператор: C_MACRO_ONLY PASS; D уоператоране найден.**
 ТеперьCONTROL/A/CnativeOpenPASS, B_ALARMS_ONLYnativeOpenFAILсIllegalopening.
 Страницыимакроспоотдельностизагружаются; этоНЕихCompile/runtimeприёмка.
