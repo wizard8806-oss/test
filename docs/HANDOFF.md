@@ -1,3 +1,27 @@
+## 10.11.2026 — r14a не прошла live; следом all-Batch16 r14b, лого остаётся
+
+На новых фото после повтора r14a смещение уменьшилось, но осталось:
+only3 directF[0,0,250]/Q[1,1,2] →macroF[0,250,0]/Q[1,2,9], snapshot395;
+only2 directF[0,250,0]/Q[1,2,1] →macroF[250,0,0]/Q[2,1,9], snapshot484.
+Map32/32, alarms0/0, link1,27119. R14a **не принята**. Оставшийсясдвиг1WORD
+следует после scalarMapVersion; точныйnativepackingещёне получен.
+
+Подготовлен tools/build_animation_batch_r14b.py: MapVersion иLeader чтения
+Batch16/Bytes2, остальныеRужеBatch, scalarBootAckWпоследний. В2Cmirrors
+Leader[0], typeсведения иsignature27124;7probecaptionmirrorsтоже27124.
+Адреса/main/HAD/PLC сохранены, полнаяинверсияизменений/релокацииPASS.
+Sourceexactuser-r13илиr14aдаюттотжеcandidate1273871байт/SHA256
+`476138a71d10b284da088b145cf38b14bf31d75cfce22f6bce559642bb740b7f`.
+7packageguardsи256hostdifferential/2304tickPASS: BootAck/всеoutputs/bits
+сохранены, кромеsignature. Это не nativeABI: Compile/live3/2/1 ещё нужны.
+Задание: docs/tasks/station002-animation-batch-r14b-live.md, report:
+docs/reports/station002-animation-r14a-live-residual-20261110.md.
+
+Пользователь также сообщил «экран с лого отсутствует». Эта функция ещё
+не включалась вr14a/r14b; старыйexternalJPEGненайден,4embeddedPNG — графики.
+Запрошен путь к оригиналу AUTOMATIKA KG; после получения нужен штатный
+import/HMIStartSetting. Задачу не терять, не подменять её новой картинкой.
+
 ## 10.11.2026, около06:22МСК — r14a создана локально, ожидается повтор на панели
 
 Принятыf9ed414/4fafc50: локальная копияr14a совпала с ожидаемыми

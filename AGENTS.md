@@ -1,5 +1,20 @@
 # Работа с проектом
 
+**10.11, r14a LIVE FAIL: теперь3→2/2→1; приготовлен batch-read r14b.**
+Новые фото: only3 directF[0,0,250]/Q[1,1,2], macroF[0,250,0]/Q[1,2,9],
+only2 directF[0,250,0]/Q[1,2,1], macroF[250,0,0]/Q[2,1,9]. Map32/32,
+alarms0/0, link1, probe27119. Reorder уменьшилсдвиг2WORD→1WORD, не исправил.
+Решать оставшийсяscalarпередTelemetry, не адресаPLC. Новыйhelper
+tools/build_animation_batch_r14b.py принимаетexact user-r13/r14a, делает
+MapVersion/Leader one-WORD Batch16/Bytes2; всеRinputsBatch, BootAckWпоследний;
+Leader[0] вC, signature/probecaption27124. Main/HAD/PLC сохранены, полная
+инверсия/директория PASS. Candidate1273871/SHA476138…0b7f;
+7packagechecks/256hostcases2304tick логическихвыходов PASS, НЕ nativeABI.
+Срочное задание docs/tasks/station002-animation-batch-r14b-live.md.
+Пользователь напомнил об отсутствующемлого. СтарыйJPEGнедоступен,
+embedded4PNG — cachedtrend; путь к оригиналу запрошен. Loading/saver
+этимиузкимикандидатами ещё не включались. Не объявлятьготовыми.
+
 **10.11, LIVEINPUTСДВИГ ЛОКАЛИЗОВАН ПО ФОТО: PLC3→macro1.**
 OnlyПЧ3: directF[0,0,250]/Q[1,1,2], RXF[0,0,250], macroF[250,0,0]/
 Q[2,9,5], frames[4,0,0]/states[2,0,0], map32/32,alarms0/0,link1,
