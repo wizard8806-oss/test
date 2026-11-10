@@ -1,0 +1,160 @@
+{
+  "revision": "r15e",
+  "commit": "aaf01a3ebb29d6188b7eb9cc5db8fb2bcdea2d03",
+  "rawBase": "https://raw.githubusercontent.com/wizard8806-oss/test/aaf01a3ebb29d6188b7eb9cc5db8fb2bcdea2d03/",
+  "files": [
+    {
+      "path": "tools/repair_alarm_group_ids_r15e.py",
+      "bytes": 4156,
+      "sha256": "2b90551e6cee3fd4d2b5d72ef6aea915e275f3da17b90f16bf47d1525508c2cd"
+    },
+    {
+      "path": "tools/skm_alarm_catalog.py",
+      "bytes": 10189,
+      "sha256": "4e56203981885d76a72fa24075870b85a2c4bf4a8e80728e9b0de6073b02c818"
+    },
+    {
+      "path": "tools/skm_project_header.py",
+      "bytes": 1954,
+      "sha256": "5b5b43ec5db6fce0852e53289a26946fe97f3ed9639e2389db770ca294d25705"
+    },
+    {
+      "path": "tools/repair_skm_section_index.py",
+      "bytes": 2816,
+      "sha256": "c5b29065a28561dd00db2e118a8ad157259fad90c9160e439c8adcd7df0214ef"
+    },
+    {
+      "path": "tools/validate_skm_alarm_catalog.py",
+      "bytes": 6146,
+      "sha256": "bc2948e69ee26d8c90bbd2968a52f4fcbabf5eb4b829f6c593c4be9a92b966b6"
+    }
+  ],
+  "fullRebuildFiles": [
+    {
+      "path": "tools/build_manual_no_sensor_pdw.py",
+      "bytes": 6011,
+      "sha256": "4dc3de6dc692a8b4b0f86f29562a6603601dea340727d14a7888d884bf928929"
+    },
+    {
+      "path": "tools/build_vfd_fault_export_r14.py",
+      "bytes": 11029,
+      "sha256": "1d92d0ad8155bd884acccaf086cea615035ca008f6d577f9c78c55b0602bd881"
+    },
+    {
+      "path": "tools/build_drive_reset_r15.py",
+      "bytes": 20425,
+      "sha256": "59c40cbb82d65d147a88a1cedbd2f88aecf9582fbcefdbe905cf43873bd40d12"
+    },
+    {
+      "path": "tools/validate_drive_reset_r15.py",
+      "bytes": 15346,
+      "sha256": "bffbd9e9ecfa94b2ceb7286d95142033c526afeba79823d092d4bcba3331dfce"
+    },
+    {
+      "path": "tools/repair_skm_section_index.py",
+      "bytes": 2816,
+      "sha256": "c5b29065a28561dd00db2e118a8ad157259fad90c9160e439c8adcd7df0214ef"
+    },
+    {
+      "path": "tools/build_animation_probe_hmi.py",
+      "bytes": 14207,
+      "sha256": "689b891b40eb0c1040dc9671e7ba400be490ce351fce26fb6ebd991207923708"
+    },
+    {
+      "path": "tools/reorder_animation_macro_r14a.py",
+      "bytes": 5962,
+      "sha256": "f5cf266eecc1ddd1cc2d9eed69cd2d3ca56ae625eca07f5ee695c67f382b7600"
+    },
+    {
+      "path": "tools/build_fault_reset_hmi_r15.py",
+      "bytes": 20922,
+      "sha256": "9111636db47903b4e8166cbea105b4cbfe63e514429c234917d12f4fc46345d2"
+    },
+    {
+      "path": "tools/validate_fault_reset_hmi_r15.py",
+      "bytes": 14229,
+      "sha256": "822e3c10849a044792a76835cbcc32cc4bd24c670683fd5ea439a3e6ef049a09"
+    },
+    {
+      "path": "assets/hmi/fault-reset-r15/fault_reset.c",
+      "bytes": 5809,
+      "sha256": "a957c91fc3bf39bbc775df1ac2142958e22b7520e81abaa0530a23f0265dfd3f"
+    },
+    {
+      "path": "assets/hmi/fault-reset-r15/interface.json",
+      "bytes": 3218,
+      "sha256": "557ed6f3f53c61d0e61e42aca7402b2e3d3be028decff7d688127cbb116c6533"
+    },
+    {
+      "path": "assets/hmi/native-vfd-faults-r14/catalog.json",
+      "bytes": 2911,
+      "sha256": "2c1b44b4b7c279b35ca07eb994e594c3fd053a21d600457ddbcbe1686857f259"
+    },
+    {
+      "path": "docs/interfaces/station002-vfd-reset-r15.md",
+      "bytes": 11341,
+      "sha256": "69c5429f0b13d132cc2548c7c9074126cc866fdd26a882ef4fb36bdc26596da0"
+    },
+    {
+      "path": "tools/skm_project_header.py",
+      "bytes": 1954,
+      "sha256": "5b5b43ec5db6fce0852e53289a26946fe97f3ed9639e2389db770ca294d25705"
+    },
+    {
+      "path": "tools/skm_alarm_catalog.py",
+      "bytes": 10189,
+      "sha256": "4e56203981885d76a72fa24075870b85a2c4bf4a8e80728e9b0de6073b02c818"
+    }
+  ],
+  "source": {
+    "name": "pump_station_3p_fault_reset_r15d.skm",
+    "bytes": 1480005,
+    "sha256": "9a482900380d56f3bb86a625664ad09b10885fe6d9fd58b15262ef974c9bd8bb"
+  },
+  "fullRebuildSource": {
+    "bytes": 1273673,
+    "sha256": "359906cfd85975b9d2955f6b03b8f996761a7612fcbf37a23b95c8e5ee6c0b4c"
+  },
+  "nativeR80Sample": {
+    "bytes": 1298973,
+    "sha256": "4574726a5956695e53d2948219eaeff20c25dc186897dc6211ff6e448ba5417a",
+    "groups": 2,
+    "groupIds": [
+      0,
+      1
+    ],
+    "newGroupAddress": "R3056",
+    "newGroupSize": 80,
+    "nativeSaveProvided": true,
+    "reopenExplicitlyReported": false
+  },
+  "output": {
+    "name": "pump_station_3p_fault_reset_r15e.skm",
+    "bytes": 1480005,
+    "sha256": "2198325315f9b9a6918f483f07f164f855ef454fb3454d7363fe73b6e3fb171d"
+  },
+  "changedBytes": 6,
+  "oldGroupIds": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "newGroupIds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "allOtherBytesPreserved": true,
+  "PLCChanged": false,
+  "nativeOpenObserved": false,
+  "nativeCompileObserved": false,
+  "hardwareActions": 0
+}

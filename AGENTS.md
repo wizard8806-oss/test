@@ -1,5 +1,13 @@
 # Работа с проектом
 
+**10.11: r15e готова к native Open; пакет и проверки завершены.**
+Код aaf01a3ebb29d6188b7eb9cc5db8fb2bcdea2d03; immutable run_checks56 PASS,
+HTTP5/15files/5stdlibcommands/обаSHA PASS. Manifest
+artifacts/station002-alarm-group-ids-r15e/delivery-manifest.json;
+актуальное задание docs/tasks/station002-alarm-group-ids-r15e-local.md.
+Sourcefullr15d9a1480005→NEWfullr15e219832…171d1480005; только6bytesID1..6.
+Native Open/Compile r15e ещё pending, старыеprobes/созданиеR80 не повторять.
+
 **10.11: получен native R80; найдены дубли номеров групп, r15e — шесть байтов.**
 C_native_R80_sample.skm1298973/SHA4574726a5956695e53d2948219eaeff20c25dc186897dc6211ff6e448ba5417a,
 private /workspace/shared/station002-native-r80-sample-20261110/user_native_R80.skm.

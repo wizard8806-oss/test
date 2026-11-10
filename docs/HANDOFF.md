@@ -1,5 +1,13 @@
 ## 10.11.2026 — нативный R80 выявил одинаковые номера новых групп; подготовлена r15e
 
+r15e подготовлена и доставка проверена. Код
+`aaf01a3ebb29d6188b7eb9cc5db8fb2bcdea2d03`; immutable run_checks56 PASS.
+HTTP5/15 файлов, 5 stdlib-команд и оба итоговых SHA проверены. Manifest:
+`artifacts/station002-alarm-group-ids-r15e/delivery-manifest.json`;
+отчёт: `docs/reports/station002-alarm-group-ids-r15e-20261110.md`.
+Следующий шаг — создать один full r15e из exact r15d9a и открыть/Compile
+его в SKTool7.1. Это ещё pending. Main и PLC не менялись.
+
 Получен `C_native_R80_sample.skm`, 1298973 байта, SHA256
 `4574726a5956695e53d2948219eaeff20c25dc186897dc6211ff6e448ba5417a`.
 Две группы: исходная R2550/25 и новая R3056/80/Fatek. Новые сообщения
