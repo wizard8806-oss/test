@@ -34,6 +34,16 @@ nativeStartSettingloading/saver. Это пока НЕвыполнено и не 
 Не останавливать файловуюсборку из-за прежнего отсутствияGUI. Загрузок,
 reset/RUN/force наоборудовании0. Main не менять, rawSKM/PDW/vendor не публиковать.
 
+Публикация кода:22ed5e4675713a0d4dcc9f8655bd679b5cb84a83,
+финальныйцветовойфикс f7534ae5a4ae73eb177f67ade800fbb1c7e84262.
+Общие54groupsPASS наimmutable22ed; затем HMItargeted/64host/21protocol
+PASS наf753 (faultкрасный/clearиconfirmedresetзелёные). Пакет13HTTPfiles
+и4Python-Sbuild/check воспроизводят goldenSHA; sourceguard/nooverwritePASS.
+Отчёт docs/reports/station002-fault-reset-r15-offline-20261110.md,
+готовое локальное задание docs/tasks/station002-fault-reset-r15-local-offline.md,
+manifest artifacts/station002-fault-reset-r15/delivery-manifest.json
+закреплённаf753. Документыидоставкаследующимкоммитом. Native/gui/liveещёнет.
+
 ## История 10.11.2026 — отключение звука проверено; прежнее откладывание reset
 
 Пользователь подтвердил после mute: «звук исчез ошибка есть». Принимаем
