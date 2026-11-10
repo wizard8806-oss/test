@@ -1,3 +1,7 @@
+## 10.11.2026 — r14a R-before-W SKM candidate prepared
+
+Exact-source helper build/check PASS; only two Variable settings tables reordered, preserving all other HMI bytes and leaving PLC unchanged. Candidate SHA256 `b56648e47a41cdd4eef981060da7a20a0a12cb062f6af9a4c1cf9faf69523323`. Native Compile/generated aliases and live P3 repeat pending: no visible SKTool project window in this session. Operator action: File → Open r14a → Compile, then capture aliases/image identity. Summary: `docs/reports/station002-animation-order-r14a-local-status.md`.
+
 ## 10.11.2026 — фото live: directPLC3 правильно, macro1 ошибочно; узкийr14a
 
 Получены/прочитаныфотоmainиprobeнастоящейпанели приonlyПЧ3/25Гц:
