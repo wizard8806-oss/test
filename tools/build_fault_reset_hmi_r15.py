@@ -15,6 +15,7 @@ import struct
 import build_animation_probe_hmi as ui
 from reorder_animation_macro_r14a import VARIABLES, ORDER, entry, packed
 from repair_skm_section_index import read_directory
+from skm_project_header import read_project_header
 
 SOURCE_SHA='359906cfd85975b9d2955f6b03b8f996761a7612fcbf37a23b95c8e5ee6c0b4c'
 SOURCE_BYTES=1273673
@@ -226,6 +227,9 @@ def prepare(source,logo_target=LOGO_TARGET):
     if len(raw)!=SOURCE_BYTES or sha(raw)!=SOURCE_SHA:raise ValueError('Use exact latest user-accepted SKM; newer saves need reviewed adaptation')
     if not logo_target.lower().endswith(('.jpg','.jpeg','.png')) or '\0' in logo_target:raise ValueError('Logo target invalid')
     logo_target=logo_target.replace('\\','/')
+    header=read_project_header(raw)
+    if header['pageCount']!=14 or header['model']!='SK-070HE' or header['resolution']!=(800.0,480.0) or header['common']!=[(0,-1)]*14:
+        raise ValueError('Source page common-data header differs')
     directory=read_directory(raw);edits=[];positions,old_c=source_macro(raw);new_c=extend_macro(old_c)
     for at in positions:edits.append((at,qs(old_c),qs(new_c),'fault/reset C mirror'))
     before,after=variable_rows()
@@ -249,6 +253,9 @@ def prepare(source,logo_target=LOGO_TARGET):
     edits.append((ui_end,b'',addition,'new pages15/16'))
     if raw[56:60]!=u32(14):raise ValueError('Root page count differs')
     edits.append((56,u32(14),u32(16),'root page count'))
+    # The count prefixes a sceneCommonData pair PER PAGE. Updating only
+    # the count makes native readers consume16bytes of Scene1 as metadata.
+    edits.append((header['commonEnd'],b'',struct.pack('>ii',0,-1)*2,'new page common-data entries'))
     old_map=u32(14)+b''.join(u32(i)+u32(i) for i in range(13,-1,-1))
     new_map=u32(16)+b''.join(u32(i)+u32(i) for i in range(15,-1,-1))
     if raw.count(old_map)!=1:raise ValueError('Page identity map differs')
@@ -264,6 +271,9 @@ def prepare(source,logo_target=LOGO_TARGET):
         edits.append((directory['offset']+4+8*i,struct.pack('>Q',old),struct.pack('>Q',new),'directory entry'+str(i)))
     edits.append((directory['locatorOffset'],struct.pack('>Q',directory['offset']),struct.pack('>Q',dir_at),'directory locator'))
     result=apply(raw,edits);checked=read_directory(result)
+    fixed_header=read_project_header(result)
+    if fixed_header['pageCount']!=16 or fixed_header['model']!=header['model'] or fixed_header['firstSceneRect']!=header['firstSceneRect']:
+        raise ValueError('Final page count/model/first QRectF differs')
     if checked['entries']!=entries or checked['offset']!=dir_at:raise ValueError('Directory relocation differs')
     inverse=[];delta=0
     for at,old,new,label in sorted(edits,key=lambda v:v[0]):
@@ -276,6 +286,7 @@ def prepare(source,logo_target=LOGO_TARGET):
         newPageObjects={'15':codes_n,'16':history_n},bindings=bindings,alarmGroups=13,newCodeMessages=len(captions),
         knownDescriptions=len(json.loads(CATALOG.read_text(encoding='utf8'))['codes']),unknownCodeNumeric=True,
         featureMarker=27130,resetMarker=27131,probe27124Preserved=True,
+        model=fixed_header['model'],resolution=list(fixed_header['resolution']),sceneCommonPairs=16,
         logoReference=logo_target,logoBytesEmbedded=False,nativeLoadingSaverSettingsConfigured=False,
         HAD1794244624Preserved=True,userMainLayoutPreserved=True,
         edits=[dict(offset=at,oldBytes=len(old),newBytes=len(new),label=label) for at,old,new,label in sorted(edits,key=lambda v:v[0])],

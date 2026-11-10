@@ -37,6 +37,7 @@ CHECKS = [
     'validate_pump_animation.py',
     'validate_panel_services_r8.py',
     'validate_hmi_layout_recipe.py',
+    'validate_skm_project_header.py',
     'validate_setpoint_display_01.py',
     'validate_setpoint_control_01.py',
     'validate_setpoint_click_fix_01.py',

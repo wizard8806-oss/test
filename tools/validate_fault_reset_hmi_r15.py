@@ -13,6 +13,7 @@ import struct
 import subprocess
 import tempfile
 from build_fault_reset_hmi_r15 import prepare,source_macro,extend_macro,scene,qs,sha,properties,LOGO_TARGET
+from skm_project_header import read_project_header
 
 class Input(ct.Structure):
     _fields_=[('alarm',ct.c_ushort*5),('ack',ct.c_ushort),('telemetry',ct.c_ushort*13),
@@ -177,6 +178,10 @@ def host_checks(old):
 def validate(source,candidate,logo_target=LOGO_TARGET,host=False):
     raw=Path(source).read_bytes();expected,build=prepare(source,logo_target);target=Path(candidate).read_bytes()
     assert target==expected
+    header=read_project_header(target);source_header=read_project_header(raw)
+    assert header['pageCount']==16 and len(header['common'])==16
+    assert header['model']==source_header['model']=='SK-070HE'
+    assert header['firstSceneRect']==source_header['firstSceneRect']==(0.0,0.0,800.0,480.0)
     # Original HAD is byte-identical; its large group is never reconstructed.
     import build_fault_reset_hmi_r15 as builder
     def had(b):
@@ -217,7 +222,8 @@ def validate(source,candidate,logo_target=LOGO_TARGET,host=False):
     assert build['batchPrefixBytesBeforeBootAck']%4==0
     _,old=source_macro(raw);result=dict(candidateSHA256=sha(target),candidateBytes=len(target),newPageCounts=counts,
         fullInverseAndUnlistedBytesPreserved=True,HADPreserved=True,allGeometryFits800x480=True,
-        allReadInputsBatch16=True,BootAckWLastAligned=True,nativeCompileObserved=False,hardwareActions=0)
+        allReadInputsBatch16=True,BootAckWLastAligned=True,model=header['model'],resolution=list(header['resolution']),
+        sequentialHeaderAnd16CommonPairsVerified=True,nativeCompileObserved=False,hardwareActions=0)
     if host:result.update(host_checks(old))
     assert Path(source).read_bytes()==raw
     return result

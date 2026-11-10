@@ -1,4 +1,29 @@
-## 10.11.2026 — сброс ПЧ разрешён; подготовлены оба r15 offline-кандидата
+## 10.11.2026 — пользовательский OpenFAIL r15; исправлена структура заголовка
+
+Пользователь подтвердил открываемый файл:
+`C:\Users\user\CodexProjects\pump-station\.worktrees\station002-fault-reset-local-15\pump_station_3p_fault_reset_r15.skm`.
+На снимке Missing Model Replacement/size7.0/resolution0x0. Не менять модель,
+Cancel; исходник/неоткрывающийся кандидат сохраняются. Приём6e5fa03 сообщает
+создание exactgoldenфайлов/копированиеJPG, nativeдотогонеисполнялся. Теперь
+попыткаоператорареальноFAIL; staticPASS не означаетnativeOpenPASS.
+
+Причина в нашем builder: header count16, но14 sceneCommonData pairs.
+Первые16байт QRectFScene1 ошибочнопотребляютсякак2служебныхпары. Префикс
+SK-070HEпобайтносохранён, но canvasчитаетсякриво. Добавление2пар(0,-1)@172
+и релокация24directorypointers/locator+16 восстанавливают16пар/800x480.
+Старый f4101480325 отозван; новый r15a1480341:
+`d08b5ec1358e84bdc640acdda30ed164038d57c6d3be39a1ad08d68e81176551`.
+
+Quick repair `tools/repair_fault_reset_hmi_r15a.py` принимаетexactfailedf410,
+создаётотдельныйnewSKM. Builderтакжеисправлен; repair==rebuildfromaccepted3599.
+SequentialheadercheckотдельноотQStringanchors;12publicregressions, источник/
+полнаяинверсия/HAD/геометрия/Batch/64host/21protocol PASS. PLC/C/UIлогика
+неизменны. NativeOpen/Compileновойr15a ещёне наблюдались. FullбайткодыPLC
+перетестироватьрадиheaderне требуется. Вопроспользователяпочемуresetтолько
+STOPобъяснён; измененияусловийнаper-targetнепоручены и здесьне делались.
+Private `/workspace/shared/station002-header-r15a-20261110/`.
+
+## История 10.11.2026 — сброс ПЧ разрешён; подготовлены оба r15 offline-кандидата
 
 Шкаф отдан, аппаратных проверок сейчас нет. Пользователь отменил прежнее
 откладывание и поручил сразу готовить reset, включая изменение ПЛК.

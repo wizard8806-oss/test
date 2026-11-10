@@ -1,5 +1,25 @@
 # Работа с проектом
 
+**10.11 СРОЧНО: r15 HMI не открывается; header repair r15a подготовлен.**
+Пользователь показал Missing Model Replacement/0x0 и подтвердил exactпуть
+station002-fault-reset-local-15/pump_station_3p_fault_reset_r15.skm.
+Принят6e5fa03: локальный создалgoldenf410/PLCde693/скопироваллого, native
+раньше не проверял. Новый пользовательский OpenFAIL важнее прежнего staticPASS.
+Причинавнашейгенерации: count16@56, но sceneCommonData только14пар >ii
+с60до172. Readerпотребляетещё16байт Scene1QRectF и теряет800x480.
+Добавлены2defaultпары(0,-1)@172,24пойнтера/locator+16. НЕменятьмодель.
+Новый r15a1480341/SHA d08b5ec1358e84bdc640acdda30ed164038d57c6d3be39a1ad08d68e81176551.
+Quickrepair tools/repair_fault_reset_hmi_r15a.py принимаетТОЛЬКОотклонённый
+f410/1480325, отдельныйnewout; helperneeds repair_skm_section_index.py и
+skm_project_header.py. Исходныйbuilderисправлен, guardaccepted3599прежний.
+Repair==rebuild, fullinverse/HAD/Batch/C/geometry,64host/21protocol PASS;
+12synthetic sequential-header regressions добавленывrun_checks. НЕnativeOpen.
+PLCне меняется. Вопрос«почемуСТОП»объяснён, альтернативатолькоцелевойПЧ
+непоручена: условияresetПЛКвэтойправкенеослаблять. Loading/saverещёpending.
+Private /workspace/shared/station002-header-r15a-20261110/. Старый r15
+отозван; выдатькороткоезаданиеремонта/Cancel/FileOpennew/Compileбезперезапуска
+диагностикианимации/сменымодели/переустановки. GUI/оборудованиездесьнедоступны.
+
 **10.11 НОВОЕ: шкаф отдан; пользователь разрешил сразу делать resetПЧ с правкойПЛК.**
 Предыдущее откладывание отменено новым сообщением. Прислал проверенные
 «бабанов байтик.skm»1273673/SHA359906cfd85975b9d2955f6b03b8f996761a7612fcbf37a23b95c8e5ee6c0b4c
