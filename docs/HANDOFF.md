@@ -1,3 +1,7 @@
+## 10.11.2026 — r14b Batch16 candidate prepared
+
+Source-locked builder/check pass; candidate signature27124, all read inputs Batch16, BootAck W last; PLC unchanged. Original logo copied byte-for-byte locally; Screen14 import/startup/saver and native save/Compile are pending because no SKTool project window is accessible. No hardware actions. Summary: `docs/reports/station002-animation-batch-r14b-local-status.md`.
+
 ## 10.11.2026 — r14a не прошла live; следом all-Batch16 r14b, лого остаётся
 
 На новых фото после повтора r14a смещение уменьшилось, но осталось:
