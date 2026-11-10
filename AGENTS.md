@@ -1,5 +1,27 @@
 # Работа с проектом
 
+**10.11: exact full r15f получил operator-reported native Open FAIL.**
+Принят local54992be: r15f1480015/SHA2fe470…9676e создан, helpers/repair/check
+сверены, nativeуагентаpending. Пользователь на явный вопрос о fullr15f:
+«При открытии — Illegal opening». Это теперь OpenFAIL, не CompileFAIL.
+Исправление двух массивов не объявлять всей причиной/готовым ремонтом;
+57hostгрупп не подтверждают decoder7.1. Не делать guessed productionr15g.
+Native16/SHA671ce4…c738 уже OpenPASS. prepare_native16_code_pages.py создаёт
+ОДИН Open-only OPEN_NATIVE16_CODE_PAGES.skm из этого native16 + донорfullr15f.
+Копирует ТОЛЬКО count+34/43объекта новых15/16; nativeсценовыеheader/все
+старыеэкраны/2alarms/C/Batch/pagearrays/лого сохранены. Результат1461857/SHA
+b9fe40ba0e65ac6a41712d6e5116a1f92103208678868f7233566c1c359b58b9.
+Точная независимая сверка с producer.pages(accepted), все opaque payload/
+старыйUI/обеC/Batch/arrays16/inverse/CLI/nooverwrite/sourceguards PASS.
+НовыйnativeOpen ещё pending. Актуальное задание
+docs/tasks/station002-native16-code-pages-local.md: выдать полныйпуть одного
+контроля, Open и Screen15/16 издерева. ПриPASS отдельный nativeSaveAs
+C_native_code_pages.skm приватно; приFAIL записать исход, без новойproduction.
+Не повторять r15f/старыеA/контроли/созданиеnative16/run_checks57 вместоOpen.
+PLC/runtime/reset/main неизменны. Новый файл диагностический, не финальнаяHMI.
+
+**История: полный r15f затем не открылся, см. выше.**
+
 **10.11: native16 получен/OpenPASS; исправлены два пропущенных массива, полный r15f готов.**
 Uploaded C_native_16pages.skm1299291/SHA
 671ce4309579da4e2d5109c6910b35a08f2baaf7b702dbaca800f373e910c738.
