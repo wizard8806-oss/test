@@ -1,5 +1,24 @@
 # Работа с проектом
 
+**10.11: после r15e снова отказ Open; следующий шаг — один полный контроль.**
+Принят c549261: exact r15e219832…171d/1480005 создан; локальный GUI
+не наблюдал. Затем оператор снова прислал Illegal opening в контексте
+r15e (имя на скрине не видно). Полный проект НЕ принят, исправление ID
+не объявлять закрывшим отказ. Новую production r15f на догадке не делать.
+prepare_full_original_alarms_control.py из единственного fullr15e219
+создаёт CONTROL_FULL_ORIGINAL_ALARMS.skm1461495/SHA790f095467a359f1896938ab424bb4adb5365af2992ef68046e72d8a53d4700e.
+Сохраняет ВСЕ16страниц/новыйC/Batch/кнопки/раскладку/лого; меняет только
+две alarm-записи обратно на исходнуюR2550. Это диагностическая копия,
+не готовая прошивка. Byte-identical старомуD, который оператор НЕнашёл,
+nativeOpenD ещё НЕбыло. Не считать просьбу этого теста повтором A/C.
+8targeted checks PASS: frozenD/16UI/originalalarm/C/guards/nooverwrite/source.
+Актуальное задание docs/tasks/station002-full-open-control-local.md:
+изготовить ОДИН файл в прежнейWindowsпапке15, выдать fullpath, Open.
+ПриPASS SaveAs C_native_full_control.skm для нормализации/сравнения;
+добавление групп потом штатным7.1. ПриFAIL сохранить фактическийисход.
+Не повторять29/56hostпроверок вместо нужного nativeOpen и не создавать
+ещёодин R80-эталон. Runtime/PLC не менялись, аппаратных действий нет.
+
 **10.11: r15e готова к native Open; пакет и проверки завершены.**
 Код aaf01a3ebb29d6188b7eb9cc5db8fb2bcdea2d03; immutable run_checks56 PASS,
 HTTP5/15files/5stdlibcommands/обаSHA PASS. Manifest
