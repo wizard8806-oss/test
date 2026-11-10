@@ -23,6 +23,15 @@ SequentialheadercheckотдельноотQStringanchors;12publicregressions, и�
 STOPобъяснён; измененияусловийнаper-targetнепоручены и здесьне делались.
 Private `/workspace/shared/station002-header-r15a-20261110/`.
 
+Кодfixопубликован f90d30e426f03b0acdb09d0162ecc4a7d4a8234c.
+55общихгруппPASSнаimmutablef90d30e/sourceunchanged. 4quickHTTPfiles/
+3Python-Scommands и14fullHTTPfiles/2stdlibbuild-check воспроизводятgoldenr15a. Задание
+docs/tasks/station002-hmi-header-r15a-local.md; manifest
+artifacts/station002-fault-reset-r15a/delivery-manifest.json;
+отчёт docs/reports/station002-hmi-header-r15a-20261110.md.
+Прежняяr15deliverywithdrawn. СледующийnativeOpennewr15a/File→Open,
+Compile/Simulator, анеReplaceModel/новыйкругPLC. Документыследующимкоммитом.
+
 ## История 10.11.2026 — сброс ПЧ разрешён; подготовлены оба r15 offline-кандидата
 
 Шкаф отдан, аппаратных проверок сейчас нет. Пользователь отменил прежнее

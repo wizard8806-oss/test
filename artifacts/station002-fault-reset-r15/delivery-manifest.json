@@ -90,5 +90,8 @@
   },
   "nativeCompileObserved": false,
   "hardwareActions": 0,
-  "logoTarget": "C:/Users/user/CodexProjects/pump-station/.worktrees/station002-fault-reset-local-15/assets/automatikakg.jpg"
+  "logoTarget": "C:/Users/user/CodexProjects/pump-station/.worktrees/station002-fault-reset-local-15/assets/automatikakg.jpg",
+  "withdrawn": true,
+  "withdrawnReason": "Native Open FAIL: declared16pages but only14 sceneCommonData pairs; missing16bytes before first QRectF",
+  "replacedBy": "artifacts/station002-fault-reset-r15a/delivery-manifest.json"
 }
