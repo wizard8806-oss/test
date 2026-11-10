@@ -16,6 +16,7 @@ import build_animation_probe_hmi as ui
 from reorder_animation_macro_r14a import VARIABLES, ORDER, entry, packed
 from repair_skm_section_index import read_directory
 from skm_project_header import read_project_header
+from skm_page_storage import read_page_storage,page_storage_extensions
 from skm_alarm_catalog import read_definitions,read_directory_for_names,directory_bytes,validate_alarm_catalog,compact_fault_definitions,require_sk_group_limit,with_sequential_alarm_ids,validate_alarm_identities
 
 SOURCE_SHA='359906cfd85975b9d2955f6b03b8f996761a7612fcbf37a23b95c8e5ee6c0b4c'
@@ -233,6 +234,7 @@ def prepare(source,logo_target=LOGO_TARGET):
     if header['pageCount']!=14 or header['model']!='SK-070HE' or header['resolution']!=(800.0,480.0) or header['common']!=[(0,-1)]*14:
         raise ValueError('Source page common-data header differs')
     directory=read_directory(raw);edits=[];positions,old_c=source_macro(raw);new_c=extend_macro(old_c)
+    read_page_storage(raw)
     for at in positions:edits.append((at,qs(old_c),qs(new_c),'fault/reset C mirror'))
     before,after=variable_rows()
     for old,new,label in ((packed(before),packed(after),'packed variables'),
@@ -262,6 +264,8 @@ def prepare(source,logo_target=LOGO_TARGET):
     new_map=u32(16)+b''.join(u32(i)+u32(i) for i in range(15,-1,-1))
     if raw.count(old_map)!=1:raise ValueError('Page identity map differs')
     edits.append((raw.index(old_map),old_map,new_map,'page identity map'))
+    # Native16-page SaveAs also extends two arrays outside the scene stream.
+    edits.extend(page_storage_extensions(raw,16))
     group_edit,captions=alarm_groups(raw,json.loads(CATALOG.read_text(encoding='utf8')));edits.append(group_edit)
     source_groups=read_definitions(raw)
     source_names=[g['name'] for g in source_groups['groups']]
@@ -280,6 +284,7 @@ def prepare(source,logo_target=LOGO_TARGET):
     edits.append((directory['locatorOffset'],struct.pack('>Q',directory['offset']),struct.pack('>Q',dir_at),'directory locator'))
     result=apply(raw,edits);checked=read_directory(result)
     fixed_header=read_project_header(result)
+    page_storage=read_page_storage(result)
     alarm_catalog=validate_alarm_catalog(result)
     alarm_ids=validate_alarm_identities(result)
     require_sk_group_limit(alarm_catalog['groupCount'])
@@ -302,6 +307,7 @@ def prepare(source,logo_target=LOGO_TARGET):
         knownDescriptions=len(json.loads(CATALOG.read_text(encoding='utf8'))['codes']),unknownCodeNumeric=True,
         featureMarker=27130,resetMarker=27131,probe27124Preserved=True,
         model=fixed_header['model'],resolution=list(fixed_header['resolution']),sceneCommonPairs=16,
+        pageFlagEntries=page_storage['flagEntries'],pageWordEntries=page_storage['wordEntries'],
         logoReference=logo_target,logoBytesEmbedded=False,nativeLoadingSaverSettingsConfigured=False,
         HAD1794244624Preserved=True,userMainLayoutPreserved=True,
         edits=[dict(offset=at,oldBytes=len(old),newBytes=len(new),label=label) for at,old,new,label in sorted(edits,key=lambda v:v[0])],

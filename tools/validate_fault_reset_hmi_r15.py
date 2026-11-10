@@ -14,6 +14,7 @@ import subprocess
 import tempfile
 from build_fault_reset_hmi_r15 import prepare,source_macro,extend_macro,scene,qs,sha,properties,LOGO_TARGET
 from skm_project_header import read_project_header
+from skm_page_storage import read_page_storage
 from skm_alarm_catalog import validate_alarm_catalog,require_sk_group_limit,validate_alarm_identities
 
 class Input(ct.Structure):
@@ -180,6 +181,7 @@ def validate(source,candidate,logo_target=LOGO_TARGET,host=False):
     raw=Path(source).read_bytes();expected,build=prepare(source,logo_target);target=Path(candidate).read_bytes()
     assert target==expected
     header=read_project_header(target);source_header=read_project_header(raw)
+    page_storage=read_page_storage(target)
     assert header['pageCount']==16 and len(header['common'])==16
     assert header['model']==source_header['model']=='SK-070HE'
     assert header['firstSceneRect']==source_header['firstSceneRect']==(0.0,0.0,800.0,480.0)
@@ -229,6 +231,7 @@ def validate(source,candidate,logo_target=LOGO_TARGET,host=False):
         fullInverseAndUnlistedBytesPreserved=True,HADPreserved=True,allGeometryFits800x480=True,
         allReadInputsBatch16=True,BootAckWLastAligned=True,model=header['model'],resolution=list(header['resolution']),
         sequentialHeaderAnd16CommonPairsVerified=True,alarmDefinitionAndDirectoryCount=7,documentedSKGroupLimit=10,
+        pageFlagEntries=page_storage['flagEntries'],pageWordEntries=page_storage['wordEntries'],
         alarmGroupIds=alarm_ids,
         nativeCompileObserved=False,hardwareActions=0)
     if host:result.update(host_checks(old))
