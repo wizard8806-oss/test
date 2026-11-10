@@ -1,0 +1,67 @@
+{
+  "kind": "TWO OPEN-ONLY CONTROLS; NOT production",
+  "commit": "5c1a8fef1bca1fd1c1edb0a100ad75681a6c2b3c",
+  "rawBase": "https://raw.githubusercontent.com/wizard8806-oss/test/5c1a8fef1bca1fd1c1edb0a100ad75681a6c2b3c/",
+  "files": [
+    {
+      "path": "tools/prepare_remaining_open_controls.py",
+      "bytes": 5702,
+      "sha256": "5b811a8b8983e814c3e87a9ed2ca3ac1e9c23449d27ad85c17070be501e0a088"
+    },
+    {
+      "path": "tools/prepare_alarm_open_differential.py",
+      "bytes": 7461,
+      "sha256": "e6e899aa62b8f248e371ad8fa387e32466b7b452df52cb7cf24e5efc54739c44"
+    },
+    {
+      "path": "tools/skm_alarm_catalog.py",
+      "bytes": 10189,
+      "sha256": "4e56203981885d76a72fa24075870b85a2c4bf4a8e80728e9b0de6073b02c818"
+    },
+    {
+      "path": "tools/repair_skm_section_index.py",
+      "bytes": 2816,
+      "sha256": "c5b29065a28561dd00db2e118a8ad157259fad90c9160e439c8adcd7df0214ef"
+    },
+    {
+      "path": "tools/skm_project_header.py",
+      "bytes": 1954,
+      "sha256": "5b5b43ec5db6fce0852e53289a26946fe97f3ed9639e2389db770ca294d25705"
+    }
+  ],
+  "source": {
+    "name": "CONTROL_FULL_ORIGINAL_ALARMS.skm",
+    "bytes": 1461495,
+    "sha256": "790f095467a359f1896938ab424bb4adb5365af2992ef68046e72d8a53d4700e",
+    "operatorNativeOpen": "FAIL"
+  },
+  "outputs": [
+    {
+      "name": "OPEN_OLD_LOGO.skm",
+      "bytes": 1461381,
+      "sha256": "c6ef59b8593f169db00a7f7b66f05f9578310a2c7ea2dcc7f993dbe335839e9b",
+      "pageCount": 16,
+      "alarmGroups": 1,
+      "undoLogoRelink": true,
+      "undoExistingWidgetEdits": false,
+      "completeInversePreservation": true,
+      "nativeOpenObserved": false
+    },
+    {
+      "name": "OPEN_PAGES_AND_MACRO_ONLY.skm",
+      "bytes": 1461431,
+      "sha256": "119155c0b1f4ed1e8cbcb69162722955d7773e61df7a254bf1fe0895f28fd00f",
+      "pageCount": 16,
+      "alarmGroups": 1,
+      "undoLogoRelink": true,
+      "undoExistingWidgetEdits": true,
+      "completeInversePreservation": true,
+      "nativeOpenObserved": false
+    }
+  ],
+  "sourcePreserved": true,
+  "PLCChanged": false,
+  "nativeOpenObserved": false,
+  "nativeCompileObserved": false,
+  "hardwareActions": 0
+}

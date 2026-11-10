@@ -30,6 +30,10 @@ CLI/отказ перезаписи/повреждённый source/ссылки
 Создать обе копии, дать полные пути. Открыть OLD_LOGO; при его FAIL —
 PAGES_AND_MACRO. При PASS сохранить отдельный native SaveAs и получить
 его приватно. Production r15f пока не делать. Runtime/PLC/main не менялись.
+Код `5c1a8fef1bca1fd1c1edb0a100ad75681a6c2b3c`; manifest
+`artifacts/station002-remaining-open-controls/delivery-manifest.json`.
+Все пять pinned helpers скачаны по HTTP, сверены; свежий stdlib CLI из
+скачанных файлов создал обе копии с заявленными размерами/SHA. Нужен Open.
 
 ## История 10.11.2026 — подготовлен один полный контроль без новых групп; затем Open FAIL
 

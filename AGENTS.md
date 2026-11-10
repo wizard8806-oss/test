@@ -22,6 +22,10 @@ docs/tasks/station002-remaining-open-controls-local.md. Локальный сн�
 лишь при его FAIL — PAGES_AND_MACRO. При PASS отдельный native SaveAs.
 Не повторять общий run_checks или создание R80 вместо этого Open.
 Runtime/PLC не менялись, шкаф отдан; native SKM/PDW/JPG остаются приватны.
+Код 5c1a8fef1bca1fd1c1edb0a100ad75681a6c2b3c; manifest
+artifacts/station002-remaining-open-controls/delivery-manifest.json.
+HTTP5helpers/fresh stdlibCLI/оба выходных SHA PASS. Следующий шаг —
+первый реальный Open OLD_LOGO, не повтор структурных проверок.
 
 **История: прежнее задание одного полного контроля выполнено, Open FAIL см. выше.**
 

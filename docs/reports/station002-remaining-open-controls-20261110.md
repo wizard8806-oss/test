@@ -42,3 +42,9 @@ PAGES_AND_MACRO. Если первая открылась, подозревае�
 доказанные причины. При PASS нужен отдельный штатный SaveAs для сравнения.
 Новая production-ревизия, Compile/Simulator и аппаратные команды не выполнялись.
 Runtime/PLC/STOP-допуск reset и main не менялись. Шкаф отдан.
+
+Доставка: код `5c1a8fef1bca1fd1c1edb0a100ad75681a6c2b3c`, manifest
+`artifacts/station002-remaining-open-controls/delivery-manifest.json`.
+HTTP-загрузка всех пяти helpers/размеры/SHA прошли. Fresh Python -S -B из
+скачанных файлов создал обе копии с теми же заявленными размерами/SHA.
+Нативный Open не подменяется этой проверкой доставки.
