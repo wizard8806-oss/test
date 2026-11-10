@@ -1,5 +1,17 @@
 # Работа с проектом
 
+**10.11: r15c подготовлена, доставка проверена; следующий шаг — полный Open.**
+Все 56 групп run_checks прошли на неизменяемом коммите кода
+2399113fbc0e4af178d39efac404870d30967b97. HTTP-пакеты 5/15 файлов скачаны
+и проверены по SHA; python -S -B в обоих даёт r15c1480911/SHA0141fa…f930.
+Актуальное задание docs/tasks/station002-alarm-directory-r15c-local.md;
+отчёт docs/reports/station002-alarm-directory-r15c-20261110.md.
+Образец уже получен, CONTROL/A/C открыты, B отклонён — их не повторять.
+Локально создать один полный r15c из существующего полного r15a, затем
+реальный SKTool7.1 Open→Compile/Simulator. Невидимость GUI не блокирует
+создание файла/выдачу полного пути оператору. Native Open/Compile r15c
+ещё не подтверждены; ПЛК и STOP-допуск reset не менялись. Main неизменен.
+
 **10.11: получен native alarm sample; установлен второй дефект, r15c собрана.**
 Uploaded C_native_alarm_sample.skm1298542/SHA0ecac7d67dcfc42648f8f468098fadb7b84b782ae4fd6f70f944195ca0947c3f,
 private /workspace/shared/station002-native-alarm-sample-20261110/user_native_sample.skm.
