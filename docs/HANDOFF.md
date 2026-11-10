@@ -27,6 +27,9 @@ Open/посмотреть Screen15/16 через дерево. ПриPASS отд
 C_native_code_pages.skm и получить приватно. ПриFAIL зафиксировать факт;
 не объявлять причиной только alarm-группы. Диагностический файл не заменяет
 итоговую HMI. Подробности `docs/reports/station002-native16-code-pages-20261110.md`.
+Код `2e371795ac34c7321c1cf1ea39a2d8d993cf701b`; manifest
+`artifacts/station002-native16-code-pages/delivery-manifest.json`.
+HTTP6pinnedhelpers/дваfreshstdlibзапуска/итоговыйSHA проверены. Нужен один Open.
 
 ## История 10.11.2026 — нативные16экранов выявили два пропущенных массива; полный r15f затем OpenFAIL
 

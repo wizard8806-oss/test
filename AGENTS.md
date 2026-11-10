@@ -19,6 +19,9 @@ docs/tasks/station002-native16-code-pages-local.md: выдать полныйп�
 C_native_code_pages.skm приватно; приFAIL записать исход, без новойproduction.
 Не повторять r15f/старыеA/контроли/созданиеnative16/run_checks57 вместоOpen.
 PLC/runtime/reset/main неизменны. Новый файл диагностический, не финальнаяHMI.
+Код2e371795ac34c7321c1cf1ea39a2d8d993cf701b; manifest
+artifacts/station002-native16-code-pages/delivery-manifest.json.
+HTTP6helpers/freshstdlibbuild+check/итоговыйSHA PASS. Дальше один nativeOpen.
 
 **История: полный r15f затем не открылся, см. выше.**
 

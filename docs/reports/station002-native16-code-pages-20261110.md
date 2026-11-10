@@ -49,3 +49,8 @@ arrays сохраняются. Абсолютные указатели пере�
 Core/runtime/PLC/reset-guard/main не менялись. Шкаф отдан; Compile/Simulator/
 Download/hardware этой диагностике не нужны. Общие57hostпроверок повторно
 не запускались. Private `/workspace/shared/station002-native16-code-pages-20261110/`.
+
+Доставка закреплена на `2e371795ac34c7321c1cf1ea39a2d8d993cf701b`, manifest
+`artifacts/station002-native16-code-pages/delivery-manifest.json`. Все шесть
+helpers скачаны заново по HTTP, размеры/SHA совпали. Fresh Python -S -B
+build/check дал точный1461857/SHA b9fe40…b58b9. NativeOpen ещё pending.

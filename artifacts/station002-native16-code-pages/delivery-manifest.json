@@ -1,0 +1,65 @@
+{
+  "kind": "ONE OPEN-ONLY native-base UI control; NOT production",
+  "commit": "2e371795ac34c7321c1cf1ea39a2d8d993cf701b",
+  "rawBase": "https://raw.githubusercontent.com/wizard8806-oss/test/2e371795ac34c7321c1cf1ea39a2d8d993cf701b/",
+  "files": [
+    {
+      "path": "tools/prepare_native16_code_pages.py",
+      "bytes": 4864,
+      "sha256": "4452f7086bd34ddaec81dfe51ebcbc435d4a3258bd2198bee3159205564cc734"
+    },
+    {
+      "path": "tools/prepare_alarm_open_differential.py",
+      "bytes": 7461,
+      "sha256": "e6e899aa62b8f248e371ad8fa387e32466b7b452df52cb7cf24e5efc54739c44"
+    },
+    {
+      "path": "tools/skm_alarm_catalog.py",
+      "bytes": 10189,
+      "sha256": "4e56203981885d76a72fa24075870b85a2c4bf4a8e80728e9b0de6073b02c818"
+    },
+    {
+      "path": "tools/skm_page_storage.py",
+      "bytes": 1952,
+      "sha256": "aeecea91c73e32245b34d2042a23f22fbdcde124598d85f65c37c60aced63458"
+    },
+    {
+      "path": "tools/skm_project_header.py",
+      "bytes": 1954,
+      "sha256": "5b5b43ec5db6fce0852e53289a26946fe97f3ed9639e2389db770ca294d25705"
+    },
+    {
+      "path": "tools/repair_skm_section_index.py",
+      "bytes": 2816,
+      "sha256": "c5b29065a28561dd00db2e118a8ad157259fad90c9160e439c8adcd7df0214ef"
+    }
+  ],
+  "nativeSource": {
+    "name": "C_native_16pages.skm",
+    "bytes": 1299291,
+    "sha256": "671ce4309579da4e2d5109c6910b35a08f2baaf7b702dbaca800f373e910c738",
+    "operatorReportedReopen": "PASS"
+  },
+  "donor": {
+    "name": "pump_station_3p_fault_reset_r15f.skm",
+    "bytes": 1480015,
+    "sha256": "2fe47083c0fbbb2fc9d31342c1ab76d3b220c81afa0f60c61d1ea4eed2c9676e",
+    "operatorReportedOpen": "FAIL"
+  },
+  "output": {
+    "name": "OPEN_NATIVE16_CODE_PAGES.skm",
+    "bytes": 1461857,
+    "sha256": "b9fe40ba0e65ac6a41712d6e5116a1f92103208678868f7233566c1c359b58b9"
+  },
+  "pageCount": 16,
+  "addedObjectCounts": [
+    34,
+    43
+  ],
+  "nativeAlarmGroupsPreserved": 2,
+  "allOtherNativePayloadsPreserved": true,
+  "PLCChanged": false,
+  "nativeOpenObserved": false,
+  "nativeCompileObserved": false,
+  "hardwareActions": 0
+}
