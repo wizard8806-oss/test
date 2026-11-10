@@ -5,6 +5,19 @@
   "pages": [56, 57, 58, 59],
   "nativePDU": 4097,
   "rawMappingLiveVerified": false,
+  "rawMappingLiveVerifiedMeaning": "Entire profile is not verified; confirmed individual mappings are listed below",
+  "liveVerifiedMappings": {
+    "52": {
+      "display": "A52",
+      "rawDecimal": 52,
+      "rawHex": "0x0034",
+      "drive": 2,
+      "rawAddress": "R2809",
+      "date": "2026-11-10",
+      "evidence": "User confirmed A52 on physical VFD2; live probe27124 shows52 in VFD2/R2809 and READY2 alarmword64; panel sound heard",
+      "nativeExportR3041Observed": false
+    }
+  },
   "codes": {
     "1": "Сработала защита ПЧ",
     "2": "Перегрузка по току при разгоне",
