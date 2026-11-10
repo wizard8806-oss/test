@@ -1,5 +1,9 @@
 # Срочно: восстановить открытие HMI r15 → r15a
 
+> **Обновление: пользователь подтвердил OpenFAIL новой r15a.**
+> Этот ремонт заголовка не закрыл открытие. Следующий шаг: [изоляция r15b](../tasks/station002-hmi-open-isolation-r15b-local.md), а не повторная выдача r15a.
+
+
 Пользователь открыл `pump_station_3p_fault_reset_r15.skm` в папке
 `station002-fault-reset-local-15` и получил **Missing Model Replacement,
 Resolution0x0**. Точный файл совпадает с прежней pinned-доставкой: локальный

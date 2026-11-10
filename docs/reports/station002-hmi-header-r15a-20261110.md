@@ -1,5 +1,9 @@
 # HMI r15 OpenFAIL/0x0: исправление заголовка r15a, 10.11.2026
 
+> **Обновление: пользователь подтвердил OpenFAIL новой r15a.**
+> Этот ремонт заголовка не закрыл открытие. Следующий шаг: [изоляция r15b](../tasks/station002-hmi-open-isolation-r15b-local.md), а не повторная выдача r15a.
+
+
 Пользователь сообщил, что последняя версия не открывается, и показал
 SKTool Missing Model Replacement/Size7.0/Resolution0x0. Затем подтвердил
 конкретный путь `station002-fault-reset-local-15/pump_station_3p_fault_reset_r15.skm`.

@@ -108,5 +108,8 @@
   "PLCChanged": false,
   "nativeOpenObserved": false,
   "nativeCompileObserved": false,
-  "hardwareActions": 0
+  "hardwareActions": 0,
+  "withdrawn": true,
+  "withdrawnReason": "User confirms native r15a Open fails: Illegal opening of configuration file; remaining cause unknown",
+  "nextTask": "docs/tasks/station002-hmi-open-isolation-r15b-local.md"
 }

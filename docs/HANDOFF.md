@@ -19,6 +19,14 @@ AlarmLogin13групп; Cтольконовыймакрос/обатаблицы
 поегоalarmreadloopдругойконкретныйдефектне доказан. PLCне меняется,
 диагностическиекопиинеDownload/неSimulator/неhardware. Шкафотдан.
 
+Финальныйкод77095048a60debd321d2aebe1fc82f83f85bb6c2 включаетG_EMPTY_PAGES_ONLY,
+всего8копий. Пакет15HTTPfiles/stdlibreproductionдаёттеже8SHA. Задание
+docs/tasks/station002-hmi-open-isolation-r15b-local.md, manifest
+artifacts/station002-hmi-open-isolation-r15b/delivery-manifest.json,
+отчёт docs/reports/station002-hmi-open-isolation-r15b-20261110.md.
+НуженотоператоранастоящийCONTROL/A/B/COpenрезультат; никтоещёихнепроверял.
+ЭтоНЕготовоеисправлениеотказа, не закрывать задачуHMIпоэтойдоставке.
+
 ## История 10.11.2026 — пользовательский OpenFAIL r15; исправлена структура заголовка
 
 Пользователь подтвердил открываемый файл:

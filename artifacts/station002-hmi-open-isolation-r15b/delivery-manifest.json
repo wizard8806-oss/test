@@ -1,0 +1,258 @@
+{
+  "purpose": "DIAGNOSTIC EDITOR OPEN ONLY; NOT production replacement",
+  "revision": "r15b-isolation",
+  "commit": "77095048a60debd321d2aebe1fc82f83f85bb6c2",
+  "rawBase": "https://raw.githubusercontent.com/wizard8806-oss/test/77095048a60debd321d2aebe1fc82f83f85bb6c2/",
+  "files": [
+    {
+      "path": "tools/build_manual_no_sensor_pdw.py",
+      "bytes": 6011,
+      "sha256": "4dc3de6dc692a8b4b0f86f29562a6603601dea340727d14a7888d884bf928929"
+    },
+    {
+      "path": "tools/build_vfd_fault_export_r14.py",
+      "bytes": 11029,
+      "sha256": "1d92d0ad8155bd884acccaf086cea615035ca008f6d577f9c78c55b0602bd881"
+    },
+    {
+      "path": "tools/build_drive_reset_r15.py",
+      "bytes": 20425,
+      "sha256": "59c40cbb82d65d147a88a1cedbd2f88aecf9582fbcefdbe905cf43873bd40d12"
+    },
+    {
+      "path": "tools/validate_drive_reset_r15.py",
+      "bytes": 15346,
+      "sha256": "bffbd9e9ecfa94b2ceb7286d95142033c526afeba79823d092d4bcba3331dfce"
+    },
+    {
+      "path": "tools/repair_skm_section_index.py",
+      "bytes": 2816,
+      "sha256": "c5b29065a28561dd00db2e118a8ad157259fad90c9160e439c8adcd7df0214ef"
+    },
+    {
+      "path": "tools/build_animation_probe_hmi.py",
+      "bytes": 14207,
+      "sha256": "689b891b40eb0c1040dc9671e7ba400be490ce351fce26fb6ebd991207923708"
+    },
+    {
+      "path": "tools/reorder_animation_macro_r14a.py",
+      "bytes": 5962,
+      "sha256": "f5cf266eecc1ddd1cc2d9eed69cd2d3ca56ae625eca07f5ee695c67f382b7600"
+    },
+    {
+      "path": "tools/build_fault_reset_hmi_r15.py",
+      "bytes": 19787,
+      "sha256": "566da5c2dcf56970ebc92aaff919ad725f8b4c8d1693241162660ed4cb230852"
+    },
+    {
+      "path": "tools/validate_fault_reset_hmi_r15.py",
+      "bytes": 13796,
+      "sha256": "f8897a688bc5e0c2cdd7042858a7f33416afe143982b38b131cd12bf8610d554"
+    },
+    {
+      "path": "assets/hmi/fault-reset-r15/fault_reset.c",
+      "bytes": 5809,
+      "sha256": "a957c91fc3bf39bbc775df1ac2142958e22b7520e81abaa0530a23f0265dfd3f"
+    },
+    {
+      "path": "assets/hmi/fault-reset-r15/interface.json",
+      "bytes": 3133,
+      "sha256": "9ab5fee5fa63eb0809aff838775e48fdb235fc06a20698356c031177410b9d1c"
+    },
+    {
+      "path": "assets/hmi/native-vfd-faults-r14/catalog.json",
+      "bytes": 2911,
+      "sha256": "2c1b44b4b7c279b35ca07eb994e594c3fd053a21d600457ddbcbe1686857f259"
+    },
+    {
+      "path": "docs/interfaces/station002-vfd-reset-r15.md",
+      "bytes": 9710,
+      "sha256": "a0bb9080509a80f894eb0ae59de6af444ba26e31b10ecffe9274373a091f0693"
+    },
+    {
+      "path": "tools/skm_project_header.py",
+      "bytes": 1954,
+      "sha256": "5b5b43ec5db6fce0852e53289a26946fe97f3ed9639e2389db770ca294d25705"
+    },
+    {
+      "path": "tools/prepare_hmi_open_isolation_r15b.py",
+      "bytes": 6336,
+      "sha256": "be9a9e8241d84f831297eb807e0777121796940891bc68cec7de174ada9ce599"
+    }
+  ],
+  "source": {
+    "bytes": 1273673,
+    "sha256": "359906cfd85975b9d2955f6b03b8f996761a7612fcbf37a23b95c8e5ee6c0b4c"
+  },
+  "outputs": [
+    {
+      "name": "CONTROL_WORKING",
+      "file": "OPEN_TEST_CONTROL_WORKING.skm",
+      "bytes": 1273673,
+      "sha256": "359906cfd85975b9d2955f6b03b8f996761a7612fcbf37a23b95c8e5ee6c0b4c",
+      "changedLayers": [],
+      "pageCount": 14,
+      "model": "SK-070HE",
+      "resolution": [
+        800.0,
+        480.0
+      ],
+      "completeInversePreservation": true,
+      "nativeOpenObserved": false
+    },
+    {
+      "name": "A_PAGES_ONLY",
+      "file": "OPEN_TEST_A_PAGES_ONLY.skm",
+      "bytes": 1436485,
+      "sha256": "54fd5914991da1a378ce9e9be950feba46407b6b19b24bdc698617adfc561f75",
+      "changedLayers": [
+        "new page common-data entries",
+        "new pages15/16",
+        "page identity map",
+        "root page count"
+      ],
+      "pageCount": 16,
+      "model": "SK-070HE",
+      "resolution": [
+        800.0,
+        480.0
+      ],
+      "completeInversePreservation": true,
+      "nativeOpenObserved": false
+    },
+    {
+      "name": "B_ALARMS_ONLY",
+      "file": "OPEN_TEST_B_ALARMS_ONLY.skm",
+      "bytes": 1292519,
+      "sha256": "4dbdacf0297c0e5ab7e077b6046aaad23d3865e731ba7bbb7951f92f59d60864",
+      "changedLayers": [
+        "native fault alarm groups"
+      ],
+      "pageCount": 14,
+      "model": "SK-070HE",
+      "resolution": [
+        800.0,
+        480.0
+      ],
+      "completeInversePreservation": true,
+      "nativeOpenObserved": false
+    },
+    {
+      "name": "C_MACRO_ONLY",
+      "file": "OPEN_TEST_C_MACRO_ONLY.skm",
+      "bytes": 1298619,
+      "sha256": "95e6b3cd163effa7c1624470c8ac870f726b0b30e73175fdec09d8ff9be0d272",
+      "changedLayers": [
+        "fault/reset C mirror",
+        "native variables",
+        "packed variables"
+      ],
+      "pageCount": 14,
+      "model": "SK-070HE",
+      "resolution": [
+        800.0,
+        480.0
+      ],
+      "completeInversePreservation": true,
+      "nativeOpenObserved": false
+    },
+    {
+      "name": "D_FULL_WITHOUT_ALARMS",
+      "file": "OPEN_TEST_D_FULL_WITHOUT_ALARMS.skm",
+      "bytes": 1461495,
+      "sha256": "790f095467a359f1896938ab424bb4adb5365af2992ef68046e72d8a53d4700e",
+      "changedLayers": [
+        "display alarm count only",
+        "fault/reset C mirror",
+        "logo asset reference",
+        "native variables",
+        "navigation SB24002",
+        "navigation SB6010",
+        "new page common-data entries",
+        "new pages15/16",
+        "packed variables",
+        "page identity map",
+        "root page count"
+      ],
+      "pageCount": 16,
+      "model": "SK-070HE",
+      "resolution": [
+        800.0,
+        480.0
+      ],
+      "completeInversePreservation": true,
+      "nativeOpenObserved": false
+    },
+    {
+      "name": "E_FULL_WITHOUT_MACRO",
+      "file": "OPEN_TEST_E_FULL_WITHOUT_MACRO.skm",
+      "bytes": 1455395,
+      "sha256": "5597bd9438d0ef09258bddae1cf399c2192ab451d37974e841d6004745a5d056",
+      "changedLayers": [
+        "display alarm count only",
+        "logo asset reference",
+        "native fault alarm groups",
+        "navigation SB24002",
+        "navigation SB6010",
+        "new page common-data entries",
+        "new pages15/16",
+        "page identity map",
+        "root page count"
+      ],
+      "pageCount": 16,
+      "model": "SK-070HE",
+      "resolution": [
+        800.0,
+        480.0
+      ],
+      "completeInversePreservation": true,
+      "nativeOpenObserved": false
+    },
+    {
+      "name": "F_FULL_WITHOUT_PAGES",
+      "file": "OPEN_TEST_F_FULL_WITHOUT_PAGES.skm",
+      "bytes": 1317585,
+      "sha256": "bc5ceebf28abeb992dadfe0077f14d83ddd1b62882c94225e54f865754059d75",
+      "changedLayers": [
+        "display alarm count only",
+        "fault/reset C mirror",
+        "logo asset reference",
+        "native fault alarm groups",
+        "native variables",
+        "navigation SB6010",
+        "packed variables"
+      ],
+      "pageCount": 14,
+      "model": "SK-070HE",
+      "resolution": [
+        800.0,
+        480.0
+      ],
+      "completeInversePreservation": true,
+      "nativeOpenObserved": false
+    },
+    {
+      "name": "G_EMPTY_PAGES_ONLY",
+      "file": "OPEN_TEST_G_EMPTY_PAGES_ONLY.skm",
+      "bytes": 1273919,
+      "sha256": "19e7e2af87c46cb9cf200c888dd76160841b018b6e7c8210a3073c8cd4e83f54",
+      "changedLayers": [
+        "new page common-data entries",
+        "new pages15/16",
+        "page identity map",
+        "root page count"
+      ],
+      "pageCount": 16,
+      "model": "SK-070HE",
+      "resolution": [
+        800.0,
+        480.0
+      ],
+      "completeInversePreservation": true,
+      "nativeOpenObserved": false
+    }
+  ],
+  "nativeOpenObserved": false,
+  "PLCChanged": false,
+  "hardwareActions": 0
+}
