@@ -1,0 +1,138 @@
+{
+  "revision": "r15d",
+  "commit": "b2b71cd07a60547dc2cf113470d3ce4331f599a4",
+  "rawBase": "https://raw.githubusercontent.com/wizard8806-oss/test/b2b71cd07a60547dc2cf113470d3ce4331f599a4/",
+  "files": [
+    {
+      "path": "tools/repair_alarm_group_limit_r15d.py",
+      "bytes": 5351,
+      "sha256": "96f8dd74df9d3f0f64eb1a489cf44fa5120aa85ffde7b3a269510e58c487a524"
+    },
+    {
+      "path": "tools/skm_alarm_catalog.py",
+      "bytes": 9116,
+      "sha256": "9936d73df2f74d5e96e87a72461317b58e367ebde41b9f836f60ea12667e82fa"
+    },
+    {
+      "path": "tools/skm_project_header.py",
+      "bytes": 1954,
+      "sha256": "5b5b43ec5db6fce0852e53289a26946fe97f3ed9639e2389db770ca294d25705"
+    },
+    {
+      "path": "tools/repair_skm_section_index.py",
+      "bytes": 2816,
+      "sha256": "c5b29065a28561dd00db2e118a8ad157259fad90c9160e439c8adcd7df0214ef"
+    },
+    {
+      "path": "tools/validate_skm_alarm_catalog.py",
+      "bytes": 5106,
+      "sha256": "547756c84ee3e80a10ad8987ed9c46bf81ac543ace6028f5b862ade8b4d018fb"
+    }
+  ],
+  "fullRebuildFiles": [
+    {
+      "path": "tools/build_manual_no_sensor_pdw.py",
+      "bytes": 6011,
+      "sha256": "4dc3de6dc692a8b4b0f86f29562a6603601dea340727d14a7888d884bf928929"
+    },
+    {
+      "path": "tools/build_vfd_fault_export_r14.py",
+      "bytes": 11029,
+      "sha256": "1d92d0ad8155bd884acccaf086cea615035ca008f6d577f9c78c55b0602bd881"
+    },
+    {
+      "path": "tools/build_drive_reset_r15.py",
+      "bytes": 20425,
+      "sha256": "59c40cbb82d65d147a88a1cedbd2f88aecf9582fbcefdbe905cf43873bd40d12"
+    },
+    {
+      "path": "tools/validate_drive_reset_r15.py",
+      "bytes": 15346,
+      "sha256": "bffbd9e9ecfa94b2ceb7286d95142033c526afeba79823d092d4bcba3331dfce"
+    },
+    {
+      "path": "tools/repair_skm_section_index.py",
+      "bytes": 2816,
+      "sha256": "c5b29065a28561dd00db2e118a8ad157259fad90c9160e439c8adcd7df0214ef"
+    },
+    {
+      "path": "tools/build_animation_probe_hmi.py",
+      "bytes": 14207,
+      "sha256": "689b891b40eb0c1040dc9671e7ba400be490ce351fce26fb6ebd991207923708"
+    },
+    {
+      "path": "tools/reorder_animation_macro_r14a.py",
+      "bytes": 5962,
+      "sha256": "f5cf266eecc1ddd1cc2d9eed69cd2d3ca56ae625eca07f5ee695c67f382b7600"
+    },
+    {
+      "path": "tools/build_fault_reset_hmi_r15.py",
+      "bytes": 20760,
+      "sha256": "1acce87866efe1d9baeb55783d20a3af535e124e5d077584d9c81259aed2dc11"
+    },
+    {
+      "path": "tools/validate_fault_reset_hmi_r15.py",
+      "bytes": 14122,
+      "sha256": "915c85358e7df414c6bf872861df47db3dcc41065d89152107eb66acb2e06428"
+    },
+    {
+      "path": "assets/hmi/fault-reset-r15/fault_reset.c",
+      "bytes": 5809,
+      "sha256": "a957c91fc3bf39bbc775df1ac2142958e22b7520e81abaa0530a23f0265dfd3f"
+    },
+    {
+      "path": "assets/hmi/fault-reset-r15/interface.json",
+      "bytes": 3173,
+      "sha256": "7eba6ede060d60b2f084ed0fcd0bebd7e8f395be14747cd197cd4fe2d41de206"
+    },
+    {
+      "path": "assets/hmi/native-vfd-faults-r14/catalog.json",
+      "bytes": 2911,
+      "sha256": "2c1b44b4b7c279b35ca07eb994e594c3fd053a21d600457ddbcbe1686857f259"
+    },
+    {
+      "path": "docs/interfaces/station002-vfd-reset-r15.md",
+      "bytes": 10624,
+      "sha256": "328d25e9a5b41cb32c2e6a8693fa8fa58311eb29aad874fb60dd43040d979c37"
+    },
+    {
+      "path": "tools/skm_project_header.py",
+      "bytes": 1954,
+      "sha256": "5b5b43ec5db6fce0852e53289a26946fe97f3ed9639e2389db770ca294d25705"
+    },
+    {
+      "path": "tools/skm_alarm_catalog.py",
+      "bytes": 9116,
+      "sha256": "9936d73df2f74d5e96e87a72461317b58e367ebde41b9f836f60ea12667e82fa"
+    }
+  ],
+  "source": {
+    "name": "pump_station_3p_fault_reset_r15c.skm",
+    "bytes": 1480911,
+    "sha256": "0141fa91f028144ad9fea5d256c464682860515d4d4c4eab0d80f658ae1ff930"
+  },
+  "sourceNativeOpen": "FAIL confirmed by operator",
+  "fullRebuildSource": {
+    "bytes": 1273673,
+    "sha256": "359906cfd85975b9d2955f6b03b8f996761a7612fcbf37a23b95c8e5ee6c0b4c"
+  },
+  "output": {
+    "name": "pump_station_3p_fault_reset_r15d.skm",
+    "bytes": 1480005,
+    "sha256": "9a482900380d56f3bb86a625664ad09b10885fe6d9fd58b15262ef974c9bd8bb"
+  },
+  "sourceGroups": 13,
+  "finalGroups": 7,
+  "documentedSKGroupLimit": 10,
+  "capacityReference": {
+    "kind": "Supplied English help in cached SKTool7.0 (2022); native7.1 still unverified",
+    "topic": "Digital alarm login",
+    "quote": "Number of digital alarm is up to 10 for SK series HMI."
+  },
+  "bitMappingsPreserved": 268,
+  "allMessagesPreserved": true,
+  "PLCChanged": false,
+  "nativeOpenObserved": false,
+  "nativeCompileObserved": false,
+  "hardwareActions": 0
+}

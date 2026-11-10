@@ -1,5 +1,14 @@
 # Работа с проектом
 
+**10.11: r15d готова к одному полному native Open; проверено 56 групп.**
+Код b2b71cd07a60547dc2cf113470d3ce4331f599a4, отдельный immutable
+run_checks56 PASS. HTTP5/15 файлов, пять stdlib-команд PASS, итог9a4829…8bb.
+Manifest artifacts/station002-alarm-group-limit-r15d/delivery-manifest.json.
+Локальное задание docs/tasks/station002-alarm-group-limit-r15d-local.md:
+source exactfull r15c → NEW r15d1480005; затем реальный Open→Compile.
+r15c native FAIL подтверждён, его/старые CONTROL/A/B/C не повторять.
+Native Open/Compile r15d ещё pending. ПЛК, STOP-допуск reset и main неизменны.
+
 **10.11: r15c native Open FAIL подтверждён; готовится r15d с 7 группами.**
 Получен локальный afff23e: exact 1480911/SHA0141fa…f930 создан, native
 у локального оставался pending. Затем скрин Illegal opening of configuration
