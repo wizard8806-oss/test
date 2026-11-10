@@ -1,5 +1,34 @@
 # Работа с проектом
 
+**10.11: native16 получен/OpenPASS; исправлены два пропущенных массива, полный r15f готов.**
+Uploaded C_native_16pages.skm1299291/SHA
+671ce4309579da4e2d5109c6910b35a08f2baaf7b702dbaca800f373e910c738.
+Пользователь явно подтвердил reopenPASS, прислал загруженное дерево16экранов.
+Private /workspace/shared/station002-page-storage-r15f-20261110/user_native_16pages.skm.
+Макрос/обеBatch совпали с nativeC/R80, два последних экрана пустые. Сравнение
+native14R80→native16: section1 расширена14→16байт, section21 содержит
+те же48prefixбайт +14→16четырёхбайтовыхзаписей. В generated A/AC/fullr15e
+обе таблицы остались14 при root/common/map16. Это установленный пропуск;
+не объявлять его единственной причиной до полного nativeOpen r15f.
+skm_page_storage.py проверяет обе cardinality для reviewed SK-070HE;
+producer+validator расширяют/проверяют обе. repair_page_storage_r15f.py
+из exactfullr15e219 добавляет2+8байт, relocates24index+locator; прочие
+payload/UI/C/Batch/HAD/7alarm IDs0..6/лого/раскладка/PLC сохранены.
+Quick == full rebuild accepted3599: r15f1480015/SHA
+2fe47083c0fbbb2fc9d31342c1ab76d3b220c81afa0f60c61d1ea4eed2c9676e.
+12syntheticрегрессий, realnative14/16PASS/knownbadA-AC-r15eFAIL, всеpayload/
+inverse/CLI/guards PASS;64C89differential/576ticks+21protocol PASS.
+Изолированный run_checks57 PASS с неизменным кодом
+ce767cf5300e794aac561ef59b20210729f82e2a; HTTP5helpers/freshstdlibbuild+check/SHA PASS.
+Актуальное задание docs/tasks/station002-page-storage-r15f-local.md:
+ОДИН полный r15f в прежнейWindowsworktree15, точныйпуть, Open→SaveAs_native
+→Compile/Simulator. NativeOpen r15f ещё pending. СтарыеA/контроли/native16
+не повторять. Manifest artifacts/station002-page-storage-r15f/delivery-manifest.json.
+Cloud GUI/аппаратных действий нет; PLC/runtime/reset-guard/main не менялись.
+Native loading/saver и физический reset этим структурным исправлением не подтверждены.
+
+**История: native16 SaveAs получен, предыдущее задание выполнено, см. выше.**
+
 **10.11: A теперь тоже отказала; пользователь затем сообщил «C открылся».**
 После попытки найти A для SaveAs пользователь «теперь и он выдаёт ошибку»
 (по контексту A); затем «c jnrhskcz» = «C открылся». Точные path/SHA текущих

@@ -1,4 +1,40 @@
-## 10.11.2026 — A теперь отказала, C открывается; native16-эталон из открытого C
+## 10.11.2026 — нативные16экранов выявили ещё два пропущенных массива; r15f подготовлена
+
+Получен приватный `C_native_16pages.skm`,1299291байт/SHA
+`671ce4309579da4e2d5109c6910b35a08f2baaf7b702dbaca800f373e910c738`.
+Пользователь ответил «Да, открывается» о повторном Open именно этого файла
+и прислал загруженный проект с16экранами. Это operator-reported Open PASS,
+не Compile/runtime. Новые Screen15/16 пустые, C/обеBatch равны nativeC/R80.
+
+Установлен конкретный пропуск: кроме root/common/page-map существуют ещё
+две страничные таблицы в trailing sections1/21. В native14→16 они растут
+14→16байт и48+14×4→48+16×4байт соответственно. В наших A/AC/fullr15e обе
+оставались14. Новые `skm_page_storage.py`/регрессии проверяют согласованность;
+producer и validator исправлены. Quickrepair fullr15e добавляет2+8байт и
+пересчитывает24entry+locator, остальные payload побайтно сохранены.
+
+Quick==fullrebuild изaccepted3599: **pump_station_3p_fault_reset_r15f.skm**,
+1480015байт/SHA`2fe47083c0fbbb2fc9d31342c1ab76d3b220c81afa0f60c61d1ea4eed2c9676e`.
+Сохранены весь UI/пользовательские позиции/HAD, семь групп с ID0..6, оба
+C/Batch, кодовая/reset-страница, история, путь лого. Физические функции
+этим не подтверждены. PLC/reset-guard/main не менялись.
+
+Проверены12регрессий, реальные native14/16 и отказы staleA/AC/r15e,
+полная инверсия/все payload/источники/CLI/guards;64C89случая/576тиков и21
+protocol/integration сценарий. Изолированный `run_checks`57 групп PASS,
+код `ce767cf5300e794aac561ef59b20210729f82e2a`, дерево кода неизменно.
+HTTP5helpers/дваfreshstdlibзапуска/итоговыйSHA PASS.
+
+Актуальное задание `docs/tasks/station002-page-storage-r15f-local.md`;
+manifest `artifacts/station002-page-storage-r15f/delivery-manifest.json`.
+Локально создать ОДИН полный r15f из уже имеющегося fullr15e, дать полный
+путь worktree15, затем Open/отдельныйSaveAs_native/Compile/Simulator.
+NativeOpen r15f ещё pending; дефект найден, всей приёмки он пока не закрывает.
+Не повторять старые пробы или создавать native16 заново. Loading/saver и
+аппаратный reset остаются отдельными проверками; шкаф отдан.
+Подробности: `docs/reports/station002-page-storage-r15f-20261110.md`.
+
+## История 10.11.2026 — A отказала, C открывается; затем получен native16-эталон
 
 После просьбы найти A для SaveAs пользователь сообщил «теперь и он выдаёт
 ошибку» (по контексту A), затем «c jnrhskcz» = «C открылся». Это новые

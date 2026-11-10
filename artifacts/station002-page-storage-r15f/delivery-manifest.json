@@ -1,0 +1,55 @@
+{
+  "kind": "FULL r15f candidate; native Open/Compile pending",
+  "commit": "ce767cf5300e794aac561ef59b20210729f82e2a",
+  "rawBase": "https://raw.githubusercontent.com/wizard8806-oss/test/ce767cf5300e794aac561ef59b20210729f82e2a/",
+  "files": [
+    {
+      "path": "tools/repair_page_storage_r15f.py",
+      "bytes": 4805,
+      "sha256": "6fc097437ad122653a169f5f7ba58fef74b5d0a40767db3710ca99c3ae687569"
+    },
+    {
+      "path": "tools/skm_page_storage.py",
+      "bytes": 1952,
+      "sha256": "aeecea91c73e32245b34d2042a23f22fbdcde124598d85f65c37c60aced63458"
+    },
+    {
+      "path": "tools/skm_project_header.py",
+      "bytes": 1954,
+      "sha256": "5b5b43ec5db6fce0852e53289a26946fe97f3ed9639e2389db770ca294d25705"
+    },
+    {
+      "path": "tools/repair_skm_section_index.py",
+      "bytes": 2816,
+      "sha256": "c5b29065a28561dd00db2e118a8ad157259fad90c9160e439c8adcd7df0214ef"
+    },
+    {
+      "path": "tools/skm_alarm_catalog.py",
+      "bytes": 10189,
+      "sha256": "4e56203981885d76a72fa24075870b85a2c4bf4a8e80728e9b0de6073b02c818"
+    }
+  ],
+  "source": {
+    "name": "pump_station_3p_fault_reset_r15e.skm",
+    "bytes": 1480005,
+    "sha256": "2198325315f9b9a6918f483f07f164f855ef454fb3454d7363fe73b6e3fb171d"
+  },
+  "output": {
+    "name": "pump_station_3p_fault_reset_r15f.skm",
+    "bytes": 1480015,
+    "sha256": "2fe47083c0fbbb2fc9d31342c1ab76d3b220c81afa0f60c61d1ea4eed2c9676e"
+  },
+  "native16Reference": {
+    "bytes": 1299291,
+    "sha256": "671ce4309579da4e2d5109c6910b35a08f2baaf7b702dbaca800f373e910c738",
+    "operatorReportedReopen": "PASS"
+  },
+  "pageFlagEntries": 16,
+  "pageWordEntries": 16,
+  "insertedBytes": 10,
+  "allOtherPayloadsPreserved": true,
+  "PLCChanged": false,
+  "nativeOpenObserved": false,
+  "nativeCompileObserved": false,
+  "hardwareActions": 0
+}
