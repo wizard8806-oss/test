@@ -1,5 +1,18 @@
 # Работа с проектом
 
+**10.11, LIVEINPUTСДВИГ ЛОКАЛИЗОВАН ПО ФОТО: PLC3→macro1.**
+OnlyПЧ3: directF[0,0,250]/Q[1,1,2], RXF[0,0,250], macroF[250,0,0]/
+Q[2,9,5], frames[4,0,0]/states[2,0,0], map32/32,alarms0/0,link1,
+probe27119/sample406. Это inputраскладкадоCoutputs, не датчикидавления/
+таймаут/одинрисунок. Подготовленsource-lockedhelper
+tools/reorder_animation_macro_r14a.py: только2VariableSettingsтаблицы,
+всеRпередBootAckW. Source1ea6…bfc2, candidate1273731/b56648…3323;
+всеC/UI/HAD/PLC/адреса/типы/размеры/режимысохранены. Точный механизм +2WORD
+ещё не проверен в generated headers; native Compile/live повтор
+обязателен. Задание docs/tasks/station002-animation-order-r14a-live.md —
+приоритетчаса. Локальный долженсоздатьSKMдажепринедоступномGUI, затемоператор
+Compile/newimage/only3→only1→only2. Не повторятьисториюоднихhostbindings.
+
 **10.11, НОВОЕ: стенд доступен на1час, r14 загружены в оба устройства.**
 Пользователь сообщил это после передачи продолжения локальному. Окно началось
 около06:04МСК, ориентир окончания07:04МСК; не считать доступ бессрочным.

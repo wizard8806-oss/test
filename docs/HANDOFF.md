@@ -1,3 +1,23 @@
+## 10.11.2026 — фото live: directPLC3 правильно, macro1 ошибочно; узкийr14a
+
+Получены/прочитаныфотоmainиprobeнастоящейпанели приonlyПЧ3/25Гц:
+directF[0,0,250], Q[1,1,2], RXF[0,0,250], macroF[250,0,0], Q[2,9,5],
+frames[4,0,0], states[2,0,0], карта32/32,алармы0/0,link1,probe27119,
+sample406. Отсюда локализацияPLC→macroinput, доCoutputs/виджетов. Точное
+смещениеnativeABIещёневскрыто; данные согласуютсяс+2WORDпослеWBootAck.
+Не переписыватьPLCSlaveтаблицу/частотныеадреса/таймауты по этойошибке.
+
+Создан узкийhelpertools/reorder_animation_macro_r14a.py: всепрежниеRinputs
+передконечнымBootAckWвдвухVariableSettingsтаблицах, большеbytesне меняются.
+Source user1273731/1ea6…bfc2; candidate1273731/SHA256
+`b56648e47a41cdd4eef981060da7a20a0a12cb062f6af9a4c1cf9faf69523323`.
+Полнаяинверсия2патчей/директория/C/UI/main80/HAD/адреса/режимысохранены,
+PLCне менялся. Signature27119таже: сверятьреальныйновыйCompile/image.
+Задание: docs/tasks/station002-animation-order-r14a-live.md, report:
+docs/reports/station002-animation-live-input-shift-20261110.md.
+НуженнезамедлительныйnativeCompileиliveповтор3,1,2/BootAckвоставшийсячас;
+истинностьABIфиксаещёнеподтверждена. Новыенativefault/логотипэтимне сделаны.
+
 ## 10.11.2026, около06:04МСК — час живого стенда, r14 уже загружены
 
 Новое сообщение пользователя: «снова стенд для всех проверок, только на1час»;
