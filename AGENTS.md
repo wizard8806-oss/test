@@ -1,5 +1,30 @@
 # Работа с проектом
 
+**10.11: CONTROL_FULL_ORIGINAL_ALARMS native Open FAIL подтверждён оператором.**
+Принят e73b88c: локальный создал exact CONTROL1461495/SHA
+790f095467a359f1896938ab424bb4adb5365af2992ef68046e72d8a53d4700e.
+На прямой вопрос об имени пользователь ответил «Да, открывал этот
+контрольный файл» после Illegal opening. Теперь это operator-reported
+Open FAIL, не pending. Старый D побайтно тот же; не просить повторять его.
+Исходные аварии тоже не позволяют открыть full: новые группы не единственная
+причина. CONTROL/A/C ранее Open PASS; это не Compile/runtime приёмка.
+Не выпускать production r15f на очередной гипотезе.
+prepare_remaining_open_controls.py из одного exact CONTROL создаёт две
+Open-only копии. OPEN_OLD_LOGO.skm1461381/SHAc6ef59…39e9b отменяет ТОЛЬКО
+новый путь лого. OPEN_PAGES_AND_MACRO_ONLY.skm1461431/SHA119155…fd00f
+дополнительно возвращает исходные SB6010/SB24002/ND8278: остаётся ровно
+объединение ранее открытых A+C. Полная независимая сборка вперёд из
+accepted3599/producer-review подтвердила обе копии, а также frozen A/C;
+инверсия/указатели/16UI/старыеalarm/C/Batch/CLI/guards/source PASS.
+Native Open обеих НОВЫХ копий ещё не наблюдалось. Актуальное задание:
+docs/tasks/station002-remaining-open-controls-local.md. Локальный сначала
+создаёт обе копии/выдаёт полные реальные Windows-пути; Open OLD_LOGO,
+лишь при его FAIL — PAGES_AND_MACRO. При PASS отдельный native SaveAs.
+Не повторять общий run_checks или создание R80 вместо этого Open.
+Runtime/PLC не менялись, шкаф отдан; native SKM/PDW/JPG остаются приватны.
+
+**История: прежнее задание одного полного контроля выполнено, Open FAIL см. выше.**
+
 **10.11: после r15e снова отказ Open; следующий шаг — один полный контроль.**
 Принят c549261: exact r15e219832…171d/1480005 создан; локальный GUI
 не наблюдал. Затем оператор снова прислал Illegal opening в контексте
