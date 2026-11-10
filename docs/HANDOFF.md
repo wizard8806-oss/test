@@ -21,6 +21,10 @@ r15e1480005/SHA219832…171d создана, пять helpers/29 проверо�
 штатным encoder7.1; при FAIL — локализация композиции остальных изменений.
 Задание: `docs/tasks/station002-full-open-control-local.md`. Это диагностика,
 не новая production r15f. ПЛК/runtime/main не менять, шкаф отдан.
+Код `8ff42b3fbcad224dcc29050edd677f9037ffcf76`; пакет
+`artifacts/station002-full-open-control/delivery-manifest.json`.
+HTTP5 файлов/2 stdlib-команды/точный итоговый SHA проверены. Нужен теперь
+один фактический File Open нового контроля, а не повтор общих проверок.
 
 ## История 10.11.2026 — нативный R80 выявил одинаковые номера новых групп; подготовлена r15e
 
