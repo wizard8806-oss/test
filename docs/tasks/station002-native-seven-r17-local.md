@@ -14,9 +14,10 @@ fallback/ExportB01/native7 заново не нужны. Остальные ис
 catalog и opaque-settings0..21, включая обновлённую native-секцию16.
 Из прежнего r15f копируются только6message-vectors. Full также применяет
 подготовленные nav/counter/logo-правки; messages-only — диагностический fallback.
-Новые nativeOpen/Compile пока pending. Старые пробы/native7 повторно не создавать.
+Полный native Open уже подтверждён снимком. SaveAs/settings/Compile/Simulator
+ещё не подтверждены. Старые пробы/native7 повторно не создавать.
 
-## Подготовка файлов
+## Справка о выполненной подготовке — повторно не выполнять
 
 Взять `artifacts/station002-native-seven-r17/delivery-manifest.json` из
 того же коммита, что это задание. Код закреплён на
@@ -66,11 +67,11 @@ C:\Users\user\CodexProjects\pump-station\.worktrees\station002-fault-reset-local
 лишь при отказе полного Open. Internal имена Digital Alarm Login1..6
 сохранены нативными; тексты операторского журнала содержат номерПЧ/код/описание.
 
-## Open полного r17
+## Продолжение после успешного Open полного r17
 
-File→Open именно полный кандидат. Нужны загруженное дерево16экранов,
-доступ Screen1/9/15/16 и семь Alarm Login-групп без Illegal opening.
-Имя Screen16 после Warning при пустом дереве успехом не считать.
+Оператор уже открыл полный кандидат: заголовок файла, дерево16экранов
+и Screen1 видны на снимке. Повторный File→Open не нужен. В текущем окне
+проверить доступ Screen9/15/16 и семь Alarm Login-групп.
 
 **При PASS:**
 
@@ -93,7 +94,7 @@ File→Open именно полный кандидат. Нужны загруж�
 6. Дать реальный путь native-файла/размер/SHA для приватного прикрепления.
    NativeSave пересериализует проект, егоSHA записывается отдельно от generated.
 
-**Только при FAIL полного Open:** один File→Open
+**Архивный сценарий отказа; после подтверждённого Open не выполнять:** один File→Open
 **OPEN_NATIVE7_MESSAGES_ONLY.skm** в той же папке.
 
 - PASS: отдельный nativeSaveAs **C_native7_filled_messages.skm**, путь для
