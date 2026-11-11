@@ -22,6 +22,9 @@ C/обаBatch/HAD/77layout/268maps/inverse/CLIguards PASS. Runtime/PLC теже.
 текстовогоимпорта, без ещёодногоnative7/guessedr18. НовыеOpenещёpending.
 Не повторятьстарыеисточники/Open/создание7групп илиcore57вместоnativeисхода.
 Native источники/result private /workspace/shared/station002-native-seven-r17-20261111/.
+Код82a155976ff4a587dfecadc52c2d3d0e275ccd3a; manifest
+artifacts/station002-native-seven-r17/delivery-manifest.json.
+HTTP7helpers/freshstdlib4runs/обаoutputSHA PASS. Дальше fullnativeOpen.
 
 **История: нижеописанный native7 уже получен, повтор создания не нужен.**
 

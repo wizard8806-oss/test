@@ -1,0 +1,78 @@
+{
+  "kind": "Native7 existing-message-vector fill; full r17 and optional fallback",
+  "commit": "82a155976ff4a587dfecadc52c2d3d0e275ccd3a",
+  "rawBase": "https://raw.githubusercontent.com/wizard8806-oss/test/82a155976ff4a587dfecadc52c2d3d0e275ccd3a/",
+  "files": [
+    {
+      "path": "tools/build_native_seven_r17.py",
+      "bytes": 7046,
+      "sha256": "e376542308726e466ef488285aaeaec7b40605a1c2679a7d10da54fc47c28de7"
+    },
+    {
+      "path": "tools/build_native_merge_r16.py",
+      "bytes": 8777,
+      "sha256": "4b877cb7fbd8308a292c4f3fccb6b3c494d822b393647ea61bf86d40c304af24"
+    },
+    {
+      "path": "tools/prepare_alarm_open_differential.py",
+      "bytes": 7461,
+      "sha256": "e6e899aa62b8f248e371ad8fa387e32466b7b452df52cb7cf24e5efc54739c44"
+    },
+    {
+      "path": "tools/skm_alarm_catalog.py",
+      "bytes": 10189,
+      "sha256": "4e56203981885d76a72fa24075870b85a2c4bf4a8e80728e9b0de6073b02c818"
+    },
+    {
+      "path": "tools/skm_page_storage.py",
+      "bytes": 1952,
+      "sha256": "aeecea91c73e32245b34d2042a23f22fbdcde124598d85f65c37c60aced63458"
+    },
+    {
+      "path": "tools/skm_project_header.py",
+      "bytes": 1954,
+      "sha256": "5b5b43ec5db6fce0852e53289a26946fe97f3ed9639e2389db770ca294d25705"
+    },
+    {
+      "path": "tools/repair_skm_section_index.py",
+      "bytes": 2816,
+      "sha256": "c5b29065a28561dd00db2e118a8ad157259fad90c9160e439c8adcd7df0214ef"
+    }
+  ],
+  "source": {
+    "name": "C_native_7groups.skm",
+    "bytes": 1463855,
+    "sha256": "1c48a69e9c63e1f2787d78fb286d04ea3ae04a7b75f304504d75609c28367b8b",
+    "operatorReportedReopen": "PASS"
+  },
+  "messageDonor": {
+    "name": "pump_station_3p_fault_reset_r15f.skm",
+    "bytes": 1480015,
+    "sha256": "2fe47083c0fbbb2fc9d31342c1ab76d3b220c81afa0f60c61d1ea4eed2c9676e"
+  },
+  "outputs": [
+    {
+      "name": "pump_station_3p_native7_r17_candidate.skm",
+      "mode": "full",
+      "bytes": 1479937,
+      "sha256": "757d792f75a95ed31971dd2819942e88d703f738c9524ba309320699644c88b3"
+    },
+    {
+      "name": "OPEN_NATIVE7_MESSAGES_ONLY.skm",
+      "mode": "messages-only fallback",
+      "bytes": 1479965,
+      "sha256": "4bdab6282d838b4a16527ad31a994b7897aacec4ddc8c8ac57c0fabda9c6b4d5"
+    }
+  ],
+  "pageCount": 16,
+  "existingNativeAlarmGroups": 7,
+  "messageVectorsFilled": 6,
+  "alarmBitMappings": 268,
+  "nativeHeadersNamesCatalogAndOpaqueSettingsPreserved": true,
+  "logoReference": "C:/Users/user/Documents/HMI/Samkoon/Automatika визитка print.jpg",
+  "nativeLoadingSaverSettingsConfigured": false,
+  "PLCChanged": false,
+  "nativeOpenObserved": false,
+  "nativeCompileObserved": false,
+  "hardwareActions": 0
+}

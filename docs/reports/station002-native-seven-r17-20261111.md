@@ -64,3 +64,9 @@ Native7 пустогообразца OpenPASS не означает полног
 или ещёодного создания7групп. Сохранить всеисточники/JPEG, native-файлы
 и закрытые данные в Git не публиковать. Шкаф отдан; hardware/Download/
 Force/RUN не выполнялись.
+
+Доставка: код `82a155976ff4a587dfecadc52c2d3d0e275ccd3a`, manifest
+`artifacts/station002-native-seven-r17/delivery-manifest.json`. Все7helpers
+заново скачаны по HTTP, размеры/SHA совпали. Fresh Python -S -B build/check
+обоих режимов (4запуска) дали оба заявленных размера/SHA. Новые native
+Open/Compile от этого не становятся подтверждёнными.

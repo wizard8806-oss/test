@@ -38,6 +38,10 @@ preservation. CoreC/PLC/reset/main неизменны, общие57повтор�
 группыB01 из source7 для последующего текстовогоимпорта; ещёодин native7
 или guessedr18 не нужны. Источники/Cabinet/PLC сохранить, hardwareнет.
 Подробности `docs/reports/station002-native-seven-r17-20261111.md`.
+Код `82a155976ff4a587dfecadc52c2d3d0e275ccd3a`; manifest
+`artifacts/station002-native-seven-r17/delivery-manifest.json`.
+HTTP7pinnedhelpers/четыреfreshstdlibзапуска/обаoutputSHA проверены.
+Нативное открытие полного r17 всё ещё требуется.
 
 ## История 11.11.2026 — настройка native7, затем образец получен/OpenPASS
 
