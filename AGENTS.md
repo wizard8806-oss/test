@@ -1,5 +1,18 @@
 # Работа с проектом
 
+**11.11: native7 создаётся; R3071 отклонён из-за Type Continuous bit.**
+Оператор прислал DigitalAlarmLogin2/AddressEntry COM1-Fatek-R3071 с
+Register type and address requirements don't match. В Type виден
+Continuous bit, который ожидает битовыйадрес. Для R нужен именно
+Continuous Bit of Word, как у рабочего B01R3056/80 (nativewordType1).
+CachedEnglishHelp7.0 отдельно подтверждает эти два разных Type;
+это подсказкаUI, не исполнение decoder7.1. OKwarning→Canceladdress→
+TypeContinuousBitofWord→зановоReadAddress COM1/Fatek/R3071→Size1.
+Не подменять регистр битовымадресом и не менятьPLC/driver.
+На снимке отдельная копия уже называется7groups.skm; имя допустимо,
+SaveAs заново не нужен. Довести эту копиюдо7групп по текущей таблице,
+Save/reopen/получить приватно. Native7 ещё не получен/егоOpenнеподтверждён.
+
 **11.11: fullr16 и ALARMS_ONLY оба nativeOpenFAIL; source506 nativeOpenPASS.**
 Принят local8f16af9: full1479661/SHA84797b…20e6 и fallback1479689/SHA9e4530…886b
 созданы/сверены. Пользователь явно подтвердил Illegalopening fullr16,

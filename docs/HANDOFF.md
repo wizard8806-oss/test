@@ -1,4 +1,21 @@
-## 11.11.2026 — добавление журнала отдельно воспроизводит отказ; нужен native7-эталон
+## 11.11.2026 — настройка native7: выбрать Continuous Bit of Word
+
+Оператор уже создал отдельную копию **7groups.skm** в worktree15; на
+снимке открыт Digital Alarm Login2, addresspicker COM1/Fatek FB Series/R3071
+и Warning **Register type and address requirements don't match**.
+В Type выбран **Continuous bit**, ожидающий битовыйадрес. Для выбранного
+R-регистра нужен **Continuous Bit of Word**, как у существующей рабочей
+B01R3056/80. CachedEnglishHelp отдельно описывает оба этих режима.
+
+Передано исправление: OK предупреждение, Cancel окнаадреса, правильный
+Type, заново ReadAddress COM1/Fatek/R3071, затем Size1. Путь/driver PLC
+не менять, не превращать R3071 в битовыйадрес. Это ошибка выбора новой
+группы, не ещё один OpenFAIL проекта. Продолжить уже созданную7groups.skm,
+её название допустимо; не требовать повторного SaveAs ради имени.
+Задание `docs/tasks/station002-native-seven-groups-local.md` уточнено.
+Сам native7 ещё не получен и reopen не подтверждён. Код/PLC/main прежние.
+
+## История 11.11.2026 — добавление журнала воспроизводит отказ; запрошен native7-эталон
 
 Принят local `8f16af9`: оба exact выхода r16 подготовлены/сверены.
 Пользователь явно подтвердил Illegal opening полного1479661/SHA84797b…20e6,
