@@ -1,5 +1,25 @@
 # Работа с проектом
 
+**11.11: fullr16 и ALARMS_ONLY оба nativeOpenFAIL; source506 nativeOpenPASS.**
+Принят local8f16af9: full1479661/SHA84797b…20e6 и fallback1479689/SHA9e4530…886b
+созданы/сверены. Пользователь явно подтвердил Illegalopening fullr16,
+затем отказ OPEN_R16_ALARMS_ONLY. После этого на прямой вопрос о
+C_native_code_pages ответил «Да, C_native_code_pages открывается» и прислал
+загруженное окно этого файла в worktree15. Принимаем operatorOpenPASS
+именно source506, оба merge-исходаFAIL, не CompileFAIL.
+Только два alarm-блока+указатели воспроизводят отказ на рабочей source506.
+Не обвинятьnav/logo, не повторять source/старыеOpen и не делать guessedr17.
+Актуальное задание docs/tasks/station002-native-seven-groups-local.md:
+из УЖЕ ОТКРЫТОГО source506 штатный SaveAs C_native_7groups.skm; добавить
+5пустыхгрупп к2имеющимся, размеры/адреса:1/R3071,80/R3061,1/R3072,
+80/R3066,1/R3073. Тип/PLC как nativeB01R3056/80; тексты НЕ вводить.
+Сохранить/переоткрыть, получить приватныйnative7-эталон фактическогоформата
+вместо нового бинарногопатча. Не переписывать Python-нормализатором IDs:
+флаги/порядок/companions native7 сначала изучить как есть, приоритет его Open.
+Source506/макрос/раскладку/16экранов сохранить. Runtime/PLC/reset/main теже.
+
+**История: полныйr16 и fallback затем получили OpenFAIL, см. выше.**
+
 **10.11: C_native_code_pages получен; полный native-based r16 подготовлен.**
 Native SaveAs1461830/SHA506dec71f62efadca3cc6660707306d2076c4122a83f24b1568c908a95c29b4a
 private /workspace/shared/station002-native-merge-r16-20261110/user_native_code_pages.skm.
