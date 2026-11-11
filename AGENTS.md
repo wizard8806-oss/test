@@ -1,5 +1,30 @@
 # Работа с проектом
 
+**11.11: native7 получен/OpenPASS; новый r17 заполняет только готовые сообщения.**
+Uploaded C_native_7groups.skm1463855/SHA
+1c48a69e9c63e1f2787d78fb286d04ea3ae04a7b75f304504d75609c28367b8b.
+Оператор прямо сообщил Save/reopen, на снимке7групп, текущий файл совпадает
+сзапросом. Native7 реальноимеет25/80/1/80/1/80/1 поR2550/3056/3071/3061/
+3072/3066/3073; IDs0..6/typeWord/keys/flags соответствуют текущемуparser.
+Native7 обновил opaque16/QString-list field7; badr16 оставлял еёот2групп.
+Назначение encoded-поля не объявлять доказанным; не расшифровывать/не
+публиковать закрытые данные. Всё native7 используется какоснова целиком.
+build_native_seven_r17.py заменяет ТОЛЬКО6message-vectors изподготовленного
+donorf15f, оставляет nativeheaders/names/catalog/flags/всеopaque0..21,
+включая16. Fullдобавляет уже проверенные nav/counter/logo правки.
+Full r17 1479937/SHA757d792f75a95ed31971dd2819942e88d703f738c9524ba309320699644c88b3.
+MESSAGES_ONLY1479965/SHA4bdab6282d838b4a16527ad31a994b7897aacec4ddc8c8ac57c0fabda9c6b4d5.
+Рефактор ui_edits oldr16 сохранилобаoldSHA. Native7headers/catalog/opaque/
+C/обаBatch/HAD/77layout/268maps/inverse/CLIguards PASS. Runtime/PLC теже.
+Актуальное задание docs/tasks/station002-native-seven-r17-local.md:
+создатьоба, сначалаполныйr17Open→SaveAs_native→loading/saver14→Compile/Simulator.
+ПриfullFAIL одинMESSAGES_ONLY; еслиобаFAIL, NativeExport B01изsource7 для
+текстовогоимпорта, без ещёодногоnative7/guessedr18. НовыеOpenещёpending.
+Не повторятьстарыеисточники/Open/создание7групп илиcore57вместоnativeисхода.
+Native источники/result private /workspace/shared/station002-native-seven-r17-20261111/.
+
+**История: нижеописанный native7 уже получен, повтор создания не нужен.**
+
 **11.11: native7 создаётся; R3071 отклонён из-за Type Continuous bit.**
 Оператор прислал DigitalAlarmLogin2/AddressEntry COM1-Fatek-R3071 с
 Register type and address requirements don't match. В Type виден

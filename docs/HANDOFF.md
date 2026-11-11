@@ -1,4 +1,45 @@
-## 11.11.2026 — настройка native7: выбрать Continuous Bit of Word
+## 11.11.2026 — native7 получен; r17 сохраняет все его группы/settings и заполняет сообщения
+
+Получен **C_native_7groups.skm**1463855/SHA
+`1c48a69e9c63e1f2787d78fb286d04ea3ae04a7b75f304504d75609c28367b8b`.
+Пользователь перед передачей прямо сообщил «готово, сохранил, открыл»,
+прислал загруженное окно с B00..B06. Это operator-reported nativeOpenPASS
+эталона. В файле реальные размеры25/80/1/80/1/80/1 и нужные R-адреса,
+IDs0..6, typeWord1, правильные источники/флаги/языки. C/обаBatch прежние.
+
+Сравнение выявило дополнительное различие: при создании7групп native
+обновил opaque-секцию16 (одну QString в16-польнойструктуре). Бинарный
+merge2→7 оставлял эту область от2групп. Её точное назначение не декодировано
+и не выдаётся за единственную доказанную причину; закрытые значения не
+публикуются. Все прочие opaque0..21 совпали. Прежний r16 остаётся OpenFAIL.
+
+`build_native_seven_r17.py` теперь использует **сам native7** как основу.
+Группы/имена/заголовки/каталог/адреса/векторы/IDs/settings не перестраиваются:
+из подготовленного donorf15f копируются лишь6готовыхmessage-vectors.
+Full дополнительно правит nav/counter/logo через общий ui_edits; macro,
+раскладка/77виджетов/HAD,16pagearrays/opaque16 сохранены. Internal имена
+Digital Alarm Login1..6 остаются нативными; операторские сообщения содержат
+номер ПЧ/код/описание как в подготовленной таблице.
+
+- **pump_station_3p_native7_r17_candidate.skm**1479937/SHA
+  `757d792f75a95ed31971dd2819942e88d703f738c9524ba309320699644c88b3`.
+- **OPEN_NATIVE7_MESSAGES_ONLY.skm**1479965/SHA
+  `4bdab6282d838b4a16527ad31a994b7897aacec4ddc8c8ac57c0fabda9c6b4d5`.
+
+Рефактор UI-helper сохраняет оба исторических r16 побайтно. Новые режимы
+прошли nativefields/catalog/allopaque0..21, C/обаBatch,16arrays/268maps,
+весьUI messages-only,77geometry/content/HAD, CLI build/check/guards/source
+preservation. CoreC/PLC/reset/main неизменны, общие57повторно не запускались.
+**Новые nativeOpen/Compile/Simulator пока pending**.
+
+Задание `docs/tasks/station002-native-seven-r17-local.md`: оба файла,
+сначала полныйr17. ПриPASS NativeSaveAs/settingsload+saver14/Compile;
+приFAIL одинMESSAGES_ONLY. Если оба не открываются — штатный Export одной
+группыB01 из source7 для последующего текстовогоимпорта; ещёодин native7
+или guessedr18 не нужны. Источники/Cabinet/PLC сохранить, hardwareнет.
+Подробности `docs/reports/station002-native-seven-r17-20261111.md`.
+
+## История 11.11.2026 — настройка native7, затем образец получен/OpenPASS
 
 Оператор уже создал отдельную копию **7groups.skm** в worktree15; на
 снимке открыт Digital Alarm Login2, addresspicker COM1/Fatek FB Series/R3071
