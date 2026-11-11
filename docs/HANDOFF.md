@@ -1,4 +1,29 @@
-## 11.11.2026 — native7 получен; r17 сохраняет все его группы/settings и заполняет сообщения
+## 11.11.2026 — полный r17 открылся; продолжить NativeSave/settings/Compile
+
+Оператор прислал снимок SKTool7.1: в заголовке **полный**
+`pump_station_3p_native7_r17_candidate.skm` из worktree15, загружено
+дерево16экранов и отображается Screen1, предупреждения Illegal opening нет.
+Принимаем **screenshot-evidenced native Open PASS полного r17**.
+Это не Compile/Simulator/physical acceptance. Ожидаемый generated-файл
+1479937/SHA757d792f…88b3; свежий WindowsSHA локальный ещё не сообщил.
+
+Следующий действующий шаг — PASS-ветка
+`docs/tasks/station002-native-seven-r17-local.md`. Сверить фактический файл
+чтением; не повторять генерацию/Open и не перезаписывать более новые
+пользовательские правки. Из уже открытого fullr17 отдельный SaveAs
+**pump_station_3p_native7_r17_native.skm**, затем native StartSetting:
+рабочая1/loading14 около3с/screensaver14/60с, проверитьJPEG/возврат,
+Save→Compile→Offline Simulator. Нужны отдельные результаты7групп,
+навигации13/15/16, логотипа и свежих MacroInit/alias, путь native-файла.
+При недоступном GUI агент выдаёт короткие действия оператору; не
+застревает на Tips/скрытыхпроцессах. Source/native-копии сохранить.
+
+**NativeSaveAs/loading/saver/logo/Compile/Simulator ещё pending.**
+FallbackMESSAGES_ONLY и ExportB01 после полного OpenPASS не требуются;
+native7 повторно не создавать. PLC/STOP-reset/main не менялись. Шкаф
+отдан, аппаратной приёмки/Download/Force/RUN нет.
+
+## История 11.11.2026 — native7 получен, полный r17 затем OpenPASS
 
 Получен **C_native_7groups.skm**1463855/SHA
 `1c48a69e9c63e1f2787d78fb286d04ea3ae04a7b75f304504d75609c28367b8b`.

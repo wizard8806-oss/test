@@ -1,5 +1,25 @@
 # Работа с проектом
 
+**11.11: полный r17 native Open PASS по снимку оператора.**
+Прислано окно SKTool7.1 с полным именем
+pump_station_3p_native7_r17_candidate.skm в worktree15, дерево16экранов
+загружено/Screen1 отображается/Illegalopeningнет. Принимаем screenshot-
+evidenced OpenPASS именно полного r17, не fallback и не Compile/runtime.
+Ожидаемый generated1479937/SHA757d792f…88b3; свежийWindowsSHA ещё не
+подтверждён локальным отчётом. LocalCLI при продолжении сверяет файл
+чтением, без повторного build/Open и без перезаписи пользовательскихправок.
+Дальше текущие PASS-шаги docs/tasks/station002-native-seven-r17-local.md:
+SaveAs pump_station_3p_native7_r17_native.skm отдельно; loading14/3с,
+saver14/60с/рабочая1/оригинальныйJPEG; Save→Compile→OfflineSimulator.
+Проверить7групп/переходы13/15/16, freshMacroInit/alias allReadsBatch16,
+requestW12/BootAckWlast. ЕслиGUIагентунедоступен–короткиеинструкции
+оператору кУЖЕОТКРЫТОМУfullr17, не сноваTips/генерация/старыеOpen.
+NativeSaveAs/settings/logo/Compile/Simulator пока не подтверждены.
+MESSAGES_ONLY/ExportB01/созданиеnative7 не нужны при этом успехе.
+PLC/reset/main теже, шкафотдан, hardware/Download/Force/RUNнет.
+
+**История: полный r17 после подготовки успешно открыт, см. выше.**
+
 **11.11: native7 получен/OpenPASS; новый r17 заполняет только готовые сообщения.**
 Uploaded C_native_7groups.skm1463855/SHA
 1c48a69e9c63e1f2787d78fb286d04ea3ae04a7b75f304504d75609c28367b8b.
