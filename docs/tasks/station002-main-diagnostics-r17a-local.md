@@ -1,5 +1,12 @@
 # r17a: Main «Диагностика» → «Диагностика станции»
 
+**Обновление после ручной попытки:** пользователь меняет цель, нажимает OK,
+а при повторном открытии видит1. На присланных кадрах до закрытия показана
+пара3/Screen4. Не считать её доказательством сохранения и не отправлять
+оператора повторять то же редактирование/Tab. Причина отката пока не доказана.
+Нужна согласованная запись всех пяти полей в отдельный файл и реальный
+переход в Simulator. Пользователь прямо попросил передать эту работу локальному.
+
 Пользователь уточнил требуемое поведение: основная кнопка «Диагностика»
 должна открывать **Screen4 «ДИАГНОСТИКА СТАНЦИИ»**. Временный зонд анимации
 остаётся на Screen13 и доступен через «Зонд» со страницы кодов ПЧ15.
@@ -14,25 +21,42 @@ pump_station_3p_native7_r17_native.skm
 SHA256 befe204512d8c1cf93baf93bb2c3b870e7c087ae8fd7e53e286ebef02162aa6d
 ```
 
-Не брать старый generated r17 или native7. Source/private копии сохранить.
-Если пользователь уже внёс новые правки и SHA отличается, не подменять их
-старым файлом: штатно в GUI исправить только цель Main-кнопки на Screen4
-в отдельной SaveAs-копии. Остальные настройки и проект сохранить.
+Не брать старый generated r17 или native7. Найти фактический native-файл
+в существующей worktree station002-fault-reset-local-15; исходник и отдельный
+backup сохранить. Если текущая форма ещё открыта, закрыть только её и
+сохранить текущий проект перед чтением файла; при недоступном GUI дать
+оператору один короткий шаг. Не терять несохранённые пользовательские правки.
+После ручных попыток SHA может отличаться. Измерить фактические размер/SHA,
+не подменять файл архивной копией. Новый helper поддерживает явную фиксацию
+этого SHA через **--source-sha256**: проверяет модель/16экранов/7групп,
+неизменённый r17-макрос, кнопку и реальный заголовок Screen4, затем меняет
+только пять полей и указатели. Более новые подписи/настройки сохраняются.
 
-Для exact-source использовать `tools/fix_native_main_diagnostics_r17a.py`
-из того же закреплённого коммита, что это задание. Семь зависимостей уже
-имеются в пакете native-seven-r17; их версии не менялись. Новый helper
-можно положить в `native-seven-r17/tools` рядом с ними:
+Взять **artifacts/station002-main-diagnostics-r17a/delivery-manifest.json**
+из того же коммита, что это задание. Скачать все8 files[] по его rawBase,
+сверить bytes/SHA, сохранить структуру tools в отдельном пакете
+**main-diagnostics-r17a**. Python только stdlib. Семь прежних зависимостей
+не менялись, но новый helper нужен именно с опцией --source-sha256;
+не использовать старый helper без этой опции.
 
-```text
-python -S -B native-seven-r17/tools/fix_native_main_diagnostics_r17a.py --source pump_station_3p_native7_r17_native.skm --out pump_station_3p_native7_r17a_diagnostics.skm --report r17a-build.json
-python -S -B native-seven-r17/tools/fix_native_main_diagnostics_r17a.py --source pump_station_3p_native7_r17_native.skm --check pump_station_3p_native7_r17a_diagnostics.skm --report r17a-check.json
+Из рабочей папки, с фактическими именами файлов и новыми путями отчётов:
+
+```powershell
+$diagSource = (Resolve-Path -LiteralPath '.\pump_station_3p_native7_r17_native.skm').Path
+$diagHash = (Get-FileHash -LiteralPath $diagSource -Algorithm SHA256).Hash.ToLowerInvariant()
+python -S -B main-diagnostics-r17a/tools/fix_native_main_diagnostics_r17a.py --source $diagSource --source-sha256 $diagHash --out pump_station_3p_native7_r17a_diagnostics.skm --report r17a-build.json
+python -S -B main-diagnostics-r17a/tools/fix_native_main_diagnostics_r17a.py --source $diagSource --source-sha256 $diagHash --check pump_station_3p_native7_r17a_diagnostics.skm --report r17a-check.json
 ```
 
-Ожидаемый выход1479815байт/SHA256
+Для исходного befe2045…aa6d ожидается выход1479815байт/SHA256
 `4dba6fb25f53c310ac0efb92c7365c89b8a94551e67a6ad7834df4aa38cb04d1`.
-Если exact-output уже существует, выполнить только --check в новый отчёт.
-Ничего не перезаписывать. Выдать фактический путь файла оператору;
+Для новой native-копии записать её фактические source/output SHA: результат
+может отличаться из-за сохранённых правок. Если точный output уже существует,
+выполнить --check в новый отчёт. При несовпадении создать отдельный новый
+output с суффиксом времени, не перезаписывать старый файл. Если маршрут уже
+согласован на Screen4, helper оставляет байты прежними и сообщает alreadyCorrect.
+При отказе проверки сохранить причину и текущий файл; не откатывать его на
+старый source и не снимать валидацию. Выдать фактический путь файла оператору;
 ожидаемая папка — существующая worktree station002-fault-reset-local-15.
 
 Открыть именно r17a, выполнить Compile и Offline Simulator. На главном
@@ -41,6 +65,12 @@ python -S -B native-seven-r17/tools/fix_native_main_diagnostics_r17a.py --source
 Compile и этот переход отдельно. При успехе сохранить native при
 необходимости; без причины не повторять все старые проверки экранов/лого.
 Макрос, ПЛК и настройки заставки не менять, оборудование не подключать.
+
+Если после нового Save/Compile снова происходит откат, сохранить обе копии
+и сравнить для SB6010 поля48/49/56/57/60 до/после, с фактическими SHA.
+Зафиксировать, на каком шаге изменились значения и какой экран реально
+открывает Simulator. Одного вида3/Screen4 в незакрытой форме недостаточно.
+Не запускать новый круг одинаковых ручных попыток или старых Open-проб.
 
 Если GUI локальному недоступен, дать короткие действия оператору; не
 застревать на процессах/Tips. Нативные файлы/JPEG/PDW в Git не публиковать.
