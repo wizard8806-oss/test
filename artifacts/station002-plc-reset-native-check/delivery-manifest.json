@@ -1,0 +1,44 @@
+{
+  "kind": "PLC-only native validation continuation; final HMI r17a frozen",
+  "commit": "f7534ae5a4ae73eb177f67ade800fbb1c7e84262",
+  "rawBase": "https://raw.githubusercontent.com/wizard8806-oss/test/f7534ae5a4ae73eb177f67ade800fbb1c7e84262/",
+  "files": [
+    {
+      "path": "tools/build_manual_no_sensor_pdw.py",
+      "bytes": 6011,
+      "sha256": "4dc3de6dc692a8b4b0f86f29562a6603601dea340727d14a7888d884bf928929"
+    },
+    {
+      "path": "tools/build_vfd_fault_export_r14.py",
+      "bytes": 11029,
+      "sha256": "1d92d0ad8155bd884acccaf086cea615035ca008f6d577f9c78c55b0602bd881"
+    },
+    {
+      "path": "tools/build_drive_reset_r15.py",
+      "bytes": 20425,
+      "sha256": "59c40cbb82d65d147a88a1cedbd2f88aecf9582fbcefdbe905cf43873bd40d12"
+    },
+    {
+      "path": "tools/validate_drive_reset_r15.py",
+      "bytes": 15346,
+      "sha256": "bffbd9e9ecfa94b2ceb7286d95142033c526afeba79823d092d4bcba3331dfce"
+    }
+  ],
+  "plcReference": {
+    "fileName": "station_3p_reset_r15_candidate.pdw",
+    "bytes": 206320,
+    "sha256": "de693ad24d339a2597e66dd9a9d07e57d8a24a3243612e838f9f63dd330cbb01",
+    "estimatedProgramFreeBytes": 664
+  },
+  "sourceIfRebuildRequired": {
+    "bytes": 201327,
+    "sha256": "35d22baa604527bd0b29fd99ed27bd8a2154ddf3768d6ade32d6137ce750d182"
+  },
+  "frozenHMI": {
+    "fileName": "pump_station_3p_native7_r17a_diagnostics.skm",
+    "bytes": 1479870,
+    "sha256": "3fa5c20f4ab9c4568853648a654070bc2872f60356033088cd8323001dea00e1"
+  },
+  "nativePLCValidationObserved": false,
+  "hardwareActions": 0
+}
