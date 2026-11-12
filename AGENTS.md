@@ -1,5 +1,21 @@
 # Работа с проектом
 
+**12.11: локальный остановился на caption-count; обновлён helper без нового SaveAs.**
+На присланном снимке source/backup1479751байт/SHA55ab76e0…; точного55ab
+в облаке нет, remote report ещё не опубликован. Модель/16страниц/7групп/C/
+Screen4 localPASS, затем только2копии «Диагностика» вместожёстких7.
+Маршрут48=0/49=3/56=Screen4/57=0/60=3, output не создан. Остановка
+локального корректна по прежнему guard; не объявлять её nativeOpenFAIL.
+fix_native_main_diagnostics_r17a.py проверяет caption в известных text-слотах
+154/157/160/163/166/201 и optionalpreview, допускает пустые языковые копии,
+все прочие guards/полнуюинверсию сохраняет. Двухкопийные fixture с active
+154 и201 и фактическим mixedroute проверены; previewбезtextslot отклонён.
+Freshstdlib CLIbuild/check PASS, старыйbefe→4dba без изменений. Actual55ab
+сборку должен продолжить локальный по новомуmanifest и тому же source;
+SaveAs/старые клики не повторять. Текущий task station002-main-diagnostics-
+r17a-local.md обновлён. Source/backup не менять, неверныйsource не откатывать.
+Native Open/Compile/Simulator r17a по-прежнему pending.
+
 **12.11: ручная смена Main Diagnostics откатывается; пользователь просит задание локальному.**
 Со слов оператора после выбора/OK при повторном открытии стоит1; оба кадра
 показывают ещё выбранные3/Screen4, фактический saved-route не известен.

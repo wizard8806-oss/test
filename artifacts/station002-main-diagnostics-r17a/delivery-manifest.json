@@ -1,12 +1,12 @@
 {
   "kind": "Single Main Diagnostics fix, including support for newer SHA-pinned native saves",
-  "commit": "00139c97eac0460a9a71e90f4336a1e0ebcd3715",
-  "rawBase": "https://raw.githubusercontent.com/wizard8806-oss/test/00139c97eac0460a9a71e90f4336a1e0ebcd3715/",
+  "commit": "a1e349bb7e0d6f9f9c788668ab7a50c1357c9d93",
+  "rawBase": "https://raw.githubusercontent.com/wizard8806-oss/test/a1e349bb7e0d6f9f9c788668ab7a50c1357c9d93/",
   "files": [
     {
       "path": "tools/fix_native_main_diagnostics_r17a.py",
-      "bytes": 7196,
-      "sha256": "99e390e3f20380cc0a371c1bf0ae905fd09f51476468d22ca2d97e203eb4ddcf"
+      "bytes": 7882,
+      "sha256": "86e7fc5c6e4bcfe181550c4c524efef1330363b02147b4a207fc4ea10b3ad6fc"
     },
     {
       "path": "tools/build_native_seven_r17.py",
@@ -57,5 +57,6 @@
   "newerSourceMode": "Read actual native SHA, inspect native identity/macro, pass --source-sha256; preserve all other bytes by complete inverse",
   "target": "Main SB6010 -> Screen4 station diagnostics; numeric indices3",
   "nativeAcceptanceObserved": false,
-  "PLCChanged": false
+  "PLCChanged": false,
+  "captionValidation": "Native text-property slots and optional preview; inactive language duplicates may be empty; no fixed seven-copy requirement"
 }
