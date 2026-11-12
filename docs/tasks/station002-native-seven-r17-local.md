@@ -1,4 +1,11 @@
-# r17: заполнить сообщения уже созданных native7-групп
+# r17: продолжить сохранение и проверку открытого проекта
+
+**12.11: AlarmSound [ID:0] успешно скомпилирован.** На снимке Script Editor
+полного candidate-файла: HMI и local по 0 ошибок и 0 предупреждений,
+Compile success. Эту проверку скрипта не повторять без новой причины.
+Сборка всего проекта, Offline Simulator, native SaveAs и логотип ещё не
+подтверждены. Штатно сохранить и закрыть Script Editor; продолжить шаги
+ниже в уже открытом проекте, без повторной генерации или Open.
 
 **Полный Open PASS подтверждён снимком оператора:** заголовок полного r17,
 загруженное дерево16экранов/Screen1. Теперь выполнять только PASS-шаги
@@ -14,8 +21,9 @@ fallback/ExportB01/native7 заново не нужны. Остальные ис
 catalog и opaque-settings0..21, включая обновлённую native-секцию16.
 Из прежнего r15f копируются только6message-vectors. Full также применяет
 подготовленные nav/counter/logo-правки; messages-only — диагностический fallback.
-Полный native Open уже подтверждён снимком. SaveAs/settings/Compile/Simulator
-ещё не подтверждены. Старые пробы/native7 повторно не создавать.
+Полный native Open и компиляция AlarmSound подтверждены снимками.
+SaveAs/settings/общая Compile/Simulator ещё не подтверждены.
+Старые пробы/native7 повторно не создавать.
 
 ## Справка о выполненной подготовке — повторно не выполнять
 
@@ -86,7 +94,9 @@ C:\Users\user\CodexProjects\pump-station\.worktrees\station002-fault-reset-local
    If Load Screen→Screen14 (около3с, если поддерживается), Screensaver→
    Screen14/60с; проверить возврат. Сохранить остальные настройки/модель/
    адреса/макрос. Это ранее запрошенная пользователем загрузка/заставка.
-5. Save→Compile SKTool7.1→Offline Simulator. Отдельно записать ошибки/
+5. Save→Compile **всего проекта** SKTool7.1→Offline Simulator. Успешный
+   Compile AlarmSound в Script Editor уже подтверждён 12.11 и не заменяет
+   эту общую сборку. Отдельно записать ошибки/
    предупреждения, логотип/навигацию/Screen9/15/16. Новые MacroInit/alias
    должны сохранить allReads Batch16, requestW12 и BootAck scalarWlast;
    старый _prjcompiled не выдавать за свежую сборку. Offline0/нетверсии PLC
