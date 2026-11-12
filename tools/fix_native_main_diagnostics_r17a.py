@@ -23,6 +23,7 @@ SOURCE_BYTES = 1479825
 SOURCE_SHA = 'befe204512d8c1cf93baf93bb2c3b870e7c087ae8fd7e53e286ebef02162aa6d'
 MACRO_SHA = 'e02de39aca683e81fedf743b3de9e434404605c47301f0d441d30ae572ce61e5'
 ROUTE_FIELDS = (48, 49, 56, 57, 60)
+CAPTION_FIELDS = (154, 157, 160, 163, 166, 201)
 sha = lambda data: hashlib.sha256(data).hexdigest()
 
 
@@ -49,8 +50,13 @@ def prepare(raw, source_sha256=None):
 
     start, old = widget(raw, 'SB6010')
     old_start, old_end, old_values = properties(old, 'SB6010')
-    if old.count(qs('Диагностика')) != 7:
-        raise ValueError('Main Diagnostics caption differs')
+    # Native Save may clear unused language copies. Identify the caption in
+    # actual text-property slots rather than requiring seven cached copies.
+    caption_fields = [i for i in CAPTION_FIELDS if old_values[i] == 'Диагностика']
+    preview_copies = (old[:old_start] + old[old_end:]).count(qs('Диагностика'))
+    if (not caption_fields or preview_copies not in (0, 1)
+            or old.count(qs('Диагностика')) != len(caption_fields) + preview_copies):
+        raise ValueError('Main Diagnostics caption is missing from the reviewed native text fields')
     if (old_values[56] not in {'Screen' + str(i) for i in range(1, 17)}
             or any(old_values[i] not in {str(n) for n in range(16)} for i in (48, 49, 57, 60))):
         raise ValueError('Unreviewed Main Diagnostics route field format')
@@ -96,6 +102,9 @@ def prepare(raw, source_sha256=None):
         sourceSHA256=sha(raw), candidateBytes=len(result), candidateSHA256=sha(result),
         widget='SB6010', changedRouteFields=list(ROUTE_FIELDS),
         sourceSHAExplicitlyPinned=source_sha256 is not None,
+        captionPropertyIndices=caption_fields,
+        captionPreviewCopies=preview_copies,
+        captionQStringCount=len(caption_fields) + preview_copies,
         oldTarget=old_values[56], oldRouteFields={str(i): old_values[i] for i in ROUTE_FIELDS},
         newTarget='Screen4', newZeroBasedIndex=3, alreadyCorrect=old == new,
         buttonCaptionGeometryAndOtherPropertiesPreserved=True,
