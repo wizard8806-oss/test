@@ -9,6 +9,7 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
+import re
 
 from build_native_merge_r16 import macro_mirrors, properties, route, widget
 from prepare_alarm_open_differential import replace_blocks
@@ -20,19 +21,26 @@ from skm_project_header import read_project_header
 
 SOURCE_BYTES = 1479825
 SOURCE_SHA = 'befe204512d8c1cf93baf93bb2c3b870e7c087ae8fd7e53e286ebef02162aa6d'
+MACRO_SHA = 'e02de39aca683e81fedf743b3de9e434404605c47301f0d441d30ae572ce61e5'
 ROUTE_FIELDS = (48, 49, 56, 57, 60)
 sha = lambda data: hashlib.sha256(data).hexdigest()
 
 
-def prepare(raw):
-    if len(raw) != SOURCE_BYTES or sha(raw) != SOURCE_SHA:
-        raise ValueError('Use the exact received r17 native file; preserve newer operator edits')
+def prepare(raw, source_sha256=None):
+    expected_sha = SOURCE_SHA if source_sha256 is None else source_sha256.lower()
+    if not re.fullmatch(r'[0-9a-f]{64}', expected_sha) or sha(raw) != expected_sha:
+        raise ValueError('Source differs from the pinned native SHA256; preserve newer operator edits')
+    if source_sha256 is None and len(raw) != SOURCE_BYTES:
+        raise ValueError('Received native r17 size differs')
     header = read_project_header(raw)
     before_dir = read_directory(raw)
     read_page_storage(raw)
     before_alarms = validate_alarm_catalog(raw)
-    if header['pageCount'] != 16 or validate_alarm_identities(raw) != list(range(7)):
+    if (header['model'] != 'SK-070HE' or header['resolution'] != (800.0, 480.0)
+            or header['pageCount'] != 16 or validate_alarm_identities(raw) != list(range(7))):
         raise ValueError('Reviewed native page/alarm counts differ')
+    if sha(macro_mirrors(raw)[0]) != MACRO_SHA:
+        raise ValueError('Native macro differs from the reviewed r17; do not substitute an older source')
 
     page4 = raw.index(qs('Screen4') + b'\xff' * 4)
     page5 = raw.index(qs('Screen5') + b'\xff' * 4, page4)
@@ -43,8 +51,9 @@ def prepare(raw):
     old_start, old_end, old_values = properties(old, 'SB6010')
     if old.count(qs('Диагностика')) != 7:
         raise ValueError('Main Diagnostics caption differs')
-    if old_values[56] != 'Screen13' or any(old_values[i] != '12' for i in (48, 49, 57, 60)):
-        raise ValueError('Main Diagnostics source route differs')
+    if (old_values[56] not in {'Screen' + str(i) for i in range(1, 17)}
+            or any(old_values[i] not in {str(n) for n in range(16)} for i in (48, 49, 57, 60))):
+        raise ValueError('Unreviewed Main Diagnostics route field format')
     new = route(old, 'SB6010', 4)
     new_start, new_end, new_values = properties(new, 'SB6010')
     if new_values[56] != 'Screen4' or any(new_values[i] != '3' for i in (48, 49, 57, 60)):
@@ -86,7 +95,9 @@ def prepare(raw):
         kind='r17a single Main Diagnostics route fix', sourceBytes=len(raw),
         sourceSHA256=sha(raw), candidateBytes=len(result), candidateSHA256=sha(result),
         widget='SB6010', changedRouteFields=list(ROUTE_FIELDS),
-        oldTarget='Screen13', newTarget='Screen4', newZeroBasedIndex=3,
+        sourceSHAExplicitlyPinned=source_sha256 is not None,
+        oldTarget=old_values[56], oldRouteFields={str(i): old_values[i] for i in ROUTE_FIELDS},
+        newTarget='Screen4', newZeroBasedIndex=3, alreadyCorrect=old == new,
         buttonCaptionGeometryAndOtherPropertiesPreserved=True,
         completeInversePreservation=True, nativeOpaqueSettingsPreserved=True,
         alarmsAndMacroPreserved=True, probeStillReachableFromCodePage=True,
@@ -97,6 +108,7 @@ def prepare(raw):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--source', type=Path, required=True)
+    parser.add_argument('--source-sha256', help='Pin the SHA of a newer native save after inspecting it; never overwrite it')
     parser.add_argument('--report', type=Path, required=True)
     target = parser.add_mutually_exclusive_group(required=True)
     target.add_argument('--out', type=Path)
@@ -108,7 +120,7 @@ def main():
             or args.report.exists() or (args.out and candidate.exists())):
         raise ValueError('Distinct regular paths and NEW output/report required')
     original = args.source.read_bytes()
-    data, report = prepare(original)
+    data, report = prepare(original, args.source_sha256)
     if args.source.read_bytes() != original:
         raise ValueError('Source changed during inspection')
     if args.check:
