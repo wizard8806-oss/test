@@ -2,6 +2,24 @@
 
 Дата упаковки: 2026-11-13. Build ID: babanov-20261113-plc-r15-hmi-r17a.
 
+Полные пути с показанного пользователем снимка результата локального Codex:
+
+ZIP:
+
+```text
+C:\Users\user\CodexProjects\pump-station\.worktrees\station002-fault-reset-local-15\_release_private\Бабанов_PLC_r15_HMI_r17a_2026-11-13.zip
+```
+
+Папка комплекта:
+
+```text
+C:\Users\user\CodexProjects\pump-station\.worktrees\station002-fault-reset-local-15\_release_private\Бабанов_2026-11-13_PLC_r15_HMI_r17a
+```
+
+Облако прочитало опубликованный локальный отчёт
+`ce57ec2dbd33cf943b2e10e3613421baaf883100` и снимок пользователя.
+Проверки самих файлов/ZIP ниже выполнены локальным, а не повторно в облаке.
+
 Локально создана приватная папка и ZIP в _release_private worktree15. В архив вошли:
 
 - station_3p_reset_r15_native.pdw — 206320 байт, SHA256 d45ada8b0781175cf5c4a91e14a2f4bf23d9c037957ce830da44c1daca2e58ae;
