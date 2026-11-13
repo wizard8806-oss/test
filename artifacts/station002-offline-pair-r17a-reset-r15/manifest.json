@@ -1,0 +1,55 @@
+{
+  "kind": "Operator-checked offline PLC/HMI pair; hardware acceptance pending",
+  "date": "2026-11-13",
+  "files": [
+    {
+      "name": "station_3p_reset_r15_native.pdw",
+      "bytes": 206320,
+      "sha256": "d45ada8b0781175cf5c4a91e14a2f4bf23d9c037957ce830da44c1daca2e58ae"
+    },
+    {
+      "name": "pump_station_3p_native7_r17a_diagnostics.skm",
+      "bytes": 1479870,
+      "sha256": "3fa5c20f4ab9c4568853648a654070bc2872f60356033088cd8323001dea00e1"
+    }
+  ],
+  "nativePLC": {
+    "model": "FBs-24MC",
+    "syntaxCheckErrors": 0,
+    "syntaxCheckWarnings": 25,
+    "warningCode": "W85",
+    "warningReview": "Shown legacy M-coil writer networks byte-identical to original",
+    "usedProgramWORDs": 19891,
+    "freeProgramWORDs": 332,
+    "freeProgramBytes": 664,
+    "programDataAndTablesPreserved": true,
+    "nativeSaveOnlyRekeyAndChecksum": true
+  },
+  "HMI": {
+    "model": "SK-070HE",
+    "resolution": [
+      800,
+      480
+    ],
+    "pages": 16,
+    "alarmGroups": 7,
+    "mainDiagnostics": "Screen4",
+    "animationProbe": "Screen13",
+    "codeAndResetPage": "Screen15",
+    "PLCStartHistoryPage": "Screen16",
+    "logoPage": "Screen14",
+    "startupLogoSeconds": 4,
+    "screensaverMinutes": 1,
+    "runtimeEvidence": "operator screenshots and confirmation in Offline Simulator"
+  },
+  "externalLogo": {
+    "path": "C:\\Users\\user\\Documents\\HMI\\Samkoon\\Automatika визитка print.jpg",
+    "includedInArchive": false,
+    "projectReferencePreserved": true
+  },
+  "hardwareAcceptanceObserved": false,
+  "nativeFilesPublishedToGit": false,
+  "buildName": "Бабанов",
+  "buildID": "babanov-20261113-plc-r15-hmi-r17a",
+  "labelRequestedByUser": true
+}

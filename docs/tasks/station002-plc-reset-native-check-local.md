@@ -1,5 +1,16 @@
 # Следующий этап: нативная офлайн-проверка ПЛК со сбросом аварий
 
+**Завершено13.11: native PDW получен, пара помечена «Бабанов».**
+PLC206320/SHA d45ada8b0781175cf5c4a91e14a2f4bf23d9c037957ce830da44c1daca2e58ae
+сохранил decodedprogram/data/все2628metadatarecords кандидата; Save изменил
+только служебную маску/checksum. HMI1479870/3fa остаётся прежней.
+Приватный комплект/ZIP — /workspace/shared/station002-babanov-offline-pair-20261113/.
+Label в manifest/README/имениZIP, проекты не менялись. JPEG внешняя
+зависимость, вZIP не включён. Отчёт:
+docs/reports/station002-babanov-offline-pair-20261113.md.
+Проверки0/25/retain/таймеры/nativeSave уже выполнены; не повторять и не
+запрашивать файлы ещё раз. Ниже история этапа. Hardware-этап ожидает шкафа.
+
 **Текущий результат13.11: Syntax Check0ошибок/25предупреждений W85.**
 Результат и список подтверждены снимками оператора. Сверка39OUT/OUTS/OUTR
 в11читаемых M-реле показала byte-identical writer-сети source/candidate.

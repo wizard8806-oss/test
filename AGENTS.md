@@ -1,5 +1,28 @@
 # Работа с проектом
 
+**13.11: offline-пара зафиксирована, метка сборки по просьбе пользователя — «Бабанов».**
+Получен station_3p_reset_r15_native.pdw206320байт/SHA
+d45ada8b0781175cf5c4a91e14a2f4bf23d9c037957ce830da44c1daca2e58ae.
+NativeSave проверен: весь decodedimage/данные/2628metadatarecords/2586сетей/
+9таблиц совпадают сcandidate de693. Разница полного файла только native-mask
+и checksum; ключи/данные не публиковались. Это текущая PLC-основа,
+с HMI1479870/SHA3fa5c20f4ab9c4568853648a654070bc2872f60356033088cd8323001dea00e1.
+Не брать старые candidate/PDW35d как рабочую основу будущих правок.
+Native Syntax Check0ошибок/25прежнихW85, free332WORD/664байта,
+retainR0..2999/T124/125=0.1с подтверждены; nativeSave получен, повторять
+эти этапы/запрашивать эти файлы не нужно. Общие43/57тесты не повторялись,
+программа и данные неизменны. Полная аппаратная приёмка ещё не выполнена.
+Label «Бабанов» записан в manifest/README/имяZIP, внутри PDW/SKM ничего
+ради метки не менялось. Приватная пара/проверенныйZIP:
+/workspace/shared/station002-babanov-offline-pair-20261113/.
+Архив Бабанов_PLC_r15_HMI_r17a_2026-11-13.zip173493байт/SHA
+5ed68302957fd3cbc117e3e0c7342cc97aa906cdaeead8e41e4f141a44c5db9d.
+Оригинальный JPEG внешняя зависимость, вZIP не включён; путь изHMI сохранён.
+Отчёт docs/reports/station002-babanov-offline-pair-20261113.md,
+metadata-only artifacts/station002-offline-pair-r17a-reset-r15/manifest.json.
+Native/PDW/SKM/ZIP/JPEG/ключи в Git не публиковать. Следующий этап только
+после доступа к шкафу: реальные fault/описания/reset/связь/restart/noRUN.
+
 **13.11: нативный Syntax Check выполнен —0ошибок/25предупреждений W85.**
 Первый кадр показывает summary0/25, следующий — список W85 OUTS Duplicated
 coil. Первичное прочтение W65 было неверным, актуальный код W85.
