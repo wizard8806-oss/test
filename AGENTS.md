@@ -1,5 +1,20 @@
 # Работа с проектом
 
+**13.11: WinProLadder PDW открылся; Memory Allocation проверена по снимкам.**
+В заголовке station_3p_reset_r15_candidate.pdw, дерево PUMP_STATION_3/
+FBs-24MC, ladder10_PRESSURE загружена: operator-screenshot native OpenPASS.
+GUI-блокер локального не означает, что оператор не открыл проект.
+Project→Memory Allocation показывает Retentive Data Register Totals3000
+(R0-R2999): R2857..59 входят в сохраняемую область. 0.01sT0..49,
+0.1sT50..199/150шт, 1sT200..255/56шт; T124/125 имеют нужный шаг0.1s.
+Retentive M800..1399/600, S500..999/500, C0..139/140 иC200..239/40,
+ROR0. Параметры не менять. Это настройка проекта, не power-cycle-тест.
+Следующий шаг: Cancel Memory Allocation, раскрыть Ladder и определить
+реальную команду проверки программы. В Project видны Memory Allocation,
+Main/SubProgram/таблицы/ProjectInformation, проверочная команда не выбрана.
+Не угадывать F7/F8/не нажимать PLC-команды. Syntax/nativeSave и фактический
+отчёт свободной памяти ещё pending; HMI3fa без изменений, hardwareнет.
+
 **13.11: PLC-кандидат найден локально, native-проверка ждёт окна редактора.**
 На снимке local проверил PDW206320/de693ad…bb01 и HMI3fa, сохранил
 source/backup. WinProLadder запускается, но доступное окно оказалось
