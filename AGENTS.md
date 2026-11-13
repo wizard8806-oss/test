@@ -1,5 +1,15 @@
 # Работа с проектом
 
+**13.11: найдена проверочная команда WinProLadder — Tool→Syntax Check.**
+Оператор показал Ladder: там редактирование контактов/катушек, проверки нет.
+Readonly-анализ ресурсов cachedWProlad3.21-16001/TPF0 TWINPROLAD установил
+родителяMMTool(&Tool)→MMSyntaxCheck→ActionSyntaxCheck. Это справочная
+информация о команде, не запуск на Windows. Не продолжать перебор Project/
+Ladder и не возвращаться к MemoryAllocation/Open: они уже проверены.
+Следующий шаг оператору: Tool→Syntax Check и результат errors/warnings.
+WinProLadder-проверка программы по-прежнему pending; PLC/hardware/HMI без
+изменений, никаких команд связи/загрузки/Run/Force не выполнять.
+
 **13.11: WinProLadder PDW открылся; Memory Allocation проверена по снимкам.**
 В заголовке station_3p_reset_r15_candidate.pdw, дерево PUMP_STATION_3/
 FBs-24MC, ladder10_PRESSURE загружена: operator-screenshot native OpenPASS.

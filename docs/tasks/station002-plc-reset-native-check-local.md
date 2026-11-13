@@ -1,5 +1,12 @@
 # Следующий этап: нативная офлайн-проверка ПЛК со сбросом аварий
 
+**Следующая конкретная команда13.11 — Tool → Syntax Check.**
+Ladder показан оператором, там только редактирование. Путь проверки найден
+в vendor-ресурсе WProlad3.21: MMTool→MMSyntaxCheck→ActionSyntaxCheck.
+Выбрать пункт на ПК и зафиксировать реальный результат errors/warnings.
+Это справка о команде, выполнение ещё не подтверждено. Пройденные Open/
+MemoryAllocation и выбор меню повторять не нужно. HMI/ПЛК-код не менять.
+
 **Текущее состояние13.11:** оператор уже открыл PDW в WinProLadder:
 station_3p_reset_r15_candidate.pdw/PUMP_STATION_3 [FBs-24MC], ladder видна.
 Memory Allocation показывает Retentive Data Registers3000/R0..R2999 —
