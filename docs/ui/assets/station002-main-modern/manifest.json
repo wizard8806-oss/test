@@ -7,29 +7,15 @@
     "2/3 pumps on7-inch",
     "4 pumps on10-inch",
     "Common follower frequency replaces large PLC-link block",
-    "Small PLC connection indicator in header"
+    "Small PLC connection indicator in header",
+    "Typography only: larger pressure setpoint; smaller common follower frequency"
   ],
   "assets": [
     {
       "pumps": 2,
       "file": "main-dark-2-pumps-followers.png",
-      "bytes": 1696236,
-      "sha256": "4f63fcc1aeb932cdebcb9fff59820b3727eae2d6da159f4949f9f897943dd0b7",
-      "imagePixels": [
-        1619,
-        971
-      ],
-      "panelInches": 7,
-      "nativeTargetPixels": [
-        800,
-        480
-      ]
-    },
-    {
-      "pumps": 3,
-      "file": "main-dark-3-pumps-followers.png",
-      "bytes": 1759417,
-      "sha256": "b478a5fdb6cbd023b1a8044e825aea2231b999af62747914b5c1de38dc16c6dc",
+      "bytes": 1736365,
+      "sha256": "7883deeb8fcc9f500401a96e48791ee4af403c43ccd94c0a199aff34a5ac3fce",
       "imagePixels": [
         1620,
         971
@@ -38,13 +24,30 @@
       "nativeTargetPixels": [
         800,
         480
-      ]
+      ],
+      "previousSHA256": "4f63fcc1aeb932cdebcb9fff59820b3727eae2d6da159f4949f9f897943dd0b7"
+    },
+    {
+      "pumps": 3,
+      "file": "main-dark-3-pumps-followers.png",
+      "bytes": 1722747,
+      "sha256": "c54452c2702b6940057a65bd5da6af4205b45141e3c9b9a34d35a31031f1de15",
+      "imagePixels": [
+        1620,
+        971
+      ],
+      "panelInches": 7,
+      "nativeTargetPixels": [
+        800,
+        480
+      ],
+      "previousSHA256": "b478a5fdb6cbd023b1a8044e825aea2231b999af62747914b5c1de38dc16c6dc"
     },
     {
       "pumps": 4,
       "file": "main-dark-4-pumps-followers.png",
-      "bytes": 1745505,
-      "sha256": "157b10a56251f2995b92a8aa4dc4b54ca9f926bfe7ae17ed786822c8b657316c",
+      "bytes": 1741355,
+      "sha256": "edeabb1cd0c261e77b17b08257e07f48f92abee543167de04bc29b55cf9db282",
       "imagePixels": [
         1635,
         962
@@ -53,9 +56,16 @@
       "nativeTargetPixels": [
         1024,
         600
-      ]
+      ],
+      "previousSHA256": "157b10a56251f2995b92a8aa4dc4b54ca9f926bfe7ae17ed786822c8b657316c"
     }
   ],
   "nativeRedesignCompleted": false,
-  "plcChanged": false
+  "plcChanged": false,
+  "summaryEmphasis": {
+    "pressure": "primary",
+    "setpoint": "larger",
+    "followerFrequency": "smaller-secondary",
+    "cellGeometry": "preserved"
+  }
 }
