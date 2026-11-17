@@ -24,6 +24,13 @@ def bit(mode, relay):
     return w({'ORG': 0x4000, 'AND': 0x8000, 'ANDN': 0x9000}[mode] + 0x810 + relay)
 
 
+def parallel_actions(first, second):
+    # Same native fan-out used by the accepted reset r15 actions(). Two
+    # sequential output functions are executable by the host model but
+    # rejected by WinProLadder's network-to-node converter.
+    return w(0xc400, 0x8fea) + first + w(0x6400) + second
+
+
 def prepare(source):
     source = Path(source)
     raw = source.read_bytes()
@@ -72,7 +79,9 @@ def prepare(source):
         expected = bit('ORG', 1744 + pump) + w(0xf4ac, r(2803 + 8 * pump), r(2500 + pump))
         if before != expected:
             raise ValueError('Native seven-WORD sample publisher differs')
-        patches[name] = (at, before, before + w(0xf4ac, r(2806 + 8 * pump), r(2504 + pump)))
+        patches[name] = (at, before, bit('ORG', 1744 + pump) + parallel_actions(
+            w(0xf4ac, r(2803 + 8 * pump), r(2500 + pump)),
+            w(0xf4ac, r(2806 + 8 * pump), r(2504 + pump))))
 
     name = '10.N3002 | BUILD_MARKER'
     at, before = spans[name]
@@ -80,8 +89,9 @@ def prepare(source):
         raise ValueError('Build marker differs')
     patches[name] = (at, before, w(0x4fe8, 0xf5ac, MARKER, r(2861)))
     point = spans['65.T001 | P1_FREQ_ROW_DONE'][0]
-    prep = w(0x4fe8, 0xf6c6, 0x4000 + 2 * 300, 255, r(ROW_REGISTER),
-             0xf5ac, MARKER, r(2509))
+    prep = w(0x4fe8) + parallel_actions(
+        w(0xf6c6, 0x4000 + 2 * 300, 255, r(ROW_REGISTER)),
+        w(0xf5ac, MARKER, r(2509)))
     edits = [(point, b'', prep)] + list(patches.values())
     edits.sort(key=lambda v: (v[0], len(v[1])))
     delta = sum(len(new) - len(old) for _, old, new in edits)

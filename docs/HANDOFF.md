@@ -1,3 +1,47 @@
+## 17.11.2026 — r19 native реально сохранён и проверен offline локальным Codex
+
+Отчёт: [station002-telemetry-r19-native-local.md](reports/station002-telemetry-r19-native-local.md).
+Windows/SKTOOL7.1/WinProLadder, 17.11 около21:15МСК. База30caaa4,
+manifest-код0889ecff7c6d7913cfd438d7ba70c010ca9cf017 проверен;
+свежий origin27eff9ce8528888d4addfaff6f8504a18340d809 принят fast-forward.
+Worktree `C:\Users\user\CodexProjects\pump-station\.worktrees\telemetry-r19-local-20261117`,
+ветка `codex/telemetry-r19-local-20261117`; публикация в handoff-ветку.
+Корневой dirty checkout5e3cbae сохранён, main не менялся.
+
+Итоговый каталог:
+`C:\Users\user\CodexProjects\pump-station\.worktrees\station002-fault-reset-local-15\_release_private\Бабанов_R19_Телеметрия_2026-11-17`.
+PLC `station_3p_telemetry_r16_native.pdw`,206362байта,
+SHA`e163898006de80a0f88bc1f3b9d663860c4bc15c82dbc405cf73882e75276702`;
+HMI `pump_station_3p_babanov_r19_telemetry_native.skm`,1500593байта,
+SHA`360ce145edfe8b2ab70b334a94436aa6d9e696e0e2e39a932ea5b29bedd96d8a`.
+Полный manifest/README/4externalassets и приватные доказательства в каталоге.
+
+Pinned PLCcandidate15151a98… нативно отвергнут E0(network981): исправлен
+fan-out двух outputfunctions в builder по принятому r15. Новый candidate
+faf6babc…; native повторно Open/F8 **0errors/25warningsW85**, free594байта/
+297WORD(+70байт вместо старых+46/618). Host162cases nativePASS;
+decodedprogram/data/2629metadata совпадают. PLCsimulation/железо не проверялись.
+
+HMI строилась из штатно сохранённого пользовательского RAM38638a8f…:
+старый f09dd… уже пересохранён; сравнены r18a/текущийдиск/RAM: тот же
+macro75c887…/sections0..16/17pages/7groups. Сохранена пользовательскаяLOGO.
+Добавлены nativeNumericDisplay LW960..962/validLW963..965 и inverseпрочерки.
+NativeScriptCompile HMI/local **0/0**, wholeprojectCompile success;
+Download не нажимался. Simulator TEST_ONLY:1.7/20.4/38.9А, три0.0А,
+толькоP2invalid. Вернулись к production: повторныйOpen/Compile/Simulator,
+безоборудования прочерки/«Нетданных», ручнаяпамяткаРКФ/возвратPASS.
+ProductionC точно равен patch_macro(RAM), тестовыхвставокнет,
+реальныеF/Q R2500..2/R2510..12, таблицы/РКФ/LB810/811 сохранены.
+Новый nativefault-edge РКФ не инъецировался; однократныйпоказ сохранёнвкоде.
+
+Offlineэтап r19 завершён. Настоящий Modbus/нагрузка/полеваяпричина pending;
+стендодинПЧ — раздел4 исходноготаска и README. Командоборудованию0,
+SCADA10/11/радио не менялись/непереизмерялись. СледующийMainr20 начинать
+именно из этогоactualnative; старое«r19ещёнепередан»ниже — история.
+Native/копии/дампы/helpers приватны, вGit толькоbuilder/отчёт/очищенныеснимки.
+Проверенная база и последующий коммит отчёта различаются; SHA публикации
+сообщается после push, не вписывается в собственный коммит.
+
 ## 17.11.2026 — внедрение Mainr20 утверждено; assets/C готовы, native ждёт local
 
 Пользователь утвердил реализацию и убрал«Насосная станция». Local ещё
