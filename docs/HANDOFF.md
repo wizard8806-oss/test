@@ -1,3 +1,26 @@
+## 17.11.2026 — внедрение Mainr20 утверждено; assets/C готовы, native ждёт local
+
+Пользователь утвердил реализацию и убрал«Насосная станция». Local ещё
+делаетr19/постоянно просит согласие; готовый native/егоSHA не передан.
+Code6deb50e75448ab2df2116f42f13f76d68da51a82 содержит production-staticPNG
+безданных/названия,49nativeобластей и CсервисLW970..979.2READ ONLYBatch
+aliasesR2300/2bytes иR2140/24bytes добавить штатно доBootAckW. Helper
+экспортируетполныйC/sourceinverse, binarySKM/table не меняет.
+38actualCcases/58общихchecksPASS; isolated14filedeliveryPASS. Native
+Open/Compile/Save/Simulator нового Main и actualr19 ещё не наблюдались.
+
+Исправлена ошибкатаска: **NE5002R2100/NE5004R2110** уже дают ввод наMain
+рядомсND3014/3018; сохранятьscale/guards/bounds и все остальные функции,
+включаяAUTOreason/паузы/AlarmDisplay/RKF/17pages/7groups/ручноеокно/сбросы.
+ДляповторныхCLIapprovals проверены `/permissions` и existingfullaccesslauncher
+`resume --last`; согласиеужеесть, Windowsпрофильизоблаканеменялся.
+
+Обновлённый docs/tasks/station002-main-modern-r20-local.md — закончитьr19,
+затемr20изегоactualnative,втомжесеансе. Manifest:
+artifacts/station002-main-modern-r20/delivery-manifest.json; отчёт
+docs/reports/station002-main-r20-implementation-20261117.md. ПЛКпрежний
+fixed-three,2/4варианты остаютсядизайн-эталонами. Загрузку делает пользователь.
+
 ## 17.11.2026 — выбран современный Main №1; 2/3насоса7″,4насоса10″
 
 Последнее уточнение: увеличить цифры уставки и уменьшить общую частоту

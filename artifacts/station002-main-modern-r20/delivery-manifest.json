@@ -1,0 +1,112 @@
+{
+  "kind": "Native Main r20 implementation materials; actual SKM and native tests pending",
+  "commit": "6deb50e75448ab2df2116f42f13f76d68da51a82",
+  "rawBase": "https://raw.githubusercontent.com/wizard8806-oss/test/6deb50e75448ab2df2116f42f13f76d68da51a82/",
+  "files": [
+    {
+      "path": "assets/hmi/modern-main-r20/README.md",
+      "bytes": 4624,
+      "sha256": "5988e38a8cc08ea4d62176e027f9a1e0259143d43a8e9f2ac6751f1416f6c97f"
+    },
+    {
+      "path": "assets/hmi/modern-main-r20/layout-3.json",
+      "bytes": 13155,
+      "sha256": "733f82723d0032c70d5b2fe11d8b57d91ae482f789c9a940510aaf48bee37883"
+    },
+    {
+      "path": "assets/hmi/modern-main-r20/main-3-static-no-title.png",
+      "bytes": 1605688,
+      "sha256": "3d5bef84bd14820e1626ea8f005c8d2c917bded2a9f2f569c389f74be23fb46e"
+    },
+    {
+      "path": "assets/hmi/modern-main-r20/main_overview.c",
+      "bytes": 2262,
+      "sha256": "3dbc9a260fbb64ec7bce97e5860238aa429df50e1f324ef431e142e97cb51770"
+    },
+    {
+      "path": "docs/ui/assets/station002-main-modern/main-dark-3-pumps-followers.png",
+      "bytes": 1722747,
+      "sha256": "c54452c2702b6940057a65bd5da6af4205b45141e3c9b9a34d35a31031f1de15"
+    },
+    {
+      "path": "tools/Start-PumpStation-FullAccess.cmd",
+      "bytes": 207,
+      "sha256": "eec3540e71acf355574691aa16f5177142e0120ac227535483d81b3efc87151c"
+    },
+    {
+      "path": "tools/build_native_merge_r16.py",
+      "bytes": 8777,
+      "sha256": "4b877cb7fbd8308a292c4f3fccb6b3c494d822b393647ea61bf86d40c304af24"
+    },
+    {
+      "path": "tools/prepare_alarm_open_differential.py",
+      "bytes": 7461,
+      "sha256": "e6e899aa62b8f248e371ad8fa387e32466b7b452df52cb7cf24e5efc54739c44"
+    },
+    {
+      "path": "tools/prepare_modern_main_macro_r20.py",
+      "bytes": 4583,
+      "sha256": "62102b2a463ab46d7f4862a42b668b55170d77c4753c7e3baddb40f4fc84c563"
+    },
+    {
+      "path": "tools/repair_skm_section_index.py",
+      "bytes": 2816,
+      "sha256": "c5b29065a28561dd00db2e118a8ad157259fad90c9160e439c8adcd7df0214ef"
+    },
+    {
+      "path": "tools/skm_alarm_catalog.py",
+      "bytes": 10189,
+      "sha256": "4e56203981885d76a72fa24075870b85a2c4bf4a8e80728e9b0de6073b02c818"
+    },
+    {
+      "path": "tools/skm_page_storage.py",
+      "bytes": 1952,
+      "sha256": "aeecea91c73e32245b34d2042a23f22fbdcde124598d85f65c37c60aced63458"
+    },
+    {
+      "path": "tools/skm_project_header.py",
+      "bytes": 1954,
+      "sha256": "5b5b43ec5db6fce0852e53289a26946fe97f3ed9639e2389db770ca294d25705"
+    },
+    {
+      "path": "tools/validate_main_overview_r20.py",
+      "bytes": 4941,
+      "sha256": "e0a1b1f1fb3f9549562410c3219102bc125f4d19ed7caf72112cc4b40f99a443"
+    }
+  ],
+  "target": {
+    "pumps": 3,
+    "panel": "SK-070HE",
+    "pixels": [
+      800,
+      480
+    ],
+    "stationTitle": false
+  },
+  "sourceRequired": "Actual locally completed native r19, explicit SHA,17pages/7groups, telemetry27134",
+  "newReadOnlyRows": [
+    {
+      "name": "MainModeData",
+      "register": 2300,
+      "bytes": 2
+    },
+    {
+      "name": "MainRotationData",
+      "register": 2140,
+      "bytes": 24
+    }
+  ],
+  "nativeABI": "Native Variable Settings/MacroInit regeneration, existing BootAckW last",
+  "legacyInputsPreserved": [
+    "ND3014/NE5002 R2100",
+    "ND3018/NE5004 R2110"
+  ],
+  "componentHostCases": 38,
+  "macroExportGuardTestsPassed": true,
+  "nativeCompileObserved": false,
+  "nativeMainBuilt": false,
+  "fieldCommands": 0,
+  "repositoryCheckGroupsPassed": 58,
+  "isolatedDeliveryVerified": true,
+  "repositoryCheckScope": "58 groups before narrowing the readonly rotation input;38 C cases and isolated delivery repeated on final24-byte input"
+}

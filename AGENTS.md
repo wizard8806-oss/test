@@ -1,5 +1,20 @@
 # Работа с проектом
 
+**17.11: Mainr20 утверждён, C/assets готовы; localещёделаетr19.**
+Убрать«Насосная станция». Code6deb50e75448ab2df2116f42f13f76d68da51a82:
+фонбеззаголовка/живыхданных,49nativeобластей, Cсводка LW970..979,
+38Ccases/58общихchecksPASS.2READ ONLYBatchR2300/2 иR2140/24bytes добавить
+нативно доBootAckW; helperэкспортируетполныйC/inverse, SKMнепатчит.
+На финальном24byteвходе38Cкейсов/isolateddeliveryповторены.
+Actualпроверка исправила task: ND3014/NE5002R2100 иND3018/NE5004R2110
+имеют показ+ВВОД, сохранить guards/scale/limits и прежниефункцииMain.
+Пользователь сообщаетr19ещёработает/проситpermissions. Согласиеесть;
+/permissions или existinglauncher resume--last меняютлокальныйпрофиль,
+облако Windowsнепереключало. Послеr19сразуr20втомжесеансе, невторойагент.
+Manifest artifacts/station002-main-modern-r20/delivery-manifest.json;
+отчёт docs/reports/station002-main-r20-implementation-20261117.md.
+NativeMain/Compile/GUI ещёpending, невыдаватьC/assetsзаготовыйSKM.
+
 **17.11: пользователь выбрал новый Main — тёмный матовый вариант №1.**
 Последнее уточнение: только размер — «Уставка» больше, «Частота ведомых»
 меньше во всех2/3/4макетах; новые PNG/manifest и r20task это учитывают.
