@@ -1,5 +1,15 @@
 # «Бабанов»: исправить телеметрию и проверить на столе
 
+**Статус 17.11:** offline-этап выполнен, см.
+[native-отчёт](../reports/station002-telemetry-r19-native-local.md).
+Сборка ПЛК исправлена в b2e24755f02913fe3a96fc480e1e367dabaa471a:
+старый candidate15151a98… отклонён native E0. Актуальный candidate
+faf6babc…a61b, +70байт/free594; ниже исправлены pin/SHA для воспроизведения.
+Native PLC/HMI уже сохранены и проверены локально; не повторять перенос.
+Последняя HMI — r20 из [отчёта Main](../reports/station002-main-r20-native-local.md),
+с [отдельным вопросом к финальному снимку](station002-main-r20-final-proof-local.md).
+Не выполнен раздел4: реальный стенд/обмен/тайминги и ток под нагрузкой.
+
 17.11.2026. Последние версии стоят на объекте. У всех трёх насосов
 пропадают частота/шкала/вентилятор/статус, ток отсутствует; общей ошибки
 HMI↔PLC пользователь не видит. Доступ к объекту трудный. Сейчас есть
@@ -22,8 +32,8 @@ HMI↔PLC пользователь не видит. Доступ к объект
 изменения текущего checkout и не используй старые одноимённые builders.
 Все builders работают через Python standard library. Host HMI validator
 требует `cc` (Linux); его отсутствие на Windows не мешает native Compile.
-Code commit: **0889ecff7c6d7913cfd438d7ba70c010ca9cf017**;
-rawBase: `https://raw.githubusercontent.com/wizard8806-oss/test/0889ecff7c6d7913cfd438d7ba70c010ca9cf017/`.
+Code commit: **b2e24755f02913fe3a96fc480e1e367dabaa471a**;
+rawBase: `https://raw.githubusercontent.com/wizard8806-oss/test/b2e24755f02913fe3a96fc480e1e367dabaa471a/`.
 
 PLC: `station_3p_reset_r15_native.pdw`, **206320 байт**, SHA256
 `d45ada8b0781175cf5c4a91e14a2f4bf23d9c037957ce830da44c1daca2e58ae`.
@@ -37,7 +47,10 @@ HMI: `pump_station_3p_babanov_r18a_rkf_help_native.skm`, **1493506 байт**, S
 C:\Users\user\CodexProjects\pump-station\.worktrees\station002-fault-reset-local-15\_release_private\Бабанов_R18_РКФ_2026-11-16\pump_station_3p_babanov_r18a_rkf_help_native.skm
 ```
 
-Это последняя основа. **Не заменять её r17a и не строить HMI заново.**
+Это первоначальная основа helper. Пользователь позднее пересохранил проект;
+для выполненной r19 использована native-копия открытого RAM38638a8f…
+через явный --source-sha256 после сравнения C/settings/страниц, см. отчёт.
+**Для продолжения брать готовую r20, не строить HMI заново.**
 Рядом нужен `assets/xj3-d-help-numbered-project.png`,1839841 байт,
 SHA `16fad2e7af534fb6e09de8131d69848025123ff7cc19a20d61ed5fee22b3ee78`.
 Сохрани также прежнюю зависимость логотипа/JPEG. Если открытый проект
@@ -55,14 +68,14 @@ python tools/validate_telemetry_continuity.py "НОВЫЙ_КАТАЛОГ/station
 ```
 
 Ожидается **206362 байта**, SHA
-`15151a98daa5c34eb3c64dd2bbebecf71a5f77cf441c2218180584e839e2091c`,
-162 cases PASS, свободно618 байт/309 WORD. Сохраняются serial/control/
+`faf6babc1cc20e54e6d231b8a5cb965af64598255b5052c193ce96677c56a61b`,
+162 cases PASS, свободно594 байта/297 WORD. Сохраняются serial/control/
 reset-сети, 5-секундный watchdog и таблицы; нет новых запросов к ПЧ.
 Исправляются только собственная свежесть/качество индикации и экспорт тока.
 
 Открой новый candidate в WinProLadder. **Tool → Syntax Check**;
 сними actual errors/warnings/free. r15 имел0 errors/25 прежних W85;
-для нового файла результат ещё неизвестен. Не удаляй старые катушки ради
+native r16 также дал0 errors/25 W85 (локальный отчёт). Не удаляй старые катушки ради
 нулевого счётчика. После успешной проверки — отдельный native SaveAs
 `station_3p_telemetry_r16_native.pdw`, повторное открытие и сверка decoded
 программы/данных/metadata с candidate. Native rekey меняет полный SHA,

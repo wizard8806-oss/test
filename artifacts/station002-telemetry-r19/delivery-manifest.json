@@ -1,7 +1,7 @@
 {
-  "kind": "Offline telemetry fix and bench preparation; native HMI widgets/compile pending",
-  "commit": "0889ecff7c6d7913cfd438d7ba70c010ca9cf017",
-  "rawBase": "https://raw.githubusercontent.com/wizard8806-oss/test/0889ecff7c6d7913cfd438d7ba70c010ca9cf017/",
+  "kind": "Telemetry r19: native offline completed per local report; hardware verification pending",
+  "commit": "b2e24755f02913fe3a96fc480e1e367dabaa471a",
+  "rawBase": "https://raw.githubusercontent.com/wizard8806-oss/test/b2e24755f02913fe3a96fc480e1e367dabaa471a/",
   "files": [
     {
       "path": "tools/_runtime.py",
@@ -45,8 +45,8 @@
     },
     {
       "path": "tools/build_telemetry_quality_r16.py",
-      "bytes": 8769,
-      "sha256": "f89e5ef3773c40980a96fc721febe98c0bb02e41355eaabeaaee79d007bf9710"
+      "bytes": 9205,
+      "sha256": "aac51f4a048efc95782f813c89b944aedecd248ea9593c1e4be9867156246f37"
     },
     {
       "path": "tools/build_three_pump_pdw_candidate.py",
@@ -164,14 +164,17 @@
     "bytes": 1493506,
     "sha256": "f09dd8243b032e964d325adef7337dfc10ba26ff762b81449b01fb96b0d353d5",
     "availableOnlyLocally": true,
-    "doNotReplaceWithAncestor": true
+    "doNotReplaceWithAncestor": true,
+    "helperDefaultSourceOnly": true,
+    "actualNativeSourceDescribedIn": "docs/reports/station002-telemetry-r19-native-local.md"
   },
   "plcCandidate": {
     "name": "station_3p_telemetry_r16_candidate.pdw",
     "bytes": 206362,
-    "sha256": "15151a98daa5c34eb3c64dd2bbebecf71a5f77cf441c2218180584e839e2091c",
-    "freeProgramBytes": 618,
-    "featureMarker": 27133
+    "sha256": "faf6babc1cc20e54e6d231b8a5cb965af64598255b5052c193ce96677c56a61b",
+    "freeProgramBytes": 594,
+    "featureMarker": 27133,
+    "addedProgramBytes": 70
   },
   "hmiStage": {
     "nativeWidgetsPending": true,
@@ -198,8 +201,47 @@
     "passed": true,
     "sourceGuardsAndDeterminism": true
   },
-  "nativePLCChecksObserved": false,
-  "nativeNewHMIChecksObserved": false,
+  "nativePLCChecksObserved": true,
+  "nativeNewHMIChecksObserved": true,
   "fieldFixConfirmed": false,
-  "hardwareActions": 0
+  "hardwareActions": 0,
+  "rejectedInitialCandidate": {
+    "name": "station_3p_telemetry_r16_candidate.pdw",
+    "bytes": 206362,
+    "sha256": "15151a98daa5c34eb3c64dd2bbebecf71a5f77cf441c2218180584e839e2091c",
+    "freeProgramBytes": 618,
+    "featureMarker": 27133,
+    "nativeRejected": true,
+    "nativeError": "65_MODBUS(981) E0 Unrecognized network",
+    "sourceCommit": "0889ecff7c6d7913cfd438d7ba70c010ca9cf017"
+  },
+  "nativeResultsLocalReport": {
+    "report": "docs/reports/station002-telemetry-r19-native-local.md",
+    "sourceHMI": {
+      "name": "USER_OPEN_BUFFER_20261117.skm",
+      "bytes": 1494149,
+      "sha256": "38638a8f49073fed69d761018394e62142ac4247576fa5ac563ae17054dff183",
+      "explicitHelperSourceSHA256": true
+    },
+    "plc": {
+      "name": "station_3p_telemetry_r16_native.pdw",
+      "bytes": 206362,
+      "sha256": "e163898006de80a0f88bc1f3b9d663860c4bc15c82dbc405cf73882e75276702",
+      "nativeSyntaxErrors": 0,
+      "nativeSyntaxWarnings": 25,
+      "warningKind": "W85"
+    },
+    "hmi": {
+      "name": "pump_station_3p_babanov_r19_telemetry_native.skm",
+      "bytes": 1500593,
+      "sha256": "360ce145edfe8b2ab70b334a94436aa6d9e696e0e2e39a932ea5b29bedd96d8a",
+      "scriptCompileErrors": 0,
+      "scriptCompileWarnings": 0,
+      "wholeProjectCompileSuccess": true
+    },
+    "nativeBytesIndependentlyAvailableInCloud": false,
+    "latestHMIReport": "docs/reports/station002-main-r20-native-local.md",
+    "latestHMIProofFollowup": "docs/tasks/station002-main-r20-final-proof-local.md"
+  },
+  "nativeChecksEvidenceSource": "Local native report; not a cloud-native execution"
 }
