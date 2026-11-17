@@ -1,0 +1,61 @@
+{
+  "date": "2026-11-17",
+  "kind": "Visual references only; not backgrounds with live data, not native SKM",
+  "selectedStyle": "Option1: dark matte blue-grey",
+  "baseSelectedByUser": true,
+  "latestUserChanges": [
+    "2/3 pumps on7-inch",
+    "4 pumps on10-inch",
+    "Common follower frequency replaces large PLC-link block",
+    "Small PLC connection indicator in header"
+  ],
+  "assets": [
+    {
+      "pumps": 2,
+      "file": "main-dark-2-pumps-followers.png",
+      "bytes": 1696236,
+      "sha256": "4f63fcc1aeb932cdebcb9fff59820b3727eae2d6da159f4949f9f897943dd0b7",
+      "imagePixels": [
+        1619,
+        971
+      ],
+      "panelInches": 7,
+      "nativeTargetPixels": [
+        800,
+        480
+      ]
+    },
+    {
+      "pumps": 3,
+      "file": "main-dark-3-pumps-followers.png",
+      "bytes": 1759417,
+      "sha256": "b478a5fdb6cbd023b1a8044e825aea2231b999af62747914b5c1de38dc16c6dc",
+      "imagePixels": [
+        1620,
+        971
+      ],
+      "panelInches": 7,
+      "nativeTargetPixels": [
+        800,
+        480
+      ]
+    },
+    {
+      "pumps": 4,
+      "file": "main-dark-4-pumps-followers.png",
+      "bytes": 1745505,
+      "sha256": "157b10a56251f2995b92a8aa4dc4b54ca9f926bfe7ae17ed786822c8b657316c",
+      "imagePixels": [
+        1635,
+        962
+      ],
+      "panelInches": 10,
+      "nativeTargetPixels": [
+        1024,
+        600
+      ]
+    }
+  ],
+  "nativeRedesignCompleted": false,
+  "plcChanged": false
+}
