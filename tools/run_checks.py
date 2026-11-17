@@ -35,6 +35,7 @@ CHECKS = [
     'validate_fatek_map32_review.py',
     'validate_pump_count_workpack.py',
     'validate_pump_animation.py',
+    'validate_main_overview_r20.py',
     'validate_panel_services_r8.py',
     'validate_hmi_layout_recipe.py',
     'validate_skm_project_header.py',

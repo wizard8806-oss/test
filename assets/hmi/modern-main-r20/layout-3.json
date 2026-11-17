@@ -1,0 +1,635 @@
+{
+  "format": "native-SKTool-placement-guide",
+  "pumps": 3,
+  "target": [
+    800,
+    480
+  ],
+  "stationTitleVisible": false,
+  "background": {
+    "file": "main-3-static-no-title.png",
+    "bytes": 1605688,
+    "sha256": "3d5bef84bd14820e1626ea8f005c8d2c917bded2a9f2f569c389f74be23fb46e",
+    "imagePixels": [
+      1620,
+      971
+    ],
+    "place": [
+      0,
+      0,
+      800,
+      480
+    ],
+    "liveDataBaked": false
+  },
+  "fields": [
+    {
+      "name": "mode",
+      "rect": [
+        621,
+        3,
+        173,
+        27
+      ],
+      "source": "Existing Main R2300 mode enumeration",
+      "fontPixels": 20
+    },
+    {
+      "name": "auto_reason_or_restart",
+      "rect": [
+        16,
+        4,
+        510,
+        27
+      ],
+      "source": "Preserve existing AUTO reason/restart pending countdown; normal state blank",
+      "fontPixels": 16
+    },
+    {
+      "name": "plc_status",
+      "rect": [
+        589,
+        5,
+        23,
+        22
+      ],
+      "source": "LW972:1 OK,2 no link,3 map mismatch; native coloured indicator with text recovery in alarm strip",
+      "fontPixels": 16
+    },
+    {
+      "name": "pressure",
+      "rect": [
+        132,
+        47,
+        110,
+        53
+      ],
+      "source": "R2302; native scale /100",
+      "fontPixels": 48,
+      "visibility": "Preserve ND3008 R2303/link/map quality",
+      "reuseNative": "ND3008"
+    },
+    {
+      "name": "pressure_unit",
+      "rect": [
+        245,
+        73,
+        40,
+        22
+      ],
+      "source": "Static unit",
+      "fontPixels": 20,
+      "unit": "бар"
+    },
+    {
+      "name": "setpoint",
+      "rect": [
+        313,
+        57,
+        88,
+        45
+      ],
+      "source": "R2100; preserve native data type, scale and min/max",
+      "fontPixels": 42,
+      "reuseNative": "ND3014 / NE5002 paired display+entry"
+    },
+    {
+      "name": "setpoint_unit",
+      "rect": [
+        402,
+        74,
+        37,
+        21
+      ],
+      "source": "Static unit",
+      "fontPixels": 18,
+      "unit": "бар"
+    },
+    {
+      "name": "running_count",
+      "rect": [
+        470,
+        62,
+        43,
+        36
+      ],
+      "source": "LW970",
+      "fontPixels": 30,
+      "visibility": "LW971=1; else native dash"
+    },
+    {
+      "name": "installed_count",
+      "rect": [
+        516,
+        65,
+        51,
+        31
+      ],
+      "source": "Static fixed-three caption из3",
+      "fontPixels": 24
+    },
+    {
+      "name": "followers",
+      "rect": [
+        641,
+        63,
+        86,
+        33
+      ],
+      "source": "R2110; preserve native bounds200..500 and existing input guards",
+      "fontPixels": 26,
+      "reuseNative": "ND3018 / NE5004 paired display+entry"
+    },
+    {
+      "name": "followers_unit",
+      "rect": [
+        729,
+        74,
+        33,
+        21
+      ],
+      "source": "Static unit",
+      "fontPixels": 18,
+      "unit": "Гц"
+    },
+    {
+      "name": "pump1_role",
+      "rect": [
+        75,
+        145,
+        119,
+        20
+      ],
+      "source": "Existing Main role controls for channel1; retain AUTO membership/unknown indications",
+      "fontPixels": 16
+    },
+    {
+      "name": "pump1_status",
+      "rect": [
+        23,
+        168,
+        110,
+        27
+      ],
+      "source": "LW903:0 unknown,1 stopped,2 run,3 preparing,4 not-ready",
+      "fontPixels": 18,
+      "reuseNative": "MD10004"
+    },
+    {
+      "name": "pump1_fan",
+      "rect": [
+        145,
+        169,
+        27,
+        27
+      ],
+      "source": "LW900; existing rotor font/phases",
+      "fontPixels": 24,
+      "reuseNative": "MD70010"
+    },
+    {
+      "name": "pump1_frequency",
+      "rect": [
+        72,
+        219,
+        106,
+        31
+      ],
+      "source": "R2500; preserve0.1Hz formatting",
+      "fontPixels": 30,
+      "visibility": "Preserve R2510 quality",
+      "reuseNative": "ND10006"
+    },
+    {
+      "name": "pump1_frequency_unit",
+      "rect": [
+        181,
+        232,
+        23,
+        19
+      ],
+      "source": "Static unit",
+      "fontPixels": 16,
+      "unit": "Гц"
+    },
+    {
+      "name": "pump1_current",
+      "rect": [
+        72,
+        260,
+        98,
+        31
+      ],
+      "source": "LW960;0.1A",
+      "fontPixels": 30,
+      "visibility": "LW963=1; else native dash"
+    },
+    {
+      "name": "pump1_current_unit",
+      "rect": [
+        175,
+        274,
+        22,
+        19
+      ],
+      "source": "Static unit",
+      "fontPixels": 16,
+      "unit": "А"
+    },
+    {
+      "name": "pump1_bar",
+      "rect": [
+        27,
+        320,
+        200,
+        10
+      ],
+      "source": "R2500; visual scale0..500 raw=0..50Hz, saturate bar only, never clamp numeric value",
+      "visibility": "Preserve R2510 quality",
+      "reuseNative": "BG10012"
+    },
+    {
+      "name": "pump2_role",
+      "rect": [
+        339,
+        145,
+        119,
+        20
+      ],
+      "source": "Existing Main role controls for channel2; retain AUTO membership/unknown indications",
+      "fontPixels": 16
+    },
+    {
+      "name": "pump2_status",
+      "rect": [
+        287,
+        168,
+        110,
+        27
+      ],
+      "source": "LW904:0 unknown,1 stopped,2 run,3 preparing,4 not-ready",
+      "fontPixels": 18,
+      "reuseNative": "MD10018"
+    },
+    {
+      "name": "pump2_fan",
+      "rect": [
+        409,
+        169,
+        27,
+        27
+      ],
+      "source": "LW901; existing rotor font/phases",
+      "fontPixels": 24,
+      "reuseNative": "MD70011"
+    },
+    {
+      "name": "pump2_frequency",
+      "rect": [
+        336,
+        219,
+        106,
+        31
+      ],
+      "source": "R2501; preserve0.1Hz formatting",
+      "fontPixels": 30,
+      "visibility": "Preserve R2511 quality",
+      "reuseNative": "ND10020"
+    },
+    {
+      "name": "pump2_frequency_unit",
+      "rect": [
+        445,
+        232,
+        23,
+        19
+      ],
+      "source": "Static unit",
+      "fontPixels": 16,
+      "unit": "Гц"
+    },
+    {
+      "name": "pump2_current",
+      "rect": [
+        336,
+        260,
+        98,
+        31
+      ],
+      "source": "LW961;0.1A",
+      "fontPixels": 30,
+      "visibility": "LW964=1; else native dash"
+    },
+    {
+      "name": "pump2_current_unit",
+      "rect": [
+        439,
+        274,
+        22,
+        19
+      ],
+      "source": "Static unit",
+      "fontPixels": 16,
+      "unit": "А"
+    },
+    {
+      "name": "pump2_bar",
+      "rect": [
+        291,
+        320,
+        200,
+        10
+      ],
+      "source": "R2501; visual scale0..500 raw=0..50Hz, saturate bar only, never clamp numeric value",
+      "visibility": "Preserve R2511 quality",
+      "reuseNative": "BG10026"
+    },
+    {
+      "name": "pump3_role",
+      "rect": [
+        603,
+        145,
+        119,
+        20
+      ],
+      "source": "Existing Main role controls for channel3; retain AUTO membership/unknown indications",
+      "fontPixels": 16
+    },
+    {
+      "name": "pump3_status",
+      "rect": [
+        551,
+        168,
+        110,
+        27
+      ],
+      "source": "LW905:0 unknown,1 stopped,2 run,3 preparing,4 not-ready",
+      "fontPixels": 18,
+      "reuseNative": "MD10032"
+    },
+    {
+      "name": "pump3_fan",
+      "rect": [
+        673,
+        169,
+        27,
+        27
+      ],
+      "source": "LW902; existing rotor font/phases",
+      "fontPixels": 24,
+      "reuseNative": "MD70012"
+    },
+    {
+      "name": "pump3_frequency",
+      "rect": [
+        600,
+        219,
+        106,
+        31
+      ],
+      "source": "R2502; preserve0.1Hz formatting",
+      "fontPixels": 30,
+      "visibility": "Preserve R2512 quality",
+      "reuseNative": "ND10034"
+    },
+    {
+      "name": "pump3_frequency_unit",
+      "rect": [
+        709,
+        232,
+        23,
+        19
+      ],
+      "source": "Static unit",
+      "fontPixels": 16,
+      "unit": "Гц"
+    },
+    {
+      "name": "pump3_current",
+      "rect": [
+        600,
+        260,
+        98,
+        31
+      ],
+      "source": "LW962;0.1A",
+      "fontPixels": 30,
+      "visibility": "LW965=1; else native dash"
+    },
+    {
+      "name": "pump3_current_unit",
+      "rect": [
+        703,
+        274,
+        22,
+        19
+      ],
+      "source": "Static unit",
+      "fontPixels": 16,
+      "unit": "А"
+    },
+    {
+      "name": "pump3_bar",
+      "rect": [
+        555,
+        320,
+        200,
+        10
+      ],
+      "source": "R2502; visual scale0..500 raw=0..50Hz, saturate bar only, never clamp numeric value",
+      "visibility": "Preserve R2512 quality",
+      "reuseNative": "BG10040"
+    },
+    {
+      "name": "leader",
+      "rect": [
+        129,
+        354,
+        40,
+        26
+      ],
+      "source": "Reuse leaderR2304 state mapping, short captions №1/№2/№3/—",
+      "fontPixels": 20,
+      "reuseNative": "MD3022"
+    },
+    {
+      "name": "rotation_label",
+      "rect": [
+        185,
+        354,
+        599,
+        27
+      ],
+      "source": "LW973 phase/status captions",
+      "fontPixels": 18,
+      "layering": "Transparent left-aligned state caption; native numeric clock objects above it, visible onlyLW977=1"
+    },
+    {
+      "name": "rotation_hours",
+      "rect": [
+        337,
+        354,
+        55,
+        27
+      ],
+      "source": "LW974",
+      "fontPixels": 20,
+      "visibility": "LW977=1"
+    },
+    {
+      "name": "rotation_hours_unit",
+      "rect": [
+        397,
+        357,
+        20,
+        22
+      ],
+      "source": "Static ч",
+      "fontPixels": 18,
+      "visibility": "LW977=1",
+      "unit": "ч"
+    },
+    {
+      "name": "rotation_minutes",
+      "rect": [
+        423,
+        354,
+        40,
+        27
+      ],
+      "source": "LW975; two digits",
+      "fontPixels": 20,
+      "visibility": "LW977=1"
+    },
+    {
+      "name": "rotation_minutes_unit",
+      "rect": [
+        469,
+        357,
+        35,
+        22
+      ],
+      "source": "Static мин",
+      "fontPixels": 18,
+      "visibility": "LW977=1",
+      "unit": "мин"
+    },
+    {
+      "name": "alarm_strip",
+      "rect": [
+        17,
+        389,
+        767,
+        29
+      ],
+      "source": "Preserve actual Main Alarm Display/ticker plus correct no-alarm/link/map states",
+      "fontPixels": 18
+    },
+    {
+      "name": "navigation_Насосы",
+      "rect": [
+        9,
+        429,
+        106,
+        44
+      ],
+      "source": "Existing ScreenButton with unchanged destination; flat blue-grey style",
+      "fontPixels": 14
+    },
+    {
+      "name": "navigation_Каскад",
+      "rect": [
+        119,
+        429,
+        106,
+        44
+      ],
+      "source": "Existing ScreenButton with unchanged destination; flat blue-grey style",
+      "fontPixels": 14
+    },
+    {
+      "name": "navigation_Ротация",
+      "rect": [
+        229,
+        429,
+        106,
+        44
+      ],
+      "source": "Existing ScreenButton with unchanged destination; flat blue-grey style",
+      "fontPixels": 14
+    },
+    {
+      "name": "navigation_Ручной",
+      "rect": [
+        339,
+        429,
+        106,
+        44
+      ],
+      "source": "Existing ScreenButton with unchanged destination; flat blue-grey style",
+      "fontPixels": 14
+    },
+    {
+      "name": "navigation_Диагностика",
+      "rect": [
+        449,
+        429,
+        106,
+        44
+      ],
+      "source": "Existing ScreenButton with unchanged destination; flat blue-grey style",
+      "fontPixels": 14
+    },
+    {
+      "name": "navigation_График",
+      "rect": [
+        559,
+        429,
+        106,
+        44
+      ],
+      "source": "Existing ScreenButton with unchanged destination; flat blue-grey style",
+      "fontPixels": 14
+    },
+    {
+      "name": "navigation_Аварии",
+      "rect": [
+        669,
+        429,
+        106,
+        44
+      ],
+      "source": "Existing ScreenButton with unchanged destination; flat blue-grey style",
+      "fontPixels": 14
+    }
+  ],
+  "serviceOutputs": {
+    "LW970": "confirmed running count",
+    "LW971": "all three states known",
+    "LW972": "PLC1OK/2no-link/3map",
+    "LW973": "rotation status enum",
+    "LW974": "hours",
+    "LW975": "minutes",
+    "LW976": "total remaining minutes",
+    "LW977": "countdown visible",
+    "LW978": "27135 service marker",
+    "LW979": "global link/map valid"
+  },
+  "rotationCaptions": {
+    "0": "Нет данных",
+    "1": "Отключена",
+    "2": "Автосмена через",
+    "3": "Ожидание условий",
+    "4": "Останов для смены",
+    "5": "Подготовка ведущего",
+    "6": "Нет резервного ведущего",
+    "7": "Ошибка смены",
+    "8": "Неверный интервал",
+    "9": "Отсчёт приостановлен"
+  },
+  "notes": [
+    "Native placements are a guide; visually verify fonts/clipping in800×480 simulator",
+    "Preserve NE5002/NE5004 original guards/limits/scale and all existing operator actions",
+    "Native source/control values and native compile remain unverified until localr19/r20 reports"
+  ]
+}
