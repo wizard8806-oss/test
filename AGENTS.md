@@ -1,5 +1,33 @@
 # Работа с проектом
 
+**17.11: полевая жалоба на телеметрию; подготовлен offline r16 PLC /r19 HMI stage.**
+Пользователь сообщил: последние версии УЖЕ на объекте; у всех3насосов
+пропадают F/шкала/вентилятор/статус, ток не работает, общего PLC-link alarmнет.
+Это актуальнее старого «шкаф не загружали». Точный полевой байтовый readback
+не получен; доступ к объекту трудный. Сейчас PC+редакторы, позднее возможны
+PLC+HMI+одинПЧ. Не ждать шкафа: новое задание
+docs/tasks/station002-telemetry-r19-bench-local.md — сначала весь offlineэтап.
+В принятом PLCr15d45 воспроизведены ошибки: чужая FC03строка того жеslave
+сбрасывает M1748..50 (нетD300.low rowguard), затем M610..12 гасит R2510..12
+даже при свежем owncache. Новая копия: ownrows0/3/13, AND255→R3080,
+качество owncache без M610, ток R2806/14/22→R2504/5/6; R2509/R2861=27133.
+Native candidate206362байта/SHA15151a98…091c, +46байт/free618; остальные
+сети/данные/таблицы проверены одинаковыми, watchdog5с/защиты/RUN/resetпрежние.
+Helper tools/build_telemetry_quality_r16.py; baseline66/162FAIL→162/162PASS.
+HMI helper tools/prepare_telemetry_hmi_r19.py требует именно r18af09,
+сохраняет последнюю RKF/17страниц/7групп/nativeBatch/ABI. Убирает redundant
+generic alarm gate, вводит LW960..962 ток/LW963..965 valid, зонд27134.
+Native текущий r18a в cloud отсутствует; helper/115Ccases проверены ТОЛЬКО
+на ancestor r17a3fa (102/115FAIL→115/115PASS), не выдавать ancestor какfinal.
+Три native NumericDisplay ещё добавить локально; stageНЕготовкзагрузке.
+Native Open/Syntax/Compile нового PLC/HMI и физический обмен pending.
+57/57общихchecksPASS; проверенные дефекты не объявлять единственной
+доказанной полевой причиной. Контакты/serial timing ещё не измерены.
+Code pin0889ecff7c6d7913cfd438d7ba70c010ca9cf017, manifest
+artifacts/station002-telemetry-r19/delivery-manifest.json. Пока hardwareне
+подключать по требованию агента; сначала копии/редакторы/TEST_ONLY Simulator,
+позднее одинПЧ последовательно slave1/2/3. Финальные пути/SHA выдаёт local.
+
 **17.11: r18a native принята по отчёту и снимку — рисунок исправлен.**
 Получен remote910e996; облако прочитало полный отчёт и осмотрело 800×480
 Simulator-снимок docs/reports/assets/station002-rkf-r18a-simulator.png:

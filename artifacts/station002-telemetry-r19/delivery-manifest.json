@@ -1,0 +1,205 @@
+{
+  "kind": "Offline telemetry fix and bench preparation; native HMI widgets/compile pending",
+  "commit": "0889ecff7c6d7913cfd438d7ba70c010ca9cf017",
+  "rawBase": "https://raw.githubusercontent.com/wizard8806-oss/test/0889ecff7c6d7913cfd438d7ba70c010ca9cf017/",
+  "files": [
+    {
+      "path": "tools/_runtime.py",
+      "bytes": 1434,
+      "sha256": "4ea72322da0a0eb893ed9f22bcbd4536445c846bde649cc280d22726b49b99fa"
+    },
+    {
+      "path": "tools/build_animation_probe_hmi.py",
+      "bytes": 14207,
+      "sha256": "689b891b40eb0c1040dc9671e7ba400be490ce351fce26fb6ebd991207923708"
+    },
+    {
+      "path": "tools/build_drive_reset_r15.py",
+      "bytes": 20425,
+      "sha256": "59c40cbb82d65d147a88a1cedbd2f88aecf9582fbcefdbe905cf43873bd40d12"
+    },
+    {
+      "path": "tools/build_high_pressure_pdw_candidate.py",
+      "bytes": 12999,
+      "sha256": "ae93ac4e498ffd6ba3e15343ac8f815ec8347e97871d8e848e733091614ee1d9"
+    },
+    {
+      "path": "tools/build_manual_no_sensor_pdw.py",
+      "bytes": 6011,
+      "sha256": "4dc3de6dc692a8b4b0f86f29562a6603601dea340727d14a7888d884bf928929"
+    },
+    {
+      "path": "tools/build_native_merge_r16.py",
+      "bytes": 8777,
+      "sha256": "4b877cb7fbd8308a292c4f3fccb6b3c494d822b393647ea61bf86d40c304af24"
+    },
+    {
+      "path": "tools/build_radio_display_01.py",
+      "bytes": 4397,
+      "sha256": "82db9a5984fc88eabc5a17d47400c2ad898c04f6c5776e8b66a1cf55f8d3c2d1"
+    },
+    {
+      "path": "tools/build_setpoint_feedback_pdw_01.py",
+      "bytes": 10106,
+      "sha256": "bbe76f36c496b105c955474af644286954efcf3ded5551f2d17bd7d21f1d24ac"
+    },
+    {
+      "path": "tools/build_telemetry_quality_r16.py",
+      "bytes": 8769,
+      "sha256": "f89e5ef3773c40980a96fc721febe98c0bb02e41355eaabeaaee79d007bf9710"
+    },
+    {
+      "path": "tools/build_three_pump_pdw_candidate.py",
+      "bytes": 9665,
+      "sha256": "806fd520f70576b9351e5ebf685c3b75ceccb96e264d745c6daf097eb41aea29"
+    },
+    {
+      "path": "tools/build_vfd_fault_export_r14.py",
+      "bytes": 11029,
+      "sha256": "1d92d0ad8155bd884acccaf086cea615035ca008f6d577f9c78c55b0602bd881"
+    },
+    {
+      "path": "tools/check_fatek_network_graph.py",
+      "bytes": 4407,
+      "sha256": "034a43a9355c19281c50ab18839e1955cd8f5878ed97520d671b7917e45380c7"
+    },
+    {
+      "path": "tools/check_native_drive_edit_02.py",
+      "bytes": 7172,
+      "sha256": "2ca30beacb3a4a001dcdc33d70b191c1e5c56dbcae2d5dbe57c6e1208023fd38"
+    },
+    {
+      "path": "tools/check_setpoint_feedback_01.py",
+      "bytes": 3571,
+      "sha256": "6372ace11d17e450a77d3f9eef0effed88df9f395a537795b8db172b6c6a5f51"
+    },
+    {
+      "path": "tools/prepare_alarm_open_differential.py",
+      "bytes": 7461,
+      "sha256": "e6e899aa62b8f248e371ad8fa387e32466b7b452df52cb7cf24e5efc54739c44"
+    },
+    {
+      "path": "tools/prepare_native_drive_edit_02.py",
+      "bytes": 6797,
+      "sha256": "6b3827754403194baf0d232201c1834bd614a2e06b213b0c56214922c56546eb"
+    },
+    {
+      "path": "tools/prepare_setpoint_feedback_01.py",
+      "bytes": 7780,
+      "sha256": "e86f2f1700cb4522ea17cc3707a645216a4d5e50597891bb066c4592c2141a7c"
+    },
+    {
+      "path": "tools/prepare_telemetry_hmi_r19.py",
+      "bytes": 7916,
+      "sha256": "fd6e9c3652af0a41518d94d554aca275fc7292de4f4d0bc0fabd1bd4102869a3"
+    },
+    {
+      "path": "tools/render_fatek_network_01.py",
+      "bytes": 2615,
+      "sha256": "e22ef9969ede3a468edacea49a61a166f31a395865213d4da18d61a50c94471e"
+    },
+    {
+      "path": "tools/repair_skm_section_index.py",
+      "bytes": 2816,
+      "sha256": "c5b29065a28561dd00db2e118a8ad157259fad90c9160e439c8adcd7df0214ef"
+    },
+    {
+      "path": "tools/review_fatek_process_map_01.py",
+      "bytes": 10608,
+      "sha256": "3eef71c56ebd323e135429ba0d45312d831a1243e9d20ab099173b8a4940b857"
+    },
+    {
+      "path": "tools/skm_alarm_catalog.py",
+      "bytes": 10189,
+      "sha256": "4e56203981885d76a72fa24075870b85a2c4bf4a8e80728e9b0de6073b02c818"
+    },
+    {
+      "path": "tools/skm_page_storage.py",
+      "bytes": 1952,
+      "sha256": "aeecea91c73e32245b34d2042a23f22fbdcde124598d85f65c37c60aced63458"
+    },
+    {
+      "path": "tools/skm_project_header.py",
+      "bytes": 1954,
+      "sha256": "5b5b43ec5db6fce0852e53289a26946fe97f3ed9639e2389db770ca294d25705"
+    },
+    {
+      "path": "tools/validate_drive_reset_r15.py",
+      "bytes": 15346,
+      "sha256": "bffbd9e9ecfa94b2ceb7286d95142033c526afeba79823d092d4bcba3331dfce"
+    },
+    {
+      "path": "tools/validate_high_pressure_pdw_candidate.py",
+      "bytes": 12679,
+      "sha256": "9636c03038a50733ce5b3c20a2d834bd4df667c9e9e880e6e10462041a36ec0a"
+    },
+    {
+      "path": "tools/validate_telemetry_continuity.py",
+      "bytes": 7761,
+      "sha256": "d0a89e15f3dcdf797e2782f79225446ed2cc0b869da25132c0f4fb1535be903b"
+    },
+    {
+      "path": "tools/validate_telemetry_hmi_r19.py",
+      "bytes": 7984,
+      "sha256": "fd066853cb57c63b488ddc2d27fd0dacec5ea362300f53a0909b4a306b81bc59"
+    },
+    {
+      "path": "tools/validate_three_pump_pdw_candidate.py",
+      "bytes": 13016,
+      "sha256": "be7e1cf2d90d2804216db937410a6598e9dc4ef00f76b56c1db75c9e73d104ad"
+    },
+    {
+      "path": "tools/verify_scada_native_loader_01.py",
+      "bytes": 7213,
+      "sha256": "5492abb14928e6e94f4a553975519ab49188f97b5a21d28557b8150e75c418a6"
+    }
+  ],
+  "sourcePLC": {
+    "name": "station_3p_reset_r15_native.pdw",
+    "bytes": 206320,
+    "sha256": "d45ada8b0781175cf5c4a91e14a2f4bf23d9c037957ce830da44c1daca2e58ae"
+  },
+  "sourceHMI": {
+    "name": "pump_station_3p_babanov_r18a_rkf_help_native.skm",
+    "bytes": 1493506,
+    "sha256": "f09dd8243b032e964d325adef7337dfc10ba26ff762b81449b01fb96b0d353d5",
+    "availableOnlyLocally": true,
+    "doNotReplaceWithAncestor": true
+  },
+  "plcCandidate": {
+    "name": "station_3p_telemetry_r16_candidate.pdw",
+    "bytes": 206362,
+    "sha256": "15151a98daa5c34eb3c64dd2bbebecf71a5f77cf441c2218180584e839e2091c",
+    "freeProgramBytes": 618,
+    "featureMarker": 27133
+  },
+  "hmiStage": {
+    "nativeWidgetsPending": true,
+    "nativeCompilePending": true,
+    "deployable": false,
+    "probeMarker": 27134,
+    "currentWords": [
+      "LW960",
+      "LW961",
+      "LW962"
+    ],
+    "currentValidWords": [
+      "LW963",
+      "LW964",
+      "LW965"
+    ],
+    "currentScaleReference": 0.1
+  },
+  "observedHostChecks": {
+    "plcBytecodeCases": 162,
+    "hmiAncestorCCases": 115,
+    "hmiAncestorOnly": true,
+    "repositoryGroups": 57,
+    "passed": true,
+    "sourceGuardsAndDeterminism": true
+  },
+  "nativePLCChecksObserved": false,
+  "nativeNewHMIChecksObserved": false,
+  "fieldFixConfirmed": false,
+  "hardwareActions": 0
+}
