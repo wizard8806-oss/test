@@ -58,7 +58,7 @@ def prepare(raw, expected_sha, fixture=False):
     return data, dict(sourceSHA256=sha(raw), sourceMacroQStringSHA256=sha(block),
         outputUTF8SHA256=sha(data), fixtureOnly=fixture, outputKind='C for native Script Editor',
         newInputRows=[dict(name='MainModeData',type='Batch16 unsigned',address='R2300',bytes=2,readOnly=True),
-                      dict(name='MainRotationData',type='Batch16 unsigned',address='R2140',bytes=40,readOnly=True)],
+                      dict(name='MainRotationData',type='Batch16 unsigned',address='R2140',bytes=24,readOnly=True)],
         nativeInputPlacement='Before existing final BootAckW; regenerate aliases natively',
         words='LW970..979; local preflight must also check indirect ranges',
         noSKMOrVariableTableWritten=True, existingUTF16SourceRecoveredByInverse=True,

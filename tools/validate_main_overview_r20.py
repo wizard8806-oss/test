@@ -10,13 +10,13 @@ ROOT = Path(__file__).resolve().parents[1]
 
 class Inputs(ct.Structure):
     _fields_ = [('map', ct.c_ushort), ('mode', ct.c_ushort * 1),
-                ('rotation', ct.c_ushort * 20)]
+                ('rotation', ct.c_ushort * 12)]
 
 
 def check():
     component = (ROOT / 'assets/hmi/modern-main-r20/main_overview.c').read_text()
     header = '''
-typedef struct {unsigned short map, mode[1], rotation[20];} IN;
+typedef struct {unsigned short map, mode[1], rotation[12];} IN;
 static unsigned short lw[60200];
 static unsigned char lb[60200];
 #define LocalWord lw

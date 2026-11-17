@@ -11,7 +11,7 @@ SKM. Новый native r19 пока создаётся локальным Codex.
   native Simulator; увеличенный PNG не подтверждает реальную читаемость.
 - `main_overview.c`: HMI-сводка, вызов ПОСЛЕ PumpAnimation. Добавить
   READ ONLY Batch16 `MainModeData` R2300/2bytes и `MainRotationData`
-  R2140/40bytes до последнего BootAckW; alias/MacroInit генерирует SKTool.
+  R2140/24bytes до последнего BootAckW; alias/MacroInit генерирует SKTool.
   Не добавлять scalar-inputs и не прописывать pVar вручную. При отсутствии
   alias C явно не компилируется, чужое значение не подставляется.
 

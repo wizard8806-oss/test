@@ -1,6 +1,6 @@
 /* Native SKTool inputs, both READ ONLY, inserted before BootAckW:
  * MainModeData: Batch16 R2300, Bytes2.
- * MainRotationData: Batch16 R2140, Bytes40.
+ * MainRotationData: Batch16 R2140, Bytes24.
  * Only HMI-local LW970..979 are written. No PLC command or local bit write.
  * Called AFTER PumpAnimation, which owns the confirmed states LW903..905.
  */
@@ -8,7 +8,7 @@
 #error Configure_MainModeData_Batch16_R2300_Bytes2_ReadOnly
 #endif
 #ifndef MainRotationData
-#error Configure_MainRotationData_Batch16_R2140_Bytes40_ReadOnly
+#error Configure_MainRotationData_Batch16_R2140_Bytes24_ReadOnly
 #endif
 
 static void MainOverview(IN *p)
