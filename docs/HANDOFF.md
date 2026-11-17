@@ -1,3 +1,49 @@
+## 17.11.2026 — Main r20 перенесён в native и проверен локально
+
+По просьбе пользователя продолжено здесь: выбранный тёмный дизайн для3насосов,
+800×480, без заголовка, крупнее уставка/меньше частота ведомых.
+Отчёт: [station002-main-r20-native-local.md](reports/station002-main-r20-native-local.md).
+Выполнено самим Codex на Windows/SKTOOL7.1, без оборудования и второго агента.
+Проверенная Git-база b2e24755f02913fe3a96fc480e1e367dabaa471a;
+ветка/worktree `codex/telemetry-r19-local-20261117` сохранены.
+
+Файл:
+`C:\Users\user\CodexProjects\pump-station\.worktrees\station002-fault-reset-local-15\_release_private\Бабанов_R20_Main_2026-11-17\pump_station_3p_babanov_r20_main_native.skm`.
+1472535байт, SHA`daaeb096a890716cb2151604724293b77139f74cd49bf0a1ea27f9e7bb801534`.
+В папке README/FINAL_NATIVE_MANIFEST/assets/полныйC/приватные доказательства.
+Не использовать TEST_ONLY/candidate. Исходнаяr19 SHA360ce145…96d8a и PLCr16
+SHAe1638980…76702 сохранены; новым HMI не приписывать новую PLC-проверку.
+
+Native SaveAs/повторныйOpen, ScriptCompile HMI/local **0/0**, wholeHMI
+**compiled successfully**, SimulatorproductionPASS. Download0% закрыт,
+команд оборудованию0. Реальный MainOverview C **38Windows x86EXE casesPASS**;
+проверена неизменность input и отсутствие записей вне LW970..979.
+Native добавлены READONLY MainModeDataR2300/2bytes и MainRotationDataR2140/24
+до последнегоBootAck; aliases генерировал редактор, без ручного pVar.
+Тестовый Simulator: F/I/ноль/одинunknown/PLCoffline/map/STOP/6ч20мин/
+paused/no-reserve/off; ввод5.5бар и42.0Гц через прежние клавиатуры PASS.
+Пределы0.1..11.9бар и20..50Гц/guards/адреса сохранены. Исправлен только
+прежний painterND3014: показывалR2100/10 при вводе/100; теперь показ/100.
+В final нет тестовых присваиваний, привязкиF/Q/I сохранены.
+
+Все7маршрутовMain и возвраты реально открыты в production. РКФ вручную
+открыта, оба возвратаPASS; LB810/811/автовызов/звук/mute/resetguards сохранены.
+17страниц/7групп, settingssections0..16 совпали с native-моделью после
+добавления2строк. У остальных страниц NativeSave обновил4PNGpreview-кэша
+HistoricTrend HT8240/HT8102/HT8148/HT8194; за исключением этих кэшей,
+остальные байты совпали. Не утверждать побайтовое равенство самихPNG.
+
+ProductionSimulator безPLC показывает «Неверная карта ПЛК» по реальному
+simulatorMapVersion0; это отсутствие подтверждённых данных, не измерение
+карты настоящегоPLC. Новый реальный alarm-event/РКФpower-edge/RS485/нагрузка
+pending. Тестовые цифры/состояния — consumer rendering, не Modbus.
+SCADA10/11/радио не менялись/не переизмерялись. 2/4насоса — только макеты.
+Для дальнейшей доработки использовать именно этот actualnative r20;
+старые «nativeMainpending/r19непередан» ниже — история.
+Документы/DESIGN/очищенные снимки публикуются в handoff-ветку; native,
+assets заказчика, dumps и временные helpers приватны. SHA публикации
+сообщается после push отдельно от проверенного базового SHA.
+
 ## 17.11.2026 — r19 native реально сохранён и проверен offline локальным Codex
 
 Отчёт: [station002-telemetry-r19-native-local.md](reports/station002-telemetry-r19-native-local.md).
