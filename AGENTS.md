@@ -1,5 +1,13 @@
 # Работа с проектом
 
+**24.11: native r21 завершена локально.**
+См. верх HANDOFF и docs/reports/station002-main-manual-r21-native-local.md.
+Итоговый SKM/SHA650a295d…be92bd отдельно от r20;17страниц/7групп,
+Compile HMI/local0/0, wholeCompile/OfflineSimulator PASS. Main6переходов,
+9ручных контролов, маска LW980..982/LB1260; PLC прежний.
+Перенос/макет/установку не повторять. Native/dumps/assets заказчика приватны.
+Оборудование/приводы/настоящие события остаются pending.
+
 **24.11: пользователь утвердил r21 — «отлично. сохраняем и делаем».**
 Приступать по docs/tasks/station002-main-manual-r21-local.md, без нового
 утверждения макета/общего доступа. Итоговый MANUAL PNG с3контролами,

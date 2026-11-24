@@ -1,3 +1,37 @@
+## 24.11.2026 — native r21 завершена локально, без оборудования
+
+Выполнено утверждённое задание eb6e0064c8cb13a5a01725b629b04e0381a9051a
+в worktree/ветке `codex/telemetry-r19-local-20261117`.
+Отчёт: [station002-main-manual-r21-native-local.md](reports/station002-main-manual-r21-native-local.md).
+Итоговый SKM: `C:\Users\user\CodexProjects\pump-station\.worktrees\station002-fault-reset-local-15\_release_private\Бабанов_R21_Main_2026-11-24\pump_station_3p_babanov_r21_main_manual_native.skm`,
+1591509байт, SHA256 `650a295dc7e842a33ee3c8ed1e2cf01364eb62085862a844aab148c9cbbe92bd`.
+Исходная r20/SHAdaaeb096…01534 и PLCnative/SHAe1638980…76702 сохранены.
+Dirty-корень5e3cbae и прежние открытые r20 не перезаписывались.
+
+Main: удалён SB6010/Диагностика, осталось6реальных переходов;
+9полных клонов ручных органов Screen7 с M380..382/M384..386/R2180..2182,
+прежними Invert/Press execute, guards/форматом/границами10.0..50.0Гц.
+M1660..1662 Retry не переносились. Native-подложки закрывают запечённую
+графику, статусы/шкалы/бары разделены, ряд MANUAL/сводка и аварии не пересекаются.
+Маска только LW980..982/LB1260, существующие aliases, без новых variable rows.
+LB810 target6→0, reset/эпизоды и LB811 сохранены. Сервисы тёмные,
+светлые поля/оси читаемы, цвета состояний и art РКФ/лого сохранены.
+
+Actual SaveAs/reopen, production Script HMI/local0errors/0warnings,
+whole HMI compiled successfully и production Offline Simulator PASS.
+6прямых маршрутов Main,16страниц Simulator +LOGO Editor просмотрены;
+Windows264теста маски +8тестов старого PanelHelpers PASS.
+Protected audit586объектов/9клонов/17страниц/7групп PASS.
+TEST_ONLY от финального SHA: запросы/частоты/границы/маски/блокировки,
+удержание/скрытие и совместные LB810/LB811 проверены; в final подмен нет.
+Подробности и различие host/native/synthetic — в отчёте.
+
+Локальные README/FINAL_NATIVE_MANIFEST.json, dumps/скрипты/снимки рядом с SKM;
+их не публиковать. Сохранить внешние assets/шрифт. В Git — отчёт и чистые
+кадры с явным TEST_ONLY; hardware/Download/Force/RUN/Apply0.
+Реальные Modbus/приводы/новая авария питания/панель pending, их этот этап не принимает.
+Проверенный базовый SHA указан выше; последующий docs-коммит — отдельная публикация.
+
 ## 24.11.2026 — r21 утверждён, native-перенос авторизован
 
 Пользователь: «отлично. сохраняем и делаем». Итоговый эскиз MANUAL
