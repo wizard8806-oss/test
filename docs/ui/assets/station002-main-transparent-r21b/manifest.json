@@ -1,0 +1,29 @@
+{
+  "kind": "generated-target-design-sketches",
+  "date": "2026-11-24",
+  "notNativeScreenshots": true,
+  "purpose": "Compare desired AUTO/MANUAL appearance with unretouched native r21b screenshots",
+  "sourceSketches": "docs/ui/assets/station002-main-manual-r21; only transparent fields and digit colors edited with image_gen",
+  "nativeReferenceCommit": "cdfbfb1411f7c78323480b8eaca2eddba96ba57d",
+  "layoutAuthority": "DESIGN.md and native800x480 spacing constraints; generated artwork is an approximate visual reference",
+  "files": [
+    {
+      "file": "main-auto.png",
+      "bytes": 1631575,
+      "sha256": "eb03d9dac72d7edfb5b8f01f996c0613d81965eabe058b743fdb50e4da9d7584",
+      "size": [
+        1620,
+        971
+      ]
+    },
+    {
+      "file": "main-manual.png",
+      "bytes": 1720203,
+      "sha256": "41136a1082d972b38e1fb7d1c827bc5b46b73c35bdb79a2a6858fdd8d00245c2",
+      "size": [
+        1620,
+        971
+      ]
+    }
+  ]
+}

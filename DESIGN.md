@@ -1,3 +1,9 @@
+24.11 — [сравнение r21b с целевым MANUAL](docs/reports/station002-r21b-target-comparison-20261124.md):
+верхние прозрачные поля/геометрия подтверждены, полного совпадения с рисунком
+пока нет. Целевые [MANUAL](docs/ui/assets/station002-main-transparent-r21b/main-manual.png)
+и [AUTO](docs/ui/assets/station002-main-transparent-r21b/main-auto.png) сохранены
+как эскизы; реальные доказательства остаются в native-отчёте ниже.
+
 24.11 — r21b принята локальными проверками: [реализация и пиксельные измерения](docs/reports/station002-r21b-native-local.md). Transparent/no-border у всех слоёв; active NE, disabled только gray ND. Arial12 подписи,35 уставка,22 ведомые; нижняя линия99,единицы99,отступ до карточек11px,число–единица15px.
 
 **Актуальная правка r21b от 24.11:** прозрачные подписи/цифры без отдельных
