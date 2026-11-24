@@ -1,0 +1,33 @@
+{
+  "status": "design-sketches-only; native-r21-not-built",
+  "targetNativePixels": [
+    800,
+    480
+  ],
+  "files": [
+    {
+      "name": "main-manual.png",
+      "mode": "MANUAL",
+      "bytes": 1709572,
+      "sha256": "aae184891356caf58efaae5ceef1ea0206318b1537b011f7f390cedb5f0636d7",
+      "imagePixels": [
+        1620,
+        971
+      ],
+      "valuesAreIllustrative": true
+    },
+    {
+      "name": "main-auto.png",
+      "mode": "AUTO",
+      "bytes": 1621014,
+      "sha256": "94c041685fc3a41755dc9e12c16650197a02bde689dff7a5e78dfea4209d5b27",
+      "imagePixels": [
+        1619,
+        971
+      ],
+      "valuesAreIllustrative": true
+    }
+  ],
+  "manualControlsPerPump": 3,
+  "supersedesFourControlSketch": true
+}

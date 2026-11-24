@@ -1,0 +1,327 @@
+{
+  "format": "native-SKTool-placement-guide",
+  "status": "design-and-local-task; native-pending",
+  "device": "SK-070HE",
+  "target": [
+    800,
+    480
+  ],
+  "pumps": 3,
+  "sourceNative": {
+    "name": "pump_station_3p_babanov_r20_main_native.skm",
+    "bytes": 1472535,
+    "sha256": "daaeb096a890716cb2151604724293b77139f74cd49bf0a1ea27f9e7bb801534"
+  },
+  "sharedRows": {
+    "autoSummary": [
+      10,
+      346,
+      780,
+      40
+    ],
+    "manualPanel": [
+      10,
+      346,
+      780,
+      40
+    ],
+    "alarms": [
+      10,
+      392,
+      780,
+      30
+    ],
+    "footerY": 430,
+    "footerHeight": 44
+  },
+  "visibility": {
+    "manual": "Confirmed physical MANUAL R2552 with native link/map/mode/interlocks preserved; R2300 manual states20/21/22",
+    "summary": "Normal r20 summary outside manual; existing unknown/link/map captions preserved",
+    "hiddenControlsReceiveInput": false,
+    "modeChangeEmitsCommand": false
+  },
+  "frequency": {
+    "separatePerPump": true,
+    "rawScale": 0.1,
+    "ancestorNativeRawLimits": [
+      100,
+      500
+    ],
+    "limitsMustBeCheckedInCurrentR20": true,
+    "editStartsPump": false,
+    "explicitKeypadConfirmation": true,
+    "confirmationBehavior": "Native keypad confirmation writes only own R2180..2182. Existing PLC queues changed frequency; no separate apply request. M1660..1662 are Retry, not Apply."
+  },
+  "pumpColumns": [
+    {
+      "pump": 1,
+      "statusCaption": [
+        27,
+        296,
+        224,
+        14
+      ],
+      "scaleTicks": [
+        27,
+        315,
+        200,
+        10
+      ],
+      "frequencyBar": [
+        27,
+        330,
+        200,
+        8
+      ],
+      "manualControls": [
+        {
+          "kind": "start",
+          "caption": "Пуск",
+          "rect": [
+            10,
+            346,
+            74,
+            40
+          ],
+          "binding": "M380",
+          "cloneActualScreen7Widget": "BB9028",
+          "preserveAllNativeGuardsAndActionProperties": true
+        },
+        {
+          "kind": "stop",
+          "caption": "Стоп",
+          "rect": [
+            90,
+            346,
+            74,
+            40
+          ],
+          "binding": "M384",
+          "cloneActualScreen7Widget": "BB9032",
+          "preserveAllNativeGuardsAndActionProperties": true
+        },
+        {
+          "kind": "frequency",
+          "caption": "Гц",
+          "rect": [
+            170,
+            346,
+            94,
+            40
+          ],
+          "binding": "R2180",
+          "cloneActualScreen7Widget": "NE9018",
+          "preserveAllNativeGuardsAndActionProperties": true
+        }
+      ]
+    },
+    {
+      "pump": 2,
+      "statusCaption": [
+        291,
+        296,
+        224,
+        14
+      ],
+      "scaleTicks": [
+        291,
+        315,
+        200,
+        10
+      ],
+      "frequencyBar": [
+        291,
+        330,
+        200,
+        8
+      ],
+      "manualControls": [
+        {
+          "kind": "start",
+          "caption": "Пуск",
+          "rect": [
+            274,
+            346,
+            74,
+            40
+          ],
+          "binding": "M381",
+          "cloneActualScreen7Widget": "BB9056",
+          "preserveAllNativeGuardsAndActionProperties": true
+        },
+        {
+          "kind": "stop",
+          "caption": "Стоп",
+          "rect": [
+            354,
+            346,
+            74,
+            40
+          ],
+          "binding": "M385",
+          "cloneActualScreen7Widget": "BB9060",
+          "preserveAllNativeGuardsAndActionProperties": true
+        },
+        {
+          "kind": "frequency",
+          "caption": "Гц",
+          "rect": [
+            434,
+            346,
+            94,
+            40
+          ],
+          "binding": "R2181",
+          "cloneActualScreen7Widget": "NE9046",
+          "preserveAllNativeGuardsAndActionProperties": true
+        }
+      ]
+    },
+    {
+      "pump": 3,
+      "statusCaption": [
+        555,
+        296,
+        224,
+        14
+      ],
+      "scaleTicks": [
+        555,
+        315,
+        200,
+        10
+      ],
+      "frequencyBar": [
+        555,
+        330,
+        200,
+        8
+      ],
+      "manualControls": [
+        {
+          "kind": "start",
+          "caption": "Пуск",
+          "rect": [
+            538,
+            346,
+            74,
+            40
+          ],
+          "binding": "M382",
+          "cloneActualScreen7Widget": "BB9084",
+          "preserveAllNativeGuardsAndActionProperties": true
+        },
+        {
+          "kind": "stop",
+          "caption": "Стоп",
+          "rect": [
+            618,
+            346,
+            74,
+            40
+          ],
+          "binding": "M386",
+          "cloneActualScreen7Widget": "BB9088",
+          "preserveAllNativeGuardsAndActionProperties": true
+        },
+        {
+          "kind": "frequency",
+          "caption": "Гц",
+          "rect": [
+            698,
+            346,
+            94,
+            40
+          ],
+          "binding": "R2182",
+          "cloneActualScreen7Widget": "NE9074",
+          "preserveAllNativeGuardsAndActionProperties": true
+        }
+      ]
+    }
+  ],
+  "footer": [
+    {
+      "caption": "Насосы",
+      "target": "Screen6",
+      "rect": [
+        10,
+        430,
+        125,
+        44
+      ],
+      "borderPixels": 1,
+      "currentPageOnlyHighlight": true
+    },
+    {
+      "caption": "Каскад",
+      "target": "Screen2",
+      "rect": [
+        141,
+        430,
+        125,
+        44
+      ],
+      "borderPixels": 1,
+      "currentPageOnlyHighlight": true
+    },
+    {
+      "caption": "Ротация",
+      "target": "Screen3",
+      "rect": [
+        272,
+        430,
+        125,
+        44
+      ],
+      "borderPixels": 1,
+      "currentPageOnlyHighlight": true
+    },
+    {
+      "caption": "Ручной",
+      "target": "Screen7",
+      "rect": [
+        403,
+        430,
+        125,
+        44
+      ],
+      "borderPixels": 1,
+      "currentPageOnlyHighlight": true
+    },
+    {
+      "caption": "График",
+      "target": "Screen8",
+      "rect": [
+        534,
+        430,
+        125,
+        44
+      ],
+      "borderPixels": 1,
+      "currentPageOnlyHighlight": true
+    },
+    {
+      "caption": "Аварии",
+      "target": "Screen9",
+      "rect": [
+        665,
+        430,
+        125,
+        44
+      ],
+      "borderPixels": 1,
+      "currentPageOnlyHighlight": true
+    }
+  ],
+  "manualEntry": {
+    "existingTrigger": "LB810",
+    "target": "actual Main Screen1",
+    "previousTarget": "Screen7",
+    "oneShot": true,
+    "automaticResetPreserved": true,
+    "RKFTrigger": "LB811",
+    "testSimultaneousRKF": true
+  },
+  "otherPageBackground": "dark/light sketches shown; selection pending; not changed by this spec"
+}
