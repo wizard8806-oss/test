@@ -1,6 +1,6 @@
 {
   "format": "native-SKTool-placement-guide",
-  "status": "design-and-local-task; native-pending",
+  "status": "approved-for-native-implementation; native-pending",
   "device": "SK-070HE",
   "target": [
     800,
@@ -29,7 +29,7 @@
       10,
       392,
       780,
-      30
+      32
     ],
     "footerY": 430,
     "footerHeight": 44
@@ -113,7 +113,32 @@
           "cloneActualScreen7Widget": "NE9018",
           "preserveAllNativeGuardsAndActionProperties": true
         }
-      ]
+      ],
+      "opaqueScaleMask": [
+        11,
+        295,
+        252,
+        45
+      ],
+      "scaleUnit": {
+        "text": "Гц",
+        "rect": [
+          234,
+          326,
+          23,
+          14
+        ]
+      },
+      "manualRoleCaption": {
+        "text": "Ручной",
+        "rect": [
+          91,
+          145,
+          119,
+          20
+        ],
+        "visible": "manual; normal role widget hidden in manual"
+      }
     },
     {
       "pump": 2,
@@ -175,7 +200,32 @@
           "cloneActualScreen7Widget": "NE9046",
           "preserveAllNativeGuardsAndActionProperties": true
         }
-      ]
+      ],
+      "opaqueScaleMask": [
+        275,
+        295,
+        252,
+        45
+      ],
+      "scaleUnit": {
+        "text": "Гц",
+        "rect": [
+          498,
+          326,
+          23,
+          14
+        ]
+      },
+      "manualRoleCaption": {
+        "text": "Ручной",
+        "rect": [
+          355,
+          145,
+          119,
+          20
+        ],
+        "visible": "manual; normal role widget hidden in manual"
+      }
     },
     {
       "pump": 3,
@@ -237,7 +287,32 @@
           "cloneActualScreen7Widget": "NE9074",
           "preserveAllNativeGuardsAndActionProperties": true
         }
-      ]
+      ],
+      "opaqueScaleMask": [
+        539,
+        295,
+        252,
+        45
+      ],
+      "scaleUnit": {
+        "text": "Гц",
+        "rect": [
+          762,
+          326,
+          23,
+          14
+        ]
+      },
+      "manualRoleCaption": {
+        "text": "Ручной",
+        "rect": [
+          619,
+          145,
+          119,
+          20
+        ],
+        "visible": "manual; normal role widget hidden in manual"
+      }
     }
   ],
   "footer": [
@@ -323,5 +398,65 @@
     "RKFTrigger": "LB811",
     "testSimultaneousRKF": true
   },
-  "otherPageBackground": "dark/light sketches shown; selection pending; not changed by this spec"
+  "otherPageBackground": {
+    "selectedForImplementation": "recommended dark variant",
+    "background": "#26343F",
+    "panel": "#344854",
+    "textOnDark": "#F4F7F8",
+    "preserveLightFieldDarkText": true,
+    "preserveSemanticStatusColors": true,
+    "preserveFormGeometryAndBindings": true,
+    "logoAndRKFArtPreserved": true
+  },
+  "approval": {
+    "date": "2026-11-24",
+    "userQuote": "отлично. сохраняем и делаем",
+    "manualControlsPerPump": 3
+  },
+  "nativeBackgroundOcclusion": {
+    "source": "existing main-3-static-no-title.png contains baked scale ticks/bar/unit/leader",
+    "layerOrder": [
+      "existing StaticPicture",
+      "opaque READ ONLY masks",
+      "replacement row frames and native scale labels",
+      "native readouts and controls"
+    ],
+    "receivesInput": false,
+    "sharedMask": [
+      8,
+      344,
+      784,
+      82
+    ],
+    "autoLeaderCaption": {
+      "text": "Ведущий:",
+      "rect": [
+        21,
+        352,
+        105,
+        26
+      ],
+      "visible": "same non-manual summary group"
+    },
+    "scaleLabels": [
+      "0",
+      "10",
+      "20",
+      "30",
+      "40",
+      "50"
+    ],
+    "note": "Keep original PNG. Cover baked graphics with native noninteractive opaque shapes; do not leave old text/scale visible between controls."
+  },
+  "manualAutoFrequencyCaption": {
+    "text": "Частота ведомых AUTO",
+    "rect": [
+      583,
+      43,
+      211,
+      20
+    ],
+    "visible": "manual only",
+    "note": "Cover baked caption in manual with read-only native backing; keep numeric R2110 input area clear"
+  }
 }

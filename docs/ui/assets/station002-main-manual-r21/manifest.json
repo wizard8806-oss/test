@@ -1,5 +1,5 @@
 {
-  "status": "design-sketches-only; native-r21-not-built",
+  "status": "design-approved-for-native-implementation; native-r21-not-built",
   "targetNativePixels": [
     800,
     480
@@ -26,8 +26,21 @@
         971
       ],
       "valuesAreIllustrative": true
+    },
+    {
+      "name": "service-dark.png",
+      "mode": "service palette reference",
+      "bytes": 1458163,
+      "sha256": "600f76f776359d08ae084bbfdc7d37947083701b2d2e937a6afae697cc13a23c",
+      "imagePixels": [
+        1619,
+        971
+      ],
+      "valuesAreIllustrative": true
     }
   ],
   "manualControlsPerPump": 3,
-  "supersedesFourControlSketch": true
+  "supersedesFourControlSketch": true,
+  "approvalDate": "2026-11-24",
+  "userApproval": "отлично. сохраняем и делаем"
 }
