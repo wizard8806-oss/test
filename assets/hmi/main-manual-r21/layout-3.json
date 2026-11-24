@@ -1,6 +1,6 @@
 {
   "format": "native-SKTool-placement-guide",
-  "status": "r21b native completed locally; transparent inputs/readouts; SaveAs/reopen/Compile/Offline Simulator PASS",
+  "status": "r21c completed locally; cloud inspected actual Simulator images; five visual follow-up items resolved; native hardware verification pending",
   "device": "SK-070HE",
   "target": [
     800,
@@ -8,9 +8,10 @@
   ],
   "pumps": 3,
   "sourceNative": {
-    "name": "pump_station_3p_babanov_r21a_user_window_checked.skm",
-    "bytes": 1657717,
-    "sha256": "52b782a6b9cf062a3b19ef106872340928c0ba4762ee4f5160f37b5b3a8432a3"
+    "bytes": 1650072,
+    "sha256": "9ba1a287f70df1167b2bc927b9d059d0b02372b147e6b083756c251e589fec0d",
+    "name": "pump_station_3p_babanov_r21c_main_manual_native.skm",
+    "provenance": "local native report; SKM bytes not provided to cloud"
   },
   "sharedRows": {
     "autoSummary": [
@@ -670,7 +671,7 @@
   "amendmentR21b": {
     "date": "2026-11-24",
     "userQuote": "У надписей убери фон. у цифр тоже. только сделай цифры другим цветом и симметрично",
-    "status": "prepared; local native execution pending",
+    "status": "completed locally; follow-up r21c is current base",
     "task": "docs/tasks/station002-r21-state-proof-local.md",
     "outputName": "pump_station_3p_babanov_r21b_main_manual_native.skm",
     "preserveOriginalCAndPLC": true,
@@ -742,6 +743,14 @@
     "headerBottom": 99,
     "manualCaption": "Частота ведомых AUTO",
     "productionC": "unchanged",
-    "report": "docs/reports/station002-r21c-native-local.md"
+    "report": "docs/reports/station002-r21c-native-local.md",
+    "cloudReview": "docs/reports/station002-r21c-cloud-review-20261124.md",
+    "cloudObservedManualDigits": {
+      "visibleHeightPixels": 20,
+      "commonBottomY": 375,
+      "gapToUnitPixels": 6,
+      "columnStepPixels": 264,
+      "sameActiveDisabledBounds": true
+    }
   }
 }
