@@ -1,5 +1,13 @@
 # Работа с проектом
 
+**24.11: вопрос final-proof r20 закрыт локальной проверкой.**
+См. верх HANDOFF и docs/reports/station002-main-r20-final-proof-20261124.md.
+Дисковая r20 сохранила SHAdaaeb096…01534; NE92999/LW1450 только вTEST_ONLY,
+productionMD3062/R2301 виден приR2301<>0. Исторический productionPNG и
+свежий SimulatorPNG побайтно одинаковы и без номера; утверждение ниже о0
+на production не подтвердилось. Свежие Compile/OfflineSimulator PASS,
+native не менялся/r20a не нужна, старую матрицу/перенос не повторять.
+
 **17.11: получены локальные native r19/r20; облачная проверка нашла вопрос к финальному снимку.**
 Актуальные отчёты: docs/reports/station002-telemetry-r19-native-local.md и
 docs/reports/station002-main-r20-native-local.md (remote4732216).

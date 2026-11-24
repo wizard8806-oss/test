@@ -1,3 +1,33 @@
+## 24.11.2026 — final-proof r20 выполнен: тестового поля в production нет
+
+Продолжено с сохранённого результата, без повторного переноса Main.
+Отчёт: [station002-main-r20-final-proof-20261124.md](reports/station002-main-r20-final-proof-20261124.md).
+Проверенная Git-база49c2a5ada8f0ceb616be57c065fc6a48c0fbdd5f,
+ветка/worktree `codex/telemetry-r19-local-20261117`. При старте GUI не работал,
+неизвестного пользовательского RAM не было; открыт baseline, затем через
+File→Open точный production r20. Диск до/после1472535байт,
+SHAdaaeb096a890716cb2151604724293b77139f74cd49bf0a1ea27f9e7bb801534.
+Полный путь в отчёте, прежний каталог Бабанов_R20_Main_2026-11-17.
+
+Native-диалог: MD3062/MessageDisplay/R2301, x16,y4,510×27,
+Visibility **R2301<>0**. При0 скрыт; причины AUTO сохранены.
+NE92999/NumericInput/LW1450 x16,y3,65×25 — только TEST_ONLY.
+Проверены весь Main/packed bindings/C-зеркала: тестового переназначения,
+элемента и hook в final нет; MainOverview/F/Q/I/PLC не менялись.
+Исторический production PNG из4732216 и49c2a5a один blobc93ef575…6702;
+SHA8bf1597e…21f6b. На нём нет0. Новый actualSimulator PNG24.11 побайтно
+тот же. Утечка/подмена кадра не подтверждены; причина прочтения облаком
+номера именно на production неизвестна. Цифры0/2 есть на TEST_ONLY кадрах.
+
+Свежие ScriptCompile HMI/local0errors/0warnings, wholeprojectsuccess,
+OfflineSimulator production без номера PASS. Save послеScriptCompile
+отменён, диск перезагружен; wholeCompile затем прошёл без SaveSKM,
+Download0% закрыт. Native не менялся, r20a не создавалась. Обновлены только
+доказательства/manifest/README/отчёты; приватные файлы — final-proof-20261124.
+Старая матрица/перенос не повторялись, hardware/Download/Force/RUN/Apply0.
+Реальный стенд всё ещё pending. Эта проверка снимает вопрос из блока ниже;
+публикация отчёта отдельно от указанного проверенного базового SHA.
+
 ## 17.11.2026 — облачная проверка r19/r20; вопрос к production-снимку
 
 Приняты remote b2e2475/4732216. Независимо воспроизведён исправленный
