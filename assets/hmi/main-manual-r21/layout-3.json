@@ -1,6 +1,6 @@
 {
   "format": "native-SKTool-placement-guide",
-  "status": "user RAM saved separately; same-window Simulator checked; disabled NE height aligned to user ND35",
+  "status": "user-window checked native completed locally; current source is checked copy",
   "device": "SK-070HE",
   "target": [
     800,
@@ -8,9 +8,9 @@
   ],
   "pumps": 3,
   "sourceNative": {
-    "name": "pump_station_3p_babanov_r21a_main_manual_native.skm",
-    "bytes": 1658099,
-    "sha256": "ebbf1a3c59e7e01d2e5dd15c4f72564b44c231f0f0cf16b03fc93bd38a0f2db7"
+    "name": "pump_station_3p_babanov_r21a_user_window_checked.skm",
+    "bytes": 1657717,
+    "sha256": "52b782a6b9cf062a3b19ef106872340928c0ba4762ee4f5160f37b5b3a8432a3"
   },
   "sharedRows": {
     "autoSummary": [
@@ -607,7 +607,16 @@
       ],
       "pumpCardTopY": 111,
       "independentCloudNativeFileAvailable": false,
-      "editorObservation": "User screenshot is design editor with888 placeholders/addresses/selection; compare actual current user RAM in Simulator before runtime repair"
+      "editorObservation": "User RAM preserved and same-window Simulator checked; only disabled NE height aligned to user ND35; no change of type/precision/guards/C",
+      "disabledNativeValueRect": [
+        310,
+        65,
+        94,
+        35
+      ],
+      "userWindowReport": "docs/reports/station002-r21a-user-window-local.md",
+      "redPixelsBeforeDisabledFix": 6,
+      "redPixelsAfterDisabledFix": 0
     }
   },
   "originalR21DesignBase": {
@@ -637,5 +646,10 @@
       35
     ],
     "sameWindowSimulator": true
+  },
+  "previousReleasedR21a": {
+    "name": "pump_station_3p_babanov_r21a_main_manual_native.skm",
+    "bytes": 1658099,
+    "sha256": "ebbf1a3c59e7e01d2e5dd15c4f72564b44c231f0f0cf16b03fc93bd38a0f2db7"
   }
 }
