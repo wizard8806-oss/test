@@ -1,5 +1,15 @@
 # Работа с проектом
 
+**24.11: cloud осмотрело5кадров r21 и прочитало отчёт ad6fa21.**
+Размещение/6footer/9manual/новый фон подтверждены картинками.
+В TEST_ONLY AUTO/MANUAL count3+зелёныевентиляторы при3«Остановлен»;
+это НЕ доказанный багproduction, нужны значения/bindings и согласованный
+fixture на actualPumpAnimation→MainOverview. Узкая задача
+docs/tasks/station002-r21-state-proof-local.md; обзор
+docs/reports/station002-r21-cloud-review-20261124.md. Не переделывать
+native и не выпускатьr21a без установленной причины. Private-C/native
+байты облаку не переданы; hardware всё ещё pending.
+
 **24.11: native r21 завершена локально.**
 См. верх HANDOFF и docs/reports/station002-main-manual-r21-native-local.md.
 Итоговый SKM/SHA650a295d…be92bd отдельно от r20;17страниц/7групп,
