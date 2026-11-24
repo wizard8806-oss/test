@@ -625,5 +625,11 @@
     "rowGapPixels": 8,
     "actualNativeValidation": "pending local",
     "versionPolicy": "merge ongoing r1; if final r1 already delivered, preserve it and produce r2"
+  },
+  "object": {
+    "name": "Ошский",
+    "record": "docs/objects/oshsky-4p-scada.json",
+    "namedByUserOn": "2026-11-25",
+    "cabinetStatus": "shipped, per user"
   }
 }

@@ -1,0 +1,40 @@
+{
+  "documentKey": "oshsky",
+  "name": "Ошский",
+  "nameAssignedOn": "2026-11-25",
+  "nameSource": "user",
+  "pumps": 4,
+  "panel": {
+    "model": "SK-102CE",
+    "diagonalInches": 10,
+    "resolution": [1024, 600]
+  },
+  "scadaIntegration": {
+    "presentInProject": true,
+    "preserveExistingContract": true,
+    "renameRuntimeStationIdOrOpcPrefix": false
+  },
+  "cabinet": {
+    "status": "shipped",
+    "evidence": "User statement on 2026-11-25",
+    "shipmentDate": null
+  },
+  "currentWork": {
+    "scope": "New HMI design, four-pump manual controls and existing accumulated RUN-time indication; preserve PLC/SCADA",
+    "task": "docs/tasks/station4-scada-main-r1-local.md",
+    "spec": "docs/ui/station4-scada-main-r1.md",
+    "layout": "assets/hmi/main-four-scada-r1/layout-4.json",
+    "nativeCompletion": "Await local report; do not infer the deployed build from repository references"
+  },
+  "namingPolicy": {
+    "useNameForDocumentationAndFutureDeliveries": true,
+    "preferredFutureFolderPrefix": "Ошский_4насоса",
+    "moveOrRenameExistingWorkingFilesForLabelOnly": false,
+    "restoreStationTitleOnMain": false
+  },
+  "separateFrom": {
+    "name": "Бабанов",
+    "pumps": 3,
+    "record": "docs/releases/station002-babanov-3p-r21c-20261124.json"
+  }
+}

@@ -40,5 +40,11 @@
   ],
   "geometryGuide": "assets/hmi/main-four-scada-r1/layout-4.json",
   "actualNativeValidation": "pending local",
-  "amendment": "2026-11-24: add existing PLC run hours to every card in all modes"
+  "amendment": "2026-11-24: add existing PLC run hours to every card in all modes",
+  "object": {
+    "name": "Ошский",
+    "record": "docs/objects/oshsky-4p-scada.json",
+    "namedByUserOn": "2026-11-25",
+    "cabinetStatus": "shipped, per user"
+  }
 }
