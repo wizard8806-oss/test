@@ -1,3 +1,7 @@
+<!-- r21a local acceptance 2026-11-24 -->
+
+Native r21a завершена: [отчёт и снимки](docs/reports/station002-r21a-native-local.md). Production C/PLC сохранены; исправлены уставка/оформление и TEST_ONLY. Продолжать итоговую r21a без повторного переноса Main.
+
 # Дизайн нативной HMI «Бабанов»
 
 ## Область и ориентир
