@@ -1,3 +1,5 @@
+**24.11 local follow-up закрыт:** пользовательский RAM сохранён отдельно; активные5.0/11.9 корректны. Малый runtime-артефакт disabled устранён только выравниванием NE96101до пользовательских35px ND96100. Типы/precision/пределы/C прежние. Продолжать `pump_station_3p_babanov_r21a_user_window_checked.skm`; путь/хеш и доказательства — [отчёт](docs/reports/station002-r21a-user-window-local.md). Исходная r21a и snapshot сохранены.
+
 <!-- r21a local acceptance 2026-11-24 -->
 
 24.11 cloud проверило d65a565/SimulatorPNG: у R2100=11.9 иR2110=50.0

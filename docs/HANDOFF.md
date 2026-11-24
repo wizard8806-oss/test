@@ -1,3 +1,26 @@
+## 24.11.2026 — пользовательский RAM r21a сохранён отдельно и проверен
+
+[Отчёт/снимки](reports/station002-r21a-user-window-local.md).
+Проверен именно PID8076: native SaveAs пользовательского RAM, затем Offline Simulator
+из этого же окна. Snapshot `C:\Users\user\CodexProjects\pump-station\.worktrees\station002-fault-reset-local-15\_release_private\Бабанов_R21a_Main_2026-11-24\user-window-20261124T1908\pump_station_3p_babanov_r21a_user_window.skm`,
+1657775байт/SHA256 `47c1b616a84cd13915203a447e561cce792db802f1d79fcbfeb27a09b1fa679c` сохранён неизменным.
+Пользователь уменьшил disabled ND96100до35px и NE96101до36.64px.
+Активные5.0/11.9 и ведомые45/50 корректны; editor888/999/адреса — шаблонный preview
+с перекрывающимися runtime-слоями. При no-link обнаружен маленький красный фрагмент:
+штатный знак запрета NE выступал из-под более короткого ND. Изоляцией слоёв причина
+доказана. Исправлена только высота NE96101до35px, пользовательский ND35 сохранён.
+Все626 наборов свойств/форматы/пределы/guards/C прежние; Main не переносился.
+Итог `C:\Users\user\CodexProjects\pump-station\.worktrees\station002-fault-reset-local-15\_release_private\Бабанов_R21a_Main_2026-11-24\user-window-20261124T1908\pump_station_3p_babanov_r21a_user_window_checked.skm`,
+1657717байт/SHA256 `52b782a6b9cf062a3b19ef106872340928c0ba4762ee4f5160f37b5b3a8432a3`.
+SaveAs/reopen,Script HMI/local0/0,Whole Compile и Offline Simulator PASS.
+5.0/11.9 голубые или серые согласно разрешению,#2B4655,без красных фрагментов;
+11 свободных строк до плашки НАСОС2. В PID8076 оставлен этот production+Simulator,
+TEST_ONLY закрыт. Исходная выпущенная r21a/ebbf1a3c…f2db7 и snapshot/47c1b616…679c целы.
+Команд оборудованию0,PLC неизменён; аппаратная связь не проверялась.
+База документации7d4c8c8d1f28369fcd626ddc5b3292d4354f4f9b,
+ветка codex/telemetry-r19-local-20261117. Следующий коммит содержит только отчёт/
+документы/снимки для codex/project-handoff-2026-10-31; native/дампы приватны.
+
 ## 24.11.2026 — облачная сверка r21a; новое замечание относится к editor-кадру
 
 Прочитан d65a565/отчёт, осмотрены новые реальные SimulatorPNG.

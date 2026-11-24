@@ -1,6 +1,6 @@
 {
   "format": "native-SKTool-placement-guide",
-  "status": "r21a completed locally; user editor/runtime comparison pending",
+  "status": "user RAM saved separately; same-window Simulator checked; disabled NE height aligned to user ND35",
   "device": "SK-070HE",
   "target": [
     800,
@@ -614,5 +614,28 @@
     "name": "pump_station_3p_babanov_r20_main_native.skm",
     "bytes": 1472535,
     "sha256": "daaeb096a890716cb2151604724293b77139f74cd49bf0a1ea27f9e7bb801534"
+  },
+  "userWindowFollowUp": {
+    "report": "docs/reports/station002-r21a-user-window-local.md",
+    "snapshotName": "pump_station_3p_babanov_r21a_user_window.skm",
+    "snapshotBytes": 1657775,
+    "snapshotSHA256": "47c1b616a84cd13915203a447e561cce792db802f1d79fcbfeb27a09b1fa679c",
+    "outputName": "pump_station_3p_babanov_r21a_user_window_checked.skm",
+    "outputBytes": 1657717,
+    "outputSHA256": "52b782a6b9cf062a3b19ef106872340928c0ba4762ee4f5160f37b5b3a8432a3",
+    "onlyRepair": "NE96101 height35 to match user ND96100; unchanged all626 property sets, formats, guards and C",
+    "activeValueRect": [
+      310,
+      65,
+      94,
+      42
+    ],
+    "disabledValueRect": [
+      310,
+      65,
+      94,
+      35
+    ],
+    "sameWindowSimulator": true
   }
 }
