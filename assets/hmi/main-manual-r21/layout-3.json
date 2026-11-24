@@ -1,6 +1,6 @@
 {
   "format": "native-SKTool-placement-guide",
-  "status": "user-window checked native completed locally; current source is checked copy",
+  "status": "r21b transparent caption/value amendment prepared; native implementation pending; source is checked user copy",
   "device": "SK-070HE",
   "target": [
     800,
@@ -446,7 +446,8 @@
       "40",
       "50"
     ],
-    "note": "Keep original PNG. Cover baked graphics with native noninteractive opaque shapes; do not leave old text/scale visible between controls."
+    "note": "Keep original PNG. Cover baked graphics with native noninteractive opaque shapes; do not leave old text/scale visible between controls.",
+    "scope": "lower scales/leader/manual row only; not upper caption/value fields"
   },
   "manualAutoFrequencyCaption": {
     "text": "Частота ведомых AUTO",
@@ -457,7 +458,8 @@
       20
     ],
     "visible": "manual only",
-    "note": "Cover baked caption in manual with read-only native backing; keep numeric R2110 input area clear"
+    "note": "One caption layer on continuous header background; no separate opaque backing; keep R2110 touch area clear",
+    "background": "transparent"
   },
   "amendmentR21a": {
     "status": "completed locally; published Simulator images independently inspected",
@@ -470,22 +472,26 @@
     },
     "outputName": "pump_station_3p_babanov_r21a_main_manual_native.skm",
     "preserveOngoingLocalChanges": true,
-    "oldStateProofStillRequired": true,
+    "oldStateProofStillRequired": false,
     "newNativeRequiredForVisualChanges": true,
     "nativeReport": "docs/reports/station002-r21a-native-local.md"
   },
   "headerEditableFields": {
     "style": {
       "activeDigits": "#8ED8FF",
-      "fieldFill": "#2B4655",
-      "fieldBorder": "#5B899F",
-      "borderPixels": 1,
+      "fieldFill": "transparent",
+      "fieldBorder": "none",
+      "borderPixels": 0,
       "readOnlyDigits": "#F4F7F8",
       "disabledDigits": "#B1BEC6",
-      "labelsAndUnits": "neutral; not blue",
+      "labelsAndUnits": "neutral; transparent; not blue",
       "nativeInputGuardsUnchanged": true,
-      "colorIsNotTheOnlyAffordance": true,
-      "renderLayersAndDisabledAppearanceMustAgree": true
+      "renderLayersAndDisabledAppearanceMustAgree": true,
+      "labelFill": "transparent",
+      "labelBorder": "none",
+      "disabledFill": "transparent",
+      "inputAffordance": "digit color only, per explicit user request",
+      "disabledInputPainter": "hidden when blocked; show one transparent gray readout; original touch/write guards retained"
     },
     "setpoint": {
       "binding": "R2100",
@@ -494,33 +500,9 @@
         "NE5002"
       ],
       "label": "Уставка",
-      "labelRect": [
-        313,
-        42,
-        110,
-        18
-      ],
       "recommendedLabelFontPixels": 14,
-      "valueRect": [
-        310,
-        65,
-        94,
-        43
-      ],
-      "preferredValueFontPixels": 42,
+      "preferredValueFontPixels": 35,
       "unit": "бар",
-      "unitRect": [
-        405,
-        84,
-        36,
-        21
-      ],
-      "opaqueOldCaptionMask": [
-        305,
-        40,
-        136,
-        70
-      ],
       "minimumRealTextGapPixels": 5,
       "minimumGapToPumpCardPixels": 3,
       "valuesToCheck": [
@@ -530,7 +512,25 @@
       ],
       "preserveScaleDivisor": 100,
       "actualNativeGlyphsMustBeChecked": true,
-      "readonlyMaskBelowControls": true
+      "previousLabelRect": [
+        313,
+        42,
+        110,
+        18
+      ],
+      "previousValueRect": [
+        310,
+        65,
+        94,
+        43
+      ],
+      "previousUnitRect": [
+        405,
+        84,
+        36,
+        21
+      ],
+      "background": "transparent; use one baked caption or clean continuous shared header; no per-caption patch"
     },
     "followers": {
       "binding": "R2110",
@@ -538,20 +538,21 @@
         "ND3018",
         "NE5004"
       ],
-      "valueRect": [
-        641,
-        65,
-        88,
-        40
-      ],
-      "preferredValueFontPixels": 26,
+      "preferredValueFontPixels": 22,
       "unit": "Гц",
       "valuesToCheck": [
         20.0,
         50.0
       ],
       "preserveScaleDivisor": 10,
-      "preserveActualInputGuards": true
+      "preserveActualInputGuards": true,
+      "previousValueRect": [
+        641,
+        65,
+        88,
+        40
+      ],
+      "background": "transparent in active and disabled states"
     },
     "manualFrequency": {
       "bindings": [
@@ -570,7 +571,7 @@
         50.0
       ],
       "preserveScaleDivisor": 10,
-      "replaceLightBitmapFieldSkinWithNativeFlatDarkSkin": true
+      "replaceFieldSkinWithNativeTransparentStyle": true
     },
     "readOnlyExamples": [
       "R2302 pressure",
@@ -578,7 +579,7 @@
       "LW960..962 measured current",
       "LW970 run count"
     ],
-    "verification": "actual native800×480; test max digits, touch/keyboard, allowed/disabled/AUTO/MANUAL/no-link/wrong-map; no PLC logic change",
+    "verification": "actual native800x480; transparent captions/digits, equal alignment/spacing in active and blocked states; max values and real keyboard/guards; unchanged C/PLC",
     "observedNativeRendering": {
       "setpointValueRect": [
         310,
@@ -616,7 +617,19 @@
       ],
       "userWindowReport": "docs/reports/station002-r21a-user-window-local.md",
       "redPixelsBeforeDisabledFix": 6,
-      "redPixelsAfterDisabledFix": 0
+      "redPixelsAfterDisabledFix": 0,
+      "status": "historical r21a measurements; not acceptance of r21b transparency/symmetry"
+    },
+    "symmetry": {
+      "captionFontAndBaseline": "same for both header columns",
+      "numericGroupAlignment": "center within actual column; shared glyph bottom and unit baseline",
+      "setpointLargerThanFollowers": true,
+      "equalClearanceAbovePumpCards": true,
+      "tolerancePixels": 1,
+      "sameGeometryWhenDisabled": true,
+      "checkActual800x480Glyphs": true,
+      "previousRectsAreReferenceOnly": true,
+      "equalColumnPaddingAndNumberUnitGaps": true
     }
   },
   "originalR21DesignBase": {
@@ -651,5 +664,15 @@
     "name": "pump_station_3p_babanov_r21a_main_manual_native.skm",
     "bytes": 1658099,
     "sha256": "ebbf1a3c59e7e01d2e5dd15c4f72564b44c231f0f0cf16b03fc93bd38a0f2db7"
+  },
+  "amendmentR21b": {
+    "date": "2026-11-24",
+    "userQuote": "У надписей убери фон. у цифр тоже. только сделай цифры другим цветом и симметрично",
+    "status": "prepared; local native execution pending",
+    "task": "docs/tasks/station002-r21-state-proof-local.md",
+    "outputName": "pump_station_3p_babanov_r21b_main_manual_native.skm",
+    "preserveOriginalCAndPLC": true,
+    "preserveActualButtonBackgrounds": true,
+    "supersedes": "r21a individual caption/value fills, borders and opaque ND over blocked NE"
   }
 }
