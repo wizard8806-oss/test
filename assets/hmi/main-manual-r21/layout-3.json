@@ -1,6 +1,6 @@
 {
   "format": "native-SKTool-placement-guide",
-  "status": "r21b transparent caption/value amendment prepared; native implementation pending; source is checked user copy",
+  "status": "r21b native completed locally; transparent inputs/readouts; SaveAs/reopen/Compile/Offline Simulator PASS",
   "device": "SK-070HE",
   "target": [
     800,
@@ -582,43 +582,45 @@
     "verification": "actual native800x480; transparent captions/digits, equal alignment/spacing in active and blocked states; max values and real keyboard/guards; unchanged C/PLC",
     "observedNativeRendering": {
       "setpointValueRect": [
-        310,
+        305,
         65,
         94,
         42
       ],
-      "nativeSetpointFontSize": 35,
-      "nativeFollowersFontSize": 22,
-      "manualMaxScreenshot": "docs/reports/station002-r21a/manual-max.png",
-      "activeValueForeground": "#8ED8FF",
-      "fieldBackground": "#2B4655",
-      "exactCyanPixelsInSetpoint": 391,
-      "setpointCyanPixelBounds": [
-        322,
-        69,
-        394,
-        99
+      "followersValueRect": [
+        631,
+        70,
+        88,
+        40
       ],
-      "exactCyanPixelsInFollowers": 158,
-      "followersCyanPixelBounds": [
-        661,
-        75,
-        709,
-        94
+      "setpointUnitRect": [
+        400,
+        83,
+        36,
+        21
       ],
-      "pumpCardTopY": 111,
-      "independentCloudNativeFileAvailable": false,
-      "editorObservation": "User RAM preserved and same-window Simulator checked; only disabled NE height aligned to user ND35; no change of type/precision/guards/C",
-      "disabledNativeValueRect": [
-        310,
-        65,
-        94,
-        35
+      "followersUnitRect": [
+        706,
+        83,
+        33,
+        21
       ],
-      "userWindowReport": "docs/reports/station002-r21a-user-window-local.md",
-      "redPixelsBeforeDisabledFix": 6,
-      "redPixelsAfterDisabledFix": 0,
-      "status": "historical r21a measurements; not acceptance of r21b transparency/symmetry"
+      "captionFont": 12,
+      "setpointFont": 35,
+      "followersFont": 22,
+      "digitAndUnitBottom": 99,
+      "emptyRowsToPumpCard": 11,
+      "emptyColumnsNumberToUnit": 15,
+      "centerErrorPixelsMax": 0.5,
+      "activeDigits": "#8ED8FF",
+      "disabledDigits": "#B1BEC6",
+      "fieldBackground": "transparent",
+      "fieldBorder": "none",
+      "sameGeometryAcrossPermission": true,
+      "activeNEOnly": true,
+      "disabledGrayNDOnly": true,
+      "screenshot": "docs/reports/station002-r21b/manual-max.png",
+      "blockedScreenshot": "docs/reports/station002-r21b/blocked-max.png"
     },
     "symmetry": {
       "captionFontAndBaseline": "same for both header columns",
@@ -674,5 +676,14 @@
     "preserveOriginalCAndPLC": true,
     "preserveActualButtonBackgrounds": true,
     "supersedes": "r21a individual caption/value fills, borders and opaque ND over blocked NE"
+  },
+  "r21bNative": {
+    "name": "pump_station_3p_babanov_r21b_main_manual_native.skm",
+    "bytes": 1616335,
+    "sha256": "14533d71d69cb0d90bfb8ba361de4d608ded2987b14b9c5fa6c7e108ef362b4a",
+    "report": "docs/reports/station002-r21b-native-local.md",
+    "baseSHA": "a4bdbb2217daa5aaff69b33dd5177ca3594a6640",
+    "sourceCheckedSHA256": "52b782a6b9cf062a3b19ef106872340928c0ba4762ee4f5160f37b5b3a8432a3",
+    "productionMacroUnchanged": true
   }
 }
