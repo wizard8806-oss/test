@@ -9,19 +9,19 @@
   "files": [
     {
       "path": "docs/ui/assets/station4-scada-main-r1/main-manual.png",
-      "kind": "target sketch, not runtime proof",
-      "bytes": 1748657,
-      "sha256": "32f62da3c8cfcad637cd5f3d4e295c80358f7c5332559ec0ee8ee0c73acc0340",
+      "kind": "updated target sketch including run hours; not native proof",
+      "bytes": 1734675,
+      "sha256": "a31703de420800c27ea52afe9065891f9be4946170e2404010339887a67a7142",
       "pixels": [
-        1619,
+        1620,
         971
       ]
     },
     {
       "path": "docs/ui/assets/station4-scada-main-r1/main-auto.png",
-      "kind": "target sketch, not runtime proof",
-      "bytes": 1692112,
-      "sha256": "4d10911aa79579f8bb119558084c36210545857eea4095a2abc1a68c15ed8364",
+      "kind": "updated target sketch including run hours; not native proof",
+      "bytes": 1660803,
+      "sha256": "8d3e89c045cb315cf1f79dd0f1f0040b9728a56086788e995ec98e1e63ee2fae",
       "pixels": [
         1620,
         971
@@ -29,9 +29,9 @@
     },
     {
       "path": "assets/hmi/main-four-scada-r1/background-4-static.png",
-      "kind": "static native background; no live text/controls",
-      "bytes": 1497069,
-      "sha256": "ef6ca2723bea24d4ab001d5d5f1dac3612803d35496fde41a9b5c821b89ce9fa",
+      "kind": "clean static background; taller empty cards, no live text",
+      "bytes": 1493232,
+      "sha256": "f373d954b34116dc4f12b60d997e7894da92bb8f6e0bf221ee11f409727d3aba",
       "pixels": [
         1620,
         971
@@ -39,5 +39,6 @@
     }
   ],
   "geometryGuide": "assets/hmi/main-four-scada-r1/layout-4.json",
-  "actualNativeValidation": "pending local"
+  "actualNativeValidation": "pending local",
+  "amendment": "2026-11-24: add existing PLC run hours to every card in all modes"
 }

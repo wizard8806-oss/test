@@ -1,0 +1,116 @@
+{
+  "date": "2026-11-24",
+  "evidenceKind": "Read-only archived source evidence; actual Windows pair/native-format confirmation pending",
+  "hmi": {
+    "path": "source/hmi/pump_station_4_37.skm",
+    "sha256": "13cc9f7d1c5fa59d25c0eb871a2deb3e6f1ef6ca5079be2f5828df5f9e8f5867",
+    "sourcePage": "Насосы: состав AUTO и наработка",
+    "counterSemanticsText": "Наработка — время команды RUN. Исключение из AUTO сохраняет ручной режим."
+  },
+  "plc": {
+    "path": "source/plc/station_MC_CM55_900G_04.pdw",
+    "sha256": "a25f9b5d2fe006bcb039896bae3989569b08e1b1adc4b503a755bfd5e3b22993",
+    "clockNetworkLabel": "60.01B | RUNTIME_MINUTE_PULSE",
+    "counterNetworks": "60.02..60.05",
+    "sourceMinuteClockPeriodPhysicallyMeasured": false
+  },
+  "channels": [
+    {
+      "pump": 1,
+      "historicalWidget": "ND14004",
+      "baseRegister": "R2200",
+      "wordPair": [
+        "R2200",
+        "R2201"
+      ],
+      "propertyVectorCount": 200,
+      "gainProperty33": "0.166666666666666666",
+      "digitProperties52to55": [
+        "9",
+        "1",
+        "2",
+        "1"
+      ],
+      "nativeTypeMeaningMustBeConfirmed": true
+    },
+    {
+      "pump": 2,
+      "historicalWidget": "ND14008",
+      "baseRegister": "R2202",
+      "wordPair": [
+        "R2202",
+        "R2203"
+      ],
+      "propertyVectorCount": 200,
+      "gainProperty33": "0.166666666666666666",
+      "digitProperties52to55": [
+        "9",
+        "1",
+        "2",
+        "1"
+      ],
+      "nativeTypeMeaningMustBeConfirmed": true
+    },
+    {
+      "pump": 3,
+      "historicalWidget": "ND14012",
+      "baseRegister": "R2204",
+      "wordPair": [
+        "R2204",
+        "R2205"
+      ],
+      "propertyVectorCount": 200,
+      "gainProperty33": "0.166666666666666666",
+      "digitProperties52to55": [
+        "9",
+        "1",
+        "2",
+        "1"
+      ],
+      "nativeTypeMeaningMustBeConfirmed": true
+    },
+    {
+      "pump": 4,
+      "historicalWidget": "ND14016",
+      "baseRegister": "R2206",
+      "wordPair": [
+        "R2206",
+        "R2207"
+      ],
+      "propertyVectorCount": 200,
+      "gainProperty33": "0.166666666666666666",
+      "digitProperties52to55": [
+        "9",
+        "1",
+        "2",
+        "1"
+      ],
+      "nativeTypeMeaningMustBeConfirmed": true
+    }
+  ],
+  "scalingVerificationRequired": {
+    "rawMinutes": [
+      0,
+      60,
+      120,
+      180,
+      240,
+      65536,
+      74070,
+      2147483648,
+      4294967295
+    ],
+    "exactBasicDisplays": {
+      "0": "0.0 ч",
+      "60": "1.0 ч",
+      "120": "2.0 ч",
+      "180": "3.0 ч",
+      "240": "4.0 ч",
+      "74070": "1234.5 ч"
+    },
+    "largeValues": "preserve full32bits; no sign/truncation; verify existing rounding consistently",
+    "nativeFieldGainIsNotWholeEngineeringFactor": true
+  },
+  "nativeOrHardwareExecutionObserved": false,
+  "PLCAndSCADAUnmodified": true
+}
