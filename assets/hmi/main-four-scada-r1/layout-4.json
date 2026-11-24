@@ -1,0 +1,447 @@
+{
+  "format": "native-SKTool-placement-guide",
+  "status": "Authorized four-pump UI development; compatible native base and guards require local verification",
+  "target": {
+    "model": "SK-102CE",
+    "panelInches": 10,
+    "pixels": [
+      1024,
+      600
+    ],
+    "pumps": 4
+  },
+  "visualTokensFrom": "assets/hmi/main-manual-r21/layout-3.json#/headerEditableFields/style",
+  "background": {
+    "path": "assets/hmi/main-four-scada-r1/background-4-static.png",
+    "nativeRect": [
+      0,
+      0,
+      1024,
+      600
+    ],
+    "content": "only static surfaces and four decorative pump pictures; all labels, values and controls are native"
+  },
+  "header": {
+    "rect": [
+      12,
+      50,
+      1000,
+      72
+    ],
+    "captionBaseline": "common; actual glyph gap >=6 px",
+    "numericBottomTargetY": 114,
+    "setpointLargerThanFollowers": true,
+    "allLabelAndNumberFills": "transparent",
+    "allLabelAndNumberBorders": "none",
+    "fieldSemantics": [
+      "pressure read-only",
+      "setpoint existing write contract",
+      "run count /4 read-only",
+      "common follower setting existing contract"
+    ],
+    "manualFollowerCaption": "Частота ведомых AUTO"
+  },
+  "cards": [
+    {
+      "pump": 1,
+      "rect": [
+        12,
+        128,
+        244,
+        272
+      ],
+      "title": [
+        22,
+        136,
+        224,
+        26
+      ],
+      "readoutArea": [
+        22,
+        172,
+        160,
+        182
+      ],
+      "status": [
+        22,
+        356,
+        224,
+        18
+      ],
+      "scaleTicks": [
+        22,
+        377,
+        202,
+        12
+      ],
+      "scaleTrack": [
+        22,
+        392,
+        202,
+        6
+      ],
+      "manualStart": {
+        "rect": [
+          12,
+          416,
+          70,
+          44
+        ],
+        "fontPixels": 20,
+        "intent": "green label/outline; existing command and guards"
+      },
+      "manualStop": {
+        "rect": [
+          88,
+          416,
+          70,
+          44
+        ],
+        "fontPixels": 20,
+        "intent": "red label/outline; existing command and guards"
+      },
+      "manualFrequency": {
+        "groupRect": [
+          164,
+          416,
+          92,
+          44
+        ],
+        "preferredFontPixels": 24,
+        "minimumFontPixels": 22,
+        "unit": "Гц",
+        "background": "transparent",
+        "binding": "clone actual pump-specific input; do not infer fourth slot by arithmetic",
+        "actualGlyphGapToUnitAtLeast": 4
+      }
+    },
+    {
+      "pump": 2,
+      "rect": [
+        264,
+        128,
+        244,
+        272
+      ],
+      "title": [
+        274,
+        136,
+        224,
+        26
+      ],
+      "readoutArea": [
+        274,
+        172,
+        160,
+        182
+      ],
+      "status": [
+        274,
+        356,
+        224,
+        18
+      ],
+      "scaleTicks": [
+        274,
+        377,
+        202,
+        12
+      ],
+      "scaleTrack": [
+        274,
+        392,
+        202,
+        6
+      ],
+      "manualStart": {
+        "rect": [
+          264,
+          416,
+          70,
+          44
+        ],
+        "fontPixels": 20,
+        "intent": "green label/outline; existing command and guards"
+      },
+      "manualStop": {
+        "rect": [
+          340,
+          416,
+          70,
+          44
+        ],
+        "fontPixels": 20,
+        "intent": "red label/outline; existing command and guards"
+      },
+      "manualFrequency": {
+        "groupRect": [
+          416,
+          416,
+          92,
+          44
+        ],
+        "preferredFontPixels": 24,
+        "minimumFontPixels": 22,
+        "unit": "Гц",
+        "background": "transparent",
+        "binding": "clone actual pump-specific input; do not infer fourth slot by arithmetic",
+        "actualGlyphGapToUnitAtLeast": 4
+      }
+    },
+    {
+      "pump": 3,
+      "rect": [
+        516,
+        128,
+        244,
+        272
+      ],
+      "title": [
+        526,
+        136,
+        224,
+        26
+      ],
+      "readoutArea": [
+        526,
+        172,
+        160,
+        182
+      ],
+      "status": [
+        526,
+        356,
+        224,
+        18
+      ],
+      "scaleTicks": [
+        526,
+        377,
+        202,
+        12
+      ],
+      "scaleTrack": [
+        526,
+        392,
+        202,
+        6
+      ],
+      "manualStart": {
+        "rect": [
+          516,
+          416,
+          70,
+          44
+        ],
+        "fontPixels": 20,
+        "intent": "green label/outline; existing command and guards"
+      },
+      "manualStop": {
+        "rect": [
+          592,
+          416,
+          70,
+          44
+        ],
+        "fontPixels": 20,
+        "intent": "red label/outline; existing command and guards"
+      },
+      "manualFrequency": {
+        "groupRect": [
+          668,
+          416,
+          92,
+          44
+        ],
+        "preferredFontPixels": 24,
+        "minimumFontPixels": 22,
+        "unit": "Гц",
+        "background": "transparent",
+        "binding": "clone actual pump-specific input; do not infer fourth slot by arithmetic",
+        "actualGlyphGapToUnitAtLeast": 4
+      }
+    },
+    {
+      "pump": 4,
+      "rect": [
+        768,
+        128,
+        244,
+        272
+      ],
+      "title": [
+        778,
+        136,
+        224,
+        26
+      ],
+      "readoutArea": [
+        778,
+        172,
+        160,
+        182
+      ],
+      "status": [
+        778,
+        356,
+        224,
+        18
+      ],
+      "scaleTicks": [
+        778,
+        377,
+        202,
+        12
+      ],
+      "scaleTrack": [
+        778,
+        392,
+        202,
+        6
+      ],
+      "manualStart": {
+        "rect": [
+          768,
+          416,
+          70,
+          44
+        ],
+        "fontPixels": 20,
+        "intent": "green label/outline; existing command and guards"
+      },
+      "manualStop": {
+        "rect": [
+          844,
+          416,
+          70,
+          44
+        ],
+        "fontPixels": 20,
+        "intent": "red label/outline; existing command and guards"
+      },
+      "manualFrequency": {
+        "groupRect": [
+          920,
+          416,
+          92,
+          44
+        ],
+        "preferredFontPixels": 24,
+        "minimumFontPixels": 22,
+        "unit": "Гц",
+        "background": "transparent",
+        "binding": "clone actual pump-specific input; do not infer fourth slot by arithmetic",
+        "actualGlyphGapToUnitAtLeast": 4
+      }
+    }
+  ],
+  "sharedRow": {
+    "rect": [
+      12,
+      414,
+      1000,
+      48
+    ],
+    "manual": "four groups; 8 native buttons +4 native frequency entries",
+    "otherModes": "existing leading/rotation summary; manual commands hidden",
+    "enterManualDoesNotStartAnyPump": true
+  },
+  "alarmRow": [
+    12,
+    476,
+    1000,
+    42
+  ],
+  "footer": [
+    {
+      "caption": "Насосы",
+      "rect": [
+        12,
+        534,
+        160,
+        48
+      ],
+      "target": "verified existing source page; preserve IDs",
+      "borderPixels": 1
+    },
+    {
+      "caption": "Каскад",
+      "rect": [
+        180,
+        534,
+        160,
+        48
+      ],
+      "target": "verified existing source page; preserve IDs",
+      "borderPixels": 1
+    },
+    {
+      "caption": "Ротация",
+      "rect": [
+        348,
+        534,
+        160,
+        48
+      ],
+      "target": "verified existing source page; preserve IDs",
+      "borderPixels": 1
+    },
+    {
+      "caption": "Ручной",
+      "rect": [
+        516,
+        534,
+        160,
+        48
+      ],
+      "target": "verified existing source page; preserve IDs",
+      "borderPixels": 1
+    },
+    {
+      "caption": "График",
+      "rect": [
+        684,
+        534,
+        160,
+        48
+      ],
+      "target": "verified existing source page; preserve IDs",
+      "borderPixels": 1
+    },
+    {
+      "caption": "Аварии",
+      "rect": [
+        852,
+        534,
+        160,
+        48
+      ],
+      "target": "verified existing source page; preserve IDs",
+      "borderPixels": 1
+    }
+  ],
+  "bindingResolution": {
+    "currentFourPumpNativeAuthoritative": true,
+    "archivalFourPumpSHA256": "13cc9f7d1c5fa59d25c0eb871a2deb3e6f1ef6ca5079be2f5828df5f9e8f5867",
+    "archivalMacroExpectsMap": 31,
+    "lastVerifiedScadaMap": 32,
+    "mapGateChangeRequiresCompleteBindingComparison": true,
+    "fourthInputStringEvidenceOnly": {
+      "id": "NE9102",
+      "address": "R2183",
+      "nativeGuardVerificationPending": true
+    },
+    "doNotReuseFixedThreePumpPLCOrWholeMacro": true,
+    "preserveActualLimitsFormatsGuardsAndPressRelease": true
+  },
+  "scada": {
+    "editFiles": false,
+    "activateOrReload": false,
+    "liveWrites": false,
+    "contract": "existing actual MasterOPC/SCADA/PLC contract; historical R2100 command, R2360 readback, R2554 version, R2840 heartbeat; confirm current base",
+    "snapshotFileHashesBeforeAndAfter": true
+  },
+  "verification": "SaveAs/reopen/nativeCompile/Simulator1024x600; all4 manual channels, actual min/max/blocked; fourth running alone; no-link; SCADA files unchanged; TEST_ONLY local receivers",
+  "outputName": "pump_station_4p_scada_main_r1_native.skm",
+  "nativeCompleted": false
+}

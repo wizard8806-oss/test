@@ -30,10 +30,21 @@
   },
   "archiveRequest": {
     "quote": "сделай отдельную папку со всеми вложениями",
-    "status": "Prepared for local execution; actual folder and ZIP not created by cloud",
+    "status": "Completed locally under prior task; further packaging paused while four-pump HMI work proceeds",
     "task": "docs/tasks/station002-babanov-approved-r21c-package-local.md",
     "directoryName": "Бабанов_3насоса_Утверждено_2026-11-24",
-    "location": "Actual Windows DesktopDirectory; local agent reports resolved path"
+    "location": "Actual Windows DesktopDirectory; local agent reports resolved path",
+    "pauseQuote": "нет, не сохраняй, займёмся её доработкой",
+    "preserveAnyAlreadyCreatedFiles": true,
+    "report": "docs/reports/station002-babanov-approved-package-local-20261124.md",
+    "actualFolder": "C:\\Users\\user\\Desktop\\Бабанов_3насоса_Утверждено_2026-11-24",
+    "actualZip": "C:\\Users\\user\\Desktop\\Бабанов_3насоса_Утверждено_2026-11-24.zip",
+    "fileCount": 62,
+    "externalImageReferences": 6,
+    "missingActiveDependencies": 0,
+    "zipBytes": 23203498,
+    "zipSHA256": "657a9e7aec13f163b089040d55c5678316f6a6c90076b375b1d5babb2d6e12f4",
+    "evidence": "Windows local report, not direct cloud read of private package"
   },
   "dependencies": {
     "includeEveryActualExternalImage": true,
