@@ -1,0 +1,50 @@
+{
+  "buildId": "babanov-3p-20261124-hmi-r21c-plc-r16",
+  "object": "Бабанов",
+  "pumps": 3,
+  "panel": {
+    "model": "SK-070HE",
+    "diagonalInches": 7,
+    "resolution": [
+      800,
+      480
+    ]
+  },
+  "userApproval": {
+    "date": "2026-11-24",
+    "quote": "хорошо. сохраняем этот вариант для 3х насосов . объект Бабанов",
+    "scope": "Approved r21c HMI variant for this object; hardware acceptance remains separate"
+  },
+  "hmi": {
+    "file": "pump_station_3p_babanov_r21c_main_manual_native.skm",
+    "bytes": 1650072,
+    "sha256": "9ba1a287f70df1167b2bc927b9d059d0b02372b147e6b083756c251e589fec0d",
+    "nativeReport": "docs/reports/station002-r21c-native-local.md",
+    "cloudReview": "docs/reports/station002-r21c-cloud-review-20261124.md"
+  },
+  "companionPLC": {
+    "file": "station_3p_telemetry_r16_native.pdw",
+    "bytes": 206362,
+    "sha256": "e163898006de80a0f88bc1f3b9d663860c4bc15c82dbc405cf73882e75276702",
+    "nativeReport": "docs/reports/station002-telemetry-r19-native-local.md"
+  },
+  "archiveRequest": {
+    "quote": "сделай отдельную папку со всеми вложениями",
+    "status": "Prepared for local execution; actual folder and ZIP not created by cloud",
+    "task": "docs/tasks/station002-babanov-approved-r21c-package-local.md",
+    "directoryName": "Бабанов_3насоса_Утверждено_2026-11-24",
+    "location": "Actual Windows DesktopDirectory; local agent reports resolved path"
+  },
+  "dependencies": {
+    "includeEveryActualExternalImage": true,
+    "preserveNativeBytesAndAbsoluteLinks": true,
+    "includeDependencyPathMap": true,
+    "customFont": {
+      "source": "assets/hmi/pump-animation/PumpStationRotor.ttf",
+      "bytes": 3520,
+      "sha256": "70c76c96778838c13b384cee32578b6ef967ef0774165b02bf5173f4dd862f22"
+    }
+  },
+  "hardwareValidation": "Real RS485/current/drive behavior and hardware interlocks still pending; packaging and UI approval are not field acceptance",
+  "distribution": "Native files and complete archive remain private on user computer; this metadata does not contain native payload"
+}
