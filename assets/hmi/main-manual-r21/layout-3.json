@@ -1,6 +1,6 @@
 {
   "format": "native-SKTool-placement-guide",
-  "status": "approved-for-native-implementation; native-pending",
+  "status": "r21 completed locally; r21a visual amendment pending",
   "device": "SK-070HE",
   "target": [
     800,
@@ -8,9 +8,9 @@
   ],
   "pumps": 3,
   "sourceNative": {
-    "name": "pump_station_3p_babanov_r20_main_native.skm",
-    "bytes": 1472535,
-    "sha256": "daaeb096a890716cb2151604724293b77139f74cd49bf0a1ea27f9e7bb801534"
+    "name": "pump_station_3p_babanov_r21_main_manual_native.skm",
+    "bytes": 1591509,
+    "sha256": "650a295dc7e842a33ee3c8ed1e2cf01364eb62085862a844aab148c9cbbe92bd"
   },
   "sharedRows": {
     "autoSummary": [
@@ -458,5 +458,130 @@
     ],
     "visible": "manual only",
     "note": "Cover baked caption in manual with read-only native backing; keep numeric R2110 input area clear"
+  },
+  "amendmentR21a": {
+    "status": "user-requested; native-pending",
+    "date": "2026-11-24",
+    "previousTask": "docs/tasks/station002-r21-state-proof-local.md",
+    "sourceNative": {
+      "name": "pump_station_3p_babanov_r21_main_manual_native.skm",
+      "bytes": 1591509,
+      "sha256": "650a295dc7e842a33ee3c8ed1e2cf01364eb62085862a844aab148c9cbbe92bd"
+    },
+    "outputName": "pump_station_3p_babanov_r21a_main_manual_native.skm",
+    "preserveOngoingLocalChanges": true,
+    "oldStateProofStillRequired": true,
+    "newNativeRequiredForVisualChanges": true
+  },
+  "headerEditableFields": {
+    "style": {
+      "activeDigits": "#8ED8FF",
+      "fieldFill": "#2B4655",
+      "fieldBorder": "#5B899F",
+      "borderPixels": 1,
+      "readOnlyDigits": "#F4F7F8",
+      "disabledDigits": "#B1BEC6",
+      "labelsAndUnits": "neutral; not blue",
+      "nativeInputGuardsUnchanged": true,
+      "colorIsNotTheOnlyAffordance": true,
+      "renderLayersAndDisabledAppearanceMustAgree": true
+    },
+    "setpoint": {
+      "binding": "R2100",
+      "pairedNative": [
+        "ND3014",
+        "NE5002"
+      ],
+      "label": "Уставка",
+      "labelRect": [
+        313,
+        42,
+        110,
+        18
+      ],
+      "recommendedLabelFontPixels": 14,
+      "valueRect": [
+        310,
+        65,
+        94,
+        43
+      ],
+      "preferredValueFontPixels": 42,
+      "unit": "бар",
+      "unitRect": [
+        405,
+        84,
+        36,
+        21
+      ],
+      "opaqueOldCaptionMask": [
+        305,
+        40,
+        136,
+        70
+      ],
+      "minimumRealTextGapPixels": 5,
+      "minimumGapToPumpCardPixels": 3,
+      "valuesToCheck": [
+        0.1,
+        5.0,
+        11.9
+      ],
+      "preserveScaleDivisor": 100,
+      "actualNativeGlyphsMustBeChecked": true,
+      "readonlyMaskBelowControls": true
+    },
+    "followers": {
+      "binding": "R2110",
+      "pairedNative": [
+        "ND3018",
+        "NE5004"
+      ],
+      "valueRect": [
+        641,
+        65,
+        88,
+        40
+      ],
+      "preferredValueFontPixels": 26,
+      "unit": "Гц",
+      "valuesToCheck": [
+        20.0,
+        50.0
+      ],
+      "preserveScaleDivisor": 10,
+      "preserveActualInputGuards": true
+    },
+    "manualFrequency": {
+      "bindings": [
+        "R2180",
+        "R2181",
+        "R2182"
+      ],
+      "nativeInputIds": [
+        "NE94002",
+        "NE94012",
+        "NE94022"
+      ],
+      "useExistingManualControlRects": true,
+      "valuesToCheck": [
+        10.0,
+        50.0
+      ],
+      "preserveScaleDivisor": 10,
+      "replaceLightBitmapFieldSkinWithNativeFlatDarkSkin": true
+    },
+    "readOnlyExamples": [
+      "R2302 pressure",
+      "R2500..2502 measured frequency",
+      "LW960..962 measured current",
+      "LW970 run count"
+    ],
+    "verification": "actual native800×480; test max digits, touch/keyboard, allowed/disabled/AUTO/MANUAL/no-link/wrong-map; no PLC logic change"
+  },
+  "originalR21DesignBase": {
+    "name": "pump_station_3p_babanov_r20_main_native.skm",
+    "bytes": 1472535,
+    "sha256": "daaeb096a890716cb2151604724293b77139f74cd49bf0a1ea27f9e7bb801534"
   }
 }
