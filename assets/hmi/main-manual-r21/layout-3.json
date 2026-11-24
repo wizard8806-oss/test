@@ -1,6 +1,6 @@
 {
   "format": "native-SKTool-placement-guide",
-  "status": "r21 completed locally; r21a visual amendment pending",
+  "status": "r21a completed locally; user editor/runtime comparison pending",
   "device": "SK-070HE",
   "target": [
     800,
@@ -8,9 +8,9 @@
   ],
   "pumps": 3,
   "sourceNative": {
-    "name": "pump_station_3p_babanov_r21_main_manual_native.skm",
-    "bytes": 1591509,
-    "sha256": "650a295dc7e842a33ee3c8ed1e2cf01364eb62085862a844aab148c9cbbe92bd"
+    "name": "pump_station_3p_babanov_r21a_main_manual_native.skm",
+    "bytes": 1658099,
+    "sha256": "ebbf1a3c59e7e01d2e5dd15c4f72564b44c231f0f0cf16b03fc93bd38a0f2db7"
   },
   "sharedRows": {
     "autoSummary": [
@@ -460,7 +460,7 @@
     "note": "Cover baked caption in manual with read-only native backing; keep numeric R2110 input area clear"
   },
   "amendmentR21a": {
-    "status": "user-requested; native-pending",
+    "status": "completed locally; published Simulator images independently inspected",
     "date": "2026-11-24",
     "previousTask": "docs/tasks/station002-r21-state-proof-local.md",
     "sourceNative": {
@@ -471,7 +471,8 @@
     "outputName": "pump_station_3p_babanov_r21a_main_manual_native.skm",
     "preserveOngoingLocalChanges": true,
     "oldStateProofStillRequired": true,
-    "newNativeRequiredForVisualChanges": true
+    "newNativeRequiredForVisualChanges": true,
+    "nativeReport": "docs/reports/station002-r21a-native-local.md"
   },
   "headerEditableFields": {
     "style": {
@@ -577,7 +578,37 @@
       "LW960..962 measured current",
       "LW970 run count"
     ],
-    "verification": "actual native800×480; test max digits, touch/keyboard, allowed/disabled/AUTO/MANUAL/no-link/wrong-map; no PLC logic change"
+    "verification": "actual native800×480; test max digits, touch/keyboard, allowed/disabled/AUTO/MANUAL/no-link/wrong-map; no PLC logic change",
+    "observedNativeRendering": {
+      "setpointValueRect": [
+        310,
+        65,
+        94,
+        42
+      ],
+      "nativeSetpointFontSize": 35,
+      "nativeFollowersFontSize": 22,
+      "manualMaxScreenshot": "docs/reports/station002-r21a/manual-max.png",
+      "activeValueForeground": "#8ED8FF",
+      "fieldBackground": "#2B4655",
+      "exactCyanPixelsInSetpoint": 391,
+      "setpointCyanPixelBounds": [
+        322,
+        69,
+        394,
+        99
+      ],
+      "exactCyanPixelsInFollowers": 158,
+      "followersCyanPixelBounds": [
+        661,
+        75,
+        709,
+        94
+      ],
+      "pumpCardTopY": 111,
+      "independentCloudNativeFileAvailable": false,
+      "editorObservation": "User screenshot is design editor with888 placeholders/addresses/selection; compare actual current user RAM in Simulator before runtime repair"
+    }
   },
   "originalR21DesignBase": {
     "name": "pump_station_3p_babanov_r20_main_native.skm",

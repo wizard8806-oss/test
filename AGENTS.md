@@ -1,5 +1,15 @@
 <!-- r21a local acceptance 2026-11-24 -->
 
+24.11 cloud проверило d65a565/SimulatorPNG: у R2100=11.9 иR2110=50.0
+одинаковые#8ED8FF/#2B4655; bbox уставкиy69..99 выше плашкиy111.
+Согласованность STOP/RUN/unknown исправлена вfixture, productionC прежний.
+Userпослеэтого прислал EDITOR888/addresses и пожаловался на уставку:
+runtime-дефект пока не воспроизведён, конкретный слой не установлен.
+При продолжении сверять именно пользовательский RAM/диск/егоSimulator,
+новое сохранять отдельно. Не править тип/precision ради preview888.
+Обзор docs/reports/station002-r21a-cloud-review-20261124.md;
+продолжение добавлено в тот же station002-r21-state-proof-local.md.
+
 Native r21a завершена: [отчёт и снимки](docs/reports/station002-r21a-native-local.md). Production C/PLC сохранены; исправлены уставка/оформление и TEST_ONLY. Продолжать итоговую r21a без повторного переноса Main.
 
 # Работа с проектом
