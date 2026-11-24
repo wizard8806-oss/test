@@ -685,5 +685,63 @@
     "baseSHA": "a4bdbb2217daa5aaff69b33dd5177ca3594a6640",
     "sourceCheckedSHA256": "52b782a6b9cf062a3b19ef106872340928c0ba4762ee4f5160f37b5b3a8432a3",
     "productionMacroUnchanged": true
+  },
+  "r21cNative": {
+    "status": "SaveAs/reopen/Script Compile 0/0/whole Compile/Offline Simulator PASS",
+    "nativeName": "pump_station_3p_babanov_r21c_main_manual_native.skm",
+    "bytes": 1650072,
+    "sha256": "9ba1a287f70df1167b2bc927b9d059d0b02372b147e6b083756c251e589fec0d",
+    "buttonFont": 18,
+    "manualNumberFont": 22,
+    "manualUnitFont": 15,
+    "manualNumberRects": [
+      [
+        170,
+        346,
+        72,
+        40
+      ],
+      [
+        434,
+        346,
+        72,
+        40
+      ],
+      [
+        698,
+        346,
+        72,
+        40
+      ]
+    ],
+    "manualUnitRects": [
+      [
+        228,
+        359,
+        33,
+        21
+      ],
+      [
+        492,
+        359,
+        33,
+        21
+      ],
+      [
+        756,
+        359,
+        33,
+        21
+      ]
+    ],
+    "buttonSize": [
+      74,
+      40
+    ],
+    "buttonGap": 6,
+    "headerBottom": 99,
+    "manualCaption": "Частота ведомых AUTO",
+    "productionC": "unchanged",
+    "report": "docs/reports/station002-r21c-native-local.md"
   }
 }

@@ -1,3 +1,5 @@
+24.11 — r21c native: Пуск зелёный/Стоп красный с тонкими контурами, Arial18; ручные частоты Arial22, единицы15, без фона. Карточки с непрерывной native-поверхностью и нейтральными пустыми дорожками. Верх r21b/y99 сохранён. [Реальная проверка и снимки](docs/reports/station002-r21c-native-local.md).
+
 24.11 — [сравнение r21b с целевым MANUAL](docs/reports/station002-r21b-target-comparison-20261124.md):
 верхние прозрачные поля/геометрия подтверждены, полного совпадения с рисунком
 пока нет. Целевые [MANUAL](docs/ui/assets/station002-main-transparent-r21b/main-manual.png)
