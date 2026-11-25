@@ -131,5 +131,20 @@
     "plcRebuildRequired": false,
     "hardwareActionsAssigned": false,
     "navigationRequirementAddedOn": "2026-11-25"
+  },
+  "postR2bReview": {
+    "date": "2026-11-25",
+    "reviewedCommit": "699491d7b11e4bec4863779c9bbb2b7758c52ef9",
+    "report": "docs/reports/oshsky-hmi-r2b-cloud-review-20261125.md",
+    "status": "Offline deliverables match task in reviewed screenshots/route CSV; no new UI corrections identified",
+    "all14PageScreensViewed": true,
+    "removedRoutes": 14,
+    "keptTargetsUnchanged": 93,
+    "noKeptSelfLinks": true,
+    "graphPeriodTransitions": 12,
+    "fiveMainStatePngFilesByteIdenticalToR2a": true,
+    "furtherTaskAssigned": false,
+    "hardwareAcceptanceObserved": false,
+    "deployed": false
   }
 }
