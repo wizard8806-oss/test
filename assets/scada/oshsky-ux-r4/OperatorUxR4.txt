@@ -1,0 +1,195 @@
+interface
+function R4ModeGroup(Mode: Int64): Integer;
+function R4PumpRole(CoreFresh: Boolean; Mode, Leader, Mask: Int64; Pump: Integer): string;
+function R4DriveState(CoreFresh, OwnFresh, FaultGood: Boolean;
+  State, Fault, Frequency, Mask: Int64; Pump: Integer): string;
+function R4PumpHint(CoreFresh, OwnFresh, FaultGood, CurrentFresh: Boolean;
+  Fault, Frequency, Mask: Int64; Pump: Integer): string;
+function R4RuntimeSpread(AllGood: Boolean; A, B, C, D: Int64): string;
+function R4AutoSetText(Known: Boolean; Member: Int64): string;
+procedure R4Observe(Station: Integer; Fresh: Boolean; SecondsNow: Double;
+  Counter, Mode, Leader, Mask: Int64; const Stamp: string);
+function R4RecentEvents(Station: Integer): string;
+implementation
+var
+  R4Baseline, R4Lost: array[0..15] of Boolean;
+  R4LastTime: array[0..15] of Double;
+  R4Counter, R4Mode, R4Leader, R4Mask: array[0..15] of Int64;
+  R4Events: array[0..15, 0..4] of string;
+  R4Count: array[0..15] of Integer;
+
+function R4ModeGroup(Mode: Int64): Integer;
+begin
+  Result := -1;
+  case Mode of
+    0: Result := 0;
+    10,11,12: Result := 1;
+    20,21,22: Result := 2;
+    90: Result := 3;
+  end;
+end;
+
+function R4PumpRole(CoreFresh: Boolean; Mode, Leader, Mask: Int64; Pump: Integer): string;
+begin
+  Result := 'Роль не подтверждена';
+  if not CoreFresh or (Pump < 1) or (Pump > 4) then Exit;
+  case R4ModeGroup(Mode) of
+    0: Result := 'Режим СТОП';
+    2: Result := 'Ручной режим шкафа';
+    1: if (Leader >= 1) and (Leader <= 4) and (Mask >= 0) and (Mask <= 15) then
+       begin
+         if Leader = Pump then Result := 'Ведущий'
+         else if (Mask and (1 shl (Pump-1))) <> 0 then Result := 'Ведомый'
+         else Result := 'Команда RUN не выдана';
+       end;
+    3: Result := 'Неисправность селектора';
+  end;
+end;
+
+function R4DriveState(CoreFresh, OwnFresh, FaultGood: Boolean;
+  State, Fault, Frequency, Mask: Int64; Pump: Integer): string;
+begin
+  Result := 'Нет данных ПЛК';
+  if not CoreFresh or (Pump<1) or (Pump>4) then Exit;
+  Result := 'Нет данных ПЧ'; if not OwnFresh then Exit;
+  if FaultGood and (Fault>0) and (Fault<=65535) then
+  begin Result := 'Авария ПЧ: '+IntToStr(Fault); Exit; end;
+  Result := 'Состояние ПЧ не подтверждено';
+  if not FaultGood or (Fault<>0) or (State<1) or (State>3)
+    or (Frequency<0) or (Frequency>5990) or (Mask<0) or (Mask>15) then Exit;
+  if Frequency=0 then
+  begin
+    if (Mask and (1 shl (Pump-1)))<>0 then Result := 'Команда RUN выдана'
+    else if State=3 then Result := 'Остановлен'
+    else Result := 'Нулевая частота; состояние ПЧ требует проверки';
+  end
+  else if State=3 then Result := 'Данные состояния и частоты различаются'
+  else if (Mask and (1 shl (Pump-1)))<>0 then Result := 'ПЧ работает'
+  else Result := 'ПЧ выдаёт частоту без команды ПЛК';
+end;
+
+function R4PumpHint(CoreFresh, OwnFresh, FaultGood, CurrentFresh: Boolean;
+  Fault, Frequency, Mask: Int64; Pump: Integer): string;
+begin
+  Result := 'Нет достоверных данных ПЛК';
+  if not CoreFresh or (Pump < 1) or (Pump > 4) then Exit;
+  Result := 'Нет данных ПЧ ' + IntToStr(Pump);
+  if not OwnFresh then Exit;
+  if FaultGood and (Fault > 0) and (Fault <= 65535) then
+  begin Result := 'ПЧ ' + IntToStr(Pump) + ': код неисправности ' + IntToStr(Fault); Exit; end;
+  if not FaultGood or (Fault < 0) or (Fault > 65535) then
+  begin Result := 'Код неисправности ПЧ не подтверждён'; Exit; end;
+  if (Frequency < 0) or (Frequency > 5990) or (Mask < 0) or (Mask > 15) then
+  begin Result := 'Состояние насоса не подтверждено'; Exit; end;
+  if not CurrentFresh then
+  begin Result := 'Частота доступна; данные тока не подтверждены'; Exit; end;
+  if (Mask and (1 shl (Pump-1))) <> 0 then
+  begin
+    if Frequency = 0 then Result := 'Команда RUN выдана; частота пока нулевая'
+    else Result := 'Команда RUN выдана; частота подтверждена';
+  end
+  else if Frequency > 0 then Result := 'Команда RUN не выдана; частота ненулевая'
+  else Result := 'Команда RUN не выдана; частота нулевая';
+end;
+
+function R4RuntimeSpread(AllGood: Boolean; A, B, C, D: Int64): string;
+var Lo, Hi, Delta: Int64;
+begin
+  Result := 'Сравнение наработки: нет полных данных ПЛК';
+  if not AllGood or (A < 0) or (B < 0) or (C < 0) or (D < 0)
+    or (A > 4294967295) or (B > 4294967295) or (C > 4294967295) or (D > 4294967295) then Exit;
+  Lo := A; Hi := A;
+  if B < Lo then Lo := B; if B > Hi then Hi := B;
+  if C < Lo then Lo := C; if C > Hi then Hi := C;
+  if D < Lo then Lo := D; if D > Hi then Hi := D;
+  Delta := Hi-Lo;
+  Result := 'Разница наработки: ' + IntToStr(Delta div 60) + ' ч ' + IntToStr(Delta mod 60) + ' мин';
+end;
+
+function R4AutoSetText(Known: Boolean; Member: Int64): string;
+begin
+  Result := 'Участие в АВТО не подтверждено';
+  if not Known then Exit;
+  if Member=0 then Result := 'Исключён из АВТО'
+  else if Member=1 then Result := 'Включён в АВТО';
+end;
+
+procedure R4Push(Station: Integer; const Stamp, MessageText: string);
+var I: Integer;
+begin
+  for I := 4 downto 1 do R4Events[Station,I] := R4Events[Station,I-1];
+  R4Events[Station,0] := Stamp + '  ' + MessageText;
+  if R4Count[Station] < 5 then Inc(R4Count[Station]);
+end;
+
+procedure R4Observe(Station: Integer; Fresh: Boolean; SecondsNow: Double;
+  Counter, Mode, Leader, Mask: Int64; const Stamp: string);
+var I, Group: Integer; Gap, Good: Boolean; BitValue: Int64; Text: string;
+begin
+  if (Station < 0) or (Station > 15) then Exit;
+  Group := R4ModeGroup(Mode);
+  Good := Fresh and (Counter >= 0) and (Counter <= 65535) and (Group >= 0)
+    and (Mask >= 0) and (Mask <= 15) and (Leader >= 0) and (Leader <= 4)
+    and (SecondsNow >= 0);
+  if not Good then
+  begin
+    if R4Baseline[Station] then
+    begin
+      R4Push(Station,Stamp,'Нет подтверждённых данных ПЛК');
+      R4Lost[Station] := True;
+    end;
+    R4Baseline[Station] := False; Exit;
+  end;
+  Gap := R4Baseline[Station] and ((SecondsNow < R4LastTime[Station])
+    or (SecondsNow-R4LastTime[Station] > 10));
+  if Gap then R4Baseline[Station] := False;
+  R4LastTime[Station] := SecondsNow;
+  if not R4Baseline[Station] then
+  begin
+    if R4Lost[Station] then R4Push(Station,Stamp,'Обмен с ПЛК восстановлен; состояния во время перерыва неизвестны')
+    else if Gap then R4Push(Station,Stamp,'Перерыв наблюдения; установлена новая база');
+    R4Lost[Station] := False;
+    R4Baseline[Station] := True;
+  end
+  else
+  begin
+    if Counter = R4Counter[Station] then Exit;
+    if Group <> R4Mode[Station] then
+    begin
+      case Group of
+        0: Text := 'СТОП'; 1: Text := 'АВТО';
+        2: Text := 'РУЧНОЙ'; 3: Text := 'НЕИСПРАВНОСТЬ СЕЛЕКТОРА';
+      end;
+      R4Push(Station,Stamp,'Режим: '+Text);
+    end;
+    if (Group=1) and (R4Mode[Station]=1) and (Leader>0)
+      and (R4Leader[Station]>0) and (Leader<>R4Leader[Station]) then
+      R4Push(Station,Stamp,'Ведущий насос: '+IntToStr(Leader));
+    for I := 1 to 4 do
+    begin
+      BitValue := 1 shl (I-1);
+      if (Mask and BitValue) <> (R4Mask[Station] and BitValue) then
+      begin
+        if (Mask and BitValue) <> 0 then Text := 'выдал' else Text := 'снял';
+        R4Push(Station,Stamp,'ПЛК '+Text+' команду RUN насосу '+IntToStr(I));
+      end;
+    end;
+  end;
+  R4Counter[Station] := Counter; R4Mode[Station] := Group;
+  R4Leader[Station] := Leader; R4Mask[Station] := Mask;
+end;
+
+function R4RecentEvents(Station: Integer): string;
+var I: Integer;
+begin
+  Result := 'События с начала наблюдения пока не зарегистрированы';
+  if (Station < 0) or (Station > 15) then Exit;
+  if R4Count[Station]=0 then Exit;
+  Result := '';
+  for I := 0 to R4Count[Station]-1 do
+  begin
+    if I > 0 then Result := Result + #13#10;
+    Result := Result + R4Events[Station,I];
+  end;
+end;
+end.

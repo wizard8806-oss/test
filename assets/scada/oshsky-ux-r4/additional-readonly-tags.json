@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Pump1AutoMember",
+    "pduAddress": 720,
+    "region": "HOLDING_REGISTERS",
+    "deviceType": "uint16",
+    "serverType": "uint32",
+    "access": "ReadOnly",
+    "scalingEnabled": false,
+    "semantic": "0 excluded from AUTO;1 included;other/unknown not confirmed"
+  },
+  {
+    "name": "Pump2AutoMember",
+    "pduAddress": 721,
+    "region": "HOLDING_REGISTERS",
+    "deviceType": "uint16",
+    "serverType": "uint32",
+    "access": "ReadOnly",
+    "scalingEnabled": false,
+    "semantic": "0 excluded from AUTO;1 included;other/unknown not confirmed"
+  },
+  {
+    "name": "Pump3AutoMember",
+    "pduAddress": 722,
+    "region": "HOLDING_REGISTERS",
+    "deviceType": "uint16",
+    "serverType": "uint32",
+    "access": "ReadOnly",
+    "scalingEnabled": false,
+    "semantic": "0 excluded from AUTO;1 included;other/unknown not confirmed"
+  },
+  {
+    "name": "Pump4AutoMember",
+    "pduAddress": 723,
+    "region": "HOLDING_REGISTERS",
+    "deviceType": "uint16",
+    "serverType": "uint32",
+    "access": "ReadOnly",
+    "scalingEnabled": false,
+    "semantic": "0 excluded from AUTO;1 included;other/unknown not confirmed"
+  }
+]

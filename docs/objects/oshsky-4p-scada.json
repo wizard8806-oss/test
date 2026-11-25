@@ -279,5 +279,25 @@
     "protectedFilesCompared": 328,
     "productionActivation": false,
     "configuredOpcProfileInstalled": false
+  },
+  "scadaUxR4": {
+    "requestedOn": "2026-11-25",
+    "status": "Approved implementation; public read-only helper/layout prepared; separate native Windows integration pending",
+    "baselineCommit": "459a999578c4b6071f28b1e74bf4d90513083200",
+    "baselineProject": "oshsky_scada_r3_native_review",
+    "task": "docs/tasks/oshsky-scada-ux-r4-local.md",
+    "components": "assets/scada/oshsky-ux-r4/README.md",
+    "report": "docs/reports/oshsky-scada-ux-r4-cloud-20261125.md",
+    "helperHostAssertions": 95,
+    "isolatedBuildCheckGroups": 63,
+    "nativeUpperTabsPreserved": true,
+    "nativeTrendViewerPreserved": true,
+    "sessionChangesArePersistentArchive": false,
+    "newWritableChannels": false,
+    "nativeR4CreatedInCloud": false,
+    "nativeClientAccepted": false,
+    "nativeArchiveGapAccepted": false,
+    "productionActivation": false,
+    "hardwareCommandsSent": 0
   }
 }

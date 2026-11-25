@@ -1,0 +1,246 @@
+{
+  "schemaVersion": 1,
+  "revision": "oshsky-scada-ux-r4",
+  "status": "implementation target; native file not yet produced in cloud",
+  "baseline": "459a999578c4b6071f28b1e74bf4d90513083200; saved oshsky_scada_r3_native_review",
+  "platform": "Simple-Scada2.6.15 native; upper tabs; existing native trend viewer",
+  "referenceCanvas": {
+    "width": 1920,
+    "height": 1240,
+    "nativeTabClearance": 64,
+    "measuredActualCanvas": false
+  },
+  "adaptation": "Read actual canvas/DPI first. Reference rectangles describe intended composition, not measured source geometry.",
+  "style": {
+    "fontFamily": "Segoe UI",
+    "background": "#0D1520",
+    "panel": "#152131",
+    "border": "#2A3B4E",
+    "text": "#EDF4FB",
+    "muted": "#A4B6C8",
+    "editableValue": "#8ED8FF",
+    "countdown": "#F5D27A",
+    "navigationAccent": "#51C8B2",
+    "work": "#2DDF84",
+    "alarm": "#F06B68",
+    "individualLabelBackground": false,
+    "individualNumberBackground": false
+  },
+  "regions": {
+    "heading": [
+      54,
+      92,
+      1812,
+      56
+    ],
+    "sourceAndAlarm": [
+      54,
+      154,
+      1812,
+      48
+    ],
+    "metrics": [
+      54,
+      214,
+      1812,
+      124
+    ],
+    "countdown": [
+      54,
+      350,
+      1812,
+      52
+    ],
+    "pumpCards": [
+      54,
+      424,
+      1812,
+      500
+    ],
+    "rotationAndRuntime": [
+      54,
+      946,
+      1812,
+      58
+    ],
+    "eventsAndSource": [
+      54,
+      1022,
+      1812,
+      132
+    ],
+    "footer": [
+      54,
+      1172,
+      1812,
+      40
+    ]
+  },
+  "metrics": [
+    "PressurePVBar",
+    "PressureSPBar",
+    "CommandRunCount",
+    "FollowersFrequencyHz"
+  ],
+  "cards": [
+    {
+      "pump": 1,
+      "rect": [
+        54,
+        424,
+        438,
+        500
+      ],
+      "dataControlPrefix": "R3Cell0"
+    },
+    {
+      "pump": 2,
+      "rect": [
+        512,
+        424,
+        438,
+        500
+      ],
+      "dataControlPrefix": "R3Cell1"
+    },
+    {
+      "pump": 3,
+      "rect": [
+        970,
+        424,
+        438,
+        500
+      ],
+      "dataControlPrefix": "R3Cell2"
+    },
+    {
+      "pump": 4,
+      "rect": [
+        1428,
+        424,
+        438,
+        500
+      ],
+      "dataControlPrefix": "R3Cell3"
+    }
+  ],
+  "newReadonlyViewControls": [
+    "R4Role0..3",
+    "R4Hint0..3",
+    "R4RuntimeSummary",
+    "R4EventsText",
+    "R4LinkText"
+  ],
+  "reuse": {
+    "data": "Keep R3Cell<0..3><0..6> or explicitly map their actual equivalent; preserve producer/UID/references",
+    "countdown": "R3Wait; no local decrement",
+    "alarm": "R3Summary",
+    "setpoint": "Existing command draft and original OnClick handlers; no duplicate owner/draft"
+  },
+  "canonicalStation": "Choose one canonical station surface for normal links and separate windows. Do not leave a parallel old station card with stale pumps2..4.",
+  "history": "Bounded observed-change session feed. Existing native archive remains separate; no invented past events.",
+  "commandWhitelist": "Existing R2100 command only; new view objects and membership tags are read-only",
+  "nativeClientObserved": false,
+  "nativeArchiveGapObserved": false,
+  "cardTemplate": {
+    "fields": {
+      "title": [
+        20,
+        16,
+        398,
+        36
+      ],
+      "role": [
+        20,
+        56,
+        398,
+        26
+      ],
+      "state": [
+        20,
+        90,
+        398,
+        52
+      ],
+      "frequencyLabel": [
+        20,
+        158,
+        182,
+        24
+      ],
+      "frequency": [
+        20,
+        190,
+        182,
+        60
+      ],
+      "currentLabel": [
+        236,
+        158,
+        182,
+        24
+      ],
+      "current": [
+        236,
+        190,
+        182,
+        60
+      ],
+      "runtimeLabel": [
+        20,
+        268,
+        398,
+        24
+      ],
+      "runtime": [
+        20,
+        298,
+        398,
+        52
+      ],
+      "faultLabel": [
+        20,
+        364,
+        182,
+        24
+      ],
+      "fault": [
+        20,
+        394,
+        182,
+        38
+      ],
+      "targetLabel": [
+        236,
+        364,
+        182,
+        24
+      ],
+      "target": [
+        236,
+        394,
+        182,
+        38
+      ],
+      "hint": [
+        20,
+        446,
+        398,
+        40
+      ]
+    },
+    "minimumValueFontAtReference": {
+      "frequency": 36,
+      "current": 36,
+      "runtime": 30
+    },
+    "unitsInLabels": [
+      "Частота, Гц",
+      "Ток, А",
+      "Наработка, ч",
+      "Задание, Гц"
+    ],
+    "readonlyDefault": "— with reason; confirmed zero remains numeric",
+    "roleAndAutoMembership": "One combined line in role rectangle; readonly, wrap only if measured native font requires it. No separate overlapping AUTO label."
+  }
+}
