@@ -5,6 +5,19 @@ Windows, WinProLadder и SKTOOL7.1; 4 насоса, SCADA, SK-102CE 10″/1024×
 `codex/telemetry-r19-local-20261117`. Корневой checkout5e3cbae с прежним dirty
 HANDOFF сохранён. Выполнено самим локальным Codex, без оборудования.
 
+## Окна после уборки
+
+25.11.2026, Windows, рабочая ветка `codex/telemetry-r19-local-20261117`, проверенная база `3c6781d52ed71d786c14fd1171c122691cd22804`. Локальный Codex сверил свои окна с путями проектов, PID и предыдущими запусками. Штатно закрыты 14 экземпляров SKTOOL с TEST_ONLY, два рабочих проекта с их Script Editor, пустой редактор с диалогом открытия файла и WinProLadder с сохранённым PDW. При начальной проверке был открыт один Simulator.
+
+Перед закрытием двух Script Editor сохранены дисковые копии и выполнен отдельный Save As моделей из окон. В подкаталоге `window-cleanup-20261125` приватной папки выпущенной r2 находятся обе пары:
+
+| Рабочий проект | Копия с диска | Копия из окна | SHA256 копии из окна |
+|---|---|---|---|
+| HMI_VARIABLE_PROBE | `HMI_VARIABLE_PROBE_disk.skm` | `HMI_VARIABLE_PROBE_window.skm` | `06ae96fb76a393ba422705a6e79cc2012967012d137c81b63d46c8e346afa4c0` |
+| R2_CURRENT_WORKING | `R2_CURRENT_WORKING_disk.skm` | `R2_CURRENT_WORKING_window.skm` | `ddbab0a1f1d431b4a1b14e8191d2de85f42dd6911d40bd51b9dcc39129eefc71` |
+
+Повторная проверка процессов и видимых окон обнаружила только SKTOOL7.1 с `pump_station_4p_oshsky_telemetry_r2_native.skm` (PID 12784) и его финальный Offline Simulator (PID 2772, родитель 12784). Хеши исходных рабочих файлов совпали с дисковыми копиями, а SHA256 итоговых SKM и PDW — с указанными ниже при выпуске. Пользовательские окна и службы в уборке не участвовали.
+
 ## Итоговые native-файлы
 
 PLC:
