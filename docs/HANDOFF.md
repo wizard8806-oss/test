@@ -1,3 +1,7 @@
+## 25.11.2026 — Ошский, PLC/HMI r3 проверены офлайн в Windows
+
+Принят коммит `f4644e726f622df24083aaae255b170e7c6c2e3b`. Отдельные native-файлы лежат в `C:\Users\user\CodexProjects\pump-station\.worktrees\station002-fault-reset-local-15\_release_private\Ошский_R3_Каскад_2026-11-25`. PLC `station_4p_oshsky_cascade_r3_native.pdw`, 181384 байта, SHA256 `683753c3388b0e404cd12bf2325c7c9f967fe3978e0b1b2529278f4a9df8a402`. HMI `pump_station_4p_oshsky_cascade_r3_native.skm`, 1735632 байта, SHA256 `590a6583a0bab4eb4da63c7e2cc418b62f07ee4c13b3b503d6c0c8e6517b1573`. Выдержки для 3/4 насосов независимы, снятие общее. Ожидание на Main показывает физическую цель ПЛК, бренд открывает карточку с возвратом. F8 0 ошибок и 25 прежних W85, Script Compile 0/0 для HMI/local, полный Compile успешен. В production Offline Simulator проверены 95 переходов. Native Save PDW сменил маску сериализации, код, данные и метаданные сверены. Загрузок 0. Оставлены SKTOOL PID 2032 и Simulator PID 9500. [Отчёт, результаты и кадры](reports/oshsky-cascade-r3-native-local-20261125.md).
+
 # 25.11.2026 — «Ошский» r3 подготовлена в Cloud, завершить native локально
 
 Пользователь после выбора header/номера насоса поручил приступить.

@@ -74,6 +74,27 @@
       "scriptCompile": "HMI/local 0 errors, 0 warnings",
       "wholeCompile": "PASS",
       "deployed": false
+    },
+    "cascadeR3Native": {
+      "date": "2026-11-25",
+      "revision": "cascade-r3",
+      "sourceCommit": "f4644e726f622df24083aaae255b170e7c6c2e3b",
+      "report": "docs/reports/oshsky-cascade-r3-native-local-20261125.md",
+      "plc": {
+        "file": "station_4p_oshsky_cascade_r3_native.pdw",
+        "bytes": 181384,
+        "sha256": "683753c3388b0e404cd12bf2325c7c9f967fe3978e0b1b2529278f4a9df8a402",
+        "F8": "0 errors; 25 W85 identical to reopened r2"
+      },
+      "hmi": {
+        "file": "pump_station_4p_oshsky_cascade_r3_native.skm",
+        "bytes": 1735632,
+        "sha256": "590a6583a0bab4eb4da63c7e2cc418b62f07ee4c13b3b503d6c0c8e6517b1573",
+        "scriptCompile": "HMI 0/0; local 0/0",
+        "wholeCompile": "PASS",
+        "offlineSimulator": "1024x600; 14 pages; 95 routes; 110 gap/edge checks"
+      },
+      "hardwareDownloads": 0
     }
   },
   "postR2Review": {
@@ -204,6 +225,7 @@
     "nativeHmiModifiedInCloud": false,
     "externalActualAllocationReviewed": false,
     "deployed": false,
-    "equipmentActions": 0
+    "equipmentActions": 0,
+    "localCompletionReport": "docs/reports/oshsky-cascade-r3-native-local-20261125.md"
   }
 }

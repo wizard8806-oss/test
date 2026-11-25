@@ -1,0 +1,26 @@
+﻿№,Предупреждение,Операция,Катушка,Исходная r2,Повторно открытая r3
+1,W85 Duplicated coil,OUTS,M1755,W85,W85
+2,W85 Duplicated coil,OUTR,M1752,W85,W85
+3,W85 Duplicated coil,OUTR,M1753,W85,W85
+4,W85 Duplicated coil,OUTR,M1754,W85,W85
+5,W85 Duplicated coil,OUTS,M1752,W85,W85
+6,W85 Duplicated coil,OUTS,M1754,W85,W85
+7,W85 Duplicated coil,OUTS,M1753,W85,W85
+8,W85 Duplicated coil,OUTS,M1754,W85,W85
+9,W85 Duplicated coil,OUTR,M330,W85,W85
+10,W85 Duplicated coil,OUTR,M331,W85,W85
+11,W85 Duplicated coil,OUTS,M330,W85,W85
+12,W85 Duplicated coil,OUTS,M331,W85,W85
+13,W85 Duplicated coil,OUTS,M1767,W85,W85
+14,W85 Duplicated coil,OUTS,M1768,W85,W85
+15,W85 Duplicated coil,OUTS,M330,W85,W85
+16,W85 Duplicated coil,OUTR,M1752,W85,W85
+17,W85 Duplicated coil,OUTR,M1753,W85,W85
+18,W85 Duplicated coil,OUTR,M1754,W85,W85
+19,W85 Duplicated coil,OUTR,M1755,W85,W85
+20,W85 Duplicated coil,OUT,M1757,W85,W85
+21,W85 Duplicated coil,OUTR,M1421,W85,W85
+22,W85 Duplicated coil,OUTR,M1421,W85,W85
+23,W85 Duplicated coil,OUTR,M1421,W85,W85
+24,W85 Duplicated coil,OUTS,M1421,W85,W85
+25,W85 Duplicated coil,OUTR,M1410,W85,W85
