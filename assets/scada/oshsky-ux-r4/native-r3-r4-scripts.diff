@@ -1,0 +1,646 @@
+--- r3/OperatorConsole
++++ r4/OperatorConsole
+@@ -6,0 +7 @@
++procedure R4OpenTrend(const Client: string; Pump, IsCurrent, Hours: Integer);
+@@ -10,0 +12,4 @@
++  R4FaultKnown: array[1..4] of Boolean;
++  R4FaultLast: array[1..4] of Int64;
++  R4Client: array[0..63] of string;
++  R4Pump,R4Period,R4Amps: array[0..63] of Integer;
+@@ -200,0 +206,181 @@
++var
++  R4Baseline, R4Lost: array[0..15] of Boolean;
++  R4LastTime: array[0..15] of Double;
++  R4Counter, R4Mode, R4Leader, R4Mask: array[0..15] of Int64;
++  R4Events: array[0..15, 0..4] of string;
++  R4Count: array[0..15] of Integer;
++
++function R4ModeGroup(Mode: Int64): Integer;
++begin
++  Result := -1;
++  case Mode of
++    0: Result := 0;
++    10,11,12: Result := 1;
++    20,21,22: Result := 2;
++    90: Result := 3;
++  end;
++end;
++
++function R4PumpRole(CoreFresh: Boolean; Mode, Leader, Mask: Int64; Pump: Integer): string;
++begin
++  Result := 'Роль не подтверждена';
++  if not CoreFresh or (Pump < 1) or (Pump > 4) then Exit;
++  case R4ModeGroup(Mode) of
++    0: Result := 'Режим СТОП';
++    2: Result := 'Ручной режим шкафа';
++    1: if (Leader >= 1) and (Leader <= 4) and (Mask >= 0) and (Mask <= 15) then
++       begin
++         if Leader = Pump then Result := 'Ведущий'
++         else if (Mask and (1 shl (Pump-1))) <> 0 then Result := 'Ведомый'
++         else Result := 'Команда RUN не выдана';
++       end;
++    3: Result := 'Неисправность селектора';
++  end;
++end;
++
++function R4DriveState(CoreFresh, OwnFresh, FaultGood: Boolean;
++  State, Fault, Frequency, Mask: Int64; Pump: Integer): string;
++begin
++  Result := 'Нет данных ПЛК';
++  if not CoreFresh or (Pump<1) or (Pump>4) then Exit;
++  Result := 'Нет данных ПЧ'; if not OwnFresh then Exit;
++  if FaultGood and (Fault>0) and (Fault<=65535) then
++  begin Result := 'Авария ПЧ: '+IntToStr(Fault); Exit; end;
++  Result := 'Состояние ПЧ не подтверждено';
++  if not FaultGood or (Fault<>0) or (State<1) or (State>3)
++    or (Frequency<0) or (Frequency>5990) or (Mask<0) or (Mask>15) then Exit;
++  if Frequency=0 then
++  begin
++    if (Mask and (1 shl (Pump-1)))<>0 then Result := 'Команда RUN выдана'
++    else if State=3 then Result := 'Остановлен'
++    else Result := 'Нулевая частота; состояние ПЧ требует проверки';
++  end
++  else if State=3 then Result := 'Данные состояния и частоты различаются'
++  else if (Mask and (1 shl (Pump-1)))<>0 then Result := 'ПЧ работает'
++  else Result := 'ПЧ выдаёт частоту без команды ПЛК';
++end;
++
++function R4PumpHint(CoreFresh, OwnFresh, FaultGood, CurrentFresh: Boolean;
++  Fault, Frequency, Mask: Int64; Pump: Integer): string;
++begin
++  Result := 'Нет достоверных данных ПЛК';
++  if not CoreFresh or (Pump < 1) or (Pump > 4) then Exit;
++  Result := 'Нет данных ПЧ ' + IntToStr(Pump);
++  if not OwnFresh then Exit;
++  if FaultGood and (Fault > 0) and (Fault <= 65535) then
++  begin Result := 'ПЧ ' + IntToStr(Pump) + ': код неисправности ' + IntToStr(Fault); Exit; end;
++  if not FaultGood or (Fault < 0) or (Fault > 65535) then
++  begin Result := 'Код неисправности ПЧ не подтверждён'; Exit; end;
++  if (Frequency < 0) or (Frequency > 5990) or (Mask < 0) or (Mask > 15) then
++  begin Result := 'Состояние насоса не подтверждено'; Exit; end;
++  if not CurrentFresh then
++  begin Result := 'Частота доступна; данные тока не подтверждены'; Exit; end;
++  if (Mask and (1 shl (Pump-1))) <> 0 then
++  begin
++    if Frequency = 0 then Result := 'Команда RUN выдана; частота пока нулевая'
++    else Result := 'Команда RUN выдана; частота подтверждена';
++  end
++  else if Frequency > 0 then Result := 'Команда RUN не выдана; частота ненулевая'
++  else Result := 'Команда RUN не выдана; частота нулевая';
++end;
++
++function R4RuntimeSpread(AllGood: Boolean; A, B, C, D: Int64): string;
++var Lo, Hi, Delta: Int64;
++begin
++  Result := 'Сравнение наработки: нет полных данных ПЛК';
++  if not AllGood or (A < 0) or (B < 0) or (C < 0) or (D < 0)
++    or (A > 4294967295) or (B > 4294967295) or (C > 4294967295) or (D > 4294967295) then Exit;
++  Lo := A; Hi := A;
++  if B < Lo then Lo := B; if B > Hi then Hi := B;
++  if C < Lo then Lo := C; if C > Hi then Hi := C;
++  if D < Lo then Lo := D; if D > Hi then Hi := D;
++  Delta := Hi-Lo;
++  Result := 'Разница наработки: ' + IntToStr(Delta div 60) + ' ч ' + IntToStr(Delta mod 60) + ' мин';
++end;
++
++function R4AutoSetText(Known: Boolean; Member: Int64): string;
++begin
++  Result := 'Участие в АВТО не подтверждено';
++  if not Known then Exit;
++  if Member=0 then Result := 'Исключён из АВТО'
++  else if Member=1 then Result := 'Включён в АВТО';
++end;
++
++procedure R4Push(Station: Integer; const Stamp, MessageText: string);
++var I: Integer;
++begin
++  for I := 4 downto 1 do R4Events[Station,I] := R4Events[Station,I-1];
++  R4Events[Station,0] := Stamp + '  ' + MessageText;
++  if R4Count[Station] < 5 then Inc(R4Count[Station]);
++end;
++
++procedure R4Observe(Station: Integer; Fresh: Boolean; SecondsNow: Double;
++  Counter, Mode, Leader, Mask: Int64; const Stamp: string);
++var I, Group: Integer; Gap, Good: Boolean; BitValue: Int64; Text: string;
++begin
++  if (Station < 0) or (Station > 15) then Exit;
++  Group := R4ModeGroup(Mode);
++  Good := Fresh and (Counter >= 0) and (Counter <= 65535) and (Group >= 0)
++    and (Mask >= 0) and (Mask <= 15) and (Leader >= 0) and (Leader <= 4)
++    and (SecondsNow >= 0);
++  if not Good then
++  begin
++    if R4Baseline[Station] then
++    begin
++      R4Push(Station,Stamp,'Нет подтверждённых данных ПЛК');
++      R4Lost[Station] := True;
++    end;
++    R4Baseline[Station] := False; Exit;
++  end;
++  Gap := R4Baseline[Station] and ((SecondsNow < R4LastTime[Station])
++    or (SecondsNow-R4LastTime[Station] > 10));
++  if Gap then R4Baseline[Station] := False;
++  R4LastTime[Station] := SecondsNow;
++  if not R4Baseline[Station] then
++  begin
++    if R4Lost[Station] then R4Push(Station,Stamp,'Обмен с ПЛК восстановлен; состояния во время перерыва неизвестны')
++    else if Gap then R4Push(Station,Stamp,'Перерыв наблюдения; установлена новая база');
++    R4Lost[Station] := False;
++    R4Baseline[Station] := True;
++  end
++  else
++  begin
++    if Counter = R4Counter[Station] then Exit;
++    if Group <> R4Mode[Station] then
++    begin
++      case Group of
++        0: Text := 'СТОП'; 1: Text := 'АВТО';
++        2: Text := 'РУЧНОЙ'; 3: Text := 'НЕИСПРАВНОСТЬ СЕЛЕКТОРА';
++      end;
++      R4Push(Station,Stamp,'Режим: '+Text);
++    end;
++    if (Group=1) and (R4Mode[Station]=1) and (Leader>0)
++      and (R4Leader[Station]>0) and (Leader<>R4Leader[Station]) then
++      R4Push(Station,Stamp,'Ведущий насос: '+IntToStr(Leader));
++    for I := 1 to 4 do
++    begin
++      BitValue := 1 shl (I-1);
++      if (Mask and BitValue) <> (R4Mask[Station] and BitValue) then
++      begin
++        if (Mask and BitValue) <> 0 then Text := 'выдал' else Text := 'снял';
++        R4Push(Station,Stamp,'ПЛК '+Text+' команду RUN насосу '+IntToStr(I));
++      end;
++    end;
++  end;
++  R4Counter[Station] := Counter; R4Mode[Station] := Group;
++  R4Leader[Station] := Leader; R4Mask[Station] := Mask;
++end;
++
++function R4RecentEvents(Station: Integer): string;
++var I: Integer;
++begin
++  Result := 'События с начала наблюдения пока не зарегистрированы';
++  if (Station < 0) or (Station > 15) then Exit;
++  if R4Count[Station]=0 then Exit;
++  Result := '';
++  for I := 0 to R4Count[Station]-1 do
++  begin
++    if I > 0 then Result := Result + #13#10;
++    Result := Result + R4Events[Station,I];
++  end;
++end;
+@@ -235,0 +422,14 @@
++function R4Minutes(Good: Boolean; const Item: string): Int64;
++var V: TM_Variable; Value, Tenths, Remainder: Int64;
++begin
++  Result := -1;
++  if not Good then Exit;
++  V := GetVariableByAddress(UiPrefix(0) + Item);
++  if V=nil then Exit;
++  if not V.Outer then Exit;
++  if (V.Address <> UiPrefix(0)+Item) or (LowerCase(V.ComputerName)<>LowerCase(UiHost(0))) or
++     (LowerCase(V.OPCServerName)<>LowerCase(UiServer(0))) or (not V.IsGoodQuality) then Exit;
++  Value := V.OriginalAsInt;
++  if (Value<0) or (Value>4294967295) then Exit;
++  Result:=Value;
++end;
+@@ -256 +456,3 @@
+-  N: Integer; Num, State, Run, Fault, Hz, Amps, Hours, Setting, WaitText, H1,H2,H3,H4: string;
++  Minutes: array[0..3] of Int64;
++  Leader,Counter,M,A: Int64; MemberGood,AmpGood:Boolean; Role,Hint,Reason:string;
++  CountRun,J,N: Integer; Num, State, Run, Fault, Hz, Amps, Hours, Setting, WaitText, H1,H2,H3,H4: string;
+@@ -273,2 +475,2 @@
+-    if (Action=1) and (Preset<=3600) then WaitText := 'До запуска насоса ';
+-    if (Action=2) and (Preset<=1800) then WaitText := 'До остановки насоса ';
++    if (Action=1) and (Preset<=3600) then WaitText := 'До запуска насоса №';
++    if (Action=2) and (Preset<=1800) then WaitText := 'До остановки насоса №';
+@@ -282,0 +485,28 @@
++  Mode:=-1; Leader:=-1;
++  if not UiWord(0,'StationMode',Mode) then Mode:=-1;
++  if not UiWord(0,'LeaderPump',Leader) then Leader:=-1;
++  if not RunGood then RunMask:=-1;
++  Counter:=0; Valid:=UiWord(0,'PlcAliveCounter',Counter);
++  R4Observe(0,Live and Valid,Now*86400.0,Counter,Mode,Leader,RunMask,TimeToStr(Now));
++  R4EventsText.Text:=R4RecentEvents(0);
++  if not UiWord(0,'MapVersion',M) then Reason:='Нет качественного значения OPC карты'
++  else if M<>32 then Reason:='Несовместимая карта ПЛК'
++  else if not UiWord(0,'PlcSchemaVersion',M) then Reason:='Нет качества OPC схемы ПЛК'
++  else if M<>27110 then Reason:='Несовместимая схема ПЛК'
++  else if not Valid then Reason:='Нет качественного счётчика OPC'
++  else if not Live then Reason:='Ожидание продвижения счётчика ПЛК'
++  else Reason:='Данные ПЛК подтверждены';
++  if R3Primed[0] then Reason:=Reason+' · движение '+IntToStr(Trunc(Now*86400.0-R3Changed[0]))+' с назад';
++  R4LinkText.Text:=Reason;
++  R4PV.Text:='--';
++  if Live and UiWord(0,'PressureSourceOK',M) and (M=1) and UiWord(0,'PressureSource',M) and (M>=1) and (M<=4)
++  and UiWord(0,'PressurePV_x100',M) and (M<=1600) then R4PV.Text:=FormatFloat('0.0',M/100.0);
++  R4SP.Text:='--';
++  if Live and UiWord(0,'PressureSP_x100',M) and (M>=10) and (M<=1190) and ((M mod 10)=0)
++    then R4SP.Text:=FormatFloat('0.0',M/100.0);
++  R4Followers.Text:=R3WordText(Live,'FollowersFrequencyRaw','0.0',10.0);
++  R4RUN.Text:='--';
++  if Live and RunGood and (RunMask<=15) then begin
++    CountRun:=0;for J:=0 to 3 do if (RunMask and (1 shl J))<>0 then CountRun:=CountRun+1;
++    R4RUN.Text:=IntToStr(CountRun)+' / 4';
++  end;
+@@ -303,0 +534,39 @@
++    if not FGood then F:=-1;
++    if not (QGood and UiWord(0,'Vfd'+Num+'NativeState',S)) then S:=-1;
++    if not OwnFault then Code:=-1;
++    if OwnFault then begin
++      if R4FaultKnown[N] and (Code<>R4FaultLast[N]) then begin
++        if Code<>0 then AddMessageToGroup(Now,mkAlarm,N,'ПЧ '+Num+': получен код '+IntToStr(Code),True,False)
++        else AddMessageToGroup(Now,mkMessage,N,'ПЧ '+Num+': получен код 0 после '+IntToStr(R4FaultLast[N]),False,False);
++      end;
++      R4FaultLast[N]:=Code;
++    end;
++    R4FaultKnown[N]:=OwnFault;
++    MemberGood:=Live and UiWord(0,'Pump'+Num+'AutoMember',M);
++    Role:=R4PumpRole(Live,Mode,Leader,RunMask,N);
++    if Role='Команда RUN не выдана' then Role:='Без команды RUN';
++    if Role='Роль не подтверждена' then Role:='Роль неизвестна';
++    if Role='Ручной режим шкафа' then Role:='Ручной режим';
++    if MemberGood and (M=1) then Role:=Role+' · АВТО: да'
++    else if MemberGood and (M=0) then Role:=Role+' · АВТО: нет'
++    else Role:=Role+' · АВТО: ?';
++    State:=R4DriveState(Live,FGood,OwnFault,S,Code,F,RunMask,N);
++    if State='Нулевая частота; состояние ПЧ требует проверки' then State:='0 Гц · состояние неясно';
++    if State='ПЧ выдаёт частоту без команды ПЛК' then State:='Частота без команды RUN';
++    if State='Данные состояния и частоты различаются' then State:='Расхождение частоты и статуса';
++    if State='Состояние ПЧ не подтверждено' then State:='Состояние ПЧ неизвестно';
++    AmpGood:=IGood and FGood and UiWord(0,'Vfd'+Num+'CurrentSnapshotRaw',A);
++    if not AmpGood then Amps:='--';
++    Hint:=R4PumpHint(Live,FGood,OwnFault,AmpGood,Code,F,RunMask,N);
++    if Hint='Команда RUN выдана; частота подтверждена' then Hint:='RUN выдан · частота подтверждена';
++    if Hint='Команда RUN выдана; частота пока нулевая' then Hint:='RUN выдан · частота нулевая';
++    if Hint='Команда RUN не выдана; частота ненулевая' then Hint:='Нет RUN · частота ненулевая';
++    if Hint='Команда RUN не выдана; частота нулевая' then Hint:='Нет RUN · частота нулевая';
++    if Live and FGood and not IGood then Hint:='Ток: нет свежего экспорта ПЛК';
++    if IGood and FGood and not AmpGood then Hint:='Ток: нет качества OPC';
++    if R4ModeGroup(Mode)<>2 then begin
++      Setting:='--';
++      if Live and (R4ModeGroup(Mode)=1) and (Leader>=1) and (Leader<=4) and (N<>Leader) and RunGood and (RunMask>=0) and (RunMask<=15)
++        and ((RunMask and (1 shl (N-1)))<>0) then Setting:=R4Followers.Text;
++    end;
++    Minutes[N-1]:=R4Minutes(Live,'Pump'+Num+'RunMinutes');
+@@ -306 +575,2 @@
+-      R3Cell01.Text:=State+' / RUN '+Run;
++      R3Cell01.Text:=State; R4Role0.Text:=Role; R4Hint0.Text:=Hint; R4Hours1.Text:='Насос 1 · '+Hours+' ч';
++      if AmpGood then TrendVfd1CurrentA.Value:=A/10.0; TrendVfd1CurrentA.Archiving:=AmpGood;
+@@ -318 +588,3 @@
+-      R3Cell11.Text:=State+' / RUN '+Run;
++      R3Cell11.Text:=State; R4Role1.Text:=Role; R4Hint1.Text:=Hint; R4Hours2.Text:='Насос 2 · '+Hours+' ч';
++      if FGood then TrendVfd2FreqHz.Value:=F/10.0; TrendVfd2FreqHz.Archiving:=FGood;
++      if AmpGood then TrendVfd2CurrentA.Value:=A/10.0; TrendVfd2CurrentA.Archiving:=AmpGood;
+@@ -328 +600,3 @@
+-      R3Cell21.Text:=State+' / RUN '+Run;
++      R3Cell21.Text:=State; R4Role2.Text:=Role; R4Hint2.Text:=Hint; R4Hours3.Text:='Насос 3 · '+Hours+' ч';
++      if FGood then TrendVfd3FreqHz.Value:=F/10.0; TrendVfd3FreqHz.Archiving:=FGood;
++      if AmpGood then TrendVfd3CurrentA.Value:=A/10.0; TrendVfd3CurrentA.Archiving:=AmpGood;
+@@ -338 +612,3 @@
+-      R3Cell31.Text:=State+' / RUN '+Run;
++      R3Cell31.Text:=State; R4Role3.Text:=Role; R4Hint3.Text:=Hint; R4Hours4.Text:='Насос 4 · '+Hours+' ч';
++      if FGood then TrendVfd4FreqHz.Value:=F/10.0; TrendVfd4FreqHz.Archiving:=FGood;
++      if AmpGood then TrendVfd4CurrentA.Value:=A/10.0; TrendVfd4CurrentA.Archiving:=AmpGood;
+@@ -352,2 +627,0 @@
+-  R3Summary.Text:=R3Summary.Text+'    |    Ведущий: '+R3WordText(Live,'LeaderPump','0',1.0)
+-    +'    |    Задание ведомых: '+R3WordText(Live,'FollowersFrequencyRaw','0.0',10.0)+' Гц';
+@@ -364 +638,4 @@
+-  UiOverviewPumpInfo.Text:='Насосы и каскад  →';
++  R4Rotation.Text:=R3Other.Text+' · Ведущий: '+R3WordText(Live,'LeaderPump','0',1.0);
++  R4RuntimeSummary.Text:=R4RuntimeSpread(Live,Minutes[0],Minutes[1],Minutes[2],Minutes[3]);
++  R4SpreadDetail.Text:=R4RuntimeSummary.Text;
++  UiOverviewPumpInfo.Text:='Открыть станцию';
+@@ -434,0 +712,75 @@
++  WndR4LinkText.Text:=R4LinkText.Text;
++  WndR4PV.Text:=R4PV.Text;
++  WndR4SP.Text:=R4SP.Text;
++  WndR4RUN.Text:=R4RUN.Text;
++  WndR4Followers.Text:=R4Followers.Text;
++  WndR3Wait.Text:=R3Wait.Text;
++  WndR3Summary.Text:=R3Summary.Text;
++  WndR4Role0.Text:=R4Role0.Text;
++  WndR3Cell01.Text:=R3Cell01.Text;
++  WndR3Cell02.Text:=R3Cell02.Text;
++  WndR3Cell03.Text:=R3Cell03.Text;
++  WndR3Cell05.Text:=R3Cell05.Text;
++  WndR3Cell04.Text:=R3Cell04.Text;
++  WndR3Cell06.Text:=R3Cell06.Text;
++  WndR4Hint0.Text:=R4Hint0.Text;
++  WndR4Role1.Text:=R4Role1.Text;
++  WndR3Cell11.Text:=R3Cell11.Text;
++  WndR3Cell12.Text:=R3Cell12.Text;
++  WndR3Cell13.Text:=R3Cell13.Text;
++  WndR3Cell15.Text:=R3Cell15.Text;
++  WndR3Cell14.Text:=R3Cell14.Text;
++  WndR3Cell16.Text:=R3Cell16.Text;
++  WndR4Hint1.Text:=R4Hint1.Text;
++  WndR4Role2.Text:=R4Role2.Text;
++  WndR3Cell21.Text:=R3Cell21.Text;
++  WndR3Cell22.Text:=R3Cell22.Text;
++  WndR3Cell23.Text:=R3Cell23.Text;
++  WndR3Cell25.Text:=R3Cell25.Text;
++  WndR3Cell24.Text:=R3Cell24.Text;
++  WndR3Cell26.Text:=R3Cell26.Text;
++  WndR4Hint2.Text:=R4Hint2.Text;
++  WndR4Role3.Text:=R4Role3.Text;
++  WndR3Cell31.Text:=R3Cell31.Text;
++  WndR3Cell32.Text:=R3Cell32.Text;
++  WndR3Cell33.Text:=R3Cell33.Text;
++  WndR3Cell35.Text:=R3Cell35.Text;
++  WndR3Cell34.Text:=R3Cell34.Text;
++  WndR3Cell36.Text:=R3Cell36.Text;
++  WndR4Hint3.Text:=R4Hint3.Text;
++  WndProcessSpTitle.Text:=ProcessSpTitle.Text;
++  WndProcessSpMinus.Text:=ProcessSpMinus.Text;
++  WndProcessSpDraft.Text:=ProcessSpDraft.Text;
++  WndProcessSpPlus.Text:=ProcessSpPlus.Text;
++  WndProcessSpApply.Text:=ProcessSpApply.Text;
++  WndProcessSpCancel.Text:=ProcessSpCancel.Text;
++  WndProcessMainScope.Text:=ProcessMainScope.Text;
++  WndR4Rotation.Text:=R4Rotation.Text;
++  WndR4RuntimeSummary.Text:=R4RuntimeSummary.Text;
++  WndR4EventsText.Text:=R4EventsText.Text;
++  WndProcessSpMinus.Enabled:=ProcessSpMinus.Enabled;
++  WndProcessSpPlus.Enabled:=ProcessSpPlus.Enabled;
++  WndProcessSpCancel.Enabled:=ProcessSpCancel.Enabled;
++  WndProcessSpApply.Enabled:=ProcessSpApply.Enabled;
++  if ProcessSpPlus.Enabled then ProcessSpDraft.FontColor:=RGB(142,216,255) else ProcessSpDraft.FontColor:=RGB(177,190,198);
++  WndProcessSpDraft.FontColor:=ProcessSpDraft.FontColor;
++end;
++procedure R4OpenTrend(const Client: string; Pump, IsCurrent, Hours: Integer);
++var I,Slot: Integer; G: TM_TrendGroup; Name: string;
++begin
++  if Client='' then Exit;
++  Slot:=-1;
++  for I:=0 to 63 do begin
++    if R4Client[I]=Client then begin Slot:=I; Break; end;
++    if (Slot=-1) and (R4Client[I]='') then Slot:=I;
++  end;
++  if Slot=-1 then begin ShowMessageClient(Client,'Графики','Нет свободного контекста просмотра');Exit;end;
++  if R4Client[Slot]='' then begin R4Client[Slot]:=Client;R4Pump[Slot]:=-1;R4Period[Slot]:=6;end;
++  if (Pump>=1) and (Pump<=4) then begin R4Pump[Slot]:=Pump;R4Amps[Slot]:=IsCurrent;end;
++  if (Hours=1) or (Hours=6) or (Hours=24) then R4Period[Slot]:=Hours;
++  if Pump=-1 then R4Pump[Slot]:=-1;
++  if R4Pump[Slot]=-1 then Name:='UiTrend_'+UiKey(0)
++  else if R4Amps[Slot]=1 then Name:='R4TrendI'+IntToStr(R4Pump[Slot])
++  else Name:='R4TrendF'+IntToStr(R4Pump[Slot]);
++  G:=GetTrendGroupByName(Name);
++  if G<>nil then GoToTrendsGroupClient(Client,G.ID,Now-R4Period[Slot]/24.0,Now);
+--- r3/R3Open_OnClick
++++ r4/R3Open_OnClick
+@@ -2 +2 @@
+-  UiGoPage('PageR3Observation',GetClientName);
++  UiGoPage('PageProcess',GetClientName);
+--- r3/R4FaultArchive1
++++ r4/R4FaultArchive1
+@@ -0,0 +1,3 @@
++begin
++  GoToMessagesGroupClient(GetClientName,1);
++end.
+--- r3/R4FaultArchive2
++++ r4/R4FaultArchive2
+@@ -0,0 +1,3 @@
++begin
++  GoToMessagesGroupClient(GetClientName,2);
++end.
+--- r3/R4FaultArchive3
++++ r4/R4FaultArchive3
+@@ -0,0 +1,3 @@
++begin
++  GoToMessagesGroupClient(GetClientName,3);
++end.
+--- r3/R4FaultArchive4
++++ r4/R4FaultArchive4
+@@ -0,0 +1,3 @@
++begin
++  GoToMessagesGroupClient(GetClientName,4);
++end.
+--- r3/R4Messages
++++ r4/R4Messages
+@@ -0,0 +1,3 @@
++begin
++  GoToMessagesClient(GetClientName);
++end.
+--- r3/R4Period1
++++ r4/R4Period1
+@@ -0,0 +1,3 @@
++begin
++  R4OpenTrend(GetClientName,0,0,1);
++end.
+--- r3/R4Period24
++++ r4/R4Period24
+@@ -0,0 +1,3 @@
++begin
++  R4OpenTrend(GetClientName,0,0,24);
++end.
+--- r3/R4Period6
++++ r4/R4Period6
+@@ -0,0 +1,3 @@
++begin
++  R4OpenTrend(GetClientName,0,0,6);
++end.
+--- r3/R4PressureHistory
++++ r4/R4PressureHistory
+@@ -0,0 +1,3 @@
++begin
++  R4OpenTrend(GetClientName,-1,0,0);
++end.
+--- r3/R4ShowDetails
++++ r4/R4ShowDetails
+@@ -0,0 +1,3 @@
++begin
++  UiGoPage('PageR3Observation', GetClientName);
++end.
+--- r3/R4ShowStation
++++ r4/R4ShowStation
+@@ -0,0 +1,3 @@
++begin
++  UiGoPage('PageProcess', GetClientName);
++end.
+--- r3/R4Trendcurrent0
++++ r4/R4Trendcurrent0
+@@ -0,0 +1,3 @@
++begin
++  R4OpenTrend(GetClientName,1,1,0);
++end.
+--- r3/R4Trendcurrent1
++++ r4/R4Trendcurrent1
+@@ -0,0 +1,3 @@
++begin
++  R4OpenTrend(GetClientName,2,1,0);
++end.
+--- r3/R4Trendcurrent2
++++ r4/R4Trendcurrent2
+@@ -0,0 +1,3 @@
++begin
++  R4OpenTrend(GetClientName,3,1,0);
++end.
+--- r3/R4Trendcurrent3
++++ r4/R4Trendcurrent3
+@@ -0,0 +1,3 @@
++begin
++  R4OpenTrend(GetClientName,4,1,0);
++end.
+--- r3/R4Trendfrequency0
++++ r4/R4Trendfrequency0
+@@ -0,0 +1,3 @@
++begin
++  R4OpenTrend(GetClientName,1,0,0);
++end.
+--- r3/R4Trendfrequency1
++++ r4/R4Trendfrequency1
+@@ -0,0 +1,3 @@
++begin
++  R4OpenTrend(GetClientName,2,0,0);
++end.
+--- r3/R4Trendfrequency2
++++ r4/R4Trendfrequency2
+@@ -0,0 +1,3 @@
++begin
++  R4OpenTrend(GetClientName,3,0,0);
++end.
+--- r3/R4Trendfrequency3
++++ r4/R4Trendfrequency3
+@@ -0,0 +1,3 @@
++begin
++  R4OpenTrend(GetClientName,4,0,0);
++end.
+--- r3/Script_48
++++ r4/Script_48
+@@ -2,0 +3,7 @@
++TrendVfd2FreqHz.Archiving:=False;
++TrendVfd3FreqHz.Archiving:=False;
++TrendVfd4FreqHz.Archiving:=False;
++TrendVfd1CurrentA.Archiving:=False;
++TrendVfd2CurrentA.Archiving:=False;
++TrendVfd3CurrentA.Archiving:=False;
++TrendVfd4CurrentA.Archiving:=False;
+--- r3/UiTrendsAll1_OnClick
++++ r4/UiTrendsAll1_OnClick
+@@ -2 +2 @@
+-  if GetClientName <> '' then GoToTrendsClient(GetClientName, Now - 1/24.0, Now);
++ R4OpenTrend(GetClientName,0,0,1);
+--- r3/UiTrendsAll24_OnClick
++++ r4/UiTrendsAll24_OnClick
+@@ -2 +2 @@
+-  if GetClientName <> '' then GoToTrendsClient(GetClientName, Now - 24/24.0, Now);
++ R4OpenTrend(GetClientName,0,0,24);
+--- r3/UiTrendsAll6_OnClick
++++ r4/UiTrendsAll6_OnClick
+@@ -2 +2 @@
+-  if GetClientName <> '' then GoToTrendsClient(GetClientName, Now - 6/24.0, Now);
++ R4OpenTrend(GetClientName,0,0,6);
+--- r3/UiTrendsStation0_OnClick
++++ r4/UiTrendsStation0_OnClick
+@@ -2 +2 @@
+-  UiOpenTrends(0, GetClientName);
++ R4OpenTrend(GetClientName,-1,0,0);
+--- r3/WndR4FaultArchive1
++++ r4/WndR4FaultArchive1
+@@ -0,0 +1,3 @@
++begin
++  CloseActiveWindow(GetClientName); GoToMessagesGroupClient(GetClientName,1);
++end.
+--- r3/WndR4FaultArchive2
++++ r4/WndR4FaultArchive2
+@@ -0,0 +1,3 @@
++begin
++  CloseActiveWindow(GetClientName); GoToMessagesGroupClient(GetClientName,2);
++end.
+--- r3/WndR4FaultArchive3
++++ r4/WndR4FaultArchive3
+@@ -0,0 +1,3 @@
++begin
++  CloseActiveWindow(GetClientName); GoToMessagesGroupClient(GetClientName,3);
++end.
+--- r3/WndR4FaultArchive4
++++ r4/WndR4FaultArchive4
+@@ -0,0 +1,3 @@
++begin
++  CloseActiveWindow(GetClientName); GoToMessagesGroupClient(GetClientName,4);
++end.
+--- r3/WndR4Messages
++++ r4/WndR4Messages
+@@ -0,0 +1,3 @@
++begin
++  CloseActiveWindow(GetClientName); GoToMessagesClient(GetClientName);
++end.
+--- r3/WndR4Period1
++++ r4/WndR4Period1
+@@ -0,0 +1,3 @@
++begin
++  CloseActiveWindow(GetClientName); R4OpenTrend(GetClientName,0,0,1);
++end.
+--- r3/WndR4Period24
++++ r4/WndR4Period24
+@@ -0,0 +1,3 @@
++begin
++  CloseActiveWindow(GetClientName); R4OpenTrend(GetClientName,0,0,24);
++end.
+--- r3/WndR4Period6
++++ r4/WndR4Period6
+@@ -0,0 +1,3 @@
++begin
++  CloseActiveWindow(GetClientName); R4OpenTrend(GetClientName,0,0,6);
++end.
+--- r3/WndR4PressureHistory
++++ r4/WndR4PressureHistory
+@@ -0,0 +1,3 @@
++begin
++  CloseActiveWindow(GetClientName); R4OpenTrend(GetClientName,-1,0,0);
++end.
+--- r3/WndR4ShowDetails
++++ r4/WndR4ShowDetails
+@@ -0,0 +1,3 @@
++begin
++  CloseActiveWindow(GetClientName); UiGoPage('PageR3Observation', GetClientName);
++end.
+--- r3/WndR4Trendcurrent0
++++ r4/WndR4Trendcurrent0
+@@ -0,0 +1,3 @@
++begin
++  CloseActiveWindow(GetClientName); R4OpenTrend(GetClientName,1,1,0);
++end.
+--- r3/WndR4Trendcurrent1
++++ r4/WndR4Trendcurrent1
+@@ -0,0 +1,3 @@
++begin
++  CloseActiveWindow(GetClientName); R4OpenTrend(GetClientName,2,1,0);
++end.
+--- r3/WndR4Trendcurrent2
++++ r4/WndR4Trendcurrent2
+@@ -0,0 +1,3 @@
++begin
++  CloseActiveWindow(GetClientName); R4OpenTrend(GetClientName,3,1,0);
++end.
+--- r3/WndR4Trendcurrent3
++++ r4/WndR4Trendcurrent3
+@@ -0,0 +1,3 @@
++begin
++  CloseActiveWindow(GetClientName); R4OpenTrend(GetClientName,4,1,0);
++end.
+--- r3/WndR4Trendfrequency0
++++ r4/WndR4Trendfrequency0
+@@ -0,0 +1,3 @@
++begin
++  CloseActiveWindow(GetClientName); R4OpenTrend(GetClientName,1,0,0);
++end.
+--- r3/WndR4Trendfrequency1
++++ r4/WndR4Trendfrequency1
+@@ -0,0 +1,3 @@
++begin
++  CloseActiveWindow(GetClientName); R4OpenTrend(GetClientName,2,0,0);
++end.
+--- r3/WndR4Trendfrequency2
++++ r4/WndR4Trendfrequency2
+@@ -0,0 +1,3 @@
++begin
++  CloseActiveWindow(GetClientName); R4OpenTrend(GetClientName,3,0,0);
++end.
+--- r3/WndR4Trendfrequency3
++++ r4/WndR4Trendfrequency3
+@@ -0,0 +1,3 @@
++begin
++  CloseActiveWindow(GetClientName); R4OpenTrend(GetClientName,4,0,0);
++end.

@@ -14,6 +14,7 @@ begin if not OK then begin WriteLn('FAIL ',Name); Halt(1); end; Inc(N); end;
 function Same(const A,B:string):Boolean;begin Result:=A=B;end;
 function Find(const A,B:string):Integer;begin Result:=Pos(A,B);end;
 begin
+  {$ifdef windows}SetMultiByteConversionCodePage(65001);{$endif}
   Check(R4ModeGroup(10)=R4ModeGroup(12),'AUTO phases');
   Check(R4ModeGroup(20)=R4ModeGroup(22),'MANUAL phases');
   Check(R4ModeGroup(91)=-1,'unknown mode');

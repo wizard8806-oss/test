@@ -1,0 +1,38 @@
+type TM_TrendGroup = class
+  ID: Integer;
+end;
+const mkAlarm = 3;
+var
+  SeenName, SeenClient: string;
+  SeenHours, SeenGroup, Notices, NoticeGroup, NoticeKind: Integer;
+  LastAck: Boolean;
+  Group: TM_TrendGroup;
+
+function UiKey(Index: Integer): string;
+begin
+  ck(Index=0,'catalog station');
+  Result:='station_001';
+end;
+
+function GetTrendGroupByName(const Name: string): TM_TrendGroup;
+begin
+  SeenName:=Name;
+  if Group=nil then Group:=TM_TrendGroup.Create;
+  Group.ID:=17;
+  Result:=Group;
+end;
+
+procedure GoToTrendsGroupClient(const Client: string; ID: Integer; FromTime, ToTime: Double);
+begin
+  SeenClient:=Client;
+  SeenGroup:=ID;
+  SeenHours:=Round((ToTime-FromTime)*24);
+end;
+
+procedure AddMessageToGroup(Stamp: Double; Kind, GroupID: Integer; const Msg: string; NeedsAck, Sound: Boolean);
+begin
+  Inc(Notices);
+  NoticeGroup:=GroupID;
+  NoticeKind:=Kind;
+  LastAck:=NeedsAck;
+end;
