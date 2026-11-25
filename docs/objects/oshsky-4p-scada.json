@@ -51,6 +51,16 @@
         "simulator": "1024x600 PASS within report scope"
       },
       "deployed": false
+    },
+    "contrastR2aNative": {
+      "report": "docs/reports/oshsky-hmi-r2a-contrast-local-20261125.md",
+      "name": "pump_station_4p_oshsky_r2a_readable_native.skm",
+      "bytes": 1598290,
+      "sha256": "9519eacc6248464b68a0c39d842f95ece702228e164efce9bd5db5e9a6e9b0a4",
+      "scriptCompile": "HMI/local 0 errors, 0 warnings",
+      "wholeCompile": "PASS",
+      "simulator": "14 pages inspected offline; external logo JPEG absent at original Windows path",
+      "deployed": false
     }
   },
   "postR2Review": {

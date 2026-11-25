@@ -1,3 +1,7 @@
+## 25.11.2026 — Ошский, контраст служебных страниц исправлен в отдельной HMI r2a
+
+В дисковой r2 воспроизведён светлый фон «Каскада». Готова `C:\Users\user\CodexProjects\pump-station\.worktrees\station002-fault-reset-local-15\_release_private\Ошский_R2_Телеметрия_2026-11-25\r2a\pump_station_4p_oshsky_r2a_readable_native.skm`, 1598290 байт, SHA256 `9519eacc6248464b68a0c39d842f95ece702228e164efce9bd5db5e9a6e9b0a4`. Родительский коммит задания `333c736efb64841dd0ae687c951d2f156742ecc8`. Script Compile HMI/local 0 ошибок и 0 предупреждений, полный Compile успешен. Просмотрены 14 страниц, выполнены локальные проверки STOP/edit, AUTO/MANUAL, токов, наработки, качества ПЧ4 и остановки heartbeat. PLC r2 и исходная HMI r2 сохранили SHA. На Screen14 отсутствует внешний JPEG по исходному пути. На Windows оставлены итоговый редактор PID 6760 и Offline Simulator PID 5496 на «Каскаде». [Отчёт и кадры](reports/oshsky-hmi-r2a-contrast-local-20261125.md).
+
 ## 25.11.2026 — уборка принята по отчёту; основная задача HMI r2a остаётся
 
 В облаке прочитана локальная публикация56275fcec95642ef9853e18ac016ef0841306f8d:
