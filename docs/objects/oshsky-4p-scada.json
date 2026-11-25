@@ -158,8 +158,52 @@
     "pumpNumberOwner": "Actual pending pump selected by PLC; stage ordinal is not a physical pump index",
     "logoBrandTargetPage": 14,
     "logoReturnToMainRequired": true,
-    "separateStopDelayScope": "Question asked asynchronously; answer pending",
+    "separateStopDelayScope": "Answer pending; original shared remove delay retained and displayed",
     "nativeImplementationStarted": false,
-    "hardwareActionsAssigned": false
+    "hardwareActionsAssigned": false,
+    "implementationAuthorized": true,
+    "implementationTask": "docs/tasks/oshsky-cascade-r3-local.md",
+    "interface": "docs/interfaces/oshsky-cascade-r3.md",
+    "cloudPreparationComplete": true
+  },
+  "cascadeR3Preparation": {
+    "date": "2026-11-25",
+    "status": "offline generated PLC candidate and read-only HMI component verified; Windows native completion pending",
+    "baselineCommit": "cf55476110410ed94da9dda9ac3c51d4af7cabd3",
+    "builder": "tools/build_oshsky_cascade_r3.py",
+    "task": "docs/tasks/oshsky-cascade-r3-local.md",
+    "contract": "docs/interfaces/oshsky-cascade-r3.md",
+    "report": "docs/reports/oshsky-cascade-r3-cloud-20261125.md",
+    "generatedCandidate": {
+      "bytes": 181463,
+      "sha256": "08d153b92fa0fa47e5c9ca0e568c6e0f7cf98f71faef634d88e56828a96cf820",
+      "sourceSHA256": "aec1a1c053681ea98f0ee26f5064e6a7bd808cc0835759461d1d7b4acdaabbda"
+    },
+    "settings": {
+      "reach3Active": "R2884",
+      "reach3Shadow": "R2887",
+      "reach4Active": "R2885",
+      "reach4Shadow": "R2888",
+      "boundsSeconds": [
+        1,
+        3600
+      ],
+      "default": "inherit valid R2123 on first boot; otherwise existing10s",
+      "independentStopPresetsAdded": false
+    },
+    "countdownReadOnlyBatch": "R3120..R3125;marker27402;own heartbeat required",
+    "checks": {
+      "cascadeBytecodeCases": 154,
+      "preservedTelemetryCases": 222,
+      "hmiHostCCases": 88,
+      "vendorNetworkGraphs": 71,
+      "isolatedBuildCheckGroups": 61
+    },
+    "nativeR2InputTestedInCloud": false,
+    "nativeF8Observed": false,
+    "nativeHmiModifiedInCloud": false,
+    "externalActualAllocationReviewed": false,
+    "deployed": false,
+    "equipmentActions": 0
   }
 }

@@ -1,0 +1,68 @@
+{
+  "date": "2026-11-25",
+  "timezone": "Europe/Moscow",
+  "environment": "Codex Cloud Linux, isolated host/model/vendor-library checks",
+  "branch": "codex/project-handoff-2026-10-31",
+  "reviewedBase": "cf55476110410ed94da9dda9ac3c51d4af7cabd3",
+  "source": "generated four-pump r2 from public source04 and original setpoint feedback networks",
+  "sourceSHA256": "aec1a1c053681ea98f0ee26f5064e6a7bd808cc0835759461d1d7b4acdaabbda",
+  "candidate": {
+    "bytes": 181463,
+    "sha256": "08d153b92fa0fa47e5c9ca0e568c6e0f7cf98f71faef634d88e56828a96cf820",
+    "sourceSHA256": "aec1a1c053681ea98f0ee26f5064e6a7bd808cc0835759461d1d7b4acdaabbda"
+  },
+  "cases": {
+    "cascadeBytecodeCases": 154,
+    "preservedTelemetryCases": 222,
+    "hmiHostCCases": 88,
+    "vendorNetworkGraphs": 71,
+    "isolatedBuildCheckGroups": 61
+  },
+  "preservation": {
+    "untouchedNetworks": 1837,
+    "changedNetworks": 7,
+    "addedNetworks": 64,
+    "totalNetworks": 1908,
+    "addedProgramBytes": 1012,
+    "freeProgramBytes": 12668,
+    "serialTables": 9,
+    "newSerialRequests": 0,
+    "nonPcRecordsAndPayloadExact": true,
+    "duplicateSourceLabelsPreserved": true
+  },
+  "allocationAudit": {
+    "sourceNetworks": 1844,
+    "duplicateLabelOccurrencesRechecked": 10,
+    "blockMoves": 11,
+    "newRegisters": [
+      [
+        2884,
+        2903
+      ],
+      [
+        3120,
+        3125
+      ]
+    ],
+    "newDirectOrNeighbourOperandsFound": false,
+    "indirectOperandCandidatesFound": false,
+    "externalHmiOpcReviewed": false
+  },
+  "vendor": "Prolad18.dll SHA256 daef5641e3f9fb8405e6d614f393f35f279a47bbec4bacac2ce844dbb463b3e9; isolated x86 OS imports blocked; Code→Nodes→Code→Nodes only",
+  "fullChecksPassed": true,
+  "sourceTreeUnchangedDuringChecks": true,
+  "mainExpectedUnchanged": "5103031761c3da1ae744a0c1c691956c7367f183",
+  "nativeInputTestedInCloud": false,
+  "nativeF8Observed": false,
+  "nativeHmiSaveCompileObserved": false,
+  "hardwareObserved": false,
+  "hardwareActions": 0,
+  "pending": [
+    "Actual external register/local-LW/LB audit",
+    "Exact native-r2 builder input and SaveAs serialization review",
+    "Native WinPro F8 and full W85 inventory",
+    "Native HMI adapter/widgets/8 cascade rows/95 routes, Compile and Simulator",
+    "User answer about separate stop-delay presets",
+    "Hardware acceptance/deployment (not assigned)"
+  ]
+}

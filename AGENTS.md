@@ -1,3 +1,19 @@
+**25.11, АКТИВНО: «Ошский» r3 — приступить после согласования эскиза.**
+Пользователь поручил реализацию. Cloud подготовило PLC builder
+`tools/build_oshsky_cascade_r3.py`, read-only HMI C и контракт
+`docs/interfaces/oshsky-cascade-r3.md`; локальное продолжение
+`docs/tasks/oshsky-cascade-r3-local.md`. 154cascade/222telemetry/88hostC/
+71vendor graph/61общая группа PASS; отчёт
+`docs/reports/oshsky-cascade-r3-cloud-20261125.md`. Это generated-кандидат,
+не native F8/новый SKM. Windows: exact PLC r2 +HMI r2b, новые отдельные r3;
+продолжать Main, не переносить заново. Два новых пусковых preset наследуют
+R2123 при первом boot, затем независимы1..3600с. Снятие пока прежнее общее:
+вопрос отдельных stop-presets не отвечен; не придумывать. Export R3120..3125,
+marker27402 и НОВЫЙ heartbeat; R2884..2903 reserved, actual external allocation
+сверить локально. Центр шапки только active/valid, реальный номер PLC;
+Automatika_KG→14→Main. Правила уборки окон и запрет действий шкафу сохраняются.
+Копируемое задание давать прямо в чате, не одной внешней ссылкой.
+
 **25.11: новая функция «Ошский» — выдержки3/4ступени и отсчёт на Main.**
 Сначала по просьбе пользователя показаны эскизы; spec
 `docs/ui/oshsky-cascade-countdown-preview.md`. Уточнено пользователем:
