@@ -35,6 +35,23 @@
       "sha256": "029111b555186d813ee212674cfc3442bb7f15fa649915a078f2da1a258a7f8d"
     }
   },
+  "plcWork": {
+    "requestedOn": "2026-11-25",
+    "revision": "telemetry-r2",
+    "status": "Offline candidate prepared; native F8, external allocation review and HMI binding pending",
+    "baselineFile": "station_MC_CM55_900G_05.pdw",
+    "baselineSHA256": "6aba2a67d07596e4a479c462412859565186de86b410a3cd44476a81f20ffe81",
+    "candidateBytes": 178597,
+    "candidateSHA256": "aec1a1c053681ea98f0ee26f5064e6a7bd808cc0835759461d1d7b4acdaabbda",
+    "builder": "tools/build_oshsky_telemetry_r2.py",
+    "task": "docs/tasks/station4-oshsky-telemetry-r2-local.md",
+    "contract": "docs/interfaces/oshsky-4p-telemetry-r2.md",
+    "report": "docs/reports/oshsky-plc-telemetry-r2-offline-20261125.md",
+    "mapVersion": 32,
+    "scadaOpcSqlRadioChanges": false,
+    "hardwareDownload": false,
+    "installedCabinetVersionReadBack": false
+  },
   "namingPolicy": {
     "useNameForDocumentationAndFutureDeliveries": true,
     "preferredFutureFolderPrefix": "Ошский_4насоса",

@@ -33,6 +33,7 @@ CHECKS = [
     'validate_station_mode_display_01.py', 'validate_setpoint_feedback_01.py',
     'validate_setpoint_feedback_copy_01.py',
     'validate_fatek_map32_review.py',
+    'validate_oshsky_telemetry_r2.py',
     'validate_pump_count_workpack.py',
     'validate_pump_animation.py',
     'validate_main_overview_r20.py',

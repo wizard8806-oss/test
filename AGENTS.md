@@ -1,3 +1,10 @@
+**25.11, АКТИВНО: пользователь поручил ПЛК «Ошский», r2 токи/свежесть.**
+Задача `docs/tasks/station4-oshsky-telemetry-r2-local.md`, контракт
+`docs/interfaces/oshsky-4p-telemetry-r2.md`. Offline-кандидат из exact05
+подготовлен, 222 model / 19 vendor graph / 59 общих групп PASS; native F8,
+actual HMI/OPC allocation и HMI-токи ещё pending. Продолжать r1, Main заново
+не собирать; SCADA/OPC/БД/радио сохранять. Загрузки/команды шкафу не поручены.
+
 **25.11: «Ошский» r1 native выполнена offline.** См. верх HANDOFF и `docs/reports/station4-scada-main-r1-native-local-20261125.md`. Продолжать сохранённую r1; Main не переносить заново. Script0/0/Compile/Simulator PASS, аппаратная приёмка и isolated runtime-read quality не подтверждены; PLC/SCADA/OPC/БД/радио сохранены.
 
 **25.11:4-насосный объект назван «Ошский», шкаф уже отгружен.**

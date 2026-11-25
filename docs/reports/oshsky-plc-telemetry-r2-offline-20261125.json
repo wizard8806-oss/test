@@ -1,0 +1,96 @@
+{
+  "sourceSHA256": "6aba2a67d07596e4a479c462412859565186de86b410a3cd44476a81f20ffe81",
+  "candidateSHA256": "aec1a1c053681ea98f0ee26f5064e6a7bd808cc0835759461d1d7b4acdaabbda",
+  "candidateBytes": 178597,
+  "mapVersion": 32,
+  "featureMarker": 27401,
+  "markerRegister": "R2509",
+  "featureHeartbeat": "R2508 mirrors R2840; require observed progression, not marker alone",
+  "currentExports": [
+    "R2504",
+    "R2505",
+    "R2506",
+    "R2507"
+  ],
+  "currentScale": 0.1,
+  "currentSource": [
+    "R2806",
+    "R2814",
+    "R2822",
+    "R2830"
+  ],
+  "quality": [
+    "R2510",
+    "R2511",
+    "R2512",
+    "R2513"
+  ],
+  "ownRowsZeroBased": [
+    0,
+    3,
+    16,
+    17
+  ],
+  "rowDecoder": "R3080",
+  "addedProgramBytes": 98,
+  "freeProgramBytes": 13680,
+  "modifiedNetworks": [
+    "65.T005 | P1_FREQ_INVALIDATE",
+    "65.T008 | P1_DISPLAY_STOP",
+    "65.T009 | P1_DISPLAY_RUNNING",
+    "65.T006 | P1_FREQ_VALUE",
+    "65.T014 | P2_FREQ_INVALIDATE",
+    "65.T017 | P2_DISPLAY_STOP",
+    "65.T018 | P2_DISPLAY_RUNNING",
+    "65.T015 | P2_FREQ_VALUE",
+    "65.T023 | P3_FREQ_INVALIDATE",
+    "65.T026 | P3_DISPLAY_STOP",
+    "65.T027 | P3_DISPLAY_RUNNING",
+    "65.T024 | P3_FREQ_VALUE",
+    "65.T032 | P4_FREQ_INVALIDATE",
+    "65.T035 | P4_DISPLAY_STOP",
+    "65.T036 | P4_DISPLAY_RUNNING",
+    "65.T033 | P4_FREQ_VALUE"
+  ],
+  "newNetworks": [
+    "65.T000 | TELEMETRY_RESULT_ROW",
+    "65.I001 | CURRENT_FEATURE",
+    "65.I002 | CURRENT_HEARTBEAT"
+  ],
+  "allOtherNetworksByteIdentical": true,
+  "serialTablesAndDataPreserved": true,
+  "originalNetworkCount": 1841,
+  "blockMoveCandidatesChecked": 11,
+  "newSerialRequests": 0,
+  "watchdogSeconds": 5,
+  "nativeF8Observed": false,
+  "hardwareTestObserved": false,
+  "externalActualHmiOpcAllocationReviewed": false,
+  "date": "2026-11-25",
+  "object": "Ошский",
+  "pumps": 4,
+  "reviewedGitBase": "cd1f4ff91ed1a12e3dc1a5eb8b3e68353493c17e",
+  "baselineRegression": {
+    "failed": 94,
+    "total": 222,
+    "expectedFailure": true
+  },
+  "candidateModelCasesPassed": 222,
+  "sourceVendorFormattedNetworks": 1841,
+  "sourceNewRegisterReferences": 0,
+  "sourceIndirectOperands": 0,
+  "sourceBlockTransfersReviewed": 11,
+  "ownCacheConsumersOutsideTelemetry": 0,
+  "vendorGraphChecksPassed": 19,
+  "vendorDLLSHA256": "daef5641e3f9fb8405e6d614f393f35f279a47bbec4bacac2ce844dbb463b3e9",
+  "fullSuite": {
+    "passed": true,
+    "groups": 59,
+    "sourceFilesUnchanged": true
+  },
+  "currentHmiBaseSHA256": "029111b555186d813ee212674cfc3442bb7f15fa649915a078f2da1a258a7f8d",
+  "nativeSavedCandidate": null,
+  "nativeHmiCurrentBindingObserved": false,
+  "windowsTask": "docs/tasks/station4-oshsky-telemetry-r2-local.md",
+  "scope": "Offline candidate and model/vendor structure checks; no connection or device writes"
+}
