@@ -102,5 +102,19 @@
     "name": "Бабанов",
     "pumps": 3,
     "record": "docs/releases/station002-babanov-3p-r21c-20261124.json"
+  },
+  "postR2aReview": {
+    "date": "2026-11-25",
+    "reviewedCommit": "9148bd132bed0dc7b0862587257e86a4cccda04b",
+    "report": "docs/reports/oshsky-hmi-r2a-cloud-review-20261125.md",
+    "all14PageScreensViewed": true,
+    "contrastReview": "Cascade label/background contrast1.05 to11.86 independently confirmed from PNG colors; other page screenshots readable",
+    "remainingWork": [
+      "Replace obsolete current-polling hint and verify map/contract caption",
+      "Restore original logo JPEG from existing protected package into new HMI assets and rebind"
+    ],
+    "followupTask": "docs/tasks/oshsky-hmi-r2b-diagnostics-logo-local.md",
+    "plcRebuildRequired": false,
+    "hardwareActionsAssigned": false
   }
 }
