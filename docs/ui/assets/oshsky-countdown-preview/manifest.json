@@ -1,0 +1,99 @@
+{
+  "object": "Ошский",
+  "date": "2026-11-25",
+  "kind": "generated placement sketches; not native or hardware evidence",
+  "sourceGitBase": "1fa442375fbe75e90f8c7aa541d2736c6df741be",
+  "sourceScreenshot": "docs/reports/oshsky-hmi-r2b/test-auto.png",
+  "sourceHmiSHA256": "627988bc0ef1b70487c33397ef813a1df340c0733d541fb9d091c8e255428d0c",
+  "nativeCanvas": [
+    1024,
+    600
+  ],
+  "recommended": "c-header-center-start.png",
+  "selected": "header-brand-left-countdown-center",
+  "nativeFilesChanged": false,
+  "variants": [
+    {
+      "file": "a-header.png",
+      "sha256": "5681fc3c68a69a8496b9a2ef37e1a5bed1a9a5935a701bff67e6843bd94b54da",
+      "bytes": 1694684,
+      "pngSize": [
+        1639,
+        960
+      ],
+      "proposedNativeRect": [
+        20,
+        4,
+        680,
+        34
+      ]
+    },
+    {
+      "file": "b-summary-row.png",
+      "sha256": "ac0422304fccc9f4a4a32d8d04bddfcb6f6f8c43f6ad1f6794649ee80ad355a4",
+      "bytes": 1661608,
+      "pngSize": [
+        1639,
+        960
+      ],
+      "proposedNativeRect": [
+        12,
+        430,
+        1000,
+        48
+      ]
+    },
+    {
+      "file": "c-header-center-start.png",
+      "sha256": "6aef945f0e2ffff8730018f2b2e9e7280592aeeed3c2b076726d75275047bd43",
+      "bytes": 1661007,
+      "pngSize": [
+        1639,
+        960
+      ],
+      "proposedNativeRect": [
+        308,
+        4,
+        408,
+        34
+      ]
+    },
+    {
+      "file": "c-header-center-stop.png",
+      "sha256": "dc415a066440e56fe7ea660fabf95c9df0c169ab4704bf3343f784997779c2c9",
+      "bytes": 1669977,
+      "pngSize": [
+        1639,
+        960
+      ],
+      "proposedNativeRect": [
+        308,
+        4,
+        408,
+        34
+      ]
+    }
+  ],
+  "selectionSource": "User steering on2026-11-25; placement selected, native work not started",
+  "brand": {
+    "text": "Automatika_KG",
+    "proposedNativeRect": [
+      16,
+      4,
+      184,
+      34
+    ],
+    "targetPage": 14,
+    "returnToMainRequired": true
+  },
+  "countdown": {
+    "proposedNativeRect": [
+      308,
+      4,
+      408,
+      34
+    ],
+    "pumpNumber": "Actual pending physical pump selected by PLC; not the ordinal cascade stage",
+    "visibleOnlyWhileActiveAndValid": true
+  }
+}

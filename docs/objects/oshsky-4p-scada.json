@@ -146,5 +146,20 @@
     "furtherTaskAssigned": false,
     "hardwareAcceptanceObserved": false,
     "deployed": false
+  },
+  "cascadeCountdownProposal": {
+    "requestedOn": "2026-11-25",
+    "request": "Independent third/fourth cascade-stage delays analogous to Babanov plus Main start/stop countdown, first show placement",
+    "spec": "docs/ui/oshsky-cascade-countdown-preview.md",
+    "previewManifest": "docs/ui/assets/oshsky-countdown-preview/manifest.json",
+    "placement": "header: Automatika_KG left, countdown centered, existing PLC/mode right",
+    "placementSource": "user steering after initial alternatives",
+    "pumpNumberRequired": true,
+    "pumpNumberOwner": "Actual pending pump selected by PLC; stage ordinal is not a physical pump index",
+    "logoBrandTargetPage": 14,
+    "logoReturnToMainRequired": true,
+    "separateStopDelayScope": "Question asked asynchronously; answer pending",
+    "nativeImplementationStarted": false,
+    "hardwareActionsAssigned": false
   }
 }
