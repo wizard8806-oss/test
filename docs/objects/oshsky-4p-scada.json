@@ -61,6 +61,19 @@
       "wholeCompile": "PASS",
       "simulator": "14 pages inspected offline; external logo JPEG absent at original Windows path",
       "deployed": false
+    },
+    "navigationR2bNative": {
+      "report": "docs/reports/oshsky-hmi-r2b-native-local-20261125.md",
+      "name": "pump_station_4p_oshsky_r2b_native.skm",
+      "bytes": 1589747,
+      "sha256": "627988bc0ef1b70487c33397ef813a1df340c0733d541fb9d091c8e255428d0c",
+      "logoSHA256": "2266c6ce15726bac815b7f8d6084a7b35c545591440020df4899268ce1d395c7",
+      "pages": 14,
+      "productionRoutesTested": 93,
+      "testOnlyRoutesTested": 93,
+      "scriptCompile": "HMI/local 0 errors, 0 warnings",
+      "wholeCompile": "PASS",
+      "deployed": false
     }
   },
   "postR2Review": {
