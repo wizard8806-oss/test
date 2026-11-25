@@ -248,5 +248,26 @@
     "productionDashes": "No confirmed fresh r3 contract; older zeros do not prove valid PLC data",
     "furtherTaskAssigned": false,
     "deployed": false
+  },
+  "scadaR3Review": {
+    "requestedOn": "2026-11-25",
+    "fieldCheckPlannedFor": "2026-11-26",
+    "timezone": "Europe/Moscow",
+    "status": "Cloud public-source/contract preflight done; actual private SCADA native verification pending locally",
+    "task": "docs/tasks/oshsky-scada-r3-local.md",
+    "contract": "docs/interfaces/oshsky-scada-r3.md",
+    "registers": "docs/interfaces/oshsky-scada-r3-registers.csv",
+    "report": "docs/reports/oshsky-scada-r3-preflight-20261125.md",
+    "fieldChecklist": "docs/tasks/oshsky-field-check-20261126.md",
+    "logicalRawWordFields": 74,
+    "bindingReviewCases": 138,
+    "isolatedBuildCheckGroups": 62,
+    "actualWindowsProjectReadInCloud": false,
+    "targetRouteIdentityVerified": false,
+    "nativeArchiveGapsAccepted": false,
+    "liveScadaChanged": false,
+    "opcChanged": false,
+    "hardwareCommandsSent": 0,
+    "newRemoteControlProtocolsAuthorized": false
   }
 }

@@ -1,0 +1,25 @@
+{
+  "scope": "Published source only; actual Windows SCADA11 may differ",
+  "legacyVfd1CurrentRawPdu": 2806,
+  "expectedR3CurrentPdu": [
+    2504,
+    2505,
+    2506,
+    2507
+  ],
+  "publishedDiagnosticReadsVfd1CurrentRaw": true,
+  "currentFeatureAliasPresent": false,
+  "cascadeFeatureAliasPresent": false,
+  "publishedOverviewMentionsVfd4": false,
+  "nativeScadaVerified": false,
+  "writesPerformed": 0,
+  "expectedBindings": 74,
+  "date": "2026-11-25",
+  "timezone": "Europe/Moscow",
+  "reviewedBase": "bfc334a97de71f79c8cd8d4d6a5800deff4a1345",
+  "bindingReviewTestCases": 138,
+  "isolatedBuildCheckGroups": 62,
+  "fieldCheckDate": "2026-11-26",
+  "actualNativeScadaStatus": "pending local verification",
+  "sourceTreeUnchangedDuringChecks": true
+}

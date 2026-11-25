@@ -1,3 +1,28 @@
+## 25.11.2026 — новое поручение: SCADA с учётом r3; объект завтра26.11
+
+Пользователь поручил сейчас проверить SCADA. Cloud сверило public sources/
+контракты: старый currentR2806 не равен новому экспортуR2504..2507/27401/
+ownheartbeat, выбранный elapsedR2132 меняет смысл старого2123−2132 для3/4,
+newcascade/read-onlyruntime/four-pump wiring требуют actual native проверки.
+[Отчёт](reports/oshsky-scada-r3-preflight-20261125.md),
+[задача Windows](tasks/oshsky-scada-r3-local.md),
+[контракт/74поля](interfaces/oshsky-scada-r3.md),
+[полевой лист26.11](tasks/oshsky-field-check-20261126.md).
+
+Новое средство `review_oshsky_scada_r3.py` только сверяет предоставленные
+метаданные/public source, не runtime;138adverse cases PASS. Общие62группы
+PASS на финальной таблице. Private actual SCADA11/OPC/source/архив не получены:
+они **pending local verification**. Локальный продолжает newest actual11,
+сохраняет RAM/диск и проверяет/исправляет отдельную копию без отката к10/08.
+Нужны actual node→шкаф, quality/newHB, четыреF/I/runtime, новые параметры/
+countdown, старый command/echo/feedback, native-gap и Compile/Save/reopen.
+Сохранить прежнюю command whitelist; не включать новые writable-пути радиUI.
+Сегодня не переключать live SCADA/OPC/БД/радио/ПЛК/HMI и не командовать полю.
+Подробные конфигурации/private HANDOFF/архивы не публиковать; краткая сводка
+и безопасный source/tests. Уборка своих окон остаётся; prompt дать в чате.
+Проверенная база bfc334a97de71f79c8cd8d4d6a5800deff4a1345, следующий коммит
+handoff содержит эту подготовку; main5103031761c3da1ae744a0c1c691956c7367f183.
+
 ## 25.11.2026 — Cloud проверило native-r3 публикацию7c1ed5a
 
 [Оценка](reports/oshsky-cascade-r3-cloud-review-20261125.md):29PNG/31ссылка,

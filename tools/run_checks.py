@@ -36,6 +36,7 @@ CHECKS = [
     'validate_oshsky_telemetry_r2.py',
     'validate_oshsky_cascade_r3.py',
     'validate_oshsky_countdown_hmi_r3.py',
+    'validate_oshsky_scada_r3_review.py',
     'validate_pump_count_workpack.py',
     'validate_pump_animation.py',
     'validate_main_overview_r20.py',
