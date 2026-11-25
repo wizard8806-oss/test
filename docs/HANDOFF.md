@@ -1,3 +1,31 @@
+## 25.11.2026 — «Ошский» PLC/HMI telemetry r2 выполнена локально offline
+
+[Отчёт/F8/реальные кадры](reports/station4-oshsky-telemetry-r2-native-local-20261125.md). База Git d4e29db6edad79a95a0c84615a2ac37860dc3ccc;
+рабочая codex/telemetry-r19-local-20261117, корневой dirty HANDOFF сохранён.
+PLC: `C:\Users\user\CodexProjects\pump-station\.worktrees\station002-fault-reset-local-15\_release_private\Ошский_R2_Телеметрия_2026-11-25\station_4p_oshsky_telemetry_r2_native.pdw`, 178518 байт, SHA256 `ecdc1abc4ea0cf3162a1757c86d0a9b1aa1ca9769f6093d92f874cb38bf9ca4a`.
+HMI: `C:\Users\user\CodexProjects\pump-station\.worktrees\station002-fault-reset-local-15\_release_private\Ошский_R2_Телеметрия_2026-11-25\pump_station_4p_oshsky_telemetry_r2_native.skm`, 1598612 байт, SHA256 `bab2a953f40c379e3cfc7f3bb5bf5f9bdd937b9841cb8e9e0598962e4691c089`.
+05/6aba2a67…ffe81 и r1/029111b5…7f8d сохранены; newer4/активных пользовательских буферов не установлено.
+Штатный builder/strict candidate validator222 PASS;16 изменённых+3 новых/1825 защищённых сетей,
+9 таблиц/18 строк/0 новых опросов, Map32/free13680/watchdog5с сохранены.
+Native Save поменял ключ сериализации и54/59 cached значений StatusPage0: decoded image/data,
+адреса/форматы и прочие settings точны. Raw strict validator отклонил, не ослаблен;
+отдельная REVIEW_ONLY нормализация только этих различий прошла222. Native не подменён.
+Настоящий F8 после проверяемого Open:0 ошибок/25 W85, весь список совпал с отдельно открытой05;
+первые ошибочные reopen-кадры отвергнуты. Существующие SET/RESET и два последовательных OUT M1757 разобраны/сохранены.
+HMI generated BatchR2500..2513/28bytes RO +R2329;4 белых read-only тока /10,
+marker27401 +движениеR2508 +собственноеQ. RTC age≥3с, startup/reconnect prime,
+retained05 invalid, wrap65535→0 PASS. Simulator macro средний≈0.785с; реальный serial не измерялся.
+AUTO/MANUAL123/456/0/789→12.3/45.6/0.0/78.9; max65535→6553.5 помещается;
+Q4unknown не гасит1..3 и counter4. Freeze/resume/link return/old05/map/readonly PASS.
+655 прочих objects/14страниц/8BB/4NE/наработка/LB810/alarms сохранены;
+20 Rect native renumber/order и4 HT previewPNG пересериализованы без функциональных изменений.
+Script HMI/local0/0, полный Compile PASS; финальная production открыта с диска без TEST_ONLY,
+SHA повторён, Simulator production оставлен. 322 защищённых SHA совпали; SCADA/OPC/SQL/радио,
+Бабанов3/старые комплекты не менялись/не перезапускались; команд/загрузок0, новых ZIP0.
+Шкаф отгружен; r2 не загружена. Масштаб/модель реального ПЧ, live-периоды/loaded-байты,
+физическая наработка/отдельное runtime-pair quality не подтверждены. Полные manifests/native/C приватны.
+Следующий шаг — оценка локальной r2, Main заново не переносить; аппаратных действий не назначено.
+
 ## 25.11.2026 — поручена PLC-телеметрия «Ошский» r2
 
 Пользователь после оценки r1: «тогда давай займёмся плк».

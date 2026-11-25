@@ -1,3 +1,5 @@
+**25.11: «Ошский» PLC/HMI telemetry r2 завершена offline.** См. верх HANDOFF и `docs/reports/station4-oshsky-telemetry-r2-native-local-20261125.md`. Продолжать сохранённые r2; r1/05 сохранены, Main не переносить заново. Native F8 0/25 прежних W85; HMI Script0/0/Compile/Simulator PASS. Отгруженный шкаф не обновлялся; SCADA/OPC/БД/радио и Бабанов сохранены.
+
 **25.11, АКТИВНО: пользователь поручил ПЛК «Ошский», r2 токи/свежесть.**
 Задача `docs/tasks/station4-oshsky-telemetry-r2-local.md`, контракт
 `docs/interfaces/oshsky-4p-telemetry-r2.md`. Offline-кандидат из exact05

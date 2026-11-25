@@ -33,12 +33,30 @@
       "name": "pump_station_4p_scada_main_r1_native.skm",
       "bytes": 1581363,
       "sha256": "029111b555186d813ee212674cfc3442bb7f15fa649915a078f2da1a258a7f8d"
+    },
+    "telemetryR2Native": {
+      "report": "docs/reports/station4-oshsky-telemetry-r2-native-local-20261125.md",
+      "plc": {
+        "name": "station_4p_oshsky_telemetry_r2_native.pdw",
+        "bytes": 178518,
+        "sha256": "ecdc1abc4ea0cf3162a1757c86d0a9b1aa1ca9769f6093d92f874cb38bf9ca4a",
+        "F8": "0 errors;25 W85 same as source05"
+      },
+      "hmi": {
+        "name": "pump_station_4p_oshsky_telemetry_r2_native.skm",
+        "bytes": 1598612,
+        "sha256": "bab2a953f40c379e3cfc7f3bb5bf5f9bdd937b9841cb8e9e0598962e4691c089",
+        "scriptCompile": "0/0 HMI and local",
+        "wholeCompile": "PASS",
+        "simulator": "1024x600 PASS within report scope"
+      },
+      "deployed": false
     }
   },
   "plcWork": {
     "requestedOn": "2026-11-25",
     "revision": "telemetry-r2",
-    "status": "Offline candidate prepared; native F8, external allocation review and HMI binding pending",
+    "status": "Local native PLC/HMI r2 saved and independently reopened; F8 0 errors/25 inherited W85, explicit native serialization review, HMI Script 0/0, whole Compile and Offline Simulator passed; hardware not deployed",
     "baselineFile": "station_MC_CM55_900G_05.pdw",
     "baselineSHA256": "6aba2a67d07596e4a479c462412859565186de86b410a3cd44476a81f20ffe81",
     "candidateBytes": 178597,
@@ -46,7 +64,8 @@
     "builder": "tools/build_oshsky_telemetry_r2.py",
     "task": "docs/tasks/station4-oshsky-telemetry-r2-local.md",
     "contract": "docs/interfaces/oshsky-4p-telemetry-r2.md",
-    "report": "docs/reports/oshsky-plc-telemetry-r2-offline-20261125.md",
+    "report": "docs/reports/station4-oshsky-telemetry-r2-native-local-20261125.md",
+    "preparationReport": "docs/reports/oshsky-plc-telemetry-r2-offline-20261125.md",
     "mapVersion": 32,
     "scadaOpcSqlRadioChanges": false,
     "hardwareDownload": false,
