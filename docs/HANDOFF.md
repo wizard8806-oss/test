@@ -1,3 +1,17 @@
+## 25.11.2026 — Cloud проверило native-r3 публикацию7c1ed5a
+
+[Оценка](reports/oshsky-cascade-r3-cloud-review-20261125.md):29PNG/31ссылка,
+93прежних+2новыхмаршрута,14страниц/95targets/self-free/nonoverlap/bounds PASS;
+F8/Compile просмотрены. Повторены154cascade/222telemetry/88host-C на
+публичных исходниках,16hostassertions опубликованного native-адаптера PASS.
+Приватные PDW/SKM в Cloud не получены, native serialization/guards/322protected
+и аппаратная сохранность подтверждаются только локальным отчётом.
+Offline-задание выполнено, новой косметики не поручено; текущая пара r3.
+Пользователю объяснены прочерки production Simulator: нет подтверждённого
+обмена с новой PLC r3, новые настройки показываются только с fresh contract;
+старые нули не являются валидными полевыми настройками. TEST_ONLY12/3600 —
+демонстрация. Отдельные stop-presets всё ещё pending; загрузки/упаковка не заданы.
+
 ## 25.11.2026 — Ошский, PLC/HMI r3 проверены офлайн в Windows
 
 Принят коммит `f4644e726f622df24083aaae255b170e7c6c2e3b`. Отдельные native-файлы лежат в `C:\Users\user\CodexProjects\pump-station\.worktrees\station002-fault-reset-local-15\_release_private\Ошский_R3_Каскад_2026-11-25`. PLC `station_4p_oshsky_cascade_r3_native.pdw`, 181384 байта, SHA256 `683753c3388b0e404cd12bf2325c7c9f967fe3978e0b1b2529278f4a9df8a402`. HMI `pump_station_4p_oshsky_cascade_r3_native.skm`, 1735632 байта, SHA256 `590a6583a0bab4eb4da63c7e2cc418b62f07ee4c13b3b503d6c0c8e6517b1573`. Выдержки для 3/4 насосов независимы, снятие общее. Ожидание на Main показывает физическую цель ПЛК, бренд открывает карточку с возвратом. F8 0 ошибок и 25 прежних W85, Script Compile 0/0 для HMI/local, полный Compile успешен. В production Offline Simulator проверены 95 переходов. Native Save PDW сменил маску сериализации, код, данные и метаданные сверены. Загрузок 0. Оставлены SKTOOL PID 2032 и Simulator PID 9500. [Отчёт, результаты и кадры](reports/oshsky-cascade-r3-native-local-20261125.md).

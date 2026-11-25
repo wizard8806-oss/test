@@ -95,7 +95,9 @@
         "offlineSimulator": "1024x600; 14 pages; 95 routes; 110 gap/edge checks"
       },
       "hardwareDownloads": 0
-    }
+    },
+    "activeNativeRevision": "cascade-r3",
+    "activeNativeReport": "docs/reports/oshsky-cascade-r3-native-local-20261125.md"
   },
   "postR2Review": {
     "date": "2026-11-25",
@@ -180,12 +182,14 @@
     "logoBrandTargetPage": 14,
     "logoReturnToMainRequired": true,
     "separateStopDelayScope": "Answer pending; original shared remove delay retained and displayed",
-    "nativeImplementationStarted": false,
+    "nativeImplementationStarted": true,
     "hardwareActionsAssigned": false,
     "implementationAuthorized": true,
     "implementationTask": "docs/tasks/oshsky-cascade-r3-local.md",
     "interface": "docs/interfaces/oshsky-cascade-r3.md",
-    "cloudPreparationComplete": true
+    "cloudPreparationComplete": true,
+    "nativeImplementationCompleted": true,
+    "nativeCompletionReport": "docs/reports/oshsky-cascade-r3-native-local-20261125.md"
   },
   "cascadeR3Preparation": {
     "date": "2026-11-25",
@@ -227,5 +231,22 @@
     "deployed": false,
     "equipmentActions": 0,
     "localCompletionReport": "docs/reports/oshsky-cascade-r3-native-local-20261125.md"
+  },
+  "cascadeR3CloudReview": {
+    "date": "2026-11-25",
+    "reviewedCommit": "7c1ed5a4bd867d7814b150b81e3fcfa9643e86b0",
+    "report": "docs/reports/oshsky-cascade-r3-cloud-review-20261125.md",
+    "offlineTaskCompleteWithinPublishedEvidence": true,
+    "pngFilesDecoded": 29,
+    "relativeLinksResolved": 31,
+    "oldRoutesPreserved": 93,
+    "newRoutes": 2,
+    "all14PagesReachable": true,
+    "selfRoutesOrOverlaps": false,
+    "publishedAdapterHostAssertions": 16,
+    "privateNativeFilesRecheckedInCloud": false,
+    "productionDashes": "No confirmed fresh r3 contract; older zeros do not prove valid PLC data",
+    "furtherTaskAssigned": false,
+    "deployed": false
   }
 }
