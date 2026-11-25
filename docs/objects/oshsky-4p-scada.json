@@ -111,10 +111,12 @@
     "contrastReview": "Cascade label/background contrast1.05 to11.86 independently confirmed from PNG colors; other page screenshots readable",
     "remainingWork": [
       "Replace obsolete current-polling hint and verify map/contract caption",
-      "Restore original logo JPEG from existing protected package into new HMI assets and rebind"
+      "Restore original logo JPEG from existing protected package into new HMI assets and rebind",
+      "Navigation: remove current-page buttons, redistribute remaining buttons and match actual Main appearance; preserve graph periods/back routes"
     ],
     "followupTask": "docs/tasks/oshsky-hmi-r2b-diagnostics-logo-local.md",
     "plcRebuildRequired": false,
-    "hardwareActionsAssigned": false
+    "hardwareActionsAssigned": false,
+    "navigationRequirementAddedOn": "2026-11-25"
   }
 }
