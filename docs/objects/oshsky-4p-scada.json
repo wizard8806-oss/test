@@ -253,7 +253,7 @@
     "requestedOn": "2026-11-25",
     "fieldCheckPlannedFor": "2026-11-26",
     "timezone": "Europe/Moscow",
-    "status": "Cloud public-source/contract preflight done; actual private SCADA native verification pending locally",
+    "status": "Separate Windows review copy compiled, saved and reopened; field identity, Client and native archive gap pending",
     "task": "docs/tasks/oshsky-scada-r3-local.md",
     "contract": "docs/interfaces/oshsky-scada-r3.md",
     "registers": "docs/interfaces/oshsky-scada-r3-registers.csv",
@@ -268,6 +268,16 @@
     "liveScadaChanged": false,
     "opcChanged": false,
     "hardwareCommandsSent": 0,
-    "newRemoteControlProtocolsAuthorized": false
+    "newRemoteControlProtocolsAuthorized": false,
+    "localReport": "docs/reports/oshsky-scada-r3-native-local-20261125.md",
+    "localNativeEditor": "2.6.15.0",
+    "nativeCompileAll": true,
+    "nativeSaveAsReopen": true,
+    "isolatedPascalAssertions": 75,
+    "metadataWordItems": 66,
+    "metadataDwordItems": 4,
+    "protectedFilesCompared": 328,
+    "productionActivation": false,
+    "configuredOpcProfileInstalled": false
   }
 }
