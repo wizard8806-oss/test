@@ -631,5 +631,19 @@
     "record": "docs/objects/oshsky-4p-scada.json",
     "namedByUserOn": "2026-11-25",
     "cabinetStatus": "shipped, per user"
+  },
+  "nativeResult": {
+    "object": "Ошский",
+    "name": "pump_station_4p_scada_main_r1_native.skm",
+    "bytes": 1581363,
+    "sha256": "029111b555186d813ee212674cfc3442bb7f15fa649915a078f2da1a258a7f8d",
+    "report": "docs/reports/station4-scada-main-r1-native-local-20261125.md",
+    "scriptCompile": "HMI/local 0 errors 0 warnings",
+    "wholeCompile": "PASS",
+    "offlineSimulator": "1024x600 PASS within documented scope",
+    "runtime": "unsigned32 source pairs R2200..R2207; minutes/60; one decimal; native Scaling enable20/gain21",
+    "headerSetpointGrayScale": "native gain0.1 + existing one decimal => /100",
+    "inputLimitsAndTouchGuards": "unchanged actual4",
+    "hardwareDownload": false
   }
 }

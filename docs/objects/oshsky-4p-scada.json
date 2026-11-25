@@ -7,7 +7,10 @@
   "panel": {
     "model": "SK-102CE",
     "diagonalInches": 10,
-    "resolution": [1024, 600]
+    "resolution": [
+      1024,
+      600
+    ]
   },
   "scadaIntegration": {
     "presentInProject": true,
@@ -24,7 +27,13 @@
     "task": "docs/tasks/station4-scada-main-r1-local.md",
     "spec": "docs/ui/station4-scada-main-r1.md",
     "layout": "assets/hmi/main-four-scada-r1/layout-4.json",
-    "nativeCompletion": "Await local report; do not infer the deployed build from repository references"
+    "nativeCompletion": "Local r1 saved/reopened/Script0/0/whole Compile/Offline Simulator PASS; see report; not deployed",
+    "nativeReport": "docs/reports/station4-scada-main-r1-native-local-20261125.md",
+    "nativeFile": {
+      "name": "pump_station_4p_scada_main_r1_native.skm",
+      "bytes": 1581363,
+      "sha256": "029111b555186d813ee212674cfc3442bb7f15fa649915a078f2da1a258a7f8d"
+    }
   },
   "namingPolicy": {
     "useNameForDocumentationAndFutureDeliveries": true,

@@ -1,3 +1,5 @@
+**25.11: «Ошский» r1 native выполнена offline.** См. верх HANDOFF и `docs/reports/station4-scada-main-r1-native-local-20261125.md`. Продолжать сохранённую r1; Main не переносить заново. Script0/0/Compile/Simulator PASS, аппаратная приёмка и isolated runtime-read quality не подтверждены; PLC/SCADA/OPC/БД/радио сохранены.
+
 **25.11:4-насосный объект назван «Ошский», шкаф уже отгружен.**
 Уточнение пользователя относится к текущему4-проекту со SCADA/10″/1024×600;
 Бабанов — отдельные3насоса/7″/r21c. Карточка docs/objects/oshsky-4p-scada.json,
