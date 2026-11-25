@@ -53,6 +53,17 @@
       "deployed": false
     }
   },
+  "postR2Review": {
+    "date": "2026-11-25",
+    "reviewedCommit": "bd4ba88ed5982293f1df207c01cb8fa8ab457a41",
+    "report": "docs/reports/oshsky-telemetry-r2-cloud-review-20261125.md",
+    "telemetryEvidence": "Offline current/maxima/own-Q and heartbeat screenshots reviewed; no hardware acceptance",
+    "interfaceStatus": "Cascade labels nearly white on light surface in user screenshot; reproduce from saved r2 and repair contrast if confirmed",
+    "followupTask": "docs/tasks/oshsky-hmi-r2a-contrast-local.md",
+    "otherPagesFullyVisuallyReviewed": false,
+    "plcRebuildRequired": false,
+    "hardwareActionsAssigned": false
+  },
   "plcWork": {
     "requestedOn": "2026-11-25",
     "revision": "telemetry-r2",
