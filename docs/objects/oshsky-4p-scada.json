@@ -542,7 +542,7 @@
       "firstFieldFailureSnapshotReceived": false,
       "independentFieldY4DropObserved": false,
       "nextRequirement": "Reproduce the first failure and fix its cause; if unavailable, deliver tested native first-fault capture without claiming the control incident fixed",
-      "localTaskSentByUser": false,
+      "localTaskSentByUser": null,
       "additionalPhotoEvidence": {
         "source": "Two additional user images in chat",
         "mainMode": "MANUAL",
@@ -563,7 +563,34 @@
         "M1637",
         "R2183",
         "R2193"
-      ]
+      ],
+      "localAgentWorkingReportedByUser": true,
+      "currentAcceptedCommitVerified": false
+    },
+    "countdownDisplayIssue": {
+      "reportedOn": "2026-11-26",
+      "source": "User report and explicit answer: Да, в AUTO при ожидании",
+      "reportedMode": "AUTO",
+      "activeWaitReportedByUser": true,
+      "startFollowerCountdownAbsentReported": true,
+      "stopFollowerCountdownAbsentReported": true,
+      "status": "Both active countdown displays reported missing in AUTO; current native cause and field fix not confirmed",
+      "rootCause": null,
+      "task": "docs/tasks/oshsky-mode-stop4-and-animation-local-20261126.md",
+      "taskSection": "3",
+      "report": "docs/reports/oshsky-countdown-field-issue-20261126.md",
+      "plcExport": "R3120..R3125; action, physical pump, remaining, preset and dedicated heartbeat",
+      "displayPlacement": "Center of Main header; brand on left and PLC/mode on right",
+      "hmiMustNotCalculateOwnCountdown": true,
+      "basicStopCheckDoesNotCoverActiveCountdown": true,
+      "checksRepeatedInCloud": {
+        "hostCCases": 88,
+        "generatedCascadeBytecodeCases": 154,
+        "preservedTelemetryBytecodeCases": 222
+      },
+      "actualNativeOrPhysicalActiveCountdownTestPassed": false,
+      "nativeFixProducedInCloud": false,
+      "latestSupplementAcknowledgedByLocal": false
     }
   }
 }
