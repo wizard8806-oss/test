@@ -464,7 +464,7 @@
       "hmiSha256": "f06245ead2c2b534f24b690e1df7fafc7750dc4237cdcc4d6166f70f38708e7c",
       "plcSha256": "683753c3388b0e404cd12bf2325c7c9f967fe3978e0b1b2529278f4a9df8a402",
       "report": "docs/reports/oshsky-live-bench-20261126.md",
-      "benchPanelUsbObservation": "HMIManager Version: Fail to connect to HMI (USB)",
+      "benchPanelUsbObservation": "Previous local attempt: HMIManager USB Fail to connect. User subsequently reports loading the project; current model/build/connection and runtime not yet verified.",
       "reviewedCompletionCommit": "12825d85ce33153a2bac5b1876eb0e69d77658c9",
       "cloudReviewReport": "docs/reports/oshsky-live-bench-cloud-review-20261126.md",
       "nextTask": "docs/tasks/oshsky-r3d-physical-panel-local-20261126.md",
@@ -495,7 +495,23 @@
       "kitFiles": 101,
       "hmiSizeBytes": 2175656,
       "cloudPngFilesReviewed": 14,
-      "actualPrivateZipReadInCloud": false
+      "actualPrivateZipReadInCloud": false,
+      "physicalPanelProjectLoadReportedByUser": true,
+      "physicalPanelInstalledRevisionVerified": false,
+      "physicalPanelUserLoadReportedOn": "2026-11-26"
+    },
+    "rotorAnimationIssue": {
+      "reportedOn": "2026-11-26",
+      "source": "User report and explicit clarification",
+      "reportedContext": "On field object while status was Работа and displayed frequency was nonzero",
+      "status": "Confirmed user-reported symptom; actual native cause and fix not established",
+      "affectedPumpIdentitiesConfirmed": false,
+      "rootCause": null,
+      "nativeFixCreated": false,
+      "physicalAnimationTestPassed": false,
+      "task": "docs/tasks/oshsky-r3d-physical-panel-local-20261126.md",
+      "requiresAc590PowerRun": false,
+      "newPlcControlWritesAuthorizedByThisFix": false
     }
   }
 }
