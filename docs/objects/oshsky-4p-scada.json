@@ -389,7 +389,13 @@
       "nativeSuffixMeaningConfirmed": false,
       "pump2IdentityConfirmed": false,
       "installedProgramRead": false,
-      "relationToMissingCurrentAndTimers": "not established"
+      "relationToMissingCurrentAndTimers": "not established",
+      "recurrentStopsReportedByUser": true,
+      "reportedStoppedPump": 4,
+      "reportedOperatingMode": "MANUAL",
+      "reportedAlreadyRunningBeforeStop": true,
+      "ownDriveFaultCodePresentReported": false,
+      "physicalRunCommandDropCaptured": false
     },
     "localReadOnlyReview": {
       "report": "docs/reports/oshsky-first-start-r3-readonly-local-20261126.md",
@@ -467,7 +473,7 @@
       "benchPanelUsbObservation": "Earlier local HMIManager USB failed. User later loaded the panel and confirmed PLC link/STOP current/delay/navigation checks. Current USB session and exact model/image not independently verified.",
       "reviewedCompletionCommit": "12825d85ce33153a2bac5b1876eb0e69d77658c9",
       "cloudReviewReport": "docs/reports/oshsky-live-bench-cloud-review-20261126.md",
-      "nextTask": "docs/tasks/oshsky-r3d-physical-panel-local-20261126.md",
+      "nextTask": "docs/tasks/oshsky-mode-stop4-and-animation-local-20261126.md",
       "onlineSimulatorWithPhysicalPlcVerified": true,
       "physicalPanelRuntimeVerified": true,
       "benchCurrentOwnQuality": [
@@ -521,6 +527,22 @@
       "task": "docs/tasks/oshsky-r3d-physical-panel-local-20261126.md",
       "requiresAc590PowerRun": false,
       "newPlcControlWritesAuthorizedByThisFix": false
+    },
+    "modeStopInvestigation": {
+      "reportedOn": "2026-11-26",
+      "source": "User: repeated stops of pump4 in MANUAL while already running, no fault code on the drive",
+      "status": "Highest-priority unresolved control incident; stop mechanisms reproduced on selected bytecode predicates, actual first field failure not captured",
+      "task": "docs/tasks/oshsky-mode-stop4-and-animation-local-20261126.md",
+      "analysis": "docs/reports/oshsky-mode-stop4-analysis-20261126.md",
+      "selectedTargetModeFailurePredicateCases": 4,
+      "genericFc03LinkDropPredicateCases": 6,
+      "fullSerialOrFieldEventReproduced": false,
+      "fieldRootCause": null,
+      "nativeControlFixCreated": false,
+      "firstFieldFailureSnapshotReceived": false,
+      "independentFieldY4DropObserved": false,
+      "nextRequirement": "Reproduce the first failure and fix its cause; if unavailable, deliver tested native first-fault capture without claiming the control incident fixed",
+      "localTaskSentByUser": false
     }
   }
 }
