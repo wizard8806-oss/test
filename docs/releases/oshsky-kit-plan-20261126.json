@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "buildId": "oshsky-4p-plc-r3-hmi-r3-scada-r4-20261126",
+  "requestedOn": "2026-11-26",
+  "timezone": "Europe/Moscow",
+  "status": "Requested local packaging; actual folder and ZIP not yet created by Cloud",
+  "object": "Ошский",
+  "pumps": 4,
+  "task": "docs/tasks/oshsky-complete-kit-local-20261126.md",
+  "desktopFolderName": "Ошский_4насоса_Комплект_2026-11-26",
+  "zipName": "Ошский_4насоса_Комплект_2026-11-26.zip",
+  "desktopResolution": "Windows SpecialFolder Desktop; preserve existing output; suffix time on collision",
+  "artifacts": [
+    {
+      "role": "PLC",
+      "sourcePath": "C:\\Users\\user\\CodexProjects\\pump-station\\.worktrees\\station002-fault-reset-local-15\\_release_private\\Ошский_R3_Каскад_2026-11-25\\station_4p_oshsky_cascade_r3_native.pdw",
+      "destination": "PLC/station_4p_oshsky_cascade_r3_native.pdw",
+      "bytes": 181384,
+      "sha256": "683753c3388b0e404cd12bf2325c7c9f967fe3978e0b1b2529278f4a9df8a402"
+    },
+    {
+      "role": "HMI",
+      "sourcePath": "C:\\Users\\user\\CodexProjects\\pump-station\\.worktrees\\station002-fault-reset-local-15\\_release_private\\Ошский_R3_Каскад_2026-11-25\\pump_station_4p_oshsky_cascade_r3_native.skm",
+      "destination": "HMI/project/pump_station_4p_oshsky_cascade_r3_native.skm",
+      "bytes": 1735632,
+      "sha256": "590a6583a0bab4eb4da63c7e2cc418b62f07ee4c13b3b503d6c0c8e6517b1573"
+    },
+    {
+      "role": "SCADA project root member",
+      "sourcePath": "C:\\Users\\user\\Documents\\Simple-Scada 2\\Projects\\oshsky_scada_ux_r4\\Project.spr",
+      "destination": "SCADA/oshsky_scada_ux_r4/Project.spr",
+      "bytes": 1669,
+      "sha256": "cc165c71c46f6bd9c03ab947de06dfae5fa8c4fee4f82d4b39e7f69873354d61",
+      "copyWholeProject": true,
+      "expectedProjectFiles": 13,
+      "compareLocalManifest": "final13.json"
+    },
+    {
+      "role": "SCADA compiled member",
+      "destination": "SCADA/oshsky_scada_ux_r4/Scripts/Compiled/program.exs",
+      "sha256": "67910d9c6432b9ef8620daf74ceea0cca8bbf53ce07251b41a018a366135d0b4"
+    },
+    {
+      "role": "OPC review profile",
+      "file": "oshsky_r4_review_only.mbp",
+      "destination": "OPC/review_only/oshsky_r4_review_only.mbp",
+      "sha256": "e8d1b7abfef752054dfc562afdc3a2eb160fce5315719e414f023124199f2e76",
+      "sourceResolution": "Locate in private r4 output by SHA; do not install"
+    },
+    {
+      "role": "Original logo",
+      "sourcePath": "C:\\Users\\user\\CodexProjects\\pump-station\\.worktrees\\station002-fault-reset-local-15\\_release_private\\Ошский_R3_Каскад_2026-11-25\\assets\\automatikakg.jpg",
+      "destination": "HMI/assets/automatikakg.jpg",
+      "bytes": 703677,
+      "sha256": "2266c6ce15726bac815b7f8d6084a7b35c545591440020df4899268ce1d395c7"
+    },
+    {
+      "role": "Rotor font",
+      "repoSource": "assets/hmi/pump-animation/PumpStationRotor.ttf",
+      "destination": "HMI/fonts/PumpStationRotor.ttf",
+      "bytes": 3520,
+      "sha256": "70c76c96778838c13b384cee32578b6ef967ef0774165b02bf5173f4dd862f22"
+    }
+  ],
+  "additionalDependencies": "Inventory actual SKM/SCADA external resources; known artifacts are a minimum, not an exhaustive dependency list",
+  "peripherals": "Document actual drives/sensor/RKF/radio/converters/connection settings and existing installers; unknown models remain unknown",
+  "compiledFirmware": "Include actual native offline output when supported; do not rename project extensions or contact equipment",
+  "checks": [
+    "canonical hashes",
+    "all 13 SCADA members",
+    "external dependencies inventory",
+    "ZIP CRC and member hashes",
+    "fresh extraction and manifest comparison"
+  ],
+  "outputRequired": [
+    "actual full Windows folder path",
+    "actual full Windows ZIP path",
+    "ZIP size and SHA256",
+    "file completeness and shortages",
+    "remaining Client and field acceptance"
+  ],
+  "fieldAcceptance": "pending",
+  "nativeClientAcceptance": "pending",
+  "nativeArchiveGapAcceptance": "pending",
+  "liveSystemActivationAuthorizedByPackaging": false,
+  "hardwareCommandsAuthorizedByPackaging": false,
+  "publishNativeFilesOrZipToGit": false
+}

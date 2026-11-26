@@ -318,5 +318,21 @@
     "actualWindowsFilesRecheckedInCloud": false,
     "configuredOpcProfileInstalled": false,
     "targetRouteIdentityVerified": false
+  },
+  "packaging": {
+    "requestedOn": "2026-11-26",
+    "scope": "Local desktop kit with PLC/HMI r3, complete SCADA r4 and required assets/configuration/peripheral documentation",
+    "task": "docs/tasks/oshsky-complete-kit-local-20261126.md",
+    "plan": "docs/releases/oshsky-kit-plan-20261126.json",
+    "buildId": "oshsky-4p-plc-r3-hmi-r3-scada-r4-20261126",
+    "status": "Requested; local folder and ZIP not yet created or verified by Cloud",
+    "desktopFolderName": "Ошский_4насоса_Комплект_2026-11-26",
+    "zipName": "Ошский_4насоса_Комплект_2026-11-26.zip",
+    "actualFolderPath": null,
+    "actualZipPath": null,
+    "localCreationPending": true,
+    "canonicalProgramsMustRemainUnchanged": true,
+    "fieldAndClientAcceptanceRemainPending": true,
+    "productionActivationAuthorized": false
   }
 }
