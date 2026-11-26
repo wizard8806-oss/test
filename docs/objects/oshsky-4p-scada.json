@@ -357,7 +357,7 @@
   "firstFieldStartIssue": {
     "reportedOn": "2026-11-26",
     "source": "User first-start report and 5 real HMI photos",
-    "status": "Confirmed field symptoms; root cause and installed file identity not established",
+    "status": "Bench reproduction identified HMI layout and active-page polling defects; r3d verified in Online Simulator; physical HMI and field attribution pending",
     "report": "docs/reports/oshsky-first-start-field-issue-20261126.md",
     "task": "docs/tasks/oshsky-first-start-current-cascade-local-20261126.md",
     "symptoms": [
@@ -464,7 +464,38 @@
       "hmiSha256": "f06245ead2c2b534f24b690e1df7fafc7750dc4237cdcc4d6166f70f38708e7c",
       "plcSha256": "683753c3388b0e404cd12bf2325c7c9f967fe3978e0b1b2529278f4a9df8a402",
       "report": "docs/reports/oshsky-live-bench-20261126.md",
-      "benchPanelUsbObservation": "HMIManager Version: Fail to connect to HMI (USB)"
+      "benchPanelUsbObservation": "HMIManager Version: Fail to connect to HMI (USB)",
+      "reviewedCompletionCommit": "12825d85ce33153a2bac5b1876eb0e69d77658c9",
+      "cloudReviewReport": "docs/reports/oshsky-live-bench-cloud-review-20261126.md",
+      "nextTask": "docs/tasks/oshsky-r3d-physical-panel-local-20261126.md",
+      "onlineSimulatorWithPhysicalPlcVerified": true,
+      "physicalPanelRuntimeVerified": false,
+      "benchCurrentOwnQuality": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "benchMarkers": [
+        27401,
+        27402
+      ],
+      "benchHeartbeatAdvance": {
+        "from": 42734,
+        "to": 42757,
+        "intervalSeconds": 23.63
+      },
+      "benchReproducedHmiDefects": [
+        "Mixed scalar/batch macro variable layout mismatch",
+        "New registers not updated on active Main/Cascade pages"
+      ],
+      "benchOriginalProgramLackedNewExports": true,
+      "fieldInstalledProgramIdentityStillPending": true,
+      "zipSizeBytes": 7248996,
+      "kitFiles": 101,
+      "hmiSizeBytes": 2175656,
+      "cloudPngFilesReviewed": 14,
+      "actualPrivateZipReadInCloud": false
     }
   }
 }
