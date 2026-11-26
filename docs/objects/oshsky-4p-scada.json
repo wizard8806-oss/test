@@ -591,6 +591,38 @@
       "actualNativeOrPhysicalActiveCountdownTestPassed": false,
       "nativeFixProducedInCloud": false,
       "latestSupplementAcknowledgedByLocal": false
+    },
+    "soundRearmIssue": {
+      "reportedOn": "2026-11-26",
+      "source": "User current bench report plus historical CL50S clarification",
+      "context": "New HMI project loaded; three VFDs and pressure sensors absent; sound disabled by user",
+      "approximateDelayMinutes": 40,
+      "userReportsNoActions": true,
+      "alarmRowsAndOccurrenceTimesUnchangedReported": true,
+      "hmiRestartNoticedByUser": false,
+      "plcOrHmiRestartExcludedByEvidence": false,
+      "localAgentActionsAtEventTimeVerified": false,
+      "historicalSimilarWithoutDisplay": true,
+      "externalSirenModelReported": "CL50S",
+      "externalSirenConnectionReported": "Modbus",
+      "externalSirenCurrentlyDisconnected": true,
+      "historicalMuteMethodKnown": false,
+      "status": "Unexpected sound return reported; investigate shared PLC/CL50 event generation and HMI ownership, exact trigger and fix pending",
+      "rootCause": null,
+      "task": "docs/tasks/oshsky-mode-stop4-and-animation-local-20261126.md",
+      "taskSection": "4",
+      "report": "docs/reports/oshsky-sound-rearm-20261126.md",
+      "archivalHmiHostCasesPassed": 6,
+      "acceleratedConstantMaskTicks": 21600,
+      "assumedTickMs": 250,
+      "equivalentMinutes": 90,
+      "actualWallClockLongRunPassed": false,
+      "plcCl50ComponentStatesPassed": 4,
+      "plcNewEventPulseMechanismReproducedInModel": true,
+      "actualFirstPlcPulseCaptured": false,
+      "actual40MinuteEventReproduced": false,
+      "nativeFixCreated": false,
+      "latestSupplementAcknowledgedByLocal": false
     }
   }
 }
