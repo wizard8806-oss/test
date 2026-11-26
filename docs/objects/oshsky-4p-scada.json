@@ -351,6 +351,26 @@
     ],
     "missingOptionalInstaller": "SKTOOL 7.1.0.80",
     "cloudReviewReport": "docs/reports/oshsky-complete-kit-cloud-review-20261126.md",
-    "verificationSource": "Local Windows report and user screenshot; metadata checked in Cloud; private ZIP and manifest not read in Cloud"
+    "verificationSource": "Local Windows report and user screenshot; metadata checked in Cloud; private ZIP and manifest not read in Cloud",
+    "knownFieldIssue": "docs/reports/oshsky-first-start-field-issue-20261126.md"
+  },
+  "firstFieldStartIssue": {
+    "reportedOn": "2026-11-26",
+    "source": "User first-start report and 5 real HMI photos",
+    "status": "Confirmed field symptoms; root cause and installed file identity not established",
+    "report": "docs/reports/oshsky-first-start-field-issue-20261126.md",
+    "task": "docs/tasks/oshsky-first-start-current-cascade-local-20261126.md",
+    "symptoms": [
+      "All four currents shown as dashes despite live frequency/runtime/pressure",
+      "New reach-three/reach-four delays shown as dashes; existing reach-two is30s",
+      "Full-group accepted message visible while new delay values unavailable"
+    ],
+    "rawCurrentMarkerRead": null,
+    "rawCascadeMarkerRead": null,
+    "heartbeatSamplesReceived": false,
+    "installedFilesMatchedToKit": false,
+    "publishedAdapterModeHostChecks": 3,
+    "nativeFieldFixCreatedInCloud": false,
+    "hardwareCommandsSent": 0
   }
 }
