@@ -390,6 +390,23 @@
       "pump2IdentityConfirmed": false,
       "installedProgramRead": false,
       "relationToMissingCurrentAndTimers": "not established"
+    },
+    "localReadOnlyReview": {
+      "report": "docs/reports/oshsky-first-start-r3-readonly-local-20261126.md",
+      "verifiedTaskCommit": "93b31d9ea1ced3737e1afd4e9454022b174e73af",
+      "sevenKitPinsMatch": true,
+      "winProLadderStatus": "Close_232",
+      "transactionSnapshotReceived": false,
+      "fieldTransactionTarget": null,
+      "fieldRequestedValue": null,
+      "fieldReadbackValue": null,
+      "diskWriteWR": "D320/D321",
+      "diskReadWR": "D340/D341",
+      "retainedManualModeErrorCode": 100,
+      "hmiBatchItemStrideBytesInCompiledMacro": 4,
+      "ackDisplay": "MD5070 / R2166 independent of LB2110",
+      "fieldRootCause": null,
+      "hardwareCommandsSent": 0
     }
   }
 }
