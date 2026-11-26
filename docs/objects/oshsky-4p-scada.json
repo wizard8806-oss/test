@@ -473,7 +473,7 @@
       "benchPanelUsbObservation": "Earlier local HMIManager USB failed. User later loaded the panel and confirmed PLC link/STOP current/delay/navigation checks. Current USB session and exact model/image not independently verified.",
       "reviewedCompletionCommit": "12825d85ce33153a2bac5b1876eb0e69d77658c9",
       "cloudReviewReport": "docs/reports/oshsky-live-bench-cloud-review-20261126.md",
-      "nextTask": "docs/tasks/oshsky-mode-stop4-and-animation-local-20261126.md",
+      "nextTask": "docs/tasks/oshsky-finish-and-scada-gsm-local-20261126.md",
       "onlineSimulatorWithPhysicalPlcVerified": true,
       "physicalPanelRuntimeVerified": true,
       "benchCurrentOwnQuality": [
@@ -624,5 +624,29 @@
       "nativeFixCreated": false,
       "latestSupplementAcknowledgedByLocal": false
     }
+  },
+  "activeContinuation": {
+    "requestedOn": "2026-11-26",
+    "task": "docs/tasks/oshsky-finish-and-scada-gsm-local-20261126.md",
+    "userRequestedContinueWork": true,
+    "remoteAccessScope": "SCADA to identified bench PLC through GSM",
+    "preserveCurrentLocalBuffersAndCopies": true,
+    "coreFixTask": "docs/tasks/oshsky-mode-stop4-and-animation-local-20261126.md",
+    "sequence": [
+      "Complete available pump4 mode-stop, active AUTO countdown, rotor and sound-mute fixes; retain explicit field remainder if needed",
+      "Validate actual SCADA UX r4 Client, OPC and GSM route; test freshness, interruption and recovery without replay",
+      "Close Client/archive/ack/setpoint acceptance and update corrected kit with actual evidence"
+    ],
+    "scadaBaselineProject": "C:\\Users\\user\\Documents\\Simple-Scada 2\\Projects\\oshsky_scada_ux_r4\\Project.spr",
+    "latestAcceptedLocalReportCommit": "12825d85ce33153a2bac5b1876eb0e69d77658c9",
+    "benchPlcDownloadAuthorizationStillApplies": true,
+    "sharedServerScopeMustBeIdentified": true,
+    "actualCableConnectionAfterLatestMessageConfirmed": false,
+    "mainChannelSingleMasterRequired": true,
+    "newRemoteCommandChannelsAuthorizedByThisTask": false,
+    "actualClientAcceptancePassed": false,
+    "actualGsmPlcRouteAcceptancePassed": false,
+    "newNativeFixConfirmedByThisCloudChange": false,
+    "status": "Authorized continuation prepared; actual local completion and GSM runtime evidence pending"
   }
 }
