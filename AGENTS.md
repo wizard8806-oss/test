@@ -6,6 +6,11 @@ production Simulator без связи. Root cause неизвестен, не о
 виноватой старую PLC/RTC/проводку без данных. Новая приоритетная задача
 `docs/tasks/oshsky-first-start-current-cascade-local-20261126.md`, отчёт
 `docs/reports/oshsky-first-start-field-issue-20261126.md`.
+Новое крупное фото: активна «Ошибка подготовки режимов ПЧ»12:59, предыдущая
+12:53снята12:57; linkПЧ4зелёные/сняты. По базовому каталогуR2550.bit13/
+M1563 общая авария;«(2)» не трактовать какПЧ2. УзелM667, latchedD251,
+expectedD231/readbackD232 иper-pumpM1624..27/R2390..93 сверить сinstalled.
+Связь mode-error с прочерками не установлена. Дополнение в той же задаче.
 Запрошены WinProLadder и2среза R2509/R3120 иR2508/R3125/R2840 через2–3с;
 ответов ещё нет. Маркеры27401/27402 без движения недостаточны. Потом
 I/Q/active/shadow и сравнение PLC→nativealias→gate/visibility/call.

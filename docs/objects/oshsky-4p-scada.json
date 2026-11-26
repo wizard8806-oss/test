@@ -371,6 +371,25 @@
     "installedFilesMatchedToKit": false,
     "publishedAdapterModeHostChecks": 3,
     "nativeFieldFixCreatedInCloud": false,
-    "hardwareCommandsSent": 0
+    "hardwareCommandsSent": 0,
+    "activeModeAlarmEvidence": {
+      "source": "Additional close-up of real HMI alarm history",
+      "activeText": "Ошибка подготовки режимов ПЧ",
+      "activeRowTime": "12:59; panel displayed date2026-11-26",
+      "previousRow": "12:53 cleared12:57",
+      "pump4LinkRows": "green with clear time",
+      "baselineAlarmBit": "R2550.bit13",
+      "baselineAlarmCoil": "M1563",
+      "baselineModeWorkerError": "M667",
+      "baselineRequestTarget": "D251; correlate with failed cycle and per-pump errors",
+      "baselineExpectedReadback": [
+        "D231",
+        "D232"
+      ],
+      "nativeSuffixMeaningConfirmed": false,
+      "pump2IdentityConfirmed": false,
+      "installedProgramRead": false,
+      "relationToMissingCurrentAndTimers": "not established"
+    }
   }
 }
