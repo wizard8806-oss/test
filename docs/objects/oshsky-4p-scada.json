@@ -414,21 +414,22 @@
       "task": "docs/tasks/oshsky-r3a-diagnostic-hmi-local-20261126.md",
       "requiredFileName": "pump_station_4p_oshsky_r3a_diag_native.skm",
       "sourceHmiSha256": "590a6583a0bab4eb4da63c7e2cc418b62f07ee4c13b3b503d6c0c8e6517b1573",
-      "status": "Task prepared as part of live bench work; actual native file pending local execution",
+      "status": "Created, compiled, independently reopened and compared on bench",
       "purpose": "Direct PLC vs macro data, RTC/freshness/call visibility and corrected full-ACK wording",
       "addsNewPlcWrites": false,
       "keepsExistingControlsAndBootAck": true,
       "onlineRequiredToPrepareFile": false,
       "hardwareDownloadPerformed": false,
       "primaryFieldRootCauseFixed": false,
-      "actualNativeFilePath": null
+      "actualNativeFilePath": "C:\\Users\\user\\CodexProjects\\pump-station\\.worktrees\\station002-fault-reset-local-15\\_release_private\\Ошский_R3a_Диагностика_2026-11-26\\pump_station_4p_oshsky_r3a_diag_native.skm",
+      "sha256": "0cf836115da27aab60302404541e7035b14192c070c25d25f1d61a60913bf832"
     },
     "liveBenchValidation": {
       "requestedOn": "2026-11-26",
       "fieldVisitDate": "2026-11-27",
       "task": "docs/tasks/oshsky-live-bench-fix-local-20261126.md",
       "fieldCheckTask": "docs/tasks/oshsky-field-check-20261127.md",
-      "status": "Authorized task prepared; live measurements, native fixes and corrected kit pending local execution",
+      "status": "Bench PLC and Online Simulator confirmed; physical panel, GSM and loaded M900G pending",
       "benchDrive": {
         "manufacturerReported": "ACD",
         "modelReported": "AC590",
@@ -443,20 +444,27 @@
       "fieldDriveModelReported": "M900G",
       "physicalHmiAvailable": true,
       "hmiPortOccupiedByProgrammingCableReported": true,
-      "benchPlcModelVerified": false,
+      "benchPlcModelVerified": true,
       "benchHmiModelVerified": false,
       "userInstruction": "считаем настройки одинаковыми. разрешаю локальному загружать программу в контроллер",
       "equalSettingsAreWorkingAssumption": true,
       "benchPlcDownloadExplicitlyAuthorized": true,
       "benchBackupRequiredBeforeDownload": true,
       "productionSystemActivationAuthorized": false,
-      "actualBenchHardwareResultsReceived": false,
+      "actualBenchHardwareResultsReceived": true,
       "m900gWithMotorAndLoadVerified": false,
       "primaryFieldRootCauseFixed": false,
       "expectedDesktopFolderName": "Ошский_4насоса_Исправление_2026-11-26",
-      "actualCorrectedKitPath": null,
-      "actualCorrectedZipPath": null,
-      "benchConfigurationMustBeExcludedFromFieldRelease": true
+      "actualCorrectedKitPath": "C:\\Users\\user\\Desktop\\Ошский_4насоса_Исправление_2026-11-26",
+      "actualCorrectedZipPath": "C:\\Users\\user\\Desktop\\Ошский_4насоса_Исправление_2026-11-26.zip",
+      "benchConfigurationMustBeExcludedFromFieldRelease": true,
+      "zipSha256": "e2ce4ca7fc0df7bc201ce8bee7b799539c5d2684c2d601fb56d3a4dc479ca9da",
+      "benchPlcModel": "FBs-32MC v4.89",
+      "hmiRevision": "r3d",
+      "hmiSha256": "f06245ead2c2b534f24b690e1df7fafc7750dc4237cdcc4d6166f70f38708e7c",
+      "plcSha256": "683753c3388b0e404cd12bf2325c7c9f967fe3978e0b1b2529278f4a9df8a402",
+      "report": "docs/reports/oshsky-live-bench-20261126.md",
+      "benchPanelUsbObservation": "HMIManager Version: Fail to connect to HMI (USB)"
     }
   }
 }
