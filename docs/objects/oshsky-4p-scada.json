@@ -325,14 +325,30 @@
     "task": "docs/tasks/oshsky-complete-kit-local-20261126.md",
     "plan": "docs/releases/oshsky-kit-plan-20261126.json",
     "buildId": "oshsky-4p-plc-r3-hmi-r3-scada-r4-20261126",
-    "status": "Requested; local folder and ZIP not yet created or verified by Cloud",
+    "status": "Packaged locally. Software and identified graphics complete. As-built documentation incomplete.",
     "desktopFolderName": "Ошский_4насоса_Комплект_2026-11-26",
     "zipName": "Ошский_4насоса_Комплект_2026-11-26.zip",
-    "actualFolderPath": null,
-    "actualZipPath": null,
-    "localCreationPending": true,
+    "actualFolderPath": "C:\\Users\\user\\Desktop\\Ошский_4насоса_Комплект_2026-11-26",
+    "actualZipPath": "C:\\Users\\user\\Desktop\\Ошский_4насоса_Комплект_2026-11-26.zip",
+    "localCreationPending": false,
     "canonicalProgramsMustRemainUnchanged": true,
     "fieldAndClientAcceptanceRemainPending": true,
-    "productionActivationAuthorized": false
+    "productionActivationAuthorized": false,
+    "zipSizeBytes": 343797915,
+    "zipSHA256": "166e0969cd07aee77b71e4860ac7a74a1f4cfdabf8397f24f3c81e7f122bea8a",
+    "files": 213,
+    "allCanonicalPinsVerified": 7,
+    "scadaFilesVerified": 13,
+    "hmiExternalImagesVerified": 5,
+    "compiledHmiFiles": 74,
+    "zipCRCAndIndependentExtractionVerified": true,
+    "report": "docs/reports/oshsky-complete-kit-local-20261126.md",
+    "verifiedTaskCommit": "5ef012512edee406ab19719dc1ab85a657898f93",
+    "missing": [
+      "Исполнительная принципиальная схема и клеммный план отгруженного шкафа Ошского. Вложена проектная ведомость I/O на три листа.",
+      "Четыре подтверждённых экспорта параметров из ПЧ этого шкафа. Вложены таблицы связи точной PLC r3 и проектные назначения ПЧ.",
+      "Паспорта фактических датчиков давления и РКФ, точные модели полевых преобразователей/кабелей и сохранённый профиль радиомаршрута Ошского."
+    ],
+    "missingOptionalInstaller": "SKTOOL 7.1.0.80"
   }
 }
