@@ -406,7 +406,57 @@
       "hmiBatchItemStrideBytesInCompiledMacro": 4,
       "ackDisplay": "MD5070 / R2166 independent of LB2110",
       "fieldRootCause": null,
-      "hardwareCommandsSent": 0
+      "hardwareCommandsSent": 0,
+      "reviewedCompletionCommit": "4e9b84343a6b0caa5ffd16ce6dbf52b8d43a0f61",
+      "ackUiBugConfirmedInSavedR3": true
+    },
+    "diagnosticHmiPreparation": {
+      "task": "docs/tasks/oshsky-r3a-diagnostic-hmi-local-20261126.md",
+      "requiredFileName": "pump_station_4p_oshsky_r3a_diag_native.skm",
+      "sourceHmiSha256": "590a6583a0bab4eb4da63c7e2cc418b62f07ee4c13b3b503d6c0c8e6517b1573",
+      "status": "Task prepared as part of live bench work; actual native file pending local execution",
+      "purpose": "Direct PLC vs macro data, RTC/freshness/call visibility and corrected full-ACK wording",
+      "addsNewPlcWrites": false,
+      "keepsExistingControlsAndBootAck": true,
+      "onlineRequiredToPrepareFile": false,
+      "hardwareDownloadPerformed": false,
+      "primaryFieldRootCauseFixed": false,
+      "actualNativeFilePath": null
+    },
+    "liveBenchValidation": {
+      "requestedOn": "2026-11-26",
+      "fieldVisitDate": "2026-11-27",
+      "task": "docs/tasks/oshsky-live-bench-fix-local-20261126.md",
+      "fieldCheckTask": "docs/tasks/oshsky-field-check-20261127.md",
+      "status": "Authorized task prepared; live measurements, native fixes and corrected kit pending local execution",
+      "benchDrive": {
+        "manufacturerReported": "ACD",
+        "modelReported": "AC590",
+        "ratedInputVoltageV": 380,
+        "appliedInputVoltageV": 220,
+        "motorConnected": false,
+        "faultOnRunReported": "Err09",
+        "exactManualVerified": false,
+        "faultCodeMappingVerified": false,
+        "protectionBypassParameterVerified": false
+      },
+      "fieldDriveModelReported": "M900G",
+      "physicalHmiAvailable": true,
+      "hmiPortOccupiedByProgrammingCableReported": true,
+      "benchPlcModelVerified": false,
+      "benchHmiModelVerified": false,
+      "userInstruction": "считаем настройки одинаковыми. разрешаю локальному загружать программу в контроллер",
+      "equalSettingsAreWorkingAssumption": true,
+      "benchPlcDownloadExplicitlyAuthorized": true,
+      "benchBackupRequiredBeforeDownload": true,
+      "productionSystemActivationAuthorized": false,
+      "actualBenchHardwareResultsReceived": false,
+      "m900gWithMotorAndLoadVerified": false,
+      "primaryFieldRootCauseFixed": false,
+      "expectedDesktopFolderName": "Ошский_4насоса_Исправление_2026-11-26",
+      "actualCorrectedKitPath": null,
+      "actualCorrectedZipPath": null,
+      "benchConfigurationMustBeExcludedFromFieldRelease": true
     }
   }
 }
