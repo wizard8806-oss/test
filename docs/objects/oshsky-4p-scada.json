@@ -349,6 +349,8 @@
       "Четыре подтверждённых экспорта параметров из ПЧ этого шкафа. Вложены таблицы связи точной PLC r3 и проектные назначения ПЧ.",
       "Паспорта фактических датчиков давления и РКФ, точные модели полевых преобразователей/кабелей и сохранённый профиль радиомаршрута Ошского."
     ],
-    "missingOptionalInstaller": "SKTOOL 7.1.0.80"
+    "missingOptionalInstaller": "SKTOOL 7.1.0.80",
+    "cloudReviewReport": "docs/reports/oshsky-complete-kit-cloud-review-20261126.md",
+    "verificationSource": "Local Windows report and user screenshot; metadata checked in Cloud; private ZIP and manifest not read in Cloud"
   }
 }

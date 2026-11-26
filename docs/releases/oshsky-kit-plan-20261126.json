@@ -3,7 +3,7 @@
   "buildId": "oshsky-4p-plc-r3-hmi-r3-scada-r4-20261126",
   "requestedOn": "2026-11-26",
   "timezone": "Europe/Moscow",
-  "status": "Requested local packaging; actual folder and ZIP not yet created by Cloud",
+  "status": "Fulfilled locally; software packaged; as-built documentation partially missing; see local completion report",
   "object": "Ошский",
   "pumps": 4,
   "task": "docs/tasks/oshsky-complete-kit-local-20261126.md",
@@ -84,5 +84,7 @@
   "nativeArchiveGapAcceptance": "pending",
   "liveSystemActivationAuthorizedByPackaging": false,
   "hardwareCommandsAuthorizedByPackaging": false,
-  "publishNativeFilesOrZipToGit": false
+  "publishNativeFilesOrZipToGit": false,
+  "localCompletionReport": "docs/reports/oshsky-complete-kit-local-20261126.md",
+  "cloudReviewReport": "docs/reports/oshsky-complete-kit-cloud-review-20261126.md"
 }
