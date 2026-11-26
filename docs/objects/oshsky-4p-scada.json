@@ -542,7 +542,28 @@
       "firstFieldFailureSnapshotReceived": false,
       "independentFieldY4DropObserved": false,
       "nextRequirement": "Reproduce the first failure and fix its cause; if unavailable, deliver tested native first-fault capture without claiming the control incident fixed",
-      "localTaskSentByUser": false
+      "localTaskSentByUser": false,
+      "additionalPhotoEvidence": {
+        "source": "Two additional user images in chat",
+        "mainMode": "MANUAL",
+        "displayedRunCount": 3,
+        "pumps1to3DisplayedFrequencyHz": 35.0,
+        "pump4DisplayedState": "Stopped",
+        "pump4DisplayedFrequencyHz": 0.0,
+        "pump4ManualRequestedFrequencyHz": 35.0,
+        "pump4StartDisplayedBlocked": true,
+        "pump4AutoMembershipText": "Исключён из AUTO",
+        "alarmActiveCountVisible": 1,
+        "alarmExactTimesReliablyReadable": false,
+        "captureTimeAndInstalledImageVerified": false,
+        "doesNotSupersedeSeparateBenchStopCheck": true
+      },
+      "additionalSnapshotSignals": [
+        "M1533",
+        "M1637",
+        "R2183",
+        "R2193"
+      ]
     }
   }
 }
