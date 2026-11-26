@@ -357,7 +357,7 @@
   "firstFieldStartIssue": {
     "reportedOn": "2026-11-26",
     "source": "User first-start report and 5 real HMI photos",
-    "status": "Bench reproduction identified HMI layout and active-page polling defects; r3d verified in Online Simulator; physical HMI and field attribution pending",
+    "status": "Physical-panel STOP current/delay/navigation check passed per user; field animation, exact installed identity and loaded M900G acceptance remain open",
     "report": "docs/reports/oshsky-first-start-field-issue-20261126.md",
     "task": "docs/tasks/oshsky-first-start-current-cascade-local-20261126.md",
     "symptoms": [
@@ -429,7 +429,7 @@
       "fieldVisitDate": "2026-11-27",
       "task": "docs/tasks/oshsky-live-bench-fix-local-20261126.md",
       "fieldCheckTask": "docs/tasks/oshsky-field-check-20261127.md",
-      "status": "Bench PLC and Online Simulator confirmed; physical panel, GSM and loaded M900G pending",
+      "status": "Bench PLC and Online Simulator verified; user confirms physical HMI basic STOP current/delay/navigation checks; animation, GSM and loaded M900G pending",
       "benchDrive": {
         "manufacturerReported": "ACD",
         "modelReported": "AC590",
@@ -464,12 +464,12 @@
       "hmiSha256": "f06245ead2c2b534f24b690e1df7fafc7750dc4237cdcc4d6166f70f38708e7c",
       "plcSha256": "683753c3388b0e404cd12bf2325c7c9f967fe3978e0b1b2529278f4a9df8a402",
       "report": "docs/reports/oshsky-live-bench-20261126.md",
-      "benchPanelUsbObservation": "Previous local attempt: HMIManager USB Fail to connect. User subsequently reports loading the project; current model/build/connection and runtime not yet verified.",
+      "benchPanelUsbObservation": "Earlier local HMIManager USB failed. User later loaded the panel and confirmed PLC link/STOP current/delay/navigation checks. Current USB session and exact model/image not independently verified.",
       "reviewedCompletionCommit": "12825d85ce33153a2bac5b1876eb0e69d77658c9",
       "cloudReviewReport": "docs/reports/oshsky-live-bench-cloud-review-20261126.md",
       "nextTask": "docs/tasks/oshsky-r3d-physical-panel-local-20261126.md",
       "onlineSimulatorWithPhysicalPlcVerified": true,
-      "physicalPanelRuntimeVerified": false,
+      "physicalPanelRuntimeVerified": true,
       "benchCurrentOwnQuality": [
         1,
         0,
@@ -498,7 +498,16 @@
       "actualPrivateZipReadInCloud": false,
       "physicalPanelProjectLoadReportedByUser": true,
       "physicalPanelInstalledRevisionVerified": false,
-      "physicalPanelUserLoadReportedOn": "2026-11-26"
+      "physicalPanelUserLoadReportedOn": "2026-11-26",
+      "physicalPanelRuntimeVerificationScope": "User confirms four basic STOP display/navigation instructions only; no independent model/image verification or running-load test",
+      "physicalPanelRuntimeVerificationSource": "User message on 2026-11-26: задание не отправлял. проверил по пунктам всё совпадает",
+      "physicalPanelBasicStopCheckPassed": true,
+      "physicalPanelFullAcceptancePassed": false,
+      "physicalPanelUserCheckReport": "docs/reports/oshsky-physical-hmi-user-check-20261126.md",
+      "physicalPanelParameterEditApplyCancelVerified": false,
+      "physicalPanelRawMarkerHeartbeatSamplesReceived": false,
+      "physicalPanelLinkLossReturnVerified": false,
+      "animationTaskSentToLocalByUser": false
     },
     "rotorAnimationIssue": {
       "reportedOn": "2026-11-26",
