@@ -1,3 +1,22 @@
+## 26.11.2026 — Cloud проверило native-публикацию SCADA UX r4
+
+Проверена база b57c034c6e9dc1517b9bb75ff2476757d6589580,14actualPNG и16ссылок;
+[оценка](reports/oshsky-scada-ux-r4-cloud-review-20261126.md). Четыре карточки/
+unknown/Q4/max/PLC countdown/draft/confirm/окно соответствуют опубликованной
+задаче в пределах Editor-материалов. Новый перенос Main не нужен. Actual
+холст1920×1080,96DPI; вCloud95helper+9public trend-context assertions PASS.
+104saved-native/75r3/328protected/13r3 — результат локального отчёта,
+не повторное чтение private файлов Cloud. Общие63группы ранее8df9510.
+
+Текущий проект: `C:\Users\user\Documents\Simple-Scada 2\Projects\oshsky_scada_ux_r4\Project.spr`,
+SHAсompiled67910d9c…35d0b4. Client/навигация/курсор/ack/SQL/native-gap остаются
+pending: shared Server не переключали, отдельной среды не было. Не выдавать
+TEST_ONLY Editor-кадры за runtime/полевую приёмку. Идентичность фактического
+шкафа и route проверить по полевому листу26.11; «стенд» в каталоге не доказывает
+Ошский. Нового remote управления/косметики/развёртывания не поручено.
+Следующий docs-коммит handoff фиксирует эту оценку; main5103031761c3da1ae744a0c1c691956c7367f183
+сохранить. Пользователю дать краткий результат с полным Windows-путём.
+
 ## 26.11.2026 — Ошский, сохранена отдельная SCADA UX r4
 
 Windows Simple-Editor 2.6.15.0 выполнил Compile All и Save As. Новый процесс открыл `oshsky_scada_ux_r4/Project.spr`. База задания `8df9510a394796497e2b32cfc9a707af5e7015fa`, ветка `codex/project-handoff-2026-10-31`. SHA256 скомпилированной r4 `67910d9c6432b9ef8620daf74ceea0cca8bbf53ce07251b41a018a366135d0b4`. Результаты, приватные имена артефактов, доказательства и границы приёмки приведены в [локальном отчёте](reports/oshsky-scada-ux-r4-native-20261126.md).

@@ -1,3 +1,19 @@
+**26.11: native SCADA UX r4 выполнена локально; Cloud проверило материалы.**
+Принят b57c034c6e9dc1517b9bb75ff2476757d6589580. Текущая Windows-копия
+`...\Simple-Scada 2\Projects\oshsky_scada_ux_r4\Project.spr`; compiled
+SHA67910d9c…35d0b4. Отчёт `docs/reports/oshsky-scada-ux-r4-cloud-review-20261126.md`.
+14PNG осмотрены: четыре равные карточки/крупныеF/I/часы, unknown/Q4/max,
+PLC countdown, отдельное окно, draft/confirm и native группы трендов/кодов.
+Не переносить карточки заново и не откатывать кr3. Локально Compile/Save/
+reopen,104saved-Pascal/75r3/95helper; вCloud95helper+9public trend-context
+assertions PASS. Private native-файлы и328protected hashes Cloud не читало.
+TEST_ONLY PNG — Editor Text из host-тестов, не actual Client. Client/клики/
+курсор/ack/SQL/native-gap пока pending: isolated Server/БД не было, shared
+Server не переключать ради картинки. Сегодня26.11 полевой лист актуален,
+но сам по себе не разрешает команды. Идентичность station_001/стенда/Ошского
+проверять на месте; новый OPC review-profile не установлен. PLC/HMI r3 и
+Бабанов сохранены. Новая косметика не поручена; правило уборки окон прежнее.
+
 **25.11, АКТИВНО: пользователь поручил реализовать UX SCADA r4.**
 «Давай доработаем по твоему выводу» заменяет прежний scope только анализа.
 Продолжить сохранённую native r3 из459a999, не строить11 заново из10/08.
