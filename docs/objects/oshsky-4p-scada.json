@@ -778,9 +778,9 @@
     "preserveCurrentLocalBuffersAndCopies": true,
     "coreFixTask": "docs/tasks/oshsky-mode-stop4-and-animation-local-20261126.md",
     "sequence": [
-      "Complete available pump4 mode-stop, active AUTO countdown, rotor and sound-mute fixes; retain explicit field remainder if needed",
-      "Validate actual SCADA UX r4 Client, OPC and GSM route; test freshness, interruption and recovery without replay",
-      "Close Client/archive/ack/setpoint acceptance and update corrected kit with actual evidence"
+      "Continue current SCADA work; with explicit access/start authorization restore existing Gateway/Main and MasterOPC, check the existing Service collector, compare live PLC and GSM while Client login is handled independently",
+      "Complete outstanding physical VFD code/description, first M610 cause, mute acceptance and available pump4/countdown/rotor checks; retain field remainder and await Main placement choice",
+      "Close actual Client/GSM freshness, disconnect/recovery, archive/ack/setpoint acceptance and update the kit only for changed verified files"
     ],
     "scadaBaselineProject": "C:\\Users\\user\\Documents\\Simple-Scada 2\\Projects\\oshsky_scada_ux_r4\\Project.spr",
     "benchPlcDownloadAuthorizationStillApplies": true,
@@ -791,7 +791,7 @@
     "actualGsmPlcRouteAcceptancePassed": false,
     "status": "PLC r3g / physical HMI r3j installed; saved SCADA r4b compiled/reopened. User still cannot see the VFD fault code. Code with description and a separate Main block requested; preview required before placement. Client reports too many failed logins; existing Operator DPAPI locator recovered, current access and project applicability not checked. Physical mute, first M610 cause and GSM acceptance remain open.",
     "checkedOn": "2026-11-27",
-    "baseCommit": "35f2988960a94da18acca592c074537b67bf5567",
+    "baseCommit": "da3e89267308321194692dd9582724a60f9f3966",
     "localReport": "docs/reports/oshsky-r4b-native-local-20261127.md",
     "fieldSheet": "docs/tasks/oshsky-field-check-20261127.md",
     "desktopKit": "C:\\Users\\user\\Desktop\\Ошский_4насоса_ПЛК_r3g_HMI_r3j_2026-11-27",
@@ -893,8 +893,8 @@
     },
     "latestAcceptedLocalReportCommit": "582bca43e14e8241d1b16ee066d708e1c52a180f",
     "cloudReviewReport": "docs/reports/oshsky-r3f-r3h-cloud-review-20261127.md",
-    "scadaCurrentProject": "C:\\Users\\user\\Documents\\Simple-Scada 2\\Projects\\oshsky_scada_ux_r4a_gsm\\Project.spr",
-    "pendingNextStep": "Use supplied physical photos; trace actual M610/M1559 fall with r3g working-table mapping, verify physical mute delivery and r3i, then complete SCADA/GSM",
+    "scadaCurrentProject": "C:\\Users\\user\\Documents\\Simple-Scada 2\\Projects\\oshsky_scada_r4b_native\\Project.spr",
+    "pendingNextStep": "Continue current SCADA work: inventory and start/connect installed Gateway and registered MasterOPC if absent; inspect the existing PowerShell Service collector and preserve one owner. Use the now PC-connected PLC programming cable for live comparison with GSM. Keep fault-display and mute acceptance open; Main placement still awaits user choice.",
     "pump4RootCauseConfirmed": false,
     "physicalHmiMutedAlarmLongRunPassed": false,
     "cloudVerification": {
@@ -917,7 +917,7 @@
     "physicalHmiPlcCableConnectedReportedByUser": true,
     "newPhysicalSoundRecurrenceReported": true,
     "currentInstalledIdentityNeedsRefresh": false,
-    "physicalHmiConnectionNowAfterCableSwitch": "Local report confirmed physical connection after the last readback; photos show link1/map32, sustained acceptance pending",
+    "physicalHmiConnectionNowAfterCableSwitch": "User now confirms PLC programming cable connected to PC; actual COM and current HMI serial topology not remeasured. Earlier physical HMI link/map evidence remains historical.",
     "windowsLiveNativeFault20261127": {
       "verifiedTaskCommit": "8bb45477ffdab38b13567a6bb7c6b4f3b81dbd7c",
       "report": "docs/reports/oshsky-live-native-fault-windows-20261127.md",
@@ -1035,6 +1035,38 @@
       "taskSection": "3",
       "preview": "docs/ui/oshsky-native-fault-preview-20261127.md",
       "previewShownInChat": true
+    },
+    "gatewayOpcAndRadioStartupAuthorization": {
+      "reportedOn": "2026-11-27",
+      "source": "User reports local is working on SCADA without launching M2M24 Gateway/OPC; explicitly grants required access and requests inspection of earlier modem PowerShell; then confirms PLC programming cable is on PC",
+      "installedGatewayAndOpcStartAuthorized": true,
+      "requiredLocalAccessAuthorized": true,
+      "existingRadioSourceStartAuthorizedWithinCurrentTask": true,
+      "repeatGeneralConfirmationRequired": false,
+      "userReportsNoGatewayOrOpcLaunch": true,
+      "currentWindowsProcessStateMeasuredByCloud": false,
+      "gatewayOrOpcStartedByCloud": false,
+      "programmingCableOnPcReported": true,
+      "currentComPortVerified": false,
+      "previousComPort": "COM28",
+      "main": {
+        "historicalGroup": 7058,
+        "localPort": 50008,
+        "singleOwner": "Existing Gateway with registered MasterOPC as data client"
+      },
+      "service": {
+        "historicalGroup": 9336,
+        "collector02": "C:\\ProgramData\\Automatika\\RadioServicePilot01\\Run-Radio-Service-Collector-02.ps1",
+        "publicSourceSHA256": "89c5762599b6b43044d0688f98f5df4e0d80ac603a70d446ee131351607b0e82",
+        "installedHashCurrentlyVerified": false,
+        "configPathMustBeTakenFromActualInstallation": true,
+        "historicalOutput": "C:\\ProgramData\\Automatika\\Station50008\\radio.txt",
+        "actual02Or03OwnershipMustBeChecked": true,
+        "radioAcceptanceIsSeparateFromPlcGsm": true
+      },
+      "task": "docs/tasks/oshsky-gsm-route-and-client-local-20261127.md",
+      "taskSection": "2",
+      "report": "docs/reports/oshsky-gateway-opc-radio-start-authorization-20261127.md"
     }
   }
 }
