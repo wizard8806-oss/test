@@ -29,7 +29,7 @@ def network_inventory(raw):
     codes, bounds, counts = {}, {}, {}
     for i, (pc, label) in enumerate(rows):
         counts[label] = counts.get(label, 0) + 1
-        key = label.split(' | ')[0] if label.startswith(('65.C', '95.S')) else f'{label}#{counts[label]}'
+        key = label.split(' | ')[0] if label.startswith(('65.C', '95.S', '96.AR')) else f'{label}#{counts[label]}'
         stop = rows[i + 1][0] if i + 1 < len(rows) else u16(part['image'], 270) - 2
         if key in codes:
             raise ValueError('Duplicate cascade/settings identity')
@@ -144,40 +144,9 @@ def changes(codes):
     return edits, before
 
 
-def prepare(source):
-    source = Path(source)
-    raw = source.read_bytes()
-    if SOURCES.get(sha(raw)) != len(raw):
-        raise ValueError('Use exact reviewed four-pump r2; preserve changed/native saves')
-    part, rows, codes, bounds = network_inventory(raw)
-    image, end = part['image'], u16(part['image'], 270)
-    if len(rows) != 1844:
-        raise ValueError('Unexpected r2 network inventory')
-    operands = struct.unpack('>' + 'H' * ((end - 512) // 2), image[512:end])
-    for n in REGISTERS:
-        if r(n) in operands or ('R' + str(n)).encode() in raw:
-            raise ValueError('Possible occupied operand/metadata R' + str(n))
-    blocks = 0
-    for at in range(512, end - 7, 2):
-        if image[at:at + 2] != w(0xf4ce):
-            continue
-        for address in struct.unpack_from('>2H', image, at + 2):
-            count = struct.unpack_from('>H', image, at + 6)[0]
-            if 0xa00 <= address < 0x2800 and address % 2 == 0:
-                first = (address - 0xa00) // 2
-                if any(first <= n <= first + count for n in REGISTERS):
-                    raise ValueError('Block move overlaps new registers')
-        blocks += 1
-    tables = unpack(source)['tables']
-    for address, table in tables.items():
-        first = int(address[1:])
-        if any(first <= n < first + 1 + 7 * len(table['rows']) for n in REGISTERS):
-            raise ValueError('Table storage overlaps new registers')
-        for row in table['rows']:
-            if row[3] == 12 and any(row[4] <= n < row[4] + row[2] for n in REGISTERS):
-                raise ValueError('Serial receive buffer overlaps new registers')
-
-    edited, before = changes(codes)
+def assemble(raw, part, rows, codes, bounds, edited, before):
+    """Relocate networks while checking the complete image and original metadata."""
+    image = part['image']
     operations, added = [], []
     for anchor, group in before.items():
         pc, body = bounds[anchor][0], b''
@@ -237,10 +206,50 @@ def prepare(source):
         if after[item['label'].split(' | ')[0]] != bytes.fromhex(item['codeHex']):
             raise ValueError('Inserted network differs')
     keep = lambda f: [record for kind, _, record in f['records'] if kind not in (0x1001, 0x1002)]
-    if keep(actual) != keep(part) or source.read_bytes() != raw:
+    if keep(actual) != keep(part):
         raise ValueError('Metadata/settings/source preservation differs')
+    return final, added, delta, u16(result, 264) * 2
+
+
+def prepare(source):
+    source = Path(source)
+    raw = source.read_bytes()
+    if SOURCES.get(sha(raw)) != len(raw):
+        raise ValueError('Use exact reviewed four-pump r2; preserve changed/native saves')
+    part, rows, codes, bounds = network_inventory(raw)
+    image, end = part['image'], u16(part['image'], 270)
+    if len(rows) != 1844:
+        raise ValueError('Unexpected r2 network inventory')
+    operands = struct.unpack('>' + 'H' * ((end - 512) // 2), image[512:end])
+    for n in REGISTERS:
+        if r(n) in operands or ('R' + str(n)).encode() in raw:
+            raise ValueError('Possible occupied operand/metadata R' + str(n))
+    blocks = 0
+    for at in range(512, end - 7, 2):
+        if image[at:at + 2] != w(0xf4ce):
+            continue
+        for address in struct.unpack_from('>2H', image, at + 2):
+            count = struct.unpack_from('>H', image, at + 6)[0]
+            if 0xa00 <= address < 0x2800 and address % 2 == 0:
+                first = (address - 0xa00) // 2
+                if any(first <= n <= first + count for n in REGISTERS):
+                    raise ValueError('Block move overlaps new registers')
+        blocks += 1
+    tables = unpack(source)['tables']
+    for address, table in tables.items():
+        first = int(address[1:])
+        if any(first <= n < first + 1 + 7 * len(table['rows']) for n in REGISTERS):
+            raise ValueError('Table storage overlaps new registers')
+        for row in table['rows']:
+            if row[3] == 12 and any(row[4] <= n < row[4] + row[2] for n in REGISTERS):
+                raise ValueError('Serial receive buffer overlaps new registers')
+
+    edited, before = changes(codes)
+    final, added, delta, free_bytes = assemble(raw, part, rows, codes, bounds, edited, before)
+    if source.read_bytes() != raw:
+        raise ValueError('Source changed during build')
     return final, dict(revision=3, sourceSHA256=sha(raw), candidateSHA256=sha(final), candidateBytes=len(final),
-        addedProgramBytes=delta, freeProgramBytes=u16(result, 264) * 2, marker=MARKER,
+        addedProgramBytes=delta, freeProgramBytes=free_bytes, marker=MARKER,
         registers=REGISTERS, newNetworks=added,
         changedNetworks=[dict(label=k, beforeHex=codes[k].hex(), codeHex=v.hex()) for k, v in edited.items()],
         unchangedNetworks=len(rows) - len(edited), serialTablesPreserved=len(tables),
