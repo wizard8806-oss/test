@@ -98,7 +98,8 @@
     },
     "activeNativeRevision": "oshsky-plc-r3f-hmi-r3h-scada-r4a",
     "activeNativeReport": "docs/reports/oshsky-finish-gsm-r3f-local-20261127.md",
-    "activeTask": "docs/tasks/oshsky-live-pump1-data-and-native-fault-local-20261127.md"
+    "activeTask": "docs/tasks/oshsky-live-pump1-data-and-native-fault-local-20261127.md",
+    "actualInstalledRevisionAfterUserReportedUpload": null
   },
   "postR2Review": {
     "date": "2026-11-25",
@@ -645,8 +646,26 @@
         "candidatePlcRelay": "M1559",
         "candidateFirstBitPlusOne": 10,
         "actualTriggerProved": false,
-        "nativeFixProducedForThisEpisode": false,
-        "localAcknowledgementVerified": false
+        "nativeFixProducedForThisEpisode": null,
+        "localAcknowledgementVerified": false,
+        "followingHardwareChange": {
+          "source": "User: локальный уже что то загрузил, я не успел отправить, и кабель уже переключён",
+          "localUploadReported": true,
+          "capturePromptDeliveredByUserBeforeUpload": false,
+          "capturePromptCommit": "548b27ffa7826a5c1e7f7784c68956ae16eb9c3e",
+          "target": null,
+          "artifactPath": null,
+          "artifactSha256": null,
+          "uploadTime": null,
+          "localGitCommitUsed": null,
+          "cableSwitchedReported": true,
+          "currentPcPlcConnectionVerified": false,
+          "preChangeCaptureAvailability": null,
+          "capturedDataLossConfirmed": false,
+          "newLocalHardwareReportReceived": false,
+          "nextAction": "Keep current connection; identify actual upload and installed state, preserve current retained/HMI/USB records and inspect pre-download backups offline without restoring old controller memory"
+        },
+        "nativeFixVerifiedForThisEpisode": false
       }
     },
     "livePump1DataAndFaultIssue": {
@@ -699,7 +718,7 @@
     "newRemoteCommandChannelsAuthorizedByThisTask": false,
     "actualClientAcceptancePassed": false,
     "actualGsmPlcRouteAcceptancePassed": false,
-    "status": "Physical HMI data flicker, missing native VFD code and recurrent sound remain open; preserve rearm capture before further changes, then fix and continue GSM",
+    "status": "User reports unidentified local upload and cable switch after sound recurrence; identify installed state and preserve surviving evidence before further changes, then continue existing fixes/GSM",
     "checkedOn": "2026-11-27",
     "baseCommit": "977633c772f79e9c1e7f8e294504a30526c5fe75",
     "localReport": "docs/reports/oshsky-finish-gsm-r3f-local-20261127.md",
@@ -821,6 +840,8 @@
     },
     "previousSupplementNotDeliveredByUser": "e953a98d9d72bbd415d9c67a5ceafba0d543e2ab",
     "physicalHmiPlcCableConnectedReportedByUser": true,
-    "newPhysicalSoundRecurrenceReported": true
+    "newPhysicalSoundRecurrenceReported": true,
+    "currentInstalledIdentityNeedsRefresh": true,
+    "physicalHmiConnectionNowAfterCableSwitch": "unknown; earlier connection is a historical user observation"
   }
 }
