@@ -950,6 +950,22 @@
       "extraProgramBytes": 1340,
       "freeProgramWords": 71,
       "fun150OrHardwareTimingEmulated": false
+    },
+    "scadaMonitorAccessCheck": {
+      "requestedOn": "2026-11-27",
+      "source": "User reports SCADA previously opened on second monitor; local is processing current task, check whether placement interferes and move if necessary",
+      "task": "docs/tasks/oshsky-gsm-route-and-client-local-20261127.md",
+      "taskSection": "0",
+      "preserveCurrentPlcHmiSoundPriority": true,
+      "secondaryMonitorPreviouslyUsedReported": true,
+      "currentMonitorLayoutMeasured": false,
+      "blockingEffect": null,
+      "windowMoveNeeded": null,
+      "conditionalExistingWindowMoveAuthorized": true,
+      "globalDisplayReconfigurationRequested": false,
+      "movePerformedByCloud": false,
+      "actualWindowsCheckCompleted": false,
+      "status": "Add-on prepared for SCADA UI stage; inspect actual window/capture/input context, then move existing SCADA windows only if needed"
     }
   }
 }
