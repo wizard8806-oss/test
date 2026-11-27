@@ -771,6 +771,36 @@
     }
   },
   "activeContinuation": {
+    "windowsFaultAndGsm27November": {
+      "base": "1219ca561abcb2e2703fa7da0494e3ca504bd646",
+      "report": "docs/reports/oshsky-r3k-physical-gsm-20261127.md",
+      "physicalR3kMainWithDriveErr09": "failed",
+      "r3lNative": {"bytes": 5543284, "sha256": "8f0e0174b4f1ae87246467f0d9c9f62ca95a8741926279f7113f34d212ec8cd7", "panelReadbackSHA256": "2ece9835e6d842aa64f410c1fcf3f289e6ce5897240a53456524907e472304f6", "ownFaultAfterMutePassedInOfflineSimulator": true, "physicalPanelLinkedAcceptance": false},
+      "userConfirmedProgrammingCableToPc": true,
+      "r3lPhysicalNoLinkSamples": 95,
+      "r3kInstalledUsbSha256": "3a0fef197807f9d12ec59bed771bbad3fa9a8265f50e6b7a71cfe3145ffb6622",
+      "physicalTraceR3jFault9HadEvents": 4,
+      "r3kConnectedExportFlatAt": 64198,
+      "scadaOperatorNativeLoginSucceeded": true,
+      "gatewayTcpPort": 50008,
+      "modemSuffix": "8379",
+      "opcAt1926": {
+        "map": 32,
+        "R2801": [
+          9,
+          9,
+          9
+        ],
+        "R2840": [
+          2123,
+          2145,
+          2172
+        ],
+        "quality": 192
+      },
+      "fieldM900GUnderLoadVerified": false,
+      "fieldPhysicalCL50SVerified": false
+    },
     "requestedOn": "2026-11-26",
     "task": "docs/tasks/oshsky-live-pump1-data-and-native-fault-local-20261127.md",
     "userRequestedContinueWork": true,
