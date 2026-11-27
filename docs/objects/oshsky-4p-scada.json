@@ -842,6 +842,21 @@
     "physicalHmiPlcCableConnectedReportedByUser": true,
     "newPhysicalSoundRecurrenceReported": true,
     "currentInstalledIdentityNeedsRefresh": true,
-    "physicalHmiConnectionNowAfterCableSwitch": "unknown; earlier connection is a historical user observation"
+    "physicalHmiConnectionNowAfterCableSwitch": "unknown; earlier connection is a historical user observation",
+    "windowsLiveNativeFault20261127": {
+      "verifiedTaskCommit": "8bb45477ffdab38b13567a6bb7c6b4f3b81dbd7c",
+      "report": "docs/reports/oshsky-live-native-fault-windows-20261127.md",
+      "plcInstalled": "station_4p_oshsky_r3g_native_fault.pdw",
+      "plcSha256": "453f0af24646e44d71e21590afb23016bcac4a270a1ebdcef9b5913697f6dc72",
+      "hmiFile": "pump_station_4p_oshsky_r3i_native.skm",
+      "hmiSha256": "d6fdc36f0c29876f434661a441823b25627a18fe82ae4a6b9f445551e6cd15d6",
+      "lastPanelImage": "PHYSICAL_TRACE_r3h",
+      "benchDrive1ReadAndDisplay": 9,
+      "driveRun": false,
+      "currentPLCQReadsGood": 136,
+      "soundSourceBeforeDownload": "panel freeze reason 2, generation 7 to 9",
+      "physicalSoundReturnedAgain": true,
+      "fieldAccepted": false
+    }
   }
 }
