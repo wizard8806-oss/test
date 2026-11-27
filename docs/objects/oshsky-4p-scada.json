@@ -789,9 +789,9 @@
     "newRemoteCommandChannelsAuthorizedByThisTask": false,
     "actualClientAcceptancePassed": false,
     "actualGsmPlcRouteAcceptancePassed": false,
-    "status": "PLC r3g / physical HMI r3j installed; saved SCADA r4b compiled/reopened. User still cannot see the VFD fault code. Code with description and a separate Main block requested; preview required before placement. Client reports too many failed logins; existing Operator DPAPI locator recovered, current access and project applicability not checked. Physical mute, first M610 cause and GSM acceptance remain open.",
+    "status": "Physical check failed: user confirms drive Err09 while HMI shows pump1 stopped without a fault code. User reports lost changes after a new download; local screenshot mentions installed r3k/USB match but no new native report is published. Last published PLC r3g/HMI r3j; verify actual pair and compare preserved working behavior. Continue current Gateway/OPC/SCADA work. Mute, fault path, GSM and Main placement remain open.",
     "checkedOn": "2026-11-27",
-    "baseCommit": "da3e89267308321194692dd9582724a60f9f3966",
+    "baseCommit": "8e0fb3601512b13f563ed334209131938e5b1b1d",
     "localReport": "docs/reports/oshsky-r4b-native-local-20261127.md",
     "fieldSheet": "docs/tasks/oshsky-field-check-20261127.md",
     "desktopKit": "C:\\Users\\user\\Desktop\\Ошский_4насоса_ПЛК_r3g_HMI_r3j_2026-11-27",
@@ -835,7 +835,8 @@
       "plcAcceptedMuteGeneration": null,
       "sourceReport": "docs/reports/oshsky-r3j-mute-and-scada-display-local-20261127.md",
       "previousSimulatorPlcAcceptedMuteGeneration": 3,
-      "physicalPlcMuteAcceptanceVerified": false
+      "physicalPlcMuteAcceptanceVerified": false,
+      "verificationScope": "Last published r3j verification; newer installed r3k claimed by local in user screenshot, current exact file/hash must be checked"
     },
     "testOnly": {
       "firstFaultCases": 39,
@@ -894,7 +895,7 @@
     "latestAcceptedLocalReportCommit": "582bca43e14e8241d1b16ee066d708e1c52a180f",
     "cloudReviewReport": "docs/reports/oshsky-r3f-r3h-cloud-review-20261127.md",
     "scadaCurrentProject": "C:\\Users\\user\\Documents\\Simple-Scada 2\\Projects\\oshsky_scada_r4b_native\\Project.spr",
-    "pendingNextStep": "Continue current SCADA work: inventory and start/connect installed Gateway and registered MasterOPC if absent; inspect the existing PowerShell Service collector and preserve one owner. Use the now PC-connected PLC programming cable for live comparison with GSM. Keep fault-display and mute acceptance open; Main placement still awaits user choice.",
+    "pendingNextStep": "Accept user photo and confirmed simultaneous Err09 as failed physical indication; use existing COM28/USB/HAD records, identify actual r3k and compatible PLC, compare last genuinely working copy and fix first diverging fault stage. Preserve ongoing Gateway/OPC/SCADA work; no repeated photo or RUN needed.",
     "pump4RootCauseConfirmed": false,
     "physicalHmiMutedAlarmLongRunPassed": false,
     "cloudVerification": {
@@ -916,8 +917,8 @@
     "previousSupplementNotDeliveredByUser": "e953a98d9d72bbd415d9c67a5ceafba0d543e2ab",
     "physicalHmiPlcCableConnectedReportedByUser": true,
     "newPhysicalSoundRecurrenceReported": true,
-    "currentInstalledIdentityNeedsRefresh": false,
-    "physicalHmiConnectionNowAfterCableSwitch": "User now confirms PLC programming cable connected to PC; actual COM and current HMI serial topology not remeasured. Earlier physical HMI link/map evidence remains historical.",
+    "currentInstalledIdentityNeedsRefresh": true,
+    "physicalHmiConnectionNowAfterCableSwitch": "After earlier PC-cable confirmation, user performed the local requested PLC/panel connection and supplied physical Main photo with green PLC indicator; current exact serial topology needs local verification, do not repeat old cable request.",
     "windowsLiveNativeFault20261127": {
       "verifiedTaskCommit": "8bb45477ffdab38b13567a6bb7c6b4f3b81dbd7c",
       "report": "docs/reports/oshsky-live-native-fault-windows-20261127.md",
@@ -1022,7 +1023,7 @@
     },
     "physicalNativeFaultDisplayFollowup": {
       "reportedOn": "2026-11-27",
-      "source": "User still does not see VFD fault number; asks for code with description and a separate Main block; requests a preview before choosing placement",
+      "source": "User supplied physical Main photo and confirms Err09 remained on drive at that moment; HMI pump1 reads stopped, F/I zero, no code; subsequent local screenshot mentions r3k. User reports regression compared with earlier downloads.",
       "physicalCodeDisplayAccepted": false,
       "descriptionRequested": true,
       "separateMainBlockRequested": true,
@@ -1030,11 +1031,23 @@
       "placementApproved": false,
       "previewRequested": true,
       "nativeLayoutChangePerformedByCloud": false,
-      "nextStep": "Correlate PLC R3610..3627, physical native batch, LW54300..54315 and LB2160..2179, visibility and HAD; fix first mismatch. Check model-specific description; keep unknown codes numeric. Implement separate Main placement after user choice.",
+      "nextStep": "Master-task 0.1 and 3: verify actual native pair/readback; compare preserved working version and PLC/batch/macro/UI/HAD. Use existing direct reads before requesting any new cable action. Mute must preserve fault visibility. Main layout not approved.",
       "task": "docs/tasks/oshsky-live-pump1-data-and-native-fault-local-20261127.md",
       "taskSection": "3",
       "preview": "docs/ui/oshsky-native-fault-preview-20261127.md",
-      "previewShownInChat": true
+      "previewShownInChat": true,
+      "report": "docs/reports/oshsky-physical-err09-regression-20261127.md",
+      "deviceErr09ConfirmedDuringPhoto": true,
+      "panelPump1StateDuringPhoto": "Остановлен",
+      "panelPump1FrequencyDuringPhoto": 0.0,
+      "panelPump1CurrentDuringPhoto": 0.0,
+      "panelSoundTextDuringPhoto": "Звук отключён",
+      "firstDivergingFaultStageConfirmed": false,
+      "physicalMuteDeliveryOrLongSilenceProvenByPhoto": false,
+      "simultaneousFaultAndMuteDisplayRequired": true,
+      "installedR3kClaimedByLocalScreenshot": true,
+      "r3kNativeReportOrHashPublished": false,
+      "samePhotoShouldBeRequestedAgain": false
     },
     "gatewayOpcAndRadioStartupAuthorization": {
       "reportedOn": "2026-11-27",
@@ -1066,7 +1079,9 @@
       },
       "task": "docs/tasks/oshsky-gsm-route-and-client-local-20261127.md",
       "taskSection": "2",
-      "report": "docs/reports/oshsky-gateway-opc-radio-start-authorization-20261127.md"
+      "report": "docs/reports/oshsky-gateway-opc-radio-start-authorization-20261127.md",
+      "currentCableStateAfterUserCheckNeedsVerification": true,
+      "subsequentUserAction": "User performed the local PLC/panel connection request after earlier PC-cable confirmation; physical Main photo supplied"
     }
   }
 }
