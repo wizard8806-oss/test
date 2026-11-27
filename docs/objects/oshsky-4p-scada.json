@@ -789,9 +789,9 @@
     "newRemoteCommandChannelsAuthorizedByThisTask": false,
     "actualClientAcceptancePassed": false,
     "actualGsmPlcRouteAcceptancePassed": false,
-    "status": "Physical r3j installed and read back. SCADA r4b compiled/reopened and local Server connected to DB. Current-generation physical mute, exact M610 first cause, active modem identity and authenticated GSM remain open.",
+    "status": "PLC r3g / physical HMI r3j installed; saved SCADA r4b compiled/reopened. User still cannot see the VFD fault code. Code with description and a separate Main block requested; preview required before placement. Client reports too many failed logins; existing Operator DPAPI locator recovered, current access and project applicability not checked. Physical mute, first M610 cause and GSM acceptance remain open.",
     "checkedOn": "2026-11-27",
-    "baseCommit": "9a7bbefa581062c064cfe80d55b5cdb34279f901",
+    "baseCommit": "35f2988960a94da18acca592c074537b67bf5567",
     "localReport": "docs/reports/oshsky-r4b-native-local-20261127.md",
     "fieldSheet": "docs/tasks/oshsky-field-check-20261127.md",
     "desktopKit": "C:\\Users\\user\\Desktop\\Ошский_4насоса_ПЛК_r3g_HMI_r3j_2026-11-27",
@@ -853,7 +853,7 @@
       "project": "800522452b2e88eeffd809fd7fdb87aeb6930ec1c7c6a1e7c54f5542b281213e",
       "program": "dd88e61d0d0d5eba72155f23450df9dd7850416bc72b8ccfbb9da432adcd7ce0",
       "preservedSource": "oshsky_scada_ux_r4a_gsm",
-      "actualClient": "native project selected, operator authorization dialog reached on DISPLAY2"
+      "actualClient": "DISPLAY2 accessible; user screenshot reports too many unsuccessful login attempts; no authenticated acceptance"
     },
     "confirmedServiceDelivery": {
       "at": "2026-11-27T02:26:17.0000332+03:00",
@@ -965,14 +965,14 @@
       "preserveCurrentPlcHmiSoundPriority": true,
       "secondaryMonitorPreviouslyUsedReported": true,
       "currentMonitorLayoutMeasured": true,
-      "blockingEffect": "Editor fully accessible on DISPLAY2",
+      "blockingEffect": "Editor and Client fully accessible on DISPLAY2; Server on primary",
       "windowMoveNeeded": false,
       "conditionalExistingWindowMoveAuthorized": true,
       "globalDisplayReconfigurationRequested": false,
       "movePerformedByCloud": false,
       "actualWindowsCheckCompleted": true,
-      "status": "Actual 1920x1080 capture and target-verified project dialog click, same HWND, 96 DPI. Client not yet measured.",
-      "sourceReport": "docs/reports/oshsky-r3j-mute-and-scada-display-local-20261127.md"
+      "status": "Local report 35f2988 confirms full capture and target-verified input for Editor and Client at 1920x1080 / 96 DPI; no relocation needed.",
+      "sourceReport": "docs/reports/oshsky-r4b-native-local-20261127.md"
     },
     "scadaNativeR4b": {
       "source": "oshsky_scada_ux_r4a_gsm",
@@ -984,7 +984,7 @@
       },
       "localServer": "Final project activated 16:03:30 MSK; database connected; Client reached operator login",
       "monitor": "Editor and Client on DISPLAY2, 1920x1080; Server on primary, 790x591; no relocation",
-      "pending": "Physical r3j mute and code event, M610 first edge, identified Main/Port4, Client login and GSM acceptance",
+      "pending": "Physical VFD code/description and r3j mute, first M610 cause, authenticated Client and identified Main/Port4 GSM acceptance",
       "report": "docs/reports/oshsky-r4b-native-local-20261127.md"
     },
     "previousDesktopKitR3fR3h": "C:\\Users\\user\\Desktop\\Ошский_4насоса_ПЛК_r3f_HMI_r3h_2026-11-27",
@@ -997,6 +997,44 @@
       "nativeClientStarted": true,
       "archivePointsObserved": 72083,
       "gsmDataSeen": false
+    },
+    "scadaClientAuthentication": {
+      "reportedOn": "2026-11-27",
+      "source": "User screenshot: connection interrupted after too many unsuccessful login attempts",
+      "currentProjectFromLocalReport": "oshsky_scada_r4b_native",
+      "authenticated": false,
+      "retrySourceIdentified": false,
+      "lockoutDurationKnown": false,
+      "existingOperatorStore": {
+        "confirmedByHistoricalCommit": "77ae633",
+        "originalProject": "SCADA10",
+        "userName": "Оператор",
+        "windowsUser": "HOME-PC\\user",
+        "relativePath": "%LOCALAPPDATA%\\CodexBackups\\SCADA10Credentials\\20261101T165606Z\\operator-client.password.dpapi",
+        "protection": "DPAPI CurrentUser; UTF-8 Raw to ConvertTo-SecureString",
+        "readDuringThisCloudReview": false,
+        "applicabilityToOshskyConfirmed": false
+      },
+      "nextStep": "Stop erroneous login retries, identify exact project/user and retry source, read existing local store without disclosure, respect native lockout then use verified project credentials. Continue Main/OPC independently.",
+      "task": "docs/tasks/oshsky-gsm-route-and-client-local-20261127.md",
+      "taskSection": "3.2",
+      "report": "docs/reports/oshsky-scada-login-and-operator-store-20261127.md"
+    },
+    "physicalNativeFaultDisplayFollowup": {
+      "reportedOn": "2026-11-27",
+      "source": "User still does not see VFD fault number; asks for code with description and a separate Main block; requests a preview before choosing placement",
+      "physicalCodeDisplayAccepted": false,
+      "descriptionRequested": true,
+      "separateMainBlockRequested": true,
+      "proposedPlacement": "Existing alarm summary area above bottom navigation",
+      "placementApproved": false,
+      "previewRequested": true,
+      "nativeLayoutChangePerformedByCloud": false,
+      "nextStep": "Correlate PLC R3610..3627, physical native batch, LW54300..54315 and LB2160..2179, visibility and HAD; fix first mismatch. Check model-specific description; keep unknown codes numeric. Implement separate Main placement after user choice.",
+      "task": "docs/tasks/oshsky-live-pump1-data-and-native-fault-local-20261127.md",
+      "taskSection": "3",
+      "preview": "docs/ui/oshsky-native-fault-preview-20261127.md",
+      "previewShownInChat": true
     }
   }
 }
