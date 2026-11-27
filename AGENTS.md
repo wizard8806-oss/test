@@ -1,3 +1,20 @@
+**27.11, НОВЫЙ ПРИОРИТЕТ: pump1 0/прочерки и не показан native fault.**
+Пользователь e953a98 ещё не передал; подключил physical HMI кPLC. Насос1
+«Остановлен»↔«Нет данных», F/I0↔прочерк; PLCзелёный/прочие поля видны.
+РелеПЧ и датчикдавления НЕподключены. После клавиатурногоПуска ПЧ показал
+ошибку (прежний контекст AC590380/220/Err09), новых HMIсообщений нет.
+Не объяснять native fault отсутствиемреле; читатьModbus и безREADY/датчика/
+PLC-RUN. Новый task `docs/tasks/oshsky-live-pump1-data-and-native-fault-local-20261127.md`,
+report `docs/reports/oshsky-live-pump1-flicker-and-fault-gap-20261127.md`.
+Сначала realPLC Q/cache/T92/own-row interval vs physical alias/age/render;
+затем полный native-code Main/history для4. Cloud2component-опыта на
+generatedr3: искусственный7с период/5с expiry даёт миганиеQ; R2801=0/9
+не меняет95.A010…028, прямыхR2801consumers вPLC нет. Это не реальный
+период/причина/AC590rawmapping. Не увеличиватьtimeout/форсироватьREADY,
+не повторятьсиловойRUN. Сохранить r3f/r3h/r4a/capture/mute;741wordfree,
+R2551Boot/generation не занимать. Потом прежний GSMэтап. Новый nativefix
+не создан, installed-файлы этого эпизода ещё не считаны.
+
 **27.11, принят локальный0e48d66: PLC r3f/HMI r3h/SCADA r4a.**
 `docs/reports/oshsky-finish-gsm-r3f-local-20261127.md` и Cloud review
 `docs/reports/oshsky-r3f-r3h-cloud-review-20261127.md`. Продолжение:

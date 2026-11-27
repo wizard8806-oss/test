@@ -98,7 +98,7 @@
     },
     "activeNativeRevision": "oshsky-plc-r3f-hmi-r3h-scada-r4a",
     "activeNativeReport": "docs/reports/oshsky-finish-gsm-r3f-local-20261127.md",
-    "activeTask": "docs/tasks/oshsky-gsm-route-and-client-local-20261127.md"
+    "activeTask": "docs/tasks/oshsky-live-pump1-data-and-native-fault-local-20261127.md"
   },
   "postR2Review": {
     "date": "2026-11-25",
@@ -474,7 +474,7 @@
       "benchPanelUsbObservation": "Earlier local HMIManager USB failed. User later loaded the panel and confirmed PLC link/STOP current/delay/navigation checks. Current USB session and exact model/image not independently verified.",
       "reviewedCompletionCommit": "12825d85ce33153a2bac5b1876eb0e69d77658c9",
       "cloudReviewReport": "docs/reports/oshsky-live-bench-cloud-review-20261126.md",
-      "nextTask": "docs/tasks/oshsky-finish-and-scada-gsm-local-20261126.md",
+      "nextTask": "docs/tasks/oshsky-live-pump1-data-and-native-fault-local-20261127.md",
       "onlineSimulatorWithPhysicalPlcVerified": true,
       "physicalPanelRuntimeVerified": true,
       "benchCurrentOwnQuality": [
@@ -514,7 +514,8 @@
       "physicalPanelParameterEditApplyCancelVerified": false,
       "physicalPanelRawMarkerHeartbeatSamplesReceived": false,
       "physicalPanelLinkLossReturnVerified": false,
-      "animationTaskSentToLocalByUser": false
+      "animationTaskSentToLocalByUser": false,
+      "physicalPanelCurrentIssueReport": "docs/reports/oshsky-live-pump1-flicker-and-fault-gap-20261127.md"
     },
     "rotorAnimationIssue": {
       "reportedOn": "2026-11-26",
@@ -624,11 +625,40 @@
       "actual40MinuteEventReproduced": false,
       "nativeFixCreated": false,
       "latestSupplementAcknowledgedByLocal": false
+    },
+    "livePump1DataAndFaultIssue": {
+      "reportedOn": "2026-11-27",
+      "source": "User connected physical HMI to PLC; explicit follow-up confirmed only pump data disappear, VFD relay and pressure sensor are not wired",
+      "task": "docs/tasks/oshsky-live-pump1-data-and-native-fault-local-20261127.md",
+      "report": "docs/reports/oshsky-live-pump1-flicker-and-fault-gap-20261127.md",
+      "pump": 1,
+      "stoppedAndNoDataAlternate": true,
+      "frequencyAndCurrentAlternateZeroUnknown": true,
+      "plcLinkStaysGreenReported": true,
+      "otherHmiFieldsRemainVisibleReported": true,
+      "vfdRelayWired": false,
+      "pressureSensorWired": false,
+      "pressureMeasurementValidityConfirmed": false,
+      "startSourceReported": "Physical VFD keypad",
+      "driveShowsOwnFaultReported": true,
+      "newHmiMessageSeenByUser": false,
+      "priorBenchFaultCodeReported": "Err09",
+      "actualRawModbusFaultCode": null,
+      "installedNativeIdentityMatchedForThisEpisode": false,
+      "actualPhysicalPort3PollPeriodMeasured": false,
+      "nativeHmiFaultPathAudited": false,
+      "cloudGeneratedBytecodeComponentExperimentsPassed": 2,
+      "injectedExamplePollPeriodSeconds": 7,
+      "existingWatchdogSeconds": 5,
+      "injectedPollPeriodIsActualMeasurement": false,
+      "sameRelayInputsStationAlarmsUnchangedForSyntheticFaultZeroAndNine": true,
+      "newNativeFixCreated": false,
+      "latestSupplementAcknowledgedByLocal": false
     }
   },
   "activeContinuation": {
     "requestedOn": "2026-11-26",
-    "task": "docs/tasks/oshsky-gsm-route-and-client-local-20261127.md",
+    "task": "docs/tasks/oshsky-live-pump1-data-and-native-fault-local-20261127.md",
     "userRequestedContinueWork": true,
     "remoteAccessScope": "SCADA to identified bench PLC through GSM",
     "preserveCurrentLocalBuffersAndCopies": true,
@@ -645,7 +675,7 @@
     "newRemoteCommandChannelsAuthorizedByThisTask": false,
     "actualClientAcceptancePassed": false,
     "actualGsmPlcRouteAcceptancePassed": false,
-    "status": "Native PLC/HMI and SCADA verified on Windows within documented scope; physical drive 4 first event and end-to-end GSM acceptance remain open.",
+    "status": "New user-reported physical HMI intermittency and missing VFD code take priority; root causes and current installed identities pending",
     "checkedOn": "2026-11-27",
     "baseCommit": "977633c772f79e9c1e7f8e294504a30526c5fe75",
     "localReport": "docs/reports/oshsky-finish-gsm-r3f-local-20261127.md",
@@ -746,7 +776,7 @@
     "latestAcceptedLocalReportCommit": "0e48d66e25732c34e0d5f2e67737188fd932f24c",
     "cloudReviewReport": "docs/reports/oshsky-r3f-r3h-cloud-review-20261127.md",
     "scadaCurrentProject": "C:\\Users\\user\\Documents\\Simple-Scada 2\\Projects\\oshsky_scada_ux_r4a_gsm\\Project.spr",
-    "pendingNextStep": "Restore actual physical HMI serial data, existing Main listener, target OPC items and correct project login; then live GSM acceptance",
+    "pendingNextStep": "First fix actual pump1 F/I/status intermittency and native VFD fault presentation, then continue identified GSM/OPC/Client acceptance",
     "pump4RootCauseConfirmed": false,
     "physicalHmiMutedAlarmLongRunPassed": false,
     "cloudVerification": {
@@ -764,6 +794,8 @@
       "reviewedPngCount": 7,
       "privateNativeOrZipExecuted": false,
       "actualGsmHardwareObservedByCloud": false
-    }
+    },
+    "previousSupplementNotDeliveredByUser": "e953a98d9d72bbd415d9c67a5ceafba0d543e2ab",
+    "physicalHmiPlcCableConnectedReportedByUser": true
   }
 }
