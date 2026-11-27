@@ -1,3 +1,21 @@
+**27.11, принят локальный0e48d66: PLC r3f/HMI r3h/SCADA r4a.**
+`docs/reports/oshsky-finish-gsm-r3f-local-20261127.md` и Cloud review
+`docs/reports/oshsky-r3f-r3h-cloud-review-20261127.md`. Продолжение:
+`docs/tasks/oshsky-gsm-route-and-client-local-20261127.md`.
+516+166passive-сетей capture добавлены, полевая причина остановки4 открыта.
+Отсчёты/роторы — physical HMI/TEST_ONLY; два дефекта доставки mute исправлены,
+PLC принял generation3.47мин — Simulator+PLC, затем directPLC, не physical
+пьезо/CL50. В physical production log карта0/маска0 приlink1: сначала
+восстановить штатный serial HMI↔PLC, не повторять пустой50мин-тест.
+Main127.0.0.1:50008 безlistener, activeOPC22/review76 и26DAотказов,
+вход оператора r4a не подтверждён. Найти штатный Gateway/target, затем merge
+толькоцелевыхOPCitems, сохранить прочие станции/Service9336/одногоmaster.
+ExpectedMap31/station-001 не доказательство OshskyMap32. Reader radio.txt
+55мин50с не PLC-over-GSM. Текущие копии/буферы/разрешения сохранить,
+не откатывать к r3d/r4. Cloud:154+222, helper157+10 и прежние сети/9таблиц
+на generated source PASS; private-native/ZIP не запускало. Комплект Desktop
+`Ошский_4насоса_ПЛК_r3f_HMI_r3h_2026-11-27`,276файлов.
+
 **26.11, АКТИВНО: продолжить исправления, затем SCADA↔ПЛК через GSM.**
 Пользователь: «Нет, работу продолжаем…», удалённый доступ уточнил как
 «Связь SCADA с ПЛК через GSM». Общий task:

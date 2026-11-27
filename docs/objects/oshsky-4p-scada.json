@@ -97,7 +97,8 @@
       "hardwareDownloads": 0
     },
     "activeNativeRevision": "oshsky-plc-r3f-hmi-r3h-scada-r4a",
-    "activeNativeReport": "docs/reports/oshsky-finish-gsm-r3f-local-20261127.md"
+    "activeNativeReport": "docs/reports/oshsky-finish-gsm-r3f-local-20261127.md",
+    "activeTask": "docs/tasks/oshsky-gsm-route-and-client-local-20261127.md"
   },
   "postR2Review": {
     "date": "2026-11-25",
@@ -627,7 +628,7 @@
   },
   "activeContinuation": {
     "requestedOn": "2026-11-26",
-    "task": "docs/tasks/oshsky-finish-and-scada-gsm-local-20261126.md",
+    "task": "docs/tasks/oshsky-gsm-route-and-client-local-20261127.md",
     "userRequestedContinueWork": true,
     "remoteAccessScope": "SCADA to identified bench PLC through GSM",
     "preserveCurrentLocalBuffersAndCopies": true,
@@ -741,6 +742,28 @@
       "plcRearmSeen": false,
       "externalSirenConnected": false,
       "physicalHmiSerialExchangeConfirmed": false
+    },
+    "latestAcceptedLocalReportCommit": "0e48d66e25732c34e0d5f2e67737188fd932f24c",
+    "cloudReviewReport": "docs/reports/oshsky-r3f-r3h-cloud-review-20261127.md",
+    "scadaCurrentProject": "C:\\Users\\user\\Documents\\Simple-Scada 2\\Projects\\oshsky_scada_ux_r4a_gsm\\Project.spr",
+    "pendingNextStep": "Restore actual physical HMI serial data, existing Main listener, target OPC items and correct project login; then live GSM acceptance",
+    "pump4RootCauseConfirmed": false,
+    "physicalHmiMutedAlarmLongRunPassed": false,
+    "cloudVerification": {
+      "reviewedCommit": "0e48d66e25732c34e0d5f2e67737188fd932f24c",
+      "generatedCascadeCases": 154,
+      "generatedTelemetryCases": 222,
+      "isolatedRotorHelperAssertions": 157,
+      "isolatedServiceHelperAssertions": 10,
+      "generatedRecorderNetworks": [
+        516,
+        166
+      ],
+      "originalNetworkBytesPreservedInGeneratedAssembly": true,
+      "serializedSerialTableRecordsPreserved": 9,
+      "reviewedPngCount": 7,
+      "privateNativeOrZipExecuted": false,
+      "actualGsmHardwareObservedByCloud": false
     }
   }
 }
