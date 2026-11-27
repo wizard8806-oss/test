@@ -775,7 +775,13 @@
       "base": "1219ca561abcb2e2703fa7da0494e3ca504bd646",
       "report": "docs/reports/oshsky-r3k-physical-gsm-20261127.md",
       "physicalR3kMainWithDriveErr09": "failed",
-      "r3lNative": {"bytes": 5543284, "sha256": "8f0e0174b4f1ae87246467f0d9c9f62ca95a8741926279f7113f34d212ec8cd7", "panelReadbackSHA256": "2ece9835e6d842aa64f410c1fcf3f289e6ce5897240a53456524907e472304f6", "ownFaultAfterMutePassedInOfflineSimulator": true, "physicalPanelLinkedAcceptance": false},
+      "r3lNative": {
+        "bytes": 5543284,
+        "sha256": "8f0e0174b4f1ae87246467f0d9c9f62ca95a8741926279f7113f34d212ec8cd7",
+        "panelReadbackSHA256": "2ece9835e6d842aa64f410c1fcf3f289e6ce5897240a53456524907e472304f6",
+        "ownFaultAfterMutePassedInOfflineSimulator": true,
+        "physicalPanelLinkedAcceptance": false
+      },
       "userConfirmedProgrammingCableToPc": true,
       "r3lPhysicalNoLinkSamples": 95,
       "r3kInstalledUsbSha256": "3a0fef197807f9d12ec59bed771bbad3fa9a8265f50e6b7a71cfe3145ffb6622",
@@ -808,8 +814,8 @@
     "preserveCurrentLocalBuffersAndCopies": true,
     "coreFixTask": "docs/tasks/oshsky-mode-stop4-and-animation-local-20261126.md",
     "sequence": [
-      "Continue current SCADA work; with explicit access/start authorization restore existing Gateway/Main and MasterOPC, check the existing Service collector, compare live PLC and GSM while Client login is handled independently",
-      "Complete outstanding physical VFD code/description, first M610 cause, mute acceptance and available pump4/countdown/rotor checks; retain field remainder and await Main placement choice",
+      "Preserve confirmed Gateway, MasterOPC, collector and authorized Client; fix missing target OPC schema/fault items through native save/reopen and check expanded live data",
+      "Verify installed r3l on linked physical HMI; preserve captures for first M610 cause and sound rearm, available pump4/countdown/rotor checks and field remainder; await Main placement choice",
       "Close actual Client/GSM freshness, disconnect/recovery, archive/ack/setpoint acceptance and update the kit only for changed verified files"
     ],
     "scadaBaselineProject": "C:\\Users\\user\\Documents\\Simple-Scada 2\\Projects\\oshsky_scada_ux_r4\\Project.spr",
@@ -819,10 +825,10 @@
     "newRemoteCommandChannelsAuthorizedByThisTask": false,
     "actualClientAcceptancePassed": false,
     "actualGsmPlcRouteAcceptancePassed": false,
-    "status": "Physical check failed: user confirms drive Err09 while HMI shows pump1 stopped without a fault code. User reports lost changes after a new download; local screenshot mentions installed r3k/USB match but no new native report is published. Last published PLC r3g/HMI r3j; verify actual pair and compare preserved working behavior. Continue current Gateway/OPC/SCADA work. Mute, fault path, GSM and Main placement remain open.",
+    "status": "Local 53e0752: HMI r3l installed/readback matched, unknown/stale fault display fixed in source and Simulator; linked physical acceptance pending (95 map0 samples). Operator login, Gateway/Main PLC code9 GOOD and radio display confirmed. Expanded OPC profile failed native load; active22 items leave Client process data unknown. Sound rearm, full GSM/Client acceptance and Main placement remain open.",
     "checkedOn": "2026-11-27",
-    "baseCommit": "8e0fb3601512b13f563ed334209131938e5b1b1d",
-    "localReport": "docs/reports/oshsky-r4b-native-local-20261127.md",
+    "baseCommit": "53e07528305379fb64997e93e3d87b567921c93f",
+    "localReport": "docs/reports/oshsky-r3k-physical-gsm-20261127.md",
     "fieldSheet": "docs/tasks/oshsky-field-check-20261127.md",
     "desktopKit": "C:\\Users\\user\\Desktop\\Ошский_4насоса_ПЛК_r3g_HMI_r3j_2026-11-27",
     "benchPLC": {
@@ -846,11 +852,11 @@
     },
     "benchHMI": {
       "model": "SK-102CE",
-      "revision": "r3j",
-      "sha256": "ad384f55c6828a2a6d82422bce1b7bf0d9dbff5d3ccf0fde2c8e67022f595f4a",
-      "bytes": 4832592,
+      "revision": "r3l",
+      "sha256": "8f0e0174b4f1ae87246467f0d9c9f62ca95a8741926279f7113f34d212ec8cd7",
+      "bytes": 5543284,
       "usbDownloaded": true,
-      "deviceReadbackSHA256": "29d2d60f724099a17fc9f3d61776c2e6aeaf5cf9808c8f8a484cee7914f32da5",
+      "deviceReadbackSHA256": "2ece9835e6d842aa64f410c1fcf3f289e6ce5897240a53456524907e472304f6",
       "scriptErrorsWarnings": [
         0,
         0
@@ -863,10 +869,14 @@
       "nativeTransferDestination": "R2553",
       "nativeExternalServiceWriters": 1,
       "plcAcceptedMuteGeneration": null,
-      "sourceReport": "docs/reports/oshsky-r3j-mute-and-scada-display-local-20261127.md",
+      "sourceReport": "docs/reports/oshsky-r3k-physical-gsm-20261127.md",
       "previousSimulatorPlcAcceptedMuteGeneration": 3,
       "physicalPlcMuteAcceptanceVerified": false,
-      "verificationScope": "Last published r3j verification; newer installed r3k claimed by local in user screenshot, current exact file/hash must be checked"
+      "verificationScope": "Installed/readback verified by local report 53e0752; linked physical acceptance not passed (95 samples map0)",
+      "physicalPanelLinkedAcceptance": false,
+      "physicalNoLinkSamples": 95,
+      "deviceReadbackBytes": 391759,
+      "usbDownloadedAtMsk": "2026-11-27 19:39"
     },
     "testOnly": {
       "firstFaultCases": 39,
@@ -884,7 +894,7 @@
       "project": "800522452b2e88eeffd809fd7fdb87aeb6930ec1c7c6a1e7c54f5542b281213e",
       "program": "dd88e61d0d0d5eba72155f23450df9dd7850416bc72b8ccfbb9da432adcd7ce0",
       "preservedSource": "oshsky_scada_ux_r4a_gsm",
-      "actualClient": "DISPLAY2 accessible; user screenshot reports too many unsuccessful login attempts; no authenticated acceptance"
+      "actualClient": "Operator logged in at17:31:36 MSK; station view lacks OPC schema quality while independent radio is live"
     },
     "confirmedServiceDelivery": {
       "at": "2026-11-27T02:26:17.0000332+03:00",
@@ -910,7 +920,7 @@
     "benchPlcProgrammingCableConfirmed": true,
     "benchHmiUsbConfirmed": true,
     "physicalHmiSerialExchangeConfirmed": false,
-    "identifiedGsmMainRouteConfirmed": false,
+    "identifiedGsmMainRouteConfirmed": true,
     "realMotorRunOnBench": false,
     "sharedServerRestored": true,
     "muteObservation": {
@@ -922,10 +932,10 @@
       "externalSirenConnected": false,
       "physicalHmiSerialExchangeConfirmed": false
     },
-    "latestAcceptedLocalReportCommit": "582bca43e14e8241d1b16ee066d708e1c52a180f",
+    "latestAcceptedLocalReportCommit": "53e07528305379fb64997e93e3d87b567921c93f",
     "cloudReviewReport": "docs/reports/oshsky-r3f-r3h-cloud-review-20261127.md",
     "scadaCurrentProject": "C:\\Users\\user\\Documents\\Simple-Scada 2\\Projects\\oshsky_scada_r4b_native\\Project.spr",
-    "pendingNextStep": "Accept user photo and confirmed simultaneous Err09 as failed physical indication; use existing COM28/USB/HAD records, identify actual r3k and compatible PLC, compare last genuinely working copy and fix first diverging fault stage. Preserve ongoing Gateway/OPC/SCADA work; no repeated photo or RUN needed.",
+    "pendingNextStep": "Add missing target OPC schema/fault items with native save/reopen in the working MasterOPC version, preserving other stations and live Gateway/Service/Client. Verify expanded data and archive path. Separately verify installed r3l on linked HMI; sound rearm root cause and long silence remain open.",
     "pump4RootCauseConfirmed": false,
     "physicalHmiMutedAlarmLongRunPassed": false,
     "cloudVerification": {
@@ -947,8 +957,8 @@
     "previousSupplementNotDeliveredByUser": "e953a98d9d72bbd415d9c67a5ceafba0d543e2ab",
     "physicalHmiPlcCableConnectedReportedByUser": true,
     "newPhysicalSoundRecurrenceReported": true,
-    "currentInstalledIdentityNeedsRefresh": true,
-    "physicalHmiConnectionNowAfterCableSwitch": "After earlier PC-cable confirmation, user performed the local requested PLC/panel connection and supplied physical Main photo with green PLC indicator; current exact serial topology needs local verification, do not repeat old cable request.",
+    "currentInstalledIdentityNeedsRefresh": false,
+    "physicalHmiConnectionNowAfterCableSwitch": "User confirmed FATEK PLC programming cable connected to PC; r3l physical HMI map0 throughout 95 samples",
     "windowsLiveNativeFault20261127": {
       "verifiedTaskCommit": "8bb45477ffdab38b13567a6bb7c6b4f3b81dbd7c",
       "report": "docs/reports/oshsky-live-native-fault-windows-20261127.md",
@@ -1013,9 +1023,9 @@
         "bytes": 602388,
         "sha256": "dd88e61d0d0d5eba72155f23450df9dd7850416bc72b8ccfbb9da432adcd7ce0"
       },
-      "localServer": "Final project activated 16:03:30 MSK; database connected; Client reached operator login",
+      "localServer": "Project active with archive DB; native Operator login succeeded and Client pages exercised by local report53e0752",
       "monitor": "Editor and Client on DISPLAY2, 1920x1080; Server on primary, 790x591; no relocation",
-      "pending": "Physical VFD code/description and r3j mute, first M610 cause, authenticated Client and identified Main/Port4 GSM acceptance",
+      "pending": "Native target OPC additions after expanded profile load error; linked physical r3l code/mute, first M610 cause, archive/ack/Apply and full GSM acceptance",
       "report": "docs/reports/oshsky-r4b-native-local-20261127.md"
     },
     "previousDesktopKitR3fR3h": "C:\\Users\\user\\Desktop\\Ошский_4насоса_ПЛК_r3f_HMI_r3h_2026-11-27",
@@ -1033,7 +1043,7 @@
       "reportedOn": "2026-11-27",
       "source": "User screenshot: connection interrupted after too many unsuccessful login attempts",
       "currentProjectFromLocalReport": "oshsky_scada_r4b_native",
-      "authenticated": false,
+      "authenticated": true,
       "retrySourceIdentified": false,
       "lockoutDurationKnown": false,
       "existingOperatorStore": {
@@ -1044,12 +1054,15 @@
         "relativePath": "%LOCALAPPDATA%\\CodexBackups\\SCADA10Credentials\\20261101T165606Z\\operator-client.password.dpapi",
         "protection": "DPAPI CurrentUser; UTF-8 Raw to ConvertTo-SecureString",
         "readDuringThisCloudReview": false,
-        "applicabilityToOshskyConfirmed": false
+        "applicabilityToOshskyConfirmed": true,
+        "localReadAndStandardClientLoginSucceeded": true
       },
-      "nextStep": "Stop erroneous login retries, identify exact project/user and retry source, read existing local store without disclosure, respect native lockout then use verified project credentials. Continue Main/OPC independently.",
+      "nextStep": "Preserve the already authorized Client; proceed with required OPC schema/fault items instead of repeating credential search or login.",
       "task": "docs/tasks/oshsky-gsm-route-and-client-local-20261127.md",
       "taskSection": "3.2",
-      "report": "docs/reports/oshsky-scada-login-and-operator-store-20261127.md"
+      "report": "docs/reports/oshsky-scada-login-and-operator-store-20261127.md",
+      "localLoginAtMsk": "2026-11-27 17:31:36",
+      "sourceReport": "docs/reports/oshsky-r3k-physical-gsm-20261127.md"
     },
     "physicalNativeFaultDisplayFollowup": {
       "reportedOn": "2026-11-27",
@@ -1061,7 +1074,7 @@
       "placementApproved": false,
       "previewRequested": true,
       "nativeLayoutChangePerformedByCloud": false,
-      "nextStep": "Master-task 0.1 and 3: verify actual native pair/readback; compare preserved working version and PLC/batch/macro/UI/HAD. Use existing direct reads before requesting any new cable action. Mute must preserve fault visibility. Main layout not approved.",
+      "nextStep": "Preserve installed r3l; restore/verify physical HMI exchange and confirm code9 plus description/mute on actual panel. Trace why exports froze and first M610 edge. No RUN or full regression restart needed.",
       "task": "docs/tasks/oshsky-live-pump1-data-and-native-fault-local-20261127.md",
       "taskSection": "3",
       "preview": "docs/ui/oshsky-native-fault-preview-20261127.md",
@@ -1076,8 +1089,12 @@
       "physicalMuteDeliveryOrLongSilenceProvenByPhoto": false,
       "simultaneousFaultAndMuteDisplayRequired": true,
       "installedR3kClaimedByLocalScreenshot": true,
-      "r3kNativeReportOrHashPublished": false,
-      "samePhotoShouldBeRequestedAgain": false
+      "r3kNativeReportOrHashPublished": true,
+      "samePhotoShouldBeRequestedAgain": false,
+      "currentNativeResultReport": "docs/reports/oshsky-r3k-physical-gsm-20261127.md",
+      "installedRevisionFromLocalReport": "r3l",
+      "unknownFaultStoppedFallbackFixedInSourceAndSimulator": true,
+      "physicalLinkedAcceptanceStillRequired": true
     },
     "gatewayOpcAndRadioStartupAuthorization": {
       "reportedOn": "2026-11-27",
@@ -1110,8 +1127,45 @@
       "task": "docs/tasks/oshsky-gsm-route-and-client-local-20261127.md",
       "taskSection": "2",
       "report": "docs/reports/oshsky-gateway-opc-radio-start-authorization-20261127.md",
-      "currentCableStateAfterUserCheckNeedsVerification": true,
-      "subsequentUserAction": "User performed the local PLC/panel connection request after earlier PC-cable confirmation; physical Main photo supplied"
-    }
+      "currentCableStateAfterUserCheckNeedsVerification": false,
+      "subsequentUserAction": "User performed the local PLC/panel connection request after earlier PC-cable confirmation; physical Main photo supplied",
+      "latestLocalReport": "docs/reports/oshsky-r3k-physical-gsm-20261127.md",
+      "localStartupAndPlcReadConfirmed": true,
+      "gatewayJavaPidAtObservation": 13800,
+      "masterOpcPidAfterRestart": 2388,
+      "collector02PidAtObservation": 6816,
+      "radioLatestClientObservation": {
+        "csq": 18,
+        "network": "4G",
+        "supplyVolts": 11.808,
+        "ageSeconds": 4
+      },
+      "latestLocalCableReport": "User confirmed FATEK PLC programming cable connected to PC; r3l physical HMI map0 throughout 95 samples"
+    },
+    "previousPublishedBenchHmiR3j": {
+      "model": "SK-102CE",
+      "revision": "r3j",
+      "sha256": "ad384f55c6828a2a6d82422bce1b7bf0d9dbff5d3ccf0fde2c8e67022f595f4a",
+      "bytes": 4832592,
+      "usbDownloaded": true,
+      "deviceReadbackSHA256": "29d2d60f724099a17fc9f3d61776c2e6aeaf5cf9808c8f8a484cee7914f32da5",
+      "scriptErrorsWarnings": [
+        0,
+        0
+      ],
+      "fullCompile": true,
+      "simulatorPixels": [
+        1024,
+        600
+      ],
+      "nativeTransferDestination": "R2553",
+      "nativeExternalServiceWriters": 1,
+      "plcAcceptedMuteGeneration": null,
+      "sourceReport": "docs/reports/oshsky-r3j-mute-and-scada-display-local-20261127.md",
+      "previousSimulatorPlcAcceptedMuteGeneration": 3,
+      "physicalPlcMuteAcceptanceVerified": false,
+      "verificationScope": "Last published r3j verification; newer installed r3k claimed by local in user screenshot, current exact file/hash must be checked"
+    },
+    "readOnlyGsmPlcResponsesConfirmed": true
   }
 }
