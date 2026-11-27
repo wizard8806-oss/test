@@ -1,0 +1,88 @@
+{
+  "source": "Three user-supplied photographs of physical HMI; manual transcription, not a direct PLC read",
+  "receivedOn": "2026-11-27",
+  "relatedLocalReportCommit": "582bca43e14e8241d1b16ee066d708e1c52a180f",
+  "physicalHmiRevisionLabel": "R3h",
+  "photoTakenAtVerified": false,
+  "relationOfFrozenEventToLastUploadTime": "not established; distinguish from older USB generation7-to9 event",
+  "soundPage": {
+    "current": {
+      "maskLowHex": "1DC8",
+      "maskHighHex": "0",
+      "previousLowHex": "1DC8",
+      "previousHighHex": "0",
+      "risingLowHex": "0",
+      "risingHighHex": "0",
+      "generationBefore": 6,
+      "generationAfter": 6,
+      "muteRequest": 0,
+      "muteBefore": 0,
+      "muteAfter": 0,
+      "soundEnabled": 1,
+      "serviceCommand": 1
+    },
+    "firstReturn": {
+      "captureReason": 3,
+      "maskLowHex": "1FC8",
+      "maskHighHex": "0",
+      "previousLowHex": "1DC8",
+      "previousHighHex": "0",
+      "risingLowHex": "200",
+      "risingHighHex": "0",
+      "generationBefore": 4,
+      "generationAfter": 5,
+      "muteRequest": 0,
+      "muteBefore": 1,
+      "muteAfter": 0,
+      "soundEnabled": 1,
+      "serviceCommand": 1
+    },
+    "connectionAndServiceAsDisplayed": {
+      "panelTick": 3905,
+      "link": 1,
+      "map": 32,
+      "contract": 27110,
+      "plcMaskLowHex": "1DC8",
+      "plcMaskHighWithGenerationHex": "C00",
+      "selector": 0,
+      "currentExportMarker": 27401,
+      "plcTick": 46189,
+      "eventHourBCDAsDisplayed": "15",
+      "eventMinuteBCDAsDisplayed": "19",
+      "eventSecondBCDAsDisplayed": "27"
+    }
+  },
+  "plcCapturePage": {
+    "status": 0,
+    "cpuStarts": 1,
+    "armed": 0,
+    "lastMutedGeneration": 0,
+    "otherFrozenFields": "blank in photo; not interpreted as zero",
+    "snapshotSchemaMarkerVisible": false
+  },
+  "historyPage": {
+    "activeCount": 7,
+    "topEventAppearsToBe": "ПЧ1 нет связи / ожидание опроса",
+    "exactOccurrenceAndClearTimesVerified": false
+  },
+  "decoded": {
+    "addedMaskHex": "0200",
+    "addedBitZeroBased": 9,
+    "baselineAlarmRelay": "M1559",
+    "baselineAlarmProducer": "95.A014 HMI_ALARM_VFD1_NO_LINK",
+    "baselineInput": "M610 generic VFD1 communication flag",
+    "firstBitPlusOneIfCapturedOnPLC": 10,
+    "reasonMeaning": "new mask bit and generation change together",
+    "previousActiveBits": 7,
+    "eventActiveBits": 8,
+    "currentGenerationFromPublishedHighWord": 6
+  },
+  "limits": {
+    "firstFailedModbusRequestIdentified": false,
+    "watchdogVersusAuxiliaryErrorDistinguished": false,
+    "physicalPlcMuteAcceptanceBeforeEventVerified": false,
+    "laterProgramUploadEffectOnPlcRecorderExcluded": false,
+    "fullAcousticAcceptancePassed": false,
+    "physicalR3iInstallationConfirmed": false
+  }
+}

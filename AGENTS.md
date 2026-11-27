@@ -1,3 +1,19 @@
+**27.11, СЕЙЧАС: фото звука получены + принят локальный582bca4.**
+`docs/reports/oshsky-physical-sound-capture-20261127.md` иJSON с числами:
+frozen1DC8→1FC8/rising0200, gen4→5, mute1→0, capture3. Bit9=M1559/
+95.A014/VFD1_NO_LINK отM610; это confirmedrearmtrigger, не failedjobroot.
+Currentmask1DC8/gen6/HAD7; PLCstatus0/armed0/lastMuteGen0 после загрузки
+не доказывает, что muteникогда не принимался. Не смешиватьфото4→5 сUSB7→9.
+Дваuploadидентифицированы582bca4:11:29physicalTRACE_r3h,11:51–11:55PLC r3g.
+Report `docs/reports/oshsky-live-native-fault-windows-20261127.md`.
+PLCr3g:136/136Q1 за145,67с, raw9/F0/I0, otherQ0. HMIr3i сохранена/
+Compile/Simulator, physicalустановка pending. Свободно71word. Runtimequeue
+R3650:core0…7, rotatingaux8/9, full18; D300нужныactualdescriptor/R3630/31.
+Cloud16масок×5циклов scheduler/9tables PASS(publicэквивалент, неFUN150).
+Тотжеtask `docs/tasks/oshsky-live-pump1-data-and-native-fault-local-20261127.md`
+актуализирован: не ждатьповторныхфото, M610falltrace/physicalmute/r3i,
+затемSCADA/GSM. Старыйкомплектнеобъявлятьновымr3g/r3i; nativeRUNнеповторять.
+
 **27.11, СЕЙЧАС: локальный уже загрузил неизвестный файл, кабель переключён.**
 Пользователь не успел передать548b27f; target/версия/время/readcommit неизвестны,
 нового hardware-report вGit нет. Текущее соединение оставить, не требовать

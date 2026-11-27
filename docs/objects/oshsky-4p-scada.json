@@ -96,10 +96,10 @@
       },
       "hardwareDownloads": 0
     },
-    "activeNativeRevision": "oshsky-plc-r3f-hmi-r3h-scada-r4a",
-    "activeNativeReport": "docs/reports/oshsky-finish-gsm-r3f-local-20261127.md",
+    "activeNativeRevision": "PLC r3g installed / physical TRACE r3h / HMI r3i prepared / SCADA r4a",
+    "activeNativeReport": "docs/reports/oshsky-live-native-fault-windows-20261127.md",
     "activeTask": "docs/tasks/oshsky-live-pump1-data-and-native-fault-local-20261127.md",
-    "actualInstalledRevisionAfterUserReportedUpload": null
+    "actualInstalledRevisionAfterUserReportedUpload": "PLC r3g and PHYSICAL_TRACE_r3h, identified by local582bca4; physical r3i installation not confirmed"
   },
   "postR2Review": {
     "date": "2026-11-25",
@@ -636,7 +636,7 @@
         "newHadEntriesAtThisEpisodeKnown": false,
         "newHadEntriesAtThisEpisode": null,
         "automaticPlcOrHmiRestartExcluded": false,
-        "captureReceived": false,
+        "captureReceived": true,
         "task": "docs/tasks/oshsky-live-pump1-data-and-native-fault-local-20261127.md",
         "taskSection": "0",
         "report": "docs/reports/oshsky-sound-rearm-20261126.md",
@@ -645,7 +645,7 @@
         "candidateAlarmBit": 9,
         "candidatePlcRelay": "M1559",
         "candidateFirstBitPlusOne": 10,
-        "actualTriggerProved": false,
+        "actualTriggerProved": true,
         "nativeFixProducedForThisEpisode": null,
         "localAcknowledgementVerified": false,
         "followingHardwareChange": {
@@ -653,19 +653,65 @@
           "localUploadReported": true,
           "capturePromptDeliveredByUserBeforeUpload": false,
           "capturePromptCommit": "548b27ffa7826a5c1e7f7784c68956ae16eb9c3e",
-          "target": null,
+          "target": "Separate physical HMI trace and PLC program uploads identified in582bca4",
           "artifactPath": null,
           "artifactSha256": null,
           "uploadTime": null,
-          "localGitCommitUsed": null,
+          "localGitCommitUsed": "ece7f9c during initial writes;8bb4547 read for continuation",
           "cableSwitchedReported": true,
           "currentPcPlcConnectionVerified": false,
-          "preChangeCaptureAvailability": null,
+          "preChangeCaptureAvailability": "Older USB generation7-to9 event preserved; newer physical HMI frozen4-to5 supplied by photos; PLC pre-event details unavailable so far",
           "capturedDataLossConfirmed": false,
-          "newLocalHardwareReportReceived": false,
-          "nextAction": "Keep current connection; identify actual upload and installed state, preserve current retained/HMI/USB records and inspect pre-download backups offline without restoring old controller memory"
+          "newLocalHardwareReportReceived": true,
+          "nextAction": "Use supplied physical photos; trace actual M610/M1559 fall with r3g working-table mapping, verify physical mute delivery and r3i, then complete SCADA/GSM",
+          "identifiedByLocalReport": "docs/reports/oshsky-live-native-fault-windows-20261127.md",
+          "identifiedUploads": [
+            {
+              "target": "SK-102CE",
+              "operation": "PHYSICAL_TRACE_r3h passive measurement recorder",
+              "timeMsk": "2026-11-27 11:29",
+              "fileName": "PHYSICAL_TRACE_r3h.skm",
+              "bytes": 4145414,
+              "sha256": "980c9c94710b09c17ef8a06beea8190d64057a387dafdc0ec54d204787da1e59"
+            },
+            {
+              "target": "FBs-32MC v4.89",
+              "operation": "PLC r3g program only after backup",
+              "timeWindowMsk": "2026-11-27 11:51–11:55",
+              "fileName": "station_4p_oshsky_r3g_native_fault.pdw",
+              "bytes": 208096,
+              "sha256": "453f0af24646e44d71e21590afb23016bcac4a270a1ebdcef9b5913697f6dc72"
+            }
+          ]
         },
-        "nativeFixVerifiedForThisEpisode": false
+        "nativeFixVerifiedForThisEpisode": false,
+        "captureSource": "Physical HMI photographs; PLC page received but no completed PLC event record",
+        "captureReport": "docs/reports/oshsky-physical-sound-capture-20261127.md",
+        "captureArtifact": "docs/reports/oshsky-physical-sound-capture-20261127.json",
+        "confirmedHmiRearmTrigger": {
+          "captureReason": 3,
+          "beforeMaskHex": "1DC8",
+          "eventMaskHex": "1FC8",
+          "risingHex": "0200",
+          "alarmBit": 9,
+          "alarmRelay": "M1559",
+          "alarmName": "ПЧ1 нет связи / ожидание опроса",
+          "generation": [
+            4,
+            5
+          ],
+          "mute": [
+            1,
+            0
+          ],
+          "currentGeneration": 6
+        },
+        "underlyingFailedModbusRequestIdentified": false,
+        "plcFrozenEventReady": false,
+        "plcSnapshotStatusFromPhoto": 0,
+        "plcRecorderArmedFromPhoto": 0,
+        "plcLastMuteGenerationFromPhoto": 0,
+        "physicalPlcMuteAcceptanceBeforeEventVerified": false
       }
     },
     "livePump1DataAndFaultIssue": {
@@ -685,18 +731,35 @@
       "driveShowsOwnFaultReported": true,
       "newHmiMessageSeenByUser": false,
       "priorBenchFaultCodeReported": "Err09",
-      "actualRawModbusFaultCode": null,
+      "actualRawModbusFaultCode": 9,
       "installedNativeIdentityMatchedForThisEpisode": false,
-      "actualPhysicalPort3PollPeriodMeasured": false,
-      "nativeHmiFaultPathAudited": false,
+      "actualPhysicalPort3PollPeriodMeasured": true,
+      "nativeHmiFaultPathAudited": true,
       "cloudGeneratedBytecodeComponentExperimentsPassed": 2,
       "injectedExamplePollPeriodSeconds": 7,
       "existingWatchdogSeconds": 5,
       "injectedPollPeriodIsActualMeasurement": false,
       "sameRelayInputsStationAlarmsUnchangedForSyntheticFaultZeroAndNine": true,
-      "newNativeFixCreated": false,
+      "newNativeFixCreated": true,
       "latestSupplementAcknowledgedByLocal": false,
-      "soundReturnedDuringPhysicalSessionReported": true
+      "soundReturnedDuringPhysicalSessionReported": true,
+      "rawCodeSourceReport": "docs/reports/oshsky-live-native-fault-windows-20261127.md",
+      "pollTimingEvidence": "Timestamped direct PLC samples and counters; not a wire trace",
+      "nativeHmiAuditScope": "Local saved r3i and synthetic scenarios; physical installation pending",
+      "nativeFixSourceReport": "docs/reports/oshsky-live-native-fault-windows-20261127.md",
+      "physicalHmiFixAccepted": false,
+      "boundedPlcAfterFixObservation": {
+        "seconds": 145.67,
+        "qualitySamples": 136,
+        "allFirstDriveSamplesValid": true,
+        "firstDriveFrequencyRaw": 0,
+        "firstDriveCurrentRaw": 0,
+        "otherDriveQualities": [
+          0,
+          0,
+          0
+        ]
+      }
     }
   },
   "activeContinuation": {
@@ -718,10 +781,10 @@
     "newRemoteCommandChannelsAuthorizedByThisTask": false,
     "actualClientAcceptancePassed": false,
     "actualGsmPlcRouteAcceptancePassed": false,
-    "status": "User reports unidentified local upload and cable switch after sound recurrence; identify installed state and preserve surviving evidence before further changes, then continue existing fixes/GSM",
+    "status": "PLC r3g installed and bounded Q1 fix measured; physical trace r3h installed, r3i only prepared. HMI frozen bit9/generation4-to5 rearm confirmed; failed Modbus job and physical mute acceptance still pending, then GSM",
     "checkedOn": "2026-11-27",
     "baseCommit": "977633c772f79e9c1e7f8e294504a30526c5fe75",
-    "localReport": "docs/reports/oshsky-finish-gsm-r3f-local-20261127.md",
+    "localReport": "docs/reports/oshsky-live-native-fault-windows-20261127.md",
     "fieldSheet": "docs/tasks/oshsky-field-check-20261127.md",
     "desktopKit": "C:\\Users\\user\\Desktop\\Ошский_4насоса_ПЛК_r3f_HMI_r3h_2026-11-27",
     "benchPLC": {
@@ -729,23 +792,27 @@
       "firmware": "4.89",
       "port": "COM28",
       "plantMode": "STOP",
-      "sha256": "f867e7ac2492b8359b48792d7e7b9d7330dd784d20abf6200302181186d118a8",
-      "bytes": 205149,
+      "sha256": "453f0af24646e44d71e21590afb23016bcac4a270a1ebdcef9b5913697f6dc72",
+      "bytes": 208096,
       "downloaded": true,
       "F8": {
         "errors": 0,
         "inheritedW85": 25
       },
-      "retainedBackupSha256": "17ff3cf35f95c1383f4da7cc67722d708519680052aa460ea2cc6e8e2fc4c368",
-      "actualPumpRunCommands": 0
+      "retainedBackupSha256": "6bfc3d2abe792ce64d07626ca94ba1ac93aed98758e6bb14b2a470dfbc649e26",
+      "actualPumpRunCommands": 0,
+      "revision": "r3g_native_fault",
+      "sourceReport": "docs/reports/oshsky-live-native-fault-windows-20261127.md",
+      "freeProgramWords": 71,
+      "previousRevisionSha256": "f867e7ac2492b8359b48792d7e7b9d7330dd784d20abf6200302181186d118a8"
     },
     "benchHMI": {
       "model": "SK-102CE",
-      "revision": "r3h",
-      "sha256": "0057fc5602ecb48159c2bafd5eac2c4a40b06267d5a28beab96bbd5ba91e430b",
-      "bytes": 4145412,
+      "revision": "PHYSICAL_TRACE_r3h",
+      "sha256": "980c9c94710b09c17ef8a06beea8190d64057a387dafdc0ec54d204787da1e59",
+      "bytes": 4145414,
       "usbDownloaded": true,
-      "deviceReadbackSHA256": "04912a90e5c577f2902d829df67b4c083da0ccb05668bc168a24599edfe5d193",
+      "deviceReadbackSHA256": "3236d6c203e287e000f0a725dcdabcd447f233640346203cc456f9c8b8c3f2d2",
       "scriptErrorsWarnings": [
         0,
         0
@@ -757,7 +824,10 @@
       ],
       "nativeTransferDestination": "R2553",
       "nativeExternalServiceWriters": 1,
-      "plcAcceptedMuteGeneration": 3
+      "plcAcceptedMuteGeneration": null,
+      "sourceReport": "docs/reports/oshsky-live-native-fault-windows-20261127.md",
+      "previousSimulatorPlcAcceptedMuteGeneration": 3,
+      "physicalPlcMuteAcceptanceVerified": false
     },
     "testOnly": {
       "firstFaultCases": 39,
@@ -816,10 +886,10 @@
       "externalSirenConnected": false,
       "physicalHmiSerialExchangeConfirmed": false
     },
-    "latestAcceptedLocalReportCommit": "0e48d66e25732c34e0d5f2e67737188fd932f24c",
+    "latestAcceptedLocalReportCommit": "582bca43e14e8241d1b16ee066d708e1c52a180f",
     "cloudReviewReport": "docs/reports/oshsky-r3f-r3h-cloud-review-20261127.md",
     "scadaCurrentProject": "C:\\Users\\user\\Documents\\Simple-Scada 2\\Projects\\oshsky_scada_ux_r4a_gsm\\Project.spr",
-    "pendingNextStep": "First fix actual pump1 F/I/status intermittency and native VFD fault presentation, then continue identified GSM/OPC/Client acceptance",
+    "pendingNextStep": "Use supplied physical photos; trace actual M610/M1559 fall with r3g working-table mapping, verify physical mute delivery and r3i, then complete SCADA/GSM",
     "pump4RootCauseConfirmed": false,
     "physicalHmiMutedAlarmLongRunPassed": false,
     "cloudVerification": {
@@ -841,8 +911,8 @@
     "previousSupplementNotDeliveredByUser": "e953a98d9d72bbd415d9c67a5ceafba0d543e2ab",
     "physicalHmiPlcCableConnectedReportedByUser": true,
     "newPhysicalSoundRecurrenceReported": true,
-    "currentInstalledIdentityNeedsRefresh": true,
-    "physicalHmiConnectionNowAfterCableSwitch": "unknown; earlier connection is a historical user observation",
+    "currentInstalledIdentityNeedsRefresh": false,
+    "physicalHmiConnectionNowAfterCableSwitch": "Local report confirmed physical connection after the last readback; photos show link1/map32, sustained acceptance pending",
     "windowsLiveNativeFault20261127": {
       "verifiedTaskCommit": "8bb45477ffdab38b13567a6bb7c6b4f3b81dbd7c",
       "report": "docs/reports/oshsky-live-native-fault-windows-20261127.md",
@@ -857,6 +927,29 @@
       "soundSourceBeforeDownload": "panel freeze reason 2, generation 7 to 9",
       "physicalSoundReturnedAgain": true,
       "fieldAccepted": false
+    },
+    "latestPhysicalSoundCaptureReport": "docs/reports/oshsky-physical-sound-capture-20261127.md",
+    "latestPhysicalSoundCaptureArtifact": "docs/reports/oshsky-physical-sound-capture-20261127.json",
+    "preparedHmiR3i": {
+      "name": "pump_station_4p_oshsky_r3i_native.skm",
+      "bytes": 4833063,
+      "sha256": "d6fdc36f0c29876f434661a441823b25627a18fe82ae4a6b9f445551e6cd15d6",
+      "nativeCompileReportedPassed": true,
+      "physicalInstallationConfirmed": false,
+      "sourceReport": "docs/reports/oshsky-live-native-fault-windows-20261127.md"
+    },
+    "finalUpdatedKitAfterR3gR3iVerified": false,
+    "cloudSchedulerComponentReview": {
+      "inputScope": "Public equivalent generated r3f; private native pin not exercised",
+      "cacheMasks": 16,
+      "cyclesPerMask": 5,
+      "dynamicDescriptorChecksPassed": true,
+      "serializedTablesPreserved": 9,
+      "newNetworks": 79,
+      "editedNetworks": 8,
+      "extraProgramBytes": 1340,
+      "freeProgramWords": 71,
+      "fun150OrHardwareTimingEmulated": false
     }
   }
 }
