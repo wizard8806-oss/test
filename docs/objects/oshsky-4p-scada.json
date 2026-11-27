@@ -96,8 +96,8 @@
       },
       "hardwareDownloads": 0
     },
-    "activeNativeRevision": "cascade-r3",
-    "activeNativeReport": "docs/reports/oshsky-cascade-r3-native-local-20261125.md"
+    "activeNativeRevision": "oshsky-plc-r3f-hmi-r3h-scada-r4a",
+    "activeNativeReport": "docs/reports/oshsky-finish-gsm-r3f-local-20261127.md"
   },
   "postR2Review": {
     "date": "2026-11-25",
@@ -638,15 +638,109 @@
       "Close Client/archive/ack/setpoint acceptance and update corrected kit with actual evidence"
     ],
     "scadaBaselineProject": "C:\\Users\\user\\Documents\\Simple-Scada 2\\Projects\\oshsky_scada_ux_r4\\Project.spr",
-    "latestAcceptedLocalReportCommit": "12825d85ce33153a2bac5b1876eb0e69d77658c9",
     "benchPlcDownloadAuthorizationStillApplies": true,
     "sharedServerScopeMustBeIdentified": true,
-    "actualCableConnectionAfterLatestMessageConfirmed": false,
     "mainChannelSingleMasterRequired": true,
     "newRemoteCommandChannelsAuthorizedByThisTask": false,
     "actualClientAcceptancePassed": false,
     "actualGsmPlcRouteAcceptancePassed": false,
-    "newNativeFixConfirmedByThisCloudChange": false,
-    "status": "Authorized continuation prepared; actual local completion and GSM runtime evidence pending"
+    "status": "Native PLC/HMI and SCADA verified on Windows within documented scope; physical drive 4 first event and end-to-end GSM acceptance remain open.",
+    "checkedOn": "2026-11-27",
+    "baseCommit": "977633c772f79e9c1e7f8e294504a30526c5fe75",
+    "localReport": "docs/reports/oshsky-finish-gsm-r3f-local-20261127.md",
+    "fieldSheet": "docs/tasks/oshsky-field-check-20261127.md",
+    "desktopKit": "C:\\Users\\user\\Desktop\\Ошский_4насоса_ПЛК_r3f_HMI_r3h_2026-11-27",
+    "benchPLC": {
+      "model": "FBs-32MC",
+      "firmware": "4.89",
+      "port": "COM28",
+      "plantMode": "STOP",
+      "sha256": "f867e7ac2492b8359b48792d7e7b9d7330dd784d20abf6200302181186d118a8",
+      "bytes": 205149,
+      "downloaded": true,
+      "F8": {
+        "errors": 0,
+        "inheritedW85": 25
+      },
+      "retainedBackupSha256": "17ff3cf35f95c1383f4da7cc67722d708519680052aa460ea2cc6e8e2fc4c368",
+      "actualPumpRunCommands": 0
+    },
+    "benchHMI": {
+      "model": "SK-102CE",
+      "revision": "r3h",
+      "sha256": "0057fc5602ecb48159c2bafd5eac2c4a40b06267d5a28beab96bbd5ba91e430b",
+      "bytes": 4145412,
+      "usbDownloaded": true,
+      "deviceReadbackSHA256": "04912a90e5c577f2902d829df67b4c083da0ccb05668bc168a24599edfe5d193",
+      "scriptErrorsWarnings": [
+        0,
+        0
+      ],
+      "fullCompile": true,
+      "simulatorPixels": [
+        1024,
+        600
+      ],
+      "nativeTransferDestination": "R2553",
+      "nativeExternalServiceWriters": 1,
+      "plcAcceptedMuteGeneration": 3
+    },
+    "testOnly": {
+      "firstFaultCases": 39,
+      "armPanelSamples": 1800,
+      "countdownActions": 2,
+      "physicalTargetsPerAction": 4,
+      "simulatorFrames": 1552,
+      "savedCascadeScenarios": 154,
+      "telemetryChecks": 222,
+      "soundLogicGroups": 11,
+      "individualAlarmBitsOnPLC": 24
+    },
+    "scadaNative": {
+      "revision": "oshsky_scada_ux_r4a_gsm",
+      "project": "20d013429bb371aea3c94bbc20bbeb4d9eb27a5618bec7600904d5aa078dbf87",
+      "program": "e9d6952d830453e4a1dc5cd2163302c7e6237822334fcf5e353692a0a58ac5a3",
+      "preservedSource": "cc165c71c46f6bd9c03ab947de06dfae5fa8c4fee4f82d4b39e7f69873354d61",
+      "verifiedScripts": 104,
+      "nativeClientStarted": true,
+      "archivePointsObserved": 72083,
+      "gsmDataSeen": false
+    },
+    "confirmedServiceDelivery": {
+      "at": "2026-11-27T02:26:17.0000332+03:00",
+      "alarmMaskLow": 7624,
+      "exportHigh": 1536,
+      "map": 32,
+      "generation": 3,
+      "expectedToken": 259,
+      "plcMuted": true,
+      "captureReady": 1,
+      "lastMutedGeneration": 3,
+      "firstRearm": 0,
+      "cpuStarts": 1,
+      "stationMode": 0,
+      "outputs": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "previousLocalReportCommit": "12825d85ce33153a2bac5b1876eb0e69d77658c9",
+    "benchPlcProgrammingCableConfirmed": true,
+    "benchHmiUsbConfirmed": true,
+    "physicalHmiSerialExchangeConfirmed": false,
+    "identifiedGsmMainRouteConfirmed": false,
+    "realMotorRunOnBench": false,
+    "sharedServerRestored": true,
+    "muteObservation": {
+      "wallSecondsFromFinalKey": 2821,
+      "onlineFieldSamples": 321,
+      "nativeSimulatorLimitMinutes": 30,
+      "postSimulatorDirectPLCSamples": 198,
+      "plcRearmSeen": false,
+      "externalSirenConnected": false,
+      "physicalHmiSerialExchangeConfirmed": false
+    }
   }
 }

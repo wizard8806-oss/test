@@ -1,0 +1,43 @@
+{
+  "source": "Direct FATEK reads, station 1, COM28, 9600 7E1",
+  "beforeNativeTransfer": {
+    "at": "2026-11-27T02:19:08.3907825+03:00",
+    "alarmMaskLow": 7624,
+    "exportHigh": 1792,
+    "map": 32,
+    "generation": 3,
+    "expectedToken": 259,
+    "plcMuted": false,
+    "captureReady": 0,
+    "lastMutedGeneration": 0,
+    "firstRearm": 0,
+    "cpuStarts": 1,
+    "stationMode": 0,
+    "outputs": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "afterExplicitMuteWithNativeTransfer": {
+    "at": "2026-11-27T02:26:17.0000332+03:00",
+    "alarmMaskLow": 7624,
+    "exportHigh": 1536,
+    "map": 32,
+    "generation": 3,
+    "expectedToken": 259,
+    "plcMuted": true,
+    "captureReady": 1,
+    "lastMutedGeneration": 3,
+    "firstRearm": 0,
+    "cpuStarts": 1,
+    "stationMode": 0,
+    "outputs": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

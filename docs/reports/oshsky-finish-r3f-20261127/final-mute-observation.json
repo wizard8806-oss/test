@@ -1,0 +1,81 @@
+{
+  "readScope": "Real FBs in STOP and Online Simulator; physical HMI independently read over USB. No physical CL50S on bench.",
+  "operatorMute": "2026-11-27T02:36:12.647590+03:00",
+  "finalPanelDownload": "2026-11-27T02:32:57.830221+03:00",
+  "finalPanelReadback": "2026-11-27T02:33:15.877272+03:00",
+  "lastDirectRead": "2026-11-27T03:23:13.6496381+03:00",
+  "secondsAfterFinalMute": 2821,
+  "online": {
+    "firstObserved": "2026-11-27T02:37:53.089488+03:00",
+    "lastObserved": "2026-11-27T03:04:38.389616+03:00",
+    "samples": 321,
+    "samplePeriodSeconds": 5,
+    "distinctMacroHeartbeatImages": 321,
+    "distinctPLCTickImages": 321,
+    "stableFields": [
+      "mask 0x1dc8",
+      "generation 3",
+      "local mute 1",
+      "sound enable 0",
+      "rearm code 0",
+      "link 1",
+      "map 32"
+    ],
+    "lastSavedScreen": "2026-11-27T03:04:38.977249+03:00",
+    "nativeTimeLimitMinutes": 30
+  },
+  "direct": {
+    "firstObserved": "2026-11-27T03:04:54.5622222+03:00",
+    "lastObserved": "2026-11-27T03:23:13.6496381+03:00",
+    "samples": 198,
+    "plcHeartbeats": [
+      8963,
+      10063
+    ],
+    "maskLow": 7624,
+    "maskHighWithGeneration": 1536,
+    "generation": 3,
+    "muteRelay": 1,
+    "firstRearmStatus": 0,
+    "recorderArmed": 1,
+    "cpuStarts": 1,
+    "outputRun": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "maxGapSeconds": 6.39
+  },
+  "panel": {
+    "usbArchiveRows": 599,
+    "continuousTailRows": 599,
+    "firstPanelClock": "2026-11-27 04:27:11",
+    "lastPanelClock": "2026-11-27 05:17:01",
+    "continuousTailSeconds": 2990,
+    "wallClockSecondsSinceIndependentReadback": 3009,
+    "observedColumns": {
+      "currentLow": [
+        0
+      ],
+      "currentHigh": [
+        0
+      ],
+      "generation": [
+        0
+      ],
+      "mute": [
+        0
+      ],
+      "alarmSound": [
+        0
+      ],
+      "link": [
+        1
+      ],
+      "map": [
+        0
+      ]
+    }
+  }
+}
