@@ -354,7 +354,15 @@
     "missingOptionalInstaller": "SKTOOL 7.1.0.80",
     "cloudReviewReport": "docs/reports/oshsky-complete-kit-cloud-review-20261126.md",
     "verificationSource": "Local Windows report and user screenshot; metadata checked in Cloud; private ZIP and manifest not read in Cloud",
-    "knownFieldIssue": "docs/reports/oshsky-first-start-field-issue-20261126.md"
+    "knownFieldIssue": "docs/reports/oshsky-first-start-field-issue-20261126.md",
+    "benchR3gR3jR4b": {
+      "desktopFolder": "Ошский_4насоса_ПЛК_r3g_HMI_r3j_2026-11-27",
+      "plc": "r3g",
+      "hmi": "r3j",
+      "scada": "r4b",
+      "opc": "separate 90-item review profile; 14 new read-only items",
+      "baseline": "9a7bbefa581062c064cfe80d55b5cdb34279f901"
+    }
   },
   "firstFieldStartIssue": {
     "reportedOn": "2026-11-26",
@@ -781,12 +789,12 @@
     "newRemoteCommandChannelsAuthorizedByThisTask": false,
     "actualClientAcceptancePassed": false,
     "actualGsmPlcRouteAcceptancePassed": false,
-    "status": "Physical r3j installed with restored alarm mute button. P1 link edge and stable later F/I verified separately. Current-generation physical mute and exact M610 cause under investigation.",
+    "status": "Physical r3j installed and read back. SCADA r4b compiled/reopened and local Server connected to DB. Current-generation physical mute, exact M610 first cause, active modem identity and authenticated GSM remain open.",
     "checkedOn": "2026-11-27",
-    "baseCommit": "977633c772f79e9c1e7f8e294504a30526c5fe75",
-    "localReport": "docs/reports/oshsky-r3j-mute-and-scada-display-local-20261127.md",
+    "baseCommit": "9a7bbefa581062c064cfe80d55b5cdb34279f901",
+    "localReport": "docs/reports/oshsky-r4b-native-local-20261127.md",
     "fieldSheet": "docs/tasks/oshsky-field-check-20261127.md",
-    "desktopKit": "C:\\Users\\user\\Desktop\\Ошский_4насоса_ПЛК_r3f_HMI_r3h_2026-11-27",
+    "desktopKit": "C:\\Users\\user\\Desktop\\Ошский_4насоса_ПЛК_r3g_HMI_r3j_2026-11-27",
     "benchPLC": {
       "model": "FBs-32MC",
       "firmware": "4.89",
@@ -841,14 +849,11 @@
       "individualAlarmBitsOnPLC": 24
     },
     "scadaNative": {
-      "revision": "oshsky_scada_ux_r4a_gsm",
-      "project": "20d013429bb371aea3c94bbc20bbeb4d9eb27a5618bec7600904d5aa078dbf87",
-      "program": "e9d6952d830453e4a1dc5cd2163302c7e6237822334fcf5e353692a0a58ac5a3",
-      "preservedSource": "cc165c71c46f6bd9c03ab947de06dfae5fa8c4fee4f82d4b39e7f69873354d61",
-      "verifiedScripts": 104,
-      "nativeClientStarted": true,
-      "archivePointsObserved": 72083,
-      "gsmDataSeen": false
+      "revision": "oshsky_scada_r4b_native",
+      "project": "800522452b2e88eeffd809fd7fdb87aeb6930ec1c7c6a1e7c54f5542b281213e",
+      "program": "dd88e61d0d0d5eba72155f23450df9dd7850416bc72b8ccfbb9da432adcd7ce0",
+      "preservedSource": "oshsky_scada_ux_r4a_gsm",
+      "actualClient": "native project selected, operator authorization dialog reached on DISPLAY2"
     },
     "confirmedServiceDelivery": {
       "at": "2026-11-27T02:26:17.0000332+03:00",
@@ -968,6 +973,30 @@
       "actualWindowsCheckCompleted": true,
       "status": "Actual 1920x1080 capture and target-verified project dialog click, same HWND, 96 DPI. Client not yet measured.",
       "sourceReport": "docs/reports/oshsky-r3j-mute-and-scada-display-local-20261127.md"
+    },
+    "scadaNativeR4b": {
+      "source": "oshsky_scada_ux_r4a_gsm",
+      "savedProject": "oshsky_scada_r4b_native",
+      "compile": "Native Save As, independent reopen and Compile All in Simple-Editor 2.6.15",
+      "programEXS": {
+        "bytes": 602388,
+        "sha256": "dd88e61d0d0d5eba72155f23450df9dd7850416bc72b8ccfbb9da432adcd7ce0"
+      },
+      "localServer": "Final project activated 16:03:30 MSK; database connected; Client reached operator login",
+      "monitor": "Editor and Client on DISPLAY2, 1920x1080; Server on primary, 790x591; no relocation",
+      "pending": "Physical r3j mute and code event, M610 first edge, identified Main/Port4, Client login and GSM acceptance",
+      "report": "docs/reports/oshsky-r4b-native-local-20261127.md"
+    },
+    "previousDesktopKitR3fR3h": "C:\\Users\\user\\Desktop\\Ошский_4насоса_ПЛК_r3f_HMI_r3h_2026-11-27",
+    "previousNativeScadaR4a": {
+      "revision": "oshsky_scada_ux_r4a_gsm",
+      "project": "20d013429bb371aea3c94bbc20bbeb4d9eb27a5618bec7600904d5aa078dbf87",
+      "program": "e9d6952d830453e4a1dc5cd2163302c7e6237822334fcf5e353692a0a58ac5a3",
+      "preservedSource": "cc165c71c46f6bd9c03ab947de06dfae5fa8c4fee4f82d4b39e7f69873354d61",
+      "verifiedScripts": 104,
+      "nativeClientStarted": true,
+      "archivePointsObserved": 72083,
+      "gsmDataSeen": false
     }
   }
 }

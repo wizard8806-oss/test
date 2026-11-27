@@ -1,0 +1,16 @@
+{
+  "folder": "C:\\Users\\user\\Desktop\\Ошский_4насоса_ПЛК_r3g_HMI_r3j_2026-11-27",
+  "zip": "C:\\Users\\user\\Desktop\\Ошский_4насоса_ПЛК_r3g_HMI_r3j_2026-11-27.zip",
+  "zipBytes": 353739009,
+  "zipSHA256": "871b17e5568bfcb36d442d01140fd5abddfe1d19bd4ad57b35e8b94a4940b1b5",
+  "files": 304,
+  "totalBytes": 380187124,
+  "zipCRC": true,
+  "independentExtractionSHA256": true,
+  "manifestSHA256": "2cf5915c340b7394ad2133a67c6409ddf27fbf849da843c7c82d840f966a1df3",
+  "nativeScreens": 25,
+  "compiledFiles": 77,
+  "externalImages": 5,
+  "nativeScadaFiles": 13,
+  "originalArchiveHashVerified": true
+}
