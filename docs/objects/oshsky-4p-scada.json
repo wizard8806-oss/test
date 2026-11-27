@@ -624,7 +624,30 @@
       "actualFirstPlcPulseCaptured": false,
       "actual40MinuteEventReproduced": false,
       "nativeFixCreated": false,
-      "latestSupplementAcknowledgedByLocal": false
+      "latestSupplementAcknowledgedByLocal": false,
+      "physicalRecurrence20261127": {
+        "reportedOn": "2026-11-27",
+        "source": "User: и звук опять появился; confirmed panel stayed connected to PLC and no cable switching; muted after writing today and sound returned by latest message",
+        "panelRemainedConnectedReported": true,
+        "cableChangeBeforeRecurrenceReported": false,
+        "mutedEarlierTodayReported": true,
+        "exactDelayMinutes": null,
+        "newHadEntriesAtThisEpisodeKnown": false,
+        "newHadEntriesAtThisEpisode": null,
+        "automaticPlcOrHmiRestartExcluded": false,
+        "captureReceived": false,
+        "task": "docs/tasks/oshsky-live-pump1-data-and-native-fault-local-20261127.md",
+        "taskSection": "0",
+        "report": "docs/reports/oshsky-sound-rearm-20261126.md",
+        "captureBeforeRestartDownloadOrClearRequired": true,
+        "cloudVfd1LinkAlarmComponentPathsPassed": 2,
+        "candidateAlarmBit": 9,
+        "candidatePlcRelay": "M1559",
+        "candidateFirstBitPlusOne": 10,
+        "actualTriggerProved": false,
+        "nativeFixProducedForThisEpisode": false,
+        "localAcknowledgementVerified": false
+      }
     },
     "livePump1DataAndFaultIssue": {
       "reportedOn": "2026-11-27",
@@ -653,7 +676,8 @@
       "injectedPollPeriodIsActualMeasurement": false,
       "sameRelayInputsStationAlarmsUnchangedForSyntheticFaultZeroAndNine": true,
       "newNativeFixCreated": false,
-      "latestSupplementAcknowledgedByLocal": false
+      "latestSupplementAcknowledgedByLocal": false,
+      "soundReturnedDuringPhysicalSessionReported": true
     }
   },
   "activeContinuation": {
@@ -675,7 +699,7 @@
     "newRemoteCommandChannelsAuthorizedByThisTask": false,
     "actualClientAcceptancePassed": false,
     "actualGsmPlcRouteAcceptancePassed": false,
-    "status": "New user-reported physical HMI intermittency and missing VFD code take priority; root causes and current installed identities pending",
+    "status": "Physical HMI data flicker, missing native VFD code and recurrent sound remain open; preserve rearm capture before further changes, then fix and continue GSM",
     "checkedOn": "2026-11-27",
     "baseCommit": "977633c772f79e9c1e7f8e294504a30526c5fe75",
     "localReport": "docs/reports/oshsky-finish-gsm-r3f-local-20261127.md",
@@ -796,6 +820,7 @@
       "actualGsmHardwareObservedByCloud": false
     },
     "previousSupplementNotDeliveredByUser": "e953a98d9d72bbd415d9c67a5ceafba0d543e2ab",
-    "physicalHmiPlcCableConnectedReportedByUser": true
+    "physicalHmiPlcCableConnectedReportedByUser": true,
+    "newPhysicalSoundRecurrenceReported": true
   }
 }
