@@ -781,10 +781,10 @@
     "newRemoteCommandChannelsAuthorizedByThisTask": false,
     "actualClientAcceptancePassed": false,
     "actualGsmPlcRouteAcceptancePassed": false,
-    "status": "PLC r3g installed and bounded Q1 fix measured; physical trace r3h installed, r3i only prepared. HMI frozen bit9/generation4-to5 rearm confirmed; failed Modbus job and physical mute acceptance still pending, then GSM",
+    "status": "Physical r3j installed with restored alarm mute button. P1 link edge and stable later F/I verified separately. Current-generation physical mute and exact M610 cause under investigation.",
     "checkedOn": "2026-11-27",
     "baseCommit": "977633c772f79e9c1e7f8e294504a30526c5fe75",
-    "localReport": "docs/reports/oshsky-live-native-fault-windows-20261127.md",
+    "localReport": "docs/reports/oshsky-r3j-mute-and-scada-display-local-20261127.md",
     "fieldSheet": "docs/tasks/oshsky-field-check-20261127.md",
     "desktopKit": "C:\\Users\\user\\Desktop\\Ошский_4насоса_ПЛК_r3f_HMI_r3h_2026-11-27",
     "benchPLC": {
@@ -808,11 +808,11 @@
     },
     "benchHMI": {
       "model": "SK-102CE",
-      "revision": "PHYSICAL_TRACE_r3h",
-      "sha256": "980c9c94710b09c17ef8a06beea8190d64057a387dafdc0ec54d204787da1e59",
-      "bytes": 4145414,
+      "revision": "r3j",
+      "sha256": "ad384f55c6828a2a6d82422bce1b7bf0d9dbff5d3ccf0fde2c8e67022f595f4a",
+      "bytes": 4832592,
       "usbDownloaded": true,
-      "deviceReadbackSHA256": "3236d6c203e287e000f0a725dcdabcd447f233640346203cc456f9c8b8c3f2d2",
+      "deviceReadbackSHA256": "29d2d60f724099a17fc9f3d61776c2e6aeaf5cf9808c8f8a484cee7914f32da5",
       "scriptErrorsWarnings": [
         0,
         0
@@ -825,7 +825,7 @@
       "nativeTransferDestination": "R2553",
       "nativeExternalServiceWriters": 1,
       "plcAcceptedMuteGeneration": null,
-      "sourceReport": "docs/reports/oshsky-live-native-fault-windows-20261127.md",
+      "sourceReport": "docs/reports/oshsky-r3j-mute-and-scada-display-local-20261127.md",
       "previousSimulatorPlcAcceptedMuteGeneration": 3,
       "physicalPlcMuteAcceptanceVerified": false
     },
@@ -935,8 +935,9 @@
       "bytes": 4833063,
       "sha256": "d6fdc36f0c29876f434661a441823b25627a18fe82ae4a6b9f445551e6cd15d6",
       "nativeCompileReportedPassed": true,
-      "physicalInstallationConfirmed": false,
-      "sourceReport": "docs/reports/oshsky-live-native-fault-windows-20261127.md"
+      "physicalInstallationConfirmed": true,
+      "sourceReport": "docs/reports/oshsky-r3j-mute-and-scada-display-local-20261127.md",
+      "physicalReadbackSHA256": "42086d8f349a503113af740ef880fbfc2538837f9913fd79b91561e4a274e8cf"
     },
     "finalUpdatedKitAfterR3gR3iVerified": false,
     "cloudSchedulerComponentReview": {
@@ -958,14 +959,15 @@
       "taskSection": "0",
       "preserveCurrentPlcHmiSoundPriority": true,
       "secondaryMonitorPreviouslyUsedReported": true,
-      "currentMonitorLayoutMeasured": false,
-      "blockingEffect": null,
-      "windowMoveNeeded": null,
+      "currentMonitorLayoutMeasured": true,
+      "blockingEffect": "Editor fully accessible on DISPLAY2",
+      "windowMoveNeeded": false,
       "conditionalExistingWindowMoveAuthorized": true,
       "globalDisplayReconfigurationRequested": false,
       "movePerformedByCloud": false,
-      "actualWindowsCheckCompleted": false,
-      "status": "Add-on prepared for SCADA UI stage; inspect actual window/capture/input context, then move existing SCADA windows only if needed"
+      "actualWindowsCheckCompleted": true,
+      "status": "Actual 1920x1080 capture and target-verified project dialog click, same HWND, 96 DPI. Client not yet measured.",
+      "sourceReport": "docs/reports/oshsky-r3j-mute-and-scada-display-local-20261127.md"
     }
   }
 }
