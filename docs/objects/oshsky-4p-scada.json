@@ -96,10 +96,10 @@
       },
       "hardwareDownloads": 0
     },
-    "activeNativeRevision": "PLC r3g installed / physical TRACE r3h / HMI r3i prepared / SCADA r4a",
-    "activeNativeReport": "docs/reports/oshsky-live-native-fault-windows-20261127.md",
+    "activeNativeRevision": "PLC r3g / HMI r3m installed / SCADA r4b",
+    "activeNativeReport": "docs/reports/oshsky-r3m-fault-opc-native-20261128.md",
     "activeTask": "docs/tasks/oshsky-live-pump1-data-and-native-fault-local-20261127.md",
-    "actualInstalledRevisionAfterUserReportedUpload": "PLC r3g and PHYSICAL_TRACE_r3h, identified by local582bca4; physical r3i installation not confirmed"
+    "actualInstalledRevisionAfterUserReportedUpload": "r3l physical backup retained before verified r3m USB transfer"
   },
   "postR2Review": {
     "date": "2026-11-25",
@@ -826,11 +826,21 @@
     "actualClientAcceptancePassed": false,
     "actualGsmPlcRouteAcceptancePassed": false,
     "status": "Local 53e0752: HMI r3l installed/readback matched, unknown/stale fault display fixed in source and Simulator; linked physical acceptance pending (95 map0 samples). Operator login, Gateway/Main PLC code9 GOOD and radio display confirmed. Expanded OPC profile failed native load; active22 items leave Client process data unknown. Sound rearm, full GSM/Client acceptance and Main placement remain open.",
-    "checkedOn": "2026-11-27",
-    "baseCommit": "53e07528305379fb64997e93e3d87b567921c93f",
-    "localReport": "docs/reports/oshsky-r3k-physical-gsm-20261127.md",
+    "checkedOn": "2026-11-28",
+    "baseCommit": "3c3339b929a8fa2cf4c8afb3a2b552f215ed6669",
+    "localReport": "docs/reports/oshsky-r3m-fault-opc-native-20261128.md",
     "fieldSheet": "docs/tasks/oshsky-field-check-20261127.md",
-    "desktopKit": "C:\\Users\\user\\Desktop\\Ошский_4насоса_ПЛК_r3g_HMI_r3j_2026-11-27",
+    "desktopKit": {
+      "revision": "r3g/r3m/r4b",
+      "folder": "C:\\Users\\user\\Desktop\\Ошский_4насоса_ПЛК_r3g_HMI_r3m_2026-11-27",
+      "zip": "C:\\Users\\user\\Desktop\\Ошский_4насоса_ПЛК_r3g_HMI_r3m_2026-11-27.zip",
+      "bytes": 357599464,
+      "sha256": "ad69b34988363b06616ccd36e742b24a9e7d61d7ce2ccba3da86bd4667ffd246",
+      "files": 333,
+      "extractedSHA256": true,
+      "crcOK": true,
+      "previousZIP": "871b17e5568bfcb36d442d01140fd5abddfe1d19bd4ad57b35e8b94a4940b1b5"
+    },
     "benchPLC": {
       "model": "FBs-32MC",
       "firmware": "4.89",
@@ -852,11 +862,17 @@
     },
     "benchHMI": {
       "model": "SK-102CE",
-      "revision": "r3l",
-      "sha256": "8f0e0174b4f1ae87246467f0d9c9f62ca95a8741926279f7113f34d212ec8cd7",
-      "bytes": 5543284,
+      "revision": "r3m",
+      "sha256": "3907c42a9f29bd341500e04fefa17a3f59b7457cfeb7ca1242629d67be318e67",
+      "bytes": 5546137,
       "usbDownloaded": true,
-      "deviceReadbackSHA256": "2ece9835e6d842aa64f410c1fcf3f289e6ce5897240a53456524907e472304f6",
+      "deviceReadbackSHA256": "29f5bbe5802721a7714438d500755ab59c123c8a6f5788d70306aa42eac1089b",
+      "physicalLinkedDisplayAccepted": false,
+      "nativeOnlineLiveP1Code": 9,
+      "physicalNewSamplerRows": 120,
+      "physicalNewSamplerGoodRows": 0,
+      "report": "docs/reports/oshsky-r3m-fault-opc-native-20261128.md",
+      "deviceReadbackBytes": 391893,
       "scriptErrorsWarnings": [
         0,
         0
@@ -868,15 +884,7 @@
       ],
       "nativeTransferDestination": "R2553",
       "nativeExternalServiceWriters": 1,
-      "plcAcceptedMuteGeneration": null,
-      "sourceReport": "docs/reports/oshsky-r3k-physical-gsm-20261127.md",
-      "previousSimulatorPlcAcceptedMuteGeneration": 3,
-      "physicalPlcMuteAcceptanceVerified": false,
-      "verificationScope": "Installed/readback verified by local report 53e0752; linked physical acceptance not passed (95 samples map0)",
-      "physicalPanelLinkedAcceptance": false,
-      "physicalNoLinkSamples": 95,
-      "deviceReadbackBytes": 391759,
-      "usbDownloadedAtMsk": "2026-11-27 19:39"
+      "physicalPlcMuteAcceptanceVerified": false
     },
     "testOnly": {
       "firstFaultCases": 39,
@@ -1166,6 +1174,48 @@
       "physicalPlcMuteAcceptanceVerified": false,
       "verificationScope": "Last published r3j verification; newer installed r3k claimed by local in user screenshot, current exact file/hash must be checked"
     },
-    "readOnlyGsmPlcResponsesConfirmed": true
+    "readOnlyGsmPlcResponsesConfirmed": true,
+    "previousBenchHmiR3l": {
+      "model": "SK-102CE",
+      "revision": "r3l",
+      "sha256": "8f0e0174b4f1ae87246467f0d9c9f62ca95a8741926279f7113f34d212ec8cd7",
+      "bytes": 5543284,
+      "usbDownloaded": true,
+      "deviceReadbackSHA256": "2ece9835e6d842aa64f410c1fcf3f289e6ce5897240a53456524907e472304f6",
+      "scriptErrorsWarnings": [
+        0,
+        0
+      ],
+      "fullCompile": true,
+      "simulatorPixels": [
+        1024,
+        600
+      ],
+      "nativeTransferDestination": "R2553",
+      "nativeExternalServiceWriters": 1,
+      "plcAcceptedMuteGeneration": null,
+      "sourceReport": "docs/reports/oshsky-r3k-physical-gsm-20261127.md",
+      "previousSimulatorPlcAcceptedMuteGeneration": 3,
+      "physicalPlcMuteAcceptanceVerified": false,
+      "verificationScope": "Installed/readback verified by local report 53e0752; linked physical acceptance not passed (95 samples map0)",
+      "physicalPanelLinkedAcceptance": false,
+      "physicalNoLinkSamples": 95,
+      "deviceReadbackBytes": 391759,
+      "usbDownloadedAtMsk": "2026-11-27 19:39"
+    },
+    "windowsFaultAndGsm28November": {
+      "base": "3c3339b929a8fa2cf4c8afb3a2b552f215ed6669",
+      "report": "docs/reports/oshsky-r3m-fault-opc-native-20261128.md",
+      "r3lPhysicalSamples": 1145,
+      "r3lPhysicalMap32Samples": 150,
+      "r3lPhysicalOwnFaultEvents": 0,
+      "r3mPhysicalMarker27428Samples": 0,
+      "onlineSimulatorUsingRealPLC": true,
+      "livePCFault9SurvivesMute": true,
+      "pendingReadOnlyOpcItems": 68,
+      "activeOpcProfileApplied": false,
+      "opcSessionsPreservedAtPrompt": true
+    },
+    "previousDesktopKitBeforeR3m": "C:\\Users\\user\\Desktop\\Ошский_4насоса_ПЛК_r3g_HMI_r3j_2026-11-27"
   }
 }
