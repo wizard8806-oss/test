@@ -814,8 +814,8 @@
     "preserveCurrentLocalBuffersAndCopies": true,
     "coreFixTask": "docs/tasks/oshsky-mode-stop4-and-animation-local-20261126.md",
     "sequence": [
-      "Preserve confirmed Gateway, MasterOPC, collector and authorized Client; fix missing target OPC schema/fault items through native save/reopen and check expanded live data",
-      "Verify installed r3l on linked physical HMI; preserve captures for first M610 cause and sound rearm, available pump4/countdown/rotor checks and field remainder; await Main placement choice",
+      "Preserve confirmed Gateway/Service and authorized Client; perform scoped native OPC maintenance pause/import68/SaveAs/reopen/resume, then verify fresh target DA and Client data",
+      "Verify installed r3m on its actual physical PLC link; native cyclic fault polling is fixed in real-PLC Online test, physical120 rows still zero; finish mute/first M610 and field remainder, Main placement unapproved",
       "Close actual Client/GSM freshness, disconnect/recovery, archive/ack/setpoint acceptance and update the kit only for changed verified files"
     ],
     "scadaBaselineProject": "C:\\Users\\user\\Documents\\Simple-Scada 2\\Projects\\oshsky_scada_ux_r4\\Project.spr",
@@ -825,9 +825,9 @@
     "newRemoteCommandChannelsAuthorizedByThisTask": false,
     "actualClientAcceptancePassed": false,
     "actualGsmPlcRouteAcceptancePassed": false,
-    "status": "PLC r3g, HMI r3m installed and read back, SCADA r4b authenticated. Native cyclic fault polling restored code 9 in Online Simulation with the real PLC. Physical r3l history and r3m USB logs retained; live physical display on its own PLC link remains open. Active OPC has 22 target tags, 68 read-only items prepared for native import. Client trend intervals and all eight pump shortcuts verified. Process quality and alarm acknowledgement remain open.",
+    "status": "Local d8d4e52: r3m installed/readback matched; noncyclic fault batch reproduced and fixed with native1s sampling in Online Simulation on real PLC, code9 survives local mute. Physical120 marker0 rows remain unaccepted. GSM raw9/Map32/GOOD and Client radio work; active OPC22, prepared68RO CSV not imported after session-stop warning. Proceed with scoped reversible native maintenance/import within existing authorization; full Client/archive/sound acceptance and Main placement open.",
     "checkedOn": "2026-11-28",
-    "baseCommit": "3c3339b929a8fa2cf4c8afb3a2b552f215ed6669",
+    "baseCommit": "d8d4e520c93b144b438d2851b7f0e6867d0fe955",
     "localReport": "docs/reports/oshsky-r3m-fault-opc-native-20261128.md",
     "fieldSheet": "docs/tasks/oshsky-field-check-20261127.md",
     "desktopKit": {
@@ -884,7 +884,11 @@
       ],
       "nativeTransferDestination": "R2553",
       "nativeExternalServiceWriters": 1,
-      "physicalPlcMuteAcceptanceVerified": false
+      "physicalPlcMuteAcceptanceVerified": false,
+      "onlineSimulatorUsesRealPlc": true,
+      "onlineWritersIncludingR2553RedirectedToLocalMemory": true,
+      "faultSamplePeriodSeconds": 1,
+      "faultSampleWords": 18
     },
     "testOnly": {
       "firstFaultCases": 39,
@@ -940,10 +944,10 @@
       "externalSirenConnected": false,
       "physicalHmiSerialExchangeConfirmed": false
     },
-    "latestAcceptedLocalReportCommit": "53e07528305379fb64997e93e3d87b567921c93f",
+    "latestAcceptedLocalReportCommit": "d8d4e520c93b144b438d2851b7f0e6867d0fe955",
     "cloudReviewReport": "docs/reports/oshsky-r3f-r3h-cloud-review-20261127.md",
     "scadaCurrentProject": "C:\\Users\\user\\Documents\\Simple-Scada 2\\Projects\\oshsky_scada_r4b_native\\Project.spr",
-    "pendingNextStep": "Import 68 target read-only tags in MasterOPC with native Save As and reopen. Current MasterOPC warns that entering design mode terminates all OPC sessions. Verify new DA values and Client process data, archive gap, acknowledgement and setpoint after application. On the installed r3m verify fault and mute over the physical HMI–PLC link.",
+    "pendingNextStep": "Complete prepared native68-tag import with the required reversible OPC maintenance pause after checking actual clients/backups; no repeat general approval. SaveAs/reopen/resume and prove expanded DA/Client process data. Preserve r3m and complete linked physical HMI fault/mute acceptance separately.",
     "pump4RootCauseConfirmed": false,
     "physicalHmiMutedAlarmLongRunPassed": false,
     "cloudVerification": {
@@ -1033,7 +1037,7 @@
       },
       "localServer": "Project active with archive DB; native Operator login succeeded and Client pages exercised by local report53e0752",
       "monitor": "Editor and Client on DISPLAY2, 1920x1080; Server on primary, 790x591; no relocation",
-      "pending": "Native target OPC additions after expanded profile load error; linked physical r3l code/mute, first M610 cause, archive/ack/Apply and full GSM acceptance",
+      "pending": "Execute prepared native68-tag import and necessary scoped OPC pause, save/reopen/resume; then live Client/archive/ack/Apply/GSM acceptance. Linked physical r3m, first M610 and long mute remain open.",
       "report": "docs/reports/oshsky-r4b-native-local-20261127.md"
     },
     "previousDesktopKitR3fR3h": "C:\\Users\\user\\Desktop\\Ошский_4насоса_ПЛК_r3f_HMI_r3h_2026-11-27",
@@ -1082,7 +1086,7 @@
       "placementApproved": false,
       "previewRequested": true,
       "nativeLayoutChangePerformedByCloud": false,
-      "nextStep": "Preserve installed r3l; restore/verify physical HMI exchange and confirm code9 plus description/mute on actual panel. Trace why exports froze and first M610 edge. No RUN or full regression restart needed.",
+      "nextStep": "Preserve installed r3m; verify actual panel-to-PLC exchange and live code/description after mute. Real-PLC Online test fixed missing cyclic fault sampling, but physical120 rows still marker0 and no PLC mute acceptance or long silence.",
       "task": "docs/tasks/oshsky-live-pump1-data-and-native-fault-local-20261127.md",
       "taskSection": "3",
       "preview": "docs/ui/oshsky-native-fault-preview-20261127.md",
@@ -1099,10 +1103,12 @@
       "installedR3kClaimedByLocalScreenshot": true,
       "r3kNativeReportOrHashPublished": true,
       "samePhotoShouldBeRequestedAgain": false,
-      "currentNativeResultReport": "docs/reports/oshsky-r3k-physical-gsm-20261127.md",
-      "installedRevisionFromLocalReport": "r3l",
+      "currentNativeResultReport": "docs/reports/oshsky-r3m-fault-opc-native-20261128.md",
+      "installedRevisionFromLocalReport": "r3m",
       "unknownFaultStoppedFallbackFixedInSourceAndSimulator": true,
-      "physicalLinkedAcceptanceStillRequired": true
+      "physicalLinkedAcceptanceStillRequired": true,
+      "nativeFaultInputNonCyclicIssueReproducedOnRealPlcOnline": true,
+      "nativeCyclicFaultSamplingAdded": true
     },
     "gatewayOpcAndRadioStartupAuthorization": {
       "reportedOn": "2026-11-27",
@@ -1239,6 +1245,33 @@
         "quality": 192
       }
     },
-    "previousDesktopKitBeforeR3m": "C:\\Users\\user\\Desktop\\Ошский_4насоса_ПЛК_r3g_HMI_r3j_2026-11-27"
+    "previousDesktopKitBeforeR3m": "C:\\Users\\user\\Desktop\\Ошский_4насоса_ПЛК_r3g_HMI_r3j_2026-11-27",
+    "opcNativeImportMaintenance28November": {
+      "report": "docs/reports/oshsky-r3m-fault-opc-native-20261128.md",
+      "scopeFromLocalReport": {
+        "enabledBus": "Ошский",
+        "otherDisabledBuses": 4,
+        "target": "codex.Device1"
+      },
+      "warning": "Native MasterOPC design mode terminates all existing OPC sessions",
+      "previousTransitionCancelledByLocal": true,
+      "maintenancePauseWithinExistingAuthorizedTargetWork": true,
+      "authorizationBasis": "User authorized SCADA improvements and required local access/startup; known reversible OPC configuration step is necessary for the already assigned native target import. Verify actual consumers and preserve other objects.",
+      "repeatGeneralPermissionRequired": false,
+      "verifyActualSessionsBeforeTransition": true,
+      "pauseOrImportPerformedByCloud": false,
+      "preparedCsvRelativeToKit": "OPC\\import\\oshsky_68_readonly.csv",
+      "preparedCsvSHA256": "e3cbd70ca68b9d34121a3a72bc9d40613b4658bb7e3eecba567c007645221da8",
+      "newReadOnlyTags": 68,
+      "activeTargetTagsBefore": 22,
+      "expectedTargetTagsAfter": 90,
+      "importApplied": false,
+      "preserveExistingRw": "R2100 only",
+      "profileBeforeSHA256": "1b791186304f4fc9bb15248bf3de341cbe1f5a4be4d7e210f1cd1c755af33564",
+      "startupPointerBeforeSHA256": "45aa6fd76b1ed0a3ba53652888a978100cb169ddedc714c96522a780323dae67",
+      "nextStep": "Native configuration pause, import68 into target, SaveAs/reopen, semantic preservation of other buses and original22, resume single OPC and target subscriptions, verify fresh DA/Client/archives; preserve Gateway and independent Service",
+      "task": "docs/tasks/oshsky-gsm-route-and-client-local-20261127.md",
+      "taskSection": "3.1.1"
+    }
   }
 }
