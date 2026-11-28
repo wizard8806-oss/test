@@ -1,0 +1,16 @@
+{
+  "build": "oshsky-r3g-r3m-r4b-opc90-20261128",
+  "verifiedBase": "ab152a48e8531eee4e0182fdd7473139808e3c16",
+  "folder": "C:\\Users\\user\\Desktop\\Ошский_4насоса_ПЛК_r3g_HMI_r3m_OPC90_2026-11-28",
+  "zip": "C:\\Users\\user\\Desktop\\Ошский_4насоса_ПЛК_r3g_HMI_r3m_OPC90_2026-11-28.zip",
+  "bytes": 358335337,
+  "sha256": "fbaeadba09b24a00c454c18f623d3f5a902488fde07eaf9186b1c01853e0761a",
+  "files": 346,
+  "archivedPathsEqualFolder": true,
+  "crcOK": true,
+  "independentlyExtractedFileHashesMatch": true,
+  "previousZipSHA256": "ad69b34988363b06616ccd36e742b24a9e7d61d7ce2ccba3da86bd4667ffd246",
+  "appliedNativeProfileSHA256": "93e9a2c41e1152e78cdd9698b4a1d55c033b509451595346191a9803b80727aa",
+  "scadaNativeFilesMatchRunningProject": 13,
+  "manifestSHA256": "0746fa87f8ff92ca97f7cf1b74dd87eb0c8a26a420a22e989172169f7872d193"
+}

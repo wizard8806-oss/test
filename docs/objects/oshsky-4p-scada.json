@@ -825,21 +825,22 @@
     "newRemoteCommandChannelsAuthorizedByThisTask": false,
     "actualClientAcceptancePassed": false,
     "actualGsmPlcRouteAcceptancePassed": false,
-    "status": "Local d8d4e52: r3m installed/readback matched; noncyclic fault batch reproduced and fixed with native1s sampling in Online Simulation on real PLC, code9 survives local mute. Physical120 marker0 rows remain unaccepted. GSM raw9/Map32/GOOD and Client radio work; active OPC22, prepared68RO CSV not imported after session-stop warning. Proceed with scoped reversible native maintenance/import within existing authorization; full Client/archive/sound acceptance and Main placement open.",
+    "status": "Windows: native OPC90 Save As, independent reopen and polling restored. Real Client shows STOP, drive 1 confirmed code 0, 0.0 Hz/A, drives 2–4 unknown. SQL archive and viewer show the gap. Physical HMI and field acceptance remain open.",
     "checkedOn": "2026-11-28",
     "baseCommit": "d8d4e520c93b144b438d2851b7f0e6867d0fe955",
     "localReport": "docs/reports/oshsky-r3m-fault-opc-native-20261128.md",
     "fieldSheet": "docs/tasks/oshsky-field-check-20261127.md",
     "desktopKit": {
-      "revision": "r3g/r3m/r4b",
-      "folder": "C:\\Users\\user\\Desktop\\Ошский_4насоса_ПЛК_r3g_HMI_r3m_2026-11-27",
-      "zip": "C:\\Users\\user\\Desktop\\Ошский_4насоса_ПЛК_r3g_HMI_r3m_2026-11-27.zip",
-      "bytes": 357599464,
-      "sha256": "ad69b34988363b06616ccd36e742b24a9e7d61d7ce2ccba3da86bd4667ffd246",
-      "files": 333,
-      "extractedSHA256": true,
+      "revision": "r3g/r3m/r4b/OPC90",
+      "folder": "C:\\Users\\user\\Desktop\\Ошский_4насоса_ПЛК_r3g_HMI_r3m_OPC90_2026-11-28",
+      "zip": "C:\\Users\\user\\Desktop\\Ошский_4насоса_ПЛК_r3g_HMI_r3m_OPC90_2026-11-28.zip",
+      "verifiedArchiveReceipt": "docs/reports/oshsky-opc90-kit-20261128.json",
+      "previousZIP": "ad69b34988363b06616ccd36e742b24a9e7d61d7ce2ccba3da86bd4667ffd246",
+      "bytes": 358335337,
+      "sha256": "fbaeadba09b24a00c454c18f623d3f5a902488fde07eaf9186b1c01853e0761a",
+      "files": 346,
       "crcOK": true,
-      "previousZIP": "871b17e5568bfcb36d442d01140fd5abddfe1d19bd4ad57b35e8b94a4940b1b5"
+      "extractedSHA256": true
     },
     "benchPLC": {
       "model": "FBs-32MC",
@@ -947,7 +948,7 @@
     "latestAcceptedLocalReportCommit": "d8d4e520c93b144b438d2851b7f0e6867d0fe955",
     "cloudReviewReport": "docs/reports/oshsky-r3f-r3h-cloud-review-20261127.md",
     "scadaCurrentProject": "C:\\Users\\user\\Documents\\Simple-Scada 2\\Projects\\oshsky_scada_r4b_native\\Project.spr",
-    "pendingNextStep": "Complete prepared native68-tag import with the required reversible OPC maintenance pause after checking actual clients/backups; no repeat general approval. SaveAs/reopen/resume and prove expanded DA/Client process data. Preserve r3m and complete linked physical HMI fault/mute acceptance separately.",
+    "pendingNextStep": "Correlate the physical HMI and drive with the current GSM fault sample. Verify a scoped GSM interruption with local observation, an eligible archived alarm acknowledgement, and the R2100 Apply/return with separate PLC/drive feedback. Retain CL50S and M900G load checks.",
     "pump4RootCauseConfirmed": false,
     "physicalHmiMutedAlarmLongRunPassed": false,
     "cloudVerification": {
@@ -1272,6 +1273,81 @@
       "nextStep": "Native configuration pause, import68 into target, SaveAs/reopen, semantic preservation of other buses and original22, resume single OPC and target subscriptions, verify fresh DA/Client/archives; preserve Gateway and independent Service",
       "task": "docs/tasks/oshsky-gsm-route-and-client-local-20261127.md",
       "taskSection": "3.1.1"
+    },
+    "previousDesktopKitBeforeOpc90": {
+      "revision": "r3g/r3m/r4b",
+      "folder": "C:\\Users\\user\\Desktop\\Ошский_4насоса_ПЛК_r3g_HMI_r3m_2026-11-27",
+      "zip": "C:\\Users\\user\\Desktop\\Ошский_4насоса_ПЛК_r3g_HMI_r3m_2026-11-27.zip",
+      "bytes": 357599464,
+      "sha256": "ad69b34988363b06616ccd36e742b24a9e7d61d7ce2ccba3da86bd4667ffd246",
+      "files": 333,
+      "extractedSHA256": true,
+      "crcOK": true,
+      "previousZIP": "871b17e5568bfcb36d442d01140fd5abddfe1d19bd4ad57b35e8b94a4940b1b5"
+    },
+    "nativeOpc90OnWindows28November": {
+      "taskCommit": "ab152a48e8531eee4e0182fdd7473139808e3c16",
+      "nativeFile": "C:\\ProgramData\\InSAT\\MasterOPC Universal Modbus Server\\SERVERCFG\\oshsky_r4b_90tags_native_20261128.mbp",
+      "nativeMBPInKit": "OPC/applied/oshsky_r4b_90tags_native_20261128.mbp",
+      "bytes": 9863,
+      "sha256": "93e9a2c41e1152e78cdd9698b4a1d55c033b509451595346191a9803b80727aa",
+      "startupPointerSHA256": "e2c66d5a6acdbf2f2f0de0a9cc97f8a9aa0c5f34f43b0bf496d27ea9bb0a25a0",
+      "oldMBPSHA256": "1b791186304f4fc9bb15248bf3de341cbe1f5a4be4d7e210f1cd1c755af33564",
+      "importCSV_SHA256": "e3cbd70ca68b9d34121a3a72bc9d40613b4658bb7e3eecba567c007645221da8",
+      "existingTags": 22,
+      "addedReadOnly": 68,
+      "targetTotal": 90,
+      "otherTagsPreserved": 96,
+      "otherDisabledBuses": 4,
+      "onlyRW": "codex.Device1.PressureSP_Command (R2100)",
+      "daReadOnlyCount": 89,
+      "goodInBothSamples": 89,
+      "samplesMSK": [
+        "2026-11-28T16:26:34.904+03:00",
+        "2026-11-28T16:26:58.940+03:00"
+      ],
+      "mapSchemaFaultExport": [
+        32,
+        27110,
+        27428
+      ],
+      "currentHeartbeat": [
+        12248,
+        12272
+      ],
+      "faultHeartbeat": [
+        12252,
+        12276
+      ],
+      "drive1OwnFreshSequenceCode": [
+        [
+          1,
+          27396,
+          0
+        ],
+        [
+          1,
+          27403,
+          0
+        ]
+      ],
+      "drive2to4OwnFresh": [
+        0,
+        0,
+        0
+      ],
+      "drive2to4DisplayedCode": [
+        null,
+        null,
+        null
+      ],
+      "realClient": true,
+      "report": "docs/reports/oshsky-opc90-client-local-20261128.md",
+      "temporaryDAgroupsClosed": true,
+      "pendingPhysicalHMICorrelation": true,
+      "eligibleStationAlarmAcknowledged": false,
+      "setpointDraftCancelled": true,
+      "fieldApplyDuringImport": false
     }
   }
 }
