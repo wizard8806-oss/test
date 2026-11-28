@@ -1,0 +1,118 @@
+{
+  "site": "Ошский",
+  "dateLocal": "2026-11-28",
+  "timeZone": "Europe/Moscow",
+  "taskCommit": "95ec1cab826ec5c32c82b86b03ac9b3738aea341",
+  "plc": {
+    "revision": "r3g",
+    "sha256": "453f0af24646e44d71e21590afb23016bcac4a270a1ebdcef9b5913697f6dc72"
+  },
+  "hmi": {
+    "revision": "r3m",
+    "sha256": "3907c42a9f29bd341500e04fefa17a3f59b7457cfeb7ca1242629d67be318e67"
+  },
+  "scada": {
+    "revision": "oshsky_scada_r4c_native",
+    "project": "C:\\Users\\user\\Documents\\Simple-Scada 2\\Projects\\oshsky_scada_r4c_native\\Project.spr",
+    "projectSHA256": "95aa701b0e47dcbf61024d1d62d102666c539e8f04a2ffd6a1125402ab5ffeae",
+    "compiledProgramSHA256": "1ecdac204a5cc9ed9b218c3a18d963a5c756635005e2511b64dec7605d08ce8b",
+    "nativeCompiledBytes": 608131,
+    "activeTags": 118,
+    "compileAll": true,
+    "saveAsAndIndependentReopen": true
+  },
+  "opc": {
+    "build": "oshsky-r3g-r3m-r4c-opc16x28-20261128",
+    "taskCommit": "95ec1cab826ec5c32c82b86b03ac9b3738aea341",
+    "file": "C:\\ProgramData\\InSAT\\MasterOPC Universal Modbus Server\\SERVERCFG\\oshsky_r4b_90tags_gap16_max28_20261128.mbp",
+    "archivePath": "OPC/applied/oshsky_r4b_90tags_gap16_max28_20261128.mbp",
+    "bytes": 9899,
+    "sha256": "ba567d2342786b88c55f15f469701fca1008c29f913629a22758553022b1ceef",
+    "previousNativeProfileSHA256": "93e9a2c41e1152e78cdd9698b4a1d55c033b509451595346191a9803b80727aa",
+    "device": "codex.Device1",
+    "existingTagCount": 90,
+    "readOnly": 89,
+    "onlyWritable": "PressureSP_Command (R2100)",
+    "targetReadSettings": {
+      "MaxCountBreakInRegisters": 16,
+      "MaxCountHoldingsRegisters": 28
+    },
+    "inactiveBuses": 4,
+    "unchangedTagsOnInactiveBuses": 96,
+    "freshnessCutoffSeconds": 15,
+    "independentNativeReopen": true,
+    "acceptance": "docs/reports/oshsky-gsm-freshness-and-acceptance-local-20261128.md",
+    "startupPointerSHA256": "1f790aa35739b9fa69f4010ed324e4cff9018407e104fe270b3bad68643f80ad",
+    "previousSCADAStaticFilesRechecked": 13
+  },
+  "operatorSetpoint": {
+    "rawInitial": 410,
+    "rawTest": 420,
+    "rawRestored": 410,
+    "stationMode": "STOP",
+    "runMask": 0,
+    "leader": 0,
+    "appliedInPLC": true,
+    "driveConfirmation": false,
+    "driveFeedback": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2052
+    ],
+    "FC16Times": [
+      "19:16:06.096",
+      "19:18:13.859"
+    ]
+  },
+  "group5Alarm": {
+    "t": "2026-11-28T20:02:20.763+03:00",
+    "group": 5,
+    "message": 999993,
+    "alarmsLo": 7624,
+    "alarmBitsHi": 0,
+    "acknowledged": "2026-11-28T20:09:03.251+03:00",
+    "actor": "Оператор",
+    "uid": 0,
+    "r": null,
+    "rowsAfterConnectionRestored": 1
+  },
+  "fieldReport": {
+    "pump1DriveFaultNow": 0,
+    "pump1HMICodeReported": 0,
+    "drive1Good": true,
+    "hmiActiveAlarmsAt1925": 7,
+    "muteStateAt1925": "Звук отключён до появления следующей новой аварии",
+    "powerRun": false
+  },
+  "liveRoute": {
+    "gsmOnlyLossObservedInNativeClient": true,
+    "archiveBadTime": "20:11:52.625",
+    "firstGoodR2840Time": "20:12:30.487",
+    "clientFreshTime": "20:12:38",
+    "modbusWriteFramesDuringLossAndRecovery": 0
+  },
+  "retainedServices": {
+    "gateway": 13800,
+    "radioCollector": 6816,
+    "simpleServer": 8464,
+    "masterOPC": 4076,
+    "authenticatedClient": 1624
+  },
+  "muteHour": {
+    "fromMSK": "19:25:21",
+    "toMSK": "20:25:21",
+    "validBankReadings": 451,
+    "unchangedMaskInSamples": "1DC8",
+    "monitorGapsSeconds": [
+      321.196,
+      40.584
+    ],
+    "modbusWriteFrames": 0,
+    "physicalEndpointObservedByAgent": false,
+    "finalBuzzerObservationReceived": false
+  }
+}

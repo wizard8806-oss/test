@@ -1,0 +1,24 @@
+R4StationAlarmInitialized, R4StationAlarmLatched: Boolean;
+procedure R4StationAlarmEvent(IsActive: Boolean; LowMask, HighMask: Int64);
+const Marker = 'oshsky-station-alarm.active';
+begin
+  if not R4StationAlarmInitialized then begin
+    R4StationAlarmLatched := FileExists(Marker, '');
+    R4StationAlarmInitialized := True;
+  end;
+  if IsActive=R4StationAlarmLatched then Exit;
+  if IsActive then begin
+    AddMessageToGroup(Now, mkAlarm, 5,
+      'Ошский. Подтверждена активная авария станции. ПЛК: R2550='+
+      IntToStr(LowMask)+', аварийные биты R2551='+IntToStr(HighMask and 255)+'.', True, False);
+    R4StationAlarmLatched := True;
+    if TextFileOpen(Marker, '', fomRewrite, fcpUTF8) then TextFileClose;
+  end else begin
+    AddMessageToGroup(Now, mkMessage, 5,
+      'Ошский. ПЛК подтвердил снятие аварий станции.', False, False);
+    R4StationAlarmLatched := False;
+    if FileExists(Marker, '') then DeleteFile(GetUserFilesPath+Marker);
+  end;
+end;
+
+  if Valid and Known then R4StationAlarmEvent(AnyFault, LowAlarm, HighAlarm);

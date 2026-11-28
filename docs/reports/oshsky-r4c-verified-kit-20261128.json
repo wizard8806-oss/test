@@ -1,0 +1,19 @@
+{
+  "build": "oshsky-r3g-r3m-r4c-opc16x28-20261128",
+  "verifiedBase": "95ec1cab826ec5c32c82b86b03ac9b3738aea341",
+  "folder": "C:\\Users\\user\\Desktop\\Ошский_4насоса_ПЛК_r3g_HMI_r3m_SCADA_r4c_OPC_2026-11-28",
+  "zip": "C:\\Users\\user\\Desktop\\Ошский_4насоса_ПЛК_r3g_HMI_r3m_SCADA_r4c_OPC_2026-11-28.zip",
+  "bytes": 359683551,
+  "sha256": "976e4ef78e385d216851260548b19f767a0ded645975b63dd16f0531bdd26fe5",
+  "files": 364,
+  "crcOK": true,
+  "archivedPathsEqualFolder": true,
+  "independentlyExtractedFileHashesMatch": true,
+  "previousZipSHA256": "fbaeadba09b24a00c454c18f623d3f5a902488fde07eaf9186b1c01853e0761a",
+  "appliedNativeProfileSHA256": "ba567d2342786b88c55f15f469701fca1008c29f913629a22758553022b1ceef",
+  "scadaNativeFilesMatchRunningProject": 13,
+  "nativeProjectSHA256": "95aa701b0e47dcbf61024d1d62d102666c539e8f04a2ffd6a1125402ab5ffeae",
+  "nativeCompiledSHA256": "1ecdac204a5cc9ed9b218c3a18d963a5c756635005e2511b64dec7605d08ce8b",
+  "manifestSHA256": "c3b9796f2894f0ab813dd3420ca064ddc9a7288226435e2054864301432d5cf0",
+  "receiptScope": "Archive receipt lives outside the archive."
+}

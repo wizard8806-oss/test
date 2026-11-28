@@ -825,22 +825,17 @@
     "newRemoteCommandChannelsAuthorizedByThisTask": false,
     "actualClientAcceptancePassed": false,
     "actualGsmPlcRouteAcceptancePassed": false,
-    "status": "Local7e4a3a9: OPC90 native import/save/reopen applied, other nodes preserved, 89RO GOOD and actual Client process data live. Drive1 code0/Q1 at16:26 is separate from old Err09; drives2-4 unknown. Archive BAD gap/recovery confirmed and draft cancelled without Apply. Client freshness warnings recur; archived counter intervals reach23.896s vs15s gate, root layer unknown. Physical HMI/drive correlation, sound, legitimate event/ack, Apply and field acceptance remain open.",
+    "status": "Bench: real PLC/drive/HMI agree at drive 1 fault code 0. Native SCADA r4c registered and acknowledged the real station alarm. The improved 90-tag OPC profile, GSM loss/recovery and 4.2/4.1 bar PLC readback passed. Field-load and nonzero current HMI fault acceptance remain open.",
     "checkedOn": "2026-11-28",
-    "baseCommit": "7e4a3a9d421acc6a81421c9d9c0fe218fd641a72",
-    "localReport": "docs/reports/oshsky-opc90-client-local-20261128.md",
+    "baseCommit": "95ec1cab826ec5c32c82b86b03ac9b3738aea341",
+    "localReport": "docs/reports/oshsky-gsm-freshness-and-acceptance-local-20261128.md",
     "fieldSheet": "docs/tasks/oshsky-field-check-20261127.md",
     "desktopKit": {
-      "revision": "r3g/r3m/r4b/OPC90",
-      "folder": "C:\\Users\\user\\Desktop\\Ошский_4насоса_ПЛК_r3g_HMI_r3m_OPC90_2026-11-28",
-      "zip": "C:\\Users\\user\\Desktop\\Ошский_4насоса_ПЛК_r3g_HMI_r3m_OPC90_2026-11-28.zip",
-      "verifiedArchiveReceipt": "docs/reports/oshsky-opc90-kit-20261128.json",
-      "previousZIP": "ad69b34988363b06616ccd36e742b24a9e7d61d7ce2ccba3da86bd4667ffd246",
-      "bytes": 358335337,
-      "sha256": "fbaeadba09b24a00c454c18f623d3f5a902488fde07eaf9186b1c01853e0761a",
-      "files": 346,
-      "crcOK": true,
-      "extractedSHA256": true
+      "revision": "r3g/r3m/r4c/OPC90 (16 / 28)",
+      "folder": "C:\\Users\\user\\Desktop\\Ошский_4насоса_ПЛК_r3g_HMI_r3m_SCADA_r4c_OPC_2026-11-28",
+      "zip": "C:\\Users\\user\\Desktop\\Ошский_4насоса_ПЛК_r3g_HMI_r3m_SCADA_r4c_OPC_2026-11-28.zip",
+      "verifiedArchiveReceipt": "docs/reports/oshsky-r4c-verified-kit-20261128.json",
+      "previousZIP": "fbaeadba09b24a00c454c18f623d3f5a902488fde07eaf9186b1c01853e0761a"
     },
     "benchPLC": {
       "model": "FBs-32MC",
@@ -889,7 +884,9 @@
       "onlineSimulatorUsesRealPlc": true,
       "onlineWritersIncludingR2553RedirectedToLocalMemory": true,
       "faultSamplePeriodSeconds": 1,
-      "faultSampleWords": 18
+      "faultSampleWords": 18,
+      "physicalCodeZeroMatchesDriveReported20261128": true,
+      "physicalNonzeroFaultOnR3mThisSession": false
     },
     "testOnly": {
       "firstFaultCases": 39,
@@ -903,11 +900,11 @@
       "individualAlarmBitsOnPLC": 24
     },
     "scadaNative": {
-      "revision": "oshsky_scada_r4b_native",
-      "project": "800522452b2e88eeffd809fd7fdb87aeb6930ec1c7c6a1e7c54f5542b281213e",
-      "program": "dd88e61d0d0d5eba72155f23450df9dd7850416bc72b8ccfbb9da432adcd7ce0",
-      "preservedSource": "oshsky_scada_ux_r4a_gsm",
-      "actualClient": "Live native Client confirmed process data after OPC90, drive1 code0 with Q1 and drives2-4 unknown; intermittent freshness warnings remain"
+      "revision": "oshsky_scada_r4c_native",
+      "project": "95aa701b0e47dcbf61024d1d62d102666c539e8f04a2ffd6a1125402ab5ffeae",
+      "program": "1ecdac204a5cc9ed9b218c3a18d963a5c756635005e2511b64dec7605d08ce8b",
+      "preservedSource": "oshsky_scada_r4b_native",
+      "actualClient": "Fresh physical data, archive flags and individual station-alarm acknowledgement in native Client"
     },
     "confirmedServiceDelivery": {
       "at": "2026-11-27T02:26:17.0000332+03:00",
@@ -947,8 +944,8 @@
     },
     "latestAcceptedLocalReportCommit": "7e4a3a9d421acc6a81421c9d9c0fe218fd641a72",
     "cloudReviewReport": "docs/reports/oshsky-r3f-r3h-cloud-review-20261127.md",
-    "scadaCurrentProject": "C:\\Users\\user\\Documents\\Simple-Scada 2\\Projects\\oshsky_scada_r4b_native\\Project.spr",
-    "pendingNextStep": "Preserve completed OPC90 and live Client. Trace observed freshness warnings across cached OPC/Client/SQL and target poll scheduling before loosening any threshold. Then confirm physical drive/HMI against current code, legitimate event/ack and one authorized Apply/return with separate PLC and drive feedback; retain field load/CL50S.",
+    "scadaCurrentProject": "C:\\Users\\user\\Documents\\Simple-Scada 2\\Projects\\oshsky_scada_r4c_native\\Project.spr",
+    "pendingNextStep": "Observe a naturally occurring nonzero drive fault on the linked physical HMI, capture the acceptance of mute by the PLC and any new M610 edge, and verify CL50S and M900G with field load.",
     "pump4RootCauseConfirmed": false,
     "physicalHmiMutedAlarmLongRunPassed": false,
     "cloudVerification": {
@@ -1055,7 +1052,7 @@
     "scadaClientAuthentication": {
       "reportedOn": "2026-11-27",
       "source": "User screenshot: connection interrupted after too many unsuccessful login attempts",
-      "currentProjectFromLocalReport": "oshsky_scada_r4b_native",
+      "currentProjectFromLocalReport": "oshsky_scada_r4c_native",
       "authenticated": true,
       "retrySourceIdentified": false,
       "lockoutDurationKnown": false,
@@ -1075,7 +1072,8 @@
       "taskSection": "3.2",
       "report": "docs/reports/oshsky-scada-login-and-operator-store-20261127.md",
       "localLoginAtMsk": "2026-11-27 17:31:36",
-      "sourceReport": "docs/reports/oshsky-r3k-physical-gsm-20261127.md"
+      "sourceReport": "docs/reports/oshsky-r3k-physical-gsm-20261127.md",
+      "lastLocalLoginAtMsk": "2026-11-28 20:07:32.812"
     },
     "physicalNativeFaultDisplayFollowup": {
       "reportedOn": "2026-11-27",
@@ -1352,7 +1350,8 @@
       "pendingPhysicalHMICorrelation": true,
       "eligibleStationAlarmAcknowledged": false,
       "setpointDraftCancelled": true,
-      "fieldApplyDuringImport": false
+      "fieldApplyDuringImport": false,
+      "supersededPollingProfile": "ba567d2342786b88c55f15f469701fca1008c29f913629a22758553022b1ceef"
     },
     "opc90FreshnessAndRemainingChecks": {
       "report": "docs/reports/oshsky-opc90-client-local-20261128.md",
@@ -1381,6 +1380,159 @@
       "com28OpenedButTwoRequestsTimedOut": true,
       "task": "docs/tasks/oshsky-gsm-route-and-client-local-20261127.md",
       "taskSection": "3.3"
+    },
+    "previousDesktopKitBeforeR4c": {
+      "revision": "r3g/r3m/r4b/OPC90",
+      "folder": "C:\\Users\\user\\Desktop\\Ошский_4насоса_ПЛК_r3g_HMI_r3m_OPC90_2026-11-28",
+      "zip": "C:\\Users\\user\\Desktop\\Ошский_4насоса_ПЛК_r3g_HMI_r3m_OPC90_2026-11-28.zip",
+      "verifiedArchiveReceipt": "docs/reports/oshsky-opc90-kit-20261128.json",
+      "previousZIP": "ad69b34988363b06616ccd36e742b24a9e7d61d7ce2ccba3da86bd4667ffd246",
+      "bytes": 358335337,
+      "sha256": "fbaeadba09b24a00c454c18f623d3f5a902488fde07eaf9186b1c01853e0761a",
+      "files": 346,
+      "crcOK": true,
+      "extractedSHA256": true
+    },
+    "opc90Section33Windows": {
+      "site": "Ошский",
+      "dateLocal": "2026-11-28",
+      "timeZone": "Europe/Moscow",
+      "taskCommit": "95ec1cab826ec5c32c82b86b03ac9b3738aea341",
+      "plc": {
+        "revision": "r3g",
+        "sha256": "453f0af24646e44d71e21590afb23016bcac4a270a1ebdcef9b5913697f6dc72"
+      },
+      "hmi": {
+        "revision": "r3m",
+        "sha256": "3907c42a9f29bd341500e04fefa17a3f59b7457cfeb7ca1242629d67be318e67"
+      },
+      "scada": {
+        "revision": "oshsky_scada_r4c_native",
+        "project": "C:\\Users\\user\\Documents\\Simple-Scada 2\\Projects\\oshsky_scada_r4c_native\\Project.spr",
+        "projectSHA256": "95aa701b0e47dcbf61024d1d62d102666c539e8f04a2ffd6a1125402ab5ffeae",
+        "compiledProgramSHA256": "1ecdac204a5cc9ed9b218c3a18d963a5c756635005e2511b64dec7605d08ce8b",
+        "nativeCompiledBytes": 608131,
+        "activeTags": 118,
+        "compileAll": true,
+        "saveAsAndIndependentReopen": true
+      },
+      "opc": {
+        "build": "oshsky-r3g-r3m-r4c-opc16x28-20261128",
+        "taskCommit": "95ec1cab826ec5c32c82b86b03ac9b3738aea341",
+        "file": "C:\\ProgramData\\InSAT\\MasterOPC Universal Modbus Server\\SERVERCFG\\oshsky_r4b_90tags_gap16_max28_20261128.mbp",
+        "archivePath": "OPC/applied/oshsky_r4b_90tags_gap16_max28_20261128.mbp",
+        "bytes": 9899,
+        "sha256": "ba567d2342786b88c55f15f469701fca1008c29f913629a22758553022b1ceef",
+        "previousNativeProfileSHA256": "93e9a2c41e1152e78cdd9698b4a1d55c033b509451595346191a9803b80727aa",
+        "device": "codex.Device1",
+        "existingTagCount": 90,
+        "readOnly": 89,
+        "onlyWritable": "PressureSP_Command (R2100)",
+        "targetReadSettings": {
+          "MaxCountBreakInRegisters": 16,
+          "MaxCountHoldingsRegisters": 28
+        },
+        "inactiveBuses": 4,
+        "unchangedTagsOnInactiveBuses": 96,
+        "freshnessCutoffSeconds": 15,
+        "independentNativeReopen": true,
+        "acceptance": "docs/reports/oshsky-gsm-freshness-and-acceptance-local-20261128.md",
+        "startupPointerSHA256": "1f790aa35739b9fa69f4010ed324e4cff9018407e104fe270b3bad68643f80ad",
+        "previousSCADAStaticFilesRechecked": 13
+      },
+      "operatorSetpoint": {
+        "rawInitial": 410,
+        "rawTest": 420,
+        "rawRestored": 410,
+        "stationMode": "STOP",
+        "runMask": 0,
+        "leader": 0,
+        "appliedInPLC": true,
+        "driveConfirmation": false,
+        "driveFeedback": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2052
+        ],
+        "FC16Times": [
+          "19:16:06.096",
+          "19:18:13.859"
+        ]
+      },
+      "group5Alarm": {
+        "t": "2026-11-28T20:02:20.763+03:00",
+        "group": 5,
+        "message": 999993,
+        "alarmsLo": 7624,
+        "alarmBitsHi": 0,
+        "acknowledged": "2026-11-28T20:09:03.251+03:00",
+        "actor": "Оператор",
+        "uid": 0,
+        "r": null,
+        "rowsAfterConnectionRestored": 1
+      },
+      "fieldReport": {
+        "pump1DriveFaultNow": 0,
+        "pump1HMICodeReported": 0,
+        "drive1Good": true,
+        "hmiActiveAlarmsAt1925": 7,
+        "muteStateAt1925": "Звук отключён до появления следующей новой аварии",
+        "powerRun": false
+      },
+      "liveRoute": {
+        "gsmOnlyLossObservedInNativeClient": true,
+        "archiveBadTime": "20:11:52.625",
+        "firstGoodR2840Time": "20:12:30.487",
+        "clientFreshTime": "20:12:38",
+        "modbusWriteFramesDuringLossAndRecovery": 0
+      },
+      "retainedServices": {
+        "gateway": 13800,
+        "radioCollector": 6816,
+        "simpleServer": 8464,
+        "masterOPC": 4076,
+        "authenticatedClient": 1624
+      },
+      "muteHour": {
+        "fromMSK": "19:25:21",
+        "toMSK": "20:25:21",
+        "validBankReadings": 451,
+        "unchangedMaskInSamples": "1DC8",
+        "monitorGapsSeconds": [
+          321.196,
+          40.584
+        ],
+        "modbusWriteFrames": 0,
+        "physicalEndpointObservedByAgent": false,
+        "finalBuzzerObservationReceived": false
+      }
+    },
+    "physicalMute45Minutes28November": {
+      "reportedLocal": "19:25:21",
+      "activeAlarms": 7,
+      "label": "Звук отключён до появления следующей новой аварии",
+      "samples": 326,
+      "maskLow": 7624,
+      "maskHighRaw": 16128,
+      "maximumObservationGapSeconds": 321.196,
+      "endAcousticObservationConfirmed": false,
+      "extendedTo60Minutes": {
+        "fromMSK": "19:25:21",
+        "toMSK": "20:25:21",
+        "validBankReadings": 451,
+        "unchangedMaskInSamples": "1DC8",
+        "monitorGapsSeconds": [
+          321.196,
+          40.584
+        ],
+        "modbusWriteFrames": 0,
+        "physicalEndpointObservedByAgent": false,
+        "finalBuzzerObservationReceived": false
+      }
     }
   }
 }
