@@ -825,7 +825,7 @@
     "newRemoteCommandChannelsAuthorizedByThisTask": false,
     "actualClientAcceptancePassed": false,
     "actualGsmPlcRouteAcceptancePassed": false,
-    "status": "Local 53e0752: HMI r3l installed/readback matched, unknown/stale fault display fixed in source and Simulator; linked physical acceptance pending (95 map0 samples). Operator login, Gateway/Main PLC code9 GOOD and radio display confirmed. Expanded OPC profile failed native load; active22 items leave Client process data unknown. Sound rearm, full GSM/Client acceptance and Main placement remain open.",
+    "status": "PLC r3g, HMI r3m installed and read back, SCADA r4b authenticated. Native cyclic fault polling restored code 9 in Online Simulation with the real PLC. Physical r3l history and r3m USB logs retained; live physical display on its own PLC link remains open. Active OPC has 22 target tags, 68 read-only items prepared for native import. Client trend intervals and all eight pump shortcuts verified. Process quality and alarm acknowledgement remain open.",
     "checkedOn": "2026-11-28",
     "baseCommit": "3c3339b929a8fa2cf4c8afb3a2b552f215ed6669",
     "localReport": "docs/reports/oshsky-r3m-fault-opc-native-20261128.md",
@@ -943,7 +943,7 @@
     "latestAcceptedLocalReportCommit": "53e07528305379fb64997e93e3d87b567921c93f",
     "cloudReviewReport": "docs/reports/oshsky-r3f-r3h-cloud-review-20261127.md",
     "scadaCurrentProject": "C:\\Users\\user\\Documents\\Simple-Scada 2\\Projects\\oshsky_scada_r4b_native\\Project.spr",
-    "pendingNextStep": "Add missing target OPC schema/fault items with native save/reopen in the working MasterOPC version, preserving other stations and live Gateway/Service/Client. Verify expanded data and archive path. Separately verify installed r3l on linked HMI; sound rearm root cause and long silence remain open.",
+    "pendingNextStep": "Import 68 target read-only tags in MasterOPC with native Save As and reopen. Current MasterOPC warns that entering design mode terminates all OPC sessions. Verify new DA values and Client process data, archive gap, acknowledgement and setpoint after application. On the installed r3m verify fault and mute over the physical HMI–PLC link.",
     "pump4RootCauseConfirmed": false,
     "physicalHmiMutedAlarmLongRunPassed": false,
     "cloudVerification": {
@@ -966,7 +966,7 @@
     "physicalHmiPlcCableConnectedReportedByUser": true,
     "newPhysicalSoundRecurrenceReported": true,
     "currentInstalledIdentityNeedsRefresh": false,
-    "physicalHmiConnectionNowAfterCableSwitch": "User confirmed FATEK PLC programming cable connected to PC; r3l physical HMI map0 throughout 95 samples",
+    "physicalHmiConnectionNowAfterCableSwitch": "User reported the PLC programming cable connected to the PC. Physical r3l backup: 150 of 1145 rows had Map32, then PLC counters stopped. Physical r3m: 120 of 120 one-second rows had marker zero.",
     "windowsLiveNativeFault20261127": {
       "verifiedTaskCommit": "8bb45477ffdab38b13567a6bb7c6b4f3b81dbd7c",
       "report": "docs/reports/oshsky-live-native-fault-windows-20261127.md",
@@ -1214,7 +1214,30 @@
       "livePCFault9SurvivesMute": true,
       "pendingReadOnlyOpcItems": 68,
       "activeOpcProfileApplied": false,
-      "opcSessionsPreservedAtPrompt": true
+      "opcSessionsPreservedAtPrompt": true,
+      "opcDa2PlcAliveSnapshots": [
+        {
+          "R2840": 40375,
+          "deviceTime": "2026-11-28T06:03:22.885+03:00"
+        },
+        {
+          "R2840": 40385,
+          "deviceTime": "2026-11-28T06:03:33.279+03:00"
+        }
+      ],
+      "verifiedClientTrendHours": [
+        1,
+        6,
+        24
+      ],
+      "verifiedClientPumpTrendShortcuts": 8,
+      "archiveDrive1RowsInSelectedDate": 0,
+      "alarmAckTimestampVerified": false,
+      "opcMapAndFault": {
+        "mapVersion": 32,
+        "vfd1FaultCode": 9,
+        "quality": 192
+      }
     },
     "previousDesktopKitBeforeR3m": "C:\\Users\\user\\Desktop\\Ошский_4насоса_ПЛК_r3g_HMI_r3j_2026-11-27"
   }
