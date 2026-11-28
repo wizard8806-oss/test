@@ -814,8 +814,8 @@
     "preserveCurrentLocalBuffersAndCopies": true,
     "coreFixTask": "docs/tasks/oshsky-mode-stop4-and-animation-local-20261126.md",
     "sequence": [
-      "Preserve confirmed Gateway/Service and authorized Client; perform scoped native OPC maintenance pause/import68/SaveAs/reopen/resume, then verify fresh target DA and Client data",
-      "Verify installed r3m on its actual physical PLC link; native cyclic fault polling is fixed in real-PLC Online test, physical120 rows still zero; finish mute/first M610 and field remainder, Main placement unapproved",
+      "Preserve applied OPC90/live Gateway, Service and Client; trace intermittent freshness (archive intervals up to23.896s against15s gate) across poll queue, OPC, Client and SQL without extra DeviceRead load",
+      "Verify current physical HMI r3m/drive/GSM correlation, first M610 and long mute; actual COM28 requests currently time out; real event/ack and original authorized Apply/return remain open",
       "Close actual Client/GSM freshness, disconnect/recovery, archive/ack/setpoint acceptance and update the kit only for changed verified files"
     ],
     "scadaBaselineProject": "C:\\Users\\user\\Documents\\Simple-Scada 2\\Projects\\oshsky_scada_ux_r4\\Project.spr",
@@ -825,10 +825,10 @@
     "newRemoteCommandChannelsAuthorizedByThisTask": false,
     "actualClientAcceptancePassed": false,
     "actualGsmPlcRouteAcceptancePassed": false,
-    "status": "Windows: native OPC90 Save As, independent reopen and polling restored. Real Client shows STOP, drive 1 confirmed code 0, 0.0 Hz/A, drives 2–4 unknown. SQL archive and viewer show the gap. Physical HMI and field acceptance remain open.",
+    "status": "Local7e4a3a9: OPC90 native import/save/reopen applied, other nodes preserved, 89RO GOOD and actual Client process data live. Drive1 code0/Q1 at16:26 is separate from old Err09; drives2-4 unknown. Archive BAD gap/recovery confirmed and draft cancelled without Apply. Client freshness warnings recur; archived counter intervals reach23.896s vs15s gate, root layer unknown. Physical HMI/drive correlation, sound, legitimate event/ack, Apply and field acceptance remain open.",
     "checkedOn": "2026-11-28",
-    "baseCommit": "d8d4e520c93b144b438d2851b7f0e6867d0fe955",
-    "localReport": "docs/reports/oshsky-r3m-fault-opc-native-20261128.md",
+    "baseCommit": "7e4a3a9d421acc6a81421c9d9c0fe218fd641a72",
+    "localReport": "docs/reports/oshsky-opc90-client-local-20261128.md",
     "fieldSheet": "docs/tasks/oshsky-field-check-20261127.md",
     "desktopKit": {
       "revision": "r3g/r3m/r4b/OPC90",
@@ -907,7 +907,7 @@
       "project": "800522452b2e88eeffd809fd7fdb87aeb6930ec1c7c6a1e7c54f5542b281213e",
       "program": "dd88e61d0d0d5eba72155f23450df9dd7850416bc72b8ccfbb9da432adcd7ce0",
       "preservedSource": "oshsky_scada_ux_r4a_gsm",
-      "actualClient": "Operator logged in at17:31:36 MSK; station view lacks OPC schema quality while independent radio is live"
+      "actualClient": "Live native Client confirmed process data after OPC90, drive1 code0 with Q1 and drives2-4 unknown; intermittent freshness warnings remain"
     },
     "confirmedServiceDelivery": {
       "at": "2026-11-27T02:26:17.0000332+03:00",
@@ -945,10 +945,10 @@
       "externalSirenConnected": false,
       "physicalHmiSerialExchangeConfirmed": false
     },
-    "latestAcceptedLocalReportCommit": "d8d4e520c93b144b438d2851b7f0e6867d0fe955",
+    "latestAcceptedLocalReportCommit": "7e4a3a9d421acc6a81421c9d9c0fe218fd641a72",
     "cloudReviewReport": "docs/reports/oshsky-r3f-r3h-cloud-review-20261127.md",
     "scadaCurrentProject": "C:\\Users\\user\\Documents\\Simple-Scada 2\\Projects\\oshsky_scada_r4b_native\\Project.spr",
-    "pendingNextStep": "Correlate the physical HMI and drive with the current GSM fault sample. Verify a scoped GSM interruption with local observation, an eligible archived alarm acknowledgement, and the R2100 Apply/return with separate PLC/drive feedback. Retain CL50S and M900G load checks.",
+    "pendingNextStep": "Preserve completed OPC90 and live Client. Trace observed freshness warnings across cached OPC/Client/SQL and target poll scheduling before loosening any threshold. Then confirm physical drive/HMI against current code, legitimate event/ack and one authorized Apply/return with separate PLC and drive feedback; retain field load/CL50S.",
     "pump4RootCauseConfirmed": false,
     "physicalHmiMutedAlarmLongRunPassed": false,
     "cloudVerification": {
@@ -971,7 +971,7 @@
     "physicalHmiPlcCableConnectedReportedByUser": true,
     "newPhysicalSoundRecurrenceReported": true,
     "currentInstalledIdentityNeedsRefresh": false,
-    "physicalHmiConnectionNowAfterCableSwitch": "User reported the PLC programming cable connected to the PC. Physical r3l backup: 150 of 1145 rows had Map32, then PLC counters stopped. Physical r3m: 120 of 120 one-second rows had marker zero.",
+    "physicalHmiConnectionNowAfterCableSwitch": "COM28 adapter present and opened, twoPLC requests timed out; no simultaneous physical HMI observation. Do not infer actual cable topology from port presence.",
     "windowsLiveNativeFault20261127": {
       "verifiedTaskCommit": "8bb45477ffdab38b13567a6bb7c6b4f3b81dbd7c",
       "report": "docs/reports/oshsky-live-native-fault-windows-20261127.md",
@@ -1036,9 +1036,9 @@
         "bytes": 602388,
         "sha256": "dd88e61d0d0d5eba72155f23450df9dd7850416bc72b8ccfbb9da432adcd7ce0"
       },
-      "localServer": "Project active with archive DB; native Operator login succeeded and Client pages exercised by local report53e0752",
+      "localServer": "Active r4b with archive DB and one90-tag DA subscription; resumed automatically after native OPC import, report7e4a3a9",
       "monitor": "Editor and Client on DISPLAY2, 1920x1080; Server on primary, 790x591; no relocation",
-      "pending": "Execute prepared native68-tag import and necessary scoped OPC pause, save/reopen/resume; then live Client/archive/ack/Apply/GSM acceptance. Linked physical r3m, first M610 and long mute remain open.",
+      "pending": "Cadence/freshness trace, linked physical r3m/drive fault and mute, legitimate event/ack, actual Apply/return and scoped GSM-break acceptance",
       "report": "docs/reports/oshsky-r4b-native-local-20261127.md"
     },
     "previousDesktopKitR3fR3h": "C:\\Users\\user\\Desktop\\Ошский_4насоса_ПЛК_r3f_HMI_r3h_2026-11-27",
@@ -1087,7 +1087,7 @@
       "placementApproved": false,
       "previewRequested": true,
       "nativeLayoutChangePerformedByCloud": false,
-      "nextStep": "Preserve installed r3m; verify actual panel-to-PLC exchange and live code/description after mute. Real-PLC Online test fixed missing cyclic fault sampling, but physical120 rows still marker0 and no PLC mute acceptance or long silence.",
+      "nextStep": "Use current physical r3m/drive link and correlate with fresh OPC code; latest sampled code0/Q1 differs in time from old Err09. COM28 adapter opens but no PLC reply; no new physical code/mute acceptance. Preserve installed version and evidence.",
       "task": "docs/tasks/oshsky-live-pump1-data-and-native-fault-local-20261127.md",
       "taskSection": "3",
       "preview": "docs/ui/oshsky-native-fault-preview-20261127.md",
@@ -1109,7 +1109,8 @@
       "unknownFaultStoppedFallbackFixedInSourceAndSimulator": true,
       "physicalLinkedAcceptanceStillRequired": true,
       "nativeFaultInputNonCyclicIssueReproducedOnRealPlcOnline": true,
-      "nativeCyclicFaultSamplingAdded": true
+      "nativeCyclicFaultSamplingAdded": true,
+      "latestCorrelationReport": "docs/reports/oshsky-opc90-client-local-20261128.md"
     },
     "gatewayOpcAndRadioStartupAuthorization": {
       "reportedOn": "2026-11-27",
@@ -1142,9 +1143,9 @@
       "task": "docs/tasks/oshsky-gsm-route-and-client-local-20261127.md",
       "taskSection": "2",
       "report": "docs/reports/oshsky-gateway-opc-radio-start-authorization-20261127.md",
-      "currentCableStateAfterUserCheckNeedsVerification": false,
+      "currentCableStateAfterUserCheckNeedsVerification": true,
       "subsequentUserAction": "User performed the local PLC/panel connection request after earlier PC-cable confirmation; physical Main photo supplied",
-      "latestLocalReport": "docs/reports/oshsky-r3k-physical-gsm-20261127.md",
+      "latestLocalReport": "docs/reports/oshsky-opc90-client-local-20261128.md",
       "localStartupAndPlcReadConfirmed": true,
       "gatewayJavaPidAtObservation": 13800,
       "masterOpcPidAfterRestart": 2388,
@@ -1155,7 +1156,7 @@
         "supplyVolts": 11.808,
         "ageSeconds": 4
       },
-      "latestLocalCableReport": "User confirmed FATEK PLC programming cable connected to PC; r3l physical HMI map0 throughout 95 samples"
+      "latestLocalCableReport": "COM28 adapter present and opened, twoPLC requests timed out; no simultaneous physical HMI observation. Do not infer actual cable topology from port presence."
     },
     "previousPublishedBenchHmiR3j": {
       "model": "SK-102CE",
@@ -1220,7 +1221,7 @@
       "onlineSimulatorUsingRealPLC": true,
       "livePCFault9SurvivesMute": true,
       "pendingReadOnlyOpcItems": 68,
-      "activeOpcProfileApplied": false,
+      "activeOpcProfileApplied": true,
       "opcSessionsPreservedAtPrompt": true,
       "opcDa2PlcAliveSnapshots": [
         {
@@ -1266,13 +1267,17 @@
       "newReadOnlyTags": 68,
       "activeTargetTagsBefore": 22,
       "expectedTargetTagsAfter": 90,
-      "importApplied": false,
+      "importApplied": true,
       "preserveExistingRw": "R2100 only",
       "profileBeforeSHA256": "1b791186304f4fc9bb15248bf3de341cbe1f5a4be4d7e210f1cd1c755af33564",
       "startupPointerBeforeSHA256": "45aa6fd76b1ed0a3ba53652888a978100cb169ddedc714c96522a780323dae67",
-      "nextStep": "Native configuration pause, import68 into target, SaveAs/reopen, semantic preservation of other buses and original22, resume single OPC and target subscriptions, verify fresh DA/Client/archives; preserve Gateway and independent Service",
+      "nextStep": "Completed native import/save/reopen/resume and live89 RO reads. Preserve applied profile; proceed with cadence trace, physical HMI correlation, archive event/ack and scoped Apply acceptance.",
       "task": "docs/tasks/oshsky-gsm-route-and-client-local-20261127.md",
-      "taskSection": "3.1.1"
+      "taskSection": "3.1.1",
+      "nativeLocalExecutionReport": "docs/reports/oshsky-opc90-client-local-20261128.md",
+      "actualTargetTagsAfter": 90,
+      "appliedProfileSHA256": "93e9a2c41e1152e78cdd9698b4a1d55c033b509451595346191a9803b80727aa",
+      "pauseToFirstFreshSampleSeconds": 1356
     },
     "previousDesktopKitBeforeOpc90": {
       "revision": "r3g/r3m/r4b",
@@ -1348,6 +1353,34 @@
       "eligibleStationAlarmAcknowledged": false,
       "setpointDraftCancelled": true,
       "fieldApplyDuringImport": false
+    },
+    "opc90FreshnessAndRemainingChecks": {
+      "report": "docs/reports/oshsky-opc90-client-local-20261128.md",
+      "liveReadOnlyGood": 89,
+      "liveReadOnlyTotal": 89,
+      "currentDrive1Code": 0,
+      "currentDrive1OwnQuality": 1,
+      "currentDrive1Sequence": [
+        27396,
+        27403
+      ],
+      "codeZeroAndEarlierErr09AreDifferentObservations": true,
+      "scadaFreshnessThresholdSeconds": 15,
+      "maxIntervalIn65SamplesSeconds": 13.15,
+      "maxIntervalInLongerArchiveSeconds": 23.896,
+      "clientFreshnessLossAndRecoveryObserved": true,
+      "firstDelayedLayerConfirmed": false,
+      "transportLatencyProvenByArchiveIntervalAlone": false,
+      "thresholdChanged": false,
+      "archiveBadGapAndRecoveryConfirmed": true,
+      "controlledGsmBreakWithPlcHmiObservationConfirmed": false,
+      "eligibleAlarmAcknowledgementVerified": false,
+      "draftAndCancelVerified": true,
+      "actualSetpointApplyVerified": false,
+      "currentPhysicalHmiAndDriveCorrelationVerified": false,
+      "com28OpenedButTwoRequestsTimedOut": true,
+      "task": "docs/tasks/oshsky-gsm-route-and-client-local-20261127.md",
+      "taskSection": "3.3"
     }
   }
 }
